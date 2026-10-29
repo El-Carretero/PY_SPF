@@ -15,7 +15,7 @@ except ImportError:HAS_QT=False
 @unittest.skipUnless(HAS_QT,'optional PySide6 GUI is not installed')
 class OriginalRuntimeSnapshotTests(unittest.TestCase):
  def test_initial_panel_matches_original_native_control_artwork(self):
-  app=QApplication.instance() or QApplication([]);window=SpitfireWindow()
+  app=QApplication.instance() or QApplication([]);window=SpitfireWindow(external=False)
   try:
    window.show();app.processEvents()
    actual=window.grab().toImage().convertToFormat(QImage.Format_ARGB32)

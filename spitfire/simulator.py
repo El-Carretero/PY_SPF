@@ -1,4 +1,4 @@
-"""Deterministic development instrument; never opens a device connection.
+"""Deterministic development board with no Empower device attached.
 
 This simulator is a test fixture, not evidence of actual firmware behavior.
 It uses the recovered wire format so application and protocol can be exercised.
@@ -17,39 +17,35 @@ class SimulatedTransport:
         self.sent_packets = []
         self.values = {
             "*IDN?": "Spectra-Physics, Spitfire, 0, 1.6.0",
-            "EMP:DIODE:CURR?": "100.00", "EMP:READ:DIODE:CURR?": "100.00",
-            "EMP:READ:POW?": "1.25", "EMP:QSW:PRF?": "1000",
-            "EMP:QSW:PWID?": "200", "EMP:QSW:SOURCE?": "0",
-            "EMP:STB?": "1", "EMP:FAULT?": "0 0 0 0",
             "HED:STB?": "0", "HED:MOTOR:SPEED?": "30",
             "TDG:STB?": "0", "TDG:STBH?": "0", "TDG:STBHFLT?": "0",
-            "TDG:HV1:VOLT?": "1200", "TDG:HV2:VOLT?": "1200",
-            "TDG:READ:HV1VOLT?": "1200", "TDG:READ:HV2VOLT?": "1200",
+            "TDG:HV1:VOLT?": "3.3", "TDG:HV2:VOLT?": "3.1",
+            "TDG:READ:HV1VOLT?": "0", "TDG:READ:HV2VOLT?": "0",
             "TDG:READ:HV1CURR?": "0.00", "TDG:READ:HV2CURR?": "0.00",
-            "TDG:HV:ON?": "0", "TDG:OSC:FREQ?": "80000000",
-            "TDG:READ:OSCQUEST?": "80000000", "TDG:DIV?": "1000",
-            "TDG:TRIG:FREQ?": "1000", "TDG:OSC:MODE?": "INT",
-            "TDG:TRIG:MODE?": "INT", "TDG:OSC:SETMODE?": "CONT",
+            "TDG:HV:ON?": "0", "TDG:OSC:FREQ?": "10",
+            "TDG:READ:OSCQUEST?": "80 MHZ", "TDG:DIV?": "1",
+            "TDG:TRIG:FREQ?": "10", "TDG:OSC:MODE?": "EXT",
+            "TDG:TRIG:MODE?": "EXT", "TDG:OSC:SETMODE?": "CONT",
             "TDG:BWD?": "POS SING", "ECU:STB?": "0", "ECU:STBH?": "0",
             "ECU:TEMP?": "20.00", "ECU:READTEMP?": "20.00",
             "ECU:TECTEMP?": "20.00", "ECU:HUM?": "15.00",
             "ECU:HUMOVERRIDE?": "0", "ECUOPTOUT?": "0",
-            "HEDOPTOUT?": "0", "EMPOPTOUT?": "0", "EMP:LBOTEMP?": "150.0",
-            "EMP:LBOBREAK?": "1", "STATUS?": "0", "MONITOR?": "0",
-            "TDG:FAULTOVERRIDE?": "0", "COMSTATUS?": "0",
+            "HEDOPTOUT?": "0", "EMPOPTOUT?": "1", "STATUS?": "0", "MONITOR?": "0",
+            "TDG:FAULTOVERRIDE?": "0", "COMSTATUS?": "4",
         }
         for ch in range(6):
-            self.values[f"TDG:DEL{ch}?"] = f"{ch} ON NBWD ENA DELAY = {ch * 100:.2f}"
+            self.values[f"TDG:DEL{ch}?"] = f"DELAY {ch} OFF BWD ENA {ch * 100:.2f}"
         self.values["TDG:DEL0?"] = "0 DELAY = 0.00"
-        for ch in range(1, 8):
-            self.values[f"EMP:SECRETMSG{ch}?"] = "20.00" if ch == 2 else "0.00"
-        for name in ("HED", "EMP", "TDG", "ECU"):
+        for name in ("HED", "TDG", "ECU"):
             self.values[name + ":VERS?"] = f"Spectra-Physics, {name}, 1.00, 1.00"
 
     def open(self):
         pass
 
     def close(self):
+        self.pending.clear()
+
+    def discard_pending(self):
         self.pending.clear()
 
     def send_packet(self, packet: bytes):
@@ -64,12 +60,20 @@ class SimulatedTransport:
             tag = int(m[1])
             if tag < 2000:
                 title = QUERIES.get(tag, "").upper()
+                # An absent pump cannot supply data to make the app initialize.
+                if title.startswith(("EMP:", "MIL:")):
+                    continue
+                if tag == 1026:
+                    channel = m[2][len(title):].strip()
+                    title = f"TDG:DEL{channel}?"
                 payload = self.values.get(title, "0")
             else:
                 title = COMMANDS.get(tag, "")
                 parameter = m[2][len(title):].strip()
-                self._command(tag, title, parameter)
-                payload = "0"
+                if title.startswith(("EMP:", "MIL:")) or tag in (2027, 2028, 2034):
+                    payload = "ERROR unsupported without Empower"
+                else:
+                    payload = "0" if self._command(tag, title, parameter) else "ERROR unsupported command"
             responses.append(f"<{tag}>{payload}")
         if responses:
             self.pending.append(("Spectra-Physics:REPLY_ECLIPSE:" + "\n".join(responses) + "\n").encode("ascii"))
@@ -77,20 +81,43 @@ class SimulatedTransport:
     def _command(self, tag, title, parameter):
         if tag == 2019:
             parts = parameter.split()
-            if len(parts) == 2:
+            if len(parts) != 2 or parts[0] not in {"1", "2", "3", "4", "5"}:
+                return False
+            channel = int(parts[0])
+            key = f"TDG:DEL{channel}?"
+            current = self.values[key].split()
+            setting = parts[1].upper()
+            if setting in ("ON", "OFF"):
+                current[2] = setting
+            elif setting in ("BWD", "NBWD"):
+                current[3] = setting
+            elif setting in ("ENA", "NENA"):
+                current[4] = setting
+            else:
                 try:
-                    ch = int(parts[0]); float(parts[1])
-                    self.values[f"TDG:DEL{ch}?"] = f"{ch} ON NBWD ENA DELAY = {parts[1]}"
+                    current[5] = str(float(setting))
                 except ValueError:
-                    pass
-        elif tag in (2005, 2027):
-            self.values["EMP:STB?"] = "0"
-        elif tag in (2006, 2028):
-            self.values["EMP:STB?"] = "1"
+                    return False
+            self.values[key] = " ".join(current)
         elif tag in (2016, 2017):
             self.values["TDG:HV:ON?"] = str(tag == 2017 and 1 or 0)
+            for ch in (1, 2):
+                self.values[f"TDG:READ:HV{ch}VOLT?"] = self.values[f"TDG:HV{ch}:VOLT?"] if tag == 2017 else "0"
+        elif tag in (2022, 2023):
+            value = int(self.values["ECU:STB?"])
+            self.values["ECU:STB?"] = str(value | 1 if tag == 2022 else value & ~1)
+        elif tag in (2049, 2050):
+            self.values["ECU:STBH?"] = "0"
+        elif tag == 2052:
+            # Clearing latched faults cannot clear a current key interlock.
+            self.values["TDG:STBHFLT?"] = format(int(self.values["TDG:STBH?"], 16) & 0x4000, "x")
+        elif tag in (2009, 2010, 2011, 2012, 2013, 2018):
+            pass
         elif parameter:
             self.values[title.upper() + "?"] = parameter
+        else:
+            return False
+        return True
 
     def receive(self):
         if not self.pending:

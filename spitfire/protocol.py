@@ -150,8 +150,10 @@ class UDPTransport:
         self.bind_port, self.timeout = bind_port, timeout
         self.socket: socket.socket | None = None
         self.packet_counter = 0
+        self.expected_peer: tuple[str, int] | None = None
 
     def open(self) -> None:
+        self.expected_peer = (socket.gethostbyname(self.address), self.port)
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         sock.bind(("0.0.0.0", self.bind_port))
@@ -166,14 +168,36 @@ class UDPTransport:
     def send_packet(self, packet: bytes) -> None:
         if self.socket is None:
             raise RuntimeError("UDP transport is not open")
-        self.socket.sendto(packet, (self.address, self.port))
+        self.socket.sendto(packet, self.expected_peer or (self.address, self.port))
+
+    def discard_pending(self) -> None:
+        """Drain replies queued before the next request, not its proof.
+
+        IDs identify commands, not transactions. A same-ID datagram delayed
+        until after the new request cannot be distinguished by this protocol.
+        """
+        if self.socket is None:
+            return
+        timeout = self.socket.gettimeout()
+        self.socket.setblocking(False)
+        try:
+            for _ in range(256):
+                try:
+                    self.socket.recvfrom(1495)
+                except BlockingIOError:
+                    return
+            raise OSError('Receive queue did not drain; refusing a new request')
+        finally:
+            self.socket.settimeout(timeout)
 
     def receive(self) -> list[ReplyLine]:
         if self.socket is None:
             raise RuntimeError("UDP transport is not open")
         try:
-            data, _ = self.socket.recvfrom(1495)
-        except socket.timeout:
+            data, sender = self.socket.recvfrom(1495)
+        except (socket.timeout, BlockingIOError):
+            return []
+        if self.expected_peer is not None and sender != self.expected_peer:
             return []
         self.packet_counter += 1
         return parse_datagram(data, self.packet_counter)

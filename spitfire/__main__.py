@@ -10,7 +10,7 @@ import time
 
 
 def arguments(argv=None):
-    p = argparse.ArgumentParser(description="Spitfire GUI 1.6.0 — Python reconstruction")
+    p = argparse.ArgumentParser(description="Spitfire External Control 2.0 — Empower-independent")
     p.add_argument("--demo", action="store_true", help="use the development simulator; no instrument connection")
     p.add_argument("--backend", choices=("auto", "native", "qt"), default="auto",
                    help="native uses original NI GUI runtime on 32-bit Windows Python")
@@ -18,7 +18,7 @@ def arguments(argv=None):
     p.add_argument("--port", type=int, default=1024, help="instrument UDP port")
     p.add_argument("--local-port", type=int, default=1024, help="local UDP bind port")
     p.add_argument("--tcp-port", type=int, default=1001, help="local status server; 0 disables")
-    p.add_argument("--tcp-host", default="0.0.0.0", help="TCP status server interface (original: all interfaces)")
+    p.add_argument("--tcp-host", default="127.0.0.1", help="TCP status server interface (default: loopback)")
     p.add_argument("--config", type=Path, help="override original C:\\config.sp access settings path")
     p.add_argument("--data-dir", type=Path, default=Path.cwd(), help="datalog.csv destination")
     p.add_argument("--headless", action="store_true", help="run the controller with an in-memory view")

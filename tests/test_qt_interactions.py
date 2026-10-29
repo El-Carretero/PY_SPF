@@ -1,4 +1,4 @@
-"""Real Qt input events must produce the recovered CVI event and command IDs."""
+"""Real Qt input events use the independent controller and urgent OFF paths."""
 import os
 os.environ.setdefault('QT_QPA_PLATFORM','offscreen')
 import unittest
@@ -23,26 +23,29 @@ class QtInteractionTests(unittest.TestCase):
  def point(self,pid,cid):
   panel=self.view.panels[pid];a=panel.controls[cid]['attrs']
   return panel,QPoint(a['left']+a['width']//2,a['top']+a['height']//2+panel.offset_y)
- def commands(self):return [(r.tag,r.parameter)for r in self.control.scheduler.inside]
+ def commands(self):return [(r.tag,r.parameter)for r in (*self.control.scheduler.urgent,*self.control.scheduler.inside)]
  def test_run_hold_begins_on_left_press_and_cancels_on_release(self):
   panel,pos=self.point(6,10);QTest.mousePress(panel,Qt.LeftButton,pos=pos)
   self.assertEqual(self.control.state['evnt_cmt'],1)
   QTest.mouseRelease(panel,Qt.LeftButton,pos=pos)
   self.assertEqual(self.control.state['evnt_cmt'],0)
   self.assertFalse(self.control.state['left_mouse_down'])
- def test_stop_click_and_escape_send_original_off_command(self):
+ def test_stop_click_and_escape_stop_both_pc_channels(self):
   panel,pos=self.point(6,11);QTest.mouseClick(panel,Qt.LeftButton,pos=pos)
-  self.assertEqual(self.commands(),[(2028,''),(1013,'')])
-  self.control.scheduler.clear();QTest.keyClick(panel,Qt.Key_Escape)
-  self.assertIn((2028,''),self.commands())
+  self.assertEqual(self.commands(),[(2019,' 1 OFF'),(2019,' 2 OFF')])
+  QTest.keyClick(panel,Qt.Key_Escape)
+  self.assertEqual(self.commands(),[(2019,' 1 OFF'),(2019,' 2 OFF')])
+ def test_escape_without_prior_stop_requests_both_pc_off(self):
+  QTest.keyClick(self.view.panels[6],Qt.Key_Escape)
+  self.assertEqual(self.commands(),[(2019,' 1 OFF'),(2019,' 2 OFF')])
  def test_motor_reverse_forward_stop_and_jog_events(self):
   panel,pos=self.point(6,52);QTest.mousePress(panel,Qt.LeftButton,pos=pos)
   self.assertEqual(self.commands(),[(2009,'')])
   QTest.mouseRelease(panel,Qt.LeftButton,pos=pos)
-  self.assertEqual(self.commands(),[(2009,''),(2013,'')])
+  self.assertEqual(self.commands(),[(2013,'')])  # unsent motion is cancelled
   self.control.scheduler.clear();QTest.mousePress(panel,Qt.RightButton,pos=pos)
   QTest.mouseRelease(panel,Qt.RightButton,pos=pos)
-  self.assertEqual(self.commands(),[(2010,''),(2013,'')])
+  self.assertEqual(self.commands(),[(2013,'')])
   self.control.scheduler.clear();panel,pos=self.point(6,51)
   QTest.mouseClick(panel,Qt.LeftButton,pos=pos)
   self.assertEqual(self.commands(),[(2012,'')])

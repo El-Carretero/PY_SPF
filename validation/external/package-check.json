@@ -1,0 +1,14 @@
+{
+  "package": "spitfire-external-control",
+  "version": "2.0.0",
+  "wheel_sha256": "40d5896966680b0d5ab2fa6fe0421a55891a483909404eca66601921c72cb3e7",
+  "package_files_matching_source": 536,
+  "missing_python_files": [],
+  "mismatched_files": [],
+  "clean_venv_install": true,
+  "qt_render_exit": 0,
+  "rendered_panel_count": 8,
+  "empower_panels_rendered": false,
+  "physical_validation": false,
+  "windows_ni_execution": false
+}

@@ -1,4 +1,4 @@
-"""Single-client local TCP status server recovered from Spitfire GUI 1.6.0.
+"""Single-client local TCP status server, with explicit external-pump telemetry.
 
 The four commands read GUI control values; they do not forward commands to the
 laser. Native evidence: _TCP_Parse 0x412724, _ServerTCPCB 0x406227,
@@ -7,6 +7,7 @@ _InitServer 0x405f08 and _Write_to_TCP_Server 0x40668c.
 from __future__ import annotations
 
 import select
+import math
 import socket
 import struct
 import threading
@@ -54,6 +55,10 @@ class TCPBridge:
     host='127.0.0.1' for a local-only listener. Server receive calls parse each
     raw chunk of at most 255 bytes independently, matching the original callback
     rather than adding a new line-framing protocol.
+
+    ``external=True`` removes Empower telemetry from the public responses.
+    ``external_readbacks`` supplies a copied ID-to-value snapshot with stale or
+    invalid measurements omitted; ECU_STATUS? never consults GUI defaults.
     """
     def __init__(
         self,
@@ -61,6 +66,9 @@ class TCPBridge:
         read_attribute: Callable[[int, int, int], Any] | Mapping[tuple[int, int, int], Any] | None = None,
         state: dict[str, Any] | None = None,
         on_event: Callable[[str, Any], None] | None = None,
+        *,
+        external: bool = False,
+        external_readbacks: Callable[[], Mapping[int, Any]] | None = None,
     ) -> None:
         self.read_value = read_value if callable(read_value) else lambda p, c: read_value.get((p, c), 0)
         if callable(read_attribute):
@@ -71,6 +79,10 @@ class TCPBridge:
             self.read_attribute = lambda p, c, a: 0
         self.state = state if state is not None else {}
         self.on_event = on_event
+        self.external = external
+        # The controller supplies a snapshot of current, validated values. No
+        # GUI calls or device queries are made by the TCP worker for this data.
+        self.external_readbacks = external_readbacks
         self.last_error: str | None = None
         self._listener: socket.socket | None = None
         self._client: socket.socket | None = None
@@ -98,8 +110,13 @@ class TCPBridge:
             active = int(self.read_attribute(6, 50, ATTR_DIMMED) == 0)
             result = f'{active}\n'
         elif command == '*IDN?':
-            fields = [str(self.read_value(*key)) for key in IDENTITY_FIELDS]
-            result = 'Spectra-Physics, Spitfire, 0, ' + ' / '.join(fields) + '\n'
+            fields = [
+                'Empower N/A (external)' if self.external and key == (4, 7)
+                else str(self.read_value(*key))
+                for key in IDENTITY_FIELDS
+            ]
+            product = 'Spitfire External' if self.external else 'Spitfire'
+            result = f'Spectra-Physics, {product}, 0, ' + ' / '.join(fields) + '\n'
         elif command == 'TDG_STATUS?':
             values = [self._number(*key) for key in TDG_FIELDS]
             bwd_enabled = int(self.read_attribute(6, 5, ATTR_DIMMED) == 0)
@@ -107,6 +124,10 @@ class TCPBridge:
             result = ', '.join(f'{value:.3f}' for value in values)
             result += f', {bwd_enabled}, {frequency:.0f}\n'
         elif command == 'TEMP_STATUS?':
+            if self.external:
+                # These four historical fields belong to Empower, despite the
+                # query's name. Keep its numeric shape without inventing values.
+                return b'nan, nan, nan, nan, -1\n'
             values = [self._number(*key) for key in TEMP_FIELDS]
             # Native local_488 is uninitialized if every indicator is off. A
             # deterministic 0 is used for that undefined native edge case.
@@ -115,6 +136,21 @@ class TCPBridge:
                 if self.read_value(*key):
                     status = code
             result = ', '.join(f'{value:.3f}' for value in values) + f', {status}\n'
+        elif command == 'ECU_STATUS?' and self.external:
+            snapshot = dict(self.external_readbacks() if self.external_readbacks else {})
+            def finite_value(tag):
+                value = snapshot.get(tag)
+                try:
+                    value = float(value)
+                except (TypeError, ValueError, OverflowError):
+                    return float('nan')
+                return value if math.isfinite(value) else float('nan')
+            temperatures = [finite_value(tag) for tag in (1030, 1031, 1084)]
+            ecu = finite_value(1028)
+            enabled = -1
+            if math.isfinite(ecu) and ecu.is_integer() and 0 <= ecu <= 0xffff and not int(ecu) & 0x800:
+                enabled = int(bool(int(ecu) & 1))
+            result = ', '.join(f'{value:.3f}' for value in temperatures) + f', {enabled}\n'
         else:
             return b''
         return result.encode('latin1', errors='replace')

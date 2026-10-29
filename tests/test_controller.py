@@ -34,18 +34,19 @@ class ControllerRecoveryTests(unittest.TestCase):
             self.assertNotIn('pardon_first_time_user',controller.state)
         finally:controller.stop()
 
-    def test_hold_requires_more_than_three_whole_seconds(self):
+    def test_hold_cannot_enable_output_without_external_readbacks(self):
         controller,view,now=self.make_controller()
         controller.handle_callback('cllbck',event=3,panel=2,control=8)
         self.assertEqual(controller.state['evnt_cmt'],1)
-        controller._held_turn_on(3.99)
+        controller._held_turn_on(2.99)
         self.assertFalse(controller.scheduler.inside)
-        controller._held_turn_on(4.0)
-        self.assertEqual([(r.tag,r.parameter) for r in controller.scheduler.inside],[(2027,'')])
-        self.assertEqual(view.values[2,8],1)
+        self.assertEqual(controller.state['evnt_cmt'],1)
+        controller._held_turn_on(3.0)
+        self.assertFalse(controller.scheduler.inside)
+        self.assertIn('not connected',controller.run_status)
         self.assertEqual(controller.state['evnt_cmt'],0)
         controller._held_turn_on(8)
-        self.assertEqual(len(controller.scheduler.inside),1)
+        self.assertFalse(controller.scheduler.inside)
 
     def test_release_cancels_hold_and_idle_release_does_not_send_motor_stop(self):
         controller,view,now=self.make_controller()

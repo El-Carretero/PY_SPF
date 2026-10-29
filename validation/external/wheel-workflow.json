@@ -1,0 +1,17 @@
+{
+  "mode": "installed wheel simulator; no device",
+  "startup_writes": 0,
+  "empower_requests": 0,
+  "operation_writes": [
+    "[2017]TDG:HV:ON",
+    "[2019]TDG:DEL 2 ON",
+    "[2019]TDG:DEL 1 ON",
+    "[2019]TDG:DEL 1 OFF",
+    "[2019]TDG:DEL 2 OFF"
+  ],
+  "run_status": "PC RUN confirmed (optical output is not measured)",
+  "stop_status": "PC STOP confirmed: PC1 and PC2 OFF",
+  "pc1_on": false,
+  "pc2_on": false,
+  "physical_validation": false
+}

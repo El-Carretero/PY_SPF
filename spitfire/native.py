@@ -15,6 +15,8 @@ import sys
 import time
 import uuid
 
+from .external_ui import HIDDEN_PANELS, TITLE, apply_presentation, constrain_attribute
+
 RESOURCES = Path(__file__).with_name('resources')
 
 
@@ -88,7 +90,8 @@ def _prepare_runtime():
 class NativeGui:
     native_timers = True
 
-    def __init__(self):
+    def __init__(self, *, external=True):
+        self.external = external
         if sys.platform != 'win32' or struct.calcsize('P') != 4:
             raise RuntimeError('The original NI GUI requires 32-bit Windows Python.')
         self.controller = None
@@ -120,6 +123,8 @@ class NativeGui:
                 raise RuntimeError('NI CVI runtime initialization failed.')
         self.dll.DisableBreakOnLibraryErrors()
         for panel in (7, 5, 6, 9, 2, 3, 4, 8, 1):
+            if self.external and panel in HIDDEN_PANELS:
+                continue
             handle = self.dll.LoadPanel(0, self._bytes(RESOURCES / 'SPITFIRE.UIR'), panel)
             self._check(handle, 'load original panel ' + str(panel))
             self.panels[panel] = handle
@@ -128,6 +133,14 @@ class NativeGui:
         self.panels['server'] = server
         for key in self.panels:
             self._bind_panel(key)
+        if self.external:
+            self.set_panel_attribute(6, 573, TITLE)
+            self._status_control = self.dll.NewCtrl(self.panels[6], 160, self._bytes(''), 125, 85)
+            self._check(self._status_control, 'create external status text')
+            self._types[6, self._status_control] = 5
+            self.set_attribute(6, self._status_control, 533, 390)
+            self.set_attribute(6, self._status_control, 540, 58)
+            apply_presentation(self)
         self.show_panel(6)
 
     @staticmethod
@@ -163,6 +176,8 @@ class NativeGui:
         return struct.unpack('<i', val.raw[:4])[0]
 
     def read_attribute(self, panel, control, attribute):
+        if panel not in self.panels:
+            return 0
         spec = next((a for a in self.attributes.values() if a['id'] == attribute), {})
         dtype = spec.get('type', 1)
         if dtype == 9:
@@ -187,11 +202,17 @@ class NativeGui:
 
     def set_value(self, panel, control, value):
         self.values[panel, control] = value
+        if panel not in self.panels:
+            return
         rc = self.varargs.SetCtrlVal(self.panels[panel], int(control),
                                     self._argument(value, self._dtype(panel, control)))
         self._check(rc, f'set panel {panel} control {control}')
 
     def set_attribute(self, panel, control, attribute, value):
+        if panel not in self.panels:
+            return
+        if self.external:
+            value = constrain_attribute(panel, control, attribute, value)
         spec = next((a for a in self.attributes.values() if a['id'] == attribute), {})
         dtype = spec.get('type', 1)
         if dtype == 9:
@@ -201,6 +222,8 @@ class NativeGui:
                     f'set control attribute {attribute}')
 
     def set_panel_attribute(self, panel, attribute, value):
+        if panel not in self.panels or (self.external and panel in HIDDEN_PANELS):
+            return
         self._check(self.varargs.SetPanelAttribute(self.panels[panel], int(attribute),
                                                   self._argument(value)),
                     f'set panel attribute {attribute}')
@@ -211,6 +234,10 @@ class NativeGui:
                                                 self._argument(value))
 
     def show_panel(self, panel, visible=True):
+        if panel not in self.panels or (self.external and panel in HIDDEN_PANELS):
+            return
+        if self.external and ((panel != 6 and visible) or (panel == 6 and not visible)):
+            self.cancel_run_hold()
         return (self.dll.DisplayPanel if visible else self.dll.HidePanel)(self.panels[panel])
 
     def show_server(self, visible=True):
@@ -292,6 +319,9 @@ class NativeGui:
             if constant not in names:
                 continue
             callback_name = names[constant]
+            if self.external and callback_name == 'show_setup':
+                callback_name = 'apply_external_optout'
+                self.varargs.SetMenuBarAttribute(menubar, item, 1060, self._bytes('Apply external pump opt-out'))
             self.menu_ids[constant] = item
             def menu_callback(bar, menu_item, data, panel, *, name=callback_name):
                 if self.controller:
@@ -300,8 +330,34 @@ class NativeGui:
             self._callbacks.append(cb)
             self.dll.InstallMenuCallback(menubar, item, cb, None)
 
+    def set_external_status(self, text):
+        if self.external and hasattr(self, '_status_control'):
+            self.set_value(6, self._status_control, str(text))
+
+    def cancel_run_hold(self):
+        if self.controller:
+            self.controller.handle_callback('cancel_run_hold', 0, 1, 6, 10)
+
+    def _run_button_still_held(self):
+        process_id = C.c_ulong()
+        self._user.GetWindowThreadProcessId(self._user.GetForegroundWindow(), C.byref(process_id))
+        if process_id.value != os.getpid():
+            return False
+        if self.dll.GetActivePanel() != self.panels[6]:
+            return False
+        x, y, left, right = (C.c_int() for _ in range(4))
+        result = self.dll.GetRelativeMouseState(self.panels[6], 10, C.byref(x), C.byref(y), C.byref(left), C.byref(right))
+        if result < 0 or not left.value:
+            return False
+        width = self.read_attribute(6, 10, 533)
+        height = self.read_attribute(6, 10, 540)
+        return 0 <= x.value < width and 0 <= y.value < height
+
     def process_events(self):
         self.dll.ProcessSystemEvents()
+        if self.external and self.controller and self.controller.state.get('evnt_cmt'):
+            if not self._run_button_still_held():
+                self.cancel_run_hold()
 
     def close(self):
         if self._closed:

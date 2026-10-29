@@ -1,92 +1,126 @@
-# Spitfire GUI 1.6.0 Python 재구현
+# Empower 독립형 PY_SPF 실행 안내
 
-첨부된 `Spitfire_GUI_v_1_6_0-20261029T111415Z-1-001.zip`의 설치본을 해체해 작성한 Python 응용 프로그램과 분석 자료입니다. 응용 제어 코드는 Python으로 작성했습니다. 원본 EXE를 실행하거나 감싸서 응용 동작을 제공하지 않습니다.
+이 브랜치는 Spitfire GUI 1.6.0에서 복구한 화면과 TDG·ECU·Head 제어를 기반으로 한 External Pump 앱입니다.
+Empower 전용 화면·초기 조회·주기 조회·제어 명령을 실행 경로에서 제외합니다.
+원본 명령 카탈로그와 분석 자료는 출처 확인용으로 남겨 두며 실제 송신은 External 정책으로 제한합니다.
+세부 동작은 [External Pump 안내](EXTERNAL_PUMP.ko.md)에 설명합니다.
+패키지 이름은 `spitfire-external-control`, 버전은 `2.0.0`입니다.
 
-**현재 결과를 ‘원본과 완전히 동일함이 검증된 완성품’으로 표현할 수는 없습니다.** 복구한 항목, 대조 시험 결과, 아직 확인하지 못한 부분을 [분석 보고서](ANALYSIS.ko.md)에 구분했습니다. 실장비 및 원본 Windows 환경에서의 전체 회귀 대조가 필요합니다.
+## 설치
 
-## 실행
+Python 3.10 이상을 사용합니다. 저장소를 이 브랜치로 체크아웃한 디렉터리에서 별도 가상환경을 만듭니다.
 
-### Windows에서 원본 화면 엔진 사용
+Windows:
 
-원본은 32비트 NI LabWindows/CVI 프로그램입니다. 같은 화면 엔진을 사용하는 모드는 **32비트 Windows Python 3.10 이상**이 필요합니다. Python 비트수 확인:
+```bat
+python -m venv .venv
+.venv\Scripts\python.exe -m pip install ".[qt]"
+.venv\Scripts\python.exe -m spitfire --backend qt --demo --tcp-port 0
+```
+
+Linux/macOS:
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install ".[qt]"
+.venv/bin/python -m spitfire --backend qt --demo --tcp-port 0
+```
+
+`--demo`는 장치 연결 없이 시뮬레이터를 사용합니다. 시뮬레이터에는 Empower 응답이 없으며,
+보드 opt-out은 적용된 상태이고 HV와 PC1·PC2는 OFF로 시작합니다.
+시뮬레이터는 광출력이나 광학 동기를 재현하지 않습니다.
+
+아래의 `python`은 설치한 가상환경의 Python을 의미합니다.
+
+[배포 wheel](output/external/spitfire_external_control-2.0.0-py3-none-any.whl)로 설치할 수도 있습니다.
+저장소 루트에서 다음 명령을 실행합니다. [소스 ZIP](output/external/PY_SPF_external_2.0.0.zip)도 제공합니다.
+
+```sh
+python -m pip install "output/external/spitfire_external_control-2.0.0-py3-none-any.whl[qt]"
+spitfire-external --backend qt --demo --tcp-port 0
+```
+
+설치된 `spitfire`, `spitfire-external`, `python -m spitfire`는 같은 External 앱의 실행 진입점입니다.
+
+## 장치 연결
+
+```sh
+python -m spitfire --backend qt --host 10.19.70.13 --port 1024 --local-port 1024 --tcp-host 127.0.0.1
+```
+
+`--demo`를 생략하면 실제 UDP 장치 경로입니다. 기본 장치 주소는 `10.19.70.13:1024`,
+PC UDP 수신 포트는 `1024`입니다. 동일 PC에서 다른 제어 앱과 같은 로컬 UDP 포트를 동시에 사용하지 않습니다.
+TCP 상태 서버는 기본 `127.0.0.1:1001`에서 같은 PC의 클라이언트만 받으며 `--tcp-port 0`으로 끌 수 있습니다.
+다른 PC에서 조회하려면 원하는 인터페이스를 `--tcp-host`로 명시합니다.
+
+장치 연결 후 다음 상태를 구분합니다.
+
+1. 통신 연결은 보드·TDG·ECU·Head의 유효 응답으로 갱신됩니다. Empower 응답은 기다리지 않습니다.
+2. 보드의 `EMPOPTOUT?`가 1이어야 출력 허용 조건을 만족합니다. 아직 0이면 HV OFF의 최신 readback을 확인한 뒤
+   메뉴의 **Apply external pump opt-out**으로 1을 적용합니다. 연결만으로 설정을 자동 변경하지 않습니다.
+3. PC RUN은 3초 누르기로 요청하며, 필요한 현재 상태를 검증합니다. HV와 외부 펌프는 자동으로 켜지지 않습니다.
+4. PC STOP 또는 Esc는 PC1·PC2 OFF를 요청합니다. HV OFF는 Timing and High Voltage 화면의 별도 조작입니다.
+
+Opt-out은 Spitfire 컨트롤러에 저장되는 구성값입니다. 해당 구성 지원 여부와 외부 펌프·seed·인터록 연결은
+실제 장치 및 펌웨어에서 확인해야 합니다. 본 브랜치는 외부 펌프 자체의 전원·발진 드라이버를 제공하지 않습니다.
+
+## Windows NI 화면 엔진
+
+원본 UIR/NI 화면 엔진을 사용하는 경로에는 **32비트 Windows Python 3.10 이상**이 필요합니다.
 
 ```bat
 python -c "import struct; print(struct.calcsize('P') * 8)"
 python run_spitfire.py --backend native --demo --tcp-port 0
 ```
 
-`--demo`는 실장비에 연결하지 않는 개발용 시뮬레이터입니다. 시뮬레이터의 값은 실제 펌웨어의 정확성을 입증하는 자료가 아닙니다.
+외부 전용 화면 제한은 Qt와 NI 어댑터에 적용합니다. 원본 화면 리소스와 NI 라이브러리는
+`spitfire/resources/`에 있습니다. 이번 변경의 Windows NI 화면·실장비 회귀 검증은 수행하지 않았습니다.
 
-실장비에 연결하려면 원본과 같은 기본 주소 및 포트로 실행합니다.
-
-```bat
-python run_spitfire.py --backend native
-```
-
-기본 장치 주소는 `10.19.70.13:1024/UDP`, PC 수신 포트는 `1024/UDP`, TCP 상태 조회 서버는 `1001/TCP`입니다. 주소·포트는 명령행으로 바꿀 수 있습니다.
-
-```bat
-python run_spitfire.py --backend native --host 10.19.70.13 --local-port 1024 --tcp-host 127.0.0.1
-```
-
-원본 화면 정의와 NI 런타임은 `spitfire/resources/`에 있습니다. 이 모드는 원본의 GUI 라이브러리를 재사용합니다. GUI 라이브러리까지 순수 Python으로 다시 작성한 것은 아닙니다.
-
-### Windows / Linux / macOS에서 Qt GUI 실행
-
-```sh
-python -m pip install -r requirements.txt
-python run_spitfire.py --backend qt --demo --tcp-port 0
-```
-
-Qt 모드는 원본 리소스에서 복구한 화면 배치와 컨트롤을 사용합니다. 글꼴·컨트롤 렌더링에는 차이가 있으므로 픽셀 동일 모드로 취급하지 않습니다.
-
-### GUI 없는 통합 실행과 시험
+## GUI 없는 확인과 시험
 
 ```sh
 python -m spitfire --demo --headless --duration 2 --tcp-port 0
-python -m pip install pytest
+python -m pip install ".[qt,test]"
 python -m pytest -q
 ```
 
-원본 기계어 대조 시험 재실행:
+Linux에서 Qt 화면 서버가 없는 경우:
 
 ```sh
-python -m pip install pefile unicorn
-python analysis/native_oracle.py --extended
-python analysis/native_decoder_oracle.py
-python analysis/native_decoder_oracle.py --extra
+QT_QPA_PLATFORM=offscreen python -m pytest -q
 ```
 
-대조 시험만 `analysis/reference/SPITFIRE.EXE`를 에뮬레이터에서 읽습니다. 이 사본은 응용 프로그램 실행 경로에서 사용하지 않습니다.
-
-Qt 화면 미리보기 생성:
+실행 화면을 저장하려면 별도 출력 디렉터리를 지정합니다.
 
 ```sh
-python -m spitfire --backend qt --demo --tcp-port 0 --render-dir previews
+python -m spitfire --backend qt --demo --tcp-port 0 --render-dir external-previews
 ```
 
-## 원본 동작
+원본 콜백·디코더 분석 스크립트는 `analysis/`에 보존돼 있습니다. 이 스크립트가 사용하는
+`analysis/reference/SPITFIRE.EXE`는 분석용 사본이며 앱 실행 경로에서 실행하지 않습니다.
+원본과의 과거 대조 결과는 External 변경 전체의 동일성 검증 결과를 뜻하지 않습니다.
 
-- 장치와 UDP로 통신하고 명령 ID 및 응답 ID를 유지합니다. 원본에 COM 변수들이 남아 있지만 실제 활성 경로는 UDP입니다.
-- 우선순위 큐, 초기 조회 순서, 주기 조회, 재연결, 응답별 상태 해석과 컨트롤 갱신을 분리했습니다.
-- 키보드 모드 전환과 `C:\config.sp`의 기존 접근 단계 규칙을 유지합니다. `--config`로 경로만 바꿀 수 있습니다.
-- 로깅은 원본과 같은 두 값을 `datalog.csv`에 기록합니다. `--data-dir`로 기록 위치를 바꿉니다.
-- 원본 TCP 서버의 네 가지 상태 조회와 한 클라이언트 접속 동작을 구현했습니다. `--tcp-port 0`은 서버를 비활성화합니다.
+## 기록
 
-## 파일 구성
+데이터 로깅을 켜면 `--data-dir`로 지정한 디렉터리(기본 현재 디렉터리)에 `external_datalog.csv`를 기록합니다.
+열은 `utc_time,hv_enabled,hv1_kV,hv2_kV,crystal_C,humidity_percent,pc_status`입니다.
+HV1/HV2는 원본 GUI와 같은 kV 단위이며, 응답에 `V`가 명시되면 1,000으로 나눠 kV로 정규화합니다.
+누락되거나 오래된 측정값은 빈 칸으로 남깁니다. 기존 Empower 수치용 `datalog.csv`와는 별도 파일·형식입니다.
 
-| 파일 | 내용 |
+## 구성
+
+| 파일 | 역할 |
 |---|---|
-| `spitfire/protocol.py` | UDP 프레임, 명령·조회 표, CRC, 소켓 |
-| `spitfire/scheduling.py` | 우선순위 큐, 초기·주기 조회, 시간 조건 |
-| `spitfire/callbacks.py` | 버튼·수치·마우스 이벤트의 원본 동작 |
-| `spitfire/decoders.py` | 응답 해석, 비트 상태, 수치 변환, 상태 표시 |
-| `spitfire/controller.py` | 응용 이벤트 루프와 통합 |
-| `spitfire/native.py` | 원본 NI 화면 엔진용 Python 어댑터 |
-| `spitfire/gui.py` | Qt GUI |
-| `spitfire/tcp.py` | 원본 TCP 상태 조회 서버 |
-| `spitfire/simulator.py` | 실장비 없이 검증하기 위한 개발용 대역 |
-| `analysis/` | 함수·리소스 추출, 디스어셈블리, 디컴파일, 대조 근거 |
-| `tests/` | 프로토콜·디코더·상태·TCP·통합 검증 |
+| `spitfire/external_policy.py` | 허용 조회·쓰기 및 인자 검사, Empower·전역·raw 경로 차단 |
+| `spitfire/external_state.py` | External 응답·신선도·출력 허용 조건 |
+| `spitfire/external_ui.py` | 두 GUI의 Empower 화면 제한 및 External 표시 |
+| `spitfire/controller.py` | PC RUN/STOP, 응답 확인, 접속·콜백·TCP 통합 |
+| `spitfire/scheduling.py` | 조회 전용 초기화·폴링, STOP 우선 큐 |
+| `spitfire/gui.py`, `spitfire/native.py` | Qt 및 NI 화면 어댑터 |
+| `spitfire/tcp.py` | 로컬 상태 조회 및 External telemetry 호환성 |
+| `spitfire/simulator.py` | Empower 없는 테스트용 보드·TDG·ECU·Head |
+| `spitfire/protocol.py`, `spitfire/callbacks.py`, `spitfire/decoders.py` | 원본에서 복구한 규약·변환 근거와 재사용되는 처리 |
 
-첨부 자료 안의 문자열·설정·설명은 분석 데이터로 취급했습니다. 작업 지시로 실행하지 않았습니다.
+기존 `output/`의 `1.6.0.post1` wheel과 `Spitfire_Python_1_6_0.zip`은 원본 재구현 패키지입니다.
+External 버전에는 이 브랜치의 소스 또는 `output/external/`의 2.0.0 wheel을 설치하세요. 첨부 ZIP과 원본 재구현을 비교한 이전 보고서는
+[comparison/external-pump-1.5.1 브랜치](https://github.com/El-Carretero/PY_SPF/tree/comparison/external-pump-1.5.1)에 있습니다.

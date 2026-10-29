@@ -1,46 +1,44 @@
-# Spitfire GUI 1.6.0 Python 재구현
+# PY_SPF — Empower 독립형 External Pump 버전
 
-업로드된 Spectra-Physics Spitfire GUI 1.6.0 Windows 설치본에서 복구한 Python 제어 코드, GUI, 분석 근거와 검증 자료입니다.
+`feature/empower-independent` 브랜치는 기존 Spitfire GUI 재구현을 바탕으로,
+**Empower 장치의 응답 없이 TDG·PC 채널·온도 제어·모터를 운용하는 버전**입니다.
+앱의 기본 동작이 External이며 Empower 모드 선택은 없습니다.
+배포 패키지는 **`spitfire-external-control` 2.0.0**입니다.
 
-**실장비 검증은 수행하지 않았으며, 원본과 모든 동작·화면이 완전히 동일하다고 인증한 결과는 아닙니다.** Windows용 화면은 원본 NI 런타임과 UIR 리소스를 사용합니다. Qt 모드는 별도의 Python GUI이며 동적 렌더링에 차이가 있습니다.
-
-- [실행 방법과 파일 구성](README.ko.md)
-- [원본 분석·동일성 검증 범위](ANALYSIS.ko.md)
-- [전체 소스·분석 패키지 ZIP](output/Spitfire_Python_1_6_0.zip)
-- [설치용 Python wheel](output/spitfire_gui_reconstruction-1.6.0.post1-py3-none-any.whl)
-- [검증 결과 요약](analysis/validation_summary.json)
+- [설치·실행 안내](README.ko.md)
+- [Empower 제외 범위, PC RUN/STOP 및 TCP 호환성](EXTERNAL_PUMP.ko.md)
+- [현재 검증 결과: 141개 시험 통과](VALIDATION_EXTERNAL.ko.md)
+- [원본 복구의 과거 분석 근거](ANALYSIS.ko.md)
 - [공급된 NI 런타임·리소스 출처](THIRD_PARTY_NOTICES.md)
+- [External 2.0.0 설치용 wheel](output/external/spitfire_external_control-2.0.0-py3-none-any.whl)
+- [External 2.0.0 소스 ZIP](output/external/PY_SPF_external_2.0.0.zip)
 
-## Qt 데모 실행
+## 장치 없는 Qt 데모
 
-Python 3.10 이상에서:
+Python 3.10 이상에서 이 브랜치의 소스를 설치합니다.
 
 ```sh
 python -m pip install ".[qt]"
 python -m spitfire --backend qt --demo --tcp-port 0
 ```
 
-`--demo`는 실장비에 연결하지 않는 개발용 시뮬레이터입니다.
+시뮬레이터는 Empower 장치가 없는 상태로 시작하며 HV와 PC 채널은 OFF입니다.
+PC RUN은 현재 readback 조건을 확인한 뒤 PC2 ON → PC1 ON으로 진행합니다.
+PC STOP과 Esc는 두 PC 채널 OFF를 요청합니다. 외부 펌프·seed·HV ON은 별도로 운용합니다.
 
-## 원본 NI 화면 실행
-
-32비트 Windows Python 3.10 이상에서:
-
-```bat
-python run_spitfire.py --backend native --demo --tcp-port 0
-```
-
-실장비 연결 설정과 원본 포트는 [실행 안내](README.ko.md)에 있습니다. NI 모드는 독립 응용 프로세스로 실행합니다.
+![Empower 독립형 External 메인 화면](previews/external-main.png)
 
 ## 검증
-
-자동 시험 52개, 원본 x86 코드와 Python을 대조한 756개 사례가 통과했습니다. Windows NI 화면의 모의 장치 연결, 10개 패널, 4개 접근 단계, 실제 메뉴·버튼·모터 입력과 종료를 Wine/QEMU에서 확인했습니다. 검증 범위와 남은 차이는 [분석 보고서](ANALYSIS.ko.md)에 기록했습니다.
 
 ```sh
 python -m pip install ".[qt,test]"
 python -m pytest -q
 ```
 
-원본 기계어 대조 스크립트는 `analysis/`에 있습니다. `analysis/reference/SPITFIRE.EXE`는 검증용 사본이며 Python 응용 실행 경로에서는 사용하지 않습니다.
+Empower 없는 초기화·폴링, 금지 명령 차단, PC 출력 시퀀스, 응답 유실·불일치,
+GUI 및 TCP 상태 조회를 오프라인으로 검증합니다. 실장비와 Windows NI 화면 엔진의
+이번 변경에 대한 검증은 수행하지 않았습니다.
 
-![원본 NI 화면 엔진에서 실행한 Python 제어부](previews/native-cli.png)
+`analysis/`와 External 캡처를 제외한 기존 `previews/`는 원본 재구현 당시의 근거 자료입니다.
+`output/Spitfire_Python_1_6_0.zip`과 `output/spitfire_gui_reconstruction-1.6.0.post1-py3-none-any.whl`도
+기존 재구현 배포물이며 External 버전 설치용이 아닙니다. 현재 버전은 이 브랜치의 소스 또는 위 External 2.0.0 wheel을 설치합니다.
