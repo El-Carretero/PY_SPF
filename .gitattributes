@@ -1,0 +1,7 @@
+# Preserve the exact bytes of the supplied vendor resources and test reference.
+spitfire/resources/runtime/** -text
+spitfire/resources/*.UIR -text
+analysis/reference/** -text
+*.png binary
+*.zip binary
+*.whl binary

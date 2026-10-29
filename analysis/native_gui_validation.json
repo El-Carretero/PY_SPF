@@ -1,0 +1,139 @@
+{
+  "callbacks": [
+    [
+      "com_motor_speed",
+      30.0,
+      8,
+      6,
+      3
+    ],
+    [
+      "secretcall6",
+      -99.0,
+      8,
+      8,
+      2
+    ],
+    [
+      "Close_Programmer_Panel_Callback",
+      0,
+      8,
+      1,
+      2
+    ],
+    [
+      "TransmitCB",
+      "",
+      8,
+      "server",
+      3
+    ],
+    [
+      "osc_mode",
+      0,
+      8,
+      5,
+      2
+    ],
+    [
+      "slidesetcurr",
+      0.0,
+      8,
+      9,
+      8
+    ],
+    [
+      "ecu_set_temp",
+      20.0,
+      8,
+      2,
+      7
+    ],
+    [
+      "esc_turnoff",
+      0,
+      8,
+      3,
+      28
+    ],
+    [
+      "esc_turnoff",
+      0,
+      8,
+      4,
+      17
+    ],
+    [
+      "picture_Callback1",
+      0,
+      3,
+      6,
+      52
+    ],
+    [
+      "picture_Callback1",
+      0,
+      1,
+      6,
+      52
+    ],
+    [
+      "com_motor_speed",
+      30.0,
+      9,
+      6,
+      3
+    ],
+    [
+      "picture_Callback1",
+      0,
+      8,
+      6,
+      52
+    ],
+    [
+      "exit_from_menu",
+      0,
+      1,
+      6,
+      3
+    ]
+  ],
+  "motor_stop_packets": [
+    "[2013]HED:MOTOR:STOP"
+  ],
+  "motor_move_packets": [
+    "[2009]HED:MOTOR:REW"
+  ],
+  "connected": true,
+  "access_levels": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "panels": [
+    7,
+    5,
+    6,
+    9,
+    2,
+    3,
+    4,
+    8,
+    1,
+    "server"
+  ],
+  "callback_errors": [],
+  "cli_exit_code": 0,
+  "environment": {
+    "host": "Debian 13 (no native IA32 kernel execution)",
+    "python": "CPython 3.11.9 Windows32",
+    "wine": "Kron4ek Wine 10.0 x86",
+    "qemu": "Debian QEMU user 10.0.13",
+    "display": "Xorg 1.21.1.16 dummy :97"
+  },
+  "instrument_connection": "none; development simulator only",
+  "shutdown": "Controller.stop, NativeGui.close, flush, Win32 ExitProcess; original native bootstrap boundary",
+  "read_only_runtime_cache_fallback": "PASS"
+}

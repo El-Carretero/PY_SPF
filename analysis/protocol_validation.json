@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "crc16_table_entries_matched": 256,
+  "crc32_table_entries_matched": 256,
+  "crc16_xmodem_check": "31c3",
+  "crc16_ccitt_false_check": "29b1",
+  "crc32_iso_hdlc_check": "cbf43926",
+  "udp_loopback": "127.0.0.1 only",
+  "device_contacted": false,
+  "tests": [
+    "format_query",
+    "format_command_parameter_spacing",
+    "wire_header_newline",
+    "reply_multiple_lines",
+    "reject_wrong_header",
+    "loopback_send_receive"
+  ]
+}

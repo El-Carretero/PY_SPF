@@ -1,0 +1,658 @@
+{
+  "evidence": {
+    "original": "SPITFIRE.EXE",
+    "build": "2005-03-18",
+    "method": "native symbol map, x86 disassembly, Ghidra decompilation"
+  },
+  "panel_ids": {
+    "main": 6,
+    "setup": 9,
+    "info": 5,
+    "ecu": 2,
+    "faults": 3,
+    "help": 4,
+    "secrets": 7,
+    "empower": 8,
+    "programmer": 1
+  },
+  "action_contract": {
+    "command": "target: command ID, value: exact parameter suffix",
+    "query": "target: query ID",
+    "attribute": "target: [panel ID, control ID, CVI attribute ID], value: new value",
+    "set": "target: [panel ID, control ID], value: new value",
+    "panel_attribute": "target: [panel ID,CVI attribute ID], value: new value",
+    "panel": "target: panel ID, value: visible",
+    "state": "target: variable name, value: new value"
+  },
+  "numeric": {
+    "slidesetcurr": {
+      "command": 2003,
+      "followup_query_when_connected": 1009,
+      "scale": 10.0,
+      "fixed_source": [
+        9,
+        8
+      ],
+      "format": " %5.2f"
+    },
+    "slideqswprf": {
+      "command": 2004,
+      "followup_query_when_connected": 1010,
+      "scale": 0.1,
+      "fixed_source": [
+        9,
+        9
+      ],
+      "format": " %5.2f"
+    },
+    "slideqswpw": {
+      "command": 2007,
+      "followup_query_when_connected": 1011,
+      "scale": 1.0,
+      "fixed_source": [
+        9,
+        10
+      ],
+      "format": " %5.2f"
+    },
+    "slideqswsrc": {
+      "command": 2008,
+      "followup_query_when_connected": 1012,
+      "scale": 1.0,
+      "fixed_source": [
+        9,
+        11
+      ],
+      "format": " %5.2f"
+    },
+    "com_motor_speed": {
+      "command": 2014,
+      "followup_query_when_connected": 1060,
+      "scale": 1.0,
+      "fixed_source": null,
+      "format": " %5.2f"
+    },
+    "ecu_set_temp": {
+      "command": 2021,
+      "followup_query_when_connected": 1032,
+      "scale": 1.0,
+      "fixed_source": [
+        2,
+        7
+      ],
+      "format": " %5.2f"
+    },
+    "DivisorCallback": {
+      "command": 2020,
+      "followup_query_when_connected": 1025,
+      "scale": 1.0,
+      "fixed_source": [
+        5,
+        43
+      ],
+      "format": " %5.2f"
+    },
+    "trig_reprate": {
+      "command": 2032,
+      "followup_query_when_connected": 1053,
+      "scale": 1.0,
+      "fixed_source": null,
+      "format": " %5.2f"
+    },
+    "SetHVCallback1": {
+      "command": 2025,
+      "followup_query_when_connected": 1040,
+      "scale": 1.0,
+      "fixed_source": null,
+      "format": " %5.2f"
+    },
+    "SetHVCallback2": {
+      "command": 2026,
+      "followup_query_when_connected": 1041,
+      "scale": 1.0,
+      "fixed_source": null,
+      "format": " %5.2f"
+    }
+  },
+  "integer": {
+    "optoutecucall": {
+      "command": 2024,
+      "followup_query_when_connected": 1033,
+      "fixed_source": [
+        2,
+        11
+      ],
+      "format": " %i"
+    },
+    "optoutcompressorcall": {
+      "command": 2035,
+      "followup_query_when_connected": 1069,
+      "fixed_source": [
+        2,
+        10
+      ],
+      "format": " %i"
+    },
+    "empoweroptoutcall": {
+      "command": 2036,
+      "followup_query_when_connected": 1068,
+      "fixed_source": [
+        2,
+        9
+      ],
+      "format": " %i"
+    },
+    "LBOstabilitybreak": {
+      "command": 2047,
+      "followup_query_when_connected": 1078,
+      "fixed_source": null,
+      "format": " %i"
+    }
+  },
+  "show_panels": {
+    "show_secrets": [
+      7,
+      "SECRETS_OPEN"
+    ],
+    "show_setup": [
+      9,
+      "SETUP_OPEN"
+    ],
+    "show_faults": [
+      3,
+      "FAULTS_OPEN"
+    ],
+    "show_info": [
+      5,
+      "INFO_OPEN"
+    ],
+    "show_help": [
+      4,
+      "HELP_OPEN"
+    ],
+    "show_ccu": [
+      2,
+      "CCU_OPEN"
+    ]
+  },
+  "hide_panels": {
+    "close_fault": 3,
+    "close_info": 5,
+    "close_service": 7,
+    "close_setup": 9,
+    "close_ecu": 2,
+    "close_help": 4,
+    "close_secrets_emp": 8,
+    "Close_Programmer_Panel_Callback": 1
+  },
+  "callback_evidence": {
+    "QuitProgram": {
+      "address": "0x40ab10",
+      "queue_ids_in_source_order": []
+    },
+    "cllbck": {
+      "address": "0x40aba7",
+      "queue_ids_in_source_order": []
+    },
+    "Shutdown": {
+      "address": "0x40ac11",
+      "queue_ids_in_source_order": []
+    },
+    "close_setup": {
+      "address": "0x40ac38",
+      "queue_ids_in_source_order": []
+    },
+    "close_ecu": {
+      "address": "0x40ac6e",
+      "queue_ids_in_source_order": []
+    },
+    "close_help": {
+      "address": "0x40aca4",
+      "queue_ids_in_source_order": []
+    },
+    "slideqswprf": {
+      "address": "0x40acda",
+      "queue_ids_in_source_order": [
+        2004,
+        1010
+      ]
+    },
+    "slideqswpw": {
+      "address": "0x40aecd",
+      "queue_ids_in_source_order": [
+        2007,
+        1011
+      ]
+    },
+    "slideqswsrc": {
+      "address": "0x40af6e",
+      "queue_ids_in_source_order": [
+        2008,
+        1012
+      ]
+    },
+    "slidesetcurr": {
+      "address": "0x40b00f",
+      "queue_ids_in_source_order": [
+        2003,
+        1009
+      ]
+    },
+    "close_curtain": {
+      "address": "0x40b920",
+      "queue_ids_in_source_order": []
+    },
+    "open_curtain": {
+      "address": "0x40b9a2",
+      "queue_ids_in_source_order": []
+    },
+    "optoutecucall": {
+      "address": "0x40e5f3",
+      "queue_ids_in_source_order": [
+        2024,
+        1033
+      ]
+    },
+    "ecu_set_temp": {
+      "address": "0x40e6be",
+      "queue_ids_in_source_order": [
+        2021,
+        1032
+      ]
+    },
+    "DivisorCallback": {
+      "address": "0x40e75f",
+      "queue_ids_in_source_order": [
+        2020,
+        1025
+      ]
+    },
+    "osc_mode": {
+      "address": "0x40e913",
+      "queue_ids_in_source_order": [
+        2030,
+        1050,
+        2030,
+        1050
+      ]
+    },
+    "trig_mode": {
+      "address": "0x40ea14",
+      "queue_ids_in_source_order": [
+        2031,
+        1051,
+        2031,
+        1051
+      ]
+    },
+    "HV_switch": {
+      "address": "0x40ec0f",
+      "queue_ids_in_source_order": [
+        2017,
+        1061,
+        2016,
+        1061
+      ]
+    },
+    "humoverride": {
+      "address": "0x40ecbe",
+      "queue_ids_in_source_order": [
+        2029,
+        1057,
+        2029,
+        1057
+      ]
+    },
+    "trig_reprate": {
+      "address": "0x40edbf",
+      "queue_ids_in_source_order": [
+        2032,
+        1053
+      ]
+    },
+    "SetHVCallback1": {
+      "address": "0x40ef87",
+      "queue_ids_in_source_order": [
+        2025,
+        1040
+      ]
+    },
+    "SetHVCallback2": {
+      "address": "0x40f01f",
+      "queue_ids_in_source_order": [
+        2026,
+        1041
+      ]
+    },
+    "BW_reset": {
+      "address": "0x40f0b7",
+      "queue_ids_in_source_order": [
+        2018,
+        1066
+      ]
+    },
+    "swChannelEnableCallback_btn1": {
+      "address": "0x40f109",
+      "queue_ids_in_source_order": [
+        2019,
+        2019
+      ]
+    },
+    "swChannelEnableCallback_btn2": {
+      "address": "0x40f1e0",
+      "queue_ids_in_source_order": [
+        2019,
+        2019
+      ]
+    },
+    "swChannelEnableCallback_btn3": {
+      "address": "0x40f2b7",
+      "queue_ids_in_source_order": [
+        2019,
+        1047,
+        2019,
+        1047
+      ]
+    },
+    "swChannelEnableCallback_btn4": {
+      "address": "0x40f3c8",
+      "queue_ids_in_source_order": [
+        2019,
+        1048,
+        2019,
+        1048
+      ]
+    },
+    "swChannelEnableCallback_btn5": {
+      "address": "0x40f4d9",
+      "queue_ids_in_source_order": [
+        2019,
+        1049,
+        2019,
+        1049
+      ]
+    },
+    "setbwd1": {
+      "address": "0x40f5ea",
+      "queue_ids_in_source_order": [
+        2019,
+        1045
+      ]
+    },
+    "setbwd2": {
+      "address": "0x40f6bc",
+      "queue_ids_in_source_order": [
+        2019,
+        1046
+      ]
+    },
+    "setena2": {
+      "address": "0x40f78e",
+      "queue_ids_in_source_order": [
+        2019,
+        1046
+      ]
+    },
+    "setena1": {
+      "address": "0x40f860",
+      "queue_ids_in_source_order": [
+        2019,
+        1045
+      ]
+    },
+    "setbwd3": {
+      "address": "0x40f932",
+      "queue_ids_in_source_order": [
+        2019,
+        1047
+      ]
+    },
+    "setbwd4": {
+      "address": "0x40fa04",
+      "queue_ids_in_source_order": [
+        2019,
+        1048
+      ]
+    },
+    "setbwd5": {
+      "address": "0x40fad6",
+      "queue_ids_in_source_order": [
+        2019,
+        1049
+      ]
+    },
+    "setena3": {
+      "address": "0x40fba8",
+      "queue_ids_in_source_order": [
+        2019,
+        1047
+      ]
+    },
+    "setena4": {
+      "address": "0x40fc7a",
+      "queue_ids_in_source_order": [
+        2019,
+        1048
+      ]
+    },
+    "setena5": {
+      "address": "0x40fd4c",
+      "queue_ids_in_source_order": [
+        2019,
+        1049
+      ]
+    },
+    "teconoff": {
+      "address": "0x410720",
+      "queue_ids_in_source_order": [
+        2022,
+        2023
+      ]
+    },
+    "picture_Callback1": {
+      "address": "0x4107b5",
+      "queue_ids_in_source_order": [
+        2009,
+        2010
+      ]
+    },
+    "tmr_Mouse_Callback1": {
+      "address": "0x410885",
+      "queue_ids_in_source_order": [
+        2013
+      ]
+    },
+    "picture_Callback2": {
+      "address": "0x410928",
+      "queue_ids_in_source_order": [
+        2012,
+        2012,
+        2011,
+        2011
+      ]
+    },
+    "SetCoarseCallback_btn1": {
+      "address": "0x411653",
+      "queue_ids_in_source_order": [
+        2019
+      ]
+    },
+    "SetCoarseCallback_btn2": {
+      "address": "0x4116f8",
+      "queue_ids_in_source_order": [
+        2019
+      ]
+    },
+    "SetCoarseCallback_btn3": {
+      "address": "0x41179d",
+      "queue_ids_in_source_order": [
+        2019,
+        1047
+      ]
+    },
+    "SetCoarseCallback_btn0": {
+      "address": "0x411863",
+      "queue_ids_in_source_order": [
+        2019,
+        1052
+      ]
+    },
+    "SetCoarseCallback_btn4": {
+      "address": "0x411929",
+      "queue_ids_in_source_order": [
+        2019,
+        1048
+      ]
+    },
+    "SetCoarseCallback_btn5": {
+      "address": "0x4119ef",
+      "queue_ids_in_source_order": [
+        2019,
+        1049
+      ]
+    },
+    "Ch1_Coarse_Check_Callback": {
+      "address": "0x411ab5",
+      "queue_ids_in_source_order": []
+    },
+    "Ch2_Coarse_Check_Callback": {
+      "address": "0x411b86",
+      "queue_ids_in_source_order": []
+    },
+    "SYNC_Coarse_Check_Callback": {
+      "address": "0x411c57",
+      "queue_ids_in_source_order": []
+    },
+    "Ch3_Coarse_Check_Callback": {
+      "address": "0x411d28",
+      "queue_ids_in_source_order": []
+    },
+    "Ch4_Coarse_Check_Callback": {
+      "address": "0x411df9",
+      "queue_ids_in_source_order": []
+    },
+    "optoutcompressorcall": {
+      "address": "0x411eca",
+      "queue_ids_in_source_order": [
+        2035,
+        1069
+      ]
+    },
+    "empoweroptoutcall": {
+      "address": "0x411f71",
+      "queue_ids_in_source_order": [
+        2036,
+        1068
+      ]
+    },
+    "secretcall1": {
+      "address": "0x412037",
+      "queue_ids_in_source_order": [
+        2037,
+        2045
+      ]
+    },
+    "secretcall2": {
+      "address": "0x4120bc",
+      "queue_ids_in_source_order": [
+        2038,
+        2045,
+        1071
+      ]
+    },
+    "secretcall3": {
+      "address": "0x41214e",
+      "queue_ids_in_source_order": [
+        2039,
+        2045,
+        1072
+      ]
+    },
+    "secretcall4": {
+      "address": "0x4121e0",
+      "queue_ids_in_source_order": [
+        2040,
+        2045,
+        1073
+      ]
+    },
+    "secretcall5": {
+      "address": "0x412272",
+      "queue_ids_in_source_order": [
+        2041,
+        2045,
+        1074
+      ]
+    },
+    "secretcall6": {
+      "address": "0x412304",
+      "queue_ids_in_source_order": [
+        2042,
+        2045,
+        1075
+      ]
+    },
+    "secretcall7": {
+      "address": "0x412396",
+      "queue_ids_in_source_order": [
+        2043,
+        2045,
+        1076
+      ]
+    },
+    "cllbckcmd_reset": {
+      "address": "0x412428",
+      "queue_ids_in_source_order": [
+        2044,
+        2049,
+        2052,
+        2050
+      ]
+    },
+    "cmd_osc_to_meas": {
+      "address": "0x4124db",
+      "queue_ids_in_source_order": [
+        2046,
+        1065
+      ]
+    },
+    "close_secrets_emp": {
+      "address": "0x41254e",
+      "queue_ids_in_source_order": []
+    },
+    "setopmode": {
+      "address": "0x412584",
+      "queue_ids_in_source_order": [
+        2048,
+        1080
+      ]
+    },
+    "LBOstabilitybreak": {
+      "address": "0x412695",
+      "queue_ids_in_source_order": [
+        2047,
+        1078
+      ]
+    },
+    "Close_Programmer_Panel_Callback": {
+      "address": "0x412f36",
+      "queue_ids_in_source_order": []
+    },
+    "esc_turnoff": {
+      "address": "0x412f64",
+      "queue_ids_in_source_order": [
+        2028
+      ]
+    },
+    "display_faults": {
+      "address": "0x412fc2",
+      "queue_ids_in_source_order": []
+    },
+    "Monitor_switch": {
+      "address": "0x412ffd",
+      "queue_ids_in_source_order": [
+        2051
+      ]
+    }
+  }
+}

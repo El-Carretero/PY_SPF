@@ -1,0 +1,2021 @@
+{
+  "binding_count": 100,
+  "unique_callback_count": 89,
+  "dispatcher_covered_count": 100,
+  "controller_action_kinds": [
+    "append_file",
+    "attribute",
+    "command",
+    "connected",
+    "fault_update",
+    "hide_ecu",
+    "hide_emp",
+    "initial_updates",
+    "key_pressed",
+    "menu_attribute",
+    "menu_disabled",
+    "open_curtain",
+    "panel",
+    "panel_attribute",
+    "query",
+    "quit",
+    "reconnect",
+    "reset_textbox",
+    "server_panel",
+    "server_write",
+    "set",
+    "state"
+  ],
+  "dispatcher_missing_callbacks": [],
+  "controller_unhandled_action_kinds": [],
+  "bindings": [
+    {
+      "name": "esc_turnoff",
+      "panel": 2,
+      "control": 17,
+      "resource_id": 19,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN",
+      "source": "SPITFIRE",
+      "runtime_control": 17,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "humoverride",
+      "panel": 2,
+      "control": 13,
+      "resource_id": 15,
+      "kind": "control",
+      "constant": "HUMOVERRIDE",
+      "source": "SPITFIRE",
+      "runtime_control": 13,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "tdg_fault_override",
+      "panel": 2,
+      "control": 12,
+      "resource_id": 14,
+      "kind": "control",
+      "constant": "TDGFLTOVERRIDE",
+      "source": "SPITFIRE",
+      "runtime_control": 12,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "optoutecucall",
+      "panel": 2,
+      "control": 11,
+      "resource_id": 13,
+      "kind": "control",
+      "constant": "ECU_OPTOUT",
+      "source": "SPITFIRE",
+      "runtime_control": 11,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "attribute",
+        "command",
+        "query",
+        "state"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "optoutcompressorcall",
+      "panel": 2,
+      "control": 10,
+      "resource_id": 12,
+      "kind": "control",
+      "constant": "COMP_OPTOUT",
+      "source": "SPITFIRE",
+      "runtime_control": 10,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query",
+        "state"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "empoweroptoutcall",
+      "panel": 2,
+      "control": 9,
+      "resource_id": 11,
+      "kind": "control",
+      "constant": "EMP_OPTOUT",
+      "source": "SPITFIRE",
+      "runtime_control": 9,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "attribute",
+        "command",
+        "query",
+        "state"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "teconoff",
+      "panel": 2,
+      "control": 8,
+      "resource_id": 10,
+      "kind": "control",
+      "constant": "ECU_TECONOFF",
+      "source": "SPITFIRE",
+      "runtime_control": 8,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "ecu_set_temp",
+      "panel": 2,
+      "control": 7,
+      "resource_id": 9,
+      "kind": "control",
+      "constant": "SET_TEMP",
+      "source": "SPITFIRE",
+      "runtime_control": 7,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "close_ecu",
+      "panel": 2,
+      "control": 6,
+      "resource_id": 8,
+      "kind": "control",
+      "constant": "BTN_EXIT",
+      "source": "SPITFIRE",
+      "runtime_control": 6,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "cllbckcmd_reset",
+      "panel": 3,
+      "control": 53,
+      "resource_id": 71,
+      "kind": "control",
+      "constant": "CMD_RES_2",
+      "source": "SPITFIRE",
+      "runtime_control": 53,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "close_fault",
+      "panel": 3,
+      "control": 33,
+      "resource_id": 51,
+      "kind": "control",
+      "constant": "COMMANDBUTTON",
+      "source": "SPITFIRE",
+      "runtime_control": 33,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "close_fault",
+      "panel": 3,
+      "control": 29,
+      "resource_id": 47,
+      "kind": "control",
+      "constant": "COMMANDBUTTON_3",
+      "source": "SPITFIRE",
+      "runtime_control": 29,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 3,
+      "control": 28,
+      "resource_id": 46,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN",
+      "source": "SPITFIRE",
+      "runtime_control": 28,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "close_fault",
+      "panel": 3,
+      "control": 27,
+      "resource_id": 45,
+      "kind": "control",
+      "constant": "COMMANDBUTTON_4",
+      "source": "SPITFIRE",
+      "runtime_control": 27,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "close_fault",
+      "panel": 3,
+      "control": 26,
+      "resource_id": 44,
+      "kind": "control",
+      "constant": "COMMANDBUTTON_2",
+      "source": "SPITFIRE",
+      "runtime_control": 26,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 1,
+      "control": 4,
+      "resource_id": 3,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN",
+      "source": "SPITFIRE",
+      "runtime_control": 4,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "Close_Programmer_Panel_Callback",
+      "panel": 1,
+      "control": 2,
+      "resource_id": 1,
+      "kind": "control",
+      "constant": "BTN_QUIT",
+      "source": "SPITFIRE",
+      "runtime_control": 2,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "close_service",
+      "panel": 7,
+      "control": 2,
+      "resource_id": 199,
+      "kind": "control",
+      "constant": "COMMANDBUTTON",
+      "source": "SPITFIRE",
+      "runtime_control": 2,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 4,
+      "control": 17,
+      "resource_id": 87,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN",
+      "source": "SPITFIRE",
+      "runtime_control": 17,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "close_help",
+      "panel": 4,
+      "control": 9,
+      "resource_id": 79,
+      "kind": "control",
+      "constant": "COMMANDBUTTON",
+      "source": "SPITFIRE",
+      "runtime_control": 9,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 8,
+      "control": 19,
+      "resource_id": 217,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN",
+      "source": "SPITFIRE",
+      "runtime_control": 19,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "LBOstabilitybreak",
+      "panel": 8,
+      "control": 18,
+      "resource_id": 216,
+      "kind": "control",
+      "constant": "BINARYSWITCH",
+      "source": "SPITFIRE",
+      "runtime_control": 18,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "close_secrets_emp",
+      "panel": 8,
+      "control": 17,
+      "resource_id": 215,
+      "kind": "control",
+      "constant": "COMMANDBUTTON",
+      "source": "SPITFIRE",
+      "runtime_control": 17,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "secretcall2",
+      "panel": 8,
+      "control": 13,
+      "resource_id": 211,
+      "kind": "control",
+      "constant": "BOXSETCURR",
+      "source": "SPITFIRE",
+      "runtime_control": 13,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "secretcall1",
+      "panel": 8,
+      "control": 12,
+      "resource_id": 210,
+      "kind": "control",
+      "constant": "BOXSETCURR_2",
+      "source": "SPITFIRE",
+      "runtime_control": 12,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "secretcall3",
+      "panel": 8,
+      "control": 10,
+      "resource_id": 208,
+      "kind": "control",
+      "constant": "BOXSETPOW",
+      "source": "SPITFIRE",
+      "runtime_control": 10,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "secretcall4",
+      "panel": 8,
+      "control": 8,
+      "resource_id": 206,
+      "kind": "control",
+      "constant": "BOXSETINT",
+      "source": "SPITFIRE",
+      "runtime_control": 8,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "secretcall5",
+      "panel": 8,
+      "control": 6,
+      "resource_id": 204,
+      "kind": "control",
+      "constant": "BOXSETSLOPE",
+      "source": "SPITFIRE",
+      "runtime_control": 6,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "secretcall7",
+      "panel": 8,
+      "control": 4,
+      "resource_id": 202,
+      "kind": "control",
+      "constant": "BOXSETUNDERTEMP",
+      "source": "SPITFIRE",
+      "runtime_control": 4,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "secretcall6",
+      "panel": 8,
+      "control": 2,
+      "resource_id": 200,
+      "kind": "control",
+      "constant": "BOXSETOVERTEMP",
+      "source": "SPITFIRE",
+      "runtime_control": 2,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "setopmode",
+      "panel": 5,
+      "control": 48,
+      "resource_id": 134,
+      "kind": "control",
+      "constant": "RINGSLIDE",
+      "source": "SPITFIRE",
+      "runtime_control": 48,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "Ch3_Coarse_Check_Callback",
+      "panel": 5,
+      "control": 46,
+      "resource_id": 132,
+      "kind": "control",
+      "constant": "CH3_COARSE_CHECK",
+      "source": "SPITFIRE",
+      "runtime_control": 46,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "attribute"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "Ch4_Coarse_Check_Callback",
+      "panel": 5,
+      "control": 45,
+      "resource_id": 131,
+      "kind": "control",
+      "constant": "CH4_COARSE_CHECK",
+      "source": "SPITFIRE",
+      "runtime_control": 45,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "attribute"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "DivisorCallback",
+      "panel": 5,
+      "control": 43,
+      "resource_id": 129,
+      "kind": "control",
+      "constant": "DIV_ST",
+      "source": "SPITFIRE",
+      "runtime_control": 43,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "SetCoarseCallback_btn3",
+      "panel": 5,
+      "control": 42,
+      "resource_id": 128,
+      "kind": "control",
+      "constant": "NUMERICKNOB_3",
+      "source": "SPITFIRE",
+      "runtime_control": 42,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "SetCoarseCallback_btn4",
+      "panel": 5,
+      "control": 41,
+      "resource_id": 127,
+      "kind": "control",
+      "constant": "NUMERICKNOB_4",
+      "source": "SPITFIRE",
+      "runtime_control": 41,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "bwdduality",
+      "panel": 5,
+      "control": 39,
+      "resource_id": 125,
+      "kind": "control",
+      "constant": "SW_BWD_NUMDIODES",
+      "source": "SPITFIRE",
+      "runtime_control": 39,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "bwdpolarity",
+      "panel": 5,
+      "control": 37,
+      "resource_id": 123,
+      "kind": "control",
+      "constant": "SW_BWD_POLARITY",
+      "source": "SPITFIRE",
+      "runtime_control": 37,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "SetHVCallback1",
+      "panel": 5,
+      "control": 35,
+      "resource_id": 121,
+      "kind": "control",
+      "constant": "SET_HV_1",
+      "source": "SPITFIRE",
+      "runtime_control": 35,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "HV_switch",
+      "panel": 5,
+      "control": 34,
+      "resource_id": 120,
+      "kind": "control",
+      "constant": "HV_ON",
+      "source": "SPITFIRE",
+      "runtime_control": 34,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "SetHVCallback2",
+      "panel": 5,
+      "control": 33,
+      "resource_id": 119,
+      "kind": "control",
+      "constant": "SET_HV_2",
+      "source": "SPITFIRE",
+      "runtime_control": 33,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "trig_reprate",
+      "panel": 5,
+      "control": 28,
+      "resource_id": 114,
+      "kind": "control",
+      "constant": "REP_RATE",
+      "source": "SPITFIRE",
+      "runtime_control": 28,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "swChannelEnableCallback_btn3",
+      "panel": 5,
+      "control": 25,
+      "resource_id": 111,
+      "kind": "control",
+      "constant": "TOGGLEBUTTON_3",
+      "source": "SPITFIRE",
+      "runtime_control": 25,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "swChannelEnableCallback_btn4",
+      "panel": 5,
+      "control": 23,
+      "resource_id": 109,
+      "kind": "control",
+      "constant": "TOGGLEBUTTON_4",
+      "source": "SPITFIRE",
+      "runtime_control": 23,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "close_info",
+      "panel": 5,
+      "control": 21,
+      "resource_id": 107,
+      "kind": "control",
+      "constant": "COMMANDBUTTON",
+      "source": "SPITFIRE",
+      "runtime_control": 21,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 5,
+      "control": 20,
+      "resource_id": 106,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN",
+      "source": "SPITFIRE",
+      "runtime_control": 20,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "setena4",
+      "panel": 5,
+      "control": 16,
+      "resource_id": 102,
+      "kind": "control",
+      "constant": "NENA_4",
+      "source": "SPITFIRE",
+      "runtime_control": 16,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "setbwd4",
+      "panel": 5,
+      "control": 15,
+      "resource_id": 101,
+      "kind": "control",
+      "constant": "BWD_4",
+      "source": "SPITFIRE",
+      "runtime_control": 15,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "setena3",
+      "panel": 5,
+      "control": 14,
+      "resource_id": 100,
+      "kind": "control",
+      "constant": "NENA_3",
+      "source": "SPITFIRE",
+      "runtime_control": 14,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "setbwd3",
+      "panel": 5,
+      "control": 13,
+      "resource_id": 99,
+      "kind": "control",
+      "constant": "BWD_3",
+      "source": "SPITFIRE",
+      "runtime_control": 13,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "setena5",
+      "panel": 5,
+      "control": 12,
+      "resource_id": 98,
+      "kind": "control",
+      "constant": "NENA_5",
+      "source": "SPITFIRE",
+      "runtime_control": 12,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "setbwd5",
+      "panel": 5,
+      "control": 11,
+      "resource_id": 97,
+      "kind": "control",
+      "constant": "BWD_5",
+      "source": "SPITFIRE",
+      "runtime_control": 11,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "setena2",
+      "panel": 5,
+      "control": 10,
+      "resource_id": 96,
+      "kind": "control",
+      "constant": "NENA_2",
+      "source": "SPITFIRE",
+      "runtime_control": 10,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "setbwd2",
+      "panel": 5,
+      "control": 9,
+      "resource_id": 95,
+      "kind": "control",
+      "constant": "BWD_2",
+      "source": "SPITFIRE",
+      "runtime_control": 9,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "setena1",
+      "panel": 5,
+      "control": 8,
+      "resource_id": 94,
+      "kind": "control",
+      "constant": "NENA_1",
+      "source": "SPITFIRE",
+      "runtime_control": 8,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "setbwd1",
+      "panel": 5,
+      "control": 6,
+      "resource_id": 92,
+      "kind": "control",
+      "constant": "BWD_1",
+      "source": "SPITFIRE",
+      "runtime_control": 6,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "cmd_osc_to_meas",
+      "panel": 5,
+      "control": 5,
+      "resource_id": 91,
+      "kind": "control",
+      "constant": "CMD_OSC_TO_MEAS",
+      "source": "SPITFIRE",
+      "runtime_control": 5,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "SetCoarseCallback_btn0",
+      "panel": 5,
+      "control": 4,
+      "resource_id": 90,
+      "kind": "control",
+      "constant": "ABS_DEL_0",
+      "source": "SPITFIRE",
+      "runtime_control": 4,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "trig_mode",
+      "panel": 5,
+      "control": 3,
+      "resource_id": 89,
+      "kind": "control",
+      "constant": "SW_AMPLIFIER",
+      "source": "SPITFIRE",
+      "runtime_control": 3,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "attribute",
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "osc_mode",
+      "panel": 5,
+      "control": 2,
+      "resource_id": 88,
+      "kind": "control",
+      "constant": "SW_OSCILLATOR",
+      "source": "SPITFIRE",
+      "runtime_control": 2,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "tmr_Data_Logger",
+      "panel": 6,
+      "control": 64,
+      "resource_id": 197,
+      "kind": "control",
+      "constant": "TMR_DATA_LOGGER",
+      "source": "SPITFIRE",
+      "runtime_control": 64,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        15
+      ],
+      "action_kinds": [
+        "append_file"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "Ch1_Coarse_Check_Callback",
+      "panel": 6,
+      "control": 63,
+      "resource_id": 196,
+      "kind": "control",
+      "constant": "CH1_COARSE_CHECK",
+      "source": "SPITFIRE",
+      "runtime_control": 63,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "attribute"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "Ch2_Coarse_Check_Callback",
+      "panel": 6,
+      "control": 62,
+      "resource_id": 195,
+      "kind": "control",
+      "constant": "CH2_COARSE_CHECK",
+      "source": "SPITFIRE",
+      "runtime_control": 62,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "attribute"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "SYNC_Coarse_Check_Callback",
+      "panel": 6,
+      "control": 61,
+      "resource_id": 194,
+      "kind": "control",
+      "constant": "SYNC_COARSE_CHECK",
+      "source": "SPITFIRE",
+      "runtime_control": 61,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "attribute"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "strnsendcllback",
+      "panel": 6,
+      "control": 60,
+      "resource_id": 193,
+      "kind": "control",
+      "constant": "COMMANDBUTTON",
+      "source": "SPITFIRE",
+      "runtime_control": 60,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "picture_Callback1",
+      "panel": 6,
+      "control": 52,
+      "resource_id": 185,
+      "kind": "control",
+      "constant": "PICTURE1",
+      "source": "SPITFIRE",
+      "runtime_control": 52,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        3,
+        5
+      ],
+      "action_kinds": [
+        "attribute",
+        "command",
+        "state"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "picture_Callback2",
+      "panel": 6,
+      "control": 51,
+      "resource_id": 184,
+      "kind": "control",
+      "constant": "PICTURE2",
+      "source": "SPITFIRE",
+      "runtime_control": 51,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "action_kinds": [
+        "command"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "display_faults",
+      "panel": 6,
+      "control": 50,
+      "resource_id": 183,
+      "kind": "control",
+      "constant": "MASTER_ALARM_BTN",
+      "source": "SPITFIRE",
+      "runtime_control": 50,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel",
+        "state"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "Monitor_switch",
+      "panel": 6,
+      "control": 47,
+      "resource_id": 180,
+      "kind": "control",
+      "constant": "MONITOR",
+      "source": "SPITFIRE",
+      "runtime_control": 47,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "cmtRETUSERMODE",
+      "panel": 6,
+      "control": 45,
+      "resource_id": 178,
+      "kind": "control",
+      "constant": "RETUSERMODE",
+      "source": "SPITFIRE",
+      "runtime_control": 45,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "attribute",
+        "panel",
+        "panel_attribute",
+        "server_panel",
+        "state"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "SetCoarseCallback_btn1",
+      "panel": 6,
+      "control": 43,
+      "resource_id": 176,
+      "kind": "control",
+      "constant": "NUMERICKNOB_1",
+      "source": "SPITFIRE",
+      "runtime_control": 43,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "SetCoarseCallback_btn2",
+      "panel": 6,
+      "control": 42,
+      "resource_id": 175,
+      "kind": "control",
+      "constant": "NUMERICKNOB_2",
+      "source": "SPITFIRE",
+      "runtime_control": 42,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "SetCoarseCallback_btn5",
+      "panel": 6,
+      "control": 41,
+      "resource_id": 174,
+      "kind": "control",
+      "constant": "NUMERICKNOB_5",
+      "source": "SPITFIRE",
+      "runtime_control": 41,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "swChannelEnableCallback_btn1",
+      "panel": 6,
+      "control": 23,
+      "resource_id": 156,
+      "kind": "control",
+      "constant": "TOGGLEBUTTON_1",
+      "source": "SPITFIRE",
+      "runtime_control": 23,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "swChannelEnableCallback_btn2",
+      "panel": 6,
+      "control": 21,
+      "resource_id": 154,
+      "kind": "control",
+      "constant": "TOGGLEBUTTON_2",
+      "source": "SPITFIRE",
+      "runtime_control": 21,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "swChannelEnableCallback_btn5",
+      "panel": 6,
+      "control": 20,
+      "resource_id": 153,
+      "kind": "control",
+      "constant": "TOGGLEBUTTON_5",
+      "source": "SPITFIRE",
+      "runtime_control": 20,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 6,
+      "control": 18,
+      "resource_id": 151,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN",
+      "source": "SPITFIRE",
+      "runtime_control": 18,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "parse_command5",
+      "panel": 6,
+      "control": 11,
+      "resource_id": 144,
+      "kind": "control",
+      "constant": "CMD_STOP",
+      "source": "SPITFIRE",
+      "runtime_control": 11,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        3
+      ],
+      "action_kinds": [
+        "command",
+        "query",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "cllbck",
+      "panel": 6,
+      "control": 10,
+      "resource_id": 143,
+      "kind": "control",
+      "constant": "CMD_RUN",
+      "source": "SPITFIRE",
+      "runtime_control": 10,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1,
+        2,
+        3
+      ],
+      "action_kinds": [
+        "state"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "BW_reset",
+      "panel": 6,
+      "control": 5,
+      "resource_id": 138,
+      "kind": "control",
+      "constant": "CMD_BWD_RESET",
+      "source": "SPITFIRE",
+      "runtime_control": 5,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        3
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "tmr_Mouse_Callback1",
+      "panel": 6,
+      "control": 4,
+      "resource_id": 137,
+      "kind": "control",
+      "constant": "TMR_MOUSE1",
+      "source": "SPITFIRE",
+      "runtime_control": 4,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        15
+      ],
+      "action_kinds": [
+        "attribute",
+        "command"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "com_motor_speed",
+      "panel": 6,
+      "control": 3,
+      "resource_id": 136,
+      "kind": "control",
+      "constant": "RING",
+      "source": "SPITFIRE",
+      "runtime_control": 3,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "QuitProgram",
+      "panel": 6,
+      "control": 2,
+      "resource_id": 135,
+      "kind": "control",
+      "constant": "BTN_QUIT",
+      "source": "SPITFIRE",
+      "runtime_control": 2,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "quit"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 9,
+      "control": 13,
+      "resource_id": 229,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN",
+      "source": "SPITFIRE",
+      "runtime_control": 13,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "close_setup",
+      "panel": 9,
+      "control": 12,
+      "resource_id": 228,
+      "kind": "control",
+      "constant": "COMMANDBUTTON",
+      "source": "SPITFIRE",
+      "runtime_control": 12,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "slideqswsrc",
+      "panel": 9,
+      "control": 11,
+      "resource_id": 227,
+      "kind": "control",
+      "constant": "SLIDEQSWSCR",
+      "source": "SPITFIRE",
+      "runtime_control": 11,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "slideqswpw",
+      "panel": 9,
+      "control": 10,
+      "resource_id": 226,
+      "kind": "control",
+      "constant": "SLIDEPULSEWIDTH",
+      "source": "SPITFIRE",
+      "runtime_control": 10,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "slideqswprf",
+      "panel": 9,
+      "control": 9,
+      "resource_id": 225,
+      "kind": "control",
+      "constant": "SLIDEQSWPRF",
+      "source": "SPITFIRE",
+      "runtime_control": 9,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "slidesetcurr",
+      "panel": 9,
+      "control": 8,
+      "resource_id": 224,
+      "kind": "control",
+      "constant": "SLIDESETCURR",
+      "source": "SPITFIRE",
+      "runtime_control": 8,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "query"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "MainCallBack",
+      "panel": 6,
+      "control": 0,
+      "resource_id": 6,
+      "kind": "panel",
+      "constant": "WdMAIN",
+      "source": "SPITFIRE",
+      "runtime_control": null,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        7,
+        11
+      ],
+      "action_kinds": [
+        "key_pressed"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "show_help",
+      "panel": 0,
+      "control": 0,
+      "resource_id": 239,
+      "kind": "menu",
+      "constant": "ABOUTx",
+      "source": "SPITFIRE",
+      "runtime_control": null,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel",
+        "state"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "show_ccu",
+      "panel": 0,
+      "control": 0,
+      "resource_id": 237,
+      "kind": "menu",
+      "constant": "ECUx",
+      "source": "SPITFIRE",
+      "runtime_control": null,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel",
+        "state"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "show_info",
+      "panel": 0,
+      "control": 0,
+      "resource_id": 236,
+      "kind": "menu",
+      "constant": "INFOx",
+      "source": "SPITFIRE",
+      "runtime_control": null,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel",
+        "state"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "show_faults",
+      "panel": 0,
+      "control": 0,
+      "resource_id": 235,
+      "kind": "menu",
+      "constant": "FAULTSx",
+      "source": "SPITFIRE",
+      "runtime_control": null,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel",
+        "state"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "show_setup",
+      "panel": 0,
+      "control": 0,
+      "resource_id": 234,
+      "kind": "menu",
+      "constant": "SETUPx",
+      "source": "SPITFIRE",
+      "runtime_control": null,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "panel",
+        "state"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "exit_from_menu",
+      "panel": 0,
+      "control": 0,
+      "resource_id": 232,
+      "kind": "menu",
+      "constant": "EXITx",
+      "source": "SPITFIRE",
+      "runtime_control": null,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "quit"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 1,
+      "control": 12,
+      "resource_id": 11,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN",
+      "source": "SERVER",
+      "runtime_control": 12,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "command",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "ClearScreenCB",
+      "panel": 1,
+      "control": 7,
+      "resource_id": 6,
+      "kind": "control",
+      "constant": "CLEAR",
+      "source": "SERVER",
+      "runtime_control": 7,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "reset_textbox"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "TransmitCB",
+      "panel": 1,
+      "control": 3,
+      "resource_id": 2,
+      "kind": "control",
+      "constant": "STRING",
+      "source": "SERVER",
+      "runtime_control": 3,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        1
+      ],
+      "action_kinds": [
+        "server_write",
+        "set"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    },
+    {
+      "name": "MainPanelCB",
+      "panel": 1,
+      "control": 0,
+      "resource_id": 1,
+      "kind": "panel",
+      "constant": "MAINPNL",
+      "source": "SERVER",
+      "runtime_control": null,
+      "dispatcher_implemented": true,
+      "activated_events": [
+        11
+      ],
+      "action_kinds": [
+        "server_panel"
+      ],
+      "errors": [],
+      "controller_unhandled_action_kinds": []
+    }
+  ]
+}

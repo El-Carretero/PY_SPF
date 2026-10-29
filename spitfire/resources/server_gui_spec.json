@@ -1,0 +1,1535 @@
+{
+  "source": "SERVER.UIR",
+  "panels": [
+    {
+      "id": "server",
+      "name": "MAINPNL",
+      "title": "TCP Server Console",
+      "width": 383,
+      "height": 465,
+      "background": 16119285,
+      "controls": [
+        {
+          "id": 2,
+          "resource_id": 1,
+          "drawing_index": 1,
+          "name": "TRANSMIT",
+          "callback": "",
+          "style": 171,
+          "data_type": 5,
+          "local_index": 1,
+          "value_hex": "00000000",
+          "value": "",
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "TRANSMIT",
+            "callback_name": "",
+            "visible": 1,
+            "left": 10,
+            "top": 89,
+            "width": 362,
+            "height": 99,
+            "zplane_position": 12,
+            "frame_color": 16119285,
+            "ctrl_style": 171,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 0,
+            "label_text": "Transmit:",
+            "label_font": "NIDialogMetaFont",
+            "label_color": 0,
+            "label_italic": 0,
+            "label_underline": 0,
+            "label_strikeout": 0,
+            "label_point_size": 11,
+            "label_bold": 0,
+            "label_visible": 1,
+            "label_justify": 0,
+            "label_left": 10,
+            "label_top": 70,
+            "label_width": 52,
+            "label_height": 15,
+            "label_bgcolor": 16119285,
+            "text_color": 0,
+            "text_font": "NIDialogMetaFont",
+            "text_point_size": 11,
+            "text_bold": 0,
+            "text_bgcolor": 16119285,
+            "text_justify": 0,
+            "data_type": 5,
+            "dflt_value": "",
+            "no_edit_text": 0,
+            "bounding_rect": [
+              70,
+              10,
+              118,
+              362
+            ],
+            "value": ""
+          },
+          "bitmap": "sprites/server_p1_c2.png"
+        },
+        {
+          "id": 3,
+          "resource_id": 2,
+          "drawing_index": 3,
+          "name": "STRING",
+          "callback": "TransmitCB",
+          "style": 151,
+          "data_type": 5,
+          "local_index": 2,
+          "value_hex": "00000000",
+          "value": "",
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "STRING",
+            "callback_name": "",
+            "visible": 1,
+            "left": 10,
+            "top": 35,
+            "width": 362,
+            "height": 21,
+            "zplane_position": 10,
+            "frame_color": 16119285,
+            "ctrl_style": 151,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 1,
+            "label_text": "",
+            "label_font": "NIDialogMetaFont",
+            "label_color": 0,
+            "label_italic": 0,
+            "label_underline": 0,
+            "label_strikeout": 0,
+            "label_point_size": 11,
+            "label_bold": 0,
+            "label_visible": 1,
+            "label_justify": 0,
+            "label_left": -7,
+            "label_top": 14,
+            "label_width": 8,
+            "label_height": 15,
+            "label_bgcolor": 16119285,
+            "text_color": 0,
+            "text_font": "NIDialogMetaFont",
+            "text_point_size": 11,
+            "text_bold": 0,
+            "text_bgcolor": 16777215,
+            "text_justify": 0,
+            "data_type": 5,
+            "dflt_value": "",
+            "no_edit_text": 0,
+            "bounding_rect": [
+              35,
+              10,
+              21,
+              362
+            ],
+            "value": ""
+          },
+          "bitmap": "sprites/server_p1_c3.png"
+        },
+        {
+          "id": 4,
+          "resource_id": 3,
+          "drawing_index": 0,
+          "name": "RECEIVE",
+          "callback": "",
+          "style": 171,
+          "data_type": 5,
+          "local_index": 3,
+          "value_hex": "00000000",
+          "value": "",
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "RECEIVE",
+            "callback_name": "",
+            "visible": 1,
+            "left": 10,
+            "top": 229,
+            "width": 362,
+            "height": 99,
+            "zplane_position": 13,
+            "frame_color": 16119285,
+            "ctrl_style": 171,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 0,
+            "label_text": "Receive:",
+            "label_font": "NIDialogMetaFont",
+            "label_color": 0,
+            "label_italic": 0,
+            "label_underline": 0,
+            "label_strikeout": 0,
+            "label_point_size": 11,
+            "label_bold": 0,
+            "label_visible": 1,
+            "label_justify": 0,
+            "label_left": 10,
+            "label_top": 210,
+            "label_width": 48,
+            "label_height": 15,
+            "label_bgcolor": 16119285,
+            "text_color": 0,
+            "text_font": "NIDialogMetaFont",
+            "text_point_size": 11,
+            "text_bold": 0,
+            "text_bgcolor": 16119285,
+            "text_justify": 0,
+            "data_type": 5,
+            "dflt_value": "",
+            "no_edit_text": 0,
+            "bounding_rect": [
+              210,
+              10,
+              118,
+              362
+            ],
+            "value": ""
+          },
+          "bitmap": "sprites/server_p1_c4.png"
+        },
+        {
+          "id": 5,
+          "resource_id": 4,
+          "drawing_index": 12,
+          "name": "CONNECTED",
+          "callback": "",
+          "style": 264,
+          "data_type": 1,
+          "local_index": 4,
+          "value_hex": "00000000",
+          "value": 0,
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "CONNECTED",
+            "callback_name": "",
+            "visible": 1,
+            "left": 269,
+            "top": 336,
+            "width": 20,
+            "height": 20,
+            "zplane_position": 1,
+            "ctrl_style": 264,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 0,
+            "label_text": "Connected:",
+            "label_font": "NIDialogMetaFont",
+            "label_color": 0,
+            "label_italic": 0,
+            "label_underline": 0,
+            "label_strikeout": 0,
+            "label_point_size": 11,
+            "label_bold": 0,
+            "label_visible": 1,
+            "label_justify": 0,
+            "label_left": 194,
+            "label_top": 338,
+            "label_width": 64,
+            "label_height": 15,
+            "label_bgcolor": 16119285,
+            "data_type": 1,
+            "dflt_value": 0,
+            "on_color": 52224,
+            "off_color": 13947080,
+            "bounding_rect": [
+              336,
+              194,
+              20,
+              95
+            ],
+            "value": 0
+          },
+          "bitmap": "sprites/server_p1_c5.png"
+        },
+        {
+          "id": 6,
+          "resource_id": 5,
+          "drawing_index": 10,
+          "name": "ONLINE",
+          "callback": "",
+          "style": 264,
+          "data_type": 1,
+          "local_index": 5,
+          "value_hex": "00000000",
+          "value": 0,
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "ONLINE",
+            "callback_name": "",
+            "visible": 1,
+            "left": 59,
+            "top": 336,
+            "width": 20,
+            "height": 20,
+            "zplane_position": 3,
+            "ctrl_style": 264,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 0,
+            "label_text": "Online",
+            "label_font": "NIDialogMetaFont",
+            "label_color": 0,
+            "label_italic": 0,
+            "label_underline": 0,
+            "label_strikeout": 0,
+            "label_point_size": 11,
+            "label_bold": 0,
+            "label_visible": 1,
+            "label_justify": 0,
+            "label_left": 13,
+            "label_top": 338,
+            "label_width": 38,
+            "label_height": 15,
+            "label_bgcolor": 16119285,
+            "data_type": 1,
+            "dflt_value": 0,
+            "on_color": 52224,
+            "off_color": 13947080,
+            "bounding_rect": [
+              336,
+              13,
+              20,
+              66
+            ],
+            "value": 0
+          },
+          "bitmap": "sprites/server_p1_c6.png"
+        },
+        {
+          "id": 7,
+          "resource_id": 6,
+          "drawing_index": 2,
+          "name": "CLEAR",
+          "callback": "ClearScreenCB",
+          "style": 205,
+          "data_type": 1,
+          "local_index": 6,
+          "value_hex": "00000000",
+          "value": 0,
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "CLEAR",
+            "callback_name": "",
+            "visible": 1,
+            "left": 100,
+            "top": 195,
+            "width": 172,
+            "height": 26,
+            "zplane_position": 11,
+            "ctrl_style": 205,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 1,
+            "label_text": "__Clear Receive Screen",
+            "label_font": "NIDialogMetaFont",
+            "label_color": 0,
+            "label_italic": 0,
+            "label_underline": 0,
+            "label_strikeout": 0,
+            "label_point_size": 11,
+            "label_bold": 0,
+            "label_visible": 1,
+            "data_type": 1,
+            "dflt_value": 0,
+            "cmd_button_color": 16119285,
+            "bounding_rect": [
+              195,
+              100,
+              26,
+              172
+            ],
+            "value": 0
+          },
+          "bitmap": "sprites/server_p1_c7.png"
+        },
+        {
+          "id": 8,
+          "resource_id": 7,
+          "drawing_index": 9,
+          "name": "CLIENT_NAME",
+          "callback": "",
+          "style": 151,
+          "data_type": 5,
+          "local_index": 7,
+          "value_hex": "00000000",
+          "value": "",
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "CLIENT_NAME",
+            "callback_name": "",
+            "visible": 1,
+            "left": 207,
+            "top": 427,
+            "width": 154,
+            "height": 21,
+            "zplane_position": 4,
+            "frame_color": 16119285,
+            "ctrl_style": 151,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 0,
+            "label_text": "Client Name:",
+            "label_font": "NIDialogMetaFont",
+            "label_color": 0,
+            "label_italic": 0,
+            "label_underline": 0,
+            "label_strikeout": 0,
+            "label_point_size": 11,
+            "label_bold": 0,
+            "label_visible": 1,
+            "label_justify": 0,
+            "label_left": 207,
+            "label_top": 406,
+            "label_width": 71,
+            "label_height": 15,
+            "label_bgcolor": 16119285,
+            "text_color": 0,
+            "text_font": "NIDialogMetaFont",
+            "text_point_size": 11,
+            "text_bold": 0,
+            "text_bgcolor": 16119285,
+            "text_justify": 0,
+            "data_type": 5,
+            "dflt_value": "",
+            "no_edit_text": 0,
+            "bounding_rect": [
+              406,
+              207,
+              42,
+              154
+            ],
+            "value": ""
+          },
+          "bitmap": "sprites/server_p1_c8.png"
+        },
+        {
+          "id": 9,
+          "resource_id": 8,
+          "drawing_index": 8,
+          "name": "CLIENT_IP",
+          "callback": "",
+          "style": 151,
+          "data_type": 5,
+          "local_index": 8,
+          "value_hex": "00000000",
+          "value": "",
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "CLIENT_IP",
+            "callback_name": "",
+            "visible": 1,
+            "left": 207,
+            "top": 384,
+            "width": 154,
+            "height": 21,
+            "zplane_position": 5,
+            "frame_color": 16119285,
+            "ctrl_style": 151,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 0,
+            "label_text": "Client IP:",
+            "label_font": "NIDialogMetaFont",
+            "label_color": 0,
+            "label_italic": 0,
+            "label_underline": 0,
+            "label_strikeout": 0,
+            "label_point_size": 11,
+            "label_bold": 0,
+            "label_visible": 1,
+            "label_justify": 0,
+            "label_left": 207,
+            "label_top": 363,
+            "label_width": 50,
+            "label_height": 15,
+            "label_bgcolor": 16119285,
+            "text_color": 0,
+            "text_font": "NIDialogMetaFont",
+            "text_point_size": 11,
+            "text_bold": 0,
+            "text_bgcolor": 16119285,
+            "text_justify": 0,
+            "data_type": 5,
+            "dflt_value": "",
+            "no_edit_text": 0,
+            "bounding_rect": [
+              363,
+              207,
+              42,
+              154
+            ],
+            "value": ""
+          },
+          "bitmap": "sprites/server_p1_c9.png"
+        },
+        {
+          "id": 10,
+          "resource_id": 9,
+          "drawing_index": 7,
+          "name": "SERVER_NAME",
+          "callback": "",
+          "style": 151,
+          "data_type": 5,
+          "local_index": 9,
+          "value_hex": "00000000",
+          "value": "",
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "SERVER_NAME",
+            "callback_name": "",
+            "visible": 1,
+            "left": 21,
+            "top": 427,
+            "width": 160,
+            "height": 21,
+            "zplane_position": 6,
+            "frame_color": 16119285,
+            "ctrl_style": 151,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 0,
+            "label_text": "Server Name:",
+            "label_font": "NIDialogMetaFont",
+            "label_color": 0,
+            "label_italic": 0,
+            "label_underline": 0,
+            "label_strikeout": 0,
+            "label_point_size": 11,
+            "label_bold": 0,
+            "label_visible": 1,
+            "label_justify": 0,
+            "label_left": 21,
+            "label_top": 406,
+            "label_width": 73,
+            "label_height": 15,
+            "label_bgcolor": 16119285,
+            "text_color": 0,
+            "text_font": "NIDialogMetaFont",
+            "text_point_size": 11,
+            "text_bold": 0,
+            "text_bgcolor": 16119285,
+            "text_justify": 0,
+            "data_type": 5,
+            "dflt_value": "",
+            "no_edit_text": 0,
+            "bounding_rect": [
+              406,
+              21,
+              42,
+              160
+            ],
+            "value": ""
+          },
+          "bitmap": "sprites/server_p1_c10.png"
+        },
+        {
+          "id": 11,
+          "resource_id": 10,
+          "drawing_index": 6,
+          "name": "SERVER_IP",
+          "callback": "",
+          "style": 151,
+          "data_type": 5,
+          "local_index": 10,
+          "value_hex": "00000000",
+          "value": "",
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "SERVER_IP",
+            "callback_name": "",
+            "visible": 1,
+            "left": 20,
+            "top": 384,
+            "width": 160,
+            "height": 21,
+            "zplane_position": 7,
+            "frame_color": 16119285,
+            "ctrl_style": 151,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 0,
+            "label_text": "Server IP:",
+            "label_font": "NIDialogMetaFont",
+            "label_color": 0,
+            "label_italic": 0,
+            "label_underline": 0,
+            "label_strikeout": 0,
+            "label_point_size": 11,
+            "label_bold": 0,
+            "label_visible": 1,
+            "label_justify": 0,
+            "label_left": 20,
+            "label_top": 363,
+            "label_width": 52,
+            "label_height": 15,
+            "label_bgcolor": 16119285,
+            "text_color": 0,
+            "text_font": "NIDialogMetaFont",
+            "text_point_size": 11,
+            "text_bold": 0,
+            "text_bgcolor": 16119285,
+            "text_justify": 0,
+            "data_type": 5,
+            "dflt_value": "",
+            "no_edit_text": 0,
+            "bounding_rect": [
+              363,
+              20,
+              42,
+              160
+            ],
+            "value": ""
+          },
+          "bitmap": "sprites/server_p1_c11.png"
+        },
+        {
+          "id": 12,
+          "resource_id": 11,
+          "drawing_index": 13,
+          "name": "ESC_OFF_BTN",
+          "callback": "esc_turnoff",
+          "style": 205,
+          "data_type": 1,
+          "local_index": 11,
+          "value_hex": "00000000",
+          "value": 0,
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "ESC_OFF_BTN",
+            "callback_name": "",
+            "visible": 1,
+            "left": 424,
+            "top": 29,
+            "width": 110,
+            "height": 26,
+            "zplane_position": 0,
+            "ctrl_style": 205,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 1,
+            "label_text": "ESC_TURNOFF",
+            "label_font": "NIDialogMetaFont",
+            "label_color": 0,
+            "label_italic": 0,
+            "label_underline": 0,
+            "label_strikeout": 0,
+            "label_point_size": 11,
+            "label_bold": 0,
+            "label_visible": 1,
+            "data_type": 1,
+            "dflt_value": 0,
+            "cmd_button_color": 16119285,
+            "bounding_rect": [
+              29,
+              424,
+              26,
+              110
+            ],
+            "value": 0
+          },
+          "bitmap": "sprites/server_p1_c12.png"
+        },
+        {
+          "id": 13,
+          "resource_id": 12,
+          "drawing_index": 5,
+          "name": "DECORATION",
+          "callback": "",
+          "style": 410,
+          "data_type": 1,
+          "local_index": 12,
+          "value_hex": "",
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "DECORATION",
+            "callback_name": "",
+            "visible": 1,
+            "left": 10,
+            "top": 345,
+            "width": 179,
+            "height": 111,
+            "zplane_position": 8,
+            "frame_color": 16119285,
+            "ctrl_style": 410,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 0,
+            "bounding_rect": [
+              345,
+              10,
+              111,
+              179
+            ]
+          },
+          "value": 0,
+          "bitmap": "sprites/server_p1_c13.png"
+        },
+        {
+          "id": 14,
+          "resource_id": 13,
+          "drawing_index": 4,
+          "name": "TEXTMSG",
+          "callback": "",
+          "style": 160,
+          "data_type": 5,
+          "local_index": 13,
+          "value_hex": "5479706520736f6d65207465787420616e6420707265737320454e54455220746f2073656e642e2e2e000000",
+          "value": "Type some text and press ENTER to send...",
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "TEXTMSG",
+            "callback_name": "",
+            "visible": 1,
+            "left": 11,
+            "top": 13,
+            "width": 223,
+            "height": 15,
+            "zplane_position": 9,
+            "ctrl_style": 160,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 0,
+            "text_color": 0,
+            "text_font": "NIDialogMetaFont",
+            "text_point_size": 11,
+            "text_bold": 0,
+            "text_bgcolor": 16119285,
+            "text_justify": 0,
+            "data_type": 5,
+            "dflt_value": "Type some text and press ENTER to send...",
+            "bounding_rect": [
+              13,
+              11,
+              15,
+              223
+            ],
+            "value": "Type some text and press ENTER to send..."
+          },
+          "bitmap": "sprites/server_p1_c14.png"
+        },
+        {
+          "id": 15,
+          "resource_id": 14,
+          "drawing_index": 11,
+          "name": "DECORATION_2",
+          "callback": "",
+          "style": 410,
+          "data_type": 1,
+          "local_index": 14,
+          "value_hex": "",
+          "attributes": {
+            "dimmed": 0,
+            "constant_name": "DECORATION_2",
+            "callback_name": "",
+            "visible": 1,
+            "left": 197,
+            "top": 345,
+            "width": 174,
+            "height": 111,
+            "zplane_position": 2,
+            "frame_color": 16119285,
+            "ctrl_style": 410,
+            "hidden_when_loaded": 0,
+            "ctrl_mode": 0,
+            "bounding_rect": [
+              345,
+              197,
+              111,
+              174
+            ]
+          },
+          "value": 0,
+          "bitmap": "sprites/server_p1_c15.png"
+        }
+      ],
+      "drawings": [
+        {
+          "drawing_index": 0,
+          "class": "StdString",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000003044444f440000100500000000003000e0000000030000000affff00000000000affff000000000009ffff0000"
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000504c61626c00171162001000091000000000d2000a00e4004300d4d0c800d4d0c80000000000cccccc000000000000000b0001000100010001000004020102000000000008526563656976653a",
+              "rect": [
+                10,
+                210,
+                57,
+                18
+              ],
+              "flags": 1511778,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13421772
+              ],
+              "strings": [
+                "Receive:"
+              ],
+              "text": [
+                "Receive:"
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000484c61626c14001932000b000900f0000000e8000d014a017100d4d0c800d4d0c80000000000d4d0c8000000000000000b0001000100010001002014040102000000000000",
+              "rect": [
+                13,
+                232,
+                356,
+                98
+              ],
+              "flags": 335550770,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13947080
+              ],
+              "strings": [
+                ""
+              ],
+              "text": [
+                ""
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Cosm",
+              "hex": "0000002c436f736d10001917000900000000000000e5000a014d017400d4d0c800d4d0c8000000000000015a"
+            }
+          ],
+          "strings": [
+            "Receive:",
+            ""
+          ],
+          "control_id": 4
+        },
+        {
+          "drawing_index": 1,
+          "class": "StdString",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000003044444f440000100500000000003000e0000000030000000affff00000000000affff000000000009ffff0000"
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000544c61626c0017116200100009100000000046000a0058004400d4d0c800d4d0c80000000000cccccc000000000000000b00010001000100010000040201020000000000095472616e736d69743a000000",
+              "rect": [
+                10,
+                70,
+                58,
+                18
+              ],
+              "flags": 1511778,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13421772
+              ],
+              "strings": [
+                "Transmit:"
+              ],
+              "text": [
+                "Transmit:"
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000484c61626c14001932000b000900f00000005c000d00be017100d4d0c800d4d0c80000000000d4d0c8000000000000000b0001000100010001002014040102000000000000",
+              "rect": [
+                13,
+                92,
+                356,
+                98
+              ],
+              "flags": 335550770,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13947080
+              ],
+              "strings": [
+                ""
+              ],
+              "text": [
+                ""
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Cosm",
+              "hex": "0000002c436f736d1000191700090000000000000059000a00c1017400d4d0c800d4d0c8000000000000015a"
+            }
+          ],
+          "strings": [
+            "Transmit:",
+            ""
+          ],
+          "control_id": 2
+        },
+        {
+          "drawing_index": 2,
+          "class": "StdBoolDisp",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000002844444f44000610000000000000f000e0000000020000000dffff00000000000cffff0000"
+            },
+            {
+              "tag": "MLbl",
+              "hex": "000000a04d4c626c1006197200160015000f000000c7007600d900fd01000000010000000000000000000000000000000001000100010001000004220102000000000004165f5f436c65617220526563656976652053637265656e165f5f436c65617220526563656976652053637265656e165f5f436c65617220526563656976652053637265656e165f5f436c65617220526563656976652053637265656e",
+              "rect": [
+                118,
+                199,
+                135,
+                18
+              ],
+              "flags": 268835186,
+              "colors": [
+                16777216,
+                16777216,
+                0,
+                0
+              ],
+              "strings": [
+                "__Clear Receive Screen"
+              ],
+              "text": [
+                "__Clear Receive Screen"
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 0,
+              "font_flags": 1
+            },
+            {
+              "tag": "BCos",
+              "hex": "0000007842436f73100019120015000000f000000000000400c3006400dd011000d4d0c800d4d0c8000000000000013c00c3006400dd011000d4d0c800d4d0c8000000000000013c00c3006400dd011000978e7b00978e7b000000000000013c00c3006400dd011000978e7b00978e7b000000000000013d",
+              "rect": [
+                100,
+                195,
+                172,
+                26
+              ],
+              "colors": [
+                13947080,
+                13947080
+              ]
+            }
+          ],
+          "strings": [
+            "__Clear Receive Screen"
+          ],
+          "control_id": 7
+        },
+        {
+          "drawing_index": 3,
+          "class": "StdString",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000003044444f440000104400000000003000e0000000030000000affff00000000000affff000000000009ffff0000"
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000484c61626c0017116a0010000910000000000efff90020000300d4d0c800d4d0c80000000000cccccc000000000000000b0001000100010001000004020102000000000000",
+              "rect": [
+                -7,
+                14,
+                10,
+                18
+              ],
+              "flags": 1511786,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13421772
+              ],
+              "strings": [
+                ""
+              ],
+              "text": [
+                ""
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000484c61626c10001932000b000900f000000026000d0038017100ffffff00ffffff0000000000cccccc000000000000000b0001000100010001002004020102000000000000",
+              "rect": [
+                13,
+                38,
+                356,
+                18
+              ],
+              "flags": 268441906,
+              "colors": [
+                16777215,
+                16777215,
+                0,
+                13421772
+              ],
+              "strings": [
+                ""
+              ],
+              "text": [
+                ""
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Cosm",
+              "hex": "0000002c436f736d1200191700090000000000000023000a003b017400d4d0c800d4d0c8000000000000015a"
+            }
+          ],
+          "strings": [
+            ""
+          ],
+          "control_id": 3
+        },
+        {
+          "drawing_index": 4,
+          "class": "StdString",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000002044444f44006210210000000000f000e0000000010000000affff0000"
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000744c61626c00061923000b00000f000000000d000b001f011300d4d0c800d4d0c80000000000cccccc000000000000000b00010001000100010000040401020000000000295479706520736f6d65207465787420616e6420707265737320454e54455220746f2073656e642e2e2e000000",
+              "rect": [
+                11,
+                13,
+                264,
+                18
+              ],
+              "flags": 399651,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13421772
+              ],
+              "strings": [
+                "Type some text and press ENTER to send..."
+              ],
+              "text": [
+                "Type some text and press ENTER to send..."
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            }
+          ],
+          "strings": [
+            "Type some text and press ENTER to send..."
+          ],
+          "control_id": 14
+        },
+        {
+          "drawing_index": 5,
+          "class": "StdBoolDisp",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000002044444f440000100500000000000000e00000000100000009ffff0000"
+            },
+            {
+              "tag": "Cosm",
+              "hex": "0000002c436f736d000010150009000000f000000159000a01c800bd00d4d0c800d4d0c8000000000000015b"
+            }
+          ],
+          "strings": [],
+          "control_id": 13
+        },
+        {
+          "drawing_index": 6,
+          "class": "StdString",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000003044444f440000100500000000003000e0000000030000000affff00000000000affff000000000009ffff0000"
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000544c61626c001711620010000910000000016b0014017d005100d4d0c800d4d0c80000000000cccccc000000000000000b000100010001000100000402010200000000000a5365727665722049503a0000",
+              "rect": [
+                20,
+                363,
+                61,
+                18
+              ],
+              "flags": 1511778,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13421772
+              ],
+              "strings": [
+                "Server IP:"
+              ],
+              "text": [
+                "Server IP:"
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000484c61626c10001932000b000900f0000001830017019500b100d4d0c800d4d0c80000000000cccccc000000000000000b0001000100010001002004020102000000000000",
+              "rect": [
+                23,
+                387,
+                154,
+                18
+              ],
+              "flags": 268441906,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13421772
+              ],
+              "strings": [
+                ""
+              ],
+              "text": [
+                ""
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Cosm",
+              "hex": "0000002c436f736d12001917000900000000000001800014019800b400d4d0c800d4d0c8000000000000015a"
+            }
+          ],
+          "strings": [
+            "Server IP:",
+            ""
+          ],
+          "control_id": 11
+        },
+        {
+          "drawing_index": 7,
+          "class": "StdString",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000003044444f440000100500000000003000e0000000030000000affff00000000000affff000000000009ffff0000"
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000544c61626c0017116200100009100000000196001501a8006b00d4d0c800d4d0c80000000000cccccc000000000000000b000100010001000100000402010200000000000c536572766572204e616d653a",
+              "rect": [
+                21,
+                406,
+                86,
+                18
+              ],
+              "flags": 1511778,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13421772
+              ],
+              "strings": [
+                "Server Name:"
+              ],
+              "text": [
+                "Server Name:"
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000484c61626c10001932000b000900f0000001ae001801c000b200d4d0c800d4d0c80000000000cccccc000000000000000b0001000100010001002004020102000000000000",
+              "rect": [
+                24,
+                430,
+                154,
+                18
+              ],
+              "flags": 268441906,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13421772
+              ],
+              "strings": [
+                ""
+              ],
+              "text": [
+                ""
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Cosm",
+              "hex": "0000002c436f736d12001917000900000000000001ab001501c300b500d4d0c800d4d0c8000000000000015a"
+            }
+          ],
+          "strings": [
+            "Server Name:",
+            ""
+          ],
+          "control_id": 10
+        },
+        {
+          "drawing_index": 8,
+          "class": "StdString",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000003044444f440000100500000000003000e0000000030000000affff00000000000affff000000000009ffff0000"
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000544c61626c001711660010000910000000016b00cf017d010500d4d0c800d4d0c80000000000cccccc000000000000000b000100010001000100004402010200000000000a436c69656e742049503a0000",
+              "rect": [
+                207,
+                363,
+                54,
+                18
+              ],
+              "flags": 1511782,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13421772
+              ],
+              "strings": [
+                "Client IP:"
+              ],
+              "text": [
+                "Client IP:"
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000484c61626c10001936000b000900f00000018300d20195016600d4d0c800d4d0c80000000000cccccc000000000000000b0001000100010001002044020102000000000000",
+              "rect": [
+                210,
+                387,
+                148,
+                18
+              ],
+              "flags": 268441910,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13421772
+              ],
+              "strings": [
+                ""
+              ],
+              "text": [
+                ""
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Cosm",
+              "hex": "0000002c436f736d120019170009000000000000018000cf0198016900d4d0c800d4d0c8000000000000015a"
+            }
+          ],
+          "strings": [
+            "Client IP:",
+            ""
+          ],
+          "control_id": 9
+        },
+        {
+          "drawing_index": 9,
+          "class": "StdString",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000003044444f440000100500000000003000e0000000030000000affff00000000000affff000000000009ffff0000"
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000544c61626c001711660010000910000000019600cf01a8011e00d4d0c800d4d0c80000000000cccccc000000000000000b000100010001000100004402010200000000000c436c69656e74204e616d653a",
+              "rect": [
+                207,
+                406,
+                79,
+                18
+              ],
+              "flags": 1511782,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13421772
+              ],
+              "strings": [
+                "Client Name:"
+              ],
+              "text": [
+                "Client Name:"
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000484c61626c10001936000b000900f0000001ae00d201c0016600d4d0c800d4d0c80000000000cccccc000000000000000b0001000100010001002044020102000000000000",
+              "rect": [
+                210,
+                430,
+                148,
+                18
+              ],
+              "flags": 268441910,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                13421772
+              ],
+              "strings": [
+                ""
+              ],
+              "text": [
+                ""
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "Cosm",
+              "hex": "0000002c436f736d12001917000900000000000001ab00cf01c3016900d4d0c800d4d0c8000000000000015a"
+            }
+          ],
+          "strings": [
+            "Client Name:",
+            ""
+          ],
+          "control_id": 8
+        },
+        {
+          "drawing_index": 10,
+          "class": "StdBoolDisp",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000002844444f44000010010000000000f000e0000000020000000affff00000000000cffff0000"
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000504c61626c0017116200100015100000000152000d0164003600d4d0c800d4d0c80000000000b3b3b3000000000000000b00010001000100010000040201020000000000064f6e6c696e650000",
+              "rect": [
+                13,
+                338,
+                41,
+                18
+              ],
+              "flags": 1511778,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                11776947
+              ],
+              "strings": [
+                "Online"
+              ],
+              "text": [
+                "Online"
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "BCos",
+              "hex": "0000007842436f73100019120015000000f00000000000040150003b0164004f00cccccc00d4d0c8000000000000012a0150003b0164004f00cccccc0000cc00000000000000012b0150003b0164004f00b3b3b300978e7b000000000000012a0150003b0164004f00b3b3b300008800000000000000012b",
+              "rect": [
+                59,
+                336,
+                20,
+                20
+              ],
+              "colors": [
+                13421772,
+                13947080
+              ]
+            }
+          ],
+          "strings": [
+            "Online"
+          ],
+          "control_id": 6
+        },
+        {
+          "drawing_index": 11,
+          "class": "StdBoolDisp",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000002044444f440000100500000000000000e00000000100000009ffff0000"
+            },
+            {
+              "tag": "Cosm",
+              "hex": "0000002c436f736d000010150009000000f00000015900c501c8017300d4d0c800d4d0c8000000000000015b"
+            }
+          ],
+          "strings": [],
+          "control_id": 15
+        },
+        {
+          "drawing_index": 12,
+          "class": "StdBoolDisp",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000002844444f44000010010000000000f000e0000000020000000affff00000000000cffff0000"
+            },
+            {
+              "tag": "Labl",
+              "hex": "000000544c61626c001711620010001510000000015200c20164010900d4d0c800d4d0c80000000000b3b3b3000000000000000b000100010001000100000402010200000000000a436f6e6e65637465643a0000",
+              "rect": [
+                194,
+                338,
+                71,
+                18
+              ],
+              "flags": 1511778,
+              "colors": [
+                13947080,
+                13947080,
+                0,
+                11776947
+              ],
+              "strings": [
+                "Connected:"
+              ],
+              "text": [
+                "Connected:"
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 11,
+              "font_flags": 1
+            },
+            {
+              "tag": "BCos",
+              "hex": "0000007842436f73100019120015000000f00000000000040150010d0164012100cccccc00d4d0c8000000000000012a0150010d0164012100cccccc0000cc00000000000000012b0150010d0164012100b3b3b300978e7b000000000000012a0150010d0164012100b3b3b300008800000000000000012b",
+              "rect": [
+                269,
+                336,
+                20,
+                20
+              ],
+              "colors": [
+                13421772,
+                13947080
+              ]
+            }
+          ],
+          "strings": [
+            "Connected:"
+          ],
+          "control_id": 5
+        },
+        {
+          "drawing_index": 13,
+          "class": "StdBoolDisp",
+          "children": [
+            {
+              "tag": "DDOD",
+              "hex": "0000002844444f44000610400000000000f000e0000000020000000dffff00000000000cffff0000"
+            },
+            {
+              "tag": "MLbl",
+              "hex": "000000744d4c626c1006197200160015000f0000002101ac00330212010000000100000000000000000000000000000000010001000100010000442201020000000000040b4553435f5455524e4f46460b4553435f5455524e4f46460b4553435f5455524e4f46460b4553435f5455524e4f4646",
+              "rect": [
+                428,
+                33,
+                102,
+                18
+              ],
+              "flags": 268835186,
+              "colors": [
+                16777216,
+                16777216,
+                0,
+                0
+              ],
+              "strings": [
+                "ESC_TURNOFF"
+              ],
+              "text": [
+                "ESC_TURNOFF"
+              ],
+              "font": "MS Shell Dlg 2",
+              "point_size": 0,
+              "font_flags": 1
+            },
+            {
+              "tag": "BCos",
+              "hex": "0000007842436f73100019120015000000f0000000000004001d01a80037021600d4d0c800d4d0c8000000000000013c001d01a80037021600d4d0c800d4d0c8000000000000013c001d01a80037021600978e7b00978e7b000000000000013c001d01a80037021600978e7b00978e7b000000000000013d",
+              "rect": [
+                424,
+                29,
+                110,
+                26
+              ],
+              "colors": [
+                13947080,
+                13947080
+              ]
+            }
+          ],
+          "strings": [
+            "ESC_TURNOFF"
+          ],
+          "control_id": 12
+        }
+      ],
+      "attributes": {
+        "left": 43,
+        "top": 53,
+        "width": 383,
+        "height": 465,
+        "title": "TCP Server Console",
+        "backcolor": 16119285,
+        "titlebar_visible": 1,
+        "sizable": 0,
+        "movable": 1,
+        "close_ctrl": 0
+      }
+    }
+  ],
+  "menus": []
+}

@@ -1,0 +1,300 @@
+<?XML Version="1.0"?>
+<nidocument>
+<nierror code="-2147220991">
+The type passed is not a valid Automation data type.
+</nierror>
+<nierror code="-2147220990">
+The type passed not a valid return type.
+</nierror>
+<nierror code="-2147220989">
+Use CAVT_ constants for data types instead of VT_ constants.
+</nierror>
+<nierror code="-2147220988">
+The number of dimensions in the Safe Array does not match the number required by this function.
+</nierror>
+<nierror code="-2147220987">
+The Safe Array type does not match the requested type.
+</nierror>
+<nierror code="-2147220986">
+The Variant does not contain a Safe Array.
+</nierror>
+<nierror code="-2147220985">
+The return value parameter must not be NULL.
+</nierror>
+<nierror code="-2147220984">
+Could not load the CVI Automation Support DLL (cviauto.dll).
+</nierror>
+<nierror code="-2147220983">
+The CVI Automation Support DLL (cviauto.dll) version does not match the import library.
+</nierror>
+<nierror code="-2147220982">
+Unable to create a required mutex.
+</nierror>
+<nierror code="-2147220981">
+You can call this function only from the thread that created the CAObjHandle.
+</nierror>
+<nierror code="-2147220980">
+The object has no registered event callbacks.
+</nierror>
+<nierror code="-2147220979">
+Invalid callback ID.
+</nierror>
+<nierror code="-2147220978">
+This event already has a registered callback.
+</nierror>
+<nierror code="-2147220977">
+This event does not have a registered callback.
+</nierror>
+<nierror code="-2147220976">
+Invalid event method index.
+</nierror>
+<nierror code="-2147220975">
+Invalid ActiveX interface pointer.
+</nierror>
+<nierror code="-2147220974">
+The automation server was not initialized.
+</nierror>
+<nierror code="-2147220973">
+The module type is invalid.
+</nierror>
+<nierror code="-2147220972">
+This operation is only permitted on in-process (DLL) servers.
+</nierror>
+<nierror code="-2147220971">
+The server was not launched for automation.
+</nierror>
+<nierror code="-2147220970">
+Aggregation is only allowed during object creation.
+</nierror>
+<nierror code="-2147220969">
+This interface is already implemented or aggregated by this object.
+</nierror>
+<nierror code="-2147220968">
+Server initialization error.
+</nierror>
+<nierror code="-2147220967">
+The class is not registered internally with the Automation Support DLL.
+</nierror>
+<nierror code="-2147220966">
+Invalid error code.
+</nierror>
+<nierror code="-2147220965">
+Invalid error code.
+</nierror>
+<nierror code="-2147220964">
+Invalid error code.
+</nierror>
+<nierror code="-2147220963">
+Invalid error code.
+</nierror>
+<nierror code="-2147220962">
+Invalid error code.
+</nierror>
+<nierror code="-2147220961">
+Invalid error code.
+</nierror>
+<nierror code="-2147220960">
+A user interface library error occurred.
+</nierror>
+<nierror code="-2147220959">
+This object does not implement the ISupportErrorInfo interface.
+</nierror>
+<nierror code="-2147220958">
+This interface does not support ErrorInfo.
+</nierror>
+<nierror code="-2147220957">
+This function cannot be called from the server or object callback.
+</nierror>
+<nierror code="-2147220224">
+Could not load the DataSocket Support DLL
+</nierror>
+<nierror code="-2147220223">
+The DLL version does not match the import library
+</nierror>
+<nierror code="-2147220222">
+Cannot create DataSocket for buffered operation in 'Multithreaded Apartment' thread with event model
+</nierror>
+<nierror code="-2147220221">
+The DataSocket operation timed-out
+</nierror>
+<nierror code="-2147220220">
+Cannot access polling queue in event model
+</nierror>
+<nierror code="-5001">
+Could Not Open File For Reading
+</nierror>
+<nierror code="-5002">
+Error Reading From File
+</nierror>
+<nierror code="-5003">
+Could Not Find Unused Temporary File Name
+</nierror>
+<nierror code="-5004">
+Could Not Create Temporary File
+</nierror>
+<nierror code="-5005">
+Incorrect File Format
+</nierror>
+<nierror code="-5006">
+Unexpected End Of File
+</nierror>
+<nierror code="-5021">
+Invalid Integer Number
+</nierror>
+<nierror code="-5022">
+Invalid Unsigned Integer Number
+</nierror>
+<nierror code="-5023">
+Invalid Floating Point Number
+</nierror>
+<nierror code="-5024">
+Invalid Boolean Value
+</nierror>
+<nierror code="-5025">
+Missing Section
+</nierror>
+<nierror code="-5026">
+Missing Item
+</nierror>
+<nierror code="-5027">
+Unrecognized Value
+</nierror>
+<nierror code="-5050">
+Could not perform requested action because of an operation currently in progress
+</nierror>
+<nierror code="-5051">
+Too many items
+</nierror>
+<nierror code="-5052">
+Duplicate item or value
+</nierror>
+<nierror code="-5060">
+Panel is not a child panel of the correct panel
+</nierror>
+<nierror code="-5065">
+Could not open Registry Key
+</nierror>
+<nierror code="-5066">
+Could not set data for Registry Value
+</nierror>
+<nierror code="-5067">
+Could not access Registry Value
+</nierror>
+<nierror code="-5068">
+Registry Value does not exist
+</nierror>
+<nierror code="-5069">
+Incorrect type for Registry Value
+</nierror>
+<nierror code="-5070">
+Registry Key does not exist
+</nierror>
+<nierror code="-5071">
+Out of memory
+</nierror>
+<nierror code="-5075">
+Invalid display item
+</nierror>
+<nierror code="-5080">
+Message-callback not installed
+</nierror>
+<nierror code="-5081">
+Message-callback already installed.
+</nierror>
+<nierror code="-5082">
+Panel not top-level.
+</nierror>
+<nierror code="-5083">
+Panel does not have a callback function.
+</nierror>
+<nierror code="-5084">
+Drag-and-Drop not enabled for panel
+</nierror>
+<nierror code="-5085">
+Invalid message-callback execution-mode
+</nierror>
+<nierror code="-5087">
+No menu for Tray Icon
+</nierror>
+<nierror code="-5088">
+Invalid item for Tray Icon popup menu
+</nierror>
+<nierror code="-5089">
+Invalid Tray Icon
+</nierror>
+<nierror code="-5090">
+Could not load icon from file
+</nierror>
+<nierror code="-5093">
+Could not load required system DLL
+</nierror>
+<nierror code="-5094">
+Required function not found in system DLL
+</nierror>
+<nierror code="-5095">
+Unknown system error
+</nierror>
+<nierror code="-5096">
+There is no application associated with the given file name extension
+</nierror>
+<nierror code="-6000">
+Invalid or corrupt language file
+</nierror>
+<nierror code="-6201">
+The library could not allocate memory.
+</nierror>
+<nierror code="-6202">
+An invalid argument was passed to the library.
+</nierror>
+<nierror code="-6203">
+An invalid data type was passed to the library.
+</nierror>
+<nierror code="-6204">
+An unexpected error occurred in the library.
+</nierror>
+<nierror code="-6205">
+The USI engine could not be loaded.
+</nierror>
+<nierror code="-6206">
+An invalid file handle was passed to the library.
+</nierror>
+<nierror code="-6207">
+An invalid channel group handle was passed to the library.
+</nierror>
+<nierror code="-6208">
+An invalid channel handle was passed to the library.
+</nierror>
+<nierror code="-6209">
+The file passed to the library does not exist.
+</nierror>
+<nierror code="-6210">
+The file passed to the library is read only and cannot be modified.
+</nierror>
+<nierror code="-6211">
+The storage could not be opened.
+</nierror>
+<nierror code="-6212">
+The file passed to the library already exists and cannot be created.
+</nierror>
+<nierror code="-6213">
+The property passed to the library does not exist.
+</nierror>
+<nierror code="-6214">
+The property passed to the library does not have a value.
+</nierror>
+<nierror code="-6215">
+The value of the property passed to the library is an array and not a scalar.
+</nierror>
+<nierror code="-6216">
+The object type passed to the library does not exist.
+</nierror>
+<nierror code="-6217">
+The current implementation does not support this operation.
+</nierror>
+<nierror code="-6218">
+Could not save file.
+</nierror>
+<nierror code="-6219">
+Maximum number of data values exceeded.
+</nierror>
+</nidocument>
