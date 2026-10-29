@@ -1,0 +1,7 @@
+{
+  "scope": "Frozen EXE entry-point import and argparse startup only; no live GUI/operation commands",
+  "exit_code": 0,
+  "elapsed_seconds": 3.0239102000005005,
+  "stdout": "usage: SpitfirePythonControl.exe [-h] [--simulator | --udp]\n                                 [--pump-mode {empower,external}]\n                                 [--host HOST] [--remote-port REMOTE_PORT]\n                                 [--local-port LOCAL_PORT]\n                                 [--self-test-report SELF_TEST_REPORT]\n\nSpitfire Python Control\n\noptions:\n  -h, --help            show this help message and exit\n  --simulator           force the safe in-process simulator\n  --udp                 select the UDP hardware transport\n  --pump-mode {empower,external}\n                        select the pump configuration independently of\n                        simulator/UDP\n  --host HOST           override remote controller host\n  --remote-port REMOTE_PORT\n                        override remote UDP port\n  --local-port LOCAL_PORT\n                        override local UDP bind port\n  --self-test-report SELF_TEST_REPORT\n                        run isolated simulator GUI checks, save JSON and exit\n",
+  "stderr": ""
+}

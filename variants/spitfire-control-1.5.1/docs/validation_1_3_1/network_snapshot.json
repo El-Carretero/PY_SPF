@@ -1,0 +1,22 @@
+{
+  "device": "P04",
+  "adapter": "Realtek Gaming GbE Family Controller",
+  "status": "Up",
+  "link_speed": "100 Mbps",
+  "local_address": "10.19.70.1/24",
+  "remote_address": "10.19.70.13",
+  "interface_index": 5,
+  "neighbor_mac": "00-01-45-00-CB-90",
+  "neighbor_state_numeric": 2,
+  "received_packet_errors": 0,
+  "outbound_packet_errors": 0,
+  "received_discarded_packets": 0,
+  "outbound_discarded_packets": 0,
+  "scope": "Single post-test NIC snapshot; no baseline delta, not proof of loss-free path.",
+  "post_test_udp_1024_endpoints": [],
+  "installed_gui_process_ids": [
+    17120,
+    29028
+  ],
+  "installed_gui_state": "Previously visually confirmed disconnected; no UDP1024 endpoint at final check."
+}

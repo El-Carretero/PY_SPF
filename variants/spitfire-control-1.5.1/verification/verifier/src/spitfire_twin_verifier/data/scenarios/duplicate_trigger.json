@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "duplicate_trigger",
+  "name": "중복 외부 트리거",
+  "description": "같은 가상 시각의 두 번째 트리거를 합성 중복 오류로 분류.",
+  "duration_ms": 100,
+  "policy": {},
+  "initial_signals": {},
+  "events": [
+    {
+      "at_ms": 0,
+      "type": "arm"
+    },
+    {
+      "at_ms": 0,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 100,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 100,
+      "type": "trigger"
+    }
+  ],
+  "assertions": [
+    {
+      "at_ms": 100,
+      "path": "latched_faults",
+      "op": "contains",
+      "expected": "duplicate_trigger"
+    },
+    {
+      "at_ms": 100,
+      "path": "accepted_trigger_count",
+      "op": "eq",
+      "expected": 2
+    },
+    {
+      "at_ms": 100,
+      "path": "inhibited",
+      "op": "eq",
+      "expected": true
+    }
+  ]
+}

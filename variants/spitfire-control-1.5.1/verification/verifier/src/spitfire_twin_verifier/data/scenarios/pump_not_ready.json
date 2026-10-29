@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "pump_not_ready",
+  "name": "펌프 준비 신호 상실",
+  "description": "펌프 Ready 손실과 복구·재무장. 실제 장비 상태 비트는 자동 추정하지 않음.",
+  "duration_ms": 200,
+  "policy": {},
+  "initial_signals": {},
+  "events": [
+    {
+      "at_ms": 0,
+      "type": "arm"
+    },
+    {
+      "at_ms": 0,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 50,
+      "type": "signals",
+      "values": {
+        "pump_ready": false
+      }
+    },
+    {
+      "at_ms": 60,
+      "type": "arm"
+    },
+    {
+      "at_ms": 100,
+      "type": "signals",
+      "values": {
+        "pump_ready": true
+      }
+    },
+    {
+      "at_ms": 110,
+      "type": "reset"
+    },
+    {
+      "at_ms": 120,
+      "type": "arm"
+    },
+    {
+      "at_ms": 120,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 200,
+      "type": "disarm"
+    }
+  ],
+  "assertions": [
+    {
+      "at_ms": 50,
+      "path": "active_faults",
+      "op": "contains",
+      "expected": "pump_not_ready"
+    },
+    {
+      "at_ms": 60,
+      "path": "armed",
+      "op": "eq",
+      "expected": false
+    },
+    {
+      "at_ms": 120,
+      "path": "armed",
+      "op": "eq",
+      "expected": true
+    }
+  ]
+}

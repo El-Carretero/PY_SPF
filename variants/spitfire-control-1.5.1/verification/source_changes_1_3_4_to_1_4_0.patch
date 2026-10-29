@@ -1,0 +1,713 @@
+--- a/src/spitfire_control/__init__.py
++++ b/src/spitfire_control/__init__.py
+@@ -1,3 +1,3 @@
+ """Spitfire Python Control."""
+ 
+-__version__ = "1.3.4"
++__version__ = "1.4.0"
+--- a/src/spitfire_control/commands.py
++++ b/src/spitfire_control/commands.py
+@@ -183,6 +183,17 @@
+     HV channel commands use raw kV; the GUI displays and accepts volts.
+     Original _SetHVCallback1/2 format raw kV with two decimal places.
+     """
++    if command_id == 2003 and argument is not None:
++        try:
++            amps = Decimal(str(argument))
++        except InvalidOperation as exc:
++            raise ValueError("Diode current must be a number in A") from exc
++        if not amps.is_finite() or amps < 0 or amps > 1_000_000:
++            raise ValueError("Diode current must be finite, nonnegative and within the software input limit")
++        wire = amps * Decimal(10)
++        if wire != wire.quantize(Decimal("0.01")):
++            raise ValueError("Diode current resolution is 0.001 A")
++        return f"{wire:.2f}"
+     if command_id in {2025, 2026} and argument is not None:
+         try:
+             volts = Decimal(str(argument))
+--- /dev/null
++++ b/src/spitfire_control/completion.py
+@@ -0,0 +1,93 @@
++"""Write receipts and independently observed outcomes (never inferred from ACK).
++
++Targets are in DeviceState engineering units. Unknown/service/physical effects
++are deliberately left without a target and cannot be called confirmed.
++"""
++from __future__ import annotations
++from dataclasses import dataclass
++import math
++import re
++
++RESET_SEQUENCE = (2044, 2049, 2052, 2050)
++RESET_RECHECK_SECONDS = (0.5, 1.5, 3.5, 6.0)
++TERMINAL_STATUSES = frozenset({'confirmed', 'observed', 'unverified', 'rejected',
++                              'mismatch', 'timeout', 'cancelled'})
++
++
++@dataclass(frozen=True, slots=True)
++class WriteResult:
++    token: int
++    command_id: int
++    argument: object | None
++    status: str
++    detail: str = ''
++
++
++@dataclass(frozen=True, slots=True)
++class Target:
++    value: object
++    field: str = ''
++    mask: int | None = None
++
++    def matches(self, state, query_id: int) -> bool:
++        actual = state.value(query_id)
++        if self.field:
++            delay = state.delays.get(query_id - 1044)
++            actual = getattr(delay, self.field, None) if delay else None
++        if self.mask is not None:
++            actual = (int(actual) & self.mask) if isinstance(actual, (int, float)) else None
++        def numeric(value):
++            if isinstance(value, str) and not re.fullmatch(r'[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?', value):
++                return None
++            try:
++                number=float(value)
++                return number if math.isfinite(number) else None
++            except (TypeError, ValueError, OverflowError):
++                return None
++        expected_number, actual_number = numeric(self.value), numeric(actual)
++        if expected_number is not None:
++            return actual_number is not None and math.isclose(actual_number, expected_number, rel_tol=1e-6, abs_tol=1e-6)
++        if actual is None:
++            return False
++        return str(actual).upper() == str(self.value).upper() if self.field else str(actual) == str(self.value)
++
++
++def expected_targets(cid: int, argument: object | None) -> dict[int, Target]:
++    arg = '' if argument is None else str(argument).strip()
++    numeric = {2000:(1001,1), 2001:(1002,1), 2003:(1009,.1), 2004:(1010,10),
++               2007:(1011,1), 2008:(1012,1), 2014:(1060,1), 2015:(1020,1),
++               2020:(1025,1), 2021:(1032,1), 2024:(1033,1),
++               2025:(1040,1000), 2026:(1041,1000), 2029:(1044,1),
++               2032:(1053,1), 2035:(1069,1), 2036:(1068,1),
++               2047:(1078,1), 2051:(1086,1), 2053:(1087,1)}
++    try:
++        if cid in numeric:
++            q, scale = numeric[cid]; value = float(arg)*scale
++            return {q:Target(value)} if math.isfinite(value) else {}
++        if cid in {2030,2031} and arg.upper() in {'INT','EXT'}:
++            return {1050+(cid-2030):Target(int(arg.upper()=='EXT'))}
++        if cid == 2048 and arg.upper() in {'CONT','COUNT','COUNT 1'}:
++            return {1080:Target({'CONT':0,'COUNT':1,'COUNT 1':2}[arg.upper()])}
++        if cid in {2016,2017}:
++            return {1021:Target(int(cid==2017))}
++        if cid in {2005,2006}:
++            return {1013:Target(int(cid==2005),mask=1)}
++        if cid in {2022,2023}:
++            return {1028:Target(int(cid==2022),mask=1)}
++        if cid == 2019:
++            ch, setting = arg.split(); ch=int(ch); setting=setting.upper()
++            if not 1<=ch<=5:return {}
++            field = 'switch' if setting in {'ON','OFF'} else 'bwd' if setting in {'BWD','NBWD'} else 'enable' if setting in {'ENA','NENA'} else 'value'
++            value = float(setting) if field=='value' else setting.lower() if field=='switch' else setting
++            return {1044+ch:Target(value,field=field)}
++        if 2037<=cid<=2043 and arg:
++            return {1070+cid-2037:Target(arg)}
++    except (ValueError,OverflowError):
++        pass
++    return {}
++
++
++def permits_empty_receipt(cid: int, argument: object | None) -> bool:
++    # A framed, matching-ID empty receipt is distinct from receiving no packet.
++    # A target must subsequently match; raw/unmodelled writes are not exempted.
++    return cid in RESET_SEQUENCE or bool(expected_targets(cid,argument))
+--- a/src/spitfire_control/controller.py
++++ b/src/spitfire_control/controller.py
+@@ -2,10 +2,11 @@
+ from __future__ import annotations
+ 
+ from collections import deque
+-from dataclasses import dataclass
++from dataclasses import dataclass, field
+ from datetime import datetime, timezone
+ import csv
+ import math
++import heapq
+ from pathlib import Path
+ import queue
+ import threading
+@@ -20,6 +21,8 @@
+ from .state import DeviceState, is_error_reply
+ from .timing import validate_timing_expectations
+ from .transport import BaseTransport, TransportError, CommandCancelled
++from .completion import (WriteResult, Target, expected_targets, permits_empty_receipt,
++                         RESET_SEQUENCE, RESET_RECHECK_SECONDS, TERMINAL_STATUSES)
+ 
+ STOP_COMMAND_IDS = frozenset({2006, 2013, 2016, 2023, 2028})
+ HEARTBEAT_QUERY_ID = 1000  # Known read-only *idn? controller query.
+@@ -27,10 +30,11 @@
+ 
+ @dataclass(frozen=True, slots=True)
+ class ControllerEvent:
+-    kind: Literal["state", "log", "error", "connection"]
++    kind: Literal["state", "log", "error", "connection", "command"]
+     message: str = ""
+     state: DeviceState | None = None
+     reply: Reply | None = None
++    result: WriteResult | None = None
+ 
+ @dataclass(frozen=True, slots=True)
+ class PendingCommand:
+@@ -38,6 +42,18 @@
+     argument: object | None
+     origin: str
+     generation: int = 0
++    token: int = 0
++    batch: str = ""
++
++
++@dataclass(slots=True)
++class WriteWatch:
++    request: PendingCommand
++    pending: set[int]
++    targets: dict[int, Target]
++    deadline: float
++    not_before: float = 0.0
++    observed: dict[int, object] = field(default_factory=dict)
+ 
+ class AuditLog:
+     def __init__(self, directory: str = ""):
+@@ -92,6 +108,98 @@
+         self._next_poll_at = 0.0
+         self._poll_configuration: tuple[float, bool] | None = None
+         self._last_read_monotonic: float | None = None
++        self._token = 0
++        self._results: dict[int, WriteResult] = {}
++        self._watch: dict[int, WriteWatch] = {}
++        self._delayed: list[tuple[float, int, int]] = []
++        self._readback_serial = 0
++        self._audit_pending = queue.SimpleQueue()
++
++    def _record_audit(self, *row) -> None:
++        # Submission/send guards must not hold the controller lock during disk I/O.
++        self._audit_pending.put(row)
++
++    def _flush_audit(self) -> None:
++        while True:
++            try:
++                row = self._audit_pending.get_nowait()
++            except queue.Empty:
++                return
++            self._audit.write(*row)
++
++    @property
++    def command_results(self) -> tuple[WriteResult, ...]:
++        with self._condition:
++            return tuple(self._results.values())
++
++    def _result(self, request: PendingCommand, status: str, detail: str = "") -> None:
++        if not request.token or request.command_id < 2000:
++            return
++        result = WriteResult(request.token, request.command_id, request.argument, status, detail)
++        self._results[request.token] = result
++        self.events.put(ControllerEvent("command", f"#{request.token} [{request.command_id}] {status}: {detail}", result=result))
++        self._record_audit(status.upper(), request.command_id,
++                          format_command(request.command_id, request.argument), f"#{request.token} {detail}")
++        if status in TERMINAL_STATUSES:
++            self._watch.pop(request.token, None)
++        # Keep pending requests plus a bounded history. The CSV retains all entries.
++        completed = [k for k,v in self._results.items() if v.status in TERMINAL_STATUSES]
++        for key in completed[:-256]:
++            self._results.pop(key, None)
++
++    def _observe(self, reply: Reply, valid: bool) -> None:
++        now = time.monotonic()
++        for token, watch in list(self._watch.items()):
++            if token not in self._watch or reply.command_id not in watch.pending:
++                continue
++            if now < watch.not_before:
++                continue
++            if not valid:
++                self._result(watch.request, "unverified", f"Readback [{reply.command_id}] unavailable; write outcome unknown")
++                self._cancel_pending_writes_locked("A write readback is unavailable")
++                continue
++            watch.observed[reply.command_id] = self._state.value(reply.command_id)
++            target = watch.targets.get(reply.command_id)
++            if target is not None and not target.matches(self._state, reply.command_id):
++                detail = f"[{reply.command_id}] expected {target.value!r}; observed {self._state.value(reply.command_id)!r}"
++                self._record_audit("READBACK_MISMATCH", watch.request.command_id,
++                                  format_command(watch.request.command_id, watch.request.argument), detail)
++                self._result(watch.request, "mismatch", detail)
++                self._state.last_error = "Write readback mismatch: " + detail
++                self._cancel_pending_writes_locked(self._state.last_error)
++                continue
++            watch.pending.discard(reply.command_id)
++            if not watch.pending:
++                status = "confirmed" if watch.targets else "observed"
++                detail = ("Target readback matched" if watch.targets else
++                          "State read back; this does not assert fault clearance or physical operation")
++                self._result(watch.request, status, detail + f"; {watch.observed}")
++
++    def _expire_watches(self, now: float) -> None:
++        expired = [watch for watch in self._watch.values() if now >= watch.deadline]
++        for watch in expired:
++            self._result(watch.request, "unverified", "Readback confirmation deadline expired")
++        if expired:
++            self._cancel_pending_writes_locked("Readback confirmation deadline expired")
++
++    def clear_faults(self) -> tuple[int, ...]:
++        """Explicit operator action, never called by connect/reconnect/polling."""
++        with self._condition:
++            if any(r.command_id == 2050 and r.status not in TERMINAL_STATUSES for r in self._results.values()):
++                raise ValueError("Fault reset is already pending; wait for its readback result")
++            return self.submit_batch([(cid, None) for cid in RESET_SEQUENCE], origin="Clear Faults", batch="reset")
++
++    def submit_batch(self, commands, *, origin: str = "GUI", batch: str = "settings") -> tuple[int, ...]:
++        commands = tuple(commands)
++        if not commands:
++            raise ValueError("An empty command batch is not allowed")
++        with self._condition:
++            # Preflight the complete group before queuing any member.
++            for cid, argument in commands:
++                if cid < 2000 or cid in STOP_COMMAND_IDS or is_stop_command(cid, argument):
++                    raise ValueError("Batches accept non-stop writes only; OFF remains urgent")
++                self._validate_submission(cid, argument)
++            return tuple(self.submit(cid, argument, origin, batch=batch) for cid, argument in commands)
+ 
+     @property
+     def pump_mode(self) -> str:
+@@ -118,13 +226,26 @@
+         self.events.put(ControllerEvent("log", "Pending writes cancelled: " + reason))
+         self._generation += 1
+         # Already dequeued commands are also invalidated by their generation.
+-        self._commands = deque(r for r in self._commands if r.command_id < 2000)
++        kept = deque()
++        for request in self._commands:
++            if request.command_id < 2000:
++                kept.append(request)
++            else:
++                self._record_audit("CANCEL", request.command_id,
++                                  format_command(request.command_id, request.argument), reason)
++                self._result(request, "cancelled", reason)
++        self._commands = kept
+ 
+     def stop(self) -> None:
+         with self._condition:
+             self._stop.set()
+             self._cancel_pending_writes_locked("Controller stopped.")
+             self._commands.clear()
++            self._delayed.clear()
++            for watch in list(self._watch.values()):
++                self._result(watch.request, "unverified", "Controller stopped before confirmation")
++            for request in self._urgent:
++                self._result(request, "cancelled", "Controller stopped before transmission")
+             self._urgent.clear()
+             self._condition.notify_all()
+         thread = self._thread
+@@ -136,26 +257,35 @@
+             if not thread or not thread.is_alive():
+                 self._thread = None
+             self._emit_state()
+-
+-    def submit(self, command_id: int, argument: object | None = None, origin: str = "GUI") -> None:
++        self._flush_audit()
++
++    def _validate_submission(self, command_id: int, argument: object | None) -> None:
+         spec = get_command(command_id)
+         validate_profile_command(command_id, argument, self.pump_mode)
+         encode_datagram([format_command(command_id, argument)])
+-        with self._condition:
+-            if self._stop.is_set():
+-                raise PermissionError("Controller is stopped; reconnect before submitting commands.")
+-            self._check_external_write(command_id, argument)
++        if self._stop.is_set():
++            raise PermissionError("Controller is stopped; reconnect before submitting commands.")
++        self._check_external_write(command_id, argument)
++        safe = command_id in STOP_COMMAND_IDS or is_stop_command(command_id, argument)
++        if spec.writable and not safe and self.transport.name != "Simulator" and not self._state.link_fresh():
++            raise PermissionError("A recent controller readback is required before hardware writes.")
++
++    def submit(self, command_id: int, argument: object | None = None, origin: str = "GUI", *, batch: str = "") -> int:
++        with self._condition:
++            self._validate_submission(command_id, argument)
++            self._token += 1
+             if command_id in STOP_COMMAND_IDS or is_stop_command(command_id, argument):
+                 # OFF is urgent and invalidates all queued energy/motion writes.
+                 self._cancel_pending_writes_locked(f"OFF/STOP requested [{command_id}].")
+-                self._urgent.append(PendingCommand(command_id, argument, origin, self._generation))
++                request = PendingCommand(command_id, argument, origin, self._generation, self._token, batch)
++                self._urgent.append(request)
+                 self._emit_state()
+             else:
+-                if spec.writable and self.transport.name != "Simulator":
+-                    if not self._state.link_fresh():
+-                        raise PermissionError("A recent controller readback is required before hardware writes.")
+-                self._commands.append(PendingCommand(command_id, argument, origin, self._generation))
++                request = PendingCommand(command_id, argument, origin, self._generation, self._token, batch)
++                self._commands.append(request)
++            self._result(request, "queued", origin)
+             self._condition.notify_all()
++            return request.token
+ 
+     def query_now(self, command_ids: tuple[int, ...] | list[int]) -> None:
+         if any(get_command(cid).writable for cid in command_ids):
+@@ -171,6 +301,12 @@
+             self._commands.appendleft(PendingCommand(cid, None, "write readback", self._generation))
+ 
+     def _execute(self, request: PendingCommand) -> None:
++        try:
++            self._execute_inner(request)
++        finally:
++            self._flush_audit()
++
++    def _execute_inner(self, request: PendingCommand) -> None:
+         line = format_command(request.command_id, request.argument)
+         checks = filter_queries(readback_ids(request.command_id, request.argument), self.pump_mode)
+         writable = request.command_id >= 2000
+@@ -196,14 +332,23 @@
+                     self._state.pending_readbacks.update(checks)
+                 send()
+                 if writable:
++                    self._result(request, "sent", "Datagram sent; awaiting matching receipt")
+                     self._emit_state()
+             self.events.put(ControllerEvent("log", f"TX {line}"))
+-            self._audit.write("TX", request.command_id, line, request.origin)
++            self._record_audit("TX", request.command_id, line, request.origin)
+ 
+         try:
+             replies = self.transport.exchange(line, self.timeout, send_guard=guarded_send)
++            replies = [r for r in replies if r.command_id == request.command_id]
++            if not replies:
++                raise TransportError("No matching-ID response received")
++            if len({r.value for r in replies}) != 1:
++                raise TransportError("Conflicting duplicate responses; outcome unknown")
++            replies = replies[:1]
+         except CommandCancelled as exc:
+-            self._audit.write("CANCEL", request.command_id, line, str(exc))
++            self._record_audit("CANCEL", request.command_id, line, str(exc))
++            with self._condition:
++                self._result(request, "cancelled", str(exc))
+             self.events.put(ControllerEvent("log", f"CANCEL {line}: {exc}"))
+             return
+         except TransportError as exc:
+@@ -214,82 +359,74 @@
+                 self._state.connected = False
+                 self._cancel_pending_writes_locked(f"Communication failure: {exc}")
+                 if writable:
++                    self._result(request, "timeout", "Communication failure; application unknown; no automatic write retry")
+                     self._queue_readbacks(checks)
+                 self.events.put(ControllerEvent("error", str(exc), state=self._state.copy()))
+-            self._audit.write("ERROR", request.command_id, line, str(exc))
++            self._record_audit("ERROR", request.command_id, line, str(exc))
+             return
+-        rejected_replies: list[tuple[Reply, str, str]] = []
+-        cancelled_enables: list[PendingCommand] = []
+         with self._condition:
+             for reply in replies:
+                 valid = self._state.apply(reply)
+                 device_error = is_error_reply(reply.value)
+-                if device_error or not valid:
+-                    if device_error:
+-                        audit_kind = "DEVICE_ERROR"
+-                        audit_reason = "Controller returned an ERR/NACK/FAIL response."
+-                    elif not reply.value.strip():
+-                        audit_kind = "INVALID_REPLY"
+-                        audit_reason = "Empty response payload; no state value or acknowledgement was received."
+-                    else:
+-                        audit_kind = "PARSE_ERROR"
+-                        audit_reason = ("Unrecognized acknowledgement; expected OK or ACK."
+-                                        if reply.command_id >= 2000 else
+-                                        "Response format or value was rejected by the state decoder.")
+-                    rejected_replies.append((reply, audit_kind, audit_reason))
++                empty_receipt = (writable and not reply.value.strip()
++                                 and permits_empty_receipt(request.command_id, request.argument))
++                accepted = valid or empty_receipt
++                self._record_audit("RX", reply.command_id, reply.raw_line, "")
++                if device_error or not accepted:
++                    kind = "DEVICE_ERROR" if device_error else "INVALID_REPLY" if not reply.value.strip() else "PARSE_ERROR"
+                     message = f"Controller reply [{reply.command_id}]: {reply.value or '(empty)'}"
+-                    unacknowledged_reset = (writable and request.command_id in {2049, 2052}
+-                                            and reply.command_id == request.command_id
+-                                            and not reply.value.strip())
+-                    if unacknowledged_reset:
+-                        # SASC 1.5.0 returns an empty receipt for these resets.
+-                        # Receipt is not success: retain pending readbacks and
+-                        # verify the fault registers, without cancelling the next reset.
+-                        rejected_replies[-1] = (reply, "UNCONFIRMED_WRITE", "Reset receipt has no ACK; verify fault readbacks.")
+-                        message = f"Reset [{reply.command_id}] returned no ACK; checking fault readbacks."
+-                    elif writable:
+-                        self._cancel_pending_writes_locked(f"Write reply rejected [{reply.command_id}]: {reply.value or '(empty)'}")
++                    reason = ("Empty response payload; no state value or acknowledgement was received." if not reply.value.strip() else
++                              "Controller returned an ERR/NACK/FAIL response." if device_error else
++                              "Unrecognized acknowledgement; expected OK or ACK, or a supported empty receipt." if writable else
++                              "Response format or value was rejected by the state decoder.")
++                    self._record_audit(kind, reply.command_id, reply.raw_line, reason)
++                    self._state.last_error = message
++                    if writable:
++                        self._result(request, "rejected", message)
++                        self._cancel_pending_writes_locked(message)
+                     elif self.pump_mode == "external" and reply.command_id in EXTERNAL_REQUIRED_READS:
+-                        # The invalid readback blocks output at submission AND
+-                        # send time while maintenance remains available.
+-                        # Do not leave a queued enable waiting for later recovery.
+                         kept = deque()
+                         for queued in self._commands:
+                             if requires_external_enable_check(queued.command_id, queued.argument):
+-                                cancelled_enables.append(queued)
++                                reason = "Output request cancelled: required readback unavailable"
++                                self._record_audit("CANCEL", queued.command_id, format_command(queued.command_id, queued.argument), reason)
++                                self._result(queued, "cancelled", reason)
+                             else:
+                                 kept.append(queued)
+                         self._commands = kept
+-                    if unacknowledged_reset:
+-                        self.events.put(ControllerEvent("log", message))
+-                        self._emit_state(reply)
+-                    else:
+-                        self._state.last_error = message
+-                        self.events.put(ControllerEvent("error", message, state=self._state.copy(), reply=reply))
+-                elif reply.command_id < 2000:
++                    self.events.put(ControllerEvent("error", message, state=self._state.copy(), reply=reply))
++                elif not writable:
+                     recovering = not self._state.connected
+                     self._state.connected = True
+                     if recovering:
+                         self._state.last_error = ""
+                     self._last_read_monotonic = time.monotonic()
+-                    self._emit_state(reply)
+                 else:
+-                    self._emit_state(reply)  # ACK alone never changes measured state.
++                    if empty_receipt:
++                        self._record_audit("UNCONFIRMED_WRITE", request.command_id, reply.raw_line,
++                                          "Matching empty receipt; application must be checked by readback")
++                    self._result(request, "receipt" if empty_receipt else "acknowledged",
++                                 "Response received; not proof of application")
++                    now = time.monotonic()
++                    not_before = now + RESET_RECHECK_SECONDS[-1] if request.command_id == 2050 else 0.0
++                    if checks and request.token:
++                        self._watch[request.token] = WriteWatch(
++                            request, set(checks), expected_targets(request.command_id, request.argument),
++                            now + max(15.0, RESET_RECHECK_SECONDS[-1] + len(checks)*self.timeout + 5), not_before)
++                    elif request.token:
++                        self._result(request, "unverified", "Receipt only; no applicable readback in this pump profile")
++                    if request.command_id == 2050:
++                        for delay in RESET_RECHECK_SECONDS:
++                            for cid in filter_queries(FAULT_QUERY_IDS, self.pump_mode):
++                                self._readback_serial += 1
++                                heapq.heappush(self._delayed, (now+delay, self._readback_serial, cid))
++                if not writable:
++                    self._observe(reply, valid and not device_error)
++                self._emit_state(reply)  # ACK/receipt alone never changes measurements.
+                 self.events.put(ControllerEvent("log", f"RX {reply.raw_line}"))
+-            if writable:
++            if writable and not (request.batch == "reset" and request.command_id != 2050):
+                 self._queue_readbacks(checks)
+             self._condition.notify_all()
+-        for cancelled in cancelled_enables:
+-            message = "Output request cancelled: required readback unavailable."
+-            self._audit.write("CANCEL", cancelled.command_id, format_command(cancelled.command_id, cancelled.argument), message)
+-            self.events.put(ControllerEvent("log", message))
+-        for reply in replies:
+-            self._audit.write("RX", reply.command_id, reply.raw_line, "")
+-        # Keep the received wire text even when it cannot update state. These
+-        # diagnostics are distinct from exchange/timeout ERROR rows and retain
+-        # the existing five-column CSV schema. File I/O remains outside the lock.
+-        for reply, kind, reason in rejected_replies:
+-            self._audit.write(kind, reply.command_id, reply.raw_line, reason)
+ 
+     def _check_external_write(self, command_id: int, argument: object | None) -> None:
+         if self.pump_mode != "external" or command_id < 2000:
+@@ -358,9 +495,15 @@
+                         self._state.last_error = "Controller readback is stale"
+                         self._cancel_pending_writes_locked("Controller readback is stale.")
+                         self._emit_state()
++                    self._expire_watches(now)
+                     request = None
+                     if self._urgent:
+                         request = self._urgent.popleft()
++                    elif self._commands and self._commands[0].batch == "reset":
++                        request = self._commands.popleft()
++                    elif self._delayed and self._delayed[0][0] <= now:
++                        _, _, cid = heapq.heappop(self._delayed)
++                        request = PendingCommand(cid, None, "delayed fault readback")
+                     elif now >= next_heartbeat:
+                         # Independent of Automatic polling and ordinary queue
+                         # traffic. OFF/STOP always retain first priority.
+@@ -396,4 +539,8 @@
+             with self._condition:
+                 self._state.connected = self._state.transport_open = False
+                 self._cancel_pending_writes_locked(self._state.last_error or "Disconnected.")
++                for watch in list(self._watch.values()):
++                    self._result(watch.request, "unverified", "Disconnected before confirmation")
++                self._delayed.clear()
+                 self.events.put(ControllerEvent("connection", "Disconnected", state=self._state.copy()))
++            self._flush_audit()
+--- a/src/spitfire_control/profiles.py
++++ b/src/spitfire_control/profiles.py
+@@ -10,7 +10,7 @@
+ PUMP_MODES = ("empower", "external")
+ EMPOWER_QUERY_IDS = frozenset((*range(1007, 1015), 1016, 1035, *range(1070, 1079)))
+ EXTERNAL_BLOCKED_WRITES = frozenset((*range(2000, 2009), 2027, 2028, 2033, 2034,
+-                                    *range(2037, 2046), 2047, 2050, 2054, 2055))
++                                    *range(2037, 2044), 2045, 2047, 2054, 2055))
+ EXTERNAL_REQUIRED_READS = (1068, 1019, 1066, 1021, 1087, 1045, 1046, 1039, 1050, 1051, 1065, 1088, 1089, 1033, 1044, 1028, 1015, 1069)
+ 
+ 
+@@ -47,7 +47,7 @@
+         return
+     if command_id in EXTERNAL_BLOCKED_WRITES:
+         raise PermissionError("This pump/global/raw command is unavailable in External Pump mode.")
+-    no_arg = {2009, 2010, 2011, 2012, 2013, 2016, 2017, 2018, 2022, 2023, 2049, 2052}
++    no_arg = {2009, 2010, 2011, 2012, 2013, 2016, 2017, 2018, 2022, 2023, 2044, 2049, 2050, 2052}
+     numeric = {2014, 2015, 2021, 2025, 2026, 2032, 2046}
+     if command_id in no_arg:
+         if arg:
+--- a/src/spitfire_control/state.py
++++ b/src/spitfire_control/state.py
+@@ -269,7 +269,11 @@
+                 if valid and cid in {1013, 1015, 1019, 1028, 1029, 1057, 1088, 1089}:
+                     valid = 0 <= number <= 0xffffffff and number == int(number)
+                 # Legacy readback: nonnegative EMP:QSW:PRF? units are 10 Hz.
+-                self.values[cid] = number * 10 if cid == 1010 and number >= 0 else number
++                if cid == 1010 and number >= 0:
++                    number *= 10
++                elif cid in {1007, 1009} and number >= 0:
++                    number /= 10  # XP _slidesetcurr / reply1007,1009: 0.1 A wire units.
++                self.values[cid] = number
+             else:
+                 valid = False
+         else:
+--- a/src/spitfire_control/transport.py
++++ b/src/spitfire_control/transport.py
+@@ -98,6 +98,21 @@
+         expected = int(command_line[1 : command_line.index("]")])
+         deadline = time.monotonic() + timeout
+         try:
++            # Discard packets already waiting before this request. The legacy
++            # ID is a command ID, not a transaction nonce; a late same-ID reply
++            # arriving after send remains intrinsically ambiguous (see PROTOCOL).
++            if hasattr(sock, "setblocking"):
++                sock.setblocking(False)
++                try:
++                    for _ in range(256):
++                        try:
++                            sock.recvfrom(2048)
++                        except (BlockingIOError, socket.timeout):
++                            break
++                    else:
++                        raise TransportError("Excess queued UDP traffic; request not sent")
++                finally:
++                    sock.settimeout(timeout)
+             send = lambda: sock.sendto(packet, remote)
+             if send_guard is None:
+                 send()
+@@ -165,7 +180,7 @@
+         }
+         self._values: dict[int, object] = {
+             1000: "Spectra-Physics,Spitfire,0,SIM-1.0",
+-            1007: 0.0, 1008: 0.0, 1009: 18.0, 1010: 100.0,
++            1007: 0.0, 1008: 0.0, 1009: 180.0, 1010: 100.0,
+             1011: 120.0, 1012: 0, 1013: 0, 1014: "0 0 0 0",
+             1015: 0, 1018: 100, 1019: 0, 1021: 0, 1024: 80.0,
+             1025: 1, 1028: 0, 1029: 0, 1030: 25.0, 1031: 34.0,
+@@ -266,7 +281,7 @@
+             return "ERR EMPOPTOUT unsupported (simulated firmware)"
+         spec = COMMANDS[command_id]
+         empower_only = spec.text.startswith("EMP:") or command_id in {2027, 2028}
+-        if not self.empower_present and empower_only:
++        if not self.empower_present and empower_only and command_id != 2044:
+             return "ERR Empower not present (simulation)"
+         if command_id == 1014 and not self.empower_faults_supported:
+             return "ERR Empower fault query unavailable (simulated firmware)"
+@@ -296,7 +311,7 @@
+         target_current = float(self._values[1009]) if laser else 0.0
+         current = float(self._values[1007])
+         self._values[1007] = current + (target_current - current) * 0.22
+-        self._values[1008] = max(0.0, float(self._values[1007]) * (0.41 if laser else 0.0))
++        self._values[1008] = max(0.0, float(self._values[1007]) / 10 * (0.41 if laser else 0.0))
+         # Keep the complete synthetic HV ramp in raw kV.
+         target_hv1 = float(self._values[1040]) if hv else 0.0
+         target_hv2 = float(self._values[1041]) if hv else 0.0
+@@ -400,7 +415,7 @@
+             self._reset_faults(command_id)
+         elif command_id == 2053:
+             self._values[1087] = int(float(arg))
+-        return "OK"
++        return "" if command_id == 2044 and not self.empower_present else "OK"
+ 
+     def exchange(self, command_line: str, timeout: float, *, send_guard: SendGuard | None = None) -> list[Reply]:
+         del timeout
+--- a/src/spitfire_control/ui.py
++++ b/src/spitfire_control/ui.py
+@@ -832,20 +832,24 @@
+         self.connection_text.set("TDG HV OFF requested; external pump and seed are not stopped" if self.config.pump_mode == "external" else "Software standby requested · physical E-stop remains authoritative")
+ 
+     def _clear_faults(self) -> None:
++        if not self.controller or not self.controller.running:
++            messagebox.showwarning("Fault reset unavailable", "Connect before fault reset.", parent=self.root)
++            return
+         if self.config.mode == "udp":
+-            if not self.controller or not self.controller.running:
+-                messagebox.showwarning("Fault reset unavailable", "Connect to the controller before fault reset.", parent=self.root)
+-                return
+             state = self.controller.state
+             if not state.link_fresh():
+                 messagebox.showwarning("Fault reset unavailable", "A recent controller readback is required. " + state.last_error, parent=self.root)
+                 return
+-            if not messagebox.askyesno("FAULT RESET", ("TCU와 TDG fault만 reset할까요? 외부 펌프는 제어하지 않습니다." if self.config.pump_mode == "external" else "Empower, TCU, TDG fault reset 명령을 순서대로 전송할까요? 원인을 제거한 뒤 실행하십시오."), icon="warning", parent=self.root):
++            if not messagebox.askyesno("FAULT RESET",
++                    "EMP → TCU → TDG → global RESET을 전송하고 약 6초 동안 fault를 다시 조회합니다. 계속할까요?",
++                    icon="warning", parent=self.root):
+                 return
+-        for command_id in ((2049, 2052) if self.config.pump_mode == "external" else (2044, 2049, 2052, 2050)):
+-            if not self.issue(command_id):
+-                break  # Do not continue a reset sequence after authorization loss.
+-        self._query(FAULT_QUERY_IDS)
++        try:
++            self.controller.clear_faults()
++        except (PermissionError, ValueError) as exc:
++            messagebox.showwarning("Fault reset unavailable", str(exc), parent=self.root)
++            return
++        self.connection_text.set("Fault reset queued · delayed readback pending")
+ 
+     def _query(self, command_ids) -> None:
+         if not self.controller or not self.controller.running:
+@@ -916,7 +920,16 @@
+         self._schedule(80, self._drain_events)
+ 
+     def _handle_event(self, event: ControllerEvent) -> None:
+-        if event.kind == "log":
++        if event.kind == "command" and event.result:
++            result = event.result
++            labels = {"queued":"대기", "sent":"전송", "receipt":"수신·적용 미확인",
++                      "acknowledged":"ACK·적용 미확인", "confirmed":"설정 조회 일치",
++                      "observed":"상태 재조회 완료", "unverified":"적용 미확인",
++                      "rejected":"응답 거부", "mismatch":"설정 불일치",
++                      "timeout":"통신 실패·적용 불명", "cancelled":"전송 취소"}
++            self.connection_text.set(f"#{result.token} [{result.command_id}] {labels.get(result.status,result.status)}")
++            self._append_log(event.message)
++        elif event.kind == "log":
+             self._append_log(event.message)
+         elif event.kind == "error":
+             self.connection_text.set(event.message)
+@@ -1109,13 +1122,15 @@
+             self._query((1021, 1050, 1051))
+             messagebox.showwarning("HV state required", "Confirm a fresh HV OFF readback before changing timing sources.", parent=self.root)
+             return False
+-        if not self.issue(2030, "EXT", confirm="Set oscillator sync and amplifier trigger to EXT? This does not enable HV or start the external pump."):
++        if self.config.mode == "udp" and not messagebox.askyesno("EXT SOURCES",
++                "Set oscillator sync and amplifier trigger to EXT?", parent=self.root):
+             return False
+-        if not self.issue(2031, "EXT"):
+-            self.connection_text.set("External source setup incomplete; refresh both mode readbacks")
++        try:
++            self.controller.submit_batch(((2030,"EXT"),(2031,"EXT")), origin="Apply EXT sources")
++        except (PermissionError, ValueError) as exc:
++            messagebox.showwarning("명령 차단", str(exc), parent=self.root)
+             return False
+-        self._query((1050, 1051, 1065))
+-        self.connection_text.set("EXT sources requested; confirm both readbacks. Optical synchronization is unverified.")
++        self.connection_text.set("EXT sources queued · both readbacks pending")
+         return True
+ 
+     def _save_external_timing(self, values: dict[str, str], parent=None) -> bool:

@@ -1,0 +1,10 @@
+{
+  "version": "1.3.2",
+  "scope": "ARM/reset only",
+  "tests_run": 38,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "external_io": "blocked",
+  "failure_details": []
+}

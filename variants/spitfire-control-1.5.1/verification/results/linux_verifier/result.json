@@ -1,0 +1,43 @@
+{
+  "suite": "verifier",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "tests": 210,
+  "failures": [],
+  "errors": [],
+  "skipped": [
+    [
+      "test_catalog_provenance.CatalogProvenanceTests.test_user_supplied_original_binary",
+      "optional vendor EXE not bundled; set SPITFIRE_XP_EXE"
+    ],
+    [
+      "test_gui.GuiTests.test_demo_runs_inside_application",
+      "Tk display required"
+    ],
+    [
+      "test_gui.GuiTests.test_export_refreshes_cached_result",
+      "Tk display required"
+    ],
+    [
+      "test_gui.GuiTests.test_old_events_are_ignored_after_clear",
+      "Tk display required"
+    ],
+    [
+      "test_gui.GuiTests.test_profile_and_request_loss_controls_are_saved",
+      "Tk display required"
+    ],
+    [
+      "test_gui.GuiTests.test_protocol_errors_are_visible",
+      "Tk display required"
+    ],
+    [
+      "test_gui.GuiTests.test_scenario_and_observation_export",
+      "Tk display required"
+    ]
+  ],
+  "duration_seconds": 4.914,
+  "success": true,
+  "network_scope": "loopback sends only",
+  "physical_validation": false,
+  "xp_gui_executed_by_this_runner": false
+}

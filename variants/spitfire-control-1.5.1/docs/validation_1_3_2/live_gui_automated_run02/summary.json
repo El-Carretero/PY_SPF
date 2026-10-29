@@ -1,0 +1,160 @@
+{
+  "targeted_gui_result": {
+    "status": "PASS",
+    "arm_hold_seconds": 7.686182099999314
+  },
+  "checks": [
+    {
+      "utc": "2026-10-27T12:35:41.492836+00:00",
+      "monotonic": 6878.1024239,
+      "name": "Disarmed reset gives ARM reason",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T12:35:41.493563+00:00",
+      "monotonic": 6878.1031498,
+      "name": "Disarmed reset does not confirm",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T12:35:41.494015+00:00",
+      "monotonic": 6878.1036009,
+      "name": "Disarmed button action is ARM",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T12:35:41.498199+00:00",
+      "monotonic": 6878.107785,
+      "name": "ARM callback accepts live connection",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T12:35:41.498597+00:00",
+      "monotonic": 6878.1081834,
+      "name": "Armed button action is DISARM",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T12:35:47.862973+00:00",
+      "monotonic": 6884.4724481,
+      "name": "ARM retained across fresh empty 1044 and 1069",
+      "passed": true,
+      "detail": {
+        "seconds": 6.363583299999846,
+        "empty_counts": {
+          "1044": 3,
+          "1069": 3
+        }
+      }
+    },
+    {
+      "utc": "2026-10-27T12:35:47.864060+00:00",
+      "monotonic": 6884.4735295,
+      "name": "Output remains blocked",
+      "passed": true,
+      "detail": "Empower opt-out is not confirmed by a recent controller readback."
+    },
+    {
+      "utc": "2026-10-27T12:35:48.507806+00:00",
+      "monotonic": 6885.1172604,
+      "name": "HV OFF explicitly refreshed before reset",
+      "passed": true,
+      "detail": "2026-10-27 12:35:48.433844+00:00"
+    },
+    {
+      "utc": "2026-10-27T12:35:48.510047+00:00",
+      "monotonic": 6885.1195054,
+      "name": "Clear Faults reaches confirmation",
+      "passed": true,
+      "detail": "None"
+    },
+    {
+      "utc": "2026-10-27T12:35:48.510474+00:00",
+      "monotonic": 6885.119931,
+      "name": "Clear Faults avoids repeated ARM warning",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T12:35:49.172297+00:00",
+      "monotonic": 6885.7817487,
+      "name": "Both reset requests pass real send-time guards",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T12:35:49.173350+00:00",
+      "monotonic": 6885.7827984,
+      "name": "No hardware write packets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T12:35:49.173923+00:00",
+      "monotonic": 6885.7833688,
+      "name": "ARM retained after withheld reset requests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T12:35:49.184228+00:00",
+      "monotonic": 6885.793675,
+      "name": "Manual DISARM works",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T12:35:49.184749+00:00",
+      "monotonic": 6885.7941953,
+      "name": "DISARM reason shown",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T12:35:49.185211+00:00",
+      "monotonic": 6885.7946561,
+      "name": "Button returns to ARM",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "version": "1.3.2",
+  "actual_hardware_writes": 0,
+  "query_packets": 90,
+  "reset_requests_withheld": [
+    {
+      "utc": "2026-10-27T12:35:49.066424+00:00",
+      "monotonic": 6885.6758696,
+      "cid": 2049,
+      "line": "[2049]ECU:RESETFAULTS",
+      "send_time_checks_passed": true,
+      "sent": false
+    },
+    {
+      "utc": "2026-10-27T12:35:49.068358+00:00",
+      "monotonic": 6885.6778055,
+      "cid": 2052,
+      "line": "[2052]TDG:RESFAULT",
+      "send_time_checks_passed": true,
+      "sent": false
+    }
+  ],
+  "hv_values": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "empty_required_replies": 6,
+  "settings_unchanged": true,
+  "duration_seconds": 19.38970689999951,
+  "query_test_min_interval_seconds": 0.2,
+  "product_scheduler_changed": false,
+  "final_armed": false
+}

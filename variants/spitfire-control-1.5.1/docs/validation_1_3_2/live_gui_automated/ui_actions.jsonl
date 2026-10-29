@@ -1,0 +1,3 @@
+{"utc": "2026-10-27T12:33:11.468033+00:00", "monotonic": 6728.0803906, "action": "clear_faults", "armed_after_callback": false}
+{"utc": "2026-10-27T12:33:11.483163+00:00", "monotonic": 6728.0955121, "action": "toggle_arm", "armed_after_callback": true}
+{"utc": "2026-10-27T12:33:17.615074+00:00", "monotonic": 6734.2273091, "action": "clear_faults", "armed_after_callback": true}

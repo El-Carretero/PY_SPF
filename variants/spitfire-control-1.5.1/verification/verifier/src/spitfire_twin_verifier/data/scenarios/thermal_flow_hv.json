@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "id": "thermal_flow_hv",
+  "name": "온도·냉각수·HV 복합 오류",
+  "description": "독립적인 추상 입력의 오류 래치와 복구. 임의 펌웨어 비트 매핑 없음.",
+  "duration_ms": 200,
+  "policy": {},
+  "initial_signals": {},
+  "events": [
+    {
+      "at_ms": 0,
+      "type": "arm"
+    },
+    {
+      "at_ms": 0,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 50,
+      "type": "signals",
+      "values": {
+        "temperature_ok": false,
+        "flow_ok": false,
+        "hv_ok": false
+      }
+    },
+    {
+      "at_ms": 60,
+      "type": "reset"
+    },
+    {
+      "at_ms": 100,
+      "type": "signals",
+      "values": {
+        "temperature_ok": true,
+        "flow_ok": true,
+        "hv_ok": true
+      }
+    },
+    {
+      "at_ms": 120,
+      "type": "reset"
+    },
+    {
+      "at_ms": 130,
+      "type": "arm"
+    },
+    {
+      "at_ms": 130,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 200,
+      "type": "disarm"
+    }
+  ],
+  "assertions": [
+    {
+      "at_ms": 50,
+      "path": "active_faults",
+      "op": "contains",
+      "expected": "overtemperature"
+    },
+    {
+      "at_ms": 50,
+      "path": "active_faults",
+      "op": "contains",
+      "expected": "flow_fault"
+    },
+    {
+      "at_ms": 50,
+      "path": "active_faults",
+      "op": "contains",
+      "expected": "hv_fault"
+    },
+    {
+      "at_ms": 60,
+      "path": "reset_accepted",
+      "op": "eq",
+      "expected": false
+    },
+    {
+      "at_ms": 130,
+      "path": "armed",
+      "op": "eq",
+      "expected": true
+    }
+  ]
+}

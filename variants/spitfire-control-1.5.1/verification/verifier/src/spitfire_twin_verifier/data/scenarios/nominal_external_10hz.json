@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "nominal_external_10hz",
+  "name": "정상 외부 펌프 10 Hz",
+  "description": "80 MHz seed와 10 Hz 외부 트리거가 정상인 합성 정책 시험.",
+  "duration_ms": 400,
+  "policy": {},
+  "initial_signals": {},
+  "events": [
+    {
+      "at_ms": 0,
+      "type": "arm"
+    },
+    {
+      "at_ms": 0,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 100,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 200,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 300,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 400,
+      "type": "disarm"
+    }
+  ],
+  "assertions": [
+    {
+      "at_ms": 300,
+      "path": "armed",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "at_ms": 300,
+      "path": "accepted_trigger_count",
+      "op": "eq",
+      "expected": 4
+    },
+    {
+      "at_ms": 400,
+      "path": "inhibited",
+      "op": "eq",
+      "expected": true
+    }
+  ]
+}

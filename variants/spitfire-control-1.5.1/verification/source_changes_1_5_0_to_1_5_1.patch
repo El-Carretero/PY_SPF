@@ -1,0 +1,1079 @@
+--- a/README.md
++++ b/README.md
+@@ -1,11 +1,28 @@
+-# Spitfire Python Control 1.5.0
++# Spitfire Python Control 1.5.1
+ 
+ Spitfire/Empower 원본 GUI의 통신을 구현한 Python 소스 배포본입니다.
+ 이번 버전은 실제 장비/RDC에 접속하지 않고 Simulator와 loopback Twin Verifier로 검증했습니다.
+ 
+-## 1.5.0 변경
++## 1.5.1 변경
+ 
+-- External 모드의 **RUN PC1+PC2 / STOP PC1+PC2** 버튼을 구현했습니다.
++- 갱신 이벤트를 묶어 화면을 한 번 갱신하고, 바뀌지 않은 값은 다시 그리지 않습니다.
++  값과 상태 문구의 길이가 바뀌어도 RUN/STOP 등 주요 버튼의 위치가 움직이지 않도록 조정했습니다.
++- 통신 실패/잘못된 응답 때문에 Fault가 초기값으로 돌아가지 않습니다. 마지막 확인된 Fault를
++  `*` / `[last/stale]`로 보존하며, 새 조회로 해제가 확인되어야 오류 표시를 지웁니다.
++  오래된 정상값은 정상 녹색으로 표시하지 않으며, RUN 보호 검사에는 과거 표시값을 사용하지 않습니다.
++- 메인 버튼은 **RUN / STOP**입니다. RUN은 버튼 위에서 마우스를 **3초 연속 누르면** 요청됩니다.
++  문자 입력은 없으며, 짧은 클릭·중간 해제·포인터 이탈·포커스 상실·탭 변경은 실행하지 않습니다.
++  GUI가 0.5초 넘게 멈추면 누르기를 취소하므로 재개 순간 RUN이 발생하지 않습니다.
++- STOP은 누르는 즉시 진행 중 RUN을 취소하고 OFF를 우선 요청합니다. 확인 창이나 길게 누르기는 없습니다.
++  진행 중인 통신 응답 대기와 장비 처리 시간까지 없애는 기능은 아닙니다.
++- TEC ON/OFF의 기존 명령에 현재 상태와 명령 결과 표시를 추가했습니다.
++  ON=`2022 ECU:TECON`, OFF=`2023 ECU:TECOFF`, 상태 확인=`1028 ECU:STB?`.
++  ACK만 받았거나 조회 결과가 다르면 성공으로 표시하지 않습니다.
++- TCU health 별칭 응답으로 갱신될 때 원시값이 누락되어 화면 갱신이 중단되는 예외를 수정했습니다.
++
++## 유지되는 1.5.0 동작
++
++- External 모드의 **RUN / STOP**은 PC1+PC2를 제어합니다.
+   RUN은 PC2 ON 조회 확인 후 PC1 ON을 요청합니다. STOP은 PC1 OFF와 PC2 OFF를 모두 요청합니다.
+   외부 펌프, seed, HV ON은 이 RUN/STOP에서 제어하지 않습니다. HV OFF는 별도 버튼입니다.
+ - RUN 중 오류·응답 유실·조회 불일치가 생기면 다음 ON을 취소하고 두 PC 채널에 OFF를 요청합니다.
+@@ -27,7 +44,7 @@
+ ## Windows 실행
+ 
+ **소스 ZIP과 wheel이며 EXE는 포함하지 않았습니다.** Python 3.10 이상(Tk 포함)과 pySerial 3.5가 필요합니다.
+-이번 1.5.0 검증 환경은 Linux Python 3.12.14 + Tk 가상 화면입니다. Windows 10/실장비 검증은 수행하지 않았습니다.
++이번 1.5.1 검증 환경은 Linux Python 3.12.14 + Tk 가상 화면입니다. Windows 10/실장비 검증은 수행하지 않았습니다.
+ 
+ 1. ZIP 전체를 새 폴더에 풉니다. 기존 버전과 설정/기록은 보관합니다.
+ 2. Python 설치 후 `install_windows.cmd`를 실행합니다. pySerial은 포함된 wheel로 설치합니다.
+@@ -51,12 +68,13 @@
+ ```
+ 
+ 시험 실행기는 loopback 외 소켓 송신을 차단하고 사용자 설정을 임시 폴더에 격리합니다.
+-GUI 시험에는 화면이 필요합니다. 1.5.0 결과와 패킷 기록은 `verification/results/v1_5_0`에 있습니다.
++GUI 시험에는 화면이 필요합니다. 1.5.1 결과와 패킷 기록은 `verification/results/v1_5_1`에 있습니다.
+ 그 외 기존 결과 폴더는 이전 버전 기록입니다. Twin Verifier는 통신 모델이며 실제 레이저 물리를 재현하지 않습니다.
+ 
++- [1.5.1 변경·검증 보고서](docs/VALIDATION_1_5_1_KO.md)
+ - [1.5.0 변경·검증 보고서](docs/VALIDATION_1_5_0_KO.md)
+ - [외부 펌프 사용 안내](docs/EXTERNAL_PUMP_KO.md)
+ - [프로토콜 및 단위](docs/PROTOCOL.md)
+ - [1.4.0 보고서](docs/VALIDATION_1_4_0_KO.md)
+ 
+-`VALIDATION_1_4_0`, `VALIDATION_1_3_*`와 과거 안내는 당시의 기록입니다. 현재 동작은 이 README와 1.5.0 보고서를 기준으로 합니다.
++과거 버전 보고서는 당시의 기록입니다. 현재 동작은 이 README와 1.5.1 보고서를 기준으로 합니다.
+--- a/build_windows.ps1
++++ b/build_windows.ps1
+@@ -14,7 +14,7 @@
+     $exe = Join-Path $PSScriptRoot "dist\SpitfirePythonControl.exe"
+     $manifest = [ordered]@{
+         self_test_protocol = 1
+-        version = "1.5.0"
++        version = "1.5.1"
+         file = "SpitfirePythonControl.exe"
+         sha256 = (Get-FileHash -LiteralPath $exe -Algorithm SHA256).Hash.ToLowerInvariant()
+     }
+--- a/docs/EXTERNAL_PUMP_KO.md
++++ b/docs/EXTERNAL_PUMP_KO.md
+@@ -1,4 +1,4 @@
+-# External Pump 사용 안내 — 1.5.0
++# External Pump 사용 안내 — 1.5.1
+ 
+ 외부 펌프와 seed는 해당 전용 제어기로 관리합니다. PY-SPF는 TDG 상태와 PC 채널을 제어하며,
+ 외부 펌프의 실제 발진·출력·반복률·광학 동기 상태를 측정하지 않습니다.
+@@ -12,14 +12,22 @@
+ | Key interlock | 1039 현재 상태의 `0x4000` 비트: asserted/clear/unknown. 기계적 스위치 위치 센서로 단정하지 않음 |
+ | FAULTS의 TDG Key fault | 1066 fault register의 `0x4000`. 현재 interlock과 별도 |
+ | PC1 / PC2 | 1045/1046 복합 응답에서 읽은 채널 ON/OFF. 수신 확인만으로 바꾸지 않음 |
+-| RUN PC1+PC2 | PC2 ON → PC2 조회 확인 → PC1 ON → PC1 조회 확인 |
+-| STOP PC1+PC2 | PC1 OFF → PC2 OFF 요청 후 각각 조회. HV·펌프·seed는 유지 |
++| RUN | 3초 연속 누르기 → PC2 ON → PC2 조회 확인 → PC1 ON → PC1 조회 확인 |
++| STOP | 누르는 즉시 PC1 OFF → PC2 OFF 우선 요청 후 각각 조회. HV·펌프·seed는 유지 |
+ | HV OFF | 별도 2016 명령. 진행 중 RUN을 취소하고 PC OFF 정리를 요청 |
+ | Open timing / HV settings | 설정 탭 열기. 장치 명령 없음 |
+ | CLEAR FAULTS | EMP reset → TCU reset → TDG reset → 전역 RESET. 자동 RUN 없음 |
+ 
+ ON/STOP 확인은 PC 채널의 보고값에 대한 확인입니다. 실제 광출력 유무를 보증하지 않습니다.
+ 화면의 `Last RUN/STOP`은 마지막 명령 결과입니다. 현재 상태는 위의 PC1/PC2 최신값으로 확인합니다.
++
++RUN은 문자 입력 대신 버튼 위에서 마우스를 3초 연속 누릅니다. 도중에 놓거나 버튼을 벗어나거나
++포커스/탭을 바꾸면 취소됩니다. GUI가 0.5초 이상 멈추어도 취소되며, 다시 눌러야 합니다.
++STOP은 누르는 순간 우선 OFF를 요청하지만 진행 중인 UDP 응답 대기/장비 처리 시간은 남습니다.
++
++Fault 조회가 끊기면 마지막 확인값을 `*` / `[last/stale]`로 표시합니다. 과거 오류는 빨강,
++오래된 정상값은 주황, 조회 이력이 없는 값은 회색입니다. 새 응답의 오류 해제 확인으로만 빨강을 지웁니다.
++이 보존은 표시용이며 최신 데이터가 없는 상태에서 RUN을 허용하지 않습니다.
+ 
+ ## 소프트웨어 RUN 조건
+ 
+--- a/docs/VALIDATION_1_5_1_KO.md
++++ b/docs/VALIDATION_1_5_1_KO.md
+@@ -0,0 +1,74 @@
++# PY-SPF 1.5.1 변경 및 검증 보고서
++
++작성일: 2026-10-29 UTC. 기준: 배포된 1.5.0 소스 ZIP.
++이번 작업은 실제 장비, RDC, 가상 XP에 접속하지 않고 수행했습니다.
++
++## 변경 내용
++
++### 화면 갱신과 Fault 유지
++
++1.5.0은 큐의 각 이벤트마다 전체 화면을 갱신했습니다. 1.5.1은 한 주기에 최대 256개/8ms의
++이벤트를 처리한 뒤 최신 상태로 한 번 갱신하고 로그도 한 번에 삽입합니다.
++바뀌지 않은 변수·표시등·수치는 다시 쓰지 않습니다. 상태 문구와 측정값의 길이가 바뀌어도
++주요 버튼의 위치와 크기가 바뀌지 않도록 레이아웃을 조정했습니다.
++
++Fault 조회 실패/유효하지 않은 응답/통신 단절은 정상 초기값으로 처리하지 않습니다.
++마지막 유효한 Fault 표시와 원시 응답을 보관하며, 현재 확인할 수 없으면 `*` / `[last/stale]`를 붙입니다.
++마지막 값이 오류이면 빨강을 유지하고, 마지막 정상값이 오래되었으면 주황, 조회 이력이 없으면 회색입니다.
++새 유효 응답으로 해제가 확인되면 오류 표시를 지웁니다. 연결을 새로 시작하면 이전 세션의 표시 캐시는 지웁니다.
++이 캐시는 화면 표시용이며 RUN 조건에 필요한 최신 응답을 대체하지 않습니다.
++
++전체 시험 중 TCU health의 별칭 응답(1029/1057)이 canonical 1088의 값·시각만 갱신하고
++원시 문자열을 누락하여 화면 갱신이 중단되는 예외를 발견했습니다.
++별칭 응답이 대표 ID의 원시값도 함께 갱신하도록 수정하고 해당 회귀 시험을 추가했습니다.
++
++### RUN / STOP
++
++- 버튼 문구를 정확히 `RUN`, `STOP`으로 변경했습니다.
++- RUN 문자 입력 확인을 제거하고 마우스로 버튼을 3초 연속 누를 때 한 번만 실행합니다.
++- 짧은 클릭, 중간 해제, 포인터 이탈, 포커스 상실, 탭 변경, 창 숨김, 연결/프로필 변경은 누르기를 취소합니다.
++- 일반 버튼 invoke 및 Space/Enter로 길게 누르기를 건너뛰지 못합니다.
++- GUI timer가 0.5초 넘게 지연되면 취소하며, 화면이 재개될 때 뒤늦게 RUN을 실행하지 않습니다.
++- STOP은 누르는 시점에 실행하며 확인 창/3초 대기 없이 진행 중 RUN을 취소하고 OFF를 우선 요청합니다.
++  현재 진행 중인 UDP 교환의 응답 대기와 장비 처리 시간은 남습니다. 물리적 정지 시간을 보증하지 않습니다.
++
++External RUN의 PC2 ON 확인 → PC1 ON 확인, 중간 실패 시 두 PC OFF 정리,
++최신 fault/HV/전압/소스/80 MHz/보호조건 검사 등 controller 동작은 1.5.0을 유지했습니다.
++이 버전에서 RUN/STOP이 외부 펌프나 seed를 제어하도록 바꾸지 않았습니다.
++Empower 모드도 메인 RUN의 3초 확인과 STOP 즉시 요청 UI를 사용합니다.
++
++### TEC ON/OFF
++
++두 버튼은 실제 명령 경로에 연결되어 있습니다. ON은 `2022 ECU:TECON`, OFF는 `2023 ECU:TECOFF`를
++전송하며 `1028 ECU:STB?` 조회로 상태를 확인합니다. 기존 completion의 bit 0 판정을 그대로 사용합니다.
++온도 화면에 현재 TEC reported ON/OFF/unknown과 마지막 요청 결과를 추가했습니다.
++ACK는 적용 확인과 구분하고, 조회가 요청과 다르면 설정 불일치를 표시합니다.
++TEC overtemperature 등 Fault는 별도 health/fault 표시로 유지합니다.
++
++Verifier에서 ON/OFF 후 조회 일치와 ACK 후 상태 미변경 시 불일치를 확인했습니다.
++실제 TEC 전원·냉각·온도 응답은 측정하지 않았습니다.
++
++## 검증 결과
++
++| 항목 | 결과 | 증거 |
++| --- | --- | --- |
++| 제품 전체 회귀 | 407 통과, 실패 0, 생략 0 | `verification/results/v1_5_1/linux_control` |
++| Verifier 전체 회귀 | 209 통과, 실패 0, 생략 1 | `verification/results/v1_5_1/linux_verifier` |
++| 이번 버전 신규 시험 | 23개, 제품 407개에 포함 | `tests/test_refresh_hold_151.py` |
++| 기존 GUI RUN 시험 | 실제 3초 누르기를 통해 명령 전송까지 확인 | `tests/test_gui_output_150.py` 및 캡처 JSONL |
++| 새 가상환경의 wheel 설치·External 데모 | PASS, 외부 I/O 차단 | `verification/results/v1_5_1/wheel_external_demo/result.json` |
++| 1024×768 화면 | RUN/STOP 위치 안정 및 Fault 현재/오래된 상태 확인 | `verification/results/v1_5_1/screenshots` |
++| Windows 10 / 실장비 / 실제 TEC 냉각 | 미실시 | Linux Python 3.12.14, Tk 8.6 가상 화면에서 검증 |
++
++Verifier의 생략 1개는 배포하지 않은 vendor EXE의 선택적 해시 비교입니다.
++시험 실행기는 loopback 외 소켓 송신을 차단합니다. 실제 Tk GUI, controller worker,
++독립 UDP Verifier를 연결해 시험했으며, 과거 Windows/XP 결과를 이번 결과에 합산하지 않았습니다.
++스크린샷의 UDP 표시도 loopback Verifier입니다. Fault 단절 화면은 통신 상태를 명시적으로 주입한 UI fixture입니다.
++
++## 배포
++
++런타임 의존성 추가 없음: Python 3.10 이상, Tk, pySerial 3.5.
++소스와 wheel, pySerial wheel, 시험 코드·보고서·패킷 기록을 포함하며 EXE는 포함하지 않습니다.
++기존 설정/로그는 보관하고 새 폴더에 압축을 푸십시오. 자동 데이터 CSV 저장은 기본 OFF를 유지합니다.
++제품 변경 사항은 `verification/source_changes_1_5_0_to_1_5_1.patch`에 있습니다.
++루트 `SHA256SUMS`는 배포 파일 무결성 확인용입니다.
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -4,7 +4,7 @@
+ 
+ [project]
+ name = "spitfire-control"
+-version = "1.5.0"
++version = "1.5.1"
+ description = "Clean-room Python control and diagnostic GUI for Spectra-Physics Spitfire/Empower systems"
+ readme = "README.md"
+ requires-python = ">=3.10"
+--- a/src/spitfire_control/__init__.py
++++ b/src/spitfire_control/__init__.py
+@@ -1,3 +1,3 @@
+ """Spitfire Python Control."""
+ 
+-__version__ = "1.5.0"
++__version__ = "1.5.1"
+--- a/src/spitfire_control/hold_button.py
++++ b/src/spitfire_control/hold_button.py
+@@ -0,0 +1,76 @@
++"""Mouse hold confirmation; ordinary click/invoke/keyboard cannot start RUN."""
++from __future__ import annotations
++import time
++import tkinter as tk
++from tkinter import ttk
++
++
++class HoldToRunButton(ttk.Button):
++    HOLD_SECONDS = 3.0
++    MAX_TICK_GAP = 0.5  # A stalled GUI must not activate RUN when it resumes.
++
++    def __init__(self, master, *, on_confirm, on_progress, **kwargs):
++        self._on_confirm = on_confirm
++        self._on_progress = on_progress
++        self._hold_job = None
++        self._hold_start = None
++        self._last_tick = None
++        self._mouse_down = False
++        self._clock = time.monotonic
++        super().__init__(master, command=self._click_only, **kwargs)
++        self.bind('<ButtonPress-1>', self._press)
++        self.bind('<ButtonRelease-1>', self._release)
++        for sequence in ('<Leave>', '<FocusOut>', '<Unmap>', '<Destroy>'):
++            self.bind(sequence, self.cancel, add='+')
++        for sequence in ('<KeyPress-space>', '<KeyRelease-space>', '<KeyPress-Return>', '<KeyRelease-Return>'):
++            self.bind(sequence, self._click_only)
++
++    def _click_only(self, _event=None):
++        self._on_progress(None)
++        return 'break'
++
++    def _press(self, _event=None):
++        if self.instate(['disabled']) or self._mouse_down:
++            return 'break'
++        self.focus_set()
++        self._mouse_down = True
++        self.state(['pressed'])
++        self._hold_start = self._last_tick = self._clock()
++        self._on_progress(0.0)
++        self._hold_job = self.after(50, self._tick)
++        return 'break'
++
++    def _tick(self):
++        self._hold_job = None
++        if self._hold_start is None:
++            return
++        now = self._clock()
++        if self.instate(['disabled']) or now - self._last_tick > self.MAX_TICK_GAP:
++            self.cancel()
++            return
++        self._last_tick = now
++        elapsed = now - self._hold_start
++        if elapsed >= self.HOLD_SECONDS:
++            self._hold_start = None  # Fire once; holding longer never repeats.
++            self.state(['!pressed'])
++            self._on_progress(None)
++            self._on_confirm()
++        else:
++            self._on_progress(elapsed)
++            self._hold_job = self.after(50, self._tick)
++
++    def _release(self, _event=None):
++        self.cancel()
++        return 'break'
++
++    def cancel(self, _event=None):
++        active = self._mouse_down or self._hold_job is not None
++        self._hold_start = self._last_tick = None
++        self._mouse_down = False
++        if self._hold_job is not None:
++            try:self.after_cancel(self._hold_job)
++            except tk.TclError:pass
++            self._hold_job = None
++        try:self.state(['!pressed'])
++        except tk.TclError:pass
++        if active:self._on_progress(None)
+--- a/src/spitfire_control/state.py
++++ b/src/spitfire_control/state.py
+@@ -288,6 +288,7 @@
+         if cid in READBACK_ALIASES:
+             target = READBACK_ALIASES[cid]
+             self.values[target] = self.values[cid]
++            self.raw_values[target] = reply.value
+             self.updated_at[target] = now
+             self.invalid_ids.discard(target)
+             self.pending_readbacks.discard(target)
+@@ -483,6 +484,13 @@
+         return bool(int(value) & 0x4000)
+ 
+     @property
++    def tec_enabled(self) -> bool | None:
++        value = self.value(1028)
++        if not self.is_fresh(1028) or not isinstance(value, (int, float)) or int(value) & 0x800:
++            return None
++        return bool(int(value) & 1)
++
++    @property
+     def high_voltage(self) -> bool | None:
+         value = self.value(1021)
+         if self.is_fresh(1021) and value in (0, 1):
+--- a/src/spitfire_control/ui.py
++++ b/src/spitfire_control/ui.py
+@@ -12,6 +12,7 @@
+ from datetime import datetime
+ import queue
+ import math
++import time
+ from pathlib import Path
+ import tkinter as tk
+ from tkinter import filedialog, messagebox, simpledialog, ttk
+@@ -26,7 +27,8 @@
+ from .state import DeviceState, FAULT_LABELS
+ from .commands import engineering_argument, FAST_POLL_IDS, HV_POLL_IDS
+ from .transport import SimulatorTransport, UdpSettings, UdpTransport
+-from .widgets import DraftValue, Indicator, MetricCard, SettingRow
++from .widgets import DraftValue, Indicator, MetricCard, SettingRow, set_if_changed
++from .hold_button import HoldToRunButton
+ 
+ 
+ BG = "#e8edf2"
+@@ -64,6 +66,10 @@
+         self.override_widgets: dict[int, ttk.Checkbutton] = {}
+         self._closed = False
+         self._after_jobs: set[str] = set()
++        self._log_batch: list[str] | None = None
++        self._fault_last: dict[int, bool] = {}
++        self._fault_last_stamp = {}
++        self._fault_raw_last: dict[int, tuple[object, str, object]] = {}
+ 
+         self.connection_text = tk.StringVar(value="연결 준비 중")
+         self.mode_text = tk.StringVar(value="")
+@@ -80,6 +86,9 @@
+         self._build_layout()
+         self._apply_pump_profile()
+         self.root.protocol("WM_DELETE_WINDOW", self.close)
++        self.root.bind('<Unmap>', lambda event: self.run_button.cancel(), add='+')
++        self.root.bind('<Escape>', lambda event: self.run_button.cancel(), add='+')
++        self.notebook.bind('<<NotebookTabChanged>>', lambda event: self.run_button.cancel(), add='+')
+         self._schedule(80, self._drain_events)
+         self._schedule(150, self.connect)
+ 
+@@ -202,6 +211,7 @@
+         right = ttk.Frame(header, style="Header.TFrame")
+         right.pack(side="right")
+         self.connection_indicator = Indicator(right, "", background=NAVY, label_style="Header.TLabel", frame_style="Header.TFrame")
++        self.connection_indicator.label.configure(width=17)
+         self.connection_indicator.pack(side="left", padx=(0, 16))
+         ttk.Button(right, text="CONNECTION", style="Header.TButton", command=self.show_connection_settings).pack(side="left", padx=(0, 10))
+ 
+@@ -211,9 +221,9 @@
+         banner_text = ttk.Frame(self.external_banner)
+         banner_text.pack(side="left", fill="x", expand=True)
+         ttk.Label(banner_text, textvariable=self.external_timing_text,
+-                  font=("Segoe UI Semibold", 9), wraplength=620).pack(anchor="w")
++                  font=("Segoe UI Semibold", 9), width=1).pack(fill="x")
+         ttk.Label(banner_text, textvariable=self.external_status_text, style="Muted.TLabel",
+-                  font=("Segoe UI", 9), wraplength=620).pack(anchor="w")
++                  font=("Segoe UI", 9), width=1).pack(fill="x")
+         self.opt_out_button = ttk.Button(self.external_banner, text="APPLY EMPOWER OPT-OUT",
+                                          command=self._apply_external_opt_out)
+         self.opt_out_button.pack(side="right", padx=(8, 0))
+@@ -239,7 +249,7 @@
+ 
+         footer = ttk.Frame(self.root, style="Status.TFrame", padding=(16, 6))
+         footer.pack(fill="x", side="bottom")
+-        ttk.Label(footer, textvariable=self.connection_text, style="Status.TLabel").pack(side="left")
++        ttk.Label(footer, textvariable=self.connection_text, style="Status.TLabel", width=1).pack(side="left", fill="x", expand=True)
+         self.raw_service_hint = ttk.Label(footer, text="Ctrl+Shift+R · RAW RS-232 SERVICE", style="Status.TLabel")
+         self.raw_service_hint.pack(side="left", padx=(24, 0))
+         ttk.Label(footer, textvariable=self.mode_text, style="Status.TLabel").pack(side="right")
+@@ -257,12 +267,12 @@
+         card = MetricCard(parent, title, unit)
+         card.grid(row=0, column=column, sticky="nsew", padx=5)
+         card._digits = digits  # type: ignore[attr-defined]
+-        parent.columnconfigure(column, weight=1)
++        parent.columnconfigure(column, weight=1, uniform="metrics")
+         self.metric_cards.setdefault(command_id, []).append(card)
+ 
+     def _build_overview(self) -> None:
+-        self.overview.columnconfigure(0, weight=5)
+-        self.overview.columnconfigure(1, weight=3)
++        self.overview.columnconfigure(0, weight=5, uniform="overview")
++        self.overview.columnconfigure(1, weight=3, uniform="overview")
+         self.overview.rowconfigure(2, weight=1)
+         metrics = ttk.Frame(self.overview, style="Page.TFrame")
+         metrics.grid(row=0, column=0, columnspan=2, sticky="ew", pady=(0, 12))
+@@ -288,16 +298,24 @@
+         safety.grid(row=1, column=1, sticky="ew", padx=(6, 0), pady=(0, 12))
+         buttons = ttk.Frame(safety, style="Card.TFrame")
+         buttons.pack(fill="x")
+-        self.stop_button = ttk.Button(buttons, text="■  STOP", style="Stop.TButton", command=self.software_standby)
++        self.stop_button = ttk.Button(buttons, text="STOP", style="Stop.TButton", command=self.software_standby)
+         self.stop_button.pack(side="left", fill="x", expand=True, padx=(0, 5))
+-        self.run_button = ttk.Button(buttons, text="▶  RUN", style="Run.TButton", command=self._run_laser)
++        self.run_button = HoldToRunButton(buttons, text="RUN", style="Run.TButton",
++                                              on_confirm=self._run_laser, on_progress=self._run_hold_progress)
++        self.stop_button.bind('<ButtonPress-1>', self._stop_pressed)
++        self.stop_button.bind('<ButtonRelease-1>', lambda event: 'break')
++        self.stop_button.bind('<KeyPress-space>', self._stop_pressed)
++        self.stop_button.bind('<KeyPress-Return>', self._stop_pressed)
++        self.stop_button.bind('<KeyRelease-space>', lambda event: 'break')
++        self.stop_button.bind('<KeyRelease-Return>', lambda event: 'break')
+         self.run_button.pack(side="left", fill="x", expand=True, padx=(5, 0))
+         self.output_scope_label = ttk.Label(safety, text="Software command · physical E-stop remains authoritative", style="CardTitle.TLabel")
+-        self.output_scope_label.pack(anchor="center", pady=(7, 0))
+-        self.output_readbacks = tk.StringVar(value="HV / Key interlock / PC1 / PC2: unknown")
+-        ttk.Label(safety, textvariable=self.output_readbacks, style="CardText.TLabel", justify="left").pack(anchor="w", pady=(6, 0))
++        self.output_scope_label.configure(width=1, anchor="w")
++        self.output_scope_label.pack(fill="x", pady=(7, 0))
++        self.output_readbacks = tk.StringVar(value="Device HV: unknown · Key interlock: unknown\nHV1: unknown · HV2: unknown\nPC1: unknown · PC2: unknown")
++        ttk.Label(safety, textvariable=self.output_readbacks, style="CardText.TLabel", justify="left", width=1).pack(fill="x", pady=(6, 0))
+         self.output_result = tk.StringVar(value="No PC output command requested")
+-        ttk.Label(safety, textvariable=self.output_result, style="CardTitle.TLabel", wraplength=380).pack(anchor="w", pady=(3, 0))
++        ttk.Label(safety, textvariable=self.output_result, style="CardTitle.TLabel", width=1).pack(fill="x", pady=(3, 0))
+         output_tools = ttk.Frame(safety, style="Card.TFrame")
+         output_tools.pack(fill="x", pady=(6, 0))
+         self.timing_settings_button = ttk.Button(output_tools, text="Open timing / HV settings", command=self._open_timing_settings)
+@@ -320,7 +338,7 @@
+             base_column = (index // 6) * 2
+             ttk.Label(grid, text=label, style="CardTitle.TLabel").grid(row=row_no, column=base_column, sticky="w", pady=5)
+             var = self._var(command_id)
+-            ttk.Label(grid, textvariable=var, style="CardText.TLabel").grid(row=row_no, column=base_column + 1, sticky="w", padx=(12, 18), pady=5)
++            ttk.Label(grid, textvariable=var, style="CardText.TLabel", width=12).grid(row=row_no, column=base_column + 1, sticky="ew", padx=(12, 18), pady=5)
+         grid.columnconfigure(1, weight=1)
+         grid.columnconfigure(3, weight=1)
+ 
+@@ -474,8 +492,14 @@
+         self._setting_row(control, "Temperature setpoint", temp_var, "°C", lambda: self._issue_from_var(2021, temp_var, "Temperature setpoint", numeric=True)).pack(fill="x", pady=6)
+         buttons = ttk.Frame(control, style="Card.TFrame")
+         buttons.pack(fill="x", pady=15)
+-        ttk.Button(buttons, text="TEC ON", command=lambda: self.issue(2022, confirm="TEC를 켤까요?")).pack(side="left", expand=True, fill="x", padx=(0, 5))
+-        ttk.Button(buttons, text="TEC OFF", style="Safe.TButton", command=lambda: self.issue(2023)).pack(side="left", expand=True, fill="x", padx=(5, 0))
++        self.tec_on_button = ttk.Button(buttons, text="TEC ON", command=lambda: self.issue(2022, confirm="TEC를 켤까요?"))
++        self.tec_on_button.pack(side="left", expand=True, fill="x", padx=(0, 5))
++        self.tec_off_button = ttk.Button(buttons, text="TEC OFF", style="Safe.TButton", command=lambda: self.issue(2023))
++        self.tec_off_button.pack(side="left", expand=True, fill="x", padx=(5, 0))
++        self.tec_indicator = Indicator(control, "TEC state unknown")
++        self.tec_indicator.pack(anchor="w")
++        self.tec_result = tk.StringVar(value="No TEC command requested")
++        ttk.Label(control, textvariable=self.tec_result, style="CardTitle.TLabel", width=1).pack(fill="x", pady=4)
+         ttk.Button(control, text="REFRESH STATUS", command=lambda: self._query((1028, 1029, 1030, 1031, 1032, 1084))).pack(anchor="w")
+ 
+         overrides = self._card(self.temperature, "SERVICE OVERRIDES")
+@@ -502,18 +526,22 @@
+         top = ttk.Frame(self.faults, style="Page.TFrame")
+         top.pack(fill="x", pady=(0, 10))
+         self.fault_summary = Indicator(top, "Fault data not received")
+-        self.fault_summary.pack(side="left")
++        self.fault_summary.pack(side="left", fill="x", expand=True)
++        self.fault_summary.label.configure(width=1)
++        self.fault_summary.label.pack_configure(fill="x", expand=True)
+         ttk.Button(top, text="REFRESH", command=lambda: self._query(FAULT_QUERY_IDS)).pack(side="right", padx=(8, 0))
+         ttk.Button(top, text="CLEAR FAULTS", style="Danger.TButton", command=self._clear_faults).pack(side="right")
+         raw = self._card(self.faults, "FAULT READBACKS")
+         raw.pack(fill="x", pady=(0, 10))
+         self.fault_raw_var = tk.StringVar(value="—")
+-        ttk.Label(raw, textvariable=self.fault_raw_var, style="Metric.TLabel").pack(anchor="w")
++        ttk.Label(raw, textvariable=self.fault_raw_var, style="Metric.TLabel", width=1).pack(fill="x")
+         self.fault_health_raw_var = tk.StringVar(value="TDG — | TCU — | COM — | BWD —")
+-        ttk.Label(raw, textvariable=self.fault_health_raw_var, style="CardTitle.TLabel").pack(anchor="w", pady=(3, 0))
++        ttk.Label(raw, textvariable=self.fault_health_raw_var, style="CardTitle.TLabel", width=1).pack(fill="x", pady=(3, 0))
+         self.fault_diagnostic_var = tk.StringVar()
+         ttk.Label(raw, textvariable=self.fault_diagnostic_var, style="CardTitle.TLabel",
+-                  wraplength=900).pack(anchor="w", pady=(5, 0))
++                  width=1).pack(fill="x", pady=(5, 0))
++        ttk.Label(raw, text="* Last confirmed fault value; current data unavailable/stale.",
++                  style="CardTitle.TLabel", width=1).pack(fill="x")
+         grid = self._card(self.faults, "FAULT INDICATORS")
+         grid.pack(fill="both", expand=True)
+         for index, label in enumerate(FAULT_LABELS):
+@@ -521,7 +549,7 @@
+             indicator.grid(row=index % 7, column=index // 7, sticky="w", padx=10, pady=7)
+             self.fault_indicators.append(indicator)
+         for column in range(4):
+-            grid.columnconfigure(column, weight=1)
++            grid.columnconfigure(column, weight=1, uniform="faults")
+ 
+     def _build_diagnostics(self) -> None:
+         self.diagnostics.columnconfigure(0, weight=2)
+@@ -684,9 +712,10 @@
+         self.service_menu.entryconfigure(0, state="disabled" if external else "normal")
+         self.file_menu.entryconfigure(2, state="normal" if external else "disabled")
+         self.raw_service_hint.configure(text="External pump: separate controls" if external else "Ctrl+Shift+R · RAW RS-232 SERVICE")
+-        self.stop_button.configure(text="■ STOP PC1+PC2" if external else "■  STOP")
+-        self.run_button.configure(text="▶ RUN PC1+PC2" if external else "▶  RUN", style="Run.TButton")
+-        self.output_scope_label.configure(text="PC outputs only · pump / seed controlled separately" if external else "Software command · physical E-stop remains authoritative")
++        self.run_button.cancel()
++        self.stop_button.configure(text="STOP")
++        self.run_button.configure(text="RUN", style="Run.TButton")
++        self._run_hold_progress(None)
+ 
+     def _configuration_change_reason(self) -> str:
+         if self.controller is None or not self.controller.running:
+@@ -730,6 +759,10 @@
+         )
+ 
+     def connect(self) -> None:
++        self.run_button.cancel()
++        self._fault_last.clear()
++        self._fault_last_stamp.clear()
++        self._fault_raw_last.clear()
+         if self.controller:
+             self.controller.stop()
+         self.state = DeviceState(pump_mode=self.config.pump_mode)
+@@ -744,6 +777,7 @@
+         self.controller.start()
+ 
+     def disconnect(self) -> None:
++        self.run_button.cancel()
+         if self.controller:
+             self.controller.stop()
+             self.state = self.controller.state
+@@ -824,10 +858,6 @@
+             if not self.controller or not self.controller.running:
+                 messagebox.showwarning("RUN unavailable", "Connect before RUN.", parent=self.root)
+                 return
+-            if self.config.mode == "udp" and simpledialog.askstring(
+-                    "RUN PC1 + PC2", "PC1·PC2 출력을 활성화합니다. Beam path와 인터록을 확인하십시오.\n"
+-                    "HV·외부 펌프·seed는 이 버튼으로 켜지지 않습니다.\n계속하려면 RUN 을 입력하십시오.", parent=self.root) != "RUN":
+-                return
+             try:
+                 self.controller.run_pc_outputs()
+             except (ValueError, PermissionError) as exc:
+@@ -835,17 +865,19 @@
+                 return
+             self.connection_text.set("PC RUN requested; channel readback confirmation pending")
+             return
+-        phrase = simpledialog.askstring(
+-            "RUN 확인",
+-            "RUN은 레이저 출력을 활성화할 수 있습니다.\n"
+-            "실제 장비에서는 모든 인터록과 beam path를 확인하십시오.\n"
+-            "계속하려면 RUN 을 입력하십시오.",
+-            parent=self.root,
+-        )
+-        if phrase == "RUN":
+-            self.issue(2027, confirm="최종 확인: 레이저 RUN 명령을 전송할까요?")
++        self.issue(2027)
++
++    def _run_hold_progress(self, elapsed) -> None:
++        scope = "PC1+PC2 only" if self.config.pump_mode == "external" else "laser command"
++        message = f"Hold RUN 3 s · {scope}" if elapsed is None else f"Keep holding RUN: {elapsed:.1f} / 3.0 s"
++        self.output_scope_label.configure(text=message)
++
++    def _stop_pressed(self, _event=None):
++        self.software_standby()
++        return 'break'
+ 
+     def software_standby(self) -> None:
++        self.run_button.cancel()
+         if not self.controller or not self.controller.running:
+             return
+         if self.config.pump_mode == "external":
+@@ -940,17 +972,26 @@
+             self._append_log(f"DATA LOG ERROR: {exc}")
+ 
+     def _drain_events(self) -> None:
+-        if self.controller:
+-            while True:
+-                try:
+-                    event = self.controller.events.get_nowait()
+-                except queue.Empty:
+-                    break
+-                self._handle_event(event)
+-        self._refresh_ui()
++        deadline = time.monotonic() + 0.008
++        self._log_batch = []
++        try:
++            if self.controller:
++                for _ in range(256):
++                    try:event = self.controller.events.get_nowait()
++                    except queue.Empty:break
++                    self._handle_event(event, render=False)
++                    if time.monotonic() >= deadline:break
++            # Use the latest snapshot, not a backlog of old UI snapshots.
++            if isinstance(self.controller, LaserController):
++                self.state = self.controller.state
++            self._refresh_ui()
++            self._write_data_log(self.state)
++        finally:
++            lines, self._log_batch = self._log_batch, None
++            if lines:self._insert_log(''.join(lines))
+         self._schedule(80, self._drain_events)
+ 
+-    def _handle_event(self, event: ControllerEvent) -> None:
++    def _handle_event(self, event: ControllerEvent, *, render: bool = True) -> None:
+         if event.kind == "command" and event.result:
+             result = event.result
+             labels = {"queued":"대기", "sent":"전송", "receipt":"수신·적용 미확인",
+@@ -959,6 +1000,8 @@
+                       "rejected":"응답 거부", "mismatch":"설정 불일치",
+                       "timeout":"통신 실패·적용 불명", "cancelled":"전송 취소"}
+             self.connection_text.set(f"#{result.token} [{result.command_id}] {labels.get(result.status,result.status)}")
++            if result.command_id in (2022, 2023):
++                self.tec_result.set(f"TEC {'ON' if result.command_id == 2022 else 'OFF'}: {labels.get(result.status,result.status)}")
+             self._append_log(event.message)
+         elif event.kind == "output" and event.output:
+             operation = event.output
+@@ -987,16 +1030,36 @@
+                 self.connection_text.set(event.message)
+         if event.state:
+             self.state = event.state
+-            self._refresh_ui()
+-            self._write_data_log(event.state)
++            self._remember_fault_state(event.state)
++            if render:
++                self._refresh_ui()
++                self._write_data_log(event.state)
+ 
+     def _append_log(self, message: str) -> None:
+         stamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+-        self.log_text.insert("end", f"{stamp}  {message}\n")
++        line = f"{stamp}  {message}\n"
++        if self._log_batch is not None:self._log_batch.append(line)
++        else:self._insert_log(line)
++
++    def _insert_log(self, text: str) -> None:
++        follow = self.log_text.yview()[1] >= 0.995
++        self.log_text.insert("end", text)
+         line_count = int(self.log_text.index("end-1c").split(".")[0])
+-        if line_count > 1000:
+-            self.log_text.delete("1.0", "201.0")
+-        self.log_text.see("end")
++        if line_count > 1000:self.log_text.delete("1.0", f"{line_count-999}.0")
++        if follow:self.log_text.see("end")
++
++    def _remember_fault_state(self, state: DeviceState) -> None:
++        for cid in (1014, 1066, 1088, 1089, 1039):
++            previous = self._fault_raw_last.get(cid)
++            if state.is_fresh(cid) and (previous is None or state.updated_at[cid] >= previous[2]):
++                self._fault_raw_last[cid] = (state.value(cid), state.raw_values[cid], state.updated_at[cid])
++        for index in range(len(FAULT_LABELS)):
++            value = state.fault_state(index)
++            stamp = state.last_reply_at
++            previous = self._fault_last_stamp.get(index)
++            if value is not None and stamp is not None and (previous is None or stamp >= previous):
++                self._fault_last[index] = value
++                self._fault_last_stamp[index] = stamp
+ 
+     @staticmethod
+     def _render(value: object) -> str:
+@@ -1019,11 +1082,12 @@
+         return None
+ 
+     def _refresh_ui(self) -> None:
++        self._remember_fault_state(self.state)
+         external = self.config.pump_mode == "external"
+         if external:
+             confirmed = self.state.external_opt_out_confirmed
+             seed = self.state.value(1065) if self.state.is_fresh(1065) else None
+-            self.external_timing_text.set(
++            set_if_changed(self.external_timing_text, 
+                 f"EXTERNAL PUMP · seed {self._render(seed)} MHz · expected pump {self._render(self.config.external_pump_hz)} Hz (unmeasured)"
+             )
+             reason = self.state.external_enable_reason()
+@@ -1033,23 +1097,23 @@
+                 status = "Empower opt-out is OFF; apply explicitly with fresh HV OFF"
+             else:
+                 status = "Empower opt-out unavailable / unconfirmed; REFRESH required"
+-            self.external_status_text.set(status)
++            set_if_changed(self.external_status_text, status)
+             self.opt_out_button.configure(state="normal" if self.controller is not None and self.controller.running and self.state.high_voltage is False else "disabled")
+         live = set(FAST_POLL_IDS + HV_POLL_IDS + FAULT_QUERY_IDS)
+         if external:
+             live.update(EXTERNAL_REQUIRED_READS)
+         for cid, variable in self.value_vars.items():
+             if external and not query_allowed(cid, self.config.pump_mode):
+-                variable.set("N/A")
++                set_if_changed(variable, "N/A")
+                 continue
+             value = self.state.value(cid)
+             if not self.state.link_fresh() or (cid in live and not self.state.is_fresh(cid)):
+                 value = None
+             # Preserve current suffixes such as MA without guessing their SI scale.
+             if cid in {1055, 1056} and value is not None:
+-                variable.set(self.state.raw_values.get(cid, self._render(value)).strip())
++                set_if_changed(variable, self.state.raw_values.get(cid, self._render(value)).strip())
+             else:
+-                variable.set(self._render(value))
++                set_if_changed(variable, self._render(value))
+         for cid, cards in self.metric_cards.items():
+             if external and not query_allowed(cid, self.config.pump_mode):
+                 for card in cards:
+@@ -1062,7 +1126,7 @@
+                 card.set(value, digits=getattr(card, "_digits", 2))
+         for cid, draft in self.drafts.items():
+             if external and not query_allowed(cid, self.config.pump_mode):
+-                draft.readback.set("N/A")
++                set_if_changed(draft.readback, "N/A")
+                 continue
+             value = self.state.value(cid) if self.state.link_fresh() else None
+             if external and cid in EXTERNAL_REQUIRED_READS and not self.state.is_fresh(cid):
+@@ -1102,16 +1166,24 @@
+         def measured_voltage(cid):
+             value = self.state.value(cid)
+             return f"{value:g} V" if self.state.is_fresh(cid) and isinstance(value, (int, float)) else "unknown/stale"
+-        self.output_readbacks.set(
++        set_if_changed(self.output_readbacks, 
+             f"Device HV: {'ON' if hv is True else 'OFF' if hv is False else 'unknown/stale'} · Key interlock: {key_text}\n"
+             f"HV1: {measured_voltage(1042)} · HV2: {measured_voltage(1043)}\n"
+             f"PC1: {self.state.pc_output(1) or 'unknown/stale'} · PC2: {self.state.pc_output(2) or 'unknown/stale'}"
+         )
++        tec = self.state.tec_enabled
++        self.tec_indicator.set("ok" if tec is True else "off" if tec is False else "unknown",
++                               "TEC reported ON" if tec is True else "TEC reported OFF" if tec is False else "TEC unknown/stale")
+         words = self.state.fault_words if self.state.is_fresh(1014) else ()
+-        self.fault_raw_var.set("Empower N/A" if external else (" ".join(str(word) for word in words) if words else "Empower —"))
++        fault_raw = "Empower N/A" if external else " ".join(str(word) for word in words) if words else "Empower —"
++        if not external and not words and 1014 in self._fault_raw_last:
++            fault_raw = self._fault_raw_last[1014][1] + " [last/stale]"
++        set_if_changed(self.fault_raw_var, fault_raw)
+         def raw_status(cid):
+-            return self.state.raw_values.get(cid, "—") if self.state.is_fresh(cid) else "—"
+-        self.fault_health_raw_var.set(" | ".join(
++            if self.state.is_fresh(cid):return self.state.raw_values.get(cid, "—")
++            previous = self._fault_raw_last.get(cid)
++            return (previous[1] + " [last/stale]") if previous else "—"
++        set_if_changed(self.fault_health_raw_var, " | ".join(
+             f"{name} {raw_status(cid)}" for name, cid in (("TDG", 1066), ("TCU", 1088), ("COM", 1089), ("BWD", 1039))
+         ))
+         def bit_status(cid, mask):
+@@ -1119,22 +1191,34 @@
+                 return "unknown/stale"
+             return "SET" if int(self.state.value(cid)) & mask else "clear"
+         pc_link = "reply received" if self.state.link_fresh() else "no fresh reply"
+-        self.fault_diagnostic_var.set(
++        set_if_changed(self.fault_diagnostic_var, 
+             f"PC link: {pc_link}. Controller Main comm flag: {bit_status(1089, 0x01)}.\n"
+             f"TDG Key bit: current {bit_status(1039, 0x4000)} / fault register {bit_status(1066, 0x4000)}. "
+             "Reset requests a new fault readback; it does not force flags clear."
+         )
+         active, known = self.state.fault_active, self.state.faults_known
+-        self.fault_summary.set("fault" if active else ("ok" if known else "unknown"),
+-                               "REPORTED SYSTEM FAULT" if active else ("No reported faults; external pump unmonitored" if external and known
+-                               else ("No reported faults" if known else "Fault data unavailable/stale")))
++        remembered_active = any(
++            int(self._fault_raw_last[cid][0]) & mask for cid, mask in
++            ((1066, 0xffffffff), (1088, 0x14), (1089, ~0x04 if external else 0xffffffff), (1039, 0x00330000))
++            if cid in self._fault_raw_last and not self.state.is_fresh(cid))
++        if not external and not self.state.is_fresh(1014) and 1014 in self._fault_raw_last:
++            remembered_active = remembered_active or any(self._fault_raw_last[1014][0])
++        if not known and remembered_active:
++            self.fault_summary.set("fault", "Last reported FAULT · current data unavailable/stale")
++        else:
++            self.fault_summary.set("fault" if active else ("ok" if known else "unknown"),
++                "REPORTED SYSTEM FAULT" if active else "No reported faults; external pump unmonitored" if external and known
++                else "No reported faults" if known else "Fault data unavailable/stale")
+         for index, indicator in enumerate(self.fault_indicators):
+             if external and FAULT_LABELS[index].startswith("Empower"):
+                 indicator.set("off", FAULT_LABELS[index] + " (N/A)")
+                 continue
+-            indicator.label.configure(text=FAULT_LABELS[index])
+             fault = self.state.fault_state(index)
+-            indicator.set("unknown" if fault is None else ("fault" if fault else "ok"))
++            last = self._fault_last.get(index)
++            if fault is None and last is not None:
++                indicator.set("fault" if last else "warning", FAULT_LABELS[index] + " *")
++            else:
++                indicator.set("unknown" if fault is None else "fault" if fault else "ok", FAULT_LABELS[index])
+ 
+     def _raw_serial_shortcut(self, _event: tk.Event | None = None) -> str:
+         self.open_raw_serial_service()
+@@ -1356,6 +1440,7 @@
+     def close(self) -> None:
+         if self._closed:
+             return
++        self.run_button.cancel()
+         self._closed = True
+         for token in self._after_jobs:
+             try:
+--- a/src/spitfire_control/widgets.py
++++ b/src/spitfire_control/widgets.py
+@@ -24,6 +24,7 @@
+         self.label = ttk.Label(self, text=text, style=label_style or "CardText.TLabel")
+         self.canvas.pack(side="left", padx=(0, 6))
+         self.label.pack(side="left")
++        self._appearance = None
+         self.set("unknown")
+ 
+     def set(self, state: str, text: str | None = None) -> None:
+@@ -35,8 +36,11 @@
+             "unknown": ("#aab3ba", "#737e86"),
+         }
+         fill, outline = colors.get(state, colors["unknown"])
+-        self.canvas.itemconfigure(self.dot, fill=fill, outline=outline)
+-        if text is not None:
++        appearance = (fill, outline)
++        if appearance != self._appearance:
++            self.canvas.itemconfigure(self.dot, fill=fill, outline=outline)
++            self._appearance = appearance
++        if text is not None and self.label.cget("text") != text:
+             self.label.configure(text=text)
+ 
+ 
+@@ -47,7 +51,7 @@
+         ttk.Label(self, text=title, style="MetricTitle.TLabel").pack(anchor="w")
+         row = ttk.Frame(self, style="Readout.TFrame", padding=(10, 4))
+         row.pack(fill="x", pady=(5, 0))
+-        self.value = ttk.Label(row, text="—", style="ReadoutMetric.TLabel")
++        self.value = ttk.Label(row, text="—", style="ReadoutMetric.TLabel", width=7)
+         self.value.pack(side="left")
+         self.unit = ttk.Label(row, text=unit, style="ReadoutUnit.TLabel")
+         self.unit.pack(side="right", padx=(6, 0), pady=(8, 0))
+@@ -59,7 +63,8 @@
+             rendered = f"{value:.{digits}f}"
+         else:
+             rendered = str(value)
+-        self.value.configure(text=rendered)
++        if self.value.cget("text") != rendered:
++            self.value.configure(text=rendered)
+ 
+ 
+ class SettingRow(ttk.Frame):
+@@ -75,7 +80,7 @@
+             rb = ttk.Frame(self, style="Card.TFrame")
+             rb.grid(row=1, column=0, columnspan=4, sticky="ew", pady=(2, 0))
+             ttk.Label(rb, text="Readback:", style="CardTitle.TLabel").pack(side="left")
+-            ttk.Label(rb, textvariable=readback, style="CardTitle.TLabel").pack(side="left", padx=5)
++            ttk.Label(rb, textvariable=readback, style="CardTitle.TLabel", width=14).pack(side="left", padx=5)
+             if reset is not None:
+                 ttk.Button(rb, text="USE READBACK", command=reset, width=14).pack(side="right")
+         self.columnconfigure(0, weight=1)
+@@ -99,7 +104,8 @@
+     def _set(self, value):
+         self._syncing = True
+         try:
+-            self.variable.set(value)
++            if self.variable.get() != value:
++                self.variable.set(value)
+         finally:
+             self._syncing = False
+ 
+@@ -114,11 +120,11 @@
+ 
+     def sync(self, value, display=None):
+         if value is None:
+-            self.readback.set("—")
++            set_if_changed(self.readback, "—")
+             return
+         self._latest = value
+         self._known = True
+-        self.readback.set(str(value) if display is None else display)
++        set_if_changed(self.readback, str(value) if display is None else display)
+         if not self.dirty or self._same(self.variable.get(), value):
+             self._set(value)
+             self.dirty = False
+@@ -131,5 +137,11 @@
+     def clear(self):
+         self.dirty = False
+         self._known = False
+-        self.readback.set("—")
++        set_if_changed(self.readback, "—")
+         self._set(False if isinstance(self.variable, tk.BooleanVar) else "—")
++
++
++def set_if_changed(variable, value):
++    """Avoid Tcl variable traces and geometry work when the display is unchanged."""
++    if variable.get() != value:
++        variable.set(value)
+--- a/tests/test_gui_output_150.py
++++ b/tests/test_gui_output_150.py
+@@ -19,8 +19,11 @@
+         self.wait(lambda:not self.app.controller._pc_run_reason())
+     def writes(self):return [(t.command_id,t.argument) for t in self.capture.snapshot().transactions if t.command_id>=2000]
+     def run_button(self):
+-        with patch('spitfire_control.ui.simpledialog.askstring',return_value='RUN'):
+-            self.app.run_button.invoke()
++        self.root.deiconify();self.root.update()
++        self.app.run_button.event_generate('<Motion>',warp=True,x=10,y=10);self.root.update()
++        self.app.run_button.event_generate('<ButtonPress-1>',x=10,y=10)
++        self.wait(lambda:self.app.controller.pc_output_status.action=='RUN',4.5)
++        self.app.run_button.event_generate('<ButtonRelease-1>',x=10,y=10)
+     def test_gui_run_then_stop_confirms_pair_without_hv_or_pump_write(self):
+         self.ready();self.run_button()
+         self.wait(lambda:self.app.controller.pc_output_status.status=='confirmed')
+@@ -42,9 +45,8 @@
+         self.ready();self.app.timing_settings_button.invoke();self.root.update()
+         self.assertEqual(self.app.notebook.select(),str(self.app.timing))
+         self.assertEqual(self.writes(),[])
+-    def test_cancelled_run_confirmation_sends_nothing(self):
+-        self.ready()
+-        with patch('spitfire_control.ui.simpledialog.askstring',return_value=None):self.app.run_button.invoke()
++    def test_ordinary_click_does_not_start_run(self):
++        self.ready();self.app.run_button.invoke()
+         self.root.update();self.assertEqual(self.writes(),[])
+     def test_reset_confirmation_explains_key_hv_transition(self):
+         self.ready()
+--- a/tests/test_refresh_hold_151.py
++++ b/tests/test_refresh_hold_151.py
+@@ -0,0 +1,189 @@
++"""UI regressions for refresh stability, preserved fault evidence and RUN hold."""
++from datetime import timedelta
++from types import SimpleNamespace
++import time
++import tkinter as tk
++import unittest
++from unittest.mock import Mock, patch
++
++from spitfire_control.hold_button import HoldToRunButton
++from spitfire_control.config import AppConfig
++from spitfire_control.controller import ControllerEvent
++from spitfire_control.protocol import Reply
++from spitfire_control.state import DeviceState
++from spitfire_control.ui import SpitfireApp
++from test_external_profile import healthy, apply
++import test_gui_verifier_140 as gui_helpers
++from test_release_150 import OutputTwin
++
++
++class HoldWidget151Tests(unittest.TestCase):
++    def setUp(self):
++        try:self.root=tk.Tk()
++        except tk.TclError as exc:self.skipTest(str(exc))
++        self.calls=[];self.progress=[];self.now=100.0
++        self.button=HoldToRunButton(self.root,text='RUN',on_confirm=lambda:self.calls.append(self.now),on_progress=self.progress.append)
++        self.button.pack();self.root.update();self.button._clock=lambda:self.now
++    def tearDown(self):
++        if hasattr(self,'root'):self.button.cancel();self.root.destroy()
++    def advance(self,seconds):
++        count=round(seconds/.05)
++        for _ in range(count):
++            self.now=round(self.now+.05,6)
++            if self.button._hold_job is not None:
++                self.button.after_cancel(self.button._hold_job)
++                self.button._tick()
++    def test_no_start_before_three_seconds_and_once_after_threshold(self):
++        self.button._press();self.advance(2.95);self.assertEqual(self.calls,[])
++        self.advance(.05);self.assertEqual(self.calls,[103.0])
++        self.advance(2);self.button._press();self.assertEqual(len(self.calls),1)
++    def test_short_release_does_not_accumulate_across_presses(self):
++        self.button._press();self.advance(2);self.button._release()
++        self.button._press();self.advance(2);self.assertEqual(self.calls,[])
++    def test_leave_cancels_hold(self):
++        self.button._press();self.advance(2.9);self.button.event_generate('<Leave>');self.advance(1)
++        self.assertEqual(self.calls,[])
++    def test_focus_loss_cancels_hold(self):
++        self.button._press();self.advance(2.9);self.button.event_generate('<FocusOut>');self.advance(1)
++        self.assertEqual(self.calls,[])
++    def test_stalled_ui_cancels_instead_of_firing_on_resume(self):
++        self.button._press();self.advance(2.8);self.now+=2;self.button.after_cancel(self.button._hold_job);self.button._tick()
++        self.assertEqual(self.calls,[]);self.assertIsNone(self.button._hold_start)
++    def test_invoke_and_keyboard_do_not_bypass_hold(self):
++        self.button.invoke();self.button.event_generate('<KeyPress-Return>');self.button.event_generate('<KeyRelease-Return>')
++        self.button.event_generate('<KeyPress-space>');self.button.event_generate('<KeyRelease-space>')
++        self.root.update();self.assertEqual(self.calls,[])
++    def test_disabled_during_hold_cancels(self):
++        self.button._press();self.advance(2.9);self.button.state(['disabled']);self.advance(.1)
++        self.assertEqual(self.calls,[])
++    def test_label_stays_run_during_hold(self):
++        self.button._press();self.advance(1);self.assertEqual(self.button.cget('text'),'RUN')
++
++
++class Refresh151Tests(unittest.TestCase):
++    def setUp(self):
++        try:self.root=tk.Tk()
++        except tk.TclError as exc:self.skipTest(str(exc))
++        with patch.object(SpitfireApp,'connect'):self.app=SpitfireApp(self.root,AppConfig(pump_mode='external'))
++        # Cancel startup/periodic callbacks; these tests drive snapshots explicitly.
++        for token in tuple(self.app._after_jobs):self.root.after_cancel(token)
++        self.app._after_jobs.clear()
++        self.root.geometry('1024x768');self.root.update()
++        self.app.state=healthy(DeviceState(pump_mode='external'))
++        self.app._refresh_ui();self.root.update()
++    def tearDown(self):
++        if hasattr(self,'app'):
++            self.app.controller=None
++            with patch.object(AppConfig,'save'):self.app.close()
++    def test_fault_survives_timeout_as_last_stale_and_still_blocks_run(self):
++        apply(self.app.state,1066,'0X4000');self.app._refresh_ui()
++        self.app.state.connected=False;self.app._refresh_ui()
++        self.assertIn('4000 [last/stale]',self.app.fault_health_raw_var.get())
++        self.assertIn('Last reported FAULT',self.app.fault_summary.label.cget('text'))
++        indicator=self.app.fault_indicators[7]
++        self.assertTrue(indicator.label.cget('text').endswith('*'))
++        self.assertEqual(indicator.canvas.itemcget(indicator.dot,'fill'),'#d64545')
++        self.assertTrue(self.app.state.external_enable_reason())
++    def test_invalid_fault_payload_does_not_replace_last_value_with_zero(self):
++        apply(self.app.state,1066,'0X2000');self.app._refresh_ui()
++        apply(self.app.state,1066,'ERROR');self.app._refresh_ui()
++        self.assertIn('0X2000 [last/stale]',self.app.fault_health_raw_var.get())
++        self.assertTrue(self.app.state.external_enable_reason())
++    def test_fresh_clear_removes_old_fault(self):
++        apply(self.app.state,1066,'0X4000');self.app._refresh_ui()
++        apply(self.app.state,1066,'');self.app._refresh_ui()
++        apply(self.app.state,1066,'0');self.app._refresh_ui()
++        self.assertNotIn('last/stale',self.app.fault_health_raw_var.get())
++        self.assertEqual(self.app.fault_indicators[7].canvas.itemcget(self.app.fault_indicators[7].dot,'fill'),'#2ea35f')
++    def test_stale_clear_is_amber_not_fresh_green(self):
++        self.app.state.updated_at[1066]-=timedelta(seconds=30);self.app._refresh_ui()
++        indicator=self.app.fault_indicators[7]
++        self.assertEqual(indicator.canvas.itemcget(indicator.dot,'fill'),'#e1a426')
++    def test_never_received_fault_remains_unknown(self):
++        self.app._fault_last.clear();self.app._fault_raw_last.clear()
++        self.app.state=DeviceState(pump_mode='external');self.app._refresh_ui()
++        indicator=self.app.fault_indicators[7]
++        self.assertEqual(indicator.canvas.itemcget(indicator.dot,'fill'),'#aab3ba')
++    def test_health_alias_retains_raw_fault_without_a_canonical_query(self):
++        state=DeviceState(pump_mode='external',connected=True,transport_open=True)
++        apply(state,1029,'20')
++        self.assertTrue(state.is_fresh(1088))
++        self.assertEqual(state.raw_values[1088],'20')
++        self.app.state=state;self.app._refresh_ui()
++        self.app.state.connected=False;self.app._refresh_ui()
++        self.assertIn('TCU 20 [last/stale]',self.app.fault_health_raw_var.get())
++        self.assertIn('Last reported FAULT',self.app.fault_summary.label.cget('text'))
++    def test_older_ui_snapshot_cannot_erase_newer_remembered_fault(self):
++        older=self.app.state.copy()
++        apply(self.app.state,1066,'0X4000');self.app._refresh_ui()
++        self.app._remember_fault_state(older)
++        self.app.state.connected=False;self.app._refresh_ui()
++        self.assertIn('4000 [last/stale]',self.app.fault_health_raw_var.get())
++        self.assertTrue(self.app._fault_last[7])
++    def test_unchanged_refresh_does_not_rewrite_value_variables(self):
++        writes=[]
++        self.app.value_vars[1021].trace_add('write',lambda *args:writes.append(1))
++        for _ in range(10):self.app._refresh_ui()
++        self.assertEqual(writes,[])
++    def test_refresh_keeps_main_control_geometry_fixed(self):
++        def geometry():
++            self.root.update_idletasks()
++            return [(w.winfo_rootx(),w.winfo_rooty(),w.winfo_width(),w.winfo_height()) for w in
++                    (self.app.notebook,self.app.run_button,self.app.stop_button,self.app.timing_settings_button)]
++        baseline=geometry()
++        for connected,number in ((False,0),(True,123456.789),(False,0),(True,80)):
++            self.app.state.connected=connected
++            if connected:apply(self.app.state,1065,number)
++            self.app._refresh_ui();self.assertEqual(geometry(),baseline)
++    def test_event_burst_renders_once_and_batches_log_insertion(self):
++        import queue
++        events=queue.Queue()
++        for _ in range(200):
++            events.put(ControllerEvent('state',state=self.app.state.copy()))
++            events.put(ControllerEvent('log','RX test'))
++        self.app.controller=SimpleNamespace(events=events,running=True)
++        with patch.object(self.app,'_refresh_ui',wraps=self.app._refresh_ui) as render,patch.object(self.app,'_insert_log',wraps=self.app._insert_log) as log:
++            self.app._drain_events()
++        self.assertEqual(render.call_count,1);self.assertEqual(log.call_count,1)
++        self.assertGreater(events.qsize(),0) # bounded work lets input events run
++    def test_stop_press_cancels_hold_and_does_not_wait_for_release(self):
++        self.app.controller=Mock(running=True)
++        self.app.run_button._press()
++        self.app.stop_button.event_generate('<ButtonPress-1>',x=10,y=10)
++        self.app.controller.stop_pc_outputs.assert_called_once_with()
++        self.assertIsNone(self.app.run_button._hold_start)
++        self.app.stop_button.event_generate('<ButtonRelease-1>',x=10,y=10)
++        self.app.controller.stop_pc_outputs.assert_called_once_with()
++    def test_button_labels_are_exact(self):
++        self.assertEqual(self.app.run_button.cget('text'),'RUN');self.assertEqual(self.app.stop_button.cget('text'),'STOP')
++    def test_unmap_and_profile_change_cancel_hold(self):
++        self.app.run_button._press();self.app._apply_pump_profile()
++        self.assertIsNone(self.app.run_button._hold_start)
++        self.app.run_button._press();self.app.run_button.event_generate('<Unmap>')
++        self.assertIsNone(self.app.run_button._hold_start)
++
++
++class TecGui151Tests(unittest.TestCase):
++    setUp=gui_helpers.GuiVerifier140Tests.setUp
++    build=gui_helpers.GuiVerifier140Tests.build
++    wait=gui_helpers.GuiVerifier140Tests.wait
++    tearDown=gui_helpers.GuiVerifier140Tests.tearDown
++    def test_tec_buttons_send_correct_commands_and_confirm_readback(self):
++        self.build('external',OutputTwin())
++        self.wait(lambda:self.app.controller.state.is_fresh(1028))
++        with patch('spitfire_control.ui.messagebox.askyesno',return_value=True):self.app.tec_on_button.invoke()
++        self.wait(lambda:'ON: 설정 조회 일치' in self.app.tec_result.get())
++        self.assertEqual(self.app.tec_indicator.label.cget('text'),'TEC reported ON')
++        self.app.tec_off_button.invoke()
++        self.wait(lambda:'OFF: 설정 조회 일치' in self.app.tec_result.get())
++        self.assertEqual(self.app.tec_indicator.label.cget('text'),'TEC reported OFF')
++        writes=[t for t in self.capture.snapshot().transactions if t.command_id>=2000]
++        self.assertEqual([t.command_id for t in writes],[2022,2023])
++    def test_tec_ack_without_state_change_is_mismatch(self):
++        self.build('external',OutputTwin());self.wait(lambda:self.app.controller.state.is_fresh(1028))
++        self.model.profile.overrides[1028]='0'
++        with patch('spitfire_control.ui.messagebox.askyesno',return_value=True):self.app.tec_on_button.invoke()
++        self.wait(lambda:'설정 불일치' in self.app.tec_result.get())
++        self.assertEqual(self.app.tec_indicator.label.cget('text'),'TEC reported OFF')
++
++if __name__=='__main__':unittest.main()

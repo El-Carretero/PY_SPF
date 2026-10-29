@@ -1,0 +1,71 @@
+{
+  "date_kst": "2026-10-30",
+  "base_commit": "2faf7e16f410096f9fe8c987a680cb128dfb5ba2",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "dependencies": {
+    "pytest": "9.2.0",
+    "PySide6": "6.12.0",
+    "unicorn": "2.1.4",
+    "pefile": "2024.8.26",
+    "pyserial": "3.5"
+  },
+  "baseline_pytest": {
+    "tests": "52",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "1.808",
+    "timestamp": "2026-10-29T17:57:08.717465+00:00"
+  },
+  "oracle": {
+    "callbacks": {
+      "method": "Unicorn original x86 callback execution with CVI/CRT intercepted and resource-derived GetCtrlVal data types",
+      "case_count": 395,
+      "callback_count": 85,
+      "passed": 395,
+      "failed": 0
+    },
+    "decoders": {
+      "method": "Original x86 _gextHandleReceivedMsg emulated in Unicorn; CRT/CVI intercepted; no Windows process or hardware",
+      "case_count": 338,
+      "passed": 338
+    },
+    "extra_decoders": {
+      "method": "Original x86 decoder extra divisor/BWD cases; Unicorn with intercepted CRT/CVI; no hardware",
+      "case_count": 23,
+      "passed": 23
+    }
+  },
+  "upload_control_initial": {
+    "tests": 407,
+    "passed": 406,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0
+  },
+  "upload_control_polling_rerun": {
+    "tests": 7,
+    "passed": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "upload_verifier": {
+    "tests": 210,
+    "passed": 209,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "upload_verifier_provenance_followup": {
+    "tests": 4,
+    "passed": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "note": "Counts for reruns overlap initial suites. Initial control failure remains part of the evidence; its cause is not established.",
+  "physical_validation": false,
+  "windows_native_gui_validated": false
+}

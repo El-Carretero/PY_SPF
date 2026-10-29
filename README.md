@@ -11,6 +11,14 @@
 - [검증 결과 요약](analysis/validation_summary.json)
 - [공급된 NI 런타임·리소스 출처](THIRD_PARTY_NOTICES.md)
 
+## External Pump 코드와 비교
+
+루트의 원본 GUI 재구현과 별도로, 첨부된 **Spitfire Python Control 1.5.1**을
+[`variants/spitfire-control-1.5.1/`](variants/spitfire-control-1.5.1/)에 보존했습니다.
+[두 구현의 기능·GUI·통신 비교](comparisons/spitfire-control-1.5.1/README.ko.md)와
+[각 버전 실행 방법](variants/README.ko.md)을 참고하세요.
+첨부본은 Empower 코드 전체 삭제본이 아니라 `--pump-mode external`에서 제어를 제한하는 별도 Tk 앱입니다.
+
 ## Qt 데모 실행
 
 Python 3.10 이상에서:

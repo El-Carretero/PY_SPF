@@ -1,0 +1,24 @@
+{
+  "scope": "Literal command IDs and names only; runtime, profile policy, formatting and GUI behavior are not compared here.",
+  "baseline_commit": "2faf7e16f410096f9fe8c987a680cb128dfb5ba2",
+  "sources": {
+    "baseline": {
+      "path": "spitfire/protocol.py",
+      "sha256": "ac094bff051910341d1d5cfdb6b0f4cace66f9bb619ea2b74f0393199e87ab77"
+    },
+    "variant": {
+      "path": "variants/spitfire-control-1.5.1/src/spitfire_control/commands.py",
+      "sha256": "cdab6f95569961dcfa9981ec3f5272442d4f5e2333c7ea0d707321bdbe7f93d7"
+    }
+  },
+  "counts": {
+    "baseline_queries": 90,
+    "baseline_writes": 56,
+    "variant_queries": 90,
+    "variant_writes": 56,
+    "identical": 146,
+    "changed": 0,
+    "baseline_only": 0,
+    "variant_only": 0
+  }
+}

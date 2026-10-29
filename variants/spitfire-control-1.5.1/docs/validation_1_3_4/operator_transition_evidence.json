@@ -1,0 +1,123 @@
+{
+  "source": "Installed 1.3.3 operator audit, read-only snapshot",
+  "start_utc": "2026-10-27T13:33:53.364201+00:00",
+  "end_utc": "2026-10-27T13:39:47.213880+00:00",
+  "transitions": {
+    "1021": [
+      {
+        "utc_time": "2026-10-27T13:33:53.807516+00:00",
+        "direction": "RX",
+        "command_id": "1021",
+        "text": "<1021> 0",
+        "result": ""
+      },
+      {
+        "utc_time": "2026-10-27T13:34:21.656880+00:00",
+        "direction": "RX",
+        "command_id": "1021",
+        "text": "<1021> 1",
+        "result": ""
+      }
+    ],
+    "1039": [
+      {
+        "utc_time": "2026-10-27T13:33:54.058049+00:00",
+        "direction": "RX",
+        "command_id": "1039",
+        "text": "<1039> 0X00334428",
+        "result": ""
+      },
+      {
+        "utc_time": "2026-10-27T13:34:16.467561+00:00",
+        "direction": "RX",
+        "command_id": "1039",
+        "text": "<1039> 0X00330429",
+        "result": ""
+      }
+    ],
+    "1066": [
+      {
+        "utc_time": "2026-10-27T13:33:53.687045+00:00",
+        "direction": "RX",
+        "command_id": "1066",
+        "text": "<1066> 0X00334428",
+        "result": ""
+      },
+      {
+        "utc_time": "2026-10-27T13:34:14.653991+00:00",
+        "direction": "RX",
+        "command_id": "1066",
+        "text": "<1066> 0X00330428",
+        "result": ""
+      },
+      {
+        "utc_time": "2026-10-27T13:34:15.566216+00:00",
+        "direction": "RX",
+        "command_id": "1066",
+        "text": "<1066> 0X00330429",
+        "result": ""
+      }
+    ],
+    "1089": [
+      {
+        "utc_time": "2026-10-27T13:33:54.553514+00:00",
+        "direction": "RX",
+        "command_id": "1089",
+        "text": "<1089>5",
+        "result": ""
+      }
+    ],
+    "1068": [
+      {
+        "utc_time": "2026-10-27T13:33:53.520038+00:00",
+        "direction": "RX",
+        "command_id": "1068",
+        "text": "<1068>0",
+        "result": ""
+      }
+    ]
+  },
+  "comstatus_counts": {
+    "<1089>5": 276
+  },
+  "hardware_writes": [
+    {
+      "utc_time": "2026-10-27T13:34:11.918005+00:00",
+      "direction": "TX",
+      "command_id": "2049",
+      "text": "[2049]ECU:RESETFAULTS",
+      "result": "GUI"
+    },
+    {
+      "utc_time": "2026-10-27T13:34:12.027800+00:00",
+      "direction": "TX",
+      "command_id": "2052",
+      "text": "[2052]TDG:RESFAULT",
+      "result": "GUI"
+    }
+  ],
+  "transport_errors_by_id": {
+    "1015": 2,
+    "1069": 1,
+    "1066": 3,
+    "1050": 1,
+    "1021": 3,
+    "1019": 1,
+    "1039": 1,
+    "1000": 1,
+    "1028": 2,
+    "1051": 1,
+    "1046": 1,
+    "1088": 1,
+    "1029": 1,
+    "1089": 1,
+    "1085": 1
+  },
+  "first_transport_error": {
+    "utc_time": "2026-10-27T13:34:10.973746+00:00",
+    "direction": "ERROR",
+    "command_id": "1015",
+    "text": "[1015]HED:STB?",
+    "result": "Timed out waiting for reply to command 1015"
+  }
+}

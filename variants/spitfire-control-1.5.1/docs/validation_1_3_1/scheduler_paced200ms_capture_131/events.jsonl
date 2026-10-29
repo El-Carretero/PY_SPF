@@ -1,0 +1,860 @@
+{"utc": "2026-10-27T11:45:01.229910+00:00", "kind": "connection", "message": "Transport open; waiting for controller reply"}
+{"utc": "2026-10-27T11:45:01.374898+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:01.403155+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:01.403307+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:01.574031+00:00", "kind": "log", "message": "TX [1068]EMPOPTOUT?"}
+{"utc": "2026-10-27T11:45:01.622151+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:01.622267+00:00", "kind": "log", "message": "RX <1068>0"}
+{"utc": "2026-10-27T11:45:01.775357+00:00", "kind": "log", "message": "TX [1068]EMPOPTOUT?"}
+{"utc": "2026-10-27T11:45:01.804724+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:01.804864+00:00", "kind": "log", "message": "RX <1068>0"}
+{"utc": "2026-10-27T11:45:01.975477+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:02.019984+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:02.020083+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:02.175940+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:02.223093+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:02.223194+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:02.376132+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:45:02.399193+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:02.399330+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:45:02.576682+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:02.610396+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:02.610503+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:02.776670+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:02.810400+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:02.810560+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:02.977641+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:45:02.993881+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:02.994034+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:45:03.178030+00:00", "kind": "log", "message": "TX [1087]TDG:FAULTOVERRIDE?"}
+{"utc": "2026-10-27T11:45:03.231791+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:03.231933+00:00", "kind": "log", "message": "RX <1087>0"}
+{"utc": "2026-10-27T11:45:03.378579+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:03.430405+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:03.430570+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:03.579020+00:00", "kind": "log", "message": "TX [1045]TDG:DEL1?"}
+{"utc": "2026-10-27T11:45:03.604528+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:03.604681+00:00", "kind": "log", "message": "RX <1045> DELAY 1 ON BWD NENA 85.82"}
+{"utc": "2026-10-27T11:45:03.779657+00:00", "kind": "log", "message": "TX [1087]TDG:FAULTOVERRIDE?"}
+{"utc": "2026-10-27T11:45:03.802314+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:03.802457+00:00", "kind": "log", "message": "RX <1087>0"}
+{"utc": "2026-10-27T11:45:03.980792+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:04.040513+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:04.040658+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:04.180821+00:00", "kind": "log", "message": "TX [1046]TDG:DEL2?"}
+{"utc": "2026-10-27T11:45:04.221083+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:04.221186+00:00", "kind": "log", "message": "RX <1046> DELAY 2 ON BWD NENA 990.25"}
+{"utc": "2026-10-27T11:45:04.381695+00:00", "kind": "log", "message": "TX [1045]TDG:DEL1?"}
+{"utc": "2026-10-27T11:45:04.429300+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:04.429470+00:00", "kind": "log", "message": "RX <1045> DELAY 1 ON BWD NENA 85.82"}
+{"utc": "2026-10-27T11:45:04.581615+00:00", "kind": "log", "message": "TX [1039]TDG:STBH?"}
+{"utc": "2026-10-27T11:45:04.630864+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:04.630975+00:00", "kind": "log", "message": "RX <1039> 0X00334428"}
+{"utc": "2026-10-27T11:45:04.782508+00:00", "kind": "log", "message": "TX [1046]TDG:DEL2?"}
+{"utc": "2026-10-27T11:45:04.808178+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:04.808285+00:00", "kind": "log", "message": "RX <1046> DELAY 2 ON BWD NENA 990.25"}
+{"utc": "2026-10-27T11:45:04.982573+00:00", "kind": "log", "message": "TX [1050]TDG:OSC:MODE?"}
+{"utc": "2026-10-27T11:45:05.024858+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:05.025075+00:00", "kind": "log", "message": "RX <1050> EXT"}
+{"utc": "2026-10-27T11:45:05.182614+00:00", "kind": "log", "message": "TX [1039]TDG:STBH?"}
+{"utc": "2026-10-27T11:45:05.201726+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:05.201861+00:00", "kind": "log", "message": "RX <1039> 0X00334428"}
+{"utc": "2026-10-27T11:45:05.382933+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:05.395483+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:05.395567+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:05.582947+00:00", "kind": "log", "message": "TX [1051]TDG:TRIG:MODE?"}
+{"utc": "2026-10-27T11:45:05.619317+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:05.619444+00:00", "kind": "log", "message": "RX <1051> EXT CONT 1000.0"}
+{"utc": "2026-10-27T11:45:05.783796+00:00", "kind": "log", "message": "TX [1050]TDG:OSC:MODE?"}
+{"utc": "2026-10-27T11:45:05.800858+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:05.801032+00:00", "kind": "log", "message": "RX <1050> EXT"}
+{"utc": "2026-10-27T11:45:05.984052+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:06.010272+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:06.010409+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:06.185259+00:00", "kind": "log", "message": "TX [1051]TDG:TRIG:MODE?"}
+{"utc": "2026-10-27T11:45:06.193183+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:06.193291+00:00", "kind": "log", "message": "RX <1051> EXT CONT 1000.0"}
+{"utc": "2026-10-27T11:45:06.385555+00:00", "kind": "log", "message": "TX [1088]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:06.394689+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:06.394829+00:00", "kind": "log", "message": "RX <1088>3089.000000"}
+{"utc": "2026-10-27T11:45:06.585502+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:06.635129+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:06.635335+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:06.785714+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:06.841698+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:06.841842+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:06.986410+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:45:07.018633+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:07.018795+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:45:07.186878+00:00", "kind": "log", "message": "TX [1088]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:07.218570+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:07.218724+00:00", "kind": "log", "message": "RX <1088>3089.000000"}
+{"utc": "2026-10-27T11:45:07.387037+00:00", "kind": "log", "message": "TX [1033]ECUOPTOUT?"}
+{"utc": "2026-10-27T11:45:07.441172+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:07.441289+00:00", "kind": "log", "message": "RX <1033>0"}
+{"utc": "2026-10-27T11:45:07.587454+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:45:07.623544+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:07.623700+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:45:07.788387+00:00", "kind": "log", "message": "TX [1044]ECU:HUMOVERRIDE?"}
+{"utc": "2026-10-27T11:45:07.830758+00:00", "kind": "error", "message": "Controller reply [1044]: (empty)"}
+{"utc": "2026-10-27T11:45:07.830904+00:00", "kind": "log", "message": "RX <1044>"}
+{"utc": "2026-10-27T11:45:07.988516+00:00", "kind": "log", "message": "TX [1033]ECUOPTOUT?"}
+{"utc": "2026-10-27T11:45:08.090066+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:08.090169+00:00", "kind": "log", "message": "RX <1033>0"}
+{"utc": "2026-10-27T11:45:08.189242+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:08.207161+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:08.207351+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:08.389770+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:08.447222+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:08.447376+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:08.590354+00:00", "kind": "log", "message": "TX [1044]ECU:HUMOVERRIDE?"}
+{"utc": "2026-10-27T11:45:08.607312+00:00", "kind": "error", "message": "Controller reply [1044]: (empty)"}
+{"utc": "2026-10-27T11:45:08.607405+00:00", "kind": "log", "message": "RX <1044>"}
+{"utc": "2026-10-27T11:45:08.790610+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:08.800618+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:08.800799+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:08.991332+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:09.039937+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:09.040089+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:09.191445+00:00", "kind": "log", "message": "TX [1069]HEDOPTOUT?"}
+{"utc": "2026-10-27T11:45:09.215184+00:00", "kind": "error", "message": "Controller reply [1069]: (empty)"}
+{"utc": "2026-10-27T11:45:09.215300+00:00", "kind": "log", "message": "RX <1069>"}
+{"utc": "2026-10-27T11:45:09.391528+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:09.424113+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:09.424294+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:09.592082+00:00", "kind": "log", "message": "TX [1068]EMPOPTOUT?"}
+{"utc": "2026-10-27T11:45:09.647818+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:09.647911+00:00", "kind": "log", "message": "RX <1068>0"}
+{"utc": "2026-10-27T11:45:09.792377+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:09.848076+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:09.848191+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:09.993305+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:10.029376+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:10.029470+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:10.193523+00:00", "kind": "log", "message": "TX [1069]HEDOPTOUT?"}
+{"utc": "2026-10-27T11:45:10.208042+00:00", "kind": "error", "message": "Controller reply [1069]: (empty)"}
+{"utc": "2026-10-27T11:45:10.208142+00:00", "kind": "log", "message": "RX <1069>"}
+{"utc": "2026-10-27T11:45:10.393735+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:45:10.417584+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:10.417741+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:45:10.593246+00:00", "kind": "log", "message": "TX [1038]*IDN?"}
+{"utc": "2026-10-27T11:45:10.617251+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:10.617386+00:00", "kind": "log", "message": "RX <1038>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:10.794998+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:10.853796+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:10.853911+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:10.995269+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:11.017521+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:11.017677+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:11.195576+00:00", "kind": "log", "message": "TX [1037]ECU:VERS?"}
+{"utc": "2026-10-27T11:45:11.215035+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:11.215192+00:00", "kind": "log", "message": "RX <1037>Spectra-Physics, TCU, 1.5.0"}
+{"utc": "2026-10-27T11:45:11.396134+00:00", "kind": "log", "message": "TX [1087]TDG:FAULTOVERRIDE?"}
+{"utc": "2026-10-27T11:45:11.435465+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:11.435620+00:00", "kind": "log", "message": "RX <1087>0"}
+{"utc": "2026-10-27T11:45:11.595973+00:00", "kind": "log", "message": "TX [1032]ECU:TEMP?"}
+{"utc": "2026-10-27T11:45:11.609778+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:11.609892+00:00", "kind": "log", "message": "RX <1032>1.000000"}
+{"utc": "2026-10-27T11:45:11.796099+00:00", "kind": "log", "message": "TX [1045]TDG:DEL1?"}
+{"utc": "2026-10-27T11:45:11.847342+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:11.847460+00:00", "kind": "log", "message": "RX <1045> DELAY 1 ON BWD NENA 85.82"}
+{"utc": "2026-10-27T11:45:11.995703+00:00", "kind": "log", "message": "TX [1057]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:12.008889+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:12.009026+00:00", "kind": "log", "message": "RX <1057>3089.000000"}
+{"utc": "2026-10-27T11:45:12.196973+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:12.204957+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:12.205145+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:12.396950+00:00", "kind": "log", "message": "TX [1046]TDG:DEL2?"}
+{"utc": "2026-10-27T11:45:12.436195+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:12.436332+00:00", "kind": "log", "message": "RX <1046> DELAY 2 ON BWD NENA 990.25"}
+{"utc": "2026-10-27T11:45:12.597131+00:00", "kind": "log", "message": "TX [1034]HED:VERS?"}
+{"utc": "2026-10-27T11:45:12.613632+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:12.613881+00:00", "kind": "log", "message": "RX <1034> Spectra Physics,HED,����������������,04.001.002"}
+{"utc": "2026-10-27T11:45:12.797808+00:00", "kind": "log", "message": "TX [1039]TDG:STBH?"}
+{"utc": "2026-10-27T11:45:12.832458+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:12.832619+00:00", "kind": "log", "message": "RX <1039> 0X00334428"}
+{"utc": "2026-10-27T11:45:12.998150+00:00", "kind": "log", "message": "TX [1060]HED:MOTOR:SPEED?"}
+{"utc": "2026-10-27T11:45:13.029746+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:13.029953+00:00", "kind": "log", "message": "RX <1060> 90"}
+{"utc": "2026-10-27T11:45:13.198910+00:00", "kind": "log", "message": "TX [1050]TDG:OSC:MODE?"}
+{"utc": "2026-10-27T11:45:13.260297+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:13.260422+00:00", "kind": "log", "message": "RX <1050> EXT"}
+{"utc": "2026-10-27T11:45:13.399215+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:13.428287+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:13.428416+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:13.599530+00:00", "kind": "log", "message": "TX [1051]TDG:TRIG:MODE?"}
+{"utc": "2026-10-27T11:45:13.665442+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:13.665549+00:00", "kind": "log", "message": "RX <1051> EXT CONT 1000.0"}
+{"utc": "2026-10-27T11:45:13.799649+00:00", "kind": "log", "message": "TX [1086]MONITOR?"}
+{"utc": "2026-10-27T11:45:13.821985+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:13.822097+00:00", "kind": "log", "message": "RX <1086>0"}
+{"utc": "2026-10-27T11:45:13.999872+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:14.014495+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:14.014618+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:14.200858+00:00", "kind": "log", "message": "TX [1036]TDG:VERS?"}
+{"utc": "2026-10-27T11:45:14.253913+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:14.254060+00:00", "kind": "log", "message": "RX <1036> Spectra Physics,TDG-S,sn1021,04.001.003/01.003.092"}
+{"utc": "2026-10-27T11:45:14.401583+00:00", "kind": "log", "message": "TX [1088]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:14.430201+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:14.430292+00:00", "kind": "log", "message": "RX <1088>3089.000000"}
+{"utc": "2026-10-27T11:45:14.601221+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:14.653135+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:14.653274+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:14.802612+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:45:14.845069+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:14.845208+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:45:15.002745+00:00", "kind": "log", "message": "TX [1047]TDG:DEL3?"}
+{"utc": "2026-10-27T11:45:15.022054+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:15.022213+00:00", "kind": "log", "message": "RX <1047> DELAY 3 ON NBWD NENA 0.0"}
+{"utc": "2026-10-27T11:45:15.204051+00:00", "kind": "log", "message": "TX [1033]ECUOPTOUT?"}
+{"utc": "2026-10-27T11:45:15.258367+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:15.258461+00:00", "kind": "log", "message": "RX <1033>0"}
+{"utc": "2026-10-27T11:45:15.402766+00:00", "kind": "log", "message": "TX [1048]TDG:DEL4?"}
+{"utc": "2026-10-27T11:45:15.410626+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:15.410748+00:00", "kind": "log", "message": "RX <1048> DELAY 4 ON NBWD NENA 0.0"}
+{"utc": "2026-10-27T11:45:15.602517+00:00", "kind": "log", "message": "TX [1044]ECU:HUMOVERRIDE?"}
+{"utc": "2026-10-27T11:45:15.643209+00:00", "kind": "error", "message": "Controller reply [1044]: (empty)"}
+{"utc": "2026-10-27T11:45:15.643356+00:00", "kind": "log", "message": "RX <1044>"}
+{"utc": "2026-10-27T11:45:15.803908+00:00", "kind": "log", "message": "TX [1049]TDG:DEL5?"}
+{"utc": "2026-10-27T11:45:15.836156+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:15.836298+00:00", "kind": "log", "message": "RX <1049> DELAY 5 ON NBWD NENA 0.0"}
+{"utc": "2026-10-27T11:45:16.004166+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:16.073357+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:16.073524+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:16.204774+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:16.248216+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:16.248379+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:16.405216+00:00", "kind": "log", "message": "TX [1040]TDG:HV1:VOLT?"}
+{"utc": "2026-10-27T11:45:16.466256+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:16.466380+00:00", "kind": "log", "message": "RX <1040> 3.399 KV"}
+{"utc": "2026-10-27T11:45:16.605001+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:16.659171+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:16.659357+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:16.805573+00:00", "kind": "log", "message": "TX [1041]TDG:HV2:VOLT?"}
+{"utc": "2026-10-27T11:45:16.835736+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:16.835892+00:00", "kind": "log", "message": "RX <1041> 3.139 KV"}
+{"utc": "2026-10-27T11:45:17.006105+00:00", "kind": "log", "message": "TX [1069]HEDOPTOUT?"}
+{"utc": "2026-10-27T11:45:17.019413+00:00", "kind": "error", "message": "Controller reply [1069]: (empty)"}
+{"utc": "2026-10-27T11:45:17.019567+00:00", "kind": "log", "message": "RX <1069>"}
+{"utc": "2026-10-27T11:45:17.206184+00:00", "kind": "log", "message": "TX [1024]TDG:OSC:FREQ?"}
+{"utc": "2026-10-27T11:45:17.236551+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:17.236710+00:00", "kind": "log", "message": "RX <1024> 1000.0"}
+{"utc": "2026-10-27T11:45:17.406930+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:17.423172+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:17.423328+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:17.607312+00:00", "kind": "log", "message": "TX [1068]EMPOPTOUT?"}
+{"utc": "2026-10-27T11:45:17.648801+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:17.648988+00:00", "kind": "log", "message": "RX <1068>0"}
+{"utc": "2026-10-27T11:45:17.808014+00:00", "kind": "log", "message": "TX [1025]TDG:DIV?"}
+{"utc": "2026-10-27T11:45:17.827418+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:17.827546+00:00", "kind": "log", "message": "RX <1025> 1"}
+{"utc": "2026-10-27T11:45:18.008460+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:18.048181+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:18.048285+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:18.208469+00:00", "kind": "log", "message": "TX [1052]TDG:DEL0?"}
+{"utc": "2026-10-27T11:45:18.248507+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:18.248595+00:00", "kind": "log", "message": "RX <1052> DELAY 0 3100.0"}
+{"utc": "2026-10-27T11:45:18.407648+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:45:18.417153+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:18.417290+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:45:18.608002+00:00", "kind": "log", "message": "TX [1053]TDG:TRIG:FREQ?"}
+{"utc": "2026-10-27T11:45:18.654473+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:18.654587+00:00", "kind": "log", "message": "RX <1053> 1000.0"}
+{"utc": "2026-10-27T11:45:18.808602+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:18.872922+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:18.873064+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:19.008964+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:19.072283+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:19.072385+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:19.208833+00:00", "kind": "log", "message": "TX [1054]TDG:BWD?"}
+{"utc": "2026-10-27T11:45:19.244275+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:19.244370+00:00", "kind": "log", "message": "RX <1054> NEG DUAL ON"}
+{"utc": "2026-10-27T11:45:19.410082+00:00", "kind": "log", "message": "TX [1087]TDG:FAULTOVERRIDE?"}
+{"utc": "2026-10-27T11:45:19.471402+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:19.471519+00:00", "kind": "log", "message": "RX <1087>0"}
+{"utc": "2026-10-27T11:45:19.609948+00:00", "kind": "log", "message": "TX [1067]TDG:OSC:MODE?"}
+{"utc": "2026-10-27T11:45:19.646744+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:19.646853+00:00", "kind": "log", "message": "RX <1067> EXT"}
+{"utc": "2026-10-27T11:45:19.810688+00:00", "kind": "log", "message": "TX [1045]TDG:DEL1?"}
+{"utc": "2026-10-27T11:45:19.863224+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:19.863332+00:00", "kind": "log", "message": "RX <1045> DELAY 1 ON BWD NENA 85.82"}
+{"utc": "2026-10-27T11:45:20.010440+00:00", "kind": "log", "message": "TX [1080]TDG:OSC:SETMODE?"}
+{"utc": "2026-10-27T11:45:20.063018+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:20.063110+00:00", "kind": "log", "message": "RX <1080> EXT CONT 1000.0"}
+{"utc": "2026-10-27T11:45:20.211112+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:20.233898+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:20.233998+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:20.411459+00:00", "kind": "log", "message": "TX [1046]TDG:DEL2?"}
+{"utc": "2026-10-27T11:45:20.471621+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:20.471793+00:00", "kind": "log", "message": "RX <1046> DELAY 2 ON BWD NENA 990.25"}
+{"utc": "2026-10-27T11:45:20.611942+00:00", "kind": "log", "message": "TX [1062]*IDN?"}
+{"utc": "2026-10-27T11:45:20.632723+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:20.632868+00:00", "kind": "log", "message": "RX <1062>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:20.813164+00:00", "kind": "log", "message": "TX [1039]TDG:STBH?"}
+{"utc": "2026-10-27T11:45:20.834617+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:20.834805+00:00", "kind": "log", "message": "RX <1039> 0X00334428"}
+{"utc": "2026-10-27T11:45:21.013726+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:21.065413+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:21.065597+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:21.214105+00:00", "kind": "log", "message": "TX [1050]TDG:OSC:MODE?"}
+{"utc": "2026-10-27T11:45:21.241425+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:21.241592+00:00", "kind": "log", "message": "RX <1050> EXT"}
+{"utc": "2026-10-27T11:45:21.414572+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:21.447453+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:21.447588+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:21.614919+00:00", "kind": "log", "message": "TX [1051]TDG:TRIG:MODE?"}
+{"utc": "2026-10-27T11:45:21.624727+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:21.624897+00:00", "kind": "log", "message": "RX <1051> EXT CONT 1000.0"}
+{"utc": "2026-10-27T11:45:21.814970+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:21.824557+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:21.824696+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:22.016134+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:22.054254+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:22.054396+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:22.216330+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:22.233484+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:22.233641+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:22.416616+00:00", "kind": "log", "message": "TX [1088]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:22.449672+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:22.449847+00:00", "kind": "log", "message": "RX <1088>3089.000000"}
+{"utc": "2026-10-27T11:45:22.616815+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:22.649685+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:22.649854+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:22.816938+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:45:22.825061+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:22.825226+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:45:23.017797+00:00", "kind": "log", "message": "TX [1029]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:23.062260+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:23.062434+00:00", "kind": "log", "message": "RX <1029>3089.000000"}
+{"utc": "2026-10-27T11:45:23.218218+00:00", "kind": "log", "message": "TX [1033]ECUOPTOUT?"}
+{"utc": "2026-10-27T11:45:23.277324+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:23.277580+00:00", "kind": "log", "message": "RX <1033>0"}
+{"utc": "2026-10-27T11:45:23.418185+00:00", "kind": "log", "message": "TX [1030]ECU:READTEMP?"}
+{"utc": "2026-10-27T11:45:23.438898+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:23.439101+00:00", "kind": "log", "message": "RX <1030>18.860000"}
+{"utc": "2026-10-27T11:45:23.618111+00:00", "kind": "log", "message": "TX [1044]ECU:HUMOVERRIDE?"}
+{"utc": "2026-10-27T11:45:23.638572+00:00", "kind": "error", "message": "Controller reply [1044]: (empty)"}
+{"utc": "2026-10-27T11:45:23.638717+00:00", "kind": "log", "message": "RX <1044>"}
+{"utc": "2026-10-27T11:45:23.818890+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:23.868169+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:23.868888+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:24.019733+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:24.089697+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:24.089866+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:24.220179+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:24.266924+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:24.267095+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:24.421156+00:00", "kind": "log", "message": "TX [1031]ECU:HUM?"}
+{"utc": "2026-10-27T11:45:24.466525+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:24.466707+00:00", "kind": "log", "message": "RX <1031>4.230000"}
+{"utc": "2026-10-27T11:45:24.620817+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:24.637818+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:24.637936+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:24.821300+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:24.875494+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:24.875662+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:25.021826+00:00", "kind": "log", "message": "TX [1069]HEDOPTOUT?"}
+{"utc": "2026-10-27T11:45:25.036136+00:00", "kind": "error", "message": "Controller reply [1069]: (empty)"}
+{"utc": "2026-10-27T11:45:25.036308+00:00", "kind": "log", "message": "RX <1069>"}
+{"utc": "2026-10-27T11:45:25.221531+00:00", "kind": "log", "message": "TX [1084]ECU:TECTEMP?"}
+{"utc": "2026-10-27T11:45:25.237491+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:25.237656+00:00", "kind": "log", "message": "RX <1084>19.020000"}
+{"utc": "2026-10-27T11:45:25.422439+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:25.462922+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:25.463043+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:25.622647+00:00", "kind": "log", "message": "TX [1068]EMPOPTOUT?"}
+{"utc": "2026-10-27T11:45:25.687902+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:25.688291+00:00", "kind": "log", "message": "RX <1068>0"}
+{"utc": "2026-10-27T11:45:25.823938+00:00", "kind": "log", "message": "TX [1085]STATUS?"}
+{"utc": "2026-10-27T11:45:25.844381+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:25.844500+00:00", "kind": "log", "message": "RX <1085>3"}
+{"utc": "2026-10-27T11:45:26.023804+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:26.044296+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:26.044418+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:26.224547+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:45:26.282059+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:26.282188+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:45:26.424971+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:45:26.457181+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:26.457296+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:45:26.625085+00:00", "kind": "log", "message": "TX [1088]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:26.673381+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:26.673551+00:00", "kind": "log", "message": "RX <1088>3089.000000"}
+{"utc": "2026-10-27T11:45:26.825413+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:26.874692+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:26.874841+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:27.025606+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:27.053825+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:27.054002+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:27.227441+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:45:27.283179+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:27.283346+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:45:27.427174+00:00", "kind": "log", "message": "TX [1087]TDG:FAULTOVERRIDE?"}
+{"utc": "2026-10-27T11:45:27.434535+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:27.434659+00:00", "kind": "log", "message": "RX <1087>0"}
+{"utc": "2026-10-27T11:45:27.628021+00:00", "kind": "log", "message": "TX [1057]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:27.667649+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:27.667791+00:00", "kind": "log", "message": "RX <1057>3089.000000"}
+{"utc": "2026-10-27T11:45:27.828017+00:00", "kind": "log", "message": "TX [1045]TDG:DEL1?"}
+{"utc": "2026-10-27T11:45:27.865665+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:27.865844+00:00", "kind": "log", "message": "RX <1045> DELAY 1 ON BWD NENA 85.82"}
+{"utc": "2026-10-27T11:45:28.028474+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:28.043937+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:28.044115+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:28.229145+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:28.273333+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:28.273441+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:28.428400+00:00", "kind": "log", "message": "TX [1046]TDG:DEL2?"}
+{"utc": "2026-10-27T11:45:28.437202+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:28.437392+00:00", "kind": "log", "message": "RX <1046> DELAY 2 ON BWD NENA 990.25"}
+{"utc": "2026-10-27T11:45:28.628557+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:28.635363+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:28.635518+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:28.829049+00:00", "kind": "log", "message": "TX [1039]TDG:STBH?"}
+{"utc": "2026-10-27T11:45:31.828536+00:00", "kind": "error", "message": "Timed out waiting for reply to command 1039"}
+{"utc": "2026-10-27T11:45:31.832204+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:31.845201+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:31.845367+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:32.032687+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:32.103889+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:32.104117+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:32.233858+00:00", "kind": "log", "message": "TX [1050]TDG:OSC:MODE?"}
+{"utc": "2026-10-27T11:45:32.280546+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:32.280700+00:00", "kind": "log", "message": "RX <1050> EXT"}
+{"utc": "2026-10-27T11:45:32.433959+00:00", "kind": "log", "message": "TX [1029]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:32.441999+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:32.442154+00:00", "kind": "log", "message": "RX <1029>3089.000000"}
+{"utc": "2026-10-27T11:45:32.634838+00:00", "kind": "log", "message": "TX [1051]TDG:TRIG:MODE?"}
+{"utc": "2026-10-27T11:45:32.696630+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:32.696749+00:00", "kind": "log", "message": "RX <1051> EXT CONT 1000.0"}
+{"utc": "2026-10-27T11:45:32.835131+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:32.872207+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:32.872370+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:33.035650+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:33.050415+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:33.050581+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:33.235523+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:33.267114+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:33.267297+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:33.436045+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:33.487814+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:33.487984+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:33.640465+00:00", "kind": "log", "message": "TX [1088]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:33.686237+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:33.686343+00:00", "kind": "log", "message": "RX <1088>3089.000000"}
+{"utc": "2026-10-27T11:45:33.837339+00:00", "kind": "log", "message": "TX [1085]STATUS?"}
+{"utc": "2026-10-27T11:45:33.863929+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:33.864118+00:00", "kind": "log", "message": "RX <1085>3"}
+{"utc": "2026-10-27T11:45:34.037682+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:45:34.102214+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:34.102368+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:45:34.238444+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:34.257341+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:34.257446+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:34.438187+00:00", "kind": "log", "message": "TX [1033]ECUOPTOUT?"}
+{"utc": "2026-10-27T11:45:34.450706+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:34.450796+00:00", "kind": "log", "message": "RX <1033>0"}
+{"utc": "2026-10-27T11:45:34.637940+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:45:34.688178+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:34.688326+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:45:34.838851+00:00", "kind": "log", "message": "TX [1044]ECU:HUMOVERRIDE?"}
+{"utc": "2026-10-27T11:45:34.870381+00:00", "kind": "error", "message": "Controller reply [1044]: (empty)"}
+{"utc": "2026-10-27T11:45:34.870523+00:00", "kind": "log", "message": "RX <1044>"}
+{"utc": "2026-10-27T11:45:35.039491+00:00", "kind": "log", "message": "TX [1088]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:35.084982+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:35.085136+00:00", "kind": "log", "message": "RX <1088>3089.000000"}
+{"utc": "2026-10-27T11:45:35.239805+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:35.279159+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:35.279273+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:35.440935+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:35.501404+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:35.501572+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:35.640748+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:35.678094+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:35.678239+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:35.841226+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:45:35.903021+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:35.903191+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:45:36.041455+00:00", "kind": "log", "message": "TX [1069]HEDOPTOUT?"}
+{"utc": "2026-10-27T11:45:36.076500+00:00", "kind": "error", "message": "Controller reply [1069]: (empty)"}
+{"utc": "2026-10-27T11:45:36.076666+00:00", "kind": "log", "message": "RX <1069>"}
+{"utc": "2026-10-27T11:45:36.242168+00:00", "kind": "log", "message": "TX [1057]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:36.269940+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:36.270101+00:00", "kind": "log", "message": "RX <1057>3089.000000"}
+{"utc": "2026-10-27T11:45:36.442957+00:00", "kind": "log", "message": "TX [1068]EMPOPTOUT?"}
+{"utc": "2026-10-27T11:45:36.507052+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:36.507218+00:00", "kind": "log", "message": "RX <1068>0"}
+{"utc": "2026-10-27T11:45:36.642535+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:36.663785+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:36.663888+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:36.843301+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:36.862772+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:36.862948+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:37.043880+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:37.096501+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:37.096682+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:37.244622+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:45:37.279911+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:37.280033+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:45:37.445046+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:37.506773+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:37.506934+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:37.645050+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:37.659868+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:37.660044+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:37.845438+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:37.856943+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:37.857105+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:37.857193+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:37.857271+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:38.045480+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:38.089092+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:38.089217+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:38.246524+00:00", "kind": "log", "message": "TX [1087]TDG:FAULTOVERRIDE?"}
+{"utc": "2026-10-27T11:45:38.272745+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:38.272916+00:00", "kind": "log", "message": "RX <1087>0"}
+{"utc": "2026-10-27T11:45:38.446996+00:00", "kind": "log", "message": "TX [1029]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:38.489496+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:38.489663+00:00", "kind": "log", "message": "RX <1029>3089.000000"}
+{"utc": "2026-10-27T11:45:38.647199+00:00", "kind": "log", "message": "TX [1045]TDG:DEL1?"}
+{"utc": "2026-10-27T11:45:38.686815+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:38.686979+00:00", "kind": "log", "message": "RX <1045> DELAY 1 ON BWD NENA 85.82"}
+{"utc": "2026-10-27T11:45:38.847851+00:00", "kind": "log", "message": "TX [1030]ECU:READTEMP?"}
+{"utc": "2026-10-27T11:45:38.859613+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:38.859801+00:00", "kind": "log", "message": "RX <1030>18.860000"}
+{"utc": "2026-10-27T11:45:38.859889+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:38.860038+00:00", "kind": "log", "message": "RX <1030>18.860000"}
+{"utc": "2026-10-27T11:45:39.047371+00:00", "kind": "log", "message": "TX [1046]TDG:DEL2?"}
+{"utc": "2026-10-27T11:45:39.097477+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:39.097684+00:00", "kind": "log", "message": "RX <1046> DELAY 2 ON BWD NENA 990.25"}
+{"utc": "2026-10-27T11:45:39.248266+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:39.257344+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:39.257446+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:39.448413+00:00", "kind": "log", "message": "TX [1039]TDG:STBH?"}
+{"utc": "2026-10-27T11:45:39.502313+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:39.502455+00:00", "kind": "log", "message": "RX <1039> 0X00334428"}
+{"utc": "2026-10-27T11:45:39.649626+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:39.676383+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:39.676606+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:39.850888+00:00", "kind": "log", "message": "TX [1050]TDG:OSC:MODE?"}
+{"utc": "2026-10-27T11:45:39.906459+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:39.906589+00:00", "kind": "log", "message": "RX <1050> EXT"}
+{"utc": "2026-10-27T11:45:40.051136+00:00", "kind": "log", "message": "TX [1031]ECU:HUM?"}
+{"utc": "2026-10-27T11:45:40.086234+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:40.086365+00:00", "kind": "log", "message": "RX <1031>4.230000"}
+{"utc": "2026-10-27T11:45:40.251839+00:00", "kind": "log", "message": "TX [1051]TDG:TRIG:MODE?"}
+{"utc": "2026-10-27T11:45:40.305071+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:40.305332+00:00", "kind": "log", "message": "RX <1051> EXT CONT 1000.0"}
+{"utc": "2026-10-27T11:45:40.451254+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:40.500504+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:40.500697+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:40.651755+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:40.677805+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:40.677967+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:40.851963+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:40.914890+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:40.915053+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:41.052883+00:00", "kind": "log", "message": "TX [1088]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:41.071701+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:41.071833+00:00", "kind": "log", "message": "RX <1088>3089.000000"}
+{"utc": "2026-10-27T11:45:41.253075+00:00", "kind": "log", "message": "TX [1084]ECU:TECTEMP?"}
+{"utc": "2026-10-27T11:45:41.270241+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:41.270475+00:00", "kind": "log", "message": "RX <1084>19.050000"}
+{"utc": "2026-10-27T11:45:41.453394+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:45:41.486692+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:41.486826+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:45:41.653852+00:00", "kind": "log", "message": "TX [1085]STATUS?"}
+{"utc": "2026-10-27T11:45:41.669135+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:41.669247+00:00", "kind": "log", "message": "RX <1085>3"}
+{"utc": "2026-10-27T11:45:41.854106+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:41.884818+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:41.884987+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:42.054652+00:00", "kind": "log", "message": "TX [1033]ECUOPTOUT?"}
+{"utc": "2026-10-27T11:45:42.065467+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:42.065576+00:00", "kind": "log", "message": "RX <1033>0"}
+{"utc": "2026-10-27T11:45:42.254934+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:45:42.262052+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:42.262166+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:45:42.455562+00:00", "kind": "log", "message": "TX [1044]ECU:HUMOVERRIDE?"}
+{"utc": "2026-10-27T11:45:42.493827+00:00", "kind": "error", "message": "Controller reply [1044]: (empty)"}
+{"utc": "2026-10-27T11:45:42.493999+00:00", "kind": "log", "message": "RX <1044>"}
+{"utc": "2026-10-27T11:45:42.655916+00:00", "kind": "log", "message": "TX [1088]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:42.710179+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:42.710339+00:00", "kind": "log", "message": "RX <1088>3089.000000"}
+{"utc": "2026-10-27T11:45:42.856023+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:42.913383+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:42.913515+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:43.056094+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:43.093555+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:43.093722+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:43.256384+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:43.263732+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:43.263952+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:43.457774+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:45:43.487526+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:43.487703+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:45:43.658075+00:00", "kind": "log", "message": "TX [1069]HEDOPTOUT?"}
+{"utc": "2026-10-27T11:45:43.702836+00:00", "kind": "error", "message": "Controller reply [1069]: (empty)"}
+{"utc": "2026-10-27T11:45:43.702965+00:00", "kind": "log", "message": "RX <1069>"}
+{"utc": "2026-10-27T11:45:43.858306+00:00", "kind": "log", "message": "TX [1057]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:43.902791+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:43.902961+00:00", "kind": "log", "message": "RX <1057>3089.000000"}
+{"utc": "2026-10-27T11:45:44.059267+00:00", "kind": "log", "message": "TX [1068]EMPOPTOUT?"}
+{"utc": "2026-10-27T11:45:44.082628+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:44.082813+00:00", "kind": "log", "message": "RX <1068>0"}
+{"utc": "2026-10-27T11:45:44.260697+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:44.313651+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:44.313820+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:44.460347+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:44.469544+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:44.469661+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:44.660827+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:44.670314+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:44.670476+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:44.861190+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:44.907241+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:44.907378+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:45.061439+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:45:45.080529+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:45.080707+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:45:45.262170+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:45.301315+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:45.301444+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:45.462423+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:45.489724+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:45.489898+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:45.662289+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:45.721580+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:45.721703+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:45.863554+00:00", "kind": "log", "message": "TX [1087]TDG:FAULTOVERRIDE?"}
+{"utc": "2026-10-27T11:45:45.893380+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:45.893548+00:00", "kind": "log", "message": "RX <1087>0"}
+{"utc": "2026-10-27T11:45:46.063039+00:00", "kind": "log", "message": "TX [1029]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:46.132316+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:46.132489+00:00", "kind": "log", "message": "RX <1029>3089.000000"}
+{"utc": "2026-10-27T11:45:46.263520+00:00", "kind": "log", "message": "TX [1045]TDG:DEL1?"}
+{"utc": "2026-10-27T11:45:46.292911+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:46.293076+00:00", "kind": "log", "message": "RX <1045> DELAY 1 ON BWD NENA 85.82"}
+{"utc": "2026-10-27T11:45:46.464003+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:46.494600+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:46.494779+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:46.664445+00:00", "kind": "log", "message": "TX [1046]TDG:DEL2?"}
+{"utc": "2026-10-27T11:45:46.724028+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:46.724197+00:00", "kind": "log", "message": "RX <1046> DELAY 2 ON BWD NENA 990.25"}
+{"utc": "2026-10-27T11:45:46.865612+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:46.900074+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:46.900267+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:47.065688+00:00", "kind": "log", "message": "TX [1039]TDG:STBH?"}
+{"utc": "2026-10-27T11:45:47.116803+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:47.116977+00:00", "kind": "log", "message": "RX <1039> 0X00334428"}
+{"utc": "2026-10-27T11:45:47.266520+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:47.318361+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:47.318550+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:47.466774+00:00", "kind": "log", "message": "TX [1050]TDG:OSC:MODE?"}
+{"utc": "2026-10-27T11:45:47.484054+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:47.484253+00:00", "kind": "log", "message": "RX <1050> EXT"}
+{"utc": "2026-10-27T11:45:47.667584+00:00", "kind": "log", "message": "TX [1085]STATUS?"}
+{"utc": "2026-10-27T11:45:47.713219+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:47.713380+00:00", "kind": "log", "message": "RX <1085>3"}
+{"utc": "2026-10-27T11:45:47.867207+00:00", "kind": "log", "message": "TX [1051]TDG:TRIG:MODE?"}
+{"utc": "2026-10-27T11:45:47.928458+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:47.928607+00:00", "kind": "log", "message": "RX <1051> EXT CONT 1000.0"}
+{"utc": "2026-10-27T11:45:48.068414+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:48.105737+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:48.105914+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:48.268134+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:48.309095+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:48.309324+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:48.468331+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:45:48.484298+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:48.484430+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:45:48.668673+00:00", "kind": "log", "message": "TX [1088]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:48.699959+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:48.700085+00:00", "kind": "log", "message": "RX <1088>3089.000000"}
+{"utc": "2026-10-27T11:45:48.869554+00:00", "kind": "log", "message": "TX [1088]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:48.899539+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:48.899725+00:00", "kind": "log", "message": "RX <1088>3089.000000"}
+{"utc": "2026-10-27T11:45:49.070118+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:45:49.137944+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:49.138065+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:45:49.270183+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:49.312254+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:49.312372+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:49.470556+00:00", "kind": "log", "message": "TX [1033]ECUOPTOUT?"}
+{"utc": "2026-10-27T11:45:49.528683+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:49.528809+00:00", "kind": "log", "message": "RX <1033>0"}
+{"utc": "2026-10-27T11:45:49.670705+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:45:49.690939+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:49.691060+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:45:49.871359+00:00", "kind": "log", "message": "TX [1044]ECU:HUMOVERRIDE?"}
+{"utc": "2026-10-27T11:45:49.889353+00:00", "kind": "error", "message": "Controller reply [1044]: (empty)"}
+{"utc": "2026-10-27T11:45:49.889498+00:00", "kind": "log", "message": "RX <1044>"}
+{"utc": "2026-10-27T11:45:50.071542+00:00", "kind": "log", "message": "TX [1057]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:50.128063+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:50.128174+00:00", "kind": "log", "message": "RX <1057>3089.000000"}
+{"utc": "2026-10-27T11:45:50.271918+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:50.297781+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:50.297904+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:50.472161+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:50.514561+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:50.514683+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:50.673052+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:50.713034+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:50.713199+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:50.873269+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:50.893641+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:50.893763+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:51.073884+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:51.106432+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:51.106581+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:51.274112+00:00", "kind": "log", "message": "TX [1069]HEDOPTOUT?"}
+{"utc": "2026-10-27T11:45:51.282267+00:00", "kind": "error", "message": "Controller reply [1069]: (empty)"}
+{"utc": "2026-10-27T11:45:51.282379+00:00", "kind": "log", "message": "RX <1069>"}
+{"utc": "2026-10-27T11:45:51.474803+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:51.511084+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:51.511209+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:51.674841+00:00", "kind": "log", "message": "TX [1068]EMPOPTOUT?"}
+{"utc": "2026-10-27T11:45:51.706567+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:51.706730+00:00", "kind": "log", "message": "RX <1068>0"}
+{"utc": "2026-10-27T11:45:51.874752+00:00", "kind": "log", "message": "TX [1029]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:51.883975+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:51.884094+00:00", "kind": "log", "message": "RX <1029>3089.000000"}
+{"utc": "2026-10-27T11:45:52.075494+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:52.097366+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:52.097562+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:52.275378+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:52.338598+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:52.338817+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:52.475784+00:00", "kind": "log", "message": "TX [1030]ECU:READTEMP?"}
+{"utc": "2026-10-27T11:45:52.537167+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:52.537342+00:00", "kind": "log", "message": "RX <1030>18.860000"}
+{"utc": "2026-10-27T11:45:52.677023+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:45:52.716242+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:52.716360+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:45:52.876490+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:52.924855+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:52.925027+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:53.076503+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:53.102396+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:53.102530+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:53.277367+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:53.301930+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:53.302091+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:53.478149+00:00", "kind": "log", "message": "TX [1087]TDG:FAULTOVERRIDE?"}
+{"utc": "2026-10-27T11:45:53.529165+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:53.529438+00:00", "kind": "log", "message": "RX <1087>0"}
+{"utc": "2026-10-27T11:45:53.678898+00:00", "kind": "log", "message": "TX [1031]ECU:HUM?"}
+{"utc": "2026-10-27T11:45:53.705866+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:53.705977+00:00", "kind": "log", "message": "RX <1031>4.270000"}
+{"utc": "2026-10-27T11:45:53.879342+00:00", "kind": "log", "message": "TX [1045]TDG:DEL1?"}
+{"utc": "2026-10-27T11:45:53.914504+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:53.914599+00:00", "kind": "log", "message": "RX <1045> DELAY 1 ON BWD NENA 85.82"}
+{"utc": "2026-10-27T11:45:54.078956+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:54.093292+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:54.093389+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:54.279767+00:00", "kind": "log", "message": "TX [1046]TDG:DEL2?"}
+{"utc": "2026-10-27T11:45:54.291036+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:54.291120+00:00", "kind": "log", "message": "RX <1046> DELAY 2 ON BWD NENA 990.25"}
+{"utc": "2026-10-27T11:45:54.480430+00:00", "kind": "log", "message": "TX [1084]ECU:TECTEMP?"}
+{"utc": "2026-10-27T11:45:54.516293+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:54.516441+00:00", "kind": "log", "message": "RX <1084>19.020000"}
+{"utc": "2026-10-27T11:45:54.680948+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:54.745513+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:54.745637+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:54.880808+00:00", "kind": "log", "message": "TX [1039]TDG:STBH?"}
+{"utc": "2026-10-27T11:45:54.945980+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:54.946090+00:00", "kind": "log", "message": "RX <1039> 0X00334428"}
+{"utc": "2026-10-27T11:45:55.081262+00:00", "kind": "log", "message": "TX [1085]STATUS?"}
+{"utc": "2026-10-27T11:45:55.121488+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:55.121645+00:00", "kind": "log", "message": "RX <1085>3"}
+{"utc": "2026-10-27T11:45:55.281966+00:00", "kind": "log", "message": "TX [1050]TDG:OSC:MODE?"}
+{"utc": "2026-10-27T11:45:55.302251+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:55.302408+00:00", "kind": "log", "message": "RX <1050> EXT"}
+{"utc": "2026-10-27T11:45:55.482539+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:45:55.505768+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:55.505878+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:45:55.682749+00:00", "kind": "log", "message": "TX [1051]TDG:TRIG:MODE?"}
+{"utc": "2026-10-27T11:45:55.735200+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:55.735367+00:00", "kind": "log", "message": "RX <1051> EXT CONT 1000.0"}
+{"utc": "2026-10-27T11:45:55.883619+00:00", "kind": "log", "message": "TX [1088]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:55.935665+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:55.935784+00:00", "kind": "log", "message": "RX <1088>3089.000000"}
+{"utc": "2026-10-27T11:45:56.084068+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:56.110518+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:56.110744+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:56.284246+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:56.291904+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:56.292064+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:56.484973+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:45:56.501555+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:56.501667+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:45:56.685866+00:00", "kind": "log", "message": "TX [1088]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:56.699756+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:56.699864+00:00", "kind": "log", "message": "RX <1088>3089.000000"}
+{"utc": "2026-10-27T11:45:56.886301+00:00", "kind": "log", "message": "TX [1057]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:56.937789+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:56.937963+00:00", "kind": "log", "message": "RX <1057>3089.000000"}
+{"utc": "2026-10-27T11:45:57.087180+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:45:57.099509+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:57.099622+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:45:57.287878+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:57.296509+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:57.296681+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:57.487697+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:57.551455+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:57.551571+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:57.688313+00:00", "kind": "log", "message": "TX [1033]ECUOPTOUT?"}
+{"utc": "2026-10-27T11:45:57.750260+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:57.750372+00:00", "kind": "log", "message": "RX <1033>0"}
+{"utc": "2026-10-27T11:45:57.888505+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:45:57.929216+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:57.929372+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:45:58.088891+00:00", "kind": "log", "message": "TX [1044]ECU:HUMOVERRIDE?"}
+{"utc": "2026-10-27T11:45:58.149527+00:00", "kind": "error", "message": "Controller reply [1044]: (empty)"}
+{"utc": "2026-10-27T11:45:58.149685+00:00", "kind": "log", "message": "RX <1044>"}
+{"utc": "2026-10-27T11:45:58.288922+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:58.319465+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:58.319635+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:58.489298+00:00", "kind": "log", "message": "TX [1028]ECU:STB?"}
+{"utc": "2026-10-27T11:45:58.519236+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:58.519345+00:00", "kind": "log", "message": "RX <1028>0.000000"}
+{"utc": "2026-10-27T11:45:58.690264+00:00", "kind": "log", "message": "TX [1029]ECU:STBH?"}
+{"utc": "2026-10-27T11:45:58.756507+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:58.756669+00:00", "kind": "log", "message": "RX <1029>3089.000000"}
+{"utc": "2026-10-27T11:45:58.890788+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:45:58.914297+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:58.914721+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:45:59.091084+00:00", "kind": "log", "message": "TX [1015]HED:STB?"}
+{"utc": "2026-10-27T11:45:59.144499+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:59.144658+00:00", "kind": "log", "message": "RX <1015>0.000000"}
+{"utc": "2026-10-27T11:45:59.291206+00:00", "kind": "log", "message": "TX [1065]TDG:READ:OSCQUEST?"}
+{"utc": "2026-10-27T11:45:59.344899+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:59.345017+00:00", "kind": "log", "message": "RX <1065> 0.0 MHz"}
+{"utc": "2026-10-27T11:45:59.492223+00:00", "kind": "log", "message": "TX [1069]HEDOPTOUT?"}
+{"utc": "2026-10-27T11:45:59.516015+00:00", "kind": "error", "message": "Controller reply [1069]: (empty)"}
+{"utc": "2026-10-27T11:45:59.516174+00:00", "kind": "log", "message": "RX <1069>"}
+{"utc": "2026-10-27T11:45:59.692629+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:45:59.747226+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:59.747406+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:45:59.893796+00:00", "kind": "log", "message": "TX [1068]EMPOPTOUT?"}
+{"utc": "2026-10-27T11:45:59.903871+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:45:59.904383+00:00", "kind": "log", "message": "RX <1068>0"}
+{"utc": "2026-10-27T11:46:00.093311+00:00", "kind": "log", "message": "TX [1000]*idn?"}
+{"utc": "2026-10-27T11:46:00.133750+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:46:00.133948+00:00", "kind": "log", "message": "RX <1000>Spectra Physics,SASC,1.5.0"}
+{"utc": "2026-10-27T11:46:00.293617+00:00", "kind": "log", "message": "TX [1019]TDG:STB?"}
+{"utc": "2026-10-27T11:46:00.334030+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:46:00.334140+00:00", "kind": "log", "message": "RX <1019>0.000000"}
+{"utc": "2026-10-27T11:46:00.494098+00:00", "kind": "log", "message": "TX [1085]STATUS?"}
+{"utc": "2026-10-27T11:46:00.515278+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:46:00.515390+00:00", "kind": "log", "message": "RX <1085>3"}
+{"utc": "2026-10-27T11:46:00.694773+00:00", "kind": "log", "message": "TX [1066]TDG:STBHFLT?"}
+{"utc": "2026-10-27T11:46:00.731719+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:46:00.731858+00:00", "kind": "log", "message": "RX <1066> 0X00334408"}
+{"utc": "2026-10-27T11:46:00.895315+00:00", "kind": "log", "message": "TX [1089]COMSTATUS?"}
+{"utc": "2026-10-27T11:46:00.924495+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:46:00.924668+00:00", "kind": "log", "message": "RX <1089>5"}
+{"utc": "2026-10-27T11:46:01.095632+00:00", "kind": "log", "message": "TX [1021]TDG:HV:ON?"}
+{"utc": "2026-10-27T11:46:01.161610+00:00", "kind": "state", "message": ""}
+{"utc": "2026-10-27T11:46:01.162377+00:00", "kind": "log", "message": "RX <1021> 0"}
+{"utc": "2026-10-27T11:46:01.296005+00:00", "kind": "log", "message": "TX [1000]*idn?"}

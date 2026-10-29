@@ -1,0 +1,150 @@
+test_current_engineering_to_wire_matches_xp (test_release_140.Release140Tests.test_current_engineering_to_wire_matches_xp) ... FAIL
+test_current_rejects_nonfinite_and_negative_input (test_release_140.Release140Tests.test_current_rejects_nonfinite_and_negative_input) ... 
+  test_current_rejects_nonfinite_and_negative_input (test_release_140.Release140Tests.test_current_rejects_nonfinite_and_negative_input) (value='NaN') ... FAIL
+  test_current_rejects_nonfinite_and_negative_input (test_release_140.Release140Tests.test_current_rejects_nonfinite_and_negative_input) (value='Inf') ... FAIL
+  test_current_rejects_nonfinite_and_negative_input (test_release_140.Release140Tests.test_current_rejects_nonfinite_and_negative_input) (value='-1') ... FAIL
+  test_current_rejects_nonfinite_and_negative_input (test_release_140.Release140Tests.test_current_rejects_nonfinite_and_negative_input) (value='1e9999') ... FAIL
+test_current_sentinel_not_scaled (test_release_140.Release140Tests.test_current_sentinel_not_scaled) ... ok
+test_current_wire_to_engineering_matches_xp (test_release_140.Release140Tests.test_current_wire_to_engineering_matches_xp) ... FAIL
+test_empty_hv_setpoint_receipts_do_not_cancel_second_write (test_release_140.Release140Tests.test_empty_hv_setpoint_receipts_do_not_cancel_second_write) ... FAIL
+test_empty_resets_continue_all_four (test_release_140.Release140Tests.test_empty_resets_continue_all_four) ... FAIL
+test_empty_source_receipts_do_not_cancel_second_write (test_release_140.Release140Tests.test_empty_source_receipts_do_not_cancel_second_write) ... FAIL
+test_explicit_error_cancels_remaining_and_audits_each (test_release_140.Release140Tests.test_explicit_error_cancels_remaining_and_audits_each) ... FAIL
+test_external_all_four_fault_resets_allowed (test_release_140.Release140Tests.test_external_all_four_fault_resets_allowed) ... ERROR
+test_receipt_without_application_is_not_confirmed (test_release_140.Release140Tests.test_receipt_without_application_is_not_confirmed) ... FAIL
+test_simulator_default_current_is_18_A (test_release_140.Release140Tests.test_simulator_default_current_is_18_A) ... ok
+test_timeout_never_retries_write (test_release_140.Release140Tests.test_timeout_never_retries_write) ... ok
+
+======================================================================
+ERROR: test_external_all_four_fault_resets_allowed (test_release_140.Release140Tests.test_external_all_four_fault_resets_allowed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d8865ac4a621/Spitfire_Python_Control_1.4.0/tests/test_release_140.py", line 62, in test_external_all_four_fault_resets_allowed
+    for cid in (2044,2049,2052,2050): validate_profile_command(cid,None,'external')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d8865ac4a621/Spitfire_Python_Control_1.4.0/src/spitfire_control/profiles.py", line 49, in validate_profile_command
+    raise PermissionError("This pump/global/raw command is unavailable in External Pump mode.")
+PermissionError: This pump/global/raw command is unavailable in External Pump mode.
+
+======================================================================
+FAIL: test_current_engineering_to_wire_matches_xp (test_release_140.Release140Tests.test_current_engineering_to_wire_matches_xp)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d8865ac4a621/Spitfire_Python_Control_1.4.0/tests/test_release_140.py", line 49, in test_current_engineering_to_wire_matches_xp
+    self.assertEqual(engineering_argument(2003, '17.0'), '170.00')
+AssertionError: '17.0' != '170.00'
+- 17.0
++ 170.00
+?   +  +
+
+
+======================================================================
+FAIL: test_current_rejects_nonfinite_and_negative_input (test_release_140.Release140Tests.test_current_rejects_nonfinite_and_negative_input) (value='NaN')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d8865ac4a621/Spitfire_Python_Control_1.4.0/tests/test_release_140.py", line 60, in test_current_rejects_nonfinite_and_negative_input
+    with self.subTest(value=value), self.assertRaises(ValueError): engineering_argument(2003,value)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_current_rejects_nonfinite_and_negative_input (test_release_140.Release140Tests.test_current_rejects_nonfinite_and_negative_input) (value='Inf')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d8865ac4a621/Spitfire_Python_Control_1.4.0/tests/test_release_140.py", line 60, in test_current_rejects_nonfinite_and_negative_input
+    with self.subTest(value=value), self.assertRaises(ValueError): engineering_argument(2003,value)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_current_rejects_nonfinite_and_negative_input (test_release_140.Release140Tests.test_current_rejects_nonfinite_and_negative_input) (value='-1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d8865ac4a621/Spitfire_Python_Control_1.4.0/tests/test_release_140.py", line 60, in test_current_rejects_nonfinite_and_negative_input
+    with self.subTest(value=value), self.assertRaises(ValueError): engineering_argument(2003,value)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_current_rejects_nonfinite_and_negative_input (test_release_140.Release140Tests.test_current_rejects_nonfinite_and_negative_input) (value='1e9999')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d8865ac4a621/Spitfire_Python_Control_1.4.0/tests/test_release_140.py", line 60, in test_current_rejects_nonfinite_and_negative_input
+    with self.subTest(value=value), self.assertRaises(ValueError): engineering_argument(2003,value)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_current_wire_to_engineering_matches_xp (test_release_140.Release140Tests.test_current_wire_to_engineering_matches_xp)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d8865ac4a621/Spitfire_Python_Control_1.4.0/tests/test_release_140.py", line 54, in test_current_wire_to_engineering_matches_xp
+    self.assertEqual(s.value(cid),17.0)
+AssertionError: 170.0 != 17.0
+
+======================================================================
+FAIL: test_empty_hv_setpoint_receipts_do_not_cancel_second_write (test_release_140.Release140Tests.test_empty_hv_setpoint_receipts_do_not_cancel_second_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d8865ac4a621/Spitfire_Python_Control_1.4.0/tests/test_release_140.py", line 71, in test_empty_hv_setpoint_receipts_do_not_cancel_second_write
+    self.assertEqual(self.writes(),[2025,2026])
+AssertionError: Lists differ: [2025] != [2025, 2026]
+
+Second list contains 1 additional elements.
+First extra element 1:
+2026
+
+- [2025]
++ [2025, 2026]
+
+======================================================================
+FAIL: test_empty_resets_continue_all_four (test_release_140.Release140Tests.test_empty_resets_continue_all_four)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d8865ac4a621/Spitfire_Python_Control_1.4.0/tests/test_release_140.py", line 75, in test_empty_resets_continue_all_four
+    self.drain();self.assertEqual(self.writes(),[2044,2049,2052,2050])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [2044] != [2044, 2049, 2052, 2050]
+
+Second list contains 3 additional elements.
+First extra element 1:
+2049
+
+- [2044]
++ [2044, 2049, 2052, 2050]
+
+======================================================================
+FAIL: test_empty_source_receipts_do_not_cancel_second_write (test_release_140.Release140Tests.test_empty_source_receipts_do_not_cancel_second_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d8865ac4a621/Spitfire_Python_Control_1.4.0/tests/test_release_140.py", line 67, in test_empty_source_receipts_do_not_cancel_second_write
+    self.assertEqual(self.writes(),[2030,2031])
+AssertionError: Lists differ: [2030] != [2030, 2031]
+
+Second list contains 1 additional elements.
+First extra element 1:
+2031
+
+- [2030]
++ [2030, 2031]
+
+======================================================================
+FAIL: test_explicit_error_cancels_remaining_and_audits_each (test_release_140.Release140Tests.test_explicit_error_cancels_remaining_and_audits_each)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d8865ac4a621/Spitfire_Python_Control_1.4.0/tests/test_release_140.py", line 79, in test_explicit_error_cancels_remaining_and_audits_each
+    self.assertTrue(any(r['direction']=='CANCEL' and r['command_id']=='2031' for r in self.audit()))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_receipt_without_application_is_not_confirmed (test_release_140.Release140Tests.test_receipt_without_application_is_not_confirmed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d8865ac4a621/Spitfire_Python_Control_1.4.0/tests/test_release_140.py", line 83, in test_receipt_without_application_is_not_confirmed
+    self.assertTrue(any(r['direction']=='READBACK_MISMATCH' for r in self.audit()))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.010s
+
+FAILED (failures=11, errors=1)

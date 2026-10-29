@@ -1,0 +1,45 @@
+0040d89e mov     eax, dword ptr [0x414d60]                
+0040d8a4 mov     ecx, 0                                   
+0040d8a9 cmp     eax, ecx                                 
+0040d8ab je      0x40d918                                 
+0040d8b1 lea     eax, [0x414fa0]                          
+0040d8b7 push    eax                                      
+0040d8b8 call    0x403ca0                                 atof_FLTREG_
+0040d8bd add     esp, 4                                   
+0040d8c0 fld     qword ptr [0x436738]                     
+0040d8c6 fdivp   st(1)                                    
+0040d8c8 sub     esp, 8                                   
+0040d8cb fstp    qword ptr [esp]                          
+0040d8ce push    8                                        
+0040d8d3 mov     eax, dword ptr [0x41418c]                
+0040d8d9 push    eax                                      
+0040d8da call    0x403d54                                 SetCtrlVal
+0040d8df add     esp, 0x10                                
+0040d8e2 lea     eax, [0x414fa0]                          
+0040d8e8 push    eax                                      
+0040d8e9 call    0x403ca0                                 atof_FLTREG_
+0040d8ee add     esp, 4                                   
+0040d8f1 fld     qword ptr [0x436738]                     
+0040d8f7 fdivp   st(1)                                    
+0040d8f9 sub     esp, 8                                   
+0040d8fc fstp    qword ptr [esp]                          
+0040d8ff push    3                                        
+0040d904 mov     eax, dword ptr [0x41418c]                
+0040d90a push    eax                                      
+0040d90b call    0x403d54                                 SetCtrlVal
+0040d910 add     esp, 0x10                                
+0040d913 jmp     0x40e38a                                 
+0040d918 lea     eax, [0x414fa0]                          
+0040d91e push    eax                                      
+0040d91f call    0x403ca0                                 atof_FLTREG_
+0040d924 add     esp, 4                                   
+0040d927 fld     qword ptr [0x436738]                     
+0040d92d fdivp   st(1)                                    
+0040d92f sub     esp, 8                                   
+0040d932 fstp    qword ptr [esp]                          
+0040d935 push    3                                        
+0040d93a mov     eax, dword ptr [0x41418c]                
+0040d940 push    eax                                      
+0040d941 call    0x403d54                                 SetCtrlVal
+0040d946 add     esp, 0x10                                
+0040d949 jmp     0x40e38a                                 

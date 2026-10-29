@@ -1,0 +1,26 @@
+{
+  "original_exe_sha256": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b",
+  "callback": "_cllbckcmd_reset",
+  "start": "0x412428",
+  "end_exclusive": "0x4124db",
+  "raw_hex": "5589e5568b4510b90100000039c80f8405000000e9910000008d05c46a43008d0d646b41005051e82611ffff83c40868fc070000e8305affff83c4048d05c06a43008d0d646b41005051e80311ffff83c4086801080000e80d5affff83c4048d05bc6a43008d0d646b41005051e8e010ffff83c4086804080000e8ea59ffff83c4048d05b86a43008d0d646b41005051e8bd10ffff83c4086802080000e8c759ffff83c404e8e50b0000b8000000005ec9c390",
+  "command_queue_operations": [
+    {
+      "address": "0x412457",
+      "command_id": 2044
+    },
+    {
+      "address": "0x41247a",
+      "command_id": 2049
+    },
+    {
+      "address": "0x41249d",
+      "command_id": 2052
+    },
+    {
+      "address": "0x4124c0",
+      "command_id": 2050
+    }
+  ],
+  "scope": "The callback gates on the UI commit event, then queues reset commands and calls fault refresh. No HV/key conditional is present in this callback. This does not prove firmware behavior while HV is ON."
+}

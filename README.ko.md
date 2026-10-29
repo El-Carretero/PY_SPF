@@ -4,6 +4,13 @@
 
 **현재 결과를 ‘원본과 완전히 동일함이 검증된 완성품’으로 표현할 수는 없습니다.** 복구한 항목, 대조 시험 결과, 아직 확인하지 못한 부분을 [분석 보고서](ANALYSIS.ko.md)에 구분했습니다. 실장비 및 원본 Windows 환경에서의 전체 회귀 대조가 필요합니다.
 
+## 별도 External Pump 구현
+
+첨부본 `Spitfire Python Control 1.5.1`은 [`variants/spitfire-control-1.5.1/`](variants/spitfire-control-1.5.1/)에 원본 파일 그대로 보존했습니다.
+루트의 `spitfire` 패키지와 별도로 실행하는 `spitfire_control` 패키지입니다.
+[비교 보고서](comparisons/spitfire-control-1.5.1/README.ko.md)에서 Empower 제외 범위, GUI, RUN/STOP, 통신 및 검증 차이를 확인할 수 있습니다.
+실행 경로와 환경 구분은 [버전별 안내](variants/README.ko.md)를 참고하세요.
+
 ## 실행
 
 ### Windows에서 원본 화면 엔진 사용

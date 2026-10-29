@@ -1,0 +1,1 @@
+{"method": "Unicorn original x86 callback execution with CVI/CRT intercepted and resource-derived GetCtrlVal data types", "case_count": 395, "callback_count": 85, "passed": 395, "failed": 0}

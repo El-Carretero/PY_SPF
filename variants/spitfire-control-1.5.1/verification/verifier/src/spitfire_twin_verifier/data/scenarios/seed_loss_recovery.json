@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "id": "seed_loss_recovery",
+  "name": "시드 손실·리셋·재무장",
+  "description": "시드 손실 시 래치, 신호 회복만으로 자동 재시작하지 않는 합성 정책.",
+  "duration_ms": 400,
+  "policy": {},
+  "initial_signals": {},
+  "events": [
+    {
+      "at_ms": 0,
+      "type": "arm"
+    },
+    {
+      "at_ms": 0,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 50,
+      "type": "signals",
+      "values": {
+        "seed_present": false,
+        "seed_frequency_mhz": 0
+      }
+    },
+    {
+      "at_ms": 50,
+      "type": "wire",
+      "wire": {
+        "overrides": {
+          "1065": "0"
+        }
+      },
+      "note": "Explicit synthetic seed readback fixture; not a measured firmware reaction."
+    },
+    {
+      "at_ms": 60,
+      "type": "reset"
+    },
+    {
+      "at_ms": 100,
+      "type": "signals",
+      "values": {
+        "seed_present": true,
+        "seed_frequency_mhz": 80
+      }
+    },
+    {
+      "at_ms": 100,
+      "type": "clear_wire"
+    },
+    {
+      "at_ms": 150,
+      "type": "arm"
+    },
+    {
+      "at_ms": 200,
+      "type": "reset"
+    },
+    {
+      "at_ms": 210,
+      "type": "arm"
+    },
+    {
+      "at_ms": 210,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 310,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 400,
+      "type": "disarm"
+    }
+  ],
+  "assertions": [
+    {
+      "at_ms": 50,
+      "path": "latched_faults",
+      "op": "contains",
+      "expected": "seed_missing"
+    },
+    {
+      "at_ms": 60,
+      "path": "reset_accepted",
+      "op": "eq",
+      "expected": false
+    },
+    {
+      "at_ms": 150,
+      "path": "armed",
+      "op": "eq",
+      "expected": false
+    },
+    {
+      "at_ms": 200,
+      "path": "reset_accepted",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "at_ms": 310,
+      "path": "armed",
+      "op": "eq",
+      "expected": true
+    }
+  ]
+}

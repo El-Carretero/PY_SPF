@@ -1,0 +1,70 @@
+{
+  "source": "Installed 1.3.2 audit copied read-only",
+  "reset_2052_tx_count": 0,
+  "rows": [
+    {
+      "row": 2136,
+      "utc_time": "2026-10-27T12:53:37.941094+00:00",
+      "direction": "RX",
+      "command_id": "1069",
+      "text": "<1069>",
+      "result": ""
+    },
+    {
+      "row": 2137,
+      "utc_time": "2026-10-27T12:53:37.942766+00:00",
+      "direction": "INVALID_REPLY",
+      "command_id": "1069",
+      "text": "<1069>",
+      "result": "Empty response payload; no state value or acknowledgement was received."
+    },
+    {
+      "row": 2138,
+      "utc_time": "2026-10-27T12:53:37.949560+00:00",
+      "direction": "TX",
+      "command_id": "2049",
+      "text": "[2049]ECU:RESETFAULTS",
+      "result": "GUI"
+    },
+    {
+      "row": 2139,
+      "utc_time": "2026-10-27T12:53:38.006046+00:00",
+      "direction": "RX",
+      "command_id": "2049",
+      "text": "<2049>",
+      "result": ""
+    },
+    {
+      "row": 2140,
+      "utc_time": "2026-10-27T12:53:38.007305+00:00",
+      "direction": "INVALID_REPLY",
+      "command_id": "2049",
+      "text": "<2049>",
+      "result": "Empty response payload; no state value or acknowledgement was received."
+    },
+    {
+      "row": 2141,
+      "utc_time": "2026-10-27T12:53:38.008351+00:00",
+      "direction": "TX",
+      "command_id": "1057",
+      "text": "[1057]ECU:STBH?",
+      "result": "write readback"
+    },
+    {
+      "row": 2142,
+      "utc_time": "2026-10-27T12:53:38.064719+00:00",
+      "direction": "RX",
+      "command_id": "1057",
+      "text": "<1057>3089.000000",
+      "result": ""
+    },
+    {
+      "row": 2143,
+      "utc_time": "2026-10-27T12:53:38.065529+00:00",
+      "direction": "TX",
+      "command_id": "1068",
+      "text": "[1068]EMPOPTOUT?",
+      "result": "external compatibility monitor"
+    }
+  ]
+}

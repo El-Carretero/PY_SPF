@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "trigger_jitter",
+  "name": "트리거 지터 초과",
+  "description": "10 Hz 기준 주기 오차 2 ms가 합성 1 ms 허용 범위를 초과.",
+  "duration_ms": 102,
+  "policy": {},
+  "initial_signals": {},
+  "events": [
+    {
+      "at_ms": 0,
+      "type": "arm"
+    },
+    {
+      "at_ms": 0,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 102,
+      "type": "trigger"
+    }
+  ],
+  "assertions": [
+    {
+      "at_ms": 102,
+      "path": "latched_faults",
+      "op": "contains",
+      "expected": "trigger_jitter"
+    },
+    {
+      "at_ms": 102,
+      "path": "last_jitter_us",
+      "op": "eq",
+      "expected": 2000
+    }
+  ]
+}

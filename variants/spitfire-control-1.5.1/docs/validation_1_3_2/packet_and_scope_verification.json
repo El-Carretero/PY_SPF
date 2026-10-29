@@ -1,0 +1,35 @@
+{
+  "version": "1.3.2",
+  "scope": "ARM/reset only",
+  "stages": [
+    {
+      "stage": "live_gui",
+      "packets": 1131,
+      "commands": 1131,
+      "all_exact_catalog_queries": true,
+      "actual_writes": 0
+    },
+    {
+      "stage": "live_gui_automated",
+      "packets": 82,
+      "commands": 82,
+      "all_exact_catalog_queries": true,
+      "actual_writes": 0
+    },
+    {
+      "stage": "live_gui_automated_run02",
+      "packets": 90,
+      "commands": 90,
+      "all_exact_catalog_queries": true,
+      "actual_writes": 0
+    }
+  ],
+  "changed_product_modules": [
+    "controller.py",
+    "state.py",
+    "ui.py",
+    "__init__.py"
+  ],
+  "scheduler_transport_protocol_profiles_unchanged": true,
+  "source_ast_pass": true
+}

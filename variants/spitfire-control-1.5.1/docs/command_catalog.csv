@@ -1,0 +1,147 @@
+id,command,direction,risk,description
+1000,*idn?,query,read,Controller identity
+1001,MIL:DIODE1:CURR?,query,read,MIL:DIODE1:CURR?
+1002,MIL:DIODE2:CURR?,query,read,MIL:DIODE2:CURR?
+1003,MIL:POW?,query,read,MIL:POW?
+1004,MIL:READ:DIODE1:CURR?,query,read,MIL:READ:DIODE1:CURR?
+1005,MIL:READ:DIODE2:CURR?,query,read,MIL:READ:DIODE2:CURR?
+1006,MIL:READ:POW?,query,read,MIL:READ:POW?
+1007,EMP:READ:DIODE:CURR?,query,read,Measured diode current
+1008,EMP:READ:POW?,query,read,Measured output power
+1009,EMP:DIODE:CURR?,query,read,Diode-current setpoint
+1010,EMP:QSW:PRF?,query,read,Q-switch frequency
+1011,EMP:QSW:PWID?,query,read,Q-switch pulse width
+1012,EMP:QSW:SOURCE?,query,read,Q-switch source
+1013,EMP:STB?,query,read,Empower status byte
+1014,EMP:FAULT?,query,read,Empower fault words
+1015,HED:STB?,query,read,Amplifier/head status byte
+1016,EMP:VERSION?,query,read,EMP:VERSION?
+1017,HED:MOTOR:*IDN?,query,read,HED:MOTOR:*IDN?
+1018,HED:MOTOR:SPEED?,query,read,HED:MOTOR:SPEED?
+1019,TDG:STB?,query,read,Timing/delay generator status
+1020,TDG:VOLT?,query,read,TDG:VOLT?
+1021,TDG:HV:ON?,query,read,High-voltage state
+1022,TDG:STAT:BWD?,query,read,TDG:STAT:BWD?
+1023,TDG:STBH?,query,read,TDG:STBH?
+1024,TDG:OSC:FREQ?,query,read,TDG:OSC:FREQ?
+1025,TDG:DIV?,query,read,TDG:DIV?
+1026,TDG:DEL,query,read,TDG:DEL
+1027,TDG:BWD?,query,read,TDG:BWD?
+1028,ECU:STB?,query,read,ECU:STB?
+1029,ECU:STBH?,query,read,Temperature-controller health status
+1030,ECU:READTEMP?,query,read,Crystal temperature
+1031,ECU:HUM?,query,read,Humidity
+1032,ECU:TEMP?,query,read,Temperature setpoint
+1033,ECUOPTOUT?,query,read,ECUOPTOUT?
+1034,HED:VERS?,query,read,HED:VERS?
+1035,EMP:VERS?,query,read,EMP:VERS?
+1036,TDG:VERS?,query,read,TDG:VERS?
+1037,ECU:VERS?,query,read,ECU:VERS?
+1038,*IDN?,query,read,*IDN?
+1039,TDG:STBH?,query,read,TDG extended status
+1040,TDG:HV1:VOLT?,query,read,TDG:HV1:VOLT?
+1041,TDG:HV2:VOLT?,query,read,TDG:HV2:VOLT?
+1042,TDG:READ:HV1VOLT?,query,read,Measured HV channel 1 voltage
+1043,TDG:READ:HV2VOLT?,query,read,Measured HV channel 2 voltage
+1044,ECU:HUMOVERRIDE?,query,read,ECU:HUMOVERRIDE?
+1045,TDG:DEL1?,query,read,TDG:DEL1?
+1046,TDG:DEL2?,query,read,TDG:DEL2?
+1047,TDG:DEL3?,query,read,TDG:DEL3?
+1048,TDG:DEL4?,query,read,TDG:DEL4?
+1049,TDG:DEL5?,query,read,TDG:DEL5?
+1050,TDG:OSC:MODE?,query,read,TDG:OSC:MODE?
+1051,TDG:TRIG:MODE?,query,read,TDG:TRIG:MODE?
+1052,TDG:DEL0?,query,read,TDG:DEL0?
+1053,TDG:TRIG:FREQ?,query,read,TDG:TRIG:FREQ?
+1054,TDG:BWD?,query,read,TDG:BWD?
+1055,TDG:READ:HV1CURR?,query,read,Measured HV channel 1 current
+1056,TDG:READ:HV2CURR?,query,read,Measured HV channel 2 current
+1057,ECU:STBH?,query,read,ECU:STBH?
+1058,TDG:DEL1?,query,read,TDG:DEL1?
+1059,TDG:DEL2?,query,read,TDG:DEL2?
+1060,HED:MOTOR:SPEED?,query,read,HED:MOTOR:SPEED?
+1061,TDG:HV:ON?,query,read,TDG:HV:ON?
+1062,*IDN?,query,read,*IDN?
+1063,TDG:DEL1?,query,read,TDG:DEL1?
+1064,TDG:DEL2?,query,read,TDG:DEL2?
+1065,TDG:READ:OSCQUEST?,query,read,Measured oscillator frequency
+1066,TDG:STBHFLT?,query,read,TDG:STBHFLT?
+1067,TDG:OSC:MODE?,query,read,TDG:OSC:MODE?
+1068,EMPOPTOUT?,query,read,EMPOPTOUT?
+1069,HEDOPTOUT?,query,read,HEDOPTOUT?
+1070,EMP:SECRETMSG1?,query,read,EMP:SECRETMSG1?
+1071,EMP:SECRETMSG2?,query,read,EMP:SECRETMSG2?
+1072,EMP:SECRETMSG3?,query,read,EMP:SECRETMSG3?
+1073,EMP:SECRETMSG4?,query,read,EMP:SECRETMSG4?
+1074,EMP:SECRETMSG5?,query,read,EMP:SECRETMSG5?
+1075,EMP:SECRETMSG6?,query,read,EMP:SECRETMSG6?
+1076,EMP:SECRETMSG7?,query,read,EMP:SECRETMSG7?
+1077,EMP:LBOTEMP?,query,read,EMP:LBOTEMP?
+1078,EMP:LBOBREAK?,query,read,EMP:LBOBREAK?
+1079,TDG:TRIG?,query,read,TDG:TRIG?
+1080,TDG:OSC:SETMODE?,query,read,TDG:OSC:SETMODE?
+1081,*IDN?,query,read,*IDN?
+1082,*IdN?,query,read,*IdN?
+1083,TDG:DELMON?,query,read,TDG:DELMON?
+1084,ECU:TECTEMP?,query,read,TEC temperature
+1085,STATUS?,query,read,Overall controller status
+1086,MONITOR?,query,read,MONITOR?
+1087,TDG:FAULTOVERRIDE?,query,read,TDG:FAULTOVERRIDE?
+1088,ECU:STBH?,query,read,ECU:STBH?
+1089,COMSTATUS?,query,read,Subsystem communication status
+2000,MIL:DIODE1:CURR,write,service,MIL:DIODE1:CURR
+2001,MIL:DIODE2:CURR,write,service,MIL:DIODE2:CURR
+2002,MIL:READ:POW,write,service,MIL:READ:POW
+2003,EMP:DIODE:CURR,write,laser,EMP:DIODE:CURR
+2004,EMP:QSW:PRF,write,laser,EMP:QSW:PRF
+2005,EMP:ON,write,laser,EMP:ON
+2006,EMP:OFF,write,laser,EMP:OFF
+2007,EMP:QSW:PWID,write,laser,EMP:QSW:PWID
+2008,EMP:QSW:SOURCE,write,laser,EMP:QSW:SOURCE
+2009,HED:MOTOR:REW,write,motion,HED:MOTOR:REW
+2010,HED:MOTOR:FWD,write,motion,HED:MOTOR:FWD
+2011,HED:MOTOR:JOGF,write,motion,HED:MOTOR:JOGF
+2012,HED:MOTOR:JOGR,write,motion,HED:MOTOR:JOGR
+2013,HED:MOTOR:STOP,write,motion,HED:MOTOR:STOP
+2014,HED:MOTOR:SPEED,write,motion,HED:MOTOR:SPEED
+2015,TDG:VOLT,write,high_voltage,TDG:VOLT
+2016,TDG:HV:OFF,write,high_voltage,TDG:HV:OFF
+2017,TDG:HV:ON,write,high_voltage,TDG:HV:ON
+2018,TDG:RESBWD,write,high_voltage,TDG:RESBWD
+2019,TDG:DEL,write,config,TDG:DEL
+2020,TDG:DIV,write,config,TDG:DIV
+2021,ECU:TEMP,write,config,ECU:TEMP
+2022,ECU:TECON,write,config,ECU:TECON
+2023,ECU:TECOFF,write,config,ECU:TECOFF
+2024,ECUOPTOUT,write,service,ECUOPTOUT
+2025,TDG:HV1:VOLT,write,high_voltage,TDG:HV1:VOLT
+2026,TDG:HV2:VOLT,write,high_voltage,TDG:HV2:VOLT
+2027,ON,write,laser,ON
+2028,OFF,write,laser,OFF
+2029,ECU:HUMOVERRIDE,write,service,ECU:HUMOVERRIDE
+2030,TDG:OSC:MODE,write,config,TDG:OSC:MODE
+2031,TDG:TRIG:MODE,write,config,TDG:TRIG:MODE
+2032,TDG:TRIG:FREQ,write,config,TDG:TRIG:FREQ
+2033,TDG:BWD,write,config,TDG:BWD
+2034,,write,service,
+2035,HEDOPTOUT,write,service,HEDOPTOUT
+2036,EMPOPTOUT,write,service,EMPOPTOUT
+2037,EMP:SECRETMSG1,write,service,EMP:SECRETMSG1
+2038,EMP:SECRETMSG2,write,service,EMP:SECRETMSG2
+2039,EMP:SECRETMSG3,write,service,EMP:SECRETMSG3
+2040,EMP:SECRETMSG4,write,service,EMP:SECRETMSG4
+2041,EMP:SECRETMSG5,write,service,EMP:SECRETMSG5
+2042,EMP:SECRETMSG6,write,service,EMP:SECRETMSG6
+2043,EMP:SECRETMSG7,write,service,EMP:SECRETMSG7
+2044,EMP:RESETFAULTS,write,service,EMP:RESETFAULTS
+2045,EMP:SECRETSCOMT,write,service,EMP:SECRETSCOMT
+2046,TDG:OSC:SETTOFRQ,write,config,TDG:OSC:SETTOFRQ
+2047,EMP:LBOBREAK,write,service,EMP:LBOBREAK
+2048,TDG:OSC:SETMODE,write,config,TDG:OSC:SETMODE
+2049,ECU:RESETFAULTS,write,service,ECU:RESETFAULTS
+2050,RESET,write,service,RESET
+2051,MONITOR,write,config,MONITOR
+2052,TDG:RESFAULT,write,service,TDG:RESFAULT
+2053,TDG:FAULTOVERRIDE,write,service,TDG:FAULTOVERRIDE
+2054,RES12,write,service,RES12
+2055,CLEAR,write,service,CLEAR

@@ -1,0 +1,109 @@
+Spitfire Python Control 1.1.1 — 검증 기록
+
+검증 환경: Python 3.12.14, Linux, Tk + 가상 X display
+검증 대상: 제공된 Python 1.1.0 / 원본 GUI 1.6.0 자료에 근거한 수정본
+
+자동 테스트: 70개 통과, 실패/skip 없음.
+- 상태 파싱, 원본 PRF 단위 변환, 오류 ACK 처리
+- DISARM/OFF 경쟁 조건 및 우선 큐
+- 송신자/command ID 검증, 실제 localhost UDP 왕복
+- Tk 입력 유지, 취소 복원, Delay 모드, 1024x768의 전체 7개 tab
+
+실행 확인:
+Simulator GUI: connected; 1,250 Hz write/readback correct; 1,500 Hz draft survives polling.
+GUI callback errors: []
+Controller shutdown: clean.
+
+패키지 확인:
+- 인터넷 없이 포함된 wheel과 pySerial 3.5 설치 성공
+- 설치 경로의 패키지 import, CLI --help, 시뮬레이터 PRF 왕복 성공
+- wheel의 Python 파일 13개가 src와 byte 단위 일치
+- wheel metadata의 version 및 README 일치
+- 기존 146개 command catalog 변경 없음
+- 구버전 1.1.0 wheel은 수정 ZIP에서 제외
+
+수정 wheel SHA-256:
+a584a5d0b98d32be81827c6dd656a6d8d442e009ad5964c9b24c189b1b632162
+
+검증 범위: 실제 Spitfire 하드웨어, Windows 실행 및 Windows 단일 EXE 빌드는
+검증하지 않았다. Delay fixture는 원본 파서 구조에 따른 합성 응답이다.
+현재 전송 중인 명령/응답 대기는 STOP으로 중단할 수 없다.
+
+자동 테스트 원문:
+
+test_catalogue_contains_recovered_ranges (test_commands.CommandCatalogueTests.test_catalogue_contains_recovered_ranges) ... ok
+test_exact_known_commands (test_commands.CommandCatalogueTests.test_exact_known_commands) ... ok
+test_newline_in_argument_is_rejected (test_commands.CommandCatalogueTests.test_newline_in_argument_is_rejected) ... ok
+test_risk_metadata (test_commands.CommandCatalogueTests.test_risk_metadata) ... ok
+test_async_query_updates_state (test_controller.ControllerTests.test_async_query_updates_state) ... ok
+test_hardware_writes_require_arm (test_controller.ControllerTests.test_hardware_writes_require_arm) ... ok
+test_malformed_argument_is_rejected_before_worker (test_controller.ControllerTests.test_malformed_argument_is_rejected_before_worker) ... ok
+test_safe_off_allowed_while_disarmed (test_controller.ControllerTests.test_safe_off_allowed_while_disarmed) ... ok
+test_bad_packet_is_rejected (test_protocol.ProtocolTests.test_bad_packet_is_rejected) ... ok
+test_command_roundtrip (test_protocol.ProtocolTests.test_command_roundtrip) ... ok
+test_encode_matches_legacy_framing (test_protocol.ProtocolTests.test_encode_matches_legacy_framing) ... ok
+test_receiver_retains_legacy_permissive_vendor_prefix (test_protocol.ProtocolTests.test_receiver_retains_legacy_permissive_vendor_prefix) ... ok
+test_reply_roundtrip (test_protocol.ProtocolTests.test_reply_roundtrip) ... ok
+test_split_respects_maximum (test_protocol.ProtocolTests.test_split_respects_maximum) ... ok
+test_bad_query_does_not_refresh_a_valid_readback (test_regressions.DecodingRegressionTests.test_bad_query_does_not_refresh_a_valid_readback) ... ok
+test_compound_delay_number_and_all_flags (test_regressions.DecodingRegressionTests.test_compound_delay_number_and_all_flags) ... ok
+test_copy_does_not_share_mutable_pending_or_delay_state (test_regressions.DecodingRegressionTests.test_copy_does_not_share_mutable_pending_or_delay_state) ... ok
+test_error_ack_never_changes_hv (test_regressions.DecodingRegressionTests.test_error_ack_never_changes_hv) ... ok
+test_malformed_delay_does_not_leave_old_measurement_valid (test_regressions.DecodingRegressionTests.test_malformed_delay_does_not_leave_old_measurement_valid) ... ok
+test_module_led_requires_that_modules_fresh_reply (test_regressions.DecodingRegressionTests.test_module_led_requires_that_modules_fresh_reply) ... ok
+test_numeric_delay_never_fabricates_modes (test_regressions.DecodingRegressionTests.test_numeric_delay_never_fabricates_modes) ... ok
+test_qsw_hz_wire_roundtrip_matches_original_factor_ten (test_regressions.DecodingRegressionTests.test_qsw_hz_wire_roundtrip_matches_original_factor_ten) ... ok
+test_qsw_resolution_and_nonfinite_values (test_regressions.DecodingRegressionTests.test_qsw_resolution_and_nonfinite_values) ... ok
+test_short_fault_reply_does_not_claim_no_faults (test_regressions.DecodingRegressionTests.test_short_fault_reply_does_not_claim_no_faults) ... ok
+test_stale_values_cannot_show_hv_off_or_green_module (test_regressions.DecodingRegressionTests.test_stale_values_cannot_show_hv_off_or_green_module) ... ok
+test_arm_requires_verified_readback (test_regressions.SchedulerRegressionTests.test_arm_requires_verified_readback) ... ok
+test_bind_does_not_confirm_connection (test_regressions.SchedulerRegressionTests.test_bind_does_not_confirm_connection) ... ok
+test_disarm_then_rearm_never_resurrects_queued_on (test_regressions.SchedulerRegressionTests.test_disarm_then_rearm_never_resurrects_queued_on) ... ok
+test_disarm_wins_between_dequeue_and_actual_send (test_regressions.SchedulerRegressionTests.test_disarm_wins_between_dequeue_and_actual_send) ... ok
+test_failed_service_write_cancels_queued_commit (test_regressions.SchedulerRegressionTests.test_failed_service_write_cancels_queued_commit) ... ok
+test_hv_pending_is_published_before_waiting_for_ack (test_regressions.SchedulerRegressionTests.test_hv_pending_is_published_before_waiting_for_ack) ... ok
+test_hv_unknown_ack_preserves_unknown_until_readback (test_regressions.SchedulerRegressionTests.test_hv_unknown_ack_preserves_unknown_until_readback) ... ok
+test_hv_write_waits_for_query_even_after_ok_ack (test_regressions.SchedulerRegressionTests.test_hv_write_waits_for_query_even_after_ok_ack) ... ok
+test_malformed_input_does_not_reach_worker (test_regressions.SchedulerRegressionTests.test_malformed_input_does_not_reach_worker) ... ok
+test_off_cancels_pending_on_and_precedes_queued_queries (test_regressions.SchedulerRegressionTests.test_off_cancels_pending_on_and_precedes_queued_queries) ... ok
+test_setpoint_queries_are_queued_without_auto_poll (test_regressions.SchedulerRegressionTests.test_setpoint_queries_are_queued_without_auto_poll) ... ok
+test_stop_resets_both_arm_states_and_rejects_more_work (test_regressions.SchedulerRegressionTests.test_stop_resets_both_arm_states_and_rejects_more_work) ... ok
+test_timeout_disarms_cancels_writes_and_marks_link_unknown (test_regressions.SchedulerRegressionTests.test_timeout_disarms_cancels_writes_and_marks_link_unknown) ... ok
+test_real_loopback_foreign_sender_cannot_answer_request (test_regressions.UdpPeerRegressionTests.test_real_loopback_foreign_sender_cannot_answer_request) ... ok
+test_wrong_port_and_ip_and_unrelated_ids_are_ignored (test_regressions.UdpPeerRegressionTests.test_wrong_port_and_ip_and_unrelated_ids_are_ignored) ... ok
+test_connect_send_receive_and_control_lines (test_serial_service.RawSerialSessionTests.test_connect_send_receive_and_control_lines) ... ok
+test_port_provider (test_serial_service.RawSerialSessionTests.test_port_provider) ... ok
+test_settings_validation (test_serial_service.RawSerialSessionTests.test_settings_validation) ... ok
+test_ascii_and_terminators_are_explicit (test_serial_service.SerialCodecTests.test_ascii_and_terminators_are_explicit) ... ok
+test_hex_formats (test_serial_service.SerialCodecTests.test_hex_formats) ... ok
+test_hex_rejects_invalid_or_odd_input (test_serial_service.SerialCodecTests.test_hex_rejects_invalid_or_odd_input) ... ok
+test_delay_and_service_settings (test_simulator.SimulatorTests.test_delay_and_service_settings) ... ok
+test_hv_on_off (test_simulator.SimulatorTests.test_hv_on_off) ... ok
+test_identity (test_simulator.SimulatorTests.test_identity) ... ok
+test_invalid_write_does_not_leak_value_error (test_simulator.SimulatorTests.test_invalid_write_does_not_leak_value_error) ... ok
+test_measured_oscillator_copy (test_simulator.SimulatorTests.test_measured_oscillator_copy) ... ok
+test_output_ramps_after_run (test_simulator.SimulatorTests.test_output_ramps_after_run) ... ok
+test_requires_connection (test_simulator.SimulatorTests.test_requires_connection) ... ok
+test_setpoint_roundtrip (test_simulator.SimulatorTests.test_setpoint_roundtrip) ... ok
+test_duplicate_hv_query_updates_dashboard_alias (test_state.StateTests.test_duplicate_hv_query_updates_dashboard_alias) ... ok
+test_fault_words (test_state.StateTests.test_fault_words) ... ok
+test_numeric_and_text_values (test_state.StateTests.test_numeric_and_text_values) ... ok
+test_write_acknowledgement_does_not_replace_readback (test_state.StateTests.test_write_acknowledgement_does_not_replace_readback) ... ok
+test_exact_hardware_packet_and_reply (test_udp_transport.UdpTransportTests.test_exact_hardware_packet_and_reply) ... ok
+test_timeout_is_reported (test_udp_transport.UdpTransportTests.test_timeout_is_reported) ... ok
+test_all_tabs_fit_operator_controls_at_1024 (test_ui.GuiRegressionTests.test_all_tabs_fit_operator_controls_at_1024) ... ok
+test_cancelled_arm_cannot_be_shown_enabled (test_ui.GuiRegressionTests.test_cancelled_arm_cannot_be_shown_enabled) ... ok
+test_cancelled_delay_mode_restores_confirmed_mode (test_ui.GuiRegressionTests.test_cancelled_delay_mode_restores_confirmed_mode) ... ok
+test_cancelled_override_restores_confirmed_value (test_ui.GuiRegressionTests.test_cancelled_override_restores_confirmed_value) ... ok
+test_delay_number_and_modes_are_synchronized (test_ui.GuiRegressionTests.test_delay_number_and_modes_are_synchronized) ... ok
+test_edit_survives_unrelated_and_changed_readback (test_ui.GuiRegressionTests.test_edit_survives_unrelated_and_changed_readback) ... ok
+test_matching_readback_clears_edit (test_ui.GuiRegressionTests.test_matching_readback_clears_edit) ... ok
+test_programmer_console_preserves_raw_wire_units (test_ui.GuiRegressionTests.test_programmer_console_preserves_raw_wire_units) ... ok
+test_qsw_hz_display_and_wire_conversion (test_ui.GuiRegressionTests.test_qsw_hz_display_and_wire_conversion) ... ok
+test_raw_service_window_does_not_open_serial_port (test_ui.GuiRegressionTests.test_raw_service_window_does_not_open_serial_port) ... ok
+
+----------------------------------------------------------------------
+Ran 70 tests in 1.161s
+
+OK
+

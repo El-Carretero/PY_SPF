@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "phase_slip",
+  "name": "펌프·시드 위상 이탈",
+  "description": "명시적으로 주어진 위상 오차의 정책 판정. 80 MHz 파형을 샘플링하지 않음.",
+  "duration_ms": 100,
+  "policy": {},
+  "initial_signals": {},
+  "events": [
+    {
+      "at_ms": 0,
+      "type": "arm"
+    },
+    {
+      "at_ms": 0,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 100,
+      "type": "trigger",
+      "phase_us": 101
+    }
+  ],
+  "assertions": [
+    {
+      "at_ms": 100,
+      "path": "latched_faults",
+      "op": "contains",
+      "expected": "phase_slip"
+    },
+    {
+      "at_ms": 100,
+      "path": "inhibited",
+      "op": "eq",
+      "expected": true
+    }
+  ]
+}

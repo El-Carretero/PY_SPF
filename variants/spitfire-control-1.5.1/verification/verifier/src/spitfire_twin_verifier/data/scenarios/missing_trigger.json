@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "missing_trigger",
+  "name": "외부 트리거 유실",
+  "description": "250 ms 가상 watchdog. 실제 컨트롤러의 timeout 값이라고 주장하지 않음.",
+  "duration_ms": 400,
+  "policy": {},
+  "initial_signals": {},
+  "events": [
+    {
+      "at_ms": 0,
+      "type": "arm"
+    },
+    {
+      "at_ms": 0,
+      "type": "trigger"
+    }
+  ],
+  "assertions": [
+    {
+      "at_ms": 249,
+      "path": "armed",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "at_ms": 250,
+      "path": "latched_faults",
+      "op": "contains",
+      "expected": "trigger_missing"
+    },
+    {
+      "at_ms": 400,
+      "path": "inhibited",
+      "op": "eq",
+      "expected": true
+    }
+  ]
+}

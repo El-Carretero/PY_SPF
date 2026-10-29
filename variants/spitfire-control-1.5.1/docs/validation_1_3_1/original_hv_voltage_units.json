@@ -1,0 +1,120 @@
+{
+  "scope": "Static original EXE/UIR only; no vendor process, VM, or hardware execution",
+  "exe_sha256": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b",
+  "uir_sha256": "1c5b82a8cf528934bffffe0989a73312059b07a15fc3056df8fbeb41607bd67b",
+  "queries": [
+    {
+      "id": 1040,
+      "handler": "0x40cb76",
+      "bytes": "8d 05 a0 4f 41 00 50 e8 1e 71 ff ff 83 c4 04 83 ec 08 dd 1c 24 68 23 00 00 00 8b 05 80 41 41 00 50 e8 b8 71 ff ff 83 c4 10 e9 e6 17 00 00",
+      "calls": [
+        {
+          "call_va": "0x40cb7d",
+          "target_va": "0x403ca0",
+          "import": "atof_FLTREG_"
+        },
+        {
+          "call_va": "0x40cb97",
+          "target_va": "0x403d54",
+          "import": "SetCtrlVal"
+        }
+      ],
+      "ui_runtime_id": 35,
+      "ui_tag": "SET_HV_1",
+      "read_scale": 1
+    },
+    {
+      "id": 1041,
+      "handler": "0x40cba4",
+      "bytes": "8d 05 a0 4f 41 00 50 e8 f0 70 ff ff 83 c4 04 83 ec 08 dd 1c 24 68 21 00 00 00 8b 05 80 41 41 00 50 e8 8a 71 ff ff 83 c4 10 e9 b8 17 00 00",
+      "calls": [
+        {
+          "call_va": "0x40cbab",
+          "target_va": "0x403ca0",
+          "import": "atof_FLTREG_"
+        },
+        {
+          "call_va": "0x40cbc5",
+          "target_va": "0x403d54",
+          "import": "SetCtrlVal"
+        }
+      ],
+      "ui_runtime_id": 33,
+      "ui_tag": "SET_HV_2",
+      "read_scale": 1
+    },
+    {
+      "id": 1042,
+      "handler": "0x40cbd2",
+      "bytes": "8d 05 a0 4f 41 00 50 e8 c2 70 ff ff 83 c4 04 83 ec 08 dd 1c 24 68 20 00 00 00 8b 05 80 41 41 00 50 e8 5c 71 ff ff 83 c4 10 e9 8a 17 00 00",
+      "calls": [
+        {
+          "call_va": "0x40cbd9",
+          "target_va": "0x403ca0",
+          "import": "atof_FLTREG_"
+        },
+        {
+          "call_va": "0x40cbf3",
+          "target_va": "0x403d54",
+          "import": "SetCtrlVal"
+        }
+      ],
+      "ui_runtime_id": 32,
+      "ui_tag": "SET_HV_1_RB",
+      "read_scale": 1
+    },
+    {
+      "id": 1043,
+      "handler": "0x40cc00",
+      "bytes": "8d 05 a0 4f 41 00 50 e8 94 70 ff ff 83 c4 04 83 ec 08 dd 1c 24 68 1f 00 00 00 8b 05 80 41 41 00 50 e8 2e 71 ff ff 83 c4 10 e9 5c 17 00 00",
+      "calls": [
+        {
+          "call_va": "0x40cc07",
+          "target_va": "0x403ca0",
+          "import": "atof_FLTREG_"
+        },
+        {
+          "call_va": "0x40cc21",
+          "target_va": "0x403d54",
+          "import": "SetCtrlVal"
+        }
+      ],
+      "ui_runtime_id": 31,
+      "ui_tag": "SET_HV_2_RB",
+      "read_scale": 1
+    }
+  ],
+  "writes": [
+    {
+      "id": 2025,
+      "callback": "0x40ef87",
+      "bytes": "55 89 e5 83 ec 04 56 8b 45 10 b9 01 00 00 00 39 c8 0f 84 05 00 00 00 e9 73 00 00 00 8d 45 fc 50 8b 45 0c 50 8b 45 08 50 e8 86 55 ff ff d9 45 fc 8d 05 44 6d 43 00 8d 0d 64 6b 41 00 83 ec 08 dd 1c 24 50 51 e8 aa 45 ff ff 83 c4 10 68 e9 07 00 00 e8 b4 8e ff ff 83 c4 04 8d 45 fc 50 68 30 00 00 00 8b 05 7c 41 41 00 50 e8 45 55 ff ff d9 45 fc d9 05 48 67 43 00 de d9 df e0 9e 0f 84 0d 00 00 00 68 10 04 00 00 e8 7e 8e ff ff 83 c4 04 b8 00 00 00 00 5e c9 c3",
+      "ui_runtime_id": 35,
+      "ui_tag": "SET_HV_1",
+      "format": " %5.2f",
+      "format_va": "0x436d44",
+      "write_scale": 1,
+      "example_ui_3_399": "  3.40",
+      "example_ui_3399": " 3399.00"
+    },
+    {
+      "id": 2026,
+      "callback": "0x40f01f",
+      "bytes": "55 89 e5 83 ec 04 56 8b 45 10 b9 01 00 00 00 39 c8 0f 84 05 00 00 00 e9 73 00 00 00 8d 45 fc 50 8b 45 0c 50 8b 45 08 50 e8 ee 54 ff ff d9 45 fc 8d 05 3c 6d 43 00 8d 0d 64 6b 41 00 83 ec 08 dd 1c 24 50 51 e8 12 45 ff ff 83 c4 10 68 ea 07 00 00 e8 1c 8e ff ff 83 c4 04 8d 45 fc 50 68 30 00 00 00 8b 05 7c 41 41 00 50 e8 ad 54 ff ff d9 45 fc d9 05 48 67 43 00 de d9 df e0 9e 0f 84 0d 00 00 00 68 11 04 00 00 e8 e6 8d ff ff 83 c4 04 b8 00 00 00 00 5e c9 c3",
+      "ui_runtime_id": 33,
+      "ui_tag": "SET_HV_2",
+      "format": " %5.2f",
+      "format_va": "0x436d3c",
+      "write_scale": 1,
+      "example_ui_3_399": "  3.40",
+      "example_ui_3399": " 3399.00"
+    }
+  ],
+  "ui_labels": [
+    "HIGH VOLTAGE 1",
+    "HIGH VOLTAGE 2"
+  ],
+  "explicit_ui_unit": null,
+  "original_ui_min_max": "Not recovered; no evidence for 0..5000 V range",
+  "conclusion": "Original numeric read and write scales are both1. Input3.399 is formatted as3.40 for commands2025/2026. If Python normalizes3.399 KV readback to3399 V, its engineering GUI write must divide by1000 before raw formatting. Raw programmer should retain vendor wire units. Exact original numeric range remains unverified."
+}

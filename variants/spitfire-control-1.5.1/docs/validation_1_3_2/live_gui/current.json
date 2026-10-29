@@ -1,0 +1,8 @@
+{
+  "armed": false,
+  "connected": true,
+  "hv": false,
+  "disarm_reason": "Communication failure: Timed out waiting for reply to command 1051",
+  "button": "ARM",
+  "control_status": "CONTROL DISARMED - Communication failure: Timed out waiting for reply to command 1051"
+}

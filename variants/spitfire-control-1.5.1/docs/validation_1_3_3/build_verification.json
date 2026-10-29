@@ -1,0 +1,27 @@
+{
+  "exe_sha256": "3ec1633432c30664dd4f358ff21428b79e43b662739d246289204be0c31f2906",
+  "wheel_sha256": "ed96c17389a363264af8ec5d46e43203c564c01e5645a4690c92d59a37e84072",
+  "exe_embedded_code_matches_tested_source": true,
+  "modules": [
+    "spitfire_control.app",
+    "spitfire_control.commands",
+    "spitfire_control.config",
+    "spitfire_control.controller",
+    "spitfire_control.profiles",
+    "spitfire_control.protocol",
+    "spitfire_control.serial_dialog",
+    "spitfire_control.serial_service",
+    "spitfire_control.state",
+    "spitfire_control.timing",
+    "spitfire_control.transport",
+    "spitfire_control.ui",
+    "spitfire_control.validation_worker",
+    "spitfire_control.widgets",
+    "spitfire_control"
+  ],
+  "separate_cli_entries_not_in_exe": [
+    "spitfire_control.validation",
+    "spitfire_control.__main__"
+  ],
+  "wheel_source_bytes_equal": true
+}

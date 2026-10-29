@@ -1,0 +1,14 @@
+{
+  "suite": "control",
+  "python": "3.13.9 (tags/v3.13.9:8183fa5, Oct 14 2025, 14:09:13) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "tests": 350,
+  "failures": [],
+  "errors": [],
+  "skipped": [],
+  "duration_seconds": 79.116,
+  "success": true,
+  "network_scope": "loopback sends only",
+  "physical_validation": false,
+  "xp_gui_executed_by_this_runner": false
+}

@@ -1,0 +1,33 @@
+{
+  "version": "1.5.0",
+  "base_version": "1.4.0",
+  "source_zip": "Spitfire_Python_Control_1.4.0.zip",
+  "base_zip_sha256": "b4c7037d3c0b9b533ce184bbef6c0375192e9453ea65b687c49a67af96df17d5",
+  "remote_desktop_access": false,
+  "physical_device_access": false,
+  "validation_platform": "Linux Python 3.12.14 / Tk virtual display",
+  "windows_validation": false,
+  "exe_included": false,
+  "control_result": "linux_control/result.json",
+  "verifier_result": "linux_verifier/result.json",
+  "source_sha256": {
+    "src/spitfire_control/__init__.py": "7ff743c90f98abe4147b82dcf265d32c703d90924e15034b47de78854d1989ac",
+    "src/spitfire_control/__main__.py": "1ddfc31e34a6913bd82f7d8865e1c3a7ec33202232fea3d89cc2585bb3d145ca",
+    "src/spitfire_control/app.py": "baf893ebec629aabce9b7d42cac90c98be270aacb2bc83e1c4b990c0863858e2",
+    "src/spitfire_control/commands.py": "cdab6f95569961dcfa9981ec3f5272442d4f5e2333c7ea0d707321bdbe7f93d7",
+    "src/spitfire_control/completion.py": "9afdcced002696d513ddacda4c7fde3dab96c91dcedb210daaabc1871a528c68",
+    "src/spitfire_control/config.py": "f52648ff824ce866bcdf45fb805779b8e3fa9aa27ac6d171417d74be70e41f7f",
+    "src/spitfire_control/controller.py": "b059f3efa5e04365297c5aa41581582e394daa16f9cb4ca5ddf170460b82998d",
+    "src/spitfire_control/profiles.py": "964fd51629be5e0cd7d66e447e6b006a4f206bfe84fadfacfd560bbb4e4bedae",
+    "src/spitfire_control/protocol.py": "d59fa78adb4d3d5d66451c2e845b1ffd9ef8101c9510c8e2b20cfdb8223a3937",
+    "src/spitfire_control/serial_dialog.py": "56bdb7bb560d13f296f71619cd52a9e17cb842a3d7cd5601951f5b8212b0349f",
+    "src/spitfire_control/serial_service.py": "7f0f757e45c553dfda9761520cc361fc6e803a24ffe51cdf09a64cba930e8b8f",
+    "src/spitfire_control/state.py": "8e9945d2e5943ba8c137b52a77ce920fcbfcac88407915aba50c6fd1a06299ee",
+    "src/spitfire_control/timing.py": "d7541558dd19f06654b9c79cf07e0174144ddbd73f99427036bdc8a1f16d92d0",
+    "src/spitfire_control/transport.py": "378800a9ee9618e3e23a57e07ec5454b4d1ad89e8c0e89aa51b07e936374a2a7",
+    "src/spitfire_control/ui.py": "1a564c82fb192dcc9d3f4959b2c7dbb6c644da1ad70c1573fd9ae989d75f3710",
+    "src/spitfire_control/validation.py": "4be56b7fdab96d19a49eec544c0138a29f585e3ce14a248b508916e19b2a3281",
+    "src/spitfire_control/validation_worker.py": "99f63a09c9bdf2b1f6542016bc3c0d26ff55b03167034c94103c6073d29d533f",
+    "src/spitfire_control/widgets.py": "ba9a750f20cbff8a7db0ffc94bf181761dc0ec3861738fb721929e490c081154"
+  }
+}

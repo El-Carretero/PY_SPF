@@ -5,3 +5,8 @@ analysis/reference/** -text
 *.png binary
 *.zip binary
 *.whl binary
+# Keep imported variant snapshots byte-identical to their supplied archives.
+variants/spitfire-control-1.5.1/** -text
+# Keep comparison hashes and generated data stable on Windows checkouts.
+spitfire/protocol.py text eol=lf
+comparisons/spitfire-control-1.5.1/** text eol=lf

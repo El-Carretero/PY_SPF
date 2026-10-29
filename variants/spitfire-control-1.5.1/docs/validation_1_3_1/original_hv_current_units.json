@@ -1,0 +1,62 @@
+{
+  "scope": "Read-only static binary/UIR comparison; original not executed; no hardware commands",
+  "exe_sha256": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b",
+  "uir_sha256": "1c5b82a8cf528934bffffe0989a73312059b07a15fc3056df8fbeb41607bd67b",
+  "entries": [
+    {
+      "command_id": 1055,
+      "handler_va": "0x40cc2e",
+      "bytes": "8d 05 a0 4f 41 00 50 e8 66 70 ff ff 83 c4 04 83 ec 08 dd 1c 24 68 1e 00 00 00 8b 05 80 41 41 00 50 e8 00 71 ff ff 83 c4 10 e9 2e 17 00 00",
+      "calls": [
+        {
+          "call_va": "0x40cc35",
+          "thunk_va": "0x403ca0",
+          "import": "atof_FLTREG_"
+        },
+        {
+          "call_va": "0x40cc4f",
+          "thunk_va": "0x403d54",
+          "import": "SetCtrlVal"
+        }
+      ],
+      "runtime_control": 30,
+      "uir_tag": "HV_1_CURR_RB_1",
+      "label": "HV CURR 1",
+      "label_offset": "0x8b47",
+      "numeric_scale": 1,
+      "suffix_handling": "atof numeric-prefix parse; suffix is not inspected",
+      "unit_label": null
+    },
+    {
+      "command_id": 1056,
+      "handler_va": "0x40cc5c",
+      "bytes": "8d 05 a0 4f 41 00 50 e8 38 70 ff ff 83 c4 04 83 ec 08 dd 1c 24 68 1d 00 00 00 8b 05 80 41 41 00 50 e8 d2 70 ff ff 83 c4 10 e9 00 17 00 00",
+      "calls": [
+        {
+          "call_va": "0x40cc63",
+          "thunk_va": "0x403ca0",
+          "import": "atof_FLTREG_"
+        },
+        {
+          "call_va": "0x40cc7d",
+          "thunk_va": "0x403d54",
+          "import": "SetCtrlVal"
+        }
+      ],
+      "runtime_control": 29,
+      "uir_tag": "HV_2_CURR_RB_2",
+      "label": "HV CURR 2",
+      "label_offset": "0x8c94",
+      "numeric_scale": 1,
+      "suffix_handling": "atof numeric-prefix parse; suffix is not inspected",
+      "unit_label": null
+    }
+  ],
+  "conclusion": "XP parses numeric prefix and displays unchanged. 0.008 MA would display 0.008. No evidence for A, mA or MA interpretation/scaling in these handlers or labels. Preserve wire suffix and numeric magnitude; do not invent SI conversion.",
+  "manual_search": {
+    "file": "C:/Users/physi/Downloads/330A, Rev. A, Spitfire Pro User's Manual.pdf",
+    "pages": 110,
+    "method": "pypdf text extraction",
+    "result": "No HV current unit or HV1/HV2 current command definition found in searchable text; Timing/High Voltage menu is PDF page72 (printed6-12)."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "tests_run": 290,
+  "failures": 1,
+  "errors": 0,
+  "skipped": 0,
+  "passed": 289,
+  "skip_details": [],
+  "failure_details": [
+    [
+      "test_timing_ui.TimingUiTests.test_profile_dialog_controls_fit_without_exposing_a_window",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\physi\\.codex\\.chatgpt-projects\\g-p-6a52281922ac8191a02e99b30f2037cf\\output\\Spitfire_Python_Control_1.3.1\\Spitfire_Python_Control\\tests\\test_timing_ui.py\", line 41, in tearDown\n    self.assertEqual(self.errors, [])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [(<class 'TypeError'>, TypeError('can only[77 chars]00>)] != []\n\nFirst list contains 1 additional elements.\nFirst extra element 0:\n(<class 'TypeError'>, TypeError('can only concatenate str (not \"Mock\") to str'), <traceback object at 0x00000241088F9A00>)\n\n+ []\n- [(<class 'TypeError'>,\n-   TypeError('can only concatenate str (not \"Mock\") to str'),\n-   <traceback object at 0x00000241088F9A00>)]\n"
+    ]
+  ],
+  "offline_fence": true,
+  "real_hardware_io": false
+}

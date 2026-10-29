@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "version": "1.2.0",
+  "kind": "gui",
+  "mode": "simulator",
+  "tk": "8.6.15",
+  "screen": [
+    1536,
+    864
+  ],
+  "window": [
+    1024,
+    768
+  ],
+  "tabs": [
+    "SPITFIRE",
+    "EMPOWER",
+    "TIMING / HV",
+    "TEMPERATURE",
+    "FAULTS",
+    "PROGRAMMER",
+    "SERVICE"
+  ],
+  "clipped_controls": [],
+  "prf_round_trip_hz": 1250,
+  "draft_preserved_hz": 1500,
+  "serial_open": false,
+  "external_io": "blocked",
+  "settings_loaded_or_saved": false
+}

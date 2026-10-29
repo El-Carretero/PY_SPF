@@ -1,0 +1,12 @@
+test_missing_heartbeat_blocks_writes_until_fresh_recovery (test_polling.HeartbeatUdpTests.test_missing_heartbeat_blocks_writes_until_fresh_recovery) ... ok
+test_ordinary_query_backlog_does_not_starve_connection_check (test_polling.HeartbeatUdpTests.test_ordinary_query_backlog_does_not_starve_connection_check) ... ok
+test_polling_off_keeps_real_udp_link_fresh_past_stale_limit (test_polling.HeartbeatUdpTests.test_polling_off_keeps_real_udp_link_fresh_past_stale_limit) ... ok
+test_custom_cycle_is_doubled_for_all_four_environment_queries (test_polling.PollCadenceTests.test_custom_cycle_is_doubled_for_all_four_environment_queries) ... ok
+test_disable_and_reenable_do_not_replay_missed_polls (test_polling.PollCadenceTests.test_disable_and_reenable_do_not_replay_missed_polls) ... ok
+test_environment_half_rate_without_speeding_up_other_queries (test_polling.PollCadenceTests.test_environment_half_rate_without_speeding_up_other_queries) ... ok
+test_long_scheduler_delay_does_not_catch_up_in_a_burst (test_polling.PollCadenceTests.test_long_scheduler_delay_does_not_catch_up_in_a_burst) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 7.312s
+
+OK

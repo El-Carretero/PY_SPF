@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "id": "interlock_open",
+  "name": "운전 중 인터록 열림",
+  "description": "합성 차단 정책과 별도의 명시적 XP 키 인터록 응답 fixture.",
+  "duration_ms": 200,
+  "policy": {},
+  "initial_signals": {},
+  "events": [
+    {
+      "at_ms": 0,
+      "type": "arm"
+    },
+    {
+      "at_ms": 0,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 50,
+      "type": "signals",
+      "values": {
+        "interlock_closed": false
+      }
+    },
+    {
+      "at_ms": 50,
+      "type": "wire",
+      "wire": {
+        "overrides": {
+          "1066": "4000"
+        }
+      },
+      "note": "Synthetic key-interlock stimulus. XP decoder mask 0x4000 is static evidence; event-to-bit causation is not measured."
+    },
+    {
+      "at_ms": 100,
+      "type": "signals",
+      "values": {
+        "interlock_closed": true
+      }
+    },
+    {
+      "at_ms": 100,
+      "type": "clear_wire"
+    },
+    {
+      "at_ms": 110,
+      "type": "arm"
+    },
+    {
+      "at_ms": 120,
+      "type": "reset"
+    },
+    {
+      "at_ms": 130,
+      "type": "arm"
+    },
+    {
+      "at_ms": 130,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 200,
+      "type": "disarm"
+    }
+  ],
+  "assertions": [
+    {
+      "at_ms": 50,
+      "path": "latched_faults",
+      "op": "contains",
+      "expected": "interlock_open"
+    },
+    {
+      "at_ms": 110,
+      "path": "armed",
+      "op": "eq",
+      "expected": false
+    },
+    {
+      "at_ms": 130,
+      "path": "armed",
+      "op": "eq",
+      "expected": true
+    }
+  ]
+}

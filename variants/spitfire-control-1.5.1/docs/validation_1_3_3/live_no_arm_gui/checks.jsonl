@@ -1,0 +1,10 @@
+{"utc": "2026-10-27T13:15:44.585983+00:00", "monotonic": 9281.146394, "name": "ARM API and button absent", "passed": true, "detail": null}
+{"utc": "2026-10-27T13:15:44.587385+00:00", "monotonic": 9281.1477919, "name": "Output remains blocked on actual required-read errors", "passed": true, "detail": "Empower opt-out is not confirmed by a recent controller readback."}
+{"utc": "2026-10-27T13:15:44.588055+00:00", "monotonic": 9281.1484676, "name": "Main flag agrees with raw controller reply", "passed": true, "detail": "5"}
+{"utc": "2026-10-27T13:15:44.588508+00:00", "monotonic": 9281.1489132, "name": "Key flag agrees with raw controller reply", "passed": true, "detail": "0X00334428"}
+{"utc": "2026-10-27T13:15:44.589254+00:00", "monotonic": 9281.1496603, "name": "Fault diagnostics distinguish PC link and controller flag", "passed": true, "detail": "PC link: reply received. Controller Main comm flag: SET.\nTDG Key bit: current SET / fault register SET. Reset requests a new fault readback; it does not force flags clear."}
+{"utc": "2026-10-27T13:15:45.329579+00:00", "monotonic": 9281.8899773, "name": "Clear Faults reaches confirmation without ARM", "passed": true, "detail": "None"}
+{"utc": "2026-10-27T13:15:45.330116+00:00", "monotonic": 9281.8905122, "name": "Clear Faults has no permission-latch warning", "passed": true, "detail": null}
+{"utc": "2026-10-27T13:15:45.543736+00:00", "monotonic": 9282.1041341, "name": "Both reset requests pass actual send-time checks", "passed": true, "detail": null}
+{"utc": "2026-10-27T13:15:45.544920+00:00", "monotonic": 9282.1053138, "name": "GUI test sends only read packets", "passed": true, "detail": null}
+{"utc": "2026-10-27T13:15:45.545319+00:00", "monotonic": 9282.105711, "name": "HV remains OFF", "passed": true, "detail": null}

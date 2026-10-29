@@ -1,0 +1,8 @@
+{
+  "armed": true,
+  "connected": true,
+  "hv": false,
+  "disarm_reason": "",
+  "button": "DISARM",
+  "control_status": "CONTROL ARMED - Output blocked: Empower opt-out is not confirmed by a recent controller readback."
+}

@@ -1,0 +1,51 @@
+0040b00f push    ebp                                      
+0040b010 mov     ebp, esp                                 
+0040b012 sub     esp, 0xc                                 
+0040b015 push    esi                                      
+0040b016 mov     eax, dword ptr [ebp + 0x10]              
+0040b019 mov     ecx, 1                                   
+0040b01e cmp     eax, ecx                                 
+0040b020 je      0x40b02b                                 
+0040b026 jmp     0x40b0af                                 
+0040b02b lea     eax, [ebp - 4]                           
+0040b02e push    eax                                      
+0040b02f push    8                                        
+0040b034 mov     eax, dword ptr [0x41418c]                
+0040b03a push    eax                                      
+0040b03b call    0x40453a                                 GetCtrlVal
+0040b040 lea     ecx, [ebp - 0xc]                         
+0040b043 mov     dword ptr [ecx], eax                     
+0040b045 fld     dword ptr [0x436770]                     
+0040b04b fld     dword ptr [ebp - 4]                      
+0040b04e fmulp   st(1)                                    
+0040b050 lea     eax, [0x436d6c]                          
+0040b056 lea     ecx, [0x416b64]                          
+0040b05c sub     esp, 8                                   
+0040b05f fstp    qword ptr [esp]                          
+0040b062 push    eax                                      
+0040b063 push    ecx                                      
+0040b064 call    0x40357a                                 sprintf
+0040b069 add     esp, 0x10                                
+0040b06c push    0x7d3                                    
+0040b071 call    0x407e91                                 _push_inside_stack
+0040b076 add     esp, 4                                   
+0040b079 lea     eax, [ebp - 8]                           
+0040b07c push    eax                                      
+0040b07d push    0x30                                     
+0040b082 mov     eax, dword ptr [0x41417c]                
+0040b088 push    eax                                      
+0040b089 call    0x40453a                                 GetCtrlVal
+0040b08e fld     dword ptr [ebp - 8]                      
+0040b091 fld     dword ptr [0x436748]                     
+0040b097 fcompp                                           
+0040b099 fnstsw  ax                                       
+0040b09b sahf                                             
+0040b09c je      0x40b0af                                 
+0040b0a2 push    0x3f1                                    
+0040b0a7 call    0x407e91                                 _push_inside_stack
+0040b0ac add     esp, 4                                   
+0040b0af mov     eax, 0                                   
+0040b0b4 pop     esi                                      
+0040b0b5 leave                                            
+0040b0b6 ret                                              
+0040b0b7 nop                                              

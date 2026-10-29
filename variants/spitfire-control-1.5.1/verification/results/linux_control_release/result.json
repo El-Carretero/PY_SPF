@@ -1,0 +1,263 @@
+{
+  "suite": "control",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "tests": 350,
+  "failures": [],
+  "errors": [],
+  "skipped": [
+    [
+      "test_external_ui.ExternalUiTests.test_configuration_change_requires_known_hv_off",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_empower_controls_disabled_and_readings_not_simulated",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_external_empower_fault_data_is_na_but_raw_snapshot_survives",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_external_refresh_requests_all_enable_readbacks",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_external_tabs_fit_at_1024_by_768",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_external_tdg_fault_is_not_hidden_by_empower_optout",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_failed_settings_save_preserves_controller_and_profile",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_fault_reset_uses_controller_four_command_batch",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_internal_timing_readbacks_do_not_change_external_fault_display",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_manual_refresh_excludes_empower_fault_query",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_optout_banner_reports_readback_without_claiming_pump_readiness",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_optout_requires_fresh_hv_off",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_profile_switch_restores_legacy_controls",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_raw_serial_cannot_be_opened",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_run_opens_timing_without_transmitting",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_external_ui.ExternalUiTests.test_stop_only_sends_hv_off",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_gui_verifier_140.GuiVerifier140Tests.test_empower_gui_current_A_and_raw_console_are_distinct",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_gui_verifier_140.GuiVerifier140Tests.test_external_gui_sources_apply_with_empty_receipts",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_gui_verifier_140.GuiVerifier140Tests.test_gui_clear_faults_updates_main_without_clearing_key_or_emp",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_blank_setter_receipt_waits_for_readback_without_cancelling_next",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_captured_key_on_transition_allows_reset_without_changing_hv",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_clear_with_stale_link_reports_connection_reason",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_empty_receipt_does_not_clear_old_fault_before_readback",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_empty_reset_receipts_do_not_cancel_second_reset_or_claim_success",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_fault_controls_fit_1024_by_768",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_fault_diagnostics_do_not_present_stale_bits_as_current",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_first_submit_failure_stops_reset_sequence",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_malformed_required_read_blocks_output",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_malformed_reset_receipt_still_cancels_second_reset",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_no_software_permission_latch_or_button",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_real_key_and_main_bits_are_visible_without_blocking_reset",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_repeated_empty_readbacks_block_output_but_allow_reset",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_required_read_failure_cancels_old_enable_but_keeps_reset",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_reset_confirmation_cancel_sends_nothing",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_reset_hv_on_reaches_confirmation_and_only_queues_fault_resets",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_reset_hv_stale_with_fresh_link_reaches_confirmation",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_reset_hv_unknown_does_not_require_turning_off_key",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_reset_send_time_has_no_hv_off_gate_or_automatic_hv_write",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_reset_still_checks_live_connection_at_send_time",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_no_arm_134.NoArmReset134Tests.test_timeout_cancels_old_writes_recovery_accepts_only_new_requests",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_timing_ui.TimingUiTests.test_close_cancels_own_scheduled_callbacks_and_is_idempotent",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_timing_ui.TimingUiTests.test_controller_receives_timing_expectations",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_timing_ui.TimingUiTests.test_explicit_source_setup_sends_only_the_two_mode_commands",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_timing_ui.TimingUiTests.test_external_profile_dialog_is_unavailable_for_empower",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_timing_ui.TimingUiTests.test_invalid_connection_host_is_reported_without_callback_exception",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_timing_ui.TimingUiTests.test_invalid_profile_input_cannot_change_runtime",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_timing_ui.TimingUiTests.test_profile_change_requires_fresh_hv_off",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_timing_ui.TimingUiTests.test_profile_dialog_controls_fit_without_exposing_a_window",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_timing_ui.TimingUiTests.test_profile_save_commits_only_after_success",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_timing_ui.TimingUiTests.test_profile_save_failure_keeps_live_configuration",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_timing_ui.TimingUiTests.test_source_setup_blocks_unknown_or_on_hv_and_stops_after_failure",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_timing_ui.TimingUiTests.test_timing_readouts_do_not_present_expected_pump_as_measured",
+      "no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_ui.GuiRegressionTests.test_all_tabs_fit_operator_controls_at_1024",
+      "Tk display unavailable: no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_ui.GuiRegressionTests.test_arm_control_and_api_are_absent",
+      "Tk display unavailable: no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_ui.GuiRegressionTests.test_cancelled_delay_mode_restores_confirmed_mode",
+      "Tk display unavailable: no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_ui.GuiRegressionTests.test_cancelled_override_restores_confirmed_value",
+      "Tk display unavailable: no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_ui.GuiRegressionTests.test_delay_number_and_modes_are_synchronized",
+      "Tk display unavailable: no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_ui.GuiRegressionTests.test_edit_survives_unrelated_and_changed_readback",
+      "Tk display unavailable: no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_ui.GuiRegressionTests.test_matching_readback_clears_edit",
+      "Tk display unavailable: no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_ui.GuiRegressionTests.test_programmer_console_preserves_raw_wire_units",
+      "Tk display unavailable: no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_ui.GuiRegressionTests.test_qsw_hz_display_and_wire_conversion",
+      "Tk display unavailable: no display name and no $DISPLAY environment variable"
+    ],
+    [
+      "test_ui.GuiRegressionTests.test_raw_service_window_does_not_open_serial_port",
+      "Tk display unavailable: no display name and no $DISPLAY environment variable"
+    ]
+  ],
+  "duration_seconds": 29.737,
+  "success": true,
+  "network_scope": "loopback sends only",
+  "physical_validation": false,
+  "xp_gui_executed_by_this_runner": false
+}

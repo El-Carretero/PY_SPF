@@ -1,0 +1,4 @@
+{"utc": "2026-10-27T12:35:41.491355+00:00", "monotonic": 6878.1009487, "action": "clear_faults", "armed_after_callback": false}
+{"utc": "2026-10-27T12:35:41.497723+00:00", "monotonic": 6878.1073087, "action": "toggle_arm", "armed_after_callback": true}
+{"utc": "2026-10-27T12:35:48.509423+00:00", "monotonic": 6885.1188796, "action": "clear_faults", "armed_after_callback": true}
+{"utc": "2026-10-27T12:35:49.183344+00:00", "monotonic": 6885.7927914, "action": "toggle_arm", "armed_after_callback": false}

@@ -1,0 +1,8 @@
+{"utc": "2026-10-27T12:33:11.469577+00:00", "monotonic": 6728.0819247, "name": "Disarmed reset gives ARM reason", "passed": true, "detail": null}
+{"utc": "2026-10-27T12:33:11.470461+00:00", "monotonic": 6728.0828093, "name": "Disarmed reset does not confirm", "passed": true, "detail": null}
+{"utc": "2026-10-27T12:33:11.471116+00:00", "monotonic": 6728.0834639, "name": "Disarmed button action is ARM", "passed": true, "detail": null}
+{"utc": "2026-10-27T12:33:11.483912+00:00", "monotonic": 6728.0962589, "name": "ARM callback accepts live connection", "passed": true, "detail": null}
+{"utc": "2026-10-27T12:33:11.484666+00:00", "monotonic": 6728.0970175, "name": "Armed button action is DISARM", "passed": true, "detail": null}
+{"utc": "2026-10-27T12:33:17.611928+00:00", "monotonic": 6734.2241646, "name": "ARM retained across fresh empty 1044 and 1069", "passed": true, "detail": {"seconds": 6.126137199999903, "empty_counts": {"1044": 3, "1069": 3}}}
+{"utc": "2026-10-27T12:33:17.613098+00:00", "monotonic": 6734.2253376, "name": "Output remains blocked", "passed": true, "detail": "Empower opt-out is not confirmed by a recent controller readback."}
+{"utc": "2026-10-27T12:33:17.615574+00:00", "monotonic": 6734.2278081, "name": "Clear Faults reaches confirmation", "passed": false, "detail": null}

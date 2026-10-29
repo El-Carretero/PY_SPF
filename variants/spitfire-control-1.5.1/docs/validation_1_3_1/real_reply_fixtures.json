@@ -1,0 +1,2000 @@
+{
+  "created_utc": "2026-10-27T11:23:55.868338+00:00",
+  "source_snapshot": "spitfire_audit_20261027.csv",
+  "snapshot_sha256": "5011efd301e81aab40615747b6788b3dd8def62e7fcbd409c5ec0ee1713d2500",
+  "snapshot_utc_end": "2026-10-27T11:19:44.292479+00:00",
+  "fixture_kind": "observed hardware response strings; no output authorization or validity oracle",
+  "values_trimmed_exactly_as_protocol_decoder": true,
+  "source_hash_comparison": {
+    "installed_root": "C:\\Users\\physi\\Downloads\\Spitfire_Python_Control_1.3.0\\Spitfire_Python_Control",
+    "output_130_root": "C:\\Users\\physi\\.codex\\.chatgpt-projects\\g-p-6a52281922ac8191a02e99b30f2037cf\\output\\Spitfire_Python_Control_1.3.0\\Spitfire_Python_Control",
+    "all_python_modules_equal": true,
+    "modules": [
+      {
+        "module": "__init__.py",
+        "installed_sha256": "b3a9e48a0bf1ca4a130be799b97e46cd879d7b7b31b793fabf2dd1a5614c06e2",
+        "output_130_sha256": "b3a9e48a0bf1ca4a130be799b97e46cd879d7b7b31b793fabf2dd1a5614c06e2",
+        "equal": true
+      },
+      {
+        "module": "__main__.py",
+        "installed_sha256": "1ddfc31e34a6913bd82f7d8865e1c3a7ec33202232fea3d89cc2585bb3d145ca",
+        "output_130_sha256": "1ddfc31e34a6913bd82f7d8865e1c3a7ec33202232fea3d89cc2585bb3d145ca",
+        "equal": true
+      },
+      {
+        "module": "app.py",
+        "installed_sha256": "baf893ebec629aabce9b7d42cac90c98be270aacb2bc83e1c4b990c0863858e2",
+        "output_130_sha256": "baf893ebec629aabce9b7d42cac90c98be270aacb2bc83e1c4b990c0863858e2",
+        "equal": true
+      },
+      {
+        "module": "commands.py",
+        "installed_sha256": "27ef2be1002619debf0c30736301e8b13c0aa5073ce5fe4f182abbca1cf1fac6",
+        "output_130_sha256": "27ef2be1002619debf0c30736301e8b13c0aa5073ce5fe4f182abbca1cf1fac6",
+        "equal": true
+      },
+      {
+        "module": "config.py",
+        "installed_sha256": "f52648ff824ce866bcdf45fb805779b8e3fa9aa27ac6d171417d74be70e41f7f",
+        "output_130_sha256": "f52648ff824ce866bcdf45fb805779b8e3fa9aa27ac6d171417d74be70e41f7f",
+        "equal": true
+      },
+      {
+        "module": "controller.py",
+        "installed_sha256": "ce0760b04c3a7d582875d54df72b5856afe0ad09b1203897744bcbbe8d211198",
+        "output_130_sha256": "ce0760b04c3a7d582875d54df72b5856afe0ad09b1203897744bcbbe8d211198",
+        "equal": true
+      },
+      {
+        "module": "profiles.py",
+        "installed_sha256": "231d2f99bc2d8c88ebf2550047d939337d0f0d60bb9fcb04626348b05f15a21f",
+        "output_130_sha256": "231d2f99bc2d8c88ebf2550047d939337d0f0d60bb9fcb04626348b05f15a21f",
+        "equal": true
+      },
+      {
+        "module": "protocol.py",
+        "installed_sha256": "d59fa78adb4d3d5d66451c2e845b1ffd9ef8101c9510c8e2b20cfdb8223a3937",
+        "output_130_sha256": "d59fa78adb4d3d5d66451c2e845b1ffd9ef8101c9510c8e2b20cfdb8223a3937",
+        "equal": true
+      },
+      {
+        "module": "serial_dialog.py",
+        "installed_sha256": "c36fcecaacc161d6aa8f1b547f254d66ad577d587dea08e4c98323b0c3853b55",
+        "output_130_sha256": "c36fcecaacc161d6aa8f1b547f254d66ad577d587dea08e4c98323b0c3853b55",
+        "equal": true
+      },
+      {
+        "module": "serial_service.py",
+        "installed_sha256": "7f0f757e45c553dfda9761520cc361fc6e803a24ffe51cdf09a64cba930e8b8f",
+        "output_130_sha256": "7f0f757e45c553dfda9761520cc361fc6e803a24ffe51cdf09a64cba930e8b8f",
+        "equal": true
+      },
+      {
+        "module": "state.py",
+        "installed_sha256": "6e4a06ffcc847061c1ea1f3f38d22616ba6b82fff794af5a34d1925cacb353e0",
+        "output_130_sha256": "6e4a06ffcc847061c1ea1f3f38d22616ba6b82fff794af5a34d1925cacb353e0",
+        "equal": true
+      },
+      {
+        "module": "timing.py",
+        "installed_sha256": "d7541558dd19f06654b9c79cf07e0174144ddbd73f99427036bdc8a1f16d92d0",
+        "output_130_sha256": "d7541558dd19f06654b9c79cf07e0174144ddbd73f99427036bdc8a1f16d92d0",
+        "equal": true
+      },
+      {
+        "module": "transport.py",
+        "installed_sha256": "7815b0e6eb2e36c48de811d5342b6981b581475bc4be5daa72835eb2f41e120e",
+        "output_130_sha256": "7815b0e6eb2e36c48de811d5342b6981b581475bc4be5daa72835eb2f41e120e",
+        "equal": true
+      },
+      {
+        "module": "ui.py",
+        "installed_sha256": "03703f56064272cc1abb2cf363fab38c37c67d5f6f19b3e665990ff4c1f85dd2",
+        "output_130_sha256": "03703f56064272cc1abb2cf363fab38c37c67d5f6f19b3e665990ff4c1f85dd2",
+        "equal": true
+      },
+      {
+        "module": "validation.py",
+        "installed_sha256": "663264f4c105ec3e92e2cff2cbdc1ae5ae6aff2bc9f94a6775791cb0bb62e701",
+        "output_130_sha256": "663264f4c105ec3e92e2cff2cbdc1ae5ae6aff2bc9f94a6775791cb0bb62e701",
+        "equal": true
+      },
+      {
+        "module": "validation_worker.py",
+        "installed_sha256": "a3b833d652486b389717d20dd20731209d2fe722f88a7cd5035797d6cffead73",
+        "output_130_sha256": "a3b833d652486b389717d20dd20731209d2fe722f88a7cd5035797d6cffead73",
+        "equal": true
+      },
+      {
+        "module": "widgets.py",
+        "installed_sha256": "ba9a750f20cbff8a7db0ffc94bf181761dc0ec3861738fb721929e490c081154",
+        "output_130_sha256": "ba9a750f20cbff8a7db0ffc94bf181761dc0ec3861738fb721929e490c081154",
+        "equal": true
+      }
+    ]
+  },
+  "distinct_reply_count": 114,
+  "command_id_count": 46,
+  "commands": {
+    "1000": [
+      {
+        "command_id": 1000,
+        "value": "Spectra Physics,SASC,1.5.0",
+        "count": 806,
+        "raw_line_counts": {
+          "<1000>Spectra Physics,SASC,1.5.0": 806
+        },
+        "first_utc": "2026-10-27T10:56:43.789062+00:00",
+        "last_utc": "2026-10-27T11:19:44.170342+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": "Spectra Physics,SASC,1.5.0",
+        "invalid_ids": []
+      }
+    ],
+    "1015": [
+      {
+        "command_id": 1015,
+        "value": "0.000000",
+        "count": 786,
+        "raw_line_counts": {
+          "<1015>0.000000": 786
+        },
+        "first_utc": "2026-10-27T10:56:47.136924+00:00",
+        "last_utc": "2026-10-27T11:19:44.292479+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 0.0,
+        "invalid_ids": []
+      }
+    ],
+    "1019": [
+      {
+        "command_id": 1019,
+        "value": "0.000000",
+        "count": 784,
+        "raw_line_counts": {
+          "<1019>0.000000": 784
+        },
+        "first_utc": "2026-10-27T10:56:43.971094+00:00",
+        "last_utc": "2026-10-27T11:19:42.736968+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 0.0,
+        "invalid_ids": []
+      }
+    ],
+    "1021": [
+      {
+        "command_id": 1021,
+        "value": "0",
+        "count": 404,
+        "raw_line_counts": {
+          "<1021> 0": 404
+        },
+        "first_utc": "2026-10-27T10:56:44.118041+00:00",
+        "last_utc": "2026-10-27T11:19:43.305596+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 0,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1021,
+        "value": "1",
+        "count": 383,
+        "raw_line_counts": {
+          "<1021> 1": 383
+        },
+        "first_utc": "2026-10-27T10:58:19.409193+00:00",
+        "last_utc": "2026-10-27T11:16:55.228968+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 1,
+        "invalid_ids": []
+      }
+    ],
+    "1024": [
+      {
+        "command_id": 1024,
+        "value": "1000.0",
+        "count": 3,
+        "raw_line_counts": {
+          "<1024> 1000.0": 3
+        },
+        "first_utc": "2026-10-27T10:56:52.380841+00:00",
+        "last_utc": "2026-10-27T11:10:15.904569+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 1000.0,
+        "invalid_ids": []
+      }
+    ],
+    "1025": [
+      {
+        "command_id": 1025,
+        "value": "1",
+        "count": 3,
+        "raw_line_counts": {
+          "<1025> 1": 3
+        },
+        "first_utc": "2026-10-27T10:56:52.467902+00:00",
+        "last_utc": "2026-10-27T11:10:15.961927+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 1,
+        "invalid_ids": []
+      }
+    ],
+    "1028": [
+      {
+        "command_id": 1028,
+        "value": "0.000000",
+        "count": 785,
+        "raw_line_counts": {
+          "<1028>0.000000": 785
+        },
+        "first_utc": "2026-10-27T10:56:47.048918+00:00",
+        "last_utc": "2026-10-27T11:19:44.234029+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 0.0,
+        "invalid_ids": []
+      }
+    ],
+    "1029": [
+      {
+        "command_id": 1029,
+        "value": "3089.000000",
+        "count": 505,
+        "raw_line_counts": {
+          "<1029>3089.000000": 505
+        },
+        "first_utc": "2026-10-27T10:56:53.473126+00:00",
+        "last_utc": "2026-10-27T11:19:42.920093+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 3089.0,
+        "invalid_ids": []
+      }
+    ],
+    "1030": [
+      {
+        "command_id": 1030,
+        "value": "18.770000",
+        "count": 4,
+        "raw_line_counts": {
+          "<1030>18.770000": 4
+        },
+        "first_utc": "2026-10-27T11:14:34.553981+00:00",
+        "last_utc": "2026-10-27T11:16:17.693944+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.77,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "18.790000",
+        "count": 116,
+        "raw_line_counts": {
+          "<1030>18.790000": 116
+        },
+        "first_utc": "2026-10-27T11:10:33.156983+00:00",
+        "last_utc": "2026-10-27T11:19:41.599149+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.79,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "18.820000",
+        "count": 27,
+        "raw_line_counts": {
+          "<1030>18.820000": 27
+        },
+        "first_utc": "2026-10-27T11:10:17.063381+00:00",
+        "last_utc": "2026-10-27T11:19:28.627996+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.82,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "18.840000",
+        "count": 4,
+        "raw_line_counts": {
+          "<1030>18.840000": 4
+        },
+        "first_utc": "2026-10-27T11:03:45.453962+00:00",
+        "last_utc": "2026-10-27T11:03:58.326739+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.84,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "18.860000",
+        "count": 19,
+        "raw_line_counts": {
+          "<1030>18.860000": 19
+        },
+        "first_utc": "2026-10-27T11:02:22.991650+00:00",
+        "last_utc": "2026-10-27T11:03:55.201328+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.86,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "18.890000",
+        "count": 15,
+        "raw_line_counts": {
+          "<1030>18.890000": 15
+        },
+        "first_utc": "2026-10-27T11:01:31.903528+00:00",
+        "last_utc": "2026-10-27T11:02:32.797995+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.89,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "18.910000",
+        "count": 13,
+        "raw_line_counts": {
+          "<1030>18.910000": 13
+        },
+        "first_utc": "2026-10-27T11:00:25.160023+00:00",
+        "last_utc": "2026-10-27T11:01:22.287887+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.91,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "18.930000",
+        "count": 11,
+        "raw_line_counts": {
+          "<1030>18.930000": 11
+        },
+        "first_utc": "2026-10-27T10:59:48.345115+00:00",
+        "last_utc": "2026-10-27T11:00:37.608317+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.93,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "18.960000",
+        "count": 8,
+        "raw_line_counts": {
+          "<1030>18.960000": 8
+        },
+        "first_utc": "2026-10-27T10:59:20.273518+00:00",
+        "last_utc": "2026-10-27T10:59:55.215027+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.96,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "18.980000",
+        "count": 4,
+        "raw_line_counts": {
+          "<1030>18.980000": 4
+        },
+        "first_utc": "2026-10-27T10:59:07.171137+00:00",
+        "last_utc": "2026-10-27T10:59:17.171648+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.98,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "19.000000",
+        "count": 4,
+        "raw_line_counts": {
+          "<1030>19.000000": 4
+        },
+        "first_utc": "2026-10-27T10:58:42.110641+00:00",
+        "last_utc": "2026-10-27T10:59:00.897915+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 19.0,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "19.020000",
+        "count": 7,
+        "raw_line_counts": {
+          "<1030>19.020000": 7
+        },
+        "first_utc": "2026-10-27T10:58:13.712617+00:00",
+        "last_utc": "2026-10-27T10:58:38.696413+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 19.02,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "19.050000",
+        "count": 2,
+        "raw_line_counts": {
+          "<1030>19.050000": 2
+        },
+        "first_utc": "2026-10-27T10:58:10.688910+00:00",
+        "last_utc": "2026-10-27T10:58:16.736119+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 19.05,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "19.070000",
+        "count": 6,
+        "raw_line_counts": {
+          "<1030>19.070000": 6
+        },
+        "first_utc": "2026-10-27T10:57:39.860047+00:00",
+        "last_utc": "2026-10-27T10:57:56.232146+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 19.07,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "19.090000",
+        "count": 3,
+        "raw_line_counts": {
+          "<1030>19.090000": 3
+        },
+        "first_utc": "2026-10-27T10:57:30.195995+00:00",
+        "last_utc": "2026-10-27T10:57:36.843306+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 19.09,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "19.120000",
+        "count": 2,
+        "raw_line_counts": {
+          "<1030>19.120000": 2
+        },
+        "first_utc": "2026-10-27T10:57:19.753242+00:00",
+        "last_utc": "2026-10-27T10:57:26.976973+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 19.12,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "19.140000",
+        "count": 2,
+        "raw_line_counts": {
+          "<1030>19.140000": 2
+        },
+        "first_utc": "2026-10-27T10:57:09.294559+00:00",
+        "last_utc": "2026-10-27T10:57:12.361873+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 19.14,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1030,
+        "value": "19.160000",
+        "count": 5,
+        "raw_line_counts": {
+          "<1030>19.160000": 5
+        },
+        "first_utc": "2026-10-27T10:56:53.610051+00:00",
+        "last_utc": "2026-10-27T10:57:05.946254+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 19.16,
+        "invalid_ids": []
+      }
+    ],
+    "1031": [
+      {
+        "command_id": 1031,
+        "value": "3.890000",
+        "count": 2,
+        "raw_line_counts": {
+          "<1031>3.890000": 2
+        },
+        "first_utc": "2026-10-27T11:19:25.775904+00:00",
+        "last_utc": "2026-10-27T11:19:35.175336+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 3.89,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "3.920000",
+        "count": 29,
+        "raw_line_counts": {
+          "<1031>3.920000": 29
+        },
+        "first_utc": "2026-10-27T11:17:16.383695+00:00",
+        "last_utc": "2026-10-27T11:19:41.750249+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 3.92,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "3.960000",
+        "count": 19,
+        "raw_line_counts": {
+          "<1031>3.960000": 19
+        },
+        "first_utc": "2026-10-27T11:16:08.260645+00:00",
+        "last_utc": "2026-10-27T11:18:27.328034+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 3.96,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.000000",
+        "count": 12,
+        "raw_line_counts": {
+          "<1031>4.000000": 12
+        },
+        "first_utc": "2026-10-27T11:15:43.430462+00:00",
+        "last_utc": "2026-10-27T11:16:27.313303+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.0,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.040000",
+        "count": 15,
+        "raw_line_counts": {
+          "<1031>4.040000": 15
+        },
+        "first_utc": "2026-10-27T11:14:34.838711+00:00",
+        "last_utc": "2026-10-27T11:15:46.404156+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.04,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.080000",
+        "count": 23,
+        "raw_line_counts": {
+          "<1031>4.080000": 23
+        },
+        "first_utc": "2026-10-27T11:13:14.592464+00:00",
+        "last_utc": "2026-10-27T11:15:01.698320+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.08,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.120000",
+        "count": 13,
+        "raw_line_counts": {
+          "<1031>4.120000": 13
+        },
+        "first_utc": "2026-10-27T11:12:19.765072+00:00",
+        "last_utc": "2026-10-27T11:14:15.474841+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.12,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.150000",
+        "count": 19,
+        "raw_line_counts": {
+          "<1031>4.150000": 19
+        },
+        "first_utc": "2026-10-27T11:11:02.590008+00:00",
+        "last_utc": "2026-10-27T11:12:42.608566+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.15,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.190000",
+        "count": 16,
+        "raw_line_counts": {
+          "<1031>4.190000": 16
+        },
+        "first_utc": "2026-10-27T11:10:17.377249+00:00",
+        "last_utc": "2026-10-27T11:11:24.624819+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.19,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.230000",
+        "count": 1,
+        "raw_line_counts": {
+          "<1031>4.230000": 1
+        },
+        "first_utc": "2026-10-27T11:10:45.883272+00:00",
+        "last_utc": "2026-10-27T11:10:45.883272+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.23,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.500000",
+        "count": 3,
+        "raw_line_counts": {
+          "<1031>4.500000": 3
+        },
+        "first_utc": "2026-10-27T11:03:48.971052+00:00",
+        "last_utc": "2026-10-27T11:03:55.468300+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.5,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.540000",
+        "count": 4,
+        "raw_line_counts": {
+          "<1031>4.540000": 4
+        },
+        "first_utc": "2026-10-27T11:03:29.936907+00:00",
+        "last_utc": "2026-10-27T11:03:58.532858+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.54,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.570000",
+        "count": 7,
+        "raw_line_counts": {
+          "<1031>4.570000": 7
+        },
+        "first_utc": "2026-10-27T11:03:04.616610+00:00",
+        "last_utc": "2026-10-27T11:03:42.328877+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.57,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.610000",
+        "count": 7,
+        "raw_line_counts": {
+          "<1031>4.610000": 7
+        },
+        "first_utc": "2026-10-27T11:02:29.822478+00:00",
+        "last_utc": "2026-10-27T11:03:07.955348+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.61,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.650000",
+        "count": 10,
+        "raw_line_counts": {
+          "<1031>4.650000": 10
+        },
+        "first_utc": "2026-10-27T11:01:51.262942+00:00",
+        "last_utc": "2026-10-27T11:02:33.034348+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.65,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.690000",
+        "count": 4,
+        "raw_line_counts": {
+          "<1031>4.690000": 4
+        },
+        "first_utc": "2026-10-27T11:01:41.670513+00:00",
+        "last_utc": "2026-10-27T11:01:58.022599+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.69,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.730000",
+        "count": 7,
+        "raw_line_counts": {
+          "<1031>4.730000": 7
+        },
+        "first_utc": "2026-10-27T11:01:06.611367+00:00",
+        "last_utc": "2026-10-27T11:01:38.526513+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.73,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.760000",
+        "count": 7,
+        "raw_line_counts": {
+          "<1031>4.760000": 7
+        },
+        "first_utc": "2026-10-27T11:00:37.908613+00:00",
+        "last_utc": "2026-10-27T11:01:12.845733+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.76,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.800000",
+        "count": 5,
+        "raw_line_counts": {
+          "<1031>4.800000": 5
+        },
+        "first_utc": "2026-10-27T11:00:22.311420+00:00",
+        "last_utc": "2026-10-27T11:00:47.382914+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.8,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.840000",
+        "count": 3,
+        "raw_line_counts": {
+          "<1031>4.840000": 3
+        },
+        "first_utc": "2026-10-27T11:00:12.588506+00:00",
+        "last_utc": "2026-10-27T11:00:19.011103+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.84,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.880000",
+        "count": 4,
+        "raw_line_counts": {
+          "<1031>4.880000": 4
+        },
+        "first_utc": "2026-10-27T10:59:58.831533+00:00",
+        "last_utc": "2026-10-27T11:00:08.957197+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.88,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.920000",
+        "count": 3,
+        "raw_line_counts": {
+          "<1031>4.920000": 3
+        },
+        "first_utc": "2026-10-27T10:59:45.552993+00:00",
+        "last_utc": "2026-10-27T10:59:55.507471+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.92,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.950000",
+        "count": 3,
+        "raw_line_counts": {
+          "<1031>4.950000": 3
+        },
+        "first_utc": "2026-10-27T10:59:33.178475+00:00",
+        "last_utc": "2026-10-27T10:59:42.213567+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.95,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "4.990000",
+        "count": 3,
+        "raw_line_counts": {
+          "<1031>4.990000": 3
+        },
+        "first_utc": "2026-10-27T10:59:20.510071+00:00",
+        "last_utc": "2026-10-27T10:59:26.914530+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 4.99,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.030000",
+        "count": 4,
+        "raw_line_counts": {
+          "<1031>5.030000": 4
+        },
+        "first_utc": "2026-10-27T10:58:58.042662+00:00",
+        "last_utc": "2026-10-27T10:59:17.482831+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.03,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.070000",
+        "count": 3,
+        "raw_line_counts": {
+          "<1031>5.070000": 3
+        },
+        "first_utc": "2026-10-27T10:58:51.770395+00:00",
+        "last_utc": "2026-10-27T10:59:07.438609+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.07,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.110000",
+        "count": 3,
+        "raw_line_counts": {
+          "<1031>5.110000": 3
+        },
+        "first_utc": "2026-10-27T10:58:38.933226+00:00",
+        "last_utc": "2026-10-27T10:58:45.621571+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.11,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.150000",
+        "count": 3,
+        "raw_line_counts": {
+          "<1031>5.150000": 3
+        },
+        "first_utc": "2026-10-27T10:58:26.291159+00:00",
+        "last_utc": "2026-10-27T10:58:35.786781+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.15,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.180000",
+        "count": 1,
+        "raw_line_counts": {
+          "<1031>5.180000": 1
+        },
+        "first_utc": "2026-10-27T10:58:23.213560+00:00",
+        "last_utc": "2026-10-27T10:58:23.213560+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.18,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.220000",
+        "count": 2,
+        "raw_line_counts": {
+          "<1031>5.220000": 2
+        },
+        "first_utc": "2026-10-27T10:58:16.938842+00:00",
+        "last_utc": "2026-10-27T10:58:19.958821+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.22,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.260000",
+        "count": 2,
+        "raw_line_counts": {
+          "<1031>5.260000": 2
+        },
+        "first_utc": "2026-10-27T10:58:10.871884+00:00",
+        "last_utc": "2026-10-27T10:58:13.877897+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.26,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.340000",
+        "count": 4,
+        "raw_line_counts": {
+          "<1031>5.340000": 4
+        },
+        "first_utc": "2026-10-27T10:57:46.972754+00:00",
+        "last_utc": "2026-10-27T10:57:56.414300+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.34,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.370000",
+        "count": 3,
+        "raw_line_counts": {
+          "<1031>5.370000": 3
+        },
+        "first_utc": "2026-10-27T10:57:37.025160+00:00",
+        "last_utc": "2026-10-27T10:57:43.714590+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.37,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.410000",
+        "count": 2,
+        "raw_line_counts": {
+          "<1031>5.410000": 2
+        },
+        "first_utc": "2026-10-27T10:57:30.441400+00:00",
+        "last_utc": "2026-10-27T10:57:33.847772+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.41,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.450000",
+        "count": 1,
+        "raw_line_counts": {
+          "<1031>5.450000": 1
+        },
+        "first_utc": "2026-10-27T10:57:27.122168+00:00",
+        "last_utc": "2026-10-27T10:57:27.122168+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.45,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.490000",
+        "count": 1,
+        "raw_line_counts": {
+          "<1031>5.490000": 1
+        },
+        "first_utc": "2026-10-27T10:57:20.044818+00:00",
+        "last_utc": "2026-10-27T10:57:20.044818+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.49,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.530000",
+        "count": 1,
+        "raw_line_counts": {
+          "<1031>5.530000": 1
+        },
+        "first_utc": "2026-10-27T10:57:12.570095+00:00",
+        "last_utc": "2026-10-27T10:57:12.570095+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.53,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.570000",
+        "count": 2,
+        "raw_line_counts": {
+          "<1031>5.570000": 2
+        },
+        "first_utc": "2026-10-27T10:57:06.218145+00:00",
+        "last_utc": "2026-10-27T10:57:09.509825+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.57,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.600000",
+        "count": 2,
+        "raw_line_counts": {
+          "<1031>5.600000": 2
+        },
+        "first_utc": "2026-10-27T10:57:00.067367+00:00",
+        "last_utc": "2026-10-27T10:57:03.013898+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.6,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1031,
+        "value": "5.640000",
+        "count": 2,
+        "raw_line_counts": {
+          "<1031>5.640000": 2
+        },
+        "first_utc": "2026-10-27T10:56:53.795124+00:00",
+        "last_utc": "2026-10-27T10:56:56.811592+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5.64,
+        "invalid_ids": []
+      }
+    ],
+    "1032": [
+      {
+        "command_id": 1032,
+        "value": "1.000000",
+        "count": 3,
+        "raw_line_counts": {
+          "<1032>1.000000": 3
+        },
+        "first_utc": "2026-10-27T10:56:47.543451+00:00",
+        "last_utc": "2026-10-27T11:10:14.951649+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 1.0,
+        "invalid_ids": []
+      }
+    ],
+    "1033": [
+      {
+        "command_id": 1033,
+        "value": "0",
+        "count": 276,
+        "raw_line_counts": {
+          "<1033>0": 276
+        },
+        "first_utc": "2026-10-27T10:56:46.760127+00:00",
+        "last_utc": "2026-10-27T11:19:43.848180+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 0,
+        "invalid_ids": []
+      }
+    ],
+    "1034": [
+      {
+        "command_id": 1034,
+        "value": "Spectra Physics,HED,����������������,04.001.002",
+        "count": 3,
+        "raw_line_counts": {
+          "<1034> Spectra Physics,HED,����������������,04.001.002": 3
+        },
+        "first_utc": "2026-10-27T10:56:49.740140+00:00",
+        "last_utc": "2026-10-27T11:10:15.129223+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": "Spectra Physics,HED,����������������,04.001.002",
+        "invalid_ids": []
+      }
+    ],
+    "1036": [
+      {
+        "command_id": 1036,
+        "value": "Spectra Physics,TDG-S,sn1021,04.001.003/01.003.092",
+        "count": 3,
+        "raw_line_counts": {
+          "<1036> Spectra Physics,TDG-S,sn1021,04.001.003/01.003.092": 3
+        },
+        "first_utc": "2026-10-27T10:56:51.906902+00:00",
+        "last_utc": "2026-10-27T11:10:15.405548+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": "Spectra Physics,TDG-S,sn1021,04.001.003/01.003.092",
+        "invalid_ids": []
+      }
+    ],
+    "1037": [
+      {
+        "command_id": 1037,
+        "value": "Spectra-Physics, TCU, 1.5.0",
+        "count": 3,
+        "raw_line_counts": {
+          "<1037>Spectra-Physics, TCU, 1.5.0": 3
+        },
+        "first_utc": "2026-10-27T10:56:47.481033+00:00",
+        "last_utc": "2026-10-27T11:10:14.870718+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": "Spectra-Physics, TCU, 1.5.0",
+        "invalid_ids": []
+      }
+    ],
+    "1038": [
+      {
+        "command_id": 1038,
+        "value": "Spectra Physics,SASC,1.5.0",
+        "count": 3,
+        "raw_line_counts": {
+          "<1038>Spectra Physics,SASC,1.5.0": 3
+        },
+        "first_utc": "2026-10-27T10:56:47.366639+00:00",
+        "last_utc": "2026-10-27T11:10:14.804824+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": "Spectra Physics,SASC,1.5.0",
+        "invalid_ids": []
+      }
+    ],
+    "1039": [
+      {
+        "command_id": 1039,
+        "value": "0X00330408",
+        "count": 1,
+        "raw_line_counts": {
+          "<1039> 0X00330408": 1
+        },
+        "first_utc": "2026-10-27T10:58:14.206350+00:00",
+        "last_utc": "2026-10-27T10:58:14.206350+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 3343368,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1039,
+        "value": "0X00330409",
+        "count": 26,
+        "raw_line_counts": {
+          "<1039> 0X00330409": 26
+        },
+        "first_utc": "2026-10-27T10:58:17.180337+00:00",
+        "last_utc": "2026-10-27T10:59:54.667203+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 3343369,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1039,
+        "value": "0X00330429",
+        "count": 109,
+        "raw_line_counts": {
+          "<1039> 0X00330429": 109
+        },
+        "first_utc": "2026-10-27T11:10:32.883801+00:00",
+        "last_utc": "2026-10-27T11:16:54.688955+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 3343401,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1039,
+        "value": "0X00334408",
+        "count": 27,
+        "raw_line_counts": {
+          "<1039> 0X00334408": 27
+        },
+        "first_utc": "2026-10-27T10:56:46.431760+00:00",
+        "last_utc": "2026-10-27T11:00:06.677022+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 3359752,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1039,
+        "value": "0X00334428",
+        "count": 111,
+        "raw_line_counts": {
+          "<1039> 0X00334428": 111
+        },
+        "first_utc": "2026-10-27T11:00:09.806138+00:00",
+        "last_utc": "2026-10-27T11:19:42.857985+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 3359784,
+        "invalid_ids": []
+      }
+    ],
+    "1040": [
+      {
+        "command_id": 1040,
+        "value": "3.399 KV",
+        "count": 3,
+        "raw_line_counts": {
+          "<1040> 3.399 KV": 3
+        },
+        "first_utc": "2026-10-27T10:56:52.258937+00:00",
+        "last_utc": "2026-10-27T11:10:15.737030+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "Whole-string numeric conversion rejects unit suffix or compound fields; no command-specific parser exists for this observed value.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1040
+        ]
+      }
+    ],
+    "1041": [
+      {
+        "command_id": 1041,
+        "value": "3.139 KV",
+        "count": 3,
+        "raw_line_counts": {
+          "<1041> 3.139 KV": 3
+        },
+        "first_utc": "2026-10-27T10:56:52.315404+00:00",
+        "last_utc": "2026-10-27T11:10:15.797941+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "Whole-string numeric conversion rejects unit suffix or compound fields; no command-specific parser exists for this observed value.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1041
+        ]
+      }
+    ],
+    "1044": [
+      {
+        "command_id": 1044,
+        "value": "",
+        "count": 276,
+        "raw_line_counts": {
+          "<1044>": 276
+        },
+        "first_utc": "2026-10-27T10:56:46.927311+00:00",
+        "last_utc": "2026-10-27T11:19:43.970341+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "Empty reply is rejected before command-specific decoding. Hardware value/command support is unknown.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1044
+        ]
+      }
+    ],
+    "1045": [
+      {
+        "command_id": 1045,
+        "value": "DELAY 1 ON BWD NENA 85.82",
+        "count": 273,
+        "raw_line_counts": {
+          "<1045> DELAY 1 ON BWD NENA 85.82": 273
+        },
+        "first_utc": "2026-10-27T10:56:46.270163+00:00",
+        "last_utc": "2026-10-27T11:19:42.584915+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "decode_delay uses tokens[6:] for compound numeric tail. Actual six-token response puts number at tokens[5], producing no numeric value.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1045,
+          1058,
+          1063
+        ],
+        "parsed_delays": {
+          "1": {
+            "value": null,
+            "switch": "ON",
+            "bwd": "BWD",
+            "enable": "NENA"
+          }
+        }
+      }
+    ],
+    "1046": [
+      {
+        "command_id": 1046,
+        "value": "DELAY 2 ON BWD NENA 990.25",
+        "count": 275,
+        "raw_line_counts": {
+          "<1046> DELAY 2 ON BWD NENA 990.25": 275
+        },
+        "first_utc": "2026-10-27T10:56:46.331680+00:00",
+        "last_utc": "2026-10-27T11:19:42.711414+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "decode_delay uses tokens[6:] for compound numeric tail. Actual six-token response puts number at tokens[5], producing no numeric value.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1046,
+          1059,
+          1064
+        ],
+        "parsed_delays": {
+          "2": {
+            "value": null,
+            "switch": "ON",
+            "bwd": "BWD",
+            "enable": "NENA"
+          }
+        }
+      }
+    ],
+    "1047": [
+      {
+        "command_id": 1047,
+        "value": "DELAY 3 ON NBWD NENA 0.0",
+        "count": 3,
+        "raw_line_counts": {
+          "<1047> DELAY 3 ON NBWD NENA 0.0": 3
+        },
+        "first_utc": "2026-10-27T10:56:51.969887+00:00",
+        "last_utc": "2026-10-27T11:10:15.526406+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "decode_delay uses tokens[6:] for compound numeric tail. Actual six-token response puts number at tokens[5], producing no numeric value.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1047
+        ],
+        "parsed_delays": {
+          "3": {
+            "value": null,
+            "switch": "ON",
+            "bwd": "NBWD",
+            "enable": "NENA"
+          }
+        }
+      }
+    ],
+    "1048": [
+      {
+        "command_id": 1048,
+        "value": "DELAY 4 ON NBWD NENA 0.0",
+        "count": 3,
+        "raw_line_counts": {
+          "<1048> DELAY 4 ON NBWD NENA 0.0": 3
+        },
+        "first_utc": "2026-10-27T10:56:52.090036+00:00",
+        "last_utc": "2026-10-27T11:10:15.549898+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "decode_delay uses tokens[6:] for compound numeric tail. Actual six-token response puts number at tokens[5], producing no numeric value.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1048
+        ],
+        "parsed_delays": {
+          "4": {
+            "value": null,
+            "switch": "ON",
+            "bwd": "NBWD",
+            "enable": "NENA"
+          }
+        }
+      }
+    ],
+    "1049": [
+      {
+        "command_id": 1049,
+        "value": "DELAY 5 ON NBWD NENA 0.0",
+        "count": 3,
+        "raw_line_counts": {
+          "<1049> DELAY 5 ON NBWD NENA 0.0": 3
+        },
+        "first_utc": "2026-10-27T10:56:52.152815+00:00",
+        "last_utc": "2026-10-27T11:10:15.616782+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "decode_delay uses tokens[6:] for compound numeric tail. Actual six-token response puts number at tokens[5], producing no numeric value.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1049
+        ],
+        "parsed_delays": {
+          "5": {
+            "value": null,
+            "switch": "ON",
+            "bwd": "NBWD",
+            "enable": "NENA"
+          }
+        }
+      }
+    ],
+    "1050": [
+      {
+        "command_id": 1050,
+        "value": "EXT",
+        "count": 275,
+        "raw_line_counts": {
+          "<1050> EXT": 275
+        },
+        "first_utc": "2026-10-27T10:56:43.867102+00:00",
+        "last_utc": "2026-10-27T11:19:42.983354+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 1,
+        "invalid_ids": []
+      }
+    ],
+    "1051": [
+      {
+        "command_id": 1051,
+        "value": "EXT CONT 1000.0",
+        "count": 276,
+        "raw_line_counts": {
+          "<1051> EXT CONT 1000.0": 276
+        },
+        "first_utc": "2026-10-27T10:56:44.057102+00:00",
+        "last_utc": "2026-10-27T11:19:43.197940+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "Mode parser requires exact tokens from its lookup. Actual compound mode/rate string does not exactly match.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1051
+        ]
+      }
+    ],
+    "1052": [
+      {
+        "command_id": 1052,
+        "value": "DELAY 0 3100.0",
+        "count": 3,
+        "raw_line_counts": {
+          "<1052> DELAY 0 3100.0": 3
+        },
+        "first_utc": "2026-10-27T10:56:52.525610+00:00",
+        "last_utc": "2026-10-27T11:10:16.046678+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "Whole-string numeric conversion rejects unit suffix or compound fields; no command-specific parser exists for this observed value.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1052
+        ]
+      }
+    ],
+    "1053": [
+      {
+        "command_id": 1053,
+        "value": "1000.0",
+        "count": 3,
+        "raw_line_counts": {
+          "<1053> 1000.0": 3
+        },
+        "first_utc": "2026-10-27T10:56:52.644286+00:00",
+        "last_utc": "2026-10-27T11:10:16.110858+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 1000.0,
+        "invalid_ids": []
+      }
+    ],
+    "1054": [
+      {
+        "command_id": 1054,
+        "value": "NEG DUAL ON",
+        "count": 3,
+        "raw_line_counts": {
+          "<1054> NEG DUAL ON": 3
+        },
+        "first_utc": "2026-10-27T10:56:52.707161+00:00",
+        "last_utc": "2026-10-27T11:10:16.224116+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "Whole-string numeric conversion rejects unit suffix or compound fields; no command-specific parser exists for this observed value.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1054
+        ]
+      }
+    ],
+    "1057": [
+      {
+        "command_id": 1057,
+        "value": "3089.000000",
+        "count": 509,
+        "raw_line_counts": {
+          "<1057>3089.000000": 509
+        },
+        "first_utc": "2026-10-27T10:56:54.450449+00:00",
+        "last_utc": "2026-10-27T11:19:44.107552+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 3089.0,
+        "invalid_ids": []
+      }
+    ],
+    "1060": [
+      {
+        "command_id": 1060,
+        "value": "90",
+        "count": 2,
+        "raw_line_counts": {
+          "<1060> 90": 2
+        },
+        "first_utc": "2026-10-27T10:58:08.777757+00:00",
+        "last_utc": "2026-10-27T11:10:15.190872+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 90,
+        "invalid_ids": []
+      }
+    ],
+    "1062": [
+      {
+        "command_id": 1062,
+        "value": "Spectra Physics,SASC,1.5.0",
+        "count": 3,
+        "raw_line_counts": {
+          "<1062>Spectra Physics,SASC,1.5.0": 3
+        },
+        "first_utc": "2026-10-27T10:56:53.016712+00:00",
+        "last_utc": "2026-10-27T11:10:16.514458+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": "Spectra Physics,SASC,1.5.0",
+        "invalid_ids": []
+      }
+    ],
+    "1065": [
+      {
+        "command_id": 1065,
+        "value": "0.0 MHz",
+        "count": 781,
+        "raw_line_counts": {
+          "<1065> 0.0 MHz": 781
+        },
+        "first_utc": "2026-10-27T10:56:46.640714+00:00",
+        "last_utc": "2026-10-27T11:19:43.364834+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "Whole-string numeric conversion rejects unit suffix or compound fields; no command-specific parser exists for this observed value.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1065
+        ]
+      }
+    ],
+    "1066": [
+      {
+        "command_id": 1066,
+        "value": "0X00334408",
+        "count": 783,
+        "raw_line_counts": {
+          "<1066> 0X00334408": 783
+        },
+        "first_utc": "2026-10-27T10:56:43.996362+00:00",
+        "last_utc": "2026-10-27T11:19:43.996647+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 3359752,
+        "invalid_ids": []
+      }
+    ],
+    "1067": [
+      {
+        "command_id": 1067,
+        "value": "EXT",
+        "count": 3,
+        "raw_line_counts": {
+          "<1067> EXT": 3
+        },
+        "first_utc": "2026-10-27T10:56:52.807135+00:00",
+        "last_utc": "2026-10-27T11:10:16.287935+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 1,
+        "invalid_ids": []
+      }
+    ],
+    "1068": [
+      {
+        "command_id": 1068,
+        "value": "0",
+        "count": 275,
+        "raw_line_counts": {
+          "<1068>0": 275
+        },
+        "first_utc": "2026-10-27T10:56:43.909242+00:00",
+        "last_utc": "2026-10-27T11:19:41.810687+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 0,
+        "invalid_ids": []
+      }
+    ],
+    "1069": [
+      {
+        "command_id": 1069,
+        "value": "",
+        "count": 273,
+        "raw_line_counts": {
+          "<1069>": 273
+        },
+        "first_utc": "2026-10-27T10:56:47.195044+00:00",
+        "last_utc": "2026-10-27T11:19:41.687734+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "Empty reply is rejected before command-specific decoding. Hardware value/command support is unknown.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1069
+        ]
+      }
+    ],
+    "1080": [
+      {
+        "command_id": 1080,
+        "value": "EXT CONT 1000.0",
+        "count": 3,
+        "raw_line_counts": {
+          "<1080> EXT CONT 1000.0": 3
+        },
+        "first_utc": "2026-10-27T10:56:52.958159+00:00",
+        "last_utc": "2026-10-27T11:10:16.451081+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "Mode parser requires exact tokens from its lookup. Actual compound mode/rate string does not exactly match.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": null,
+        "invalid_ids": [
+          1080
+        ]
+      }
+    ],
+    "1084": [
+      {
+        "command_id": 1084,
+        "value": "18.910000",
+        "count": 1,
+        "raw_line_counts": {
+          "<1084>18.910000": 1
+        },
+        "first_utc": "2026-10-27T11:13:47.702769+00:00",
+        "last_utc": "2026-10-27T11:13:47.702769+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.91,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1084,
+        "value": "18.930000",
+        "count": 49,
+        "raw_line_counts": {
+          "<1084>18.930000": 49
+        },
+        "first_utc": "2026-10-27T11:12:13.476332+00:00",
+        "last_utc": "2026-10-27T11:17:13.188238+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.93,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1084,
+        "value": "18.960000",
+        "count": 97,
+        "raw_line_counts": {
+          "<1084>18.960000": 97
+        },
+        "first_utc": "2026-10-27T11:10:17.661521+00:00",
+        "last_utc": "2026-10-27T11:19:42.000176+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.96,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1084,
+        "value": "18.980000",
+        "count": 13,
+        "raw_line_counts": {
+          "<1084>18.980000": 13
+        },
+        "first_utc": "2026-10-27T11:02:42.983448+00:00",
+        "last_utc": "2026-10-27T11:18:50.025849+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 18.98,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1084,
+        "value": "19.000000",
+        "count": 24,
+        "raw_line_counts": {
+          "<1084>19.000000": 24
+        },
+        "first_utc": "2026-10-27T11:00:05.946757+00:00",
+        "last_utc": "2026-10-27T11:03:30.103842+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 19.0,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1084,
+        "value": "19.020000",
+        "count": 42,
+        "raw_line_counts": {
+          "<1084>19.020000": 42
+        },
+        "first_utc": "2026-10-27T10:58:35.971144+00:00",
+        "last_utc": "2026-10-27T11:01:51.558775+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 19.02,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1084,
+        "value": "19.050000",
+        "count": 19,
+        "raw_line_counts": {
+          "<1084>19.050000": 19
+        },
+        "first_utc": "2026-10-27T10:57:16.919319+00:00",
+        "last_utc": "2026-10-27T10:58:58.207768+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 19.05,
+        "invalid_ids": []
+      },
+      {
+        "command_id": 1084,
+        "value": "19.070000",
+        "count": 8,
+        "raw_line_counts": {
+          "<1084>19.070000": 8
+        },
+        "first_utc": "2026-10-27T10:56:54.024800+00:00",
+        "last_utc": "2026-10-27T10:57:47.340961+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 19.07,
+        "invalid_ids": []
+      }
+    ],
+    "1085": [
+      {
+        "command_id": 1085,
+        "value": "3",
+        "count": 508,
+        "raw_line_counts": {
+          "<1085>3": 508
+        },
+        "first_utc": "2026-10-27T10:56:54.108076+00:00",
+        "last_utc": "2026-10-27T11:19:43.626027+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 3,
+        "invalid_ids": []
+      }
+    ],
+    "1086": [
+      {
+        "command_id": 1086,
+        "value": "0",
+        "count": 3,
+        "raw_line_counts": {
+          "<1086>0": 3
+        },
+        "first_utc": "2026-10-27T10:56:51.882875+00:00",
+        "last_utc": "2026-10-27T11:10:15.351080+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 0,
+        "invalid_ids": []
+      }
+    ],
+    "1087": [
+      {
+        "command_id": 1087,
+        "value": "0",
+        "count": 276,
+        "raw_line_counts": {
+          "<1087>0": 276
+        },
+        "first_utc": "2026-10-27T10:56:44.183779+00:00",
+        "last_utc": "2026-10-27T11:19:42.424907+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 0,
+        "invalid_ids": []
+      }
+    ],
+    "1088": [
+      {
+        "command_id": 1088,
+        "value": "3089.000000",
+        "count": 781,
+        "raw_line_counts": {
+          "<1088>3089.000000": 781
+        },
+        "first_utc": "2026-10-27T10:56:46.391314+00:00",
+        "last_utc": "2026-10-27T11:19:43.909793+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 3089.0,
+        "invalid_ids": []
+      }
+    ],
+    "1089": [
+      {
+        "command_id": 1089,
+        "value": "5",
+        "count": 784,
+        "raw_line_counts": {
+          "<1089>5": 784
+        },
+        "first_utc": "2026-10-27T10:56:46.575692+00:00",
+        "last_utc": "2026-10-27T11:19:43.753703+00:00",
+        "current_state_apply_accepted": true,
+        "reason": null,
+        "reason_basis": null,
+        "parsed_value": 5,
+        "invalid_ids": []
+      }
+    ],
+    "2016": [
+      {
+        "command_id": 2016,
+        "value": "",
+        "count": 3,
+        "raw_line_counts": {
+          "<2016>": 3
+        },
+        "first_utc": "2026-10-27T11:00:09.009048+00:00",
+        "last_utc": "2026-10-27T11:00:09.984158+00:00",
+        "current_state_apply_accepted": false,
+        "reason": "Write ACK validator accepts only OK/ACK. Empty hardware ACK is not accepted; no readback was inferred.",
+        "reason_basis": "current 1.3.0 source rule; no hardware inference",
+        "parsed_value": "",
+        "invalid_ids": []
+      }
+    ]
+  },
+  "exe_hash_comparison": {
+    "installed_sha256": "945a686da85e50a27c4655fef770699b321e6dd88f662b95ab9de249b658587f",
+    "output_130_sha256": "945a686da85e50a27c4655fef770699b321e6dd88f662b95ab9de249b658587f",
+    "equal": true
+  }
+}

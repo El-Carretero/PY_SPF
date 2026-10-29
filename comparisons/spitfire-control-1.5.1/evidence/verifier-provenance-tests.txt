@@ -1,0 +1,9 @@
+test_count_means_slots_not_unique_named_commands (test_catalog_provenance.CatalogProvenanceTests.test_count_means_slots_not_unique_named_commands) ... ok
+test_recovered_table_fingerprint (test_catalog_provenance.CatalogProvenanceTests.test_recovered_table_fingerprint) ... ok
+test_status_sources_are_distinct_commands (test_catalog_provenance.CatalogProvenanceTests.test_status_sources_are_distinct_commands) ... ok
+test_user_supplied_original_binary (test_catalog_provenance.CatalogProvenanceTests.test_user_supplied_original_binary) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+OK

@@ -1,0 +1,104 @@
+--- 1.3.1/controller.py
++++ 1.3.2/controller.py
+@@ -115,8 +115,9 @@
+             self._thread = threading.Thread(target=self._run, name="spitfire-controller", daemon=True)
+             self._thread.start()
+ 
+-    def _disarm_locked(self) -> None:
++    def _disarm_locked(self, reason: str = "Disarmed by operator.") -> None:
+         self._armed = self._state.armed = False
++        self._state.disarm_reason = reason
+         self._generation += 1
+         # Already dequeued commands are also invalidated by their generation.
+         self._commands = deque(r for r in self._commands if r.command_id < 2000)
+@@ -124,7 +125,7 @@
+     def stop(self) -> None:
+         with self._condition:
+             self._stop.set()
+-            self._disarm_locked()
++            self._disarm_locked("Controller stopped.")
+             self._commands.clear()
+             self._urgent.clear()
+             self._condition.notify_all()
+@@ -144,6 +145,7 @@
+                 if self.transport.name != "Simulator" and not self._state.link_fresh():
+                     raise PermissionError("A recent valid controller readback is required before ARM.")
+                 self._armed = self._state.armed = True
++                self._state.disarm_reason = ""
+             else:
+                 self._disarm_locked()
+             self._emit_state()
+@@ -159,7 +161,7 @@
+             self._check_external_write(command_id, argument)
+             if command_id in SAFE_WHEN_DISARMED or is_stop_command(command_id, argument):
+                 # OFF is urgent and invalidates all queued energy/motion writes.
+-                self._disarm_locked()
++                self._disarm_locked(f"OFF/STOP requested [{command_id}].")
+                 self._urgent.append(PendingCommand(command_id, argument, origin, self._generation))
+                 self._emit_state()
+             else:
+@@ -224,13 +226,14 @@
+                 if request.command_id < 2000:
+                     self._state.invalidate(request.command_id)
+                 self._state.connected = False
+-                self._disarm_locked()
++                self._disarm_locked(f"Communication failure: {exc}")
+                 if writable:
+                     self._queue_readbacks(checks)
+                 self.events.put(ControllerEvent("error", str(exc), state=self._state.copy()))
+             self._audit.write("ERROR", request.command_id, line, str(exc))
+             return
+         rejected_replies: list[tuple[Reply, str, str]] = []
++        cancelled_enables: list[PendingCommand] = []
+         with self._condition:
+             for reply in replies:
+                 valid = self._state.apply(reply)
+@@ -250,8 +253,19 @@
+                     rejected_replies.append((reply, audit_kind, audit_reason))
+                     message = f"Controller reply [{reply.command_id}]: {reply.value or '(empty)'}"
+                     self._state.last_error = message
+-                    if writable or (self.pump_mode == "external" and reply.command_id in EXTERNAL_REQUIRED_READS):
+-                        self._disarm_locked()
++                    if writable:
++                        self._disarm_locked(f"Write reply rejected [{reply.command_id}]: {reply.value or '(empty)'}")
++                    elif self.pump_mode == "external" and reply.command_id in EXTERNAL_REQUIRED_READS:
++                        # Keep operator authorization for maintenance. The invalid
++                        # readback still blocks output at submission AND send time.
++                        # Do not leave a queued enable waiting for later recovery.
++                        kept = deque()
++                        for queued in self._commands:
++                            if requires_external_enable_check(queued.command_id, queued.argument):
++                                cancelled_enables.append(queued)
++                            else:
++                                kept.append(queued)
++                        self._commands = kept
+                     self.events.put(ControllerEvent("error", message, state=self._state.copy(), reply=reply))
+                 elif reply.command_id < 2000:
+                     recovering = not self._state.connected
+@@ -266,6 +280,10 @@
+             if writable:
+                 self._queue_readbacks(checks)
+             self._condition.notify_all()
++        for cancelled in cancelled_enables:
++            message = "Output request cancelled: required readback unavailable; ARM retained for maintenance."
++            self._audit.write("CANCEL", cancelled.command_id, format_command(cancelled.command_id, cancelled.argument), message)
++            self.events.put(ControllerEvent("log", message))
+         for reply in replies:
+             self._audit.write("RX", reply.command_id, reply.raw_line, "")
+         # Keep the received wire text even when it cannot update state. These
+@@ -339,7 +357,7 @@
+                     if self._state.connected and self._last_read_monotonic is not None and now - self._last_read_monotonic > self._state.stale_after_seconds:
+                         self._state.connected = False
+                         self._state.last_error = "Controller readback is stale"
+-                        self._disarm_locked()
++                        self._disarm_locked("Controller readback is stale.")
+                         self._emit_state()
+                     request = None
+                     if self._urgent:
+@@ -378,5 +396,5 @@
+             self.transport.close()
+             with self._condition:
+                 self._state.connected = self._state.transport_open = False
+-                self._disarm_locked()
++                self._disarm_locked(self._state.disarm_reason or self._state.last_error or "Disconnected.")
+                 self.events.put(ControllerEvent("connection", "Disconnected", state=self._state.copy()))

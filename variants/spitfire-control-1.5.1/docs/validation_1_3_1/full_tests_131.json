@@ -1,0 +1,11 @@
+{
+  "tests_run": 304,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": 304,
+  "skip_details": [],
+  "failure_details": [],
+  "offline_fence": true,
+  "real_hardware_io": false
+}

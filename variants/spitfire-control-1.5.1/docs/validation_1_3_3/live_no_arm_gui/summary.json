@@ -1,0 +1,110 @@
+{
+  "targeted_gui_result": {
+    "status": "PASS"
+  },
+  "checks": [
+    {
+      "utc": "2026-10-27T13:15:44.585983+00:00",
+      "monotonic": 9281.146394,
+      "name": "ARM API and button absent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T13:15:44.587385+00:00",
+      "monotonic": 9281.1477919,
+      "name": "Output remains blocked on actual required-read errors",
+      "passed": true,
+      "detail": "Empower opt-out is not confirmed by a recent controller readback."
+    },
+    {
+      "utc": "2026-10-27T13:15:44.588055+00:00",
+      "monotonic": 9281.1484676,
+      "name": "Main flag agrees with raw controller reply",
+      "passed": true,
+      "detail": "5"
+    },
+    {
+      "utc": "2026-10-27T13:15:44.588508+00:00",
+      "monotonic": 9281.1489132,
+      "name": "Key flag agrees with raw controller reply",
+      "passed": true,
+      "detail": "0X00334428"
+    },
+    {
+      "utc": "2026-10-27T13:15:44.589254+00:00",
+      "monotonic": 9281.1496603,
+      "name": "Fault diagnostics distinguish PC link and controller flag",
+      "passed": true,
+      "detail": "PC link: reply received. Controller Main comm flag: SET.\nTDG Key bit: current SET / fault register SET. Reset requests a new fault readback; it does not force flags clear."
+    },
+    {
+      "utc": "2026-10-27T13:15:45.329579+00:00",
+      "monotonic": 9281.8899773,
+      "name": "Clear Faults reaches confirmation without ARM",
+      "passed": true,
+      "detail": "None"
+    },
+    {
+      "utc": "2026-10-27T13:15:45.330116+00:00",
+      "monotonic": 9281.8905122,
+      "name": "Clear Faults has no permission-latch warning",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T13:15:45.543736+00:00",
+      "monotonic": 9282.1041341,
+      "name": "Both reset requests pass actual send-time checks",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T13:15:45.544920+00:00",
+      "monotonic": 9282.1053138,
+      "name": "GUI test sends only read packets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "utc": "2026-10-27T13:15:45.545319+00:00",
+      "monotonic": 9282.105711,
+      "name": "HV remains OFF",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "version": "1.3.3",
+  "actual_hardware_writes": 0,
+  "query_packets": 65,
+  "reset_requests_withheld": [
+    {
+      "utc": "2026-10-27T13:15:45.495037+00:00",
+      "monotonic": 9282.0554295,
+      "cid": 2049,
+      "line": "[2049]ECU:RESETFAULTS",
+      "send_time_checks_passed": true,
+      "sent": false
+    },
+    {
+      "utc": "2026-10-27T13:15:45.496670+00:00",
+      "monotonic": 9282.057062,
+      "cid": 2052,
+      "line": "[2052]TDG:RESFAULT",
+      "send_time_checks_passed": true,
+      "sent": false
+    }
+  ],
+  "hv_values": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "empty_required_replies": 4,
+  "settings_unchanged": true,
+  "duration_seconds": 13.965944899999158,
+  "query_test_min_interval_seconds": 0.2,
+  "product_scheduler_changed": false
+}

@@ -1,0 +1,422 @@
+[
+  {
+    "id": 1000,
+    "raw": "<1000>Spectra Physics,SASC,1.5.0",
+    "accepted_131_final_units": true,
+    "decoded": "Spectra Physics,SASC,1.5.0",
+    "raw_value_preserved": "Spectra Physics,SASC,1.5.0"
+  },
+  {
+    "id": 1021,
+    "raw": "<1021> 0",
+    "accepted_131_final_units": true,
+    "decoded": 0,
+    "raw_value_preserved": "0"
+  },
+  {
+    "id": 1015,
+    "raw": "<1015>0.000000",
+    "accepted_131_final_units": true,
+    "decoded": 0.0,
+    "raw_value_preserved": "0.000000"
+  },
+  {
+    "id": 1017,
+    "raw": "<1017>",
+    "accepted_131_final_units": false,
+    "decoded": null,
+    "raw_value_preserved": ""
+  },
+  {
+    "id": 1018,
+    "raw": "<1018> 90",
+    "accepted_131_final_units": true,
+    "decoded": 90,
+    "raw_value_preserved": "90"
+  },
+  {
+    "id": 1019,
+    "raw": "<1019>0.000000",
+    "accepted_131_final_units": true,
+    "decoded": 0.0,
+    "raw_value_preserved": "0.000000"
+  },
+  {
+    "id": 1020,
+    "raw": "<1020>",
+    "accepted_131_final_units": false,
+    "decoded": null,
+    "raw_value_preserved": ""
+  },
+  {
+    "id": 1022,
+    "raw": "<1022>",
+    "accepted_131_final_units": false,
+    "decoded": null,
+    "raw_value_preserved": ""
+  },
+  {
+    "id": 1023,
+    "raw": "<1023> 0X00334428",
+    "accepted_131_final_units": true,
+    "decoded": 3359784,
+    "raw_value_preserved": "0X00334428"
+  },
+  {
+    "id": 1024,
+    "raw": "<1024> 1000.0",
+    "accepted_131_final_units": true,
+    "decoded": 1000.0,
+    "raw_value_preserved": "1000.0"
+  },
+  {
+    "id": 1025,
+    "raw": "<1025> 1",
+    "accepted_131_final_units": true,
+    "decoded": 1,
+    "raw_value_preserved": "1"
+  },
+  {
+    "id": 1027,
+    "raw": "<1027> NEG DUAL ON",
+    "accepted_131_final_units": true,
+    "decoded": "NEG DUAL ON",
+    "raw_value_preserved": "NEG DUAL ON"
+  },
+  {
+    "id": 1028,
+    "raw": "<1028>0.000000",
+    "accepted_131_final_units": true,
+    "decoded": 0.0,
+    "raw_value_preserved": "0.000000"
+  },
+  {
+    "id": 1029,
+    "raw": "<1029>3089.000000",
+    "accepted_131_final_units": true,
+    "decoded": 3089.0,
+    "raw_value_preserved": "3089.000000"
+  },
+  {
+    "id": 1030,
+    "raw": "<1030>18.820000",
+    "accepted_131_final_units": true,
+    "decoded": 18.82,
+    "raw_value_preserved": "18.820000"
+  },
+  {
+    "id": 1031,
+    "raw": "<1031>4.040000",
+    "accepted_131_final_units": true,
+    "decoded": 4.04,
+    "raw_value_preserved": "4.040000"
+  },
+  {
+    "id": 1032,
+    "raw": "<1032>1.000000",
+    "accepted_131_final_units": true,
+    "decoded": 1.0,
+    "raw_value_preserved": "1.000000"
+  },
+  {
+    "id": 1033,
+    "raw": "<1033>0",
+    "accepted_131_final_units": true,
+    "decoded": 0,
+    "raw_value_preserved": "0"
+  },
+  {
+    "id": 1034,
+    "raw": "<1034> Spectra Physics,HED,����������������,04.001.002",
+    "accepted_131_final_units": true,
+    "decoded": "Spectra Physics,HED,����������������,04.001.002",
+    "raw_value_preserved": "Spectra Physics,HED,����������������,04.001.002"
+  },
+  {
+    "id": 1036,
+    "raw": "<1036> Spectra Physics,TDG-S,sn1021,04.001.003/01.003.092",
+    "accepted_131_final_units": true,
+    "decoded": "Spectra Physics,TDG-S,sn1021,04.001.003/01.003.092",
+    "raw_value_preserved": "Spectra Physics,TDG-S,sn1021,04.001.003/01.003.092"
+  },
+  {
+    "id": 1037,
+    "raw": "<1037>Spectra-Physics, TCU, 1.5.0",
+    "accepted_131_final_units": true,
+    "decoded": "Spectra-Physics, TCU, 1.5.0",
+    "raw_value_preserved": "Spectra-Physics, TCU, 1.5.0"
+  },
+  {
+    "id": 1039,
+    "raw": "<1039> 0X00334428",
+    "accepted_131_final_units": true,
+    "decoded": 3359784,
+    "raw_value_preserved": "0X00334428"
+  },
+  {
+    "id": 1040,
+    "raw": "<1040> 3.399 KV",
+    "accepted_131_final_units": true,
+    "decoded": 3399.0,
+    "raw_value_preserved": "3.399 KV"
+  },
+  {
+    "id": 1041,
+    "raw": "<1041> 3.139 KV",
+    "accepted_131_final_units": true,
+    "decoded": 3139.0,
+    "raw_value_preserved": "3.139 KV"
+  },
+  {
+    "id": 1042,
+    "raw": "<1042> 0.008 KV",
+    "accepted_131_final_units": true,
+    "decoded": 8.0,
+    "raw_value_preserved": "0.008 KV"
+  },
+  {
+    "id": 1043,
+    "raw": "<1043> 0.007 KV",
+    "accepted_131_final_units": true,
+    "decoded": 7.0,
+    "raw_value_preserved": "0.007 KV"
+  },
+  {
+    "id": 1044,
+    "raw": "<1044>",
+    "accepted_131_final_units": false,
+    "decoded": null,
+    "raw_value_preserved": ""
+  },
+  {
+    "id": 1045,
+    "raw": "<1045> DELAY 1 ON BWD NENA 85.82",
+    "accepted_131_final_units": true,
+    "decoded": 85.82,
+    "raw_value_preserved": "DELAY 1 ON BWD NENA 85.82"
+  },
+  {
+    "id": 1046,
+    "raw": "<1046> DELAY 2 ON BWD NENA 990.25",
+    "accepted_131_final_units": true,
+    "decoded": 990.25,
+    "raw_value_preserved": "DELAY 2 ON BWD NENA 990.25"
+  },
+  {
+    "id": 1047,
+    "raw": "<1047> DELAY 3 ON NBWD NENA 0.0",
+    "accepted_131_final_units": true,
+    "decoded": 0.0,
+    "raw_value_preserved": "DELAY 3 ON NBWD NENA 0.0"
+  },
+  {
+    "id": 1048,
+    "raw": "<1048> DELAY 4 ON NBWD NENA 0.0",
+    "accepted_131_final_units": true,
+    "decoded": 0.0,
+    "raw_value_preserved": "DELAY 4 ON NBWD NENA 0.0"
+  },
+  {
+    "id": 1049,
+    "raw": "<1049> DELAY 5 ON NBWD NENA 0.0",
+    "accepted_131_final_units": true,
+    "decoded": 0.0,
+    "raw_value_preserved": "DELAY 5 ON NBWD NENA 0.0"
+  },
+  {
+    "id": 1050,
+    "raw": "<1050> EXT",
+    "accepted_131_final_units": true,
+    "decoded": 1,
+    "raw_value_preserved": "EXT"
+  },
+  {
+    "id": 1051,
+    "raw": "<1051> EXT CONT 1000.0",
+    "accepted_131_final_units": true,
+    "decoded": 1,
+    "raw_value_preserved": "EXT CONT 1000.0"
+  },
+  {
+    "id": 1052,
+    "raw": "<1052> DELAY 0 3100.0",
+    "accepted_131_final_units": true,
+    "decoded": 3100.0,
+    "raw_value_preserved": "DELAY 0 3100.0"
+  },
+  {
+    "id": 1053,
+    "raw": "<1053> 1000.0",
+    "accepted_131_final_units": true,
+    "decoded": 1000.0,
+    "raw_value_preserved": "1000.0"
+  },
+  {
+    "id": 1054,
+    "raw": "<1054> NEG DUAL ON",
+    "accepted_131_final_units": true,
+    "decoded": "NEG DUAL ON",
+    "raw_value_preserved": "NEG DUAL ON"
+  },
+  {
+    "id": 1055,
+    "raw": "<1055> 0.008 MA",
+    "accepted_131_final_units": true,
+    "decoded": 0.008,
+    "raw_value_preserved": "0.008 MA"
+  },
+  {
+    "id": 1056,
+    "raw": "<1056> 0.009 MA",
+    "accepted_131_final_units": true,
+    "decoded": 0.009,
+    "raw_value_preserved": "0.009 MA"
+  },
+  {
+    "id": 1057,
+    "raw": "<1057>3089.000000",
+    "accepted_131_final_units": true,
+    "decoded": 3089.0,
+    "raw_value_preserved": "3089.000000"
+  },
+  {
+    "id": 1058,
+    "raw": "<1058> DELAY 1 ON BWD NENA 85.82",
+    "accepted_131_final_units": true,
+    "decoded": 85.82,
+    "raw_value_preserved": "DELAY 1 ON BWD NENA 85.82"
+  },
+  {
+    "id": 1059,
+    "raw": "<1059> DELAY 2 ON BWD NENA 990.25",
+    "accepted_131_final_units": true,
+    "decoded": 990.25,
+    "raw_value_preserved": "DELAY 2 ON BWD NENA 990.25"
+  },
+  {
+    "id": 1060,
+    "raw": "<1060> 90",
+    "accepted_131_final_units": true,
+    "decoded": 90,
+    "raw_value_preserved": "90"
+  },
+  {
+    "id": 1061,
+    "raw": "<1061> 0",
+    "accepted_131_final_units": true,
+    "decoded": 0,
+    "raw_value_preserved": "0"
+  },
+  {
+    "id": 1063,
+    "raw": "<1063> DELAY 1 ON BWD NENA 85.82",
+    "accepted_131_final_units": true,
+    "decoded": 85.82,
+    "raw_value_preserved": "DELAY 1 ON BWD NENA 85.82"
+  },
+  {
+    "id": 1064,
+    "raw": "<1064> DELAY 2 ON BWD NENA 990.25",
+    "accepted_131_final_units": true,
+    "decoded": 990.25,
+    "raw_value_preserved": "DELAY 2 ON BWD NENA 990.25"
+  },
+  {
+    "id": 1065,
+    "raw": "<1065> 0.0 MHz",
+    "accepted_131_final_units": true,
+    "decoded": 0.0,
+    "raw_value_preserved": "0.0 MHz"
+  },
+  {
+    "id": 1066,
+    "raw": "<1066> 0X00334408",
+    "accepted_131_final_units": true,
+    "decoded": 3359752,
+    "raw_value_preserved": "0X00334408"
+  },
+  {
+    "id": 1067,
+    "raw": "<1067> EXT",
+    "accepted_131_final_units": true,
+    "decoded": 1,
+    "raw_value_preserved": "EXT"
+  },
+  {
+    "id": 1068,
+    "raw": "<1068>0",
+    "accepted_131_final_units": true,
+    "decoded": 0,
+    "raw_value_preserved": "0"
+  },
+  {
+    "id": 1069,
+    "raw": "<1069>",
+    "accepted_131_final_units": false,
+    "decoded": null,
+    "raw_value_preserved": ""
+  },
+  {
+    "id": 1079,
+    "raw": "<1079>",
+    "accepted_131_final_units": false,
+    "decoded": null,
+    "raw_value_preserved": ""
+  },
+  {
+    "id": 1080,
+    "raw": "<1080> EXT CONT 1000.0",
+    "accepted_131_final_units": true,
+    "decoded": 0,
+    "raw_value_preserved": "EXT CONT 1000.0"
+  },
+  {
+    "id": 1083,
+    "raw": "<1083>",
+    "accepted_131_final_units": false,
+    "decoded": null,
+    "raw_value_preserved": ""
+  },
+  {
+    "id": 1084,
+    "raw": "<1084>18.980000",
+    "accepted_131_final_units": true,
+    "decoded": 18.98,
+    "raw_value_preserved": "18.980000"
+  },
+  {
+    "id": 1085,
+    "raw": "<1085>3",
+    "accepted_131_final_units": true,
+    "decoded": 3,
+    "raw_value_preserved": "3"
+  },
+  {
+    "id": 1086,
+    "raw": "<1086>0",
+    "accepted_131_final_units": true,
+    "decoded": 0,
+    "raw_value_preserved": "0"
+  },
+  {
+    "id": 1087,
+    "raw": "<1087>0",
+    "accepted_131_final_units": true,
+    "decoded": 0,
+    "raw_value_preserved": "0"
+  },
+  {
+    "id": 1088,
+    "raw": "<1088>3089.000000",
+    "accepted_131_final_units": true,
+    "decoded": 3089.0,
+    "raw_value_preserved": "3089.000000"
+  },
+  {
+    "id": 1089,
+    "raw": "<1089>5",
+    "accepted_131_final_units": true,
+    "decoded": 5,
+    "raw_value_preserved": "5"
+  }
+]

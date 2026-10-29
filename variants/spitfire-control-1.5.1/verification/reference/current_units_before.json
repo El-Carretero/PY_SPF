@@ -1,0 +1,19 @@
+{
+  "current_write_17A": 17.0,
+  "readbacks": [
+    {
+      "id": 1007,
+      "raw": "170.00",
+      "valid": true,
+      "python_value": 170.0,
+      "original_gui_value": 17.0
+    },
+    {
+      "id": 1009,
+      "raw": "170.00",
+      "valid": true,
+      "python_value": 170.0,
+      "original_gui_value": 17.0
+    }
+  ]
+}
