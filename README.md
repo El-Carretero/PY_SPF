@@ -6,6 +6,7 @@
 
 - [실행 방법과 파일 구성](README.ko.md)
 - [원본 분석·동일성 검증 범위](ANALYSIS.ko.md)
+- [로깅 기능·저장 파일 확인 결과](analysis/logging.ko.md)
 - [전체 소스·분석 패키지 ZIP](output/Spitfire_Python_1_6_0.zip)
 - [설치용 Python wheel](output/spitfire_gui_reconstruction-1.6.0.post1-py3-none-any.whl)
 - [검증 결과 요약](analysis/validation_summary.json)

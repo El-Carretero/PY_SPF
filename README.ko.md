@@ -70,7 +70,7 @@ python -m spitfire --backend qt --demo --tcp-port 0 --render-dir previews
 - 장치와 UDP로 통신하고 명령 ID 및 응답 ID를 유지합니다. 원본에 COM 변수들이 남아 있지만 실제 활성 경로는 UDP입니다.
 - 우선순위 큐, 초기 조회 순서, 주기 조회, 재연결, 응답별 상태 해석과 컨트롤 갱신을 분리했습니다.
 - 키보드 모드 전환과 `C:\config.sp`의 기존 접근 단계 규칙을 유지합니다. `--config`로 경로만 바꿀 수 있습니다.
-- 로깅은 원본과 같은 두 값을 `datalog.csv`에 기록합니다. `--data-dir`로 기록 위치를 바꿉니다.
+- Programmer 패널의 `Data Logging`을 On으로 바꾸면 약 1초마다 전류(A), LBO 온도(°C)를 `datalog.csv` 끝에 추가합니다. 기본값은 Off이며 헤더·시간은 기록하지 않습니다. 기본 저장 위치는 현재 작업 폴더이고, Python에서는 `--data-dir`로 바꿉니다. [원본 대조 및 검증 결과](analysis/logging.ko.md)를 참고하세요.
 - 원본 TCP 서버의 네 가지 상태 조회와 한 클라이언트 접속 동작을 구현했습니다. `--tcp-port 0`은 서버를 비활성화합니다.
 
 ## 파일 구성

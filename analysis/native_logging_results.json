@@ -1,0 +1,540 @@
+{
+  "method": "Original x86 logger in Unicorn with typed CVI reads and in-memory CRT I/O; Python dispatch plus temporary-file append",
+  "limitations": "The NI CRT formatter and Windows text-mode newline translation are intercepted, not executed. Logical lines are compared. No physical hardware or Windows process is used.",
+  "source_sha256": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b",
+  "callback_address": "0x00412e60",
+  "case_count": 14,
+  "passed": 14,
+  "cases": [
+    {
+      "label": "default_off",
+      "event": 15,
+      "enabled": 0,
+      "sensed_current_A": 12.345,
+      "lbo_temperature_C": 36.789,
+      "initial_text": "",
+      "open_failure": false,
+      "native_operations": [
+        {
+          "call": "GetCtrlVal",
+          "panel": 1,
+          "control": 3,
+          "type": "int32"
+        }
+      ],
+      "native_logical_file_text": "",
+      "python_actions": [],
+      "python_logical_file_text": "",
+      "checks": {
+        "call_sequence": true,
+        "file_created_only_if_enabled": true,
+        "dispatch_matches_native_write": true,
+        "file_text_matches": true
+      },
+      "pass": true
+    },
+    {
+      "label": "normal",
+      "event": 15,
+      "enabled": 1,
+      "sensed_current_A": 12.345,
+      "lbo_temperature_C": 36.789,
+      "initial_text": "",
+      "open_failure": false,
+      "native_operations": [
+        {
+          "call": "GetCtrlVal",
+          "panel": 1,
+          "control": 3,
+          "type": "int32"
+        },
+        {
+          "call": "GetCtrlVal",
+          "panel": 9,
+          "control": 2,
+          "type": "float32"
+        },
+        {
+          "call": "GetCtrlVal",
+          "panel": 8,
+          "control": 15,
+          "type": "float32"
+        },
+        {
+          "call": "fopen",
+          "path": "datalog.csv",
+          "mode": "a+",
+          "success": true
+        },
+        {
+          "call": "fprintf",
+          "format": "%.2f, %.2f\n",
+          "arguments": [
+            12.345000267028809,
+            36.78900146484375
+          ],
+          "text": "12.35, 36.79\n"
+        },
+        {
+          "call": "fclose"
+        }
+      ],
+      "native_logical_file_text": "12.35, 36.79\n",
+      "python_actions": [
+        {
+          "kind": "append_file",
+          "target": "datalog.csv",
+          "value": "12.35, 36.79\n"
+        }
+      ],
+      "python_logical_file_text": "12.35, 36.79\n",
+      "checks": {
+        "call_sequence": true,
+        "relative_path_and_append_mode": true,
+        "file_created_only_if_enabled": true,
+        "dispatch_matches_native_write": true,
+        "file_text_matches": true
+      },
+      "pass": true
+    },
+    {
+      "label": "negative",
+      "event": 15,
+      "enabled": 1,
+      "sensed_current_A": -1.25,
+      "lbo_temperature_C": -9.875,
+      "initial_text": "",
+      "open_failure": false,
+      "native_operations": [
+        {
+          "call": "GetCtrlVal",
+          "panel": 1,
+          "control": 3,
+          "type": "int32"
+        },
+        {
+          "call": "GetCtrlVal",
+          "panel": 9,
+          "control": 2,
+          "type": "float32"
+        },
+        {
+          "call": "GetCtrlVal",
+          "panel": 8,
+          "control": 15,
+          "type": "float32"
+        },
+        {
+          "call": "fopen",
+          "path": "datalog.csv",
+          "mode": "a+",
+          "success": true
+        },
+        {
+          "call": "fprintf",
+          "format": "%.2f, %.2f\n",
+          "arguments": [
+            -1.25,
+            -9.875
+          ],
+          "text": "-1.25, -9.88\n"
+        },
+        {
+          "call": "fclose"
+        }
+      ],
+      "native_logical_file_text": "-1.25, -9.88\n",
+      "python_actions": [
+        {
+          "kind": "append_file",
+          "target": "datalog.csv",
+          "value": "-1.25, -9.88\n"
+        }
+      ],
+      "python_logical_file_text": "-1.25, -9.88\n",
+      "checks": {
+        "call_sequence": true,
+        "relative_path_and_append_mode": true,
+        "file_created_only_if_enabled": true,
+        "dispatch_matches_native_write": true,
+        "file_text_matches": true
+      },
+      "pass": true
+    },
+    {
+      "label": "float32_rounding",
+      "event": 15,
+      "enabled": 1,
+      "sensed_current_A": 16.055,
+      "lbo_temperature_C": 8.045,
+      "initial_text": "",
+      "open_failure": false,
+      "native_operations": [
+        {
+          "call": "GetCtrlVal",
+          "panel": 1,
+          "control": 3,
+          "type": "int32"
+        },
+        {
+          "call": "GetCtrlVal",
+          "panel": 9,
+          "control": 2,
+          "type": "float32"
+        },
+        {
+          "call": "GetCtrlVal",
+          "panel": 8,
+          "control": 15,
+          "type": "float32"
+        },
+        {
+          "call": "fopen",
+          "path": "datalog.csv",
+          "mode": "a+",
+          "success": true
+        },
+        {
+          "call": "fprintf",
+          "format": "%.2f, %.2f\n",
+          "arguments": [
+            16.05500030517578,
+            8.045000076293945
+          ],
+          "text": "16.06, 8.05\n"
+        },
+        {
+          "call": "fclose"
+        }
+      ],
+      "native_logical_file_text": "16.06, 8.05\n",
+      "python_actions": [
+        {
+          "kind": "append_file",
+          "target": "datalog.csv",
+          "value": "16.06, 8.05\n"
+        }
+      ],
+      "python_logical_file_text": "16.06, 8.05\n",
+      "checks": {
+        "call_sequence": true,
+        "relative_path_and_append_mode": true,
+        "file_created_only_if_enabled": true,
+        "dispatch_matches_native_write": true,
+        "file_text_matches": true
+      },
+      "pass": true
+    },
+    {
+      "label": "zero",
+      "event": 15,
+      "enabled": 1,
+      "sensed_current_A": 0,
+      "lbo_temperature_C": 0,
+      "initial_text": "",
+      "open_failure": false,
+      "native_operations": [
+        {
+          "call": "GetCtrlVal",
+          "panel": 1,
+          "control": 3,
+          "type": "int32"
+        },
+        {
+          "call": "GetCtrlVal",
+          "panel": 9,
+          "control": 2,
+          "type": "float32"
+        },
+        {
+          "call": "GetCtrlVal",
+          "panel": 8,
+          "control": 15,
+          "type": "float32"
+        },
+        {
+          "call": "fopen",
+          "path": "datalog.csv",
+          "mode": "a+",
+          "success": true
+        },
+        {
+          "call": "fprintf",
+          "format": "%.2f, %.2f\n",
+          "arguments": [
+            0.0,
+            0.0
+          ],
+          "text": "0.00, 0.00\n"
+        },
+        {
+          "call": "fclose"
+        }
+      ],
+      "native_logical_file_text": "0.00, 0.00\n",
+      "python_actions": [
+        {
+          "kind": "append_file",
+          "target": "datalog.csv",
+          "value": "0.00, 0.00\n"
+        }
+      ],
+      "python_logical_file_text": "0.00, 0.00\n",
+      "checks": {
+        "call_sequence": true,
+        "relative_path_and_append_mode": true,
+        "file_created_only_if_enabled": true,
+        "dispatch_matches_native_write": true,
+        "file_text_matches": true
+      },
+      "pass": true
+    },
+    {
+      "label": "append_existing",
+      "event": 15,
+      "enabled": 1,
+      "sensed_current_A": 12.345,
+      "lbo_temperature_C": 36.789,
+      "initial_text": "1.00, 20.00\n",
+      "open_failure": false,
+      "native_operations": [
+        {
+          "call": "GetCtrlVal",
+          "panel": 1,
+          "control": 3,
+          "type": "int32"
+        },
+        {
+          "call": "GetCtrlVal",
+          "panel": 9,
+          "control": 2,
+          "type": "float32"
+        },
+        {
+          "call": "GetCtrlVal",
+          "panel": 8,
+          "control": 15,
+          "type": "float32"
+        },
+        {
+          "call": "fopen",
+          "path": "datalog.csv",
+          "mode": "a+",
+          "success": true
+        },
+        {
+          "call": "fprintf",
+          "format": "%.2f, %.2f\n",
+          "arguments": [
+            12.345000267028809,
+            36.78900146484375
+          ],
+          "text": "12.35, 36.79\n"
+        },
+        {
+          "call": "fclose"
+        }
+      ],
+      "native_logical_file_text": "1.00, 20.00\n12.35, 36.79\n",
+      "python_actions": [
+        {
+          "kind": "append_file",
+          "target": "datalog.csv",
+          "value": "12.35, 36.79\n"
+        }
+      ],
+      "python_logical_file_text": "1.00, 20.00\n12.35, 36.79\n",
+      "checks": {
+        "call_sequence": true,
+        "relative_path_and_append_mode": true,
+        "file_created_only_if_enabled": true,
+        "dispatch_matches_native_write": true,
+        "file_text_matches": true
+      },
+      "pass": true
+    },
+    {
+      "label": "native_fopen_failure",
+      "event": 15,
+      "enabled": 1,
+      "sensed_current_A": 12.345,
+      "lbo_temperature_C": 36.789,
+      "initial_text": "unchanged\n",
+      "open_failure": true,
+      "native_operations": [
+        {
+          "call": "GetCtrlVal",
+          "panel": 1,
+          "control": 3,
+          "type": "int32"
+        },
+        {
+          "call": "GetCtrlVal",
+          "panel": 9,
+          "control": 2,
+          "type": "float32"
+        },
+        {
+          "call": "GetCtrlVal",
+          "panel": 8,
+          "control": 15,
+          "type": "float32"
+        },
+        {
+          "call": "fopen",
+          "path": "datalog.csv",
+          "mode": "a+",
+          "success": false
+        }
+      ],
+      "native_logical_file_text": "unchanged\n",
+      "comparison_scope": "Native fopen failure only; Python not compared",
+      "checks": {
+        "call_sequence": true,
+        "relative_path_and_append_mode": true,
+        "failure_leaves_file_unchanged": true
+      },
+      "pass": true
+    },
+    {
+      "label": "ignored_event_1",
+      "event": 1,
+      "enabled": 1,
+      "sensed_current_A": 12.345,
+      "lbo_temperature_C": 36.789,
+      "initial_text": "",
+      "open_failure": false,
+      "native_operations": [],
+      "native_logical_file_text": "",
+      "python_actions": [],
+      "python_logical_file_text": "",
+      "checks": {
+        "call_sequence": true,
+        "file_created_only_if_enabled": true,
+        "dispatch_matches_native_write": true,
+        "file_text_matches": true
+      },
+      "pass": true
+    },
+    {
+      "label": "ignored_event_2",
+      "event": 2,
+      "enabled": 1,
+      "sensed_current_A": 12.345,
+      "lbo_temperature_C": 36.789,
+      "initial_text": "",
+      "open_failure": false,
+      "native_operations": [],
+      "native_logical_file_text": "",
+      "python_actions": [],
+      "python_logical_file_text": "",
+      "checks": {
+        "call_sequence": true,
+        "file_created_only_if_enabled": true,
+        "dispatch_matches_native_write": true,
+        "file_text_matches": true
+      },
+      "pass": true
+    },
+    {
+      "label": "ignored_event_3",
+      "event": 3,
+      "enabled": 1,
+      "sensed_current_A": 12.345,
+      "lbo_temperature_C": 36.789,
+      "initial_text": "",
+      "open_failure": false,
+      "native_operations": [],
+      "native_logical_file_text": "",
+      "python_actions": [],
+      "python_logical_file_text": "",
+      "checks": {
+        "call_sequence": true,
+        "file_created_only_if_enabled": true,
+        "dispatch_matches_native_write": true,
+        "file_text_matches": true
+      },
+      "pass": true
+    },
+    {
+      "label": "ignored_event_7",
+      "event": 7,
+      "enabled": 1,
+      "sensed_current_A": 12.345,
+      "lbo_temperature_C": 36.789,
+      "initial_text": "",
+      "open_failure": false,
+      "native_operations": [],
+      "native_logical_file_text": "",
+      "python_actions": [],
+      "python_logical_file_text": "",
+      "checks": {
+        "call_sequence": true,
+        "file_created_only_if_enabled": true,
+        "dispatch_matches_native_write": true,
+        "file_text_matches": true
+      },
+      "pass": true
+    },
+    {
+      "label": "ignored_event_11",
+      "event": 11,
+      "enabled": 1,
+      "sensed_current_A": 12.345,
+      "lbo_temperature_C": 36.789,
+      "initial_text": "",
+      "open_failure": false,
+      "native_operations": [],
+      "native_logical_file_text": "",
+      "python_actions": [],
+      "python_logical_file_text": "",
+      "checks": {
+        "call_sequence": true,
+        "file_created_only_if_enabled": true,
+        "dispatch_matches_native_write": true,
+        "file_text_matches": true
+      },
+      "pass": true
+    },
+    {
+      "label": "ignored_event_14",
+      "event": 14,
+      "enabled": 1,
+      "sensed_current_A": 12.345,
+      "lbo_temperature_C": 36.789,
+      "initial_text": "",
+      "open_failure": false,
+      "native_operations": [],
+      "native_logical_file_text": "",
+      "python_actions": [],
+      "python_logical_file_text": "",
+      "checks": {
+        "call_sequence": true,
+        "file_created_only_if_enabled": true,
+        "dispatch_matches_native_write": true,
+        "file_text_matches": true
+      },
+      "pass": true
+    },
+    {
+      "label": "ignored_event_16",
+      "event": 16,
+      "enabled": 1,
+      "sensed_current_A": 12.345,
+      "lbo_temperature_C": 36.789,
+      "initial_text": "",
+      "open_failure": false,
+      "native_operations": [],
+      "native_logical_file_text": "",
+      "python_actions": [],
+      "python_logical_file_text": "",
+      "checks": {
+        "call_sequence": true,
+        "file_created_only_if_enabled": true,
+        "dispatch_matches_native_write": true,
+        "file_text_matches": true
+      },
+      "pass": true
+    }
+  ]
+}

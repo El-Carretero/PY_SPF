@@ -1,0 +1,30 @@
+{
+  "uploaded_zip": "Spitfire_GUI_v_1_6_0-20261029T111415Z-1-001.zip",
+  "uploaded_zip_sha256": "e9861dd0c88dfb2ccf0889d6008b6853c5dc870f20b1936bfb2a8356045621c2",
+  "files": [
+    {
+      "name": "SPITFIRE.EXE",
+      "size": 271360,
+      "sha256": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b",
+      "matches_existing_reference": true
+    },
+    {
+      "name": "SPITFIRE.UIR",
+      "size": 152636,
+      "sha256": "1c5b82a8cf528934bffffe0989a73312059b07a15fc3056df8fbeb41607bd67b",
+      "matches_existing_reference": true
+    },
+    {
+      "name": "SERVER.UIR",
+      "size": 5946,
+      "sha256": "75188db518d04a27e729ca01532695c618f64b3cff49f25b6f774e8311170d55",
+      "matches_existing_reference": true
+    },
+    {
+      "name": "SPITFIRE.EXE2",
+      "size": 271360,
+      "sha256": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b",
+      "matches_existing_reference": true
+    }
+  ]
+}
