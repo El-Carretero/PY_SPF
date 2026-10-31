@@ -55,6 +55,10 @@ def main():
     }
     (output / 'environment.json').write_text(json.dumps(environment, ensure_ascii=False, indent=2), encoding='utf-8')
     env = dict(os.environ, QT_QPA_PLATFORM='offscreen', PYTHONUTF8='1', PYTHONUNBUFFERED='1')
+    if opts.profile == 'portable' and sys.platform == 'win32':
+        # Windows offscreen uses a basic font database rather than the desktop's.
+        env['QT_QPA_FONTDIR'] = str(Path(os.environ.get('WINDIR', 'C:\\Windows')) / 'Fonts')
+        environment['qt_font_dir'] = env['QT_QPA_FONTDIR']
     phases = []
 
     def phase(name, args, *, cwd=ROOT, verify=None):

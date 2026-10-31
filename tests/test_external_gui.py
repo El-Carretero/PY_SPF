@@ -4,9 +4,10 @@ os.environ.setdefault('QT_QPA_PLATFORM', 'offscreen')
 import pytest
 pytest.importorskip('PySide6')
 from PySide6.QtCore import QPoint, Qt, QEvent
+from PySide6.QtGui import QFontMetrics
 from PySide6.QtTest import QTest
 from PySide6.QtWidgets import QApplication
-from spitfire.gui import SpitfireWindow
+from spitfire.gui import SpitfireWindow, font
 from spitfire.external_ui import HIDDEN_CONTROLS
 
 
@@ -76,3 +77,12 @@ def test_status_explains_pc_scope_and_remains_visible(window):
     window.set_external_status('RUN blocked: external pump opt-out is unknown')
     assert window.external_status.isVisible()
     assert 'unknown' in window.external_status.text()
+
+
+def test_critical_text_fonts_have_ascii_glyphs(window):
+    # Offscreen Windows can create valid PNGs containing only missing-glyph boxes.
+    fonts = [window.external_status.font()]
+    fonts.extend(font(window.panels[6].controls[cid]['attrs'], 'label_') for cid in (10, 11, 50))
+    for selected in fonts:
+        metrics = QFontMetrics(selected)
+        assert all(metrics.inFont(char) for char in 'PC RUN STOP connected 0123456789'), selected.family()

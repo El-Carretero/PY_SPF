@@ -20,6 +20,8 @@ Native job은 `.[test]`만 설치한다. PySide6 Windows x86 wheel을 요구하�
 Linux runner에는 Qt offscreen에서도 필요한 `libegl1`, `libgl1`, `libopengl0`를 명시적으로 설치한다.
 기존 CSV 시험은 Windows CRLF와 Linux LF를 텍스트 읽기로 정규화한 뒤 동일한 숫자·구분자·헤더 부재를 확인한다.
 CSV를 쓰는 프로그램 동작은 그대로 유지한다.
+Windows offscreen은 `QT_QPA_FONTDIR`로 시스템 Fonts 폴더를 지정한다. PNG 생성만으로 글자 표시를
+검증했다고 판단하지 않도록 RUN/STOP/FAULT/상태 글꼴의 ASCII glyph 지원도 시험한다.
 
 `main`, `feature/empower-independent`, `ci/**` 브랜치의 push와 main/External 브랜치를 대상으로 하는 PR에서
 실행한다. `workflow_dispatch`도 정의되어 있다. 수동 실행 버튼은 워크플로가 기본 브랜치에 있어야 표시되므로,
@@ -74,7 +76,7 @@ python -m pip install -c requirements-ci.txt ".[test]"
 python tools/ci_validate.py --profile native-boundary --output artifacts/local-native-x86
 ```
 
-2026-10-31 개발 환경의 Linux Python 3.12.14에서 전체 **152개 + 71개 subtest**, 헤드리스 데모 및
+2026-10-31 개발 환경의 Linux Python 3.12.14에서 전체 **153개 + 71개 subtest**, 헤드리스 데모 및
 Qt 8개 패널 렌더를 확인했다. 이것은 로컬 실행 기록이며 GitHub-hosted Windows/Linux 실행 결과와 구분한다.
 GitHub 실행 상태는 위 Actions의 해당 커밋 실행 결과가 기준이다.
 
