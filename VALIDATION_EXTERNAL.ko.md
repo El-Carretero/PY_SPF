@@ -1,5 +1,8 @@
 # External Control 2.0.0 검증 기록
 
+후속 Windows/Linux 자동 검증의 구성·재현·결과 위치는 [CI_VALIDATION.ko.md](CI_VALIDATION.ko.md)를 참조한다.
+아래 수치와 환경은 2026-10-30 당시의 기록이며 GitHub Actions 실행 결과가 아니다.
+
 검증일: 2026-10-30 (Asia/Seoul). 기준은 원본 재구현 커밋 `2faf7e16f410096f9fe8c987a680cb128dfb5ba2`이며,
 이번 브랜치는 Empower 독립형 동작을 추가한 `spitfire-external-control` 2.0.0이다.
 

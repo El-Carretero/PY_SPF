@@ -1,0 +1,91 @@
+name: External Control validation
+
+on:
+  push:
+    branches: [main, feature/empower-independent, 'ci/**']
+  pull_request:
+    branches: [main, feature/empower-independent]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: external-validation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  portable:
+    name: Qt and communications (${{ matrix.os }}, Python ${{ matrix.python }}, x64)
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2022, ubuntu-24.04]
+        python: ['3.12']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    env:
+      QT_QPA_PLATFORM: offscreen
+      PYTHONUTF8: '1'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+          architecture: x64
+          cache: pip
+          cache-dependency-path: |
+            pyproject.toml
+            requirements-ci.txt
+      - name: Install package, Qt, and test dependencies
+        run: python -m pip install -c requirements-ci.txt ".[qt,test]"
+      - name: Check installed dependencies
+        run: python -m pip check
+      - name: Run regression, simulator demo, and Qt offscreen rendering
+        run: python tools/ci_validate.py --profile portable --output artifacts/${{ runner.os }}-py${{ matrix.python }}-x64
+      - name: Preserve OS-specific evidence, including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-${{ runner.os }}-py${{ matrix.python }}-x64-${{ github.run_attempt }}
+          path: artifacts/${{ runner.os }}-py${{ matrix.python }}-x64/
+          if-no-files-found: warn
+          retention-days: 30
+
+  native-boundary:
+    name: Native NI boundary (Windows, Python 3.12, x86, no NI DLL load)
+    runs-on: windows-2022
+    timeout-minutes: 10
+    env:
+      PYTHONUTF8: '1'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          architecture: x86
+          cache: pip
+          cache-dependency-path: |
+            pyproject.toml
+            requirements-ci.txt
+      # PySide6 has no Windows x86 wheel; this job deliberately installs no Qt.
+      - name: Install package and Python-only test dependencies
+        run: python -m pip install -c requirements-ci.txt ".[test]"
+      - name: Check installed dependencies
+        run: python -m pip check
+      - name: Check x86 Native adapter boundaries and headless simulator
+        run: python tools/ci_validate.py --profile native-boundary --output artifacts/Windows-py3.12-x86-native-boundary
+      - name: Preserve Native boundary evidence separately
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-Windows-py3.12-x86-native-boundary-${{ github.run_attempt }}
+          path: artifacts/Windows-py3.12-x86-native-boundary/
+          if-no-files-found: warn
+          retention-days: 30

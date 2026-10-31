@@ -1,0 +1,4 @@
+# Reproduce the previously recorded pytest/Qt baseline on both operating systems.
+# Constraints apply only to packages selected by the extras (no Qt in x86 job).
+pytest==9.2.0
+PySide6==6.12.0
