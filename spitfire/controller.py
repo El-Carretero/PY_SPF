@@ -13,12 +13,14 @@ from .protocol import PacketBuffer, UDPTransport
 from .scheduling import Scheduler, StartupAttempts, Request
 from .settings import AccessKeySequence, read_max_level
 from .simulator import SimulatedTransport
+from .diagnostics import CommunicationLog, notify_observer
 
 
 class Controller:
     def __init__(self, view, *, demo=False, host="10.19.70.13", port=1024,
                  local_port=1024, config=None, data_dir=None, tcp_port=1001,
-                 tcp_host="127.0.0.1", clock=time.monotonic, request_timeout=2.0):
+                 tcp_host="127.0.0.1", clock=time.monotonic, request_timeout=2.0,
+                 diagnostic_config=None):
         self.view = view
         self.clock = clock
         self.demo = demo
@@ -57,6 +59,60 @@ class Controller:
         self._stop_after_connect = False
         self.run_status = "PC output unconfirmed"
         self.state['pc_output_status'] = self.run_status
+        self.diagnostics = None
+        self._diagnostic_error = None
+        self._diagnostic_request_seq = 0
+        self._diagnostic_connection = 0
+        self._diagnostic_request = {}
+        self._diagnostic_reset_seq = 0
+        self._diagnostic_resets = {}
+        self._diagnostic_snapshot = None
+        if diagnostic_config is not None:
+            try:
+                self.diagnostics = CommunicationLog(diagnostic_config,
+                    mode='simulator' if demo else 'udp')
+                self._diagnose('controller_config', host=host, port=port,
+                               local_port=local_port, request_timeout=request_timeout)
+            except Exception as exc:
+                self._diagnostic_error = str(exc)
+                self.log('diagnostic error', str(exc))
+
+    @property
+    def diagnostic_status(self):
+        if self.diagnostics is None:
+            return dict(enabled=False, error=self._diagnostic_error)
+        return dict(enabled=True, **self.diagnostics.status)
+
+    def _diagnose(self, event, **fields):
+        if self.diagnostics is not None:
+            notify_observer(self.diagnostics.emit, event,
+                            connection_id=self._diagnostic_connection, **fields)
+
+    def _transport_event(self, event, **fields):
+        # Active request is context only: UDP IDs do not identify transactions.
+        self._diagnose(event, mode='simulator' if self.demo else 'udp',
+                       active_request_seq=self._diagnostic_request.get('request_seq'), **fields)
+
+    def _observe_state(self):
+        if self.diagnostics is None:
+            return
+        reads, now = self.decoder.readbacks, self.clock()
+        snapshot = dict(connected=bool(self.state.get('connected')),
+                        fault_reason=reads.fault_reason(now),
+                        readbacks={str(tag): dict(value=reads.value(tag), fresh=reads.is_fresh(tag, now))
+                                   for tag in (1015, 1019, 1028, 1039, 1066, 1068, 1088, 1089)})
+        if snapshot != self._diagnostic_snapshot:
+            self._diagnostic_snapshot = snapshot
+            self._diagnose('state', **snapshot)
+
+    def _prune_diagnostic_resets(self, reason='removed_from_queue'):
+        if not self._diagnostic_resets:
+            return
+        pending = {id(r) for q in (self.scheduler.inside, self.scheduler.outside, self.scheduler.urgent) for r in q}
+        for key in list(self._diagnostic_resets):
+            if key not in pending:
+                self._diagnose('reset_step_cancelled', reason=reason,
+                               **self._diagnostic_resets.pop(key)[1])
 
     def read(self, panel, control):
         try:
@@ -77,6 +133,7 @@ class Controller:
 
     def log(self, kind, payload):
         self.events.append((self.clock(), kind, payload))
+        self._diagnose('controller_event', kind=kind, message=str(payload))
         if hasattr(self.view, "log"):
             self.view.log(f"{kind}: {payload}")
 
@@ -114,6 +171,7 @@ class Controller:
         self.connect()
 
     def connect(self):
+        self._diagnose('connection', phase='reconnect_requested' if self.transport else 'connect_requested')
         self._stop_after_connect = bool(self._stop_after_connect or self._stop_required or self._pc_run or self._pc_running or self._pc_stop)
         self.cancel_run_hold()
         self._pc_run = None
@@ -124,9 +182,15 @@ class Controller:
         if self.transport:
             self.transport.close()
         self.scheduler.clear()
+        self._prune_diagnostic_resets('connection_replaced')
+        if self._diagnostic_request:
+            self._diagnose('request_interrupted', reason='connection_replaced', **self._diagnostic_request)
+        self._diagnostic_request = {}
+        self._diagnostic_connection += 1
         self.scheduler.last_received = self.clock()
         self.scheduler.hold = True
         self.state["connected"] = False
+        self._observe_state()
         self.set_value(6, 54, "Loading data, please wait")
         self.transport = None
         self.startup = None
@@ -137,11 +201,14 @@ class Controller:
     def _attempt_open(self):
         transport = SimulatedTransport() if self.demo else UDPTransport(
             self.host, self.port, self.local_port, timeout=0.0)
+        if self.diagnostics is not None:
+            transport.observer = self._transport_event
         try:
             transport.open()
         except OSError as exc:
             transport.close()
             self._opening_error = str(exc)
+            self._diagnose('connection', phase='open_failed', error=str(exc))
             return False
         self.transport = transport
         if self._stop_after_connect:
@@ -158,6 +225,7 @@ class Controller:
         try:
             self._send(self.startup.begin(self.clock()))
         except OSError as exc:
+            self._diagnose('request_send_failed', reason=str(exc), **self._diagnostic_request)
             transport.close()
             self.transport = None
             self.startup = None
@@ -168,6 +236,12 @@ class Controller:
 
     def _send(self, request):
         # Recheck policy and live conditions at the last point before transport.
+        if self.diagnostics is not None:
+            self._diagnostic_request_seq += 1
+            self._diagnostic_request = dict(request_seq=self._diagnostic_request_seq,
+                request_id=request.tag, command=request.message,
+                **self._diagnostic_resets.pop(id(request), (None, {}))[1])
+            self._diagnose('request_attempt', **self._diagnostic_request)
         self._validate_write(request.tag, request.parameter, sequence_step=True)
         self.transport.discard_pending()
         packet = PacketBuffer()
@@ -177,6 +251,7 @@ class Controller:
         if data is not None:
             self.transport.send_packet(data)
         self.log("TX", request.message)
+        self._diagnose('request_sent', **self._diagnostic_request)
         if request.tag == 2019:
             channel, setting = request.parameter.strip().upper().split()
             channel = int(channel)
@@ -189,6 +264,7 @@ class Controller:
     def tick(self):
         if not self.running:
             return
+        self._prune_diagnostic_resets()
         now = self.clock()
         if self.state.get('evnt_cmt') and self._last_hold_tick is not None and now - self._last_hold_tick > 0.5:
             self.cancel_run_hold()
@@ -219,11 +295,16 @@ class Controller:
                 self.log("UDP error", str(exc))
         if self.startup and not self.startup.complete:
             if self.startup.should_advance(self.clock()):
+                self._diagnose('startup_result', attempt=self.startup.attempts,
+                               outcome='reply' if self.startup.received else 'timeout',
+                               **self._diagnostic_request)
+                self._diagnostic_request = {}
                 success = self.startup.finish_attempt()
                 if not self.startup.complete:
                     try:
                         self._send(self.startup.begin(self.clock()))
                     except OSError as exc:
+                        self._diagnose('request_send_failed', reason=str(exc), **self._diagnostic_request)
                         self.log('UDP error', str(exc))
                 else:
                     self.scheduler.hold = False
@@ -280,31 +361,49 @@ class Controller:
         self.log("RX", line)
         match = re.search(r"<(\d+)>", line)
         if not match:
+            self._diagnose('response', line=line, disposition='missing_id')
             return
         tag = int(match[1])
         payload = line[match.end():]
         if tag == 1000 and self.startup and not self.startup.complete:
+            self._diagnose('response', line=line, response=payload,
+                           disposition='startup_accepted' if payload.strip() else 'startup_empty',
+                           **self._diagnostic_request)
             if payload.strip():
                 self.startup.mark_received()
                 self.scheduler.acknowledge(tag)
             return
         request = self.scheduler.last_sent
         if not self.scheduler.balance or request is None or request.tag != tag:
+            self._diagnose('response', line=line, request_id=tag, response=payload, disposition='unmatched',
+                           active_request_seq=self._diagnostic_request.get('request_seq'))
             self.log('ignored response', str(tag))
             return
         self.scheduler.acknowledge(tag)
         if tag >= 2000:
+            rejected = bool(re.search(r'\b(?:ERROR|ERR|NACK|FAIL|INVALID|UNKNOWN)\b', payload, re.I))
+            self._diagnose('response', line=line, response=payload,
+                           disposition='rejected' if rejected else 'ack', **self._diagnostic_request)
+            if 'reset_id' in self._diagnostic_request and not rejected:
+                self._diagnose('reset_step_result', outcome='ack',
+                               **self._diagnostic_request)
             if re.search(r'\b(?:ERROR|ERR|NACK|FAIL|INVALID|UNKNOWN)\b', payload, re.I):
                 self._request_failed(request, 'device rejected command: ' + payload)
             else:
                 self._queue_readbacks(request)
+            self._diagnostic_request = {}
             return
         self._apply_updates(self.decoder.decode_line(line))
+        self._diagnose('response', line=line, response=payload,
+                       disposition='valid_readback' if self.decoder.last_valid else 'invalid_readback',
+                       **self._diagnostic_request)
         if self.decoder.last_valid:
             self._reply_counts[tag] = self._reply_counts.get(tag, 0) + 1
         else:
             self._request_failed(request, 'invalid or empty readback')
         self._decoder_effects()
+        self._observe_state()
+        self._diagnostic_request = {}
 
     def _tcp_event(self, kind, payload):
         """Original SERVER.UIR connection indicators and receive console."""
@@ -414,11 +513,26 @@ class Controller:
                 return
             if name == 'cllbckcmd_reset':
                 if event == 1:
+                    self._diagnostic_reset_seq += 1
+                    reset_id = f'reset-{self._diagnostic_reset_seq}'
+                    self._diagnose('reset_requested', reset_id=reset_id,
+                                   command_ids=list(RESET_COMMAND_IDS))
                     self.cancel_run_hold()
                     if self._pc_run or self._pc_running or self._pc_stop:
+                        self._diagnose('reset_blocked', reset_id=reset_id, reason='PC operation active')
                         raise PermissionError('Complete PC STOP before resetting faults')
-                    for tag in RESET_COMMAND_IDS:
-                        self._enqueue(tag)
+                    for step, tag in enumerate(RESET_COMMAND_IDS, 1):
+                        try:
+                            request = self._enqueue(tag)
+                        except (ValueError, PermissionError) as exc:
+                            self._diagnose('reset_blocked', reset_id=reset_id, step=step, reason=str(exc))
+                            raise
+                        if self.diagnostics is not None:
+                            metadata = dict(reset_id=reset_id, reset_step=step)
+                            # Retain the object until sent/pruned so Python id
+                            # reuse cannot attribute another request to Reset.
+                            self._diagnostic_resets[id(request)] = (request, metadata)
+                            self._diagnose('reset_step_queued', request_id=tag, **metadata)
                 return
             if name == 'tmr_Data_Logger':
                 if event == 15 and self.read(1, 3):
@@ -504,6 +618,7 @@ class Controller:
     def _set_run_status(self, text):
         self.run_status = text
         self.state['pc_output_status'] = text
+        self._diagnose('pc_operation', status=text)
         self._view_optional('set_external_status', text)
 
     def request_pc_run(self):
@@ -596,16 +711,30 @@ class Controller:
             ids = (1066, 1088, 1089, 1021, 1045, 1046)
         # Place readbacks before ordinary queued work; urgent OFF still wins.
         for query in reversed(ids):
-            self.scheduler.inside.appendleft(Request(query))
+            readback = Request(query)
+            self.scheduler.inside.appendleft(readback)
+            if self.diagnostics is not None and 'reset_id' in self._diagnostic_request:
+                metadata = {
+                    key: self._diagnostic_request[key] for key in ('reset_id', 'reset_step')}
+                metadata['readback_for_request_seq'] = self._diagnostic_request['request_seq']
+                self._diagnostic_resets[id(readback)] = (readback, metadata)
+        self._diagnose('readbacks_queued', query_ids=list(ids), **self._diagnostic_request)
 
     def _request_failed(self, request, reason):
         if request is None:
             return
+        self._diagnose('request_failed', reason=reason,
+                       outcome='timeout' if reason == 'response timeout' else 'failed',
+                       **self._diagnostic_request)
+        if 'reset_id' in self._diagnostic_request and request.tag in RESET_COMMAND_IDS:
+            self._diagnose('reset_step_result', outcome='failed', reason=reason,
+                           **self._diagnostic_request)
         self.log('request failed', f'{request.tag}: {reason}')
         if request.tag < 2000:
             self.decoder.readbacks.invalidate(request.tag)
         else:
             self._queue_readbacks(request)
+        self._diagnostic_request = {}
         if self._pc_run:
             self._abort_run(reason)
         # A failed first OFF must not cancel the other queued OFF.
@@ -617,6 +746,7 @@ class Controller:
         # Fault UI/TCP reflect independent subsystem health, never EMP status.
         self._apply_updates(self.decoder.check_health(self.scheduler.access_level))
         self._decoder_effects()
+        self._observe_state()
         if not self._pc_run and not self._pc_stop and not self._pc_running:
             if self.run_status in ('PC output unconfirmed', 'PC output unknown after reconnect') or self.run_status.startswith('PC readback:'):
                 channels = [reads.channel_on(ch, now) for ch in (1, 2)]
@@ -699,8 +829,19 @@ class Controller:
         self._view_optional("show_warning", "Warning", text, self.connect)
 
     def stop(self):
+        if not self.running and self.diagnostics is not None and self.diagnostics.status['closed']:
+            return
         self.running = False
         if self.transport:
             self.transport.close()
         if self.tcp:
             self.tcp.stop()
+        self._diagnose('connection', phase='stopped')
+        for _, metadata in self._diagnostic_resets.values():
+            self._diagnose('reset_step_cancelled', reason='controller_stopped', **metadata)
+        self._diagnostic_resets.clear()
+        if self._diagnostic_request:
+            self._diagnose('request_interrupted', reason='controller_stopped', **self._diagnostic_request)
+            self._diagnostic_request = {}
+        if self.diagnostics is not None:
+            self.diagnostics.close()

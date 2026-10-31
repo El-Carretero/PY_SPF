@@ -7,6 +7,7 @@ from __future__ import annotations
 from collections import deque
 from dataclasses import dataclass
 import socket
+from .diagnostics import notify_observer
 
 DEFAULT_ADDRESS = "10.19.70.13"
 DEFAULT_PORT = 1024
@@ -151,6 +152,18 @@ class UDPTransport:
         self.socket: socket.socket | None = None
         self.packet_counter = 0
         self.expected_peer: tuple[str, int] | None = None
+        self.observer = None
+        self.datagram_counter = 0
+
+    def _observe(self, event, **fields):
+        if self.observer is None:
+            return
+        try:
+            local = self.socket.getsockname() if self.socket else None
+            notify_observer(self.observer, event, local_endpoint=local,
+                            peer_endpoint=self.expected_peer, **fields)
+        except Exception:
+            pass
 
     def open(self) -> None:
         self.expected_peer = (socket.gethostbyname(self.address), self.port)
@@ -159,16 +172,23 @@ class UDPTransport:
         sock.bind(("0.0.0.0", self.bind_port))
         sock.settimeout(self.timeout)
         self.socket = sock
+        self._observe('transport_open')
 
     def close(self) -> None:
         if self.socket is not None:
+            self._observe('transport_close')
             self.socket.close()
             self.socket = None
 
     def send_packet(self, packet: bytes) -> None:
         if self.socket is None:
             raise RuntimeError("UDP transport is not open")
-        self.socket.sendto(packet, self.expected_peer or (self.address, self.port))
+        try:
+            self.socket.sendto(packet, self.expected_peer or (self.address, self.port))
+        except OSError as exc:
+            self._observe('udp_send_error', payload_bytes=packet, error=str(exc))
+            raise
+        self._observe('udp_tx', payload_bytes=packet)
 
     def discard_pending(self) -> None:
         """Drain replies queued before the next request, not its proof.
@@ -183,7 +203,11 @@ class UDPTransport:
         try:
             for _ in range(256):
                 try:
-                    self.socket.recvfrom(1495)
+                    data, sender = self.socket.recvfrom(1495)
+                    self.datagram_counter += 1
+                    self._observe('udp_rx', payload_bytes=data, sender_endpoint=sender,
+                                  datagram_id=self.datagram_counter, disposition='drained_before_request',
+                                  possibly_truncated=len(data) == 1495)
                 except BlockingIOError:
                     return
             raise OSError('Receive queue did not drain; refusing a new request')
@@ -197,7 +221,16 @@ class UDPTransport:
             data, sender = self.socket.recvfrom(1495)
         except (socket.timeout, BlockingIOError):
             return []
+        self.datagram_counter += 1
         if self.expected_peer is not None and sender != self.expected_peer:
+            self._observe('udp_rx', payload_bytes=data, sender_endpoint=sender,
+                          datagram_id=self.datagram_counter, disposition='unexpected_peer',
+                          possibly_truncated=len(data) == 1495)
             return []
         self.packet_counter += 1
-        return parse_datagram(data, self.packet_counter)
+        replies = parse_datagram(data, self.packet_counter)
+        self._observe('udp_rx', payload_bytes=data, sender_endpoint=sender,
+                      datagram_id=self.datagram_counter, packet_number=self.packet_counter,
+                      disposition='parsed' if replies else 'unparsed',
+                      possibly_truncated=len(data) == 1495)
+        return replies

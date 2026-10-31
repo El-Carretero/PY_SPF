@@ -20,19 +20,33 @@ def arguments(argv=None):
     p.add_argument("--tcp-port", type=int, default=1001, help="local status server; 0 disables")
     p.add_argument("--tcp-host", default="127.0.0.1", help="TCP status server interface (default: loopback)")
     p.add_argument("--config", type=Path, help="override original C:\\config.sp access settings path")
-    p.add_argument("--data-dir", type=Path, default=Path.cwd(), help="datalog.csv destination")
+    p.add_argument("--data-dir", type=Path, default=Path.cwd(), help="external_datalog.csv destination")
+    p.add_argument("--comm-log-dir", type=Path, help="enable separate rotating communication JSONL logs in this directory")
+    p.add_argument("--comm-log-max-bytes", type=int, default=5 * 1024 * 1024,
+                   help="maximum bytes per communication log file (4096..1073741824)")
+    p.add_argument("--comm-log-backups", type=int, default=4,
+                   help="rotated files retained per session, in addition to the current file (0..100)")
     p.add_argument("--headless", action="store_true", help="run the controller with an in-memory view")
     p.add_argument("--duration", type=float, default=2.0, help="headless/preview runtime in seconds")
     p.add_argument("--render-dir", type=Path, help="save Qt panel previews and exit")
-    return p.parse_args(argv)
+    opts = p.parse_args(argv)
+    from .diagnostics import DiagnosticConfig
+    try:
+        DiagnosticConfig(opts.comm_log_dir or Path('.'), opts.comm_log_max_bytes, opts.comm_log_backups)
+    except ValueError as exc:
+        p.error(str(exc))
+    return opts
 
 
 def make_controller(view, opts):
     from .controller import Controller
+    from .diagnostics import DiagnosticConfig
+    config = (DiagnosticConfig(opts.comm_log_dir, opts.comm_log_max_bytes, opts.comm_log_backups)
+              if getattr(opts, 'comm_log_dir', None) is not None else None)
     return Controller(view, demo=opts.demo, host=opts.host, port=opts.port,
                       local_port=opts.local_port, config=opts.config,
                       data_dir=opts.data_dir, tcp_port=opts.tcp_port or None,
-                      tcp_host=opts.tcp_host)
+                      tcp_host=opts.tcp_host, diagnostic_config=config)
 
 
 class MemoryView:
@@ -86,14 +100,15 @@ def main(argv=None):
             while controller.running and time.monotonic() < deadline:
                 controller.tick()
                 time.sleep(0.002)
-            print(json.dumps({"mode": "simulator" if opts.demo else "instrument",
-                              "connected": bool(controller.state.get("connected", False)),
-                              "events": len(controller.events),
-                              "controls_updated": len(controller.values),
-                              "pending": len(controller.scheduler.inside) + len(controller.scheduler.outside)},
-                             ensure_ascii=False))
         finally:
             controller.stop()
+        print(json.dumps({"mode": "simulator" if opts.demo else "instrument",
+                          "connected": bool(controller.state.get("connected", False)),
+                          "events": len(controller.events),
+                          "communication_log": controller.diagnostic_status,
+                          "controls_updated": len(controller.values),
+                          "pending": len(controller.scheduler.inside) + len(controller.scheduler.outside)},
+                         ensure_ascii=False))
         return 0
     native_available = sys.platform == "win32" and struct.calcsize("P") == 4
     if opts.backend == "native" or (opts.backend == "auto" and native_available):

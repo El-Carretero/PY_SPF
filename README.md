@@ -42,3 +42,8 @@ GUI 및 TCP 상태 조회를 오프라인으로 검증합니다. 실장비와 Wi
 `analysis/`와 External 캡처를 제외한 기존 `previews/`는 원본 재구현 당시의 근거 자료입니다.
 `output/Spitfire_Python_1_6_0.zip`과 `output/spitfire_gui_reconstruction-1.6.0.post1-py3-none-any.whl`도
 기존 재구현 배포물이며 External 버전 설치용이 아닙니다. 현재 버전은 이 브랜치의 소스 또는 위 External 2.0.0 wheel을 설치합니다.
+
+Optional communication diagnostics: pass `--comm-log-dir <directory>` to record
+rotating JSONL evidence independently of Data Logging (off by default). Includes
+raw UDP bytes, UTC/monotonic times, request/Reset correlation and failure isolation.
+See [usage and Wireshark comparison](COMMUNICATION_LOGGING.ko.md).

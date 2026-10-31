@@ -7,6 +7,7 @@ from __future__ import annotations
 from collections import deque
 import re
 from .protocol import COMMANDS, QUERIES, PACKET_PREFIX, parse_datagram
+from .diagnostics import notify_observer
 
 
 class SimulatedTransport:
@@ -15,6 +16,8 @@ class SimulatedTransport:
         self.socket = None
         self.packet_counter = 0
         self.sent_packets = []
+        self.observer = None
+        self.datagram_counter = 0
         self.values = {
             "*IDN?": "Spectra-Physics, Spitfire, 0, 1.6.0",
             "HED:STB?": "0", "HED:MOTOR:SPEED?": "30",
@@ -40,16 +43,23 @@ class SimulatedTransport:
             self.values[name + ":VERS?"] = f"Spectra-Physics, {name}, 1.00, 1.00"
 
     def open(self):
-        pass
+        notify_observer(self.observer, 'transport_open')
 
     def close(self):
+        notify_observer(self.observer, 'transport_close')
         self.pending.clear()
 
     def discard_pending(self):
+        if self.observer is not None:
+            for packet in self.pending:
+                self.datagram_counter += 1
+                notify_observer(self.observer, 'udp_rx', payload_bytes=packet,
+                                datagram_id=self.datagram_counter, disposition='drained_before_request')
         self.pending.clear()
 
     def send_packet(self, packet: bytes):
         self.sent_packets.append(packet)
+        notify_observer(self.observer, 'udp_tx', payload_bytes=packet)
         if not packet.startswith(PACKET_PREFIX):
             return
         responses = []
@@ -123,4 +133,10 @@ class SimulatedTransport:
         if not self.pending:
             return []
         self.packet_counter += 1
-        return parse_datagram(self.pending.popleft(), self.packet_counter)
+        packet = self.pending.popleft()
+        replies = parse_datagram(packet, self.packet_counter)
+        self.datagram_counter += 1
+        notify_observer(self.observer, 'udp_rx', payload_bytes=packet,
+                        datagram_id=self.datagram_counter, packet_number=self.packet_counter,
+                        disposition='parsed' if replies else 'unparsed')
+        return replies

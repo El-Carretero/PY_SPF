@@ -124,3 +124,9 @@ HV1/HV2는 원본 GUI와 같은 kV 단위이며, 응답에 `V`가 명시되면 1
 기존 `output/`의 `1.6.0.post1` wheel과 `Spitfire_Python_1_6_0.zip`은 원본 재구현 패키지입니다.
 External 버전에는 이 브랜치의 소스 또는 `output/external/`의 2.0.0 wheel을 설치하세요. 첨부 ZIP과 원본 재구현을 비교한 이전 보고서는
 [comparison/external-pump-1.5.1 브랜치](https://github.com/El-Carretero/PY_SPF/tree/comparison/external-pump-1.5.1)에 있습니다.
+
+## 선택형 통신 진단 로그
+
+`--comm-log-dir <폴더>`를 지정하면 원문 UDP·요청 순번·COMSTATUS/Fault·연결·timeout·Reset
+과정을 별도 회전 JSONL로 기록합니다. 기본 OFF이며 기존 Data Logging과 독립적입니다.
+[사용법·Wireshark CSV 비교·보존 및 손실 한계](COMMUNICATION_LOGGING.ko.md)를 참고하세요.

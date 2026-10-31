@@ -6,4 +6,6 @@ __pycache__/
 build/
 dist/
 datalog.csv
+external_datalog.csv
+comm-*.jsonl*
 artifacts/

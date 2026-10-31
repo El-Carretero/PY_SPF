@@ -96,7 +96,8 @@ def main():
                 raise RuntimeError('Native boundary profile must run without Qt')
             tests = [str(ROOT / 'tests' / name) for name in (
                 'test_external_native.py', 'test_native_requirements.py',
-                'test_ci_network_guard.py', 'test_protocol_recovery.py')]
+                'test_ci_network_guard.py', 'test_protocol_recovery.py',
+                'test_diagnostics.py')]
 
         def check_junit(_):
             tree = ET.parse(output / 'pytest.xml')
@@ -112,12 +113,16 @@ def main():
         with tempfile.TemporaryDirectory(prefix='py-spf-ci-') as work:
             common = ['spitfire', '--demo', '--host', '127.0.0.1', '--port', '9',
                       '--local-port', '0', '--tcp-port', '0', '--tcp-host', '127.0.0.1',
-                      '--config', str(Path(work) / 'config.sp'), '--data-dir', work, '--duration', '2']
+                      '--config', str(Path(work) / 'config.sp'), '--data-dir', work, '--duration', '2',
+                      '--comm-log-dir', str(output / 'communication')]
 
             def check_demo(stdout):
                 result = json.loads(stdout)
                 if result.get('mode') != 'simulator' or result.get('connected') is not True or result.get('controls_updated', 0) <= 0:
                     raise AssertionError(f'Simulator did not connect/update: {result}')
+                log = result.get('communication_log', {})
+                if not log.get('enabled') or log.get('error') or log.get('dropped'):
+                    raise AssertionError(f'Communication evidence was not recorded: {log}')
                 return result
 
             phase('headless-demo', [*common, '--headless'], cwd=work, verify=check_demo)
