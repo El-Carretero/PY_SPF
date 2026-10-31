@@ -17,6 +17,10 @@ setup-python이 해당 OS/아키텍처에 제공하는 버전이며, 실제 값�
 Native job은 `.[test]`만 설치한다. PySide6 Windows x86 wheel을 요구하지 않는다.
 저장소에 NI DLL이 포함되어 있어도 CI에서는 해당 DLL 로드를 거부하므로, 이 job의 통과를 Native GUI 검증으로 해석하면 안 된다.
 
+Linux runner에는 Qt offscreen에서도 필요한 `libegl1`, `libgl1`, `libopengl0`를 명시적으로 설치한다.
+기존 CSV 시험은 Windows CRLF와 Linux LF를 텍스트 읽기로 정규화한 뒤 동일한 숫자·구분자·헤더 부재를 확인한다.
+CSV를 쓰는 프로그램 동작은 그대로 유지한다.
+
 `main`, `feature/empower-independent`, `ci/**` 브랜치의 push와 main/External 브랜치를 대상으로 하는 PR에서
 실행한다. `workflow_dispatch`도 정의되어 있다. 수동 실행 버튼은 워크플로가 기본 브랜치에 있어야 표시되므로,
 현재처럼 feature 브랜치에만 있을 때는 해당 브랜치 push로 실행한다. `pull_request_target`과 secrets는 사용하지 않으며

@@ -90,7 +90,8 @@ class SettingsRecoveryTests(unittest.TestCase):
             config=Path(tmp)/'config.sp';config.write_text('[SPITFIRE]\nMaxLevel=6251\n')
             self.assertEqual(read_max_level(config),6251)
             log=Path(tmp)/'datalog.csv';append_datalog(1.234,5.678,log)
-            self.assertEqual(log.read_bytes(),b'1.23, 5.68\n')
+            # Text files use CRLF on Windows and LF on Linux; content is identical.
+            self.assertEqual(log.read_text(encoding='ascii'),'1.23, 5.68\n')
 
 
 if __name__=='__main__':unittest.main()

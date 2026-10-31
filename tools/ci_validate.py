@@ -32,6 +32,15 @@ def main():
     opts = parser.parse_args()
     output = opts.output.resolve()
     output.mkdir(parents=True, exist_ok=True)
+    # Reusing a local output path must not preserve old failure logs or images.
+    for name in ('pytest.xml', 'profile-setup.error.txt'):
+        (output / name).unlink(missing_ok=True)
+    for phase_name in ('pytest', 'headless-demo', 'qt-render'):
+        for suffix in ('stdout.txt', 'stderr.txt', 'error.txt'):
+            (output / f'{phase_name}.{suffix}').unlink(missing_ok=True)
+    if (output / 'qt-panels').is_dir():
+        for image in (output / 'qt-panels').glob('panel_*.png'):
+            image.unlink()
     bits = struct.calcsize('P') * 8
     environment = {
         'profile': opts.profile, 'os': platform.platform(), 'system': platform.system(),
@@ -65,6 +74,7 @@ def main():
         except Exception as exc:
             record['error'] = str(exc)
             (output / f'{name}.error.txt').write_text(traceback.format_exc(), encoding='utf-8')
+            print(f'{name}: {exc}', flush=True)
         phases.append(record)
         print(f"{name}: {record['status']}", flush=True)
 
@@ -119,6 +129,7 @@ def main():
     except Exception as exc:
         phases.append({'name': 'profile-setup', 'status': 'failed', 'error': str(exc)})
         (output / 'profile-setup.error.txt').write_text(traceback.format_exc(), encoding='utf-8')
+        print(f'profile-setup: {exc}', flush=True)
     finally:
         (output / 'environment.json').write_text(json.dumps(environment, ensure_ascii=False, indent=2), encoding='utf-8')
         passed = bool(phases) and all(p['status'] == 'passed' for p in phases)
