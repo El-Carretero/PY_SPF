@@ -342,10 +342,13 @@ def test_controller_reset_over_real_loopback_udp(tmp_path, lose_reset_ack):
         until(lambda: any(b'[2050]RESET' in p for p in board.sent_packets))
         until(lambda: not app._diagnostic_resets and not app._diagnostic_request.get('reset_id'))
     finally:
-        app.stop()
+        # Stop the mock board before closing its UDP peer. Windows otherwise
+        # reports ICMP port-unreachable as WSAECONNRESET in server.recvfrom().
         done.set()
         worker.join(1)
+        app.stop()
         server.close()
+    assert not worker.is_alive()
     assert not errors
     rows = records(app.diagnostics)
     assert app.diagnostic_status['dropped'] == 0
@@ -415,3 +418,18 @@ def test_csv_export_merges_rotations_and_preserves_epoch_and_payload(tmp_path):
         assert int(seconds) * 10**9 + int(nanos) == original['wall_time_ns']
     with pytest.raises(ValueError, match='overwrite'):
         export(paths, paths[0])
+
+
+def test_headless_process_shutdown_persists_reported_records(tmp_path):
+    import subprocess
+    import sys
+    root = Path(__file__).resolve().parents[1]
+    result = subprocess.run([sys.executable, str(root / 'tools' / 'ci_exec.py'), 'spitfire',
+                             '--demo', '--headless', '--tcp-port', '0', '--duration', '.2',
+                             '--comm-log-dir', str(tmp_path)], cwd=root, capture_output=True,
+                            text=True, encoding='utf-8', timeout=10, check=True)
+    status = json.loads(result.stdout)['communication_log']
+    assert status['closed'] and not status['error'] and not status['dropped']
+    rows = [json.loads(line) for line in Path(status['path']).read_text().splitlines()]
+    assert len(rows) == status['written']
+    assert rows[-1]['event'] == 'session_end'

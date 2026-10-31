@@ -121,18 +121,28 @@ def main():
                 if result.get('mode') != 'simulator' or result.get('connected') is not True or result.get('controls_updated', 0) <= 0:
                     raise AssertionError(f'Simulator did not connect/update: {result}')
                 log = result.get('communication_log', {})
-                if not log.get('enabled') or log.get('error') or log.get('dropped'):
+                if not log.get('enabled') or log.get('error') or log.get('dropped') or not log.get('closed'):
                     raise AssertionError(f'Communication evidence was not recorded: {log}')
+                rows = [json.loads(line) for line in Path(log['path']).read_text(encoding='utf-8').splitlines()]
+                if len(rows) != log['written'] or not rows or rows[-1]['event'] != 'session_end':
+                    raise AssertionError(f'Communication file did not finish: {len(rows)} rows, status={log}')
                 return result
 
             phase('headless-demo', [*common, '--headless'], cwd=work, verify=check_demo)
             if opts.profile == 'portable':
                 render = output / 'qt-panels'
+                previous_logs = set((output / 'communication').glob('comm-*.jsonl'))
                 def check_panels(_):
                     expected = {f'panel_{n}.png' for n in (1, 2, 3, 4, 5, 6, 7, 'server')}
                     actual = {p.name for p in render.glob('*.png')}
                     if actual != expected or any(p.stat().st_size == 0 for p in render.glob('*.png')):
                         raise AssertionError(f'Expected eight nonempty Qt panels; found {actual}')
+                    logs = set((output / 'communication').glob('comm-*.jsonl')) - previous_logs
+                    if len(logs) != 1:
+                        raise AssertionError(f'Expected one Qt diagnostic session: {logs}')
+                    rows = [json.loads(line) for line in logs.pop().read_text(encoding='utf-8').splitlines()]
+                    if not rows or rows[-1]['event'] != 'session_end' or rows[-1]['dropped_total']:
+                        raise AssertionError('Qt diagnostic session did not finish without loss')
                     return sorted(actual)
                 phase('qt-render', [*common, '--backend', 'qt', '--render-dir', str(render)], cwd=work, verify=check_panels)
     except Exception as exc:

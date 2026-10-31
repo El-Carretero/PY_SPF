@@ -13,9 +13,9 @@ Linux x86-64, Python 3.12.14, pytest 9.2.0, PySide6/Qt 6.12.0,
 | 검증 | 결과 |
 |---|---|
 | 변경 전 기준 회귀시험 | 153 passed + 71 subtests passed |
-| 새 통신 로그 시험 | 20 passed |
-| 변경 후 전체 회귀시험 | 173 passed + 71 subtests passed, 실패·스킵 0 |
-| 설치 패키지 headless 2초 demo | 연결·컨트롤 업데이트 성공; 진단 6,158줄, dropped 0, oversized 0, error 없음, 정상 종료 |
+| 새 통신 로그 시험 | 21 passed |
+| 변경 후 전체 회귀시험 | 174 passed + 71 subtests passed, 실패·스킵 0 |
+| 설치 패키지 headless 2초 demo | 연결·컨트롤 업데이트 성공; 진단 JSONL 생성, dropped 0, oversized 0, error 없음, 정상 종료 |
 | 설치 패키지 Qt offscreen 2초 demo | 8개 패널 렌더링 성공, 진단 로그 생성 |
 | diff 공백 검증 | `git diff --check` 통과 |
 
@@ -39,6 +39,7 @@ Linux x86-64, Python 3.12.14, pytest 9.2.0, PySide6/Qt 6.12.0,
 - 실제 localhost UDP에서 Controller 전체 초기화와 Reset 3단계 및 ACK 유실 시 timeout.
   시뮬레이터 보드가 받은 write는 지정된 Reset 3개뿐임.
 - observer 예외가 UDP 송수신을 바꾸지 않음. send 오류는 로깅 후 기존처럼 전파됨.
+- headless 프로세스 종료 후 실제 파일의 줄 수가 보고된 기록 수와 같고 session_end까지 저장됨.
 - 회전 파일 CSV 병합·epoch 정밀도·원문 payload 보존·입력 파일 덮어쓰기 방지.
 
 재현:
@@ -50,12 +51,12 @@ python tools/ci_validate.py --profile portable --output artifacts/communication-
 
 JUnit, stdout/stderr, 환경 정보, headless 결과, Qt 캡처와 통신 JSONL이 지정한
 artifact 폴더에 남는다. Windows x86에서는 기존 `native-boundary` 프로필이
-통신 로깅 시험 20개를 추가로 실행한다. 실제 NI DLL을 로드하는 시험은 아니다.
+통신 로깅 시험 21개를 추가로 실행한다. 실제 NI DLL을 로드하는 시험은 아니다.
 
 ## Windows와 실장비 범위
 
-위 표는 로컬 Linux 결과다. 새 PR의 Windows 2022 x64/x86 및 Ubuntu 24.04
-Actions 결과는 PR 본문/Checks에 실행 링크와 함께 별도로 기록한다. 기존 브랜치의
+위 표는 로컬 Linux 결과다. Windows 2022 x64/x86 및 Ubuntu 24.04
+Actions의 최종 결과는 [PR #3](https://github.com/El-Carretero/PY_SPF/pull/3) 본문/Checks에 실행 링크와 함께 별도로 기록한다. 기존 브랜치의
 이전 Windows CI 성공을 이 변경의 검증으로 대신하지 않는다.
 
 다음 항목은 이 작업의 자동시험으로 확인할 수 없고 아직 실제 검증하지 않았다.
@@ -68,3 +69,9 @@ Actions 결과는 PR 본문/Checks에 실행 링크와 함께 별도로 기록�
 
 새 기능은 별도 PR에서 검토하며 기존 배포 ZIP/wheel은 재발행하지 않았다.
 사용법과 프로토콜 식별 한계는 [통신 진단 로그 안내](COMMUNICATION_LOGGING.ko.md)에 있다.
+
+첫 Actions 실행 #4에서 Windows x64·Ubuntu는 통과했고, Windows x86의 localhost 시험
+종료 단계에서 UDP 상대 소켓을 먼저 닫아 시험 서버에 WSAECONNRESET(10054)이 발생했다.
+시험 서버를 먼저 종료하도록 teardown을 수정했다. 장비 transport의 동작은 변경하지 않았다.
+Windows x86 headless artifact는 실제 5,556줄과 보고된 기록 수가 일치했고 session_end까지
+저장되었음을 확인했다. 이후 CI는 headless/Qt 실제 파일의 종료 레코드도 검사한다.
