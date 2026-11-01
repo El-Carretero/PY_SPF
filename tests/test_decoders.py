@@ -1,6 +1,11 @@
 """Assembly-derived fixtures for the port; no instrument access required."""
 import unittest
+import ctypes
+import json
+from pathlib import Path
+import sys
 from spitfire.decoders import ResponseDecoder,decode_number,f32
+from spitfire.protocol import parse_datagram
 
 class OriginalDecoderFixtures(unittest.TestCase):
     def values(self, updates):
@@ -51,6 +56,38 @@ class OriginalDecoderFixtures(unittest.TestCase):
         self.assertEqual(v[(3,23)],1)
         self.assertEqual(v[(3,14)],1)
         self.assertEqual(v[(6,15)],1)
+
+    def test_captured_prefixed_status_preserves_bwd_and_photodiode_flags(self):
+        fixture=Path(__file__).resolve().parents[1]/'analysis'/'optout_post2_capture.json'
+        capture=json.loads(fixture.read_text(encoding='utf-8'))
+        sample=next(s for s in capture['samples'] if s['kind']=='response' and s['tag']==1039)
+        reply=parse_datagram(bytes.fromhex(sample['payload_hex']))[0]
+        payload=reply.body.split('>',1)[1]
+        self.assertEqual(payload,' 0X00330409')
+        # This is the original API's conversion, independent of the decoder
+        # and the emulator interception code. It must retain the prefix bits.
+        word=ctypes.c_uint()
+        crt=ctypes.CDLL('msvcrt' if sys.platform=='win32' else None)
+        self.assertEqual(crt.sscanf(ctypes.c_char_p(payload.encode('ascii')),
+                                   ctypes.c_char_p(b'%x'),ctypes.byref(word)),1)
+        self.assertEqual(word.value,0x00330409)
+        d=ResponseDecoder()
+        updates=d.decode_line(reply.decorated)
+        values=self.values(updates)
+        self.assertEqual(values[(5,47)],1)
+        self.assertEqual(values[(6,27)],0)
+        self.assertEqual(values[(6,26)],0)
+        attributes={(u.panel_id,u.control_id,u.attribute):u.value
+                    for u in updates if u.attribute is not None}
+        self.assertEqual(attributes[(6,5,500)],0)
+        self.assertEqual(attributes[(6,5,0x281)],'RESET BWD')
+
+    def test_prefixed_fault_readback_keeps_each_fault_indicator(self):
+        for payload in ('F800',' 0x0000f800','0X0000F800','+0xF800 trailing'):
+            values=self.values(ResponseDecoder().decode(1066,payload))
+            for control in (19,23,14,21,22):
+                self.assertEqual(values[(3,control)],1,payload)
+            self.assertEqual(values[(6,15)],1,payload)
 
     def test_ecu_blink_and_color(self):
         d=ResponseDecoder()

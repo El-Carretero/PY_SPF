@@ -167,6 +167,39 @@ class NativeGui:
             return struct.unpack('<f', val.raw[:4])[0]
         return struct.unpack('<i', val.raw[:4])[0]
 
+    def connection_presentation(self):
+        """Keep the native layout visible offline without exposing device input."""
+        from .callbacks import SHOW_PANELS, HIDE_PANELS
+        navigation = set(SHOW_PANELS) | set(HIDE_PANELS) | {
+            'QuitProgram', 'Shutdown', 'exit_from_menu', 'display_faults', 'cmtRETUSERMODE',
+        }
+        controls = {}
+        for panel in self.spec['panels']:
+            for control in panel['controls']:
+                attrs = control.get('attributes', {})
+                style = attrs.get('ctrl_style', 0)
+                callback = control.get('callback', '')
+                editable = attrs.get('ctrl_mode') in (1, 2)
+                device_readout = panel['id'] in (2, 3, 5, 6, 8, 9) and (
+                    100 <= style < 150 or 200 <= style < 290 or 300 <= style < 340)
+                if (editable or device_readout) and callback not in navigation:
+                    key = panel['id'], control['id']
+                    controls[key] = self.read_attribute(*key, 500)
+        return {'controls': controls,
+                'alarm': {attribute: self.read_attribute(6, 50, attribute)
+                          for attribute in (500, 641, 880)}}
+
+    def set_connection_status(self, ready, message):
+        demo = self.controller is not None and self.controller.demo
+        mode = 'DEMO - ' if demo else ''
+        if ready:
+            title = f'Spitfire [{mode}CONNECTED]'
+        else:
+            detail = ' '.join(str(message).split())[:180]
+            title = f'Spitfire [{mode}OFFLINE - no live data] - {detail}'
+        self._check(self.varargs.SetPanelAttribute(self.panels[6], 573, C.c_char_p(self._bytes(title))),
+                    'show connection status in native title')
+
     def read_attribute(self, panel, control, attribute):
         spec = next((a for a in self.attributes.values() if a['id'] == attribute), {})
         dtype = spec.get('type', 1)

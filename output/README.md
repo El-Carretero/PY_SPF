@@ -7,6 +7,8 @@
 
 기존 설치가 실패했다면 `installer_fix.zip`을 **기존 프로젝트 폴더에** 풀어 덮어쓰고
 `install.bat`을 다시 실행합니다. 폴더를 옮기거나 `.python32`·가상환경을 삭제할 필요는 없습니다.
+이 작은 ZIP은 설치기만 포함합니다. **Native GUI 수정까지 적용하려면 전체 `PY_SPF_1.6.0.post2.zip`을
+덮어쓰고 `install.bat`을 실행**합니다. 01번 PC는 수정된 소스와 가상환경을 이미 반영했습니다.
 
 Windows에서는 ZIP을 풀고 그 안의 `install.bat`을 실행합니다.
 의존성 다운로드에 인터넷이 필요합니다. Python 및 PySide6 wheel은 ZIP에 포함하지 않습니다.

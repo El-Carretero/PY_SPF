@@ -46,9 +46,12 @@ Qt만 설치되어 있으면 해당 데모를 실행합니다.
 Native 실행 오류는 `native-launch.log`입니다. 자동 검증에서는 `SPITFIRE_NO_PAUSE=1`로
 실패 시 대기를 끌 수 있습니다.
 
-원본의 연결 가림막은 `STATUS?` 응답 후 열립니다. 장치가 없거나 응답하지 않는 경우에는
-주소와 `No reply` 안내를 표시하고 제어 화면을 열지 않습니다. 이때 실제 장치 연결을
-성공한 것으로 표시하지 않습니다. 화면만 확인하려면 `run_demo.bat`을 사용합니다.
+Native는 연결 전에도 전체 원본 화면을 표시합니다. 장치가 없거나 응답하지 않으면
+제목에 `OFFLINE - no live data`와 주소·안내를 표시하고, 상태 버튼은 `NOT CONNECTED`로
+표시합니다. 메뉴로 패널·Help를 볼 수 있지만 장치 입력과 수치·상태 표시는 비활성화됩니다.
+장치 초기화와 새 `STATUS?` 응답 후에만 원래 Fault·접근 단계별 입력 제한을 복원합니다.
+오프라인 상태의 수치는 실측값이 아니며 Data Logging CSV에 추가하지 않습니다.
+데모는 `run_demo.bat`을 사용하며 실장비 연결로 표시하지 않습니다.
 Native 연결 대기·무응답·Opt-out ACK 누락은 `logs/native-launch.log`에도 남깁니다.
 
 ### post2의 기본 Opt-out

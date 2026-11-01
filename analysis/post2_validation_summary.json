@@ -1,7 +1,7 @@
 {
   "version": "1.6.0.post2",
   "linux_pytest": {
-    "passed": 75,
+    "passed": 93,
     "subtests_passed": 7
   },
   "native_oracle": {
@@ -15,9 +15,11 @@
   "wheel_resource_files_byte_matched": 526,
   "network": "simulator/loopback only; capture replay forbids sockets",
   "windows_results": "post2_windows_native_install.json",
-  "windows_native_gui_results": "post2_native_connection_validation.json",
-  "windows_visual_results": "post2_native_visual_validation.json",
+  "windows_native_gui_results": "post2_p01_gui_validation.json",
+  "windows_visual_results": "post2_p01_gui_validation.json",
   "gray_curtain_regression": "post2_optout_ack_regression.json",
-  "native_screen_readiness": "STATUS reply received, curtain and loading text hidden, RUN/STOP visible, menu enabled; actual NI attributes checked",
-  "windows_installer_recovery_results": "post2_installer_recovery_validation.json"
+  "native_screen_readiness": "Native layout remains visible offline with disabled device input and no-live-data status. Manual requests are enabled only after a requested fresh STATUS reply, preserving original fault/access dimming. Actual NI attributes and p01 screenshots checked.",
+  "windows_installer_recovery_results": "post2_installer_recovery_validation.json",
+  "native_crt_validation": "post2_native_crt_validation.json",
+  "windows_timeout_recovery_results": "post2_p01_timeout_validation.json"
 }

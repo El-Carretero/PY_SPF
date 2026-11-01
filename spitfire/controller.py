@@ -38,7 +38,12 @@ class Controller:
         self.attributes = {}
         self.decoder = ResponseDecoder(read=self.read)
         self.state = self.decoder.state
-        self.state.update(gAccessLevel=0, evnt_cmt=0, curtain_not_open=1)
+        self.state.update(gAccessLevel=0, evnt_cmt=0, curtain_not_open=1, gui_ready=False)
+        presentation = getattr(view, "connection_presentation", None)
+        self._connection_presentation = presentation() if presentation else None
+        self._desired_device_dimming = dict(self._connection_presentation["controls"]) if self._connection_presentation else {}
+        self._desired_alarm_attributes = dict(self._connection_presentation["alarm"]) if self._connection_presentation else {}
+        self._connection_message = "Waiting for instrument"
         self.scheduler = Scheduler(clock=clock)
         self.keys = AccessKeySequence()
         self.transport = None
@@ -54,6 +59,8 @@ class Controller:
         self._opening_error = None
         self._default_optout_ack_deadline = None
         self._default_optout_ack_timed_out = False
+        self._startup_retry_deadline = None
+        self._status_requested = False
 
     def read(self, panel, control):
         try:
@@ -67,10 +74,34 @@ class Controller:
         self.values[panel, control] = value
         self.decoder.values[panel, control] = value
         self.view.set_value(panel, control, value)
+        if self._connection_presentation and (panel, control) == (6, 54):
+            self._connection_message = str(value)
+            self._view_optional("set_connection_status", self.state["gui_ready"], str(value))
 
     def set_attribute(self, panel, control, attribute, value):
+        if self._connection_presentation:
+            if attribute == 500 and (panel, control) in self._desired_device_dimming:
+                self._desired_device_dimming[panel, control] = value
+                if not self.state["gui_ready"]:
+                    value = 1
+            if (panel, control) == (6, 50) and attribute in self._desired_alarm_attributes:
+                self._desired_alarm_attributes[attribute] = value
+                if not self.state["gui_ready"]:
+                    value = {500: 0, 641: "NOT CONNECTED", 880: 0xFFFF00}[attribute]
+            if panel == 6 and control in (49, 54) and attribute == 530:
+                value = 0
         self.attributes[panel, control, attribute] = value
         self.view.set_attribute(panel, control, attribute, value)
+
+    def _set_gui_ready(self, ready):
+        self.state["gui_ready"] = bool(ready)
+        if not self._connection_presentation:
+            return
+        for (panel, control), desired in list(self._desired_device_dimming.items()):
+            self.set_attribute(panel, control, 500, desired)
+        for attribute, desired in list(self._desired_alarm_attributes.items()):
+            self.set_attribute(6, 50, attribute, desired)
+        self._view_optional("set_connection_status", bool(ready), self._connection_message)
 
     def log(self, kind, payload):
         self.events.append((self.clock(), kind, payload))
@@ -114,9 +145,15 @@ class Controller:
         self.scheduler.clear()
         self._default_optout_ack_deadline = None
         self._default_optout_ack_timed_out = False
+        self._startup_retry_deadline = None
+        self._status_requested = False
         self.scheduler.hold = True
         self.state["connected"] = False
         self.state["curtain_not_open"] = 1
+        self.state["evnt_cmt"] = 0
+        self._button_started = None
+        self._set_gui_ready(False)
+        self.set_value(6, 30, 0)
         self.apply(dispatch("close_curtain"))
         self.set_value(6, 54, "Loading simulator data, please wait" if self.demo else
                        f"Connecting to {self.host}:{self.port}...")
@@ -149,6 +186,8 @@ class Controller:
         if data is not None:
             self.transport.send_packet(data)
         self.log("TX", request.message)
+        if request.tag == 1085:
+            self._status_requested = True
         if request is self.scheduler.default_optout_write:
             # A missing configuration-write receipt must not strand startup.
             # The original EMPOPTOUT? readback still determines the state.
@@ -170,6 +209,10 @@ class Controller:
                 self.apply(dispatch("close_curtain"))
                 self.log("UDP error", self._opening_error or "could not open UDP")
             return
+        if self._startup_retry_deadline is not None:
+            if self.clock() >= self._startup_retry_deadline:
+                self.connect()
+            return
         waiting_startup = self.startup is not None and not self.startup.complete
         if self.transport and (waiting_startup or self.scheduler.balance > 0):
             try:
@@ -186,11 +229,14 @@ class Controller:
                 if not self.startup.complete:
                     self._send(self.startup.begin(self.clock()))
                 else:
-                    self.scheduler.hold = False
                     if success:
+                        self.scheduler.hold = False
                         self.scheduler.queue_initial()
                         self.scheduler.last_received = self.clock()
                     else:
+                        self.scheduler.hold = True
+                        self.state["connected"] = False
+                        self._startup_retry_deadline = self.clock() + 2.0
                         message = (f"No reply from {self.host}:{self.port}.\n"
                                    "Check connection or use run_demo.bat.")
                         self.set_value(6, 54, message)
@@ -213,6 +259,12 @@ class Controller:
                          f"last RX={self.state.get('last_query_id')}; "
                          f"pending={len(self.scheduler.inside) + len(self.scheduler.outside)}")
                 self.state["connected"] = False
+                self.state["curtain_not_open"] = 1
+                self.state["evnt_cmt"] = 0
+                self._button_started = None
+                self._status_requested = False
+                self._set_gui_ready(False)
+                self.apply(dispatch("close_curtain"))
                 if action == "reconnect":
                     self.set_value(6, 30, 0)
                     if not self.state.get("pardon_first_time_user", 1):
@@ -222,7 +274,7 @@ class Controller:
                         return
                 self.connect()
                 return
-            self.set_value(6, 30, 1)
+            self.set_value(6, 30, int(bool(self.state.get("connected"))))
             if not self.scheduler.inside and not self.scheduler.outside:
                 self.last_health = now
                 self._apply_updates(self.decoder.check_health(self.scheduler.access_level))
@@ -249,6 +301,9 @@ class Controller:
         if not match:
             return
         tag = int(match[1])
+        if tag == 1085 and (not self._status_requested or not self.startup or not self.startup.complete):
+            self.log("connection", "Ignored STATUS before the current initialization requested it")
+            return
         if (tag == 2036 and self._default_optout_ack_timed_out
                 and (self.scheduler.last_sent is None or self.scheduler.last_sent.tag != 2036
                      or not self.scheduler.balance)):
@@ -314,26 +369,32 @@ class Controller:
             if kind == "initial_updates":
                 self.scheduler.queue_subsystem_initial(value)
             elif kind == "open_curtain":
+                self._set_gui_ready(True)
                 self.apply(dispatch("open_curtain"))
             elif kind == "connected":
                 # Native control 48 is CMBATDEBUG, a readback preference.
                 # Connectivity refresh updates its timestamp, never that control.
                 self.state["connected"] = bool(value)
             elif kind == "hide_ecu":
-                self.apply(dispatch("hide_ecu_controls" if value else "show_ecu_controls"))
+                self.apply(dispatch("hide_ecu_controls" if value else "show_ecu_controls"), automatic=True)
             elif kind == "hide_emp":
                 self.apply(dispatch("hide_emp_controls" if value else "show_emp_controls"))
             elif kind == "menu_disabled":
                 item, disabled = value
                 self._view_optional("set_menu_attribute", 6, item, 500, int(disabled))
             elif kind == "fault_update":
-                self.apply(fault_update_actions())
+                self.apply(fault_update_actions(), automatic=True)
             else:
                 self.state[kind] = value
         self.decoder.next_queries = []
         self.decoder.effects = []
 
     def handle_callback(self, name, value=0, event=1, panel=6, control=0):
+        if self._connection_presentation and not self.state["gui_ready"] and name == "tmr_Data_Logger":
+            return  # An offline display must not be logged as instrument data.
+        if self._connection_presentation and not self.state["gui_ready"] and name.lstrip('_') == 'cllbck':
+            self.log("connection", "RUN ignored while waiting for instrument status")
+            return  # A queued press must not become an armed RUN after STATUS.
         self.values[panel, control] = value
         if event in (3, 5):
             self.state["left_mouse_down" if event == 3 else "right_mouse_down"] = True
@@ -359,6 +420,10 @@ class Controller:
             self.apply(dispatch("tmr_Mouse_Callback1", event=15, state=self.state))
 
     def _held_turn_on(self, now):
+        if self._connection_presentation and not self.state["gui_ready"]:
+            self.state["evnt_cmt"] = 0
+            self._button_started = None
+            return
         # Worker 0x406953 compares time(NULL): strictly more than 3 whole
         # seconds, then sends ON, reflects TEC-enable and clears the hold flag.
         if self._button_started is not None and int(now) - int(self._button_started) > 3:
@@ -367,10 +432,13 @@ class Controller:
             self.state["evnt_cmt"] = 0
             self._button_started = None
 
-    def apply(self, actions):
+    def apply(self, actions, *, automatic=False):
         for action in actions:
             kind, target, value = action.kind, action.target, action.value
             if kind in ("command", "query"):
+                if self._connection_presentation and not self.state["gui_ready"] and not automatic:
+                    self.log("connection", f"Control request {target} blocked while waiting for instrument status")
+                    continue
                 self.scheduler.push(target, value or "")
             elif kind == "set":
                 self.set_value(*target, value)
@@ -387,6 +455,8 @@ class Controller:
                 elif target == "turn_on_started" and value == "now":
                     self._button_started = self.clock()
             elif kind == "menu_attribute":
+                if self._connection_presentation and target == (6, 0, 500):
+                    value = 0  # Allow offline navigation; hardware controls remain dimmed.
                 self._view_optional("set_menu_attribute", *target, value)
             elif kind == "server_panel":
                 self._view_optional("show_server", bool(value))
@@ -418,6 +488,9 @@ class Controller:
 
     def stop(self):
         self.running = False
+        self.state["gui_ready"] = False
+        self.state["evnt_cmt"] = 0
+        self._button_started = None
         if self.transport:
             self.transport.close()
         if self.tcp:

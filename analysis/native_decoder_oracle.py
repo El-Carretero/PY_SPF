@@ -6,7 +6,7 @@ stubs; all widget I/O and queued commands are captured in memory.
 """
 from __future__ import annotations
 from pathlib import Path
-import json,struct,math,re,sys
+import ctypes,json,struct,math,re,sys
 import pefile
 from unicorn import Uc,UC_ARCH_X86,UC_MODE_32,UC_HOOK_CODE
 from unicorn.x86_const import *
@@ -102,9 +102,14 @@ class DecoderOracle(NativeOracle):
  def sscanf(self):
   _,src,fmt,dst=self.stack(4);text=self.cstr(src);form=self.cstr(fmt)
   if form!='%x':raise RuntimeError('unexpected scanf format '+repr(form))
-  m=re.match(r'\s*([0-9a-fA-F]+)',text)
-  if m:self.u.mem_write(dst,struct.pack('<I',int(m[1],16)&0xffffffff))
-  self.retvalue(1 if m else 0)
+  # Use an independent C runtime conversion. Reusing the Python decoder's
+  # regex previously masked its incorrect handling of real 0X-prefixed data.
+  crt=ctypes.CDLL('msvcrt' if sys.platform=='win32' else None)
+  value=ctypes.c_uint()
+  converted=crt.sscanf(ctypes.c_char_p(text.encode('cp1252')),
+                       ctypes.c_char_p(form.encode('ascii')),ctypes.byref(value))
+  if converted==1:self.u.mem_write(dst,struct.pack('<I',value.value))
+  self.retvalue(converted)
  def time(self):
   _,ptr=self.stack(2)
   if ptr:self.u.mem_write(ptr,struct.pack('<I',100))

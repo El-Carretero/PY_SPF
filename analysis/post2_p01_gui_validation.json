@@ -1,0 +1,272 @@
+{
+  "validated_at_utc": "2026-11-01T16:09:58Z",
+  "client_timezone": "Asia/Seoul",
+  "environment": {
+    "device": "p01",
+    "os": "Windows 10",
+    "python": "3.13.9",
+    "bits": 32
+  },
+  "scope": "Actual installed application project with original NI runtime/UIR. Isolated silent/success/captured-payload simulator cases forbid Python socket creation. Actual batch launch targets localhost:65431 only; real instrument host is never contacted.",
+  "cases": {
+    "offline": {
+      "case": "offline",
+      "python": "3.13.9",
+      "bits": 32,
+      "device_connection": false,
+      "socket_creation_forbidden": true,
+      "phases": [
+        "native_loaded",
+        "case_verified",
+        "closed"
+      ],
+      "manual_actions_sent_no_packets": true,
+      "manual_actions_queued_no_requests": true,
+      "connected": false,
+      "gui_ready": false,
+      "native_visibility": {
+        "curtain_visible": 0,
+        "loading_text_visible": 0,
+        "run_visible": 1,
+        "stop_visible": 1,
+        "menu_dimmed": 0
+      },
+      "run_dimmed": 1,
+      "stop_dimmed": 1,
+      "alarm_label": "NOT CONNECTED",
+      "title": "Spitfire [DEMO - OFFLINE - controls disabled] - No reply from 127.0.0.1:65431. Check connection or use run_demo.bat.",
+      "run_stop_desired": [
+        0,
+        0
+      ],
+      "help_navigation_allowed": true,
+      "exit_code": 0
+    },
+    "connected": {
+      "case": "connected",
+      "python": "3.13.9",
+      "bits": 32,
+      "device_connection": false,
+      "socket_creation_forbidden": true,
+      "phases": [
+        "native_loaded",
+        "case_verified",
+        "closed"
+      ],
+      "ready_elapsed_seconds": 3.041,
+      "connected": true,
+      "gui_ready": true,
+      "native_visibility": {
+        "curtain_visible": 0,
+        "loading_text_visible": 0,
+        "run_visible": 1,
+        "stop_visible": 1,
+        "menu_dimmed": 0
+      },
+      "run_dimmed": 1,
+      "stop_dimmed": 0,
+      "alarm_label": "FAULT (CLICK HERE)",
+      "title": "Spitfire [DEMO - CONNECTED]",
+      "run_stop_desired": [
+        1,
+        0
+      ],
+      "actual_stop_mouse_click_sent_original_off": true,
+      "help_navigation_allowed": true,
+      "exit_code": 0
+    },
+    "capture": {
+      "case": "capture",
+      "python": "3.13.9",
+      "bits": 32,
+      "device_connection": false,
+      "socket_creation_forbidden": true,
+      "phases": [
+        "native_loaded",
+        "case_verified",
+        "closed"
+      ],
+      "ready_elapsed_seconds": 3.044,
+      "connected": true,
+      "gui_ready": true,
+      "native_visibility": {
+        "curtain_visible": 0,
+        "loading_text_visible": 0,
+        "run_visible": 1,
+        "stop_visible": 1,
+        "menu_dimmed": 0
+      },
+      "run_dimmed": 1,
+      "stop_dimmed": 0,
+      "alarm_label": "FAULT (CLICK HERE)",
+      "title": "Spitfire [DEMO - CONNECTED]",
+      "run_stop_desired": [
+        1,
+        0
+      ],
+      "capture_payload": " 0X00330409",
+      "bwd_label": "RESET BWD",
+      "pd1": 0,
+      "pd2": 0,
+      "help_navigation_allowed": true,
+      "exit_code": 0
+    },
+    "launcher-offline": {
+      "started_utc": "2026-11-01T16:07:57.4199648Z",
+      "mode": "native real UDP path, localhost only",
+      "arguments": "--host 127.0.0.1 --port 65431 --local-port 0 --tcp-port 0",
+      "physical_device_connection": false,
+      "mouse_or_foreground_actions": false,
+      "windows": [
+        {
+          "Handle": 1770898,
+          "ProcessId": 10860,
+          "Title": "Spitfire [OFFLINE - controls disabled] - Connecting to 127.0.0.1:65431...",
+          "ClassName": "CVIRTLVDChild15597568",
+          "Left": 505,
+          "Top": 229,
+          "Width": 911,
+          "Height": 589
+        }
+      ],
+      "capture": true,
+      "forced_cleanup": false,
+      "exit_code": 0,
+      "capture_method": "PrintWindow of owned HWND only",
+      "blue_sample_fraction": 0.6853,
+      "title": "Spitfire [OFFLINE - controls disabled] - Connecting to 127.0.0.1:65431...",
+      "large_layout": true,
+      "not_connected_in_title": false,
+      "stdout": "",
+      "stderr": "",
+      "finished_utc": "2026-11-01T16:08:10.3102129Z",
+      "visual_review": "Full blue Spitfire Pro layout is visible; disabled controls are dithered. Yellow NOT CONNECTED status tile remains visible in the normal offline layout.",
+      "not_connected_status_tile_visible": true
+    },
+    "offline-strict-final": {
+      "python": "3.13.9",
+      "bits": 32,
+      "mode": "simulator",
+      "tcp_server": false,
+      "drop_optout_ack": false,
+      "expected_offline": true,
+      "phases": [
+        "native_loaded",
+        "offline_verified",
+        "closed"
+      ],
+      "panels": 10,
+      "connected": false,
+      "emp_optout": 0,
+      "displayed_optout": 0,
+      "controls_updated": 230,
+      "callback_errors": [],
+      "ready": false,
+      "elapsed_seconds": 8.721,
+      "ticks": 258,
+      "gui_ready": false,
+      "offline_verified": true,
+      "status_received": false,
+      "curtain_not_open": 1,
+      "native_visibility": {
+        "curtain_visible": 0,
+        "loading_text_visible": 0,
+        "run_visible": 1,
+        "stop_visible": 1,
+        "menu_dimmed": 0
+      },
+      "controls_dimmed": {
+        "run": 1,
+        "stop": 1
+      },
+      "alarm_label": "NOT CONNECTED",
+      "startup_complete": true,
+      "retry_scheduled": true,
+      "last_sent": "None",
+      "balance": 0,
+      "dropped_optout_acks": 0,
+      "optout_write_count": 0,
+      "identity_query_count": 3,
+      "write_command_count": 0,
+      "snapshot": "<project>\\logs\\p01-native-offline-strict.bmp",
+      "exit_code": 0
+    },
+    "connected-render-check": {
+      "fresh_process": true,
+      "controller_state": "Normal simulator startup, no preconditioning, no STOP/Help/navigation before ready snapshot.",
+      "ready": {
+        "visible": 1,
+        "dimmed": 1,
+        "label": "RUN",
+        "value": 0,
+        "left": 513,
+        "top": 114,
+        "width": 50,
+        "height": 51,
+        "zplane": 46
+      },
+      "run_painted_while_dimmed": true,
+      "ready_elapsed_seconds": 3.041,
+      "gui_ready": true,
+      "redundant_dimmed_result": {
+        "visible": 1,
+        "dimmed": 1,
+        "label": "RUN",
+        "value": 0,
+        "left": 513,
+        "top": 114,
+        "width": 50,
+        "height": 51,
+        "zplane": 46
+      },
+      "after_diagnostic_z0": {
+        "visible": 1,
+        "dimmed": 1,
+        "label": "RUN",
+        "value": 0,
+        "left": 513,
+        "top": 114,
+        "width": 50,
+        "height": 51,
+        "zplane": 0
+      },
+      "exit_code": 0,
+      "scope": "The ready snapshot uses original z-order46. Subsequent z-order0 comparison was diagnostic only; it did not change production sources or enable RUN."
+    }
+  },
+  "screenshots": {
+    "offline": "previews/post2-p01-offline.png",
+    "connected": "previews/post2-p01-connected.png",
+    "capture": "previews/post2-p01-capture.png",
+    "launcher_offline": "previews/post2-p01-launcher-offline.png",
+    "offline_strict_final": "previews/post2-p01-offline-strict.png"
+  },
+  "limits": [
+    "No actual laser or controller firmware was contacted.",
+    "Connected RUN dimming follows the original fault/readiness state; it was restored to its desired dimmed value rather than forcibly enabled.",
+    "Help navigation was verified through the registered application callback and actual NI panel visibility. STOP was tested with a physical mouse click on the verified owned native window."
+  ],
+  "screenshot_sha256": {
+    "offline": "ad5aa82ec043cea7b8ca78bf8d30bfd0733212c488cff597140fffe99342e822",
+    "connected": "9c14428fc146963dd5f493ce393740442fefb50c8443d07bdf42821e8dcf3aca",
+    "capture": "d037a869ae48eefa91bd0133a0e5751051d6412d313c8018a34ee4e559a9bd4d",
+    "launcher_offline": "d48da7dae801e17656c88c1702be0fe85f5ecd9f11a6ad019cb703999a283d10",
+    "offline_strict_final": "b246500b77a5ebb2f562a0f0f3e022905c3bd824775d1713306e57914a297b96"
+  },
+  "final_offline_visual_inspection": "Full original blue layout remains visible. Title explicitly says OFFLINE - no live data; device controls/readouts are dimmed and the NOT CONNECTED status tile is visible.",
+  "connected_visual_inspection": "Final connected screenshot is a fresh normal simulator startup before STOP or Help/navigation, with no auxiliary panels covering the main panel. RUN is visible with the original fault-dependent dimmed state; it is not forcibly enabled.",
+  "initial_diagnosis": {
+    "installed_sources_match_before_update": true,
+    "application_log_observation": "Repeated No reply from the configured instrument address; last TX/RX were None during identity retries. The simulator rendered the complete native panel on the same PC.",
+    "prior_revision": "f6c98947987ce60178c7202fdb77e4b607fe1f9d",
+    "instrument_connection": "No actual instrument response or hardware actuation was validated. No OS network settings were changed."
+  },
+  "on_device_update": {
+    "existing_project_backed_up": true,
+    "source_files_updated": true,
+    "installed_native_venv_force_reinstalled": true,
+    "installed_modules_match_source": true,
+    "desktop_shortcut": "Spitfire Native - post2.lnk",
+    "shortcut_mode": "Normal instrument mode; not launched automatically after validation."
+  }
+}

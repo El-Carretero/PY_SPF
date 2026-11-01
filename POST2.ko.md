@@ -20,7 +20,8 @@ HV OFF 선행 조회, HV 상태 검사, 사용자 확인창은 없습니다. 원
 원본 Empower 조회·초기 쓰기(`EMP:LBOBREAK 1`)·Reset·RUN/OFF·접근 단계·수동 Opt-out ON/OFF를
 유지합니다. 수동 OFF 후에는 다음 연결에서 다시 ON을 요청합니다.
 External 버전의 명령 필터·PC2→PC1 시퀀스·오류 비트 마스킹은 추가하지 않았습니다.
-UIR·NI DLL·명령표·응답 디코더·콜백은 post1 그대로입니다.
+UIR·NI DLL·명령표·콜백은 post1 그대로입니다. 응답 디코더의 16진수 접두사 해석은
+원본 C 런타임의 `%x`와 일치하도록 수정했습니다.
 
 Windows `install.bat`의 기본값은 NI Native입니다. 32비트 Python을 찾고, 없으면 공식
 서명이 유효한 CPython 3.13.9 32비트 설치 프로그램으로 `.python32`에 설치합니다.
@@ -82,7 +83,7 @@ PowerShell 설치 검증 11개가 통과했고, 실제 MSI 설치·복구와 환
 또한 표본 15개 모두 원본 EXE x86 디코더의 결과와 일치했습니다.
 결과: `analysis/optout_post2_replay_results.json`.
 
-## 회색 화면 재검증
+## 01번 PC에서 Native 화면 재검증
 
 원본은 `STATUS?`(1085) 수신 전 DARKSCREEN 가림막으로 제어부를 가립니다.
 이전 post2는 자동 Opt-out 쓰기(2036)의 ACK가 없으면 1068 조회로 넘어가지 못했고,
@@ -90,27 +91,48 @@ STATUS 조회도 보내지 못해 회색 화면에 남았습니다. 이전 커�
 주입해 정지와 회복을 재현했습니다. [전후 비교](analysis/post2_optout_ack_regression.json).
 첨부 화면만으로 실제 장비의 ACK 유실 여부를 확정한 것은 아닙니다.
 
-또한 원본 안내문은 가림막 뒤에 숨어 무응답 원인이 보이지 않았습니다. Native 안내문을
-가림막 앞으로 옮기고 글자·위치를 조정해 FAULT 버튼과 겹치지 않게 했습니다.
-세 번의 identity 조회에 응답이 없으면 대상 주소와 `No reply`를 표시하고,
-실제 연결 상태·가림막·비활성 메뉴를 유지합니다. 장치 없는 화면 확인은 데모로 합니다.
-연결 오류와 재연결의 마지막 TX/RX 태그는 Native 실행 로그에도 기록합니다.
-정상 연결 뒤 재연결할 때도 가림막 상태를 초기화하고, 새 STATUS 응답으로만 다시 엽니다.
+2026-11-02에 RDC의 p01(Windows 10, Python 3.13.9 x86) 실제 설치 폴더에서 확인했습니다.
+설치된 소스는 당시 최신 파일과 해시가 일치했고, Native 실행 로그에는 identity 조회 응답도
+없었습니다. 같은 PC의 데모는 정상적으로 STATUS를 받고 전체 화면을 표시했습니다.
+실제 장비 연결은 확인되지 않았으며 OS 네트워크 설정을 변경하지 않았습니다.
 
-현재 검증은 창 존재나 기본값 230개 읽기만으로 성공 처리하지 않습니다.
-실제 STATUS 수신, 커튼과 안내문 숨김, RUN/STOP 표시, 메뉴 활성화를 NI 속성으로 확인하고
-준비된 원본 렌더 화면을 캡처합니다. 실제 Windows에서 정상 데모, Opt-out ACK 유실,
-전체 무응답 화면을 확인했습니다. [Windows 상태·화면 결과](analysis/post2_native_connection_validation.json).
-실제 Windows NI 화면의 STOP 버튼을 마우스로 클릭하여 시뮬레이터에 원본 `[2028]OFF`가
-송신되는 것도 확인했습니다. 메뉴 활성 상태는 실제 NI 속성을 읽어 확인했습니다.
+현재 Native는 연결 전에도 전체 원본 레이아웃을 표시하고 메뉴 탐색·Help·종료를 허용합니다.
+기존 물리 가림막과 중앙 안내문 대신 제목의 `OFFLINE - no live data`와 상태 버튼의
+`NOT CONNECTED`로 연결 상태를 알립니다. 장치 입력 및 수치·상태 표시는 비활성화하며,
+CSV에 오프라인 값을 기록하지 않습니다. 연결 실패 후 일반 폴링으로 넘어가던 경로도 고쳐
+identity 실패 시 재시도까지 초기화 큐를 보류합니다.
 
-![Opt-out ACK 유실 후 정상적으로 열린 원본 NI 화면](previews/post2-native-no-ack.png)
+수동 장치 요청은 Native 준비 전까지 차단합니다. RUN 길게 누르기, STOP, HV·온도·모터·raw·Opt-out
+콜백, Esc와 마우스 release의 별도 경로도 검사합니다. 자동 identity·초기화·Opt-out·Empower 조회는
+기존 순서대로 진행합니다. 현재 연결이 실제로 요청한 STATUS 응답 이후에만 입력을 복원하며,
+무조건 활성화하지 않고 마지막 Fault·접근 단계별 제한을 유지합니다. 재연결 때는 준비 상태와
+이전 RUN 대기를 취소합니다. 30초 넘게 응답이 끊겨 재시도 경고를 띄우는 경로에서도
+경고 전에 입력과 로거를 중지하며 이전 STATUS로 준비 상태가 복원되지 않도록 합니다.
+연결 오류·마지막 TX/RX 태그는 Native 실행 로그에 남깁니다.
 
-![실제 장치 응답이 없을 때 표시하는 안내](previews/post2-native-no-response.png)
+01번 PC에서 무응답 전체 화면·수동 요청 차단·Help 탐색, 정상 데모 연결과 실제 STOP 마우스 클릭,
+캡처 응답 상태 표시, localhost만 대상으로 한 실제 배치 실행과 정상 종료를 확인했습니다.
+검증은 시뮬레이터 또는 localhost만 사용했습니다.
+[p01 실제 화면·조작 결과](analysis/post2_p01_gui_validation.json).
+[30초 응답 중단·재시도 검증](analysis/post2_p01_timeout_validation.json).
+이전 p04의 가림막 검증은 `analysis/post2_native_connection_validation.json`에 과거 기록으로 보존합니다.
+
+![01번 PC Native 오프라인 전체 화면](previews/post2-p01-offline-strict.png)
+
+## 16진수 상태 표시 수정
+
+제공된 캡처의 1039 응답은 `0X00330409`였습니다. 이전 Python 정규식은 맨 앞의 0만 읽어
+BWD와 PD1/PD2 표시를 잘못 갱신했습니다. 1039와 1066의 해석을 `%x`처럼 접두사·부호를
+처리하도록 수정했습니다. 원본 기계어 대조 도구의 같은 정규식도 제거하고 독립적인 실제 C
+`sscanf`를 사용합니다. 실제 NI 런타임도 이 문자열을 `0x330409`로 읽는 것을 확인했습니다.
+`-99` 미지원 값은 원본처럼 유지하며 실제 NI 컨트롤에도 정상 입력됨을 확인했습니다.
+[NI C 런타임 대조](analysis/post2_native_crt_validation.json).
+
+![실제 캡처 응답을 표시한 p01 Native 화면](previews/post2-p01-capture.png)
 
 ## 검증
 
-- post2 회귀시험: 75 passed, 7 subtests passed.
+- post2 회귀시험: 93 passed, 7 subtests passed.
 - 기본 Opt-out: HV OFF / ON / 미조회 상태에서도 초기 쓰기, 응답 기반 표시,
   보드가 설정을 거부하는 경우, 수동 OFF와 재연결 기본 ON을 시뮬레이터로 확인.
 - 원본 x86 콜백 대조 395개, 디코더 338개, 추가 디코더 23개: 총 756개 통과.
@@ -150,3 +172,4 @@ python tools/build_release.py
 Windows Native GUI 대조는 설치 후 `.venv-native\Scripts\python.exe tools\verify_native_demo.py`로
 재현합니다. 이 도구는 시뮬레이터만 사용하고 TCP 상태 서버도 열지 않습니다.
 `--drop-optout-ack --snapshot ready.bmp`로 ACK 유실 경로와 실제 준비 화면을 확인할 수 있습니다.
+`--offline --snapshot offline.bmp`로 identity 무응답 상태의 전체 화면·입력 차단을 확인합니다.

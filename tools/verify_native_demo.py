@@ -30,6 +30,11 @@ def native_visibility(view):
             "menu_dimmed": menu_dimmed.value}
 
 
+def native_dimming(view):
+    return {"run": view.read_attribute(6, 10, 500),
+            "stop": view.read_attribute(6, 11, 500)}
+
+
 def save_snapshot(view, path):
     """Ask the original NI renderer for a BMP; no extra imaging dependency."""
     if path.suffix.lower() != ".bmp":
@@ -57,15 +62,19 @@ def main():
     parser.add_argument("--output", type=Path)
     parser.add_argument("--duration", type=float, default=20.0,
                         help="maximum seconds to wait for the actual usable main screen")
-    parser.add_argument("--drop-optout-ack", action="store_true",
-                        help="simulator applies Opt-out but drops its write ACK")
-    parser.add_argument("--snapshot", type=Path, help="save ready main panel as a native-rendered .bmp")
+    scenario = parser.add_mutually_exclusive_group()
+    scenario.add_argument("--drop-optout-ack", action="store_true",
+                          help="simulator applies Opt-out but drops its write ACK")
+    scenario.add_argument("--offline", action="store_true",
+                          help="simulate an entirely silent device and verify visible disabled controls")
+    parser.add_argument("--snapshot", type=Path, help="save main panel as a native-rendered .bmp")
     args = parser.parse_args()
     if sys.platform != "win32" or struct.calcsize("P") != 4:
         raise SystemExit("Native demo verification requires 32-bit Windows Python.")
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from spitfire.__main__ import arguments, make_controller
     from spitfire.native import NativeGui
+    from spitfire.protocol import PACKET_PREFIX
     from spitfire.simulator import SimulatedTransport
 
     class MissingOptoutAckTransport(SimulatedTransport):
@@ -77,8 +86,13 @@ def main():
             self.dropped_optout_acks += len(replies) - len(filtered)
             return filtered
 
+    class SilentTransport(SimulatedTransport):
+        def receive(self):
+            return []
+
     result = {"python": sys.version.split()[0], "bits": 32, "mode": "simulator",
-              "tcp_server": False, "drop_optout_ack": args.drop_optout_ack, "phases": []}
+              "tcp_server": False, "drop_optout_ack": args.drop_optout_ack,
+              "expected_offline": args.offline, "phases": []}
     view = controller = None
     transport_patch = None
     code = 1
@@ -89,8 +103,9 @@ def main():
         result["panels"] = len(view.panels)
         print(f"Loaded {len(view.panels)} panels", flush=True)
         opts = arguments(["--demo", "--backend", "native", "--tcp-port", "0", "--local-port", "0"])
-        if args.drop_optout_ack:
-            transport_patch = patch("spitfire.controller.SimulatedTransport", MissingOptoutAckTransport)
+        if args.drop_optout_ack or args.offline:
+            transport_patch = patch("spitfire.controller.SimulatedTransport",
+                                    SilentTransport if args.offline else MissingOptoutAckTransport)
             transport_patch.start()
         controller = make_controller(view, opts)
         view.attach(controller)
@@ -99,6 +114,7 @@ def main():
         deadline = started + args.duration
         ticks = 0
         ready = False
+        offline_verified = False
         status_received = False
         while controller.running and time.monotonic() < deadline:
             view.process_events()
@@ -106,7 +122,23 @@ def main():
             ticks += 1
             status_received = any(kind == "RX" and "<1085>" in str(value)
                                   for _, kind, value in controller.events)
-            if status_received and controller.state.get("curtain_not_open") == 0:
+            if args.offline:
+                failed_startup = (controller.startup is not None and controller.startup.complete
+                                  and controller._startup_retry_deadline is not None)
+                if failed_startup:
+                    visible = native_visibility(view)
+                    offline_verified = (
+                        not controller.state.get("connected")
+                        and controller.state.get("gui_ready") is False
+                        and controller.state.get("curtain_not_open") == 1
+                        and visible == {"curtain_visible": 0, "loading_text_visible": 0,
+                                        "run_visible": 1, "stop_visible": 1, "menu_dimmed": 0}
+                        and native_dimming(view) == {"run": 1, "stop": 1}
+                        and view.read_attribute(6, 50, 641) == "NOT CONNECTED")
+                    if offline_verified:
+                        break
+            elif (status_received and controller.state.get("curtain_not_open") == 0
+                  and controller.state.get("gui_ready") is True):
                 visible = native_visibility(view)
                 if visible == {"curtain_visible": 0, "loading_text_visible": 0,
                                "run_visible": 1, "stop_visible": 1, "menu_dimmed": 0}:
@@ -123,26 +155,44 @@ def main():
                       controls_updated=len(controller.values),
                       callback_errors=[str(value) for _, kind, value in controller.events if kind == "callback"],
                       ready=ready, elapsed_seconds=round(time.monotonic() - started, 3), ticks=ticks,
+                      gui_ready=bool(controller.state.get("gui_ready")),
+                      offline_verified=offline_verified,
                       status_received=status_received,
                       curtain_not_open=controller.state.get("curtain_not_open"),
                       native_visibility=native_visibility(view),
+                      controls_dimmed=native_dimming(view),
+                      alarm_label=view.read_attribute(6, 50, 641),
+                      startup_complete=bool(controller.startup and controller.startup.complete),
+                      retry_scheduled=controller._startup_retry_deadline is not None,
                       last_sent=str(controller.scheduler.last_sent),
                       balance=controller.scheduler.balance,
                       dropped_optout_acks=getattr(controller.transport, "dropped_optout_acks", 0))
         packets = b"".join(controller.transport.sent_packets)
+        lines = [line for packet in controller.transport.sent_packets
+                 for line in packet[len(PACKET_PREFIX):].decode("ascii").splitlines()]
         result["optout_write_count"] = packets.count(b"[2036]EMPOPTOUT 1\n")
+        result["identity_query_count"] = lines.count("[1000]*idn?")
+        result["write_command_count"] = sum(int(line[1:line.index("]")]) >= 2000 for line in lines)
         assert result["panels"] == 10, result
-        assert result["connected"], result
-        assert result["emp_optout"] == result["displayed_optout"] == 1, result
-        assert result["optout_write_count"] == 1, result
         assert not result["callback_errors"], result
-        assert result["ready"], result
+        if args.offline:
+            assert result["offline_verified"], result
+            assert result["identity_query_count"] == 3, result
+            assert result["write_command_count"] == 0, result
+            assert lines == ["[1000]*idn?"] * 3, result
+            assert not result["status_received"], result
+        else:
+            assert result["connected"], result
+            assert result["gui_ready"], result
+            assert result["emp_optout"] == result["displayed_optout"] == 1, result
+            assert result["optout_write_count"] == 1, result
+            assert result["ready"], result
         if args.drop_optout_ack:
             assert result["dropped_optout_acks"] == 1, result
         if args.snapshot:
             save_snapshot(view, args.snapshot)
             result["snapshot"] = str(args.snapshot)
-        result["phases"].append("demo_verified")
+        result["phases"].append("offline_verified" if args.offline else "demo_verified")
         code = 0
     except BaseException:
         result["error"] = traceback.format_exc()
