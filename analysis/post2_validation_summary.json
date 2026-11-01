@@ -1,0 +1,18 @@
+{
+  "version": "1.6.0.post2",
+  "linux_pytest": {
+    "passed": 67,
+    "subtests_passed": 7
+  },
+  "native_oracle": {
+    "callbacks": 395,
+    "decoders": 338,
+    "extra_decoders": 23,
+    "capture_response_samples": 15
+  },
+  "qt_offscreen_panels": 10,
+  "installed_wheel_headless_demo": "passed",
+  "wheel_resource_files_byte_matched": 526,
+  "network": "simulator/loopback only; capture replay forbids sockets",
+  "windows_results": "post2_windows_install.json"
+}

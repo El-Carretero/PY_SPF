@@ -1,10 +1,42 @@
-# Spitfire GUI 1.6.0 Python 재구현
+# Spitfire GUI 1.6.0.post2 Python 재구현
 
 첨부된 `Spitfire_GUI_v_1_6_0-20261029T111415Z-1-001.zip`의 설치본을 해체해 작성한 Python 응용 프로그램과 분석 자료입니다. 응용 제어 코드는 Python으로 작성했습니다. 원본 EXE를 실행하거나 감싸서 응용 동작을 제공하지 않습니다.
 
 **현재 결과를 ‘원본과 완전히 동일함이 검증된 완성품’으로 표현할 수는 없습니다.** 복구한 항목, 대조 시험 결과, 아직 확인하지 못한 부분을 [분석 보고서](ANALYSIS.ko.md)에 구분했습니다. 실장비 및 원본 Windows 환경에서의 전체 회귀 대조가 필요합니다.
 
 ## 실행
+
+### Windows 가상환경 설치
+
+Python 3.10 이상을 설치한 뒤 프로젝트 폴더에서 실행합니다.
+
+```bat
+install.bat
+run_demo.bat
+```
+
+`install.bat`은 `.venv`에 의존성과 앱을 설치합니다. 기본 `auto`는 64비트 Python에서 Qt,
+32비트 Python에서 NI native를 선택합니다. Qt는 `requirements.txt`의 PySide6를 설치하고,
+native는 표준 라이브러리와 포함된 NI 리소스를 사용합니다. 설치 중 앱이나 장비 연결은 실행하지 않습니다.
+
+백엔드와 Python 실행 파일을 지정할 수도 있습니다.
+
+```bat
+install.bat qt "C:\Path\To\64bit\python.exe"
+install.bat native "C:\Path\To\32bit\python.exe"
+```
+
+두 명령은 선택 예시입니다. 서로 다른 비트수로 바꾸려면 기존 `.venv`를 다른 위치로 옮긴 뒤
+다시 설치합니다. 실행 시에는 `python` 대신 `.venv\Scripts\python.exe`를 사용하거나
+`.venv\Scripts\activate.bat`으로 활성화합니다. 두 실행 배치 파일은 `.venv`를 직접 사용합니다.
+
+### post2의 기본 Opt-out
+
+성공한 시작·재연결마다 원본 초기화 순서의 `EMPOPTOUT?` 바로 앞에 `EMPOPTOUT 1` 쓰기를
+한 번 넣습니다. **HV OFF 조회를 기다리거나 HV 상태로 설정 쓰기를 차단하지 않습니다.**
+설정의 화면 표시는 보드 응답을 따르며, ACK만으로 Opt-out ON을 가정하지 않습니다.
+기존 화면에서 수동 ON/OFF를 할 수 있고 다음 연결에서는 다시 ON을 요청합니다.
+나머지 원본 폴링·명령·접근 단계는 유지합니다. [변경 및 로그 대조](POST2.ko.md)를 참고하세요.
 
 ### Windows에서 원본 화면 엔진 사용
 
@@ -88,5 +120,7 @@ python -m spitfire --backend qt --demo --tcp-port 0 --render-dir previews
 | `spitfire/simulator.py` | 실장비 없이 검증하기 위한 개발용 대역 |
 | `analysis/` | 함수·리소스 추출, 디스어셈블리, 디컴파일, 대조 근거 |
 | `tests/` | 프로토콜·디코더·상태·TCP·통합 검증 |
+| `install.bat` | Windows `.venv` 생성 및 백엔드별 의존성·앱 설치 |
+| `tools/build_release.py` | 현재 버전 wheel·소스 ZIP·SHA256 생성 |
 
 첨부 자료 안의 문자열·설정·설명은 분석 데이터로 취급했습니다. 작업 지시로 실행하지 않았습니다.

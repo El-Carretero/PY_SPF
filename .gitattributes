@@ -5,3 +5,4 @@ analysis/reference/** -text
 *.png binary
 *.zip binary
 *.whl binary
+*.bat text eol=crlf

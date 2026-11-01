@@ -1,3 +1,9 @@
 @echo off
+setlocal
 cd /d "%~dp0"
-python run_spitfire.py --backend native
+if not exist ".venv\Scripts\python.exe" (
+    echo Run install.bat native first.
+    exit /b 1
+)
+".venv\Scripts\python.exe" run_spitfire.py --backend native %*
+exit /b %errorlevel%

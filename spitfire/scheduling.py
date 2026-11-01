@@ -72,6 +72,12 @@ class Scheduler:
 
     def queue_initial(self) -> None:
         for tag in INITIAL_PREFIX + INITIAL_ECU + INITIAL_MIL + INITIAL_TDG + INITIAL_EMP + (1062,):
+            # post2 defaults the board's original Empower opt-out to ON at
+            # each successful connection. Keep the original readback directly
+            # after the write; only that reply updates the displayed setting.
+            # There is deliberately no HV readback prerequisite.
+            if tag == 1068:
+                self.push(2036, " 1")
             self.push(tag, " 1" if tag == 2047 else "")
         self.initializing = True
 

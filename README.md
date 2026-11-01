@@ -1,16 +1,37 @@
-# Spitfire GUI 1.6.0 Python 재구현
+# Spitfire GUI 1.6.0.post2 Python 재구현
 
 업로드된 Spectra-Physics Spitfire GUI 1.6.0 Windows 설치본에서 복구한 Python 제어 코드, GUI, 분석 근거와 검증 자료입니다.
+
+`post2`는 원본 재구현 `1.6.0.post1`에 **시작·재연결 시 Empower Opt-out 기본 ON**과
+Windows 가상환경 설치를 추가한 버전입니다. 초기 통신 성공 후 `[2036]EMPOPTOUT 1`을 보내고
+원본 `[1068]EMPOPTOUT?` 응답으로 설정·화면을 갱신합니다. **HV OFF 조회·확인 조건은 없습니다.**
+원본 Empower 조회, RUN/STOP, Reset, 상태 해석과 수동 Opt-out ON/OFF는 유지합니다.
+External 2.0.0의 명령 차단·PC 시퀀스·오류 마스킹은 사용하지 않습니다.
 
 **실장비 검증은 수행하지 않았으며, 원본과 모든 동작·화면이 완전히 동일하다고 인증한 결과는 아닙니다.** Windows용 화면은 원본 NI 런타임과 UIR 리소스를 사용합니다. Qt 모드는 별도의 Python GUI이며 동적 렌더링에 차이가 있습니다.
 
 - [실행 방법과 파일 구성](README.ko.md)
 - [원본 분석·동일성 검증 범위](ANALYSIS.ko.md)
 - [로깅 기능·저장 파일 확인 결과](analysis/logging.ko.md)
-- [전체 소스·분석 패키지 ZIP](output/Spitfire_Python_1_6_0.zip)
-- [설치용 Python wheel](output/spitfire_gui_reconstruction-1.6.0.post1-py3-none-any.whl)
-- [검증 결과 요약](analysis/validation_summary.json)
+- [post2 변경·통신 로그 검증](POST2.ko.md)
+- [전체 소스·분석 패키지 ZIP](output/PY_SPF_1.6.0.post2.zip)
+- [설치용 Python wheel](output/spitfire_gui_reconstruction-1.6.0.post2-py3-none-any.whl)
+- [post2 검증 결과 요약](analysis/post2_validation_summary.json)
 - [공급된 NI 런타임·리소스 출처](THIRD_PARTY_NOTICES.md)
+
+## Windows 설치
+
+ZIP을 풀고 `install.bat`을 실행하면 `.venv`를 만들고 의존성 파일과 앱을 설치합니다.
+64비트 Python은 Qt, 32비트 Python은 원본 NI 백엔드를 선택합니다. Python 3.10 이상이 필요합니다.
+
+```bat
+install.bat
+run_demo.bat
+```
+
+원본 NI 화면은 `install.bat native "32비트 Python.exe 경로"`로 설치한 뒤 `run_native.bat`으로
+실행합니다. 설치는 장치에 접속하지 않습니다. `run_demo.bat`은 시뮬레이터,
+`run_native.bat`은 실제 장치 연결을 기본으로 합니다.
 
 ## Qt 데모 실행
 
@@ -35,7 +56,10 @@ python run_spitfire.py --backend native --demo --tcp-port 0
 
 ## 검증
 
-자동 시험 52개, 원본 x86 코드와 Python을 대조한 756개 사례가 통과했습니다. Windows NI 화면의 모의 장치 연결, 10개 패널, 4개 접근 단계, 실제 메뉴·버튼·모터 입력과 종료를 Wine/QEMU에서 확인했습니다. 검증 범위와 남은 차이는 [분석 보고서](ANALYSIS.ko.md)에 기록했습니다.
+원본 x86 코드와 Python을 대조한 756개 사례가 post2에서도 통과했습니다.
+사용자 제공 원본 통신 로그의 Opt-out ON 상태 폴링·응답을 오프라인 대조했습니다.
+로그에는 Opt-out 설정 전환이 없어, HV ON 중 설정 쓰기의 펌웨어 동작까지 검증한 것은 아닙니다.
+현재 시험 결과와 과거 Windows NI 검증의 구분은 [post2 보고서](POST2.ko.md)에 기록합니다.
 
 ```sh
 python -m pip install ".[qt,test]"

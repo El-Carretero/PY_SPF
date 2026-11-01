@@ -1,5 +1,10 @@
 # 원본 분석 및 동일성 검증 범위
 
+> 아래 원본 복구 수치와 Windows NI 시험은 post1 당시의 분석 기록입니다.
+> post2는 원본 초기 요청 43개에 `EMPOPTOUT 1` 쓰기 한 개를 추가하여 44개로 만듭니다.
+> 다른 원본 동작과 리소스는 보존합니다. post2의 재검증·통신 캡처 대조는
+> [POST2.ko.md](POST2.ko.md)를 참고하세요.
+
 ## 원본 식별
 
 대상은 2005-03-18 빌드의 Spectra-Physics Spitfire GUI 1.6.0입니다. 업로드된 ZIP은 Windows MSI 설치 배포본이며, CAB 안에는 63개 파일이 있습니다. 응용 EXE는 x86 PE32 네이티브 코드 271,360바이트이고, .NET 또는 Python 패키지가 아닙니다. 두 EXE 사본의 SHA-256은 동일합니다. 원본 파일별 크기와 SHA-256은 `analysis/cab_manifest.json`에 기록했습니다.

@@ -1,0 +1,109 @@
+{
+  "fixture_sha256": "f4cd2608053b7500c2fab85722b6a16041c003cdf3b055ad58d5279bb23d6336",
+  "source_run": "run-2010-10-9-20-46-32-11363",
+  "network_sockets_blocked": true,
+  "poll": {
+    "cycle_queries": 29,
+    "captured_cycles": 37,
+    "captured_queries": 1073,
+    "capture_rotation": 1
+  },
+  "wire": {
+    "exact_command_datagrams": 15
+  },
+  "decoder": {
+    "actual_reply_samples_decoded": 15,
+    "observed_emp_optout": 1,
+    "observed_hv_on": 1,
+    "empower_sentinels_retained": true
+  },
+  "native_oracle": {
+    "method": "Original x86 decoder in Unicorn; CVI/CRT intercepted",
+    "cases": [
+      {
+        "query": 1039,
+        "payload": " 0X00330409",
+        "pass": true
+      },
+      {
+        "query": 1015,
+        "payload": "0.000000",
+        "pass": true
+      },
+      {
+        "query": 1019,
+        "payload": "0.000000",
+        "pass": true
+      },
+      {
+        "query": 1013,
+        "payload": "0.000000",
+        "pass": true
+      },
+      {
+        "query": 1028,
+        "payload": "0.000000",
+        "pass": true
+      },
+      {
+        "query": 1007,
+        "payload": "-99",
+        "pass": true
+      },
+      {
+        "query": 1008,
+        "payload": "-99",
+        "pass": true
+      },
+      {
+        "query": 1029,
+        "payload": "3073.000000",
+        "pass": true
+      },
+      {
+        "query": 1030,
+        "payload": "19.070000",
+        "pass": true
+      },
+      {
+        "query": 1065,
+        "payload": " 0.0 MHz",
+        "pass": true
+      },
+      {
+        "query": 1031,
+        "payload": "0.760000",
+        "pass": true
+      },
+      {
+        "query": 1021,
+        "payload": " 1",
+        "pass": true
+      },
+      {
+        "query": 1077,
+        "payload": "-99",
+        "pass": true
+      },
+      {
+        "query": 1084,
+        "payload": "19.300000",
+        "pass": true
+      },
+      {
+        "query": 1085,
+        "payload": "0",
+        "pass": true
+      }
+    ],
+    "passed": 15,
+    "failed": 0
+  },
+  "limits": [
+    "Passive capture of an already-running original application; no startup, opt-out transition, reset, RUN/STOP or HV writes captured.",
+    "Opt-out=1 is process-state evidence, not an EMPOPTOUT? wire response.",
+    "HV ON readback was 1 in all 37 samples; this does not establish firmware behavior when applying opt-out with HV ON.",
+    "No 1068 EMPOPTOUT?, 2036 EMPOPTOUT or 1089 COMSTATUS? messages were captured.",
+    "Only UDP payloads and source sequence indexes are retained; addresses, usernames and screenshots are omitted."
+  ]
+}
