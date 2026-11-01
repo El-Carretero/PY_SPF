@@ -11,7 +11,7 @@ exit /b %errorlevel%
 :qt_demo
 if not exist "logs" mkdir "logs"
 >"logs\demo-launch.log" echo Demo launch: %date% %time%
-".venv\Scripts\python.exe" -u "%~dp0run_spitfire.py" --demo --tcp-port 0 %* 2>>"logs\demo-launch.log"
+".venv\Scripts\python.exe" -E -s -u "%~dp0run_spitfire.py" --demo --tcp-port 0 %* 2>>"logs\demo-launch.log"
 set "SPITFIRE_RESULT=%errorlevel%"
 if "%SPITFIRE_RESULT%"=="0" exit /b 0
 echo Demo failed. Details are saved in logs\demo-launch.log.

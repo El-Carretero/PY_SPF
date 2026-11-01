@@ -24,11 +24,16 @@ External 2.0.0의 명령 차단·PC 시퀀스·오류 마스킹은 사용하지 
 ZIP을 풀고 `install.bat`을 실행하면 **원본 NI Native용 32비트 환경**을 설치합니다.
 32비트 Python이 없으면 공식 서명을 확인한 Python 설치 파일을 다운로드해 프로젝트의
 `.python32`에 설치하고, `.venv-native`에 앱을 설치합니다. 별도 Python 설치 명령은 필요 없습니다.
+이전 폴더의 Python 설치 등록이 남아 있는 경우 자동으로 복구하고 실제 설치 경로를 찾아 사용합니다.
 
 ```bat
 install.bat
 run_native.bat
 ```
+
+이미 받은 버전의 설치가 실패했다면 [설치 수정 ZIP](output/PY_SPF_1.6.0.post2_installer_fix.zip)을
+**기존 프로젝트 폴더에 덮어쓰고** `install.bat`을 다시 실행하세요. 기존 폴더와 가상환경을
+삭제하거나 옮길 필요는 없습니다.
 
 설치는 장치에 접속하지 않습니다. `run_native.bat`은 실제 장치 연결,
 `run_demo.bat`은 시뮬레이터로 원본 화면을 실행합니다. 실패 시 창에 오류를 표시하고

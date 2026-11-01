@@ -1,0 +1,136 @@
+{
+  "date_Asia_Seoul": "2026-11-02",
+  "environment": {
+    "os": "Windows 11 10.0.26200",
+    "python": "3.13.9",
+    "bits": 32,
+    "app": "1.6.0.post2"
+  },
+  "file_sha256_normalized_lf": {
+    "tools/install_windows.ps1": "bf25cddd8262e3e9ebf6b24211fe9de06f75946a379cae20fa8ec26eeec48f7a",
+    "run_native.bat": "4222c61f878e748cd4e161cb6ee4f645a06871ca188468bc4f72248a9578c2a6",
+    "run_demo.bat": "b34e15c5eba3f820469d64d1510f750aeeb816399aacf8d4be733a72f9ce2507",
+    "tests/windows_installer.ps1": "f3518e0e777f36b4493f3f1b81826128d47f33603c7ff012652018522d2b4fc6"
+  },
+  "reported_user_failure": {
+    "os": "Windows 10 build 19045",
+    "cause": "The installed CPython product entered Modify with an old nested location registered, while a different new TargetDir was requested. Setup returned success with no core/exe installation action, and the old helper required python.exe at only the new location.",
+    "anonymized_setup_excerpt": [
+      "Detected old TargetDir: <project>\\PY_SPF_1.6.0.post2\\.python32\\",
+      "Requested TargetDir: <project>\\.python32",
+      "Plan begin, action: Modify",
+      "core_JustForMe: execute: None",
+      "exe_JustForMe: execute: None",
+      "Apply complete, result: 0x0"
+    ],
+    "access": "Diagnosed from user-provided installer log. The user's computer was not accessed or repaired by these tests.",
+    "remaining_unknown": "The supplied installer log alone does not show whether the old python.exe files were missing or an inherited Python environment made the old non-isolated probe fail. Both paths are covered by the fix."
+  },
+  "real_maintenance_recovery": {
+    "executed": true,
+    "fixture": "An agent-created registered Python32 runtime was renamed to a preserved backup, then installation was run in a new project folder with poisoned child PYTHONHOME/PYTHONPATH.",
+    "active_runtime_guard": "No process from the selected runtime was running before rename.",
+    "setup": {
+      "action": "Modify",
+      "exit": 0,
+      "requested_new_python_missing": true,
+      "core_action": "None",
+      "exe_action": "None"
+    },
+    "repair": {
+      "action": "Repair",
+      "exit": 0,
+      "core_action": "Repair",
+      "exe_action": "Repair",
+      "old_registered_python_restored": true
+    },
+    "result": {
+      "installer_exit": 0,
+      "elapsed_seconds": 69.72,
+      "new_native_venv_bits": 32,
+      "python": "3.13.9",
+      "app": "1.6.0.post2",
+      "pip_check": "No broken requirements found.",
+      "headless_native_demo_exit": 0,
+      "simulator_connected": true,
+      "controls_updated": 230,
+      "original_runtime_backup_preserved": true
+    },
+    "normalized_log_excerpts": [
+      "Plan begin, 58 packages, action: Modify",
+      "Planned package: core_JustForMe, state: Present, execute: None",
+      "Planned package: exe_JustForMe, state: Present, execute: None",
+      "Apply complete, result: 0x0, restart: None",
+      "Plan begin, 58 packages, action: Repair",
+      "Planned package: core_JustForMe, state: Present, execute: Repair",
+      "Planned package: exe_JustForMe, state: Present, execute: Repair",
+      "Apply complete, result: 0x0, restart: None"
+    ]
+  },
+  "latest_helper_regression": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "authentic-signed-installer-fixture",
+        "passed": true
+      },
+      {
+        "name": "real-python32-isolated-from-poisoned-python-environment",
+        "passed": true
+      },
+      {
+        "name": "probe-reports-missing-and-wrong-architecture",
+        "passed": true
+      },
+      {
+        "name": "zero-exit-without-python-identity-is-not-compatible",
+        "passed": true
+      },
+      {
+        "name": "probe-timeout-kills-owned-child-tree-and-returns-within-bound",
+        "passed": true
+      },
+      {
+        "name": "setup-accepts-working-registered-location",
+        "passed": true
+      },
+      {
+        "name": "setup-log-retains-old-working-location",
+        "passed": true
+      },
+      {
+        "name": "maintenance-noop-then-one-repair-restores-registered-interpreter",
+        "passed": true
+      },
+      {
+        "name": "unrecoverable-install-has-bounded-repair-and-diagnostic-log-links",
+        "passed": true
+      },
+      {
+        "name": "restart-required-status-is-visible-without-reboot",
+        "passed": true
+      },
+      {
+        "name": "repair-failure-reports-exit-code-and-log",
+        "passed": true
+      }
+    ],
+    "setup_execution": "Mocked; authentic signed fixture validated, no setup or repair process executed",
+    "python_execution": "Actual x86 interpreter probes and isolated Python command; no application or instrument started",
+    "coverage": "Maintenance no-op and repair scenarios are fixtures; they do not repair the unavailable user computer"
+  },
+  "latest_real_install_and_launch": {
+    "harness_exit": 0,
+    "poisoned_repeat_install_exit": 0,
+    "native_demo_exit": 0,
+    "default_demo_exit": 0,
+    "probe_record_count": 2,
+    "all_probe_identities_verified": true,
+    "parent_poisoned_pythonhome_preserved": true
+  },
+  "scope": {
+    "latest_probe_changes": "The final helper was rerun after bounded process-tree timeout cleanup and Python identity verification changes; no second real MSI repair was needed because repair control flow was unchanged.",
+    "execution": "Actual signed CPython maintenance/repair, actual x86 venv and package installation, actual poisoned-environment headless simulator launches. No physical device connection or native graphical GUI was started for this recovery test.",
+    "staging": "Agent-created Windows staging source was used. Final complete release ZIP/wheel validation and prior native GUI checks are separate."
+  }
+}

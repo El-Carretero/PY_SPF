@@ -22,6 +22,14 @@ PATH·파일 연결을 바꾸지 않습니다. 일반 Python 설치 프로그램
 앱은 `.venv-native`에 설치하고 기존 64비트 `.venv`는 보존합니다.
 Native에는 PySide6가 필요하지 않습니다. 설치 중 앱이나 장비 연결은 실행하지 않습니다.
 
+Python 설치가 이전 프로젝트 폴더에 등록돼 있으면 그 위치를 재사용합니다. 폴더가 이동·삭제돼
+등록만 남은 경우 공식 설치 프로그램의 Repair를 한 번 실행하고 실제 Python 경로를 다시 찾습니다.
+설치 실패 시 [설치 수정 ZIP](output/PY_SPF_1.6.0.post2_installer_fix.zip)을 기존 프로젝트 폴더에
+덮어쓰고 `install.bat`을 다시 실행하세요. `.python32`나 가상환경을 수동 삭제하지 않습니다.
+Python 확인 결과의 경로·종료 코드·오류는 `logs/python-probes.json`에, 복구 결과는
+`logs/python32-repair.log`에 기록합니다. 설치와 실행은 상속된 `PYTHONHOME`·`PYTHONPATH`에
+의해 다른 Python을 잘못 사용하지 않도록 격리하며 사용자 저장 환경변수는 변경하지 않습니다.
+
 백엔드와 Python 실행 파일을 지정할 수도 있습니다.
 
 ```bat

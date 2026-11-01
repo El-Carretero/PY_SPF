@@ -2,7 +2,11 @@
 
 - `PY_SPF_1.6.0.post2.zip`: 소스·원본 NI 리소스·분석·시험·install.bat·post2 wheel.
 - `spitfire_gui_reconstruction-1.6.0.post2-py3-none-any.whl`: 설치용 앱.
-- `SHA256.json`: 위 두 파일의 크기와 SHA256. ZIP 외부에서 배포물 해시를 확인합니다.
+- `PY_SPF_1.6.0.post2_installer_fix.zip`: 기존 프로젝트에 덮어쓰는 설치·실행 배치 수정본.
+- `SHA256.json`: 위 배포물의 크기와 SHA256. ZIP 외부에서 배포물 해시를 확인합니다.
+
+기존 설치가 실패했다면 `installer_fix.zip`을 **기존 프로젝트 폴더에** 풀어 덮어쓰고
+`install.bat`을 다시 실행합니다. 폴더를 옮기거나 `.python32`·가상환경을 삭제할 필요는 없습니다.
 
 Windows에서는 ZIP을 풀고 그 안의 `install.bat`을 실행합니다.
 의존성 다운로드에 인터넷이 필요합니다. Python 및 PySide6 wheel은 ZIP에 포함하지 않습니다.

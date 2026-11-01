@@ -54,8 +54,18 @@ def main():
             bundle.writestr(prefix + name, data)
         bundle.write(wheel, prefix + "output/" + wheel.name)
         bundle.write(output / "README.md", prefix + "output/README.md")
+    installer_fix = output / f"PY_SPF_{version}_installer_fix.zip"
+    with zipfile.ZipFile(installer_fix, "w", compression=zipfile.ZIP_DEFLATED) as bundle:
+        for name in ("install.bat", "run_native.bat", "run_demo.bat", "tools/install_windows.ps1"):
+            data = (ROOT / name).read_bytes()
+            if name.endswith(".bat"):
+                data = data.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")
+            bundle.writestr(name, data)
+        bundle.writestr("README-install-fix.txt",
+                        "Extract into the existing PY_SPF project folder and replace files.\r\n"
+                        "Run install.bat again. Keep existing Python and venv folders.\r\n")
     manifest = {}
-    for artifact in (archive, wheel):
+    for artifact in (archive, wheel, installer_fix):
         data = artifact.read_bytes()
         manifest[artifact.name] = {"bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}
     (output / "SHA256.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
