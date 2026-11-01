@@ -54,12 +54,14 @@ class Scheduler:
         self.pardon_first_time = True
         self.last_sent: Request | None = None
         self.current_parameter = ""
+        self.default_optout_write: Request | None = None
 
     def clear(self) -> None:
         self.inside.clear()
         self.outside.clear()
         self.balance = 0
         self.last_sent = None
+        self.default_optout_write = None
 
     def push(self, tag: int, parameter: str = "", *, inside: bool = True) -> Request:
         request = Request(tag, parameter)
@@ -77,7 +79,7 @@ class Scheduler:
             # after the write; only that reply updates the displayed setting.
             # There is deliberately no HV readback prerequisite.
             if tag == 1068:
-                self.push(2036, " 1")
+                self.default_optout_write = self.push(2036, " 1")
             self.push(tag, " 1" if tag == 2047 else "")
         self.initializing = True
 

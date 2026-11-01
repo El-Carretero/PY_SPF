@@ -34,6 +34,13 @@ run_native.bat
 `run_demo.bat`은 시뮬레이터로 원본 화면을 실행합니다. 실패 시 창에 오류를 표시하고
 `logs/native-launch.log`에 보관합니다. Qt는 원할 때만 `install.bat qt`로 별도 설치합니다.
 
+전체 화면은 장치의 `STATUS?` 응답 후 열립니다. 장치가 응답하지 않으면 연결 주소와
+`No reply` 안내가 표시됩니다. 장치 없이 화면을 확인하려면 `run_demo.bat`을 실행하세요.
+Opt-out 쓰기 ACK가 누락되어도 1초 후 실제 설정 조회를 이어가며, 지연 ACK는 해당 조회를
+완료한 것으로 취급하지 않습니다. [화면·응답 유실 검증](POST2.ko.md)을 참고하세요.
+
+![실제 Windows NI 데모 화면](previews/post2-native-windows-demo.png)
+
 ## Qt 데모 실행
 
 Python 3.10 이상에서:

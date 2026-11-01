@@ -195,6 +195,17 @@ class NativeGui:
         rc = self.varargs.SetCtrlVal(self.panels[panel], int(control),
                                     self._argument(value, self._dtype(panel, control)))
         self._check(rc, f'set panel {panel} control {control}')
+        if panel == 6 and control == 54:
+            # DARKSCREEN is intentionally shown before STATUS? arrives. Its
+            # original z-order hides the loading/error text behind it on native
+            # Windows, leaving a blank gray window. Keep the message in front.
+            # Keep the connection message above the alarm button instead of
+            # drawing the original 31-point centered text across that button.
+            for attribute, setting in ((531, 40), (532, 96), (533, 600),
+                                       (540, 140), (686, 18), (610, 0)):
+                self._check(self.varargs.SetCtrlAttribute(self.panels[6], 54, attribute,
+                                                         C.c_int(setting)),
+                            'show readable connection message in front of curtain')
 
     def set_attribute(self, panel, control, attribute, value):
         spec = next((a for a in self.attributes.values() if a['id'] == attribute), {})
@@ -225,6 +236,8 @@ class NativeGui:
         self.events.append(str(text))
         if len(self.events) > 2000:
             del self.events[:-1000]
+        if str(text).startswith(('connection:', 'UDP error:')):
+            print(text, file=sys.stderr, flush=True)
 
     def show_warning(self, title, text, on_confirm=None):
         self.dll.MessagePopup(self._bytes(title), self._bytes(text))

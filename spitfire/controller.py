@@ -25,6 +25,10 @@ class Controller:
                  tcp_host="127.0.0.1", clock=_native_seconds):
         self.view = view
         self.clock = clock
+        # Preserve original whole-second scheduling, but measure the added
+        # optional-ACK grace with a full monotonic second in real execution.
+        # An injected test clock controls both deadlines deterministically.
+        self._ack_clock = time.monotonic if clock is _native_seconds else clock
         self.demo = demo
         self.host, self.port, self.local_port = host, port, local_port
         self.config = config
@@ -48,6 +52,8 @@ class Controller:
         self._pending_tcp_events = deque()
         self._opening_deadline = None
         self._opening_error = None
+        self._default_optout_ack_deadline = None
+        self._default_optout_ack_timed_out = False
 
     def read(self, panel, control):
         try:
@@ -106,9 +112,14 @@ class Controller:
         if self.transport:
             self.transport.close()
         self.scheduler.clear()
+        self._default_optout_ack_deadline = None
+        self._default_optout_ack_timed_out = False
         self.scheduler.hold = True
         self.state["connected"] = False
-        self.set_value(6, 54, "Loading data, please wait")
+        self.state["curtain_not_open"] = 1
+        self.apply(dispatch("close_curtain"))
+        self.set_value(6, 54, "Loading simulator data, please wait" if self.demo else
+                       f"Connecting to {self.host}:{self.port}...")
         self.transport = None
         self.startup = None
         self._opening_deadline = self.clock() + 3.0
@@ -138,6 +149,10 @@ class Controller:
         if data is not None:
             self.transport.send_packet(data)
         self.log("TX", request.message)
+        if request is self.scheduler.default_optout_write:
+            # A missing configuration-write receipt must not strand startup.
+            # The original EMPOPTOUT? readback still determines the state.
+            self._default_optout_ack_deadline = self._ack_clock() + 1.0
 
     def tick(self):
         if not self.running:
@@ -175,12 +190,28 @@ class Controller:
                     if success:
                         self.scheduler.queue_initial()
                         self.scheduler.last_received = self.clock()
+                    else:
+                        message = (f"No reply from {self.host}:{self.port}.\n"
+                                   "Check connection or use run_demo.bat.")
+                        self.set_value(6, 54, message)
+                        self.log("connection", message.replace("\n", " "))
             return
         now = self.clock()
         if self.transport and not self.scheduler.hold:
+            if (self._default_optout_ack_deadline is not None
+                    and self._ack_clock() >= self._default_optout_ack_deadline):
+                self._default_optout_ack_deadline = None
+                if (self.scheduler.balance
+                        and self.scheduler.last_sent is self.scheduler.default_optout_write):
+                    self.scheduler.balance = 0
+                    self._default_optout_ack_timed_out = True
+                    self.log("connection", "No Opt-out write ACK; checking EMPOPTOUT? readback")
             action = self.scheduler.connection_action()
             if action:
-                self.log("connection", action)
+                last = self.scheduler.last_sent
+                self.log("connection", f"{action}; last TX={last.tag if last else None}; "
+                         f"last RX={self.state.get('last_query_id')}; "
+                         f"pending={len(self.scheduler.inside) + len(self.scheduler.outside)}")
                 self.state["connected"] = False
                 if action == "reconnect":
                     self.set_value(6, 30, 0)
@@ -218,6 +249,14 @@ class Controller:
         if not match:
             return
         tag = int(match[1])
+        if (tag == 2036 and self._default_optout_ack_timed_out
+                and (self.scheduler.last_sent is None or self.scheduler.last_sent.tag != 2036
+                     or not self.scheduler.balance)):
+            # A delayed write receipt must not release the readback's balance.
+            self.log("connection", "Ignored late Opt-out write ACK")
+            return
+        if tag == 2036 and self.scheduler.last_sent is self.scheduler.default_optout_write:
+            self._default_optout_ack_deadline = None
         if tag == 1000 and self.startup and not self.startup.complete:
             self.startup.mark_received()
         self.scheduler.acknowledge(tag)

@@ -13,6 +13,9 @@ HV OFF 선행 조회, HV 상태 검사, 사용자 확인창은 없습니다. 원
 없었으며 External 2.0.0에서 추가한 정책을 가져오지 않았습니다.
 쓰기 ACK만으로 설정을 켠 것으로 표시하지 않습니다. 원본 조회 응답이 상태와 화면을 갱신합니다.
 보드가 0을 반환하면 0을 표시하며, 기존 재연결·응답 대기 동작을 사용합니다.
+자동 Opt-out 쓰기의 ACK는 최대 1초만 기다리고 원래 `EMPOPTOUT?` 조회로 진행합니다.
+쓰기에 응답하지 않는 경우에도 초기화를 계속할 수 있으며, 지연 ACK는 다음 조회를
+완료한 것으로 취급하지 않습니다. 쓰기를 재전송하거나 조회값을 만들어내지는 않습니다.
 
 원본 Empower 조회·초기 쓰기(`EMP:LBOBREAK 1`)·Reset·RUN/OFF·접근 단계·수동 Opt-out ON/OFF를
 유지합니다. 수동 OFF 후에는 다음 연결에서 다시 ON을 요청합니다.
@@ -54,9 +57,35 @@ wheel에도 NI 런타임의 중첩 `bin/`·`fonts/` 리소스를 포함하고 �
 또한 표본 15개 모두 원본 EXE x86 디코더의 결과와 일치했습니다.
 결과: `analysis/optout_post2_replay_results.json`.
 
+## 회색 화면 재검증
+
+원본은 `STATUS?`(1085) 수신 전 DARKSCREEN 가림막으로 제어부를 가립니다.
+이전 post2는 자동 Opt-out 쓰기(2036)의 ACK가 없으면 1068 조회로 넘어가지 못했고,
+STATUS 조회도 보내지 못해 회색 화면에 남았습니다. 이전 커밋과 수정본에 같은 ACK 유실을
+주입해 정지와 회복을 재현했습니다. [전후 비교](analysis/post2_optout_ack_regression.json).
+첨부 화면만으로 실제 장비의 ACK 유실 여부를 확정한 것은 아닙니다.
+
+또한 원본 안내문은 가림막 뒤에 숨어 무응답 원인이 보이지 않았습니다. Native 안내문을
+가림막 앞으로 옮기고 글자·위치를 조정해 FAULT 버튼과 겹치지 않게 했습니다.
+세 번의 identity 조회에 응답이 없으면 대상 주소와 `No reply`를 표시하고,
+실제 연결 상태·가림막·비활성 메뉴를 유지합니다. 장치 없는 화면 확인은 데모로 합니다.
+연결 오류와 재연결의 마지막 TX/RX 태그는 Native 실행 로그에도 기록합니다.
+정상 연결 뒤 재연결할 때도 가림막 상태를 초기화하고, 새 STATUS 응답으로만 다시 엽니다.
+
+현재 검증은 창 존재나 기본값 230개 읽기만으로 성공 처리하지 않습니다.
+실제 STATUS 수신, 커튼과 안내문 숨김, RUN/STOP 표시, 메뉴 활성화를 NI 속성으로 확인하고
+준비된 원본 렌더 화면을 캡처합니다. 실제 Windows에서 정상 데모, Opt-out ACK 유실,
+전체 무응답 화면을 확인했습니다. [Windows 상태·화면 결과](analysis/post2_native_connection_validation.json).
+실제 Windows NI 화면의 STOP 버튼을 마우스로 클릭하여 시뮬레이터에 원본 `[2028]OFF`가
+송신되는 것도 확인했습니다. 메뉴 활성 상태는 실제 NI 속성을 읽어 확인했습니다.
+
+![Opt-out ACK 유실 후 정상적으로 열린 원본 NI 화면](previews/post2-native-no-ack.png)
+
+![실제 장치 응답이 없을 때 표시하는 안내](previews/post2-native-no-response.png)
+
 ## 검증
 
-- post2 회귀시험: 67 passed, 7 subtests passed.
+- post2 회귀시험: 75 passed, 7 subtests passed.
 - 기본 Opt-out: HV OFF / ON / 미조회 상태에서도 초기 쓰기, 응답 기반 표시,
   보드가 설정을 거부하는 경우, 수동 OFF와 재연결 기본 ON을 시뮬레이터로 확인.
 - 원본 x86 콜백 대조 395개, 디코더 338개, 추가 디코더 23개: 총 756개 통과.
@@ -95,3 +124,4 @@ python tools/build_release.py
 
 Windows Native GUI 대조는 설치 후 `.venv-native\Scripts\python.exe tools\verify_native_demo.py`로
 재현합니다. 이 도구는 시뮬레이터만 사용하고 TCP 상태 서버도 열지 않습니다.
+`--drop-optout-ack --snapshot ready.bmp`로 ACK 유실 경로와 실제 준비 화면을 확인할 수 있습니다.

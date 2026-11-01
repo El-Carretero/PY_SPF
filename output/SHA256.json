@@ -1,10 +1,10 @@
 {
   "PY_SPF_1.6.0.post2.zip": {
-    "bytes": 6306649,
-    "sha256": "a9014b987098f7c47b913dbc5eeabb4c88134397094530e00d17fd5523dc47ed"
+    "bytes": 6424931,
+    "sha256": "7a5f5a999bf36fd1c09e4c1464ebc730f2340054c73028afdcf804aa3ac3b37b"
   },
   "spitfire_gui_reconstruction-1.6.0.post2-py3-none-any.whl": {
-    "bytes": 2762342,
-    "sha256": "4f584b5543f72032e8469ba5efe6ad80556b23b0458cd9b6ae0d6f15a3ca9b9c"
+    "bytes": 2763344,
+    "sha256": "33764dd08b3e23e73990a11f078c139d5b8080880f8090319d79a0319f1ceeee"
   }
 }

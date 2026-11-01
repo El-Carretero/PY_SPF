@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-01",
+  "environment": {
+    "os": "Windows 11 (10.0.26200)",
+    "python": "3.13.9",
+    "bits": 32,
+    "native_runtime": "Bundled NI CVI runtime with original UIR"
+  },
+  "scope": "Actual NI panel attributes and native-rendered BMP screenshots, simulator-only transport; no hardware UDP and TCP server disabled.",
+  "cases": {
+    "native-no-ack": {
+      "python": "3.13.9",
+      "bits": 32,
+      "mode": "simulator",
+      "tcp_server": false,
+      "drop_optout_ack": true,
+      "phases": [
+        "native_loaded",
+        "demo_verified",
+        "closed"
+      ],
+      "panels": 10,
+      "connected": true,
+      "emp_optout": 1,
+      "displayed_optout": 1,
+      "controls_updated": 230,
+      "callback_errors": [],
+      "ready": true,
+      "elapsed_seconds": 4.13,
+      "ticks": 117,
+      "status_received": true,
+      "curtain_not_open": 0,
+      "native_visibility": {
+        "curtain_visible": 0,
+        "loading_text_visible": 0,
+        "run_visible": 1,
+        "stop_visible": 1,
+        "menu_dimmed": 0
+      },
+      "last_sent": "Request(tag=1039, parameter='')",
+      "balance": 1,
+      "dropped_optout_acks": 1,
+      "optout_write_count": 1,
+      "snapshot": "logs\\native-no-ack.bmp",
+      "exit_code": 0
+    },
+    "native-no-response": {
+      "python": "3.13.9",
+      "bits": 32,
+      "mode": "simulator",
+      "all_responses_dropped": true,
+      "socket_creation_forbidden": true,
+      "phases": [
+        "native_loaded",
+        "no_response_verified",
+        "closed"
+      ],
+      "connected": false,
+      "curtain_not_open": 1,
+      "native_visibility": {
+        "curtain_visible": 1,
+        "loading_text_visible": 1,
+        "run_visible": 1,
+        "stop_visible": 1,
+        "menu_dimmed": 1
+      },
+      "connection_text": "No reply from 10.19.70.13:1024.\nCheck connection or use run_demo.bat.",
+      "text_zplane": 0,
+      "curtain_zplane": 6,
+      "identity_queries": 3,
+      "startup_complete": true,
+      "exit_code": 0
+    },
+    "native-stop-click": {
+      "mode": "simulator",
+      "tcp_server": false,
+      "socket_creation_forbidden": true,
+      "ready": true,
+      "physical_click_verified_own_window": true,
+      "stop_click_sent_original_off": true,
+      "original_command": "[2028]OFF",
+      "close_completed": true,
+      "exit_code": 0,
+      "limits": [
+        "The physical mouse target was verified to belong to the spawned native process.",
+        "Help/About was not tested because the CVI menu was not exposed as a standard Win32 menu."
+      ]
+    }
+  },
+  "screenshots": {
+    "native-no-ack": "previews/post2-native-no-ack.png",
+    "native-no-response": "previews/post2-native-no-response.png"
+  },
+  "limits": [
+    "No real firmware or instrument connection was tested.",
+    "The original connection curtain stays closed when the instrument does not reply; the visible text explains the condition."
+  ],
+  "screenshot_sha256": {
+    "native-no-ack": "fa2f43ceee340b134999b17184b925de9b60ae3f6c563afdc86b8516f940ff2e",
+    "native-no-response": "0a35493e14e5b83cc8bcc8461d0cc3c91498742349f93fd651389174e87c80f9"
+  },
+  "visual_inspection": {
+    "no_response": "Connection message is visible in the upper-left/center region and does not overlap the FAULT button.",
+    "no_ack": "Original blue main panel and RUN/STOP controls are visible after STATUS? readback."
+  }
+}

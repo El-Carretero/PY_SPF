@@ -1,0 +1,24 @@
+{
+  "scenario": "Opt-out write applied but its ACK dropped; simulator only, sockets forbidden",
+  "results": {
+    "before_273ee1b": {
+      "last_sent_tag": 2036,
+      "balance": 1,
+      "curtain_not_open": 1,
+      "curtain_visible": 1,
+      "menu_dimmed": 1,
+      "optout_readback": 0,
+      "status_received": false
+    },
+    "after": {
+      "last_sent_tag": 1039,
+      "balance": 1,
+      "curtain_not_open": 0,
+      "curtain_visible": 0,
+      "menu_dimmed": 0,
+      "optout_readback": 1,
+      "status_received": true
+    }
+  },
+  "limits": "This reproduces a gray-curtain code path. The screenshot alone does not establish the state of the actual instrument."
+}
