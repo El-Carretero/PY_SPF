@@ -6,7 +6,8 @@
 
 Windows에서는 ZIP을 풀고 그 안의 `install.bat`을 실행합니다.
 의존성 다운로드에 인터넷이 필요합니다. Python 및 PySide6 wheel은 ZIP에 포함하지 않습니다.
-native 모드는 32비트 Windows Python, Qt 모드는 64비트 Python을 사용합니다.
+기본 설치는 Native용 32비트 Python을 찾거나 공식 서명 확인 후 자동 설치하며 `.venv-native`를 만듭니다.
+Qt는 `install.bat qt`로 별도 설치합니다.
 앱 wheel 자체의 `py3-none-any` 표시는 NI DLL이 모든 OS에서 작동한다는 뜻은 아닙니다.
 
 이 브랜치의 배포물은 post2만 포함합니다. post1 배포물은 `main` 이력에 있습니다.

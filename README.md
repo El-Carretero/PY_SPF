@@ -21,17 +21,18 @@ External 2.0.0의 명령 차단·PC 시퀀스·오류 마스킹은 사용하지 
 
 ## Windows 설치
 
-ZIP을 풀고 `install.bat`을 실행하면 `.venv`를 만들고 의존성 파일과 앱을 설치합니다.
-64비트 Python은 Qt, 32비트 Python은 원본 NI 백엔드를 선택합니다. Python 3.10 이상이 필요합니다.
+ZIP을 풀고 `install.bat`을 실행하면 **원본 NI Native용 32비트 환경**을 설치합니다.
+32비트 Python이 없으면 공식 서명을 확인한 Python 설치 파일을 다운로드해 프로젝트의
+`.python32`에 설치하고, `.venv-native`에 앱을 설치합니다. 별도 Python 설치 명령은 필요 없습니다.
 
 ```bat
 install.bat
-run_demo.bat
+run_native.bat
 ```
 
-원본 NI 화면은 `install.bat native "32비트 Python.exe 경로"`로 설치한 뒤 `run_native.bat`으로
-실행합니다. 설치는 장치에 접속하지 않습니다. `run_demo.bat`은 시뮬레이터,
-`run_native.bat`은 실제 장치 연결을 기본으로 합니다.
+설치는 장치에 접속하지 않습니다. `run_native.bat`은 실제 장치 연결,
+`run_demo.bat`은 시뮬레이터로 원본 화면을 실행합니다. 실패 시 창에 오류를 표시하고
+`logs/native-launch.log`에 보관합니다. Qt는 원할 때만 `install.bat qt`로 별도 설치합니다.
 
 ## Qt 데모 실행
 
@@ -46,10 +47,10 @@ python -m spitfire --backend qt --demo --tcp-port 0
 
 ## 원본 NI 화면 실행
 
-32비트 Windows Python 3.10 이상에서:
+위 Native 설치 후 장치 없는 원본 화면 데모:
 
 ```bat
-python run_spitfire.py --backend native --demo --tcp-port 0
+run_native.bat --demo --tcp-port 0
 ```
 
 실장비 연결 설정과 원본 포트는 [실행 안내](README.ko.md)에 있습니다. NI 모드는 독립 응용 프로세스로 실행합니다.

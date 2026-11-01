@@ -110,6 +110,11 @@ class NativeGui:
         self._kernel.GetModuleHandleW.argtypes = [C.c_wchar_p]
         self._kernel.GetModuleHandleW.restype = C.c_void_p
         self._module = self._kernel.GetModuleHandleW(None)
+        # MPR reads Windows network-provider settings during DLL initialization.
+        # Loading it under the temporary HKLM view fails on Windows 11 before
+        # CVI's own entrypoint runs (WinError 1114). Initialize it against the
+        # real registry first, using only the Windows system DLL directory.
+        self._mpr = C.WinDLL('mpr.dll', winmode=0x800)
         with _private_runtime_registry(runtime):
             self.dll = C.WinDLL(str(runtime / 'cvirte.dll'))
             self.varargs = C.CDLL(str(runtime / 'cvirte.dll'))

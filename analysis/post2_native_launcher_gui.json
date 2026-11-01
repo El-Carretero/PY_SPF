@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-01",
+  "environment": {
+    "os": "Windows 11 (10.0.26200)",
+    "python": "3.13.9",
+    "bits": 32,
+    "native_runtime": "Bundled NI CVI runtime and UIR resources"
+  },
+  "command": "run_native.bat --demo --tcp-port 0",
+  "headless": false,
+  "mode": "simulator",
+  "tcp_server": false,
+  "visible_main_window": "Spitfire",
+  "visible_window_verified_descendant": true,
+  "close_method": "WM_SYSCOMMAND/SC_CLOSE sent only to the verified descendant native window after two seconds",
+  "close_posted": true,
+  "launcher_exit_code": 0,
+  "launch_log_has_traceback": false,
+  "passed": true,
+  "limits": [
+    "The actual batch launcher displayed and closed the original NI GUI using simulator transport only.",
+    "No instrument connection was opened.",
+    "A direct WM_CLOSE probe timed out and was cleaned up; the standard system-close action succeeded."
+  ]
+}

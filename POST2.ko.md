@@ -19,9 +19,14 @@ HV OFF 선행 조회, HV 상태 검사, 사용자 확인창은 없습니다. 원
 External 버전의 명령 필터·PC2→PC1 시퀀스·오류 비트 마스킹은 추가하지 않았습니다.
 UIR·NI DLL·명령표·응답 디코더·콜백은 post1 그대로입니다.
 
-Windows `install.bat`은 `.venv`를 만들고 선택한 백엔드의 의존성과 앱을 설치합니다.
-자동 선택은 64비트 Qt / 32비트 NI native이며, 모드와 Python 경로를 명시할 수도 있습니다.
-`run_demo.bat`과 `run_native.bat`은 이 환경을 사용합니다. 설치는 앱을 실행하지 않습니다.
+Windows `install.bat`의 기본값은 NI Native입니다. 32비트 Python을 찾고, 없으면 공식
+서명이 유효한 CPython 3.13.9 32비트 설치 프로그램으로 `.python32`에 설치합니다.
+앱은 `.venv-native`에 설치하며 기존 Qt `.venv`는 보존합니다. Qt 설치는 명시적으로 선택합니다.
+`run_native.bat`도 환경을 확인해 필요하면 설치하고, 실패 시 오류와 로그를 보이며 창을 유지합니다.
+설치는 앱을 실행하지 않습니다. PATH·파일 연결은 변경하지 않지만 Python 사용자 등록은 생성됩니다.
+Windows 11에서는 임시 HKLM 뷰 안에서 Windows `mpr.dll`이 처음 로드되면 NI DLL보다 먼저
+초기화에 실패했습니다(`WinError 1114`). 시스템 폴더의 `mpr.dll`을 원래 레지스트리 상태에서
+선행 로드하도록 수정했습니다. NI DLL·Python 실행 파일·DEP 설정은 변경하지 않습니다.
 출력 폴더의 post1 ZIP/wheel은 post2 배포물로 교체하고, 재생성 도구와 SHA256을 제공합니다.
 wheel에도 NI 런타임의 중첩 `bin/`·`fonts/` 리소스를 포함하고 원본 바이트와 대조합니다.
 
@@ -57,18 +62,24 @@ wheel에도 NI 런타임의 중첩 `bin/`·`fonts/` 리소스를 포함하고 �
 - 원본 x86 콜백 대조 395개, 디코더 338개, 추가 디코더 23개: 총 756개 통과.
 - 원본 통신 캡처 표본의 x86 디코더 추가 대조: 15개 통과.
 - Linux Qt offscreen 10개 패널 렌더와 headless 데모 연결·230개 컨트롤 갱신 통과.
-- Windows 11 / Python 3.13.9 x64: `install.bat qt` 신규 설치·재설치,
-  pip 의존성 검사, 설치 패키지와 `run_demo.bat`의 headless 시뮬레이터 실행 통과.
-  연결과 230개 컨트롤 갱신, PySide6 6.12.0 import를 확인했습니다.
-  잘못된 모드 및 x64에서 native 설치 요청은 올바른 오류로 종료했습니다.
-  [Windows 설치 결과](analysis/post2_windows_install.json)에 실행 결과와 배치 파일 해시를 기록했습니다.
-  Windows에는 동일 Python 소스·설치 파일·GUI 명세만 전송했으며 NI DLL/UIR/이미지는 제외했습니다.
-  이 확인은 Windows NI 화면·Qt 렌더 및 전체 배포 ZIP의 Windows 시험이 아닙니다.
+- Windows 11 기본 Native 설치: 공식 서명을 확인한 Python 3.13.9 32비트 자동 설치,
+  `.venv-native` 생성, 반복 설치, pip 검사, 기존 Qt `.venv` 보존과 Qt 재설치 통과.
+  Native/기본 데모 실행 배치의 headless 실행과 실패 시 오류 표시·파일 저장도 확인했습니다.
+  [현재 Native 설치 결과](analysis/post2_windows_native_install.json)에 기록했습니다.
+- 실제 Windows NI 화면: 원본 UIR·런타임으로 패널 10개 로드, 시뮬레이터 연결,
+  컨트롤 230개 갱신, Opt-out 쓰기 한 번과 조회 기반 ON 표시, 콜백 오류 없음,
+  NI 리소스 정리와 종료 코드 0을 확인했습니다.
+  [NI GUI 실행 결과](analysis/post2_windows_native_gui.json)에 기록합니다.
+- 실제 `run_native.bat --demo --tcp-port 0`에서도 소유 프로세스가 확인된 `Spitfire` 창 표시와
+  시스템 창 닫기 동작 후 배치 종료 코드 0을 확인했습니다.
+  [실행 배치 GUI 검증](analysis/post2_native_launcher_gui.json)을 참고하세요.
+- 초기 Qt 설치 검증은 [이전 설치 결과](analysis/post2_windows_install.json)에 보존했습니다.
+  해당 기록은 Native 기본 설치 수정 이전의 배치 파일·동작에 대한 것입니다.
 - 최종 Linux wheel을 새 가상환경에 설치해 headless 데모를 확인하고,
   포함된 리소스 526개를 소스와 바이트 단위로 대조했습니다.
 
 현재 변경으로 실제 장비에 명령을 보내지 않았습니다. 과거 post1의 Wine/QEMU NI 화면 시험은
-`ANALYSIS.ko.md`에 보존하며 post2의 Windows NI 화면 재검증으로 합산하지 않습니다.
+`ANALYSIS.ko.md`에 보존하며 이번 실제 Windows NI 화면 시험과 구분합니다.
 
 재현:
 
@@ -81,3 +92,6 @@ python analysis/native_decoder_oracle.py
 python analysis/native_decoder_oracle.py --extra
 python tools/build_release.py
 ```
+
+Windows Native GUI 대조는 설치 후 `.venv-native\Scripts\python.exe tools\verify_native_demo.py`로
+재현합니다. 이 도구는 시뮬레이터만 사용하고 TCP 상태 서버도 열지 않습니다.

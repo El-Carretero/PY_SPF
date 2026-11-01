@@ -3,6 +3,11 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 .venv/
+.venv-native/
+.venv-native.backup-*/
+.python32/
+.installer-cache/
+logs/
 build/
 dist/
 datalog.csv

@@ -8,16 +8,19 @@
 
 ### Windows 가상환경 설치
 
-Python 3.10 이상을 설치한 뒤 프로젝트 폴더에서 실행합니다.
+ZIP을 푼 프로젝트 폴더에서 다음 두 배치 파일을 실행합니다.
 
 ```bat
 install.bat
-run_demo.bat
+run_native.bat
 ```
 
-`install.bat`은 `.venv`에 의존성과 앱을 설치합니다. 기본 `auto`는 64비트 Python에서 Qt,
-32비트 Python에서 NI native를 선택합니다. Qt는 `requirements.txt`의 PySide6를 설치하고,
-native는 표준 라이브러리와 포함된 NI 리소스를 사용합니다. 설치 중 앱이나 장비 연결은 실행하지 않습니다.
+`install.bat`의 기본값은 **Native**입니다. 기존 32비트 Python 3.10 이상을 찾거나,
+없으면 공식 Python 3.13.9 32비트 설치 파일을 다운로드하고 Python Software Foundation의
+유효한 서명을 확인한 뒤 프로젝트의 `.python32`에 설치합니다. 관리자 권한은 요구하지 않으며
+PATH·파일 연결을 바꾸지 않습니다. 일반 Python 설치 프로그램의 사용자 등록은 생성됩니다.
+앱은 `.venv-native`에 설치하고 기존 64비트 `.venv`는 보존합니다.
+Native에는 PySide6가 필요하지 않습니다. 설치 중 앱이나 장비 연결은 실행하지 않습니다.
 
 백엔드와 Python 실행 파일을 지정할 수도 있습니다.
 
@@ -26,9 +29,14 @@ install.bat qt "C:\Path\To\64bit\python.exe"
 install.bat native "C:\Path\To\32bit\python.exe"
 ```
 
-두 명령은 선택 예시입니다. 서로 다른 비트수로 바꾸려면 기존 `.venv`를 다른 위치로 옮긴 뒤
-다시 설치합니다. 실행 시에는 `python` 대신 `.venv\Scripts\python.exe`를 사용하거나
-`.venv\Scripts\activate.bat`으로 활성화합니다. 두 실행 배치 파일은 `.venv`를 직접 사용합니다.
+두 명령은 선택 예시이며 기본 Native 설치에는 인수가 필요 없습니다.
+Qt는 별도 `.venv`에 `requirements.txt`의 PySide6와 앱을 설치합니다.
+`run_native.bat`은 32비트 환경을 확인하고, 없으면 Native 설치를 실행합니다.
+`run_demo.bat`은 Native 환경이 있으면 원본 화면을 시뮬레이터로 실행하고,
+Qt만 설치되어 있으면 해당 데모를 실행합니다.
+오류가 나면 창을 유지하고 `logs/`에 기록합니다. 설치 로그는 `install-native.log`,
+Native 실행 오류는 `native-launch.log`입니다. 자동 검증에서는 `SPITFIRE_NO_PAUSE=1`로
+실패 시 대기를 끌 수 있습니다.
 
 ### post2의 기본 Opt-out
 
@@ -43,8 +51,8 @@ install.bat native "C:\Path\To\32bit\python.exe"
 원본은 32비트 NI LabWindows/CVI 프로그램입니다. 같은 화면 엔진을 사용하는 모드는 **32비트 Windows Python 3.10 이상**이 필요합니다. Python 비트수 확인:
 
 ```bat
-python -c "import struct; print(struct.calcsize('P') * 8)"
-python run_spitfire.py --backend native --demo --tcp-port 0
+.venv-native\Scripts\python.exe -c "import struct; print(struct.calcsize('P') * 8)"
+run_native.bat --demo --tcp-port 0
 ```
 
 `--demo`는 실장비에 연결하지 않는 개발용 시뮬레이터입니다. 시뮬레이터의 값은 실제 펌웨어의 정확성을 입증하는 자료가 아닙니다.
@@ -52,13 +60,13 @@ python run_spitfire.py --backend native --demo --tcp-port 0
 실장비에 연결하려면 원본과 같은 기본 주소 및 포트로 실행합니다.
 
 ```bat
-python run_spitfire.py --backend native
+run_native.bat
 ```
 
 기본 장치 주소는 `10.19.70.13:1024/UDP`, PC 수신 포트는 `1024/UDP`, TCP 상태 조회 서버는 `1001/TCP`입니다. 주소·포트는 명령행으로 바꿀 수 있습니다.
 
 ```bat
-python run_spitfire.py --backend native --host 10.19.70.13 --local-port 1024 --tcp-host 127.0.0.1
+run_native.bat --host 10.19.70.13 --local-port 1024 --tcp-host 127.0.0.1
 ```
 
 원본 화면 정의와 NI 런타임은 `spitfire/resources/`에 있습니다. 이 모드는 원본의 GUI 라이브러리를 재사용합니다. GUI 라이브러리까지 순수 Python으로 다시 작성한 것은 아닙니다.

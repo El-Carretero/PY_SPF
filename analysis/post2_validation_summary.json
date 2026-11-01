@@ -14,5 +14,6 @@
   "installed_wheel_headless_demo": "passed",
   "wheel_resource_files_byte_matched": 526,
   "network": "simulator/loopback only; capture replay forbids sockets",
-  "windows_results": "post2_windows_install.json"
+  "windows_results": "post2_windows_native_install.json",
+  "windows_native_gui_results": "post2_windows_native_gui.json"
 }
