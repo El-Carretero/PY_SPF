@@ -570,8 +570,8 @@ try {
         $Report.normal_demo.ready = $ready
         Add-Check 'regular-native-demo-ready' $ready 'Default frozen Native entry must create an owned visible DEMO window and fresh ready/connected default session heartbeat.'
         $closingWindow = [InstallerNativeWindowProbe]::ReadWindow($window)
-        Add-Check 'regular-native-demo-close-target' (Test-DemoWindow $closingWindow $demo.Id) 'Recheck exact HWND owner, visibility and Spitfire DEMO title immediately before WM_CLOSE.'
-        Add-Check 'regular-native-demo-owned-close' ([InstallerNativeWindowProbe]::PostMessageW($window, 0x0010, [IntPtr]::Zero, [IntPtr]::Zero)) 'Send WM_CLOSE only to the verified own-PID Native window; no mouse/keyboard input.'
+        Add-Check 'regular-native-demo-close-target' (Test-DemoWindow $closingWindow $demo.Id) 'Recheck exact HWND owner, visibility and Spitfire DEMO title immediately before SC_CLOSE.'
+        Add-Check 'regular-native-demo-owned-close' ([InstallerNativeWindowProbe]::PostMessageW($window, 0x0112, [IntPtr]0xF060, [IntPtr]::Zero)) 'Send the CVI-supported WM_SYSCOMMAND/SC_CLOSE only to the verified own-PID Native window; no mouse/keyboard input.'
         $closed = Wait-OwnedProcess -Process $demo -Seconds 10
         $Report.normal_demo['visible_demo_window'] = $true
         $Report.normal_demo['gui_ready'] = [bool]$heartbeat.gui_ready
