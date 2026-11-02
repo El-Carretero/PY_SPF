@@ -1,47 +1,47 @@
 {
+  "schema": 1,
+  "source_commit": "59e46a800ef65035243e5208258217a443be281a",
+  "run_id": "41459115051",
   "files": [
     {
+      "sha256": "738cd8b891e76c3b49eebe0f00395719ffb69f6e19ae896bcdc98ba64adc12f7",
       "path": "installer/PY_SPF_1.0_Setup_x86.exe",
-      "bytes": 9395399,
-      "sha256": "ef7f9d664111b9f6b78e9c40d7134e55d072beae290d3485578f137e4f2c1277"
+      "bytes": 9393580
     },
     {
+      "sha256": "e4d65af27ac87a0fbe7e854b22775393c2151bf3ab4f4c2c5b91b5c3c6f49ff5",
       "path": "PY_SPF_1.0_win32_portable.zip",
-      "bytes": 9840836,
-      "sha256": "fed3671196bdec6218bfbcc3ecb10b260130f489f051266f6488c8209e4dfc50"
+      "bytes": 9840331
     },
     {
+      "sha256": "58cc78c8fc815963f92dfcd2563ab669dfe4ab14f342a9ba2732927e996336af",
       "path": "PY_SPF/bundle-manifest.json",
-      "bytes": 23801,
-      "sha256": "1a0e9f88ff4662fcd4467aeafb275b0ba2f330cdf2695b16ebe5318e35f4a6a1"
+      "bytes": 23801
     },
     {
+      "sha256": "46182ccecd3e07804816cf7c5aa7df80799bb18254c6ed1704765281feea171b",
       "path": "native-self-test.json",
-      "bytes": 2991,
-      "sha256": "97448928826d4a2ae665a16866d9383ca267f0ef18056996a40c33f7aacae9bd"
+      "bytes": 2991
     },
     {
+      "sha256": "c8c4f5039e71d16bf3d8bc53cc31317dedf38dab06ad2c8e0d47c0bc1ce55db2",
       "path": "native-self-test.bmp",
-      "bytes": 2061542,
-      "sha256": "c8c4f5039e71d16bf3d8bc53cc31317dedf38dab06ad2c8e0d47c0bc1ce55db2"
+      "bytes": 2061542
     },
     {
+      "sha256": "39ecd36d43548bc44815690f072fd49d7faa08e70ec1d7c68836b6b20e9a16a4",
       "path": "install-validation/install-validation.json",
-      "bytes": 24232,
-      "sha256": "a5f4859f0eb02c0dbedd115ddd4d530f9ece6e60bb6fa3296136a46f1760d6b9"
+      "bytes": 24274
     },
     {
+      "sha256": "953733b0597320951f59907c375562f023b57a1a9fab3bac9b0924c19d8a6edf",
       "path": "install-validation/native-self-test.json",
-      "bytes": 2827,
-      "sha256": "d7b3048693fd46dc7756e920ce6fbba84ccee37fc7c661bbe3854890b46bcaef"
+      "bytes": 2827
     },
     {
+      "sha256": "c8c4f5039e71d16bf3d8bc53cc31317dedf38dab06ad2c8e0d47c0bc1ce55db2",
       "path": "install-validation/native-self-test.bmp",
-      "bytes": 2061542,
-      "sha256": "c8c4f5039e71d16bf3d8bc53cc31317dedf38dab06ad2c8e0d47c0bc1ce55db2"
+      "bytes": 2061542
     }
-  ],
-  "source_commit": "5ec01261cf843885f579d5afaa8da0706f8c0ef4",
-  "run_id": "41457851613",
-  "schema": 1
+  ]
 }
