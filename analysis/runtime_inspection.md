@@ -21,7 +21,7 @@ If package resources are read-only, the backend copies the runtime into `LOCALAP
 
 ## Final integrated verification
 
-See `native_gui_validation.json` and `work/runtime/native-cli-validate.log`.
+See the retained [Native GUI validation record](native_gui_validation.json), including the CLI proof, shutdown result and environment.
 
 - All nine original Spitfire panels plus the original TCP Server Console loaded, displayed, and hid.
 - Access levels 0, 1, 2, and 3 applied without CVI attribute errors.

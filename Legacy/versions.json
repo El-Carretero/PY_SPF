@@ -1,0 +1,228 @@
+{
+  "schema": 1,
+  "purpose": "Historical version index without duplicate binary copies on main.",
+  "current_release_directory": "output/native-installer",
+  "history_snapshot_commit": "ded6b5fc7be1918480c8ad7710c4f52a223122fd",
+  "original_provenance_manifest_url": "https://github.com/El-Carretero/PY_SPF/blob/ded6b5fc7be1918480c8ad7710c4f52a223122fd/Legacy/MANIFEST.json",
+  "versions": [
+    {
+      "id": "reconstruction-1.6.0.post1",
+      "title": "Reconstruction 1.6.0.post1",
+      "source_commit": "78d3f447b1ca3dea35c5a737b75569a882bc0650",
+      "source_path": "",
+      "source_url": "https://github.com/El-Carretero/PY_SPF/tree/78d3f447b1ca3dea35c5a737b75569a882bc0650",
+      "artifacts": [
+        {
+          "name": "SHA256.json",
+          "bytes": 316,
+          "sha256": "179da1e36b53adba361673bcab10c54312604d0d865158dd70bbc02ab5fc6406",
+          "commit": "78d3f447b1ca3dea35c5a737b75569a882bc0650",
+          "path": "output/SHA256.json",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/78d3f447b1ca3dea35c5a737b75569a882bc0650/output/SHA256.json",
+          "git_blob": "10d4fa18adcf9f518a6cf5fb8a4f008ce0c03f76"
+        },
+        {
+          "name": "Spitfire_Python_1_6_0.zip",
+          "bytes": 3683131,
+          "sha256": "42ae66dba283f19293919f5a93480bd658bd9c5c54c57d062343e438aa5bd22e",
+          "commit": "78d3f447b1ca3dea35c5a737b75569a882bc0650",
+          "path": "output/Spitfire_Python_1_6_0.zip",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/78d3f447b1ca3dea35c5a737b75569a882bc0650/output/Spitfire_Python_1_6_0.zip",
+          "git_blob": "2465db5acfe0d8224ec3c33d7e87b6e6a4fc4c96"
+        },
+        {
+          "name": "spitfire_gui_reconstruction-1.6.0.post1-py3-none-any.whl",
+          "bytes": 2677868,
+          "sha256": "8172f84744970a9573c5ad1499e1094c48f55f6038800a05bb67b6bd7f81e5a9",
+          "commit": "78d3f447b1ca3dea35c5a737b75569a882bc0650",
+          "path": "output/spitfire_gui_reconstruction-1.6.0.post1-py3-none-any.whl",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/78d3f447b1ca3dea35c5a737b75569a882bc0650/output/spitfire_gui_reconstruction-1.6.0.post1-py3-none-any.whl",
+          "git_blob": "2a908a457e3504cc8cb7720706bc6a9d1a5ddd54"
+        }
+      ]
+    },
+    {
+      "id": "reconstruction-1.6.0.post2",
+      "title": "Reconstruction 1.6.0.post2",
+      "source_commit": "c49fada3ffeb660acb56ceeeabc5c32647750df0",
+      "source_path": "",
+      "source_url": "https://github.com/El-Carretero/PY_SPF/tree/c49fada3ffeb660acb56ceeeabc5c32647750df0",
+      "artifacts": [
+        {
+          "name": "PY_SPF_1.6.0.post2.zip",
+          "bytes": 6722467,
+          "sha256": "7c1e9a28857ca509c1c3e76ef3413a17dfdabe59db2a3fb1a7c311dbed771c1d",
+          "commit": "c49fada3ffeb660acb56ceeeabc5c32647750df0",
+          "path": "output/PY_SPF_1.6.0.post2.zip",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/c49fada3ffeb660acb56ceeeabc5c32647750df0/output/PY_SPF_1.6.0.post2.zip",
+          "git_blob": "b6db0d19eff25013d9c459731fd324b65fd1dbd3"
+        },
+        {
+          "name": "PY_SPF_1.6.0.post2_installer_fix.zip",
+          "bytes": 6484,
+          "sha256": "82f74105952f8d1e69bd907de01b52569b6e62ba919f79958a600d1ab26c7afa",
+          "commit": "c49fada3ffeb660acb56ceeeabc5c32647750df0",
+          "path": "output/PY_SPF_1.6.0.post2_installer_fix.zip",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/c49fada3ffeb660acb56ceeeabc5c32647750df0/output/PY_SPF_1.6.0.post2_installer_fix.zip",
+          "git_blob": "9e92b2b22ede4fb362bc83a39f62688434d2ed75"
+        },
+        {
+          "name": "README.md",
+          "bytes": 1572,
+          "sha256": "8e79922c57cc09c5660525e93bd4e071f4821fd14fd1e7f40559106c5d0412e2",
+          "commit": "c49fada3ffeb660acb56ceeeabc5c32647750df0",
+          "path": "output/README.md",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/c49fada3ffeb660acb56ceeeabc5c32647750df0/output/README.md",
+          "git_blob": "1e3d457cb1487eeab65327e7381490323073f16e"
+        },
+        {
+          "name": "SHA256.json",
+          "bytes": 462,
+          "sha256": "df17845cf8302f39affb0844fb0887eee2fa8c5140e931f71799fb694dfe206b",
+          "commit": "c49fada3ffeb660acb56ceeeabc5c32647750df0",
+          "path": "output/SHA256.json",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/c49fada3ffeb660acb56ceeeabc5c32647750df0/output/SHA256.json",
+          "git_blob": "47d9bd331b765e661cf06d02491e3f4f1b3b24b8"
+        },
+        {
+          "name": "spitfire_gui_reconstruction-1.6.0.post2-py3-none-any.whl",
+          "bytes": 2764924,
+          "sha256": "65d2c80a80c1354b4831a59b9252ccbfb98f07087299ea6a8b923439c1541bd5",
+          "commit": "c49fada3ffeb660acb56ceeeabc5c32647750df0",
+          "path": "output/spitfire_gui_reconstruction-1.6.0.post2-py3-none-any.whl",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/c49fada3ffeb660acb56ceeeabc5c32647750df0/output/spitfire_gui_reconstruction-1.6.0.post2-py3-none-any.whl",
+          "git_blob": "b6768358ed1d7485f211e82f2c12d93e89dd89f6"
+        }
+      ]
+    },
+    {
+      "id": "source-distributions/PY_SPF_1.0",
+      "title": "Native PY_SPF 1.0 source distribution before standalone packaging",
+      "source_commit": "3075872cf2417f2db5eab47af95b92e10bad3839",
+      "source_path": "",
+      "source_url": "https://github.com/El-Carretero/PY_SPF/tree/3075872cf2417f2db5eab47af95b92e10bad3839",
+      "artifacts": [
+        {
+          "name": "PY_SPF_1.0.zip",
+          "bytes": 5945619,
+          "sha256": "80dcd84755779e876c33c944abb8f4d1c131c6c3a07d50c20d153ba7d91cff77",
+          "commit": "3075872cf2417f2db5eab47af95b92e10bad3839",
+          "path": "output/PY_SPF_1.0.zip",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/3075872cf2417f2db5eab47af95b92e10bad3839/output/PY_SPF_1.0.zip",
+          "git_blob": "a7469fb922f5e0e9c349490e4e768e831cddd547"
+        },
+        {
+          "name": "spitfire_gui_reconstruction-1.0.0-py3-none-any.whl",
+          "bytes": 2775474,
+          "sha256": "969fd7f3a4e120ce9a21444ee503d0868e414376644bb32a65b8320a12d348be",
+          "commit": "3075872cf2417f2db5eab47af95b92e10bad3839",
+          "path": "output/spitfire_gui_reconstruction-1.0.0-py3-none-any.whl",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/3075872cf2417f2db5eab47af95b92e10bad3839/output/spitfire_gui_reconstruction-1.0.0-py3-none-any.whl",
+          "git_blob": "b3a174a9a65cf11a85bf9d76355cb18921dbf9b8"
+        },
+        {
+          "name": "SHA256.json",
+          "bytes": 299,
+          "sha256": "b3276f7b86bf1b27aa05b5cea5b1bf3a076b858a64efde69a4bad88438bd29a0",
+          "commit": "3075872cf2417f2db5eab47af95b92e10bad3839",
+          "path": "output/SHA256.json",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/3075872cf2417f2db5eab47af95b92e10bad3839/output/SHA256.json",
+          "git_blob": "8ce027ff67483664a87c3e9834c8aa5809733c66"
+        },
+        {
+          "name": "README.md",
+          "bytes": 1469,
+          "sha256": "c74d34bafb20a047cfb5b51e4b989ce759a975e0b92a1d43188107edea2108d4",
+          "commit": "3075872cf2417f2db5eab47af95b92e10bad3839",
+          "path": "output/README.md",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/3075872cf2417f2db5eab47af95b92e10bad3839/output/README.md",
+          "git_blob": "8c710ef02872821432477efc078c48c511c77ba5"
+        }
+      ]
+    },
+    {
+      "id": "external-control-2.0.0",
+      "title": "External Control 2.0.0 and persistent diagnostics",
+      "source_commit": "b42ac51e2a8f93f938804ed609c8a83109a436c4",
+      "source_path": "",
+      "source_url": "https://github.com/El-Carretero/PY_SPF/tree/b42ac51e2a8f93f938804ed609c8a83109a436c4",
+      "artifacts": [
+        {
+          "name": "PY_SPF_external_2.0.0.zip",
+          "bytes": 3805735,
+          "sha256": "9d9db7a72c301c4a00b3697204bc83a92e91dcadaf604e3d6f3eb3ce512c9377",
+          "commit": "b42ac51e2a8f93f938804ed609c8a83109a436c4",
+          "path": "output/external/PY_SPF_external_2.0.0.zip",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/b42ac51e2a8f93f938804ed609c8a83109a436c4/output/external/PY_SPF_external_2.0.0.zip",
+          "git_blob": "1351d6dda53fc4abce241baa436b1aaa2aa78767"
+        },
+        {
+          "name": "README.md",
+          "bytes": 1038,
+          "sha256": "f05edf1ab8e9cd5036a7965155a53657cbdce8a1391abf0555997e971743e89d",
+          "commit": "b42ac51e2a8f93f938804ed609c8a83109a436c4",
+          "path": "output/external/README.md",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/b42ac51e2a8f93f938804ed609c8a83109a436c4/output/external/README.md",
+          "git_blob": "bb6dc73e30a5af303676260822df24cc4acab9c5"
+        },
+        {
+          "name": "SHA256.json",
+          "bytes": 458,
+          "sha256": "34040c51f9c3f5b037204ffa4fbd8b09056aad6d20f34c4fcb715aff8d1f70e5",
+          "commit": "b42ac51e2a8f93f938804ed609c8a83109a436c4",
+          "path": "output/external/SHA256.json",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/b42ac51e2a8f93f938804ed609c8a83109a436c4/output/external/SHA256.json",
+          "git_blob": "2d0c0b9e3fefe15d3385111b53521e73f32c09de"
+        },
+        {
+          "name": "source_manifest.json",
+          "bytes": 112347,
+          "sha256": "a23de691f8e3626ed9dfec1b90b9bcee964fa57373ee4b2a93343e62ecc412ae",
+          "commit": "b42ac51e2a8f93f938804ed609c8a83109a436c4",
+          "path": "output/external/source_manifest.json",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/b42ac51e2a8f93f938804ed609c8a83109a436c4/output/external/source_manifest.json",
+          "git_blob": "15498cd65280a40086605f132d611648aa7ff0c3"
+        },
+        {
+          "name": "spitfire_external_control-2.0.0-py3-none-any.whl",
+          "bytes": 2693646,
+          "sha256": "40d5896966680b0d5ab2fa6fe0421a55891a483909404eca66601921c72cb3e7",
+          "commit": "b42ac51e2a8f93f938804ed609c8a83109a436c4",
+          "path": "output/external/spitfire_external_control-2.0.0-py3-none-any.whl",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/b42ac51e2a8f93f938804ed609c8a83109a436c4/output/external/spitfire_external_control-2.0.0-py3-none-any.whl",
+          "git_blob": "317903eb8db800caf8b854664da23378d4c4e1e0"
+        }
+      ],
+      "preservation_tag": "legacy/external-control-2.0.0"
+    },
+    {
+      "id": "external-pump-1.5.1",
+      "title": "Spitfire Control 1.5.1 comparison snapshot",
+      "source_commit": "e87225bdc904aeb5348daa409abfa49de449b017",
+      "source_path": "variants/spitfire-control-1.5.1",
+      "source_url": "https://github.com/El-Carretero/PY_SPF/tree/e87225bdc904aeb5348daa409abfa49de449b017/variants/spitfire-control-1.5.1",
+      "artifacts": [
+        {
+          "name": "spitfire-control-1.5.1-source.zip",
+          "bytes": 2247571,
+          "sha256": "cce447f088149812f61a2331df6fc4ff4fcc3f72961eeb8745e966ab188b0f75",
+          "commit": "ded6b5fc7be1918480c8ad7710c4f52a223122fd",
+          "path": "Legacy/external-pump-1.5.1/spitfire-control-1.5.1-source.zip",
+          "download_url": "https://github.com/El-Carretero/PY_SPF/raw/ded6b5fc7be1918480c8ad7710c4f52a223122fd/Legacy/external-pump-1.5.1/spitfire-control-1.5.1-source.zip",
+          "kind": "Historical subtree ZIP retained in main Git history; not the full-repository tag ZIP"
+        }
+      ],
+      "preservation_tag": "legacy/external-pump-1.5.1"
+    }
+  ],
+  "historical_notes": [
+    {
+      "title": "Original reconstruction analysis",
+      "url": "https://github.com/El-Carretero/PY_SPF/blob/3075872cf2417f2db5eab47af95b92e10bad3839/ANALYSIS.ko.md"
+    },
+    {
+      "title": "post2 implementation and verification notes",
+      "url": "https://github.com/El-Carretero/PY_SPF/blob/3075872cf2417f2db5eab47af95b92e10bad3839/POST2.ko.md"
+    }
+  ]
+}
