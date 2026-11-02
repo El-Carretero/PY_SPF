@@ -77,6 +77,8 @@ $UserDataVerified = $false
 $OutputOwned = $false
 $script:PoisonEnvironment = $null
 $Before = $null
+$manifest = $null
+$VerifiedPayloadPaths = New-Object 'System.Collections.Generic.List[object]'
 $DataBefore = $null
 $DataBeforeUninstall = $null
 $Sentinel = $null
@@ -510,6 +512,7 @@ try {
         $item = Get-Item -LiteralPath $file -Force
         if ($item.Attributes -band [IO.FileAttributes]::ReparsePoint) { throw ('Unexpected payload reparse point: ' + $relative) }
         if ($item.Length -ne $entry.bytes -or (Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash -ne $entry.sha256) { throw ('Payload digest/length mismatch: ' + $relative) }
+        $VerifiedPayloadPaths.Add([PSCustomObject]@{ relative_path = $relative; installed_path = $file })
         $verified++
     }
     $Report.manifest = [ordered]@{ sha256 = (Get-FileHash -LiteralPath $manifestPath -Algorithm SHA256).Hash.ToLowerInvariant(); payload_files_verified = $verified; source_commit = $manifest.source_commit }
@@ -601,6 +604,19 @@ finally {
             while ((Test-Path -LiteralPath $Executable) -and $removeWatch.Elapsed.TotalSeconds -lt 10) { Start-Sleep -Milliseconds 100 }
             Add-Check 'app-executable-removed' (-not (Test-Path -LiteralPath $Executable)) 'The application-owned executable must be removed.'
             Add-Check 'app-registration-removed' (@(Get-AppRegistrations).Count -eq 0) 'The application-owned uninstall registration must be removed.'
+            if ($ManifestVerified) {
+                $payloadWatch = [Diagnostics.Stopwatch]::StartNew()
+                do {
+                    $remainingPayload = @(foreach ($entry in $VerifiedPayloadPaths) {
+                        if (Test-Path -LiteralPath $entry.installed_path) { $entry.relative_path }
+                    })
+                    if ($remainingPayload.Count -eq 0 -or $payloadWatch.Elapsed.TotalSeconds -ge 10) { break }
+                    Start-Sleep -Milliseconds 100
+                } while ($true)
+                Add-Member -InputObject $Report.uninstall -NotePropertyName remaining_payload_files -NotePropertyValue $remainingPayload
+                Add-Member -InputObject $Report.uninstall -NotePropertyName payload_files_checked -NotePropertyValue $VerifiedPayloadPaths.Count
+                Add-Check 'uninstalled-payload-files-removed' ($remainingPayload.Count -eq 0) ('Every verified manifest file must be removed; remaining payload files: ' + ($remainingPayload -join ', '))
+            }
             $UninstallVerified = $true
             $allRetained = (Test-RetainedFiles $DataBefore) -and (Test-RetainedFiles $DataBeforeUninstall) -and (Test-Path -LiteralPath $Sentinel -PathType Leaf)
             if ($allRetained) { $allRetained = (Get-FileHash -LiteralPath $Sentinel -Algorithm SHA256).Hash.ToLowerInvariant() -eq $sentinelHash }
