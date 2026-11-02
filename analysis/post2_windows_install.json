@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-01",
+  "environment": {
+    "os": "Windows 11 (10.0.26200)",
+    "python": "3.13.9",
+    "bits": 64,
+    "venv": true,
+    "PySide6": "6.12.0",
+    "app": "1.6.0.post2"
+  },
+  "installer_sha256": "a8cb038f84732b6a03cc80740c9fc8ea17c5ebd89daad253ba8743febef34da5",
+  "scope": {
+    "source": "Exact post2 Python modules, GUI-spec JSON, installer, launchers, requirements, packaging metadata transferred through Desktop Commander.",
+    "omitted": "Native NI runtime, UIR and image resources were omitted from this compact Windows staging copy. Full release artifacts are validated separately.",
+    "packaging_metadata_note": "Transferred pyproject predates the final added nested NI runtime bin/font package-data globs; these omitted resources are outside this Windows check.",
+    "hardware": "No instrument connection. Both execution checks used --demo and --tcp-port 0.",
+    "not_tested": [
+      "32-bit Python / Native NI GUI",
+      "Full release ZIP or wheel installation on Windows",
+      "Qt graphical rendering"
+    ]
+  },
+  "results": {
+    "first_qt_install_exit": 0,
+    "repeat_qt_install_exit": 0,
+    "pip_check": "No broken requirements found.",
+    "invalid_mode_exit": 2,
+    "native_new_x64_exit": 1,
+    "native_new_x64_created_venv": false,
+    "native_existing_x64_exit": 1,
+    "installed_isolated_demo": {
+      "command": ".venv\\Scripts\\python.exe -I -m spitfire --demo --headless --tcp-port 0 --local-port 0 --duration 2",
+      "exit": 0,
+      "mode": "simulator",
+      "connected": true,
+      "controls_updated": 230
+    },
+    "launcher_demo": {
+      "command": "run_demo.bat --headless --local-port 0 --duration 2",
+      "exit": 0,
+      "mode": "simulator",
+      "connected": true,
+      "controls_updated": 230
+    },
+    "qt_core_import": {
+      "exit": 0,
+      "runtime_version": "6.12.0"
+    },
+    "remote_installer_sha256_matches": true
+  }
+}

@@ -1,0 +1,41 @@
+%% caption: 그림 1B. RUN, 예상 광학 결과 및 STOP·보호 기능. STOP 경로는 그림 1C에 상세히 표시하며, 점선 전달 관계는 검증되지 않았다.
+%% layout: landscape
+flowchart LR
+  subgraph EXB["외부 신호"]
+    direction TB
+    UR["RUN / STOP 조작"]
+    IN["준비된 Seed / Pump / 타이밍"]
+    UR ~~~ IN
+  end
+  subgraph HWB["하드웨어 / 전자회로"]
+    direction TB
+    ON["SASC 전역 ON / OFF<br/>구동 효과 미확인"]
+    PM["Empower 시작 / 정지 순서<br/>적용 여부 미확인"]
+    PC["별도의 PC1 / PC2 활성화"]
+    PR["BWD / 릴레이 보호"]
+    ON -.->|"미확인"| PM
+    PM -.-> PC
+    PR --> PC
+  end
+  subgraph SWB["소프트웨어 / 제어 논리"]
+    direction TB
+    ACCEPT["GUI 허용 + 길게 누르기"]
+    CMD["1.0이 2027 ON을 큐에 추가"]
+    STOP["STOP이 2028 OFF를 큐에 추가"]
+    LABEL["EMISSION 표시: EMP 비트"]
+    ACCEPT --> CMD
+    CMD ~~~ STOP ~~~ LABEL
+  end
+  subgraph OPB["광학계"]
+    direction TB
+    CAP["포획 / 증폭 / 방출"]
+    OUT["압축<br/>광학 방출 예상"]
+    PROOF["실측 광학 출력<br/>측정 기록 없음"]
+    CAP --> OUT
+    OUT -.->|"미확인"| PROOF
+  end
+  EXB --> SWB
+  EXB --> OPB
+  SWB --> HWB
+  HWB --> SWB
+  HWB --> OPB

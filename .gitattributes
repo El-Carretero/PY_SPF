@@ -2,6 +2,10 @@
 spitfire/resources/runtime/** -text
 spitfire/resources/*.UIR -text
 analysis/reference/** -text
+# Preserve checksummed historical files and tested release artifacts byte for byte.
+Legacy/** -text
+output/native-installer/** -text
 *.png binary
 *.zip binary
 *.whl binary
+*.bat text eol=crlf

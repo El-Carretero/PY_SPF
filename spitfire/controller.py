@@ -1,14 +1,15 @@
 """Application controller shared by the native CVI and portable Qt views."""
 from __future__ import annotations
-from collections import deque
+from collections import Counter, deque
 from pathlib import Path
+import math
 import re
 import select
 import time
 
-from .callbacks import dispatch, access_level_actions, fault_update_actions
+from .callbacks import SHOW_PANELS, HIDE_PANELS, dispatch, access_level_actions, fault_update_actions
 from .decoders import ResponseDecoder
-from .protocol import PacketBuffer, UDPTransport
+from .protocol import QUERIES, PacketBuffer, UDPTransport
 from .scheduling import Scheduler, StartupAttempts
 from .settings import AccessKeySequence, read_max_level
 from .simulator import SimulatedTransport
@@ -22,10 +23,25 @@ def _native_seconds():
 class Controller:
     def __init__(self, view, *, demo=False, host="10.19.70.13", port=1024,
                  local_port=1024, config=None, data_dir=None, tcp_port=1001,
-                 tcp_host="127.0.0.1", clock=_native_seconds):
+                 tcp_host="127.0.0.1", clock=time.monotonic, read_only=False,
+                 min_request_interval=None):
         self.view = view
         self.clock = clock
+        self._ack_clock = clock
         self.demo = demo
+        self.read_only = bool(read_only)
+        self.min_request_interval = (0.0 if demo else 0.25) if min_request_interval is None else float(min_request_interval)
+        if not math.isfinite(self.min_request_interval) or self.min_request_interval < 0:
+            raise ValueError("min_request_interval must be finite and nonnegative")
+        self.diagnostics = Counter()
+        self._closed_transport_diagnostics = Counter()
+        self._last_matched_at = None
+        self._last_status_at = None
+        self._next_send_at = 0.0
+        self._inflight_deadline = None
+        self._inflight_retries = 0
+        self.query_timeout = 0.7
+        self.max_query_retries = 2
         self.host, self.port, self.local_port = host, port, local_port
         self.config = config
         self.data_dir = Path(data_dir or Path.cwd())
@@ -34,8 +50,13 @@ class Controller:
         self.attributes = {}
         self.decoder = ResponseDecoder(read=self.read)
         self.state = self.decoder.state
-        self.state.update(gAccessLevel=0, evnt_cmt=0, curtain_not_open=1)
-        self.scheduler = Scheduler(clock=clock)
+        self.state.update(gAccessLevel=0, evnt_cmt=0, curtain_not_open=1, gui_ready=False)
+        presentation = getattr(view, "connection_presentation", None)
+        self._connection_presentation = presentation() if presentation else None
+        self._desired_device_dimming = dict(self._connection_presentation["controls"]) if self._connection_presentation else {}
+        self._desired_alarm_attributes = dict(self._connection_presentation["alarm"]) if self._connection_presentation else {}
+        self._connection_message = "Waiting for instrument"
+        self.scheduler = Scheduler(clock=clock, read_only=self.read_only)
         self.keys = AccessKeySequence()
         self.transport = None
         self.startup = None
@@ -47,7 +68,31 @@ class Controller:
         self._button_started = None
         self._pending_tcp_events = deque()
         self._opening_deadline = None
+        self._next_open_attempt = 0.0
         self._opening_error = None
+        self._default_optout_ack_deadline = None
+        self._default_optout_ack_timed_out = False
+        self._startup_retry_deadline = None
+        self._status_requested = False
+        self._tick_active = False
+        self._last_tick_at = self.clock()
+        self._pause_recovery_since = None
+        self._pause_probe_sent = False
+        self._pause_status_received = False
+        self._receive_queue_drained = False
+
+    def communication_diagnostics(self):
+        transport = self._closed_transport_diagnostics.copy()
+        transport.update(getattr(self.transport, "diagnostics", {}))
+        now = self.clock()
+        return {"controller": dict(self.diagnostics),
+                "transport": dict(transport),
+                "pending_tag": self.scheduler.last_sent.tag if self.scheduler.balance and self.scheduler.last_sent else None,
+                "read_only": self.read_only, "min_request_interval": self.min_request_interval,
+                "last_match_monotonic": self._last_matched_at,
+                "last_match_age_seconds": None if self._last_matched_at is None else max(0, now-self._last_matched_at),
+                "last_status_monotonic": self._last_status_at,
+                "last_status_age_seconds": None if self._last_status_at is None else max(0, now-self._last_status_at)}
 
     def read(self, panel, control):
         try:
@@ -61,10 +106,34 @@ class Controller:
         self.values[panel, control] = value
         self.decoder.values[panel, control] = value
         self.view.set_value(panel, control, value)
+        if self._connection_presentation and (panel, control) == (6, 54):
+            self._connection_message = str(value)
+            self._view_optional("set_connection_status", self.state["gui_ready"], str(value))
 
     def set_attribute(self, panel, control, attribute, value):
+        if self._connection_presentation:
+            if attribute == 500 and (panel, control) in self._desired_device_dimming:
+                self._desired_device_dimming[panel, control] = value
+                if not self.state["gui_ready"]:
+                    value = 1
+            if (panel, control) == (6, 50) and attribute in self._desired_alarm_attributes:
+                self._desired_alarm_attributes[attribute] = value
+                if not self.state["gui_ready"]:
+                    value = {500: 0, 641: "NOT CONNECTED", 880: 0xFFFF00}[attribute]
+            if panel == 6 and control in (49, 54) and attribute == 530:
+                value = 0
         self.attributes[panel, control, attribute] = value
         self.view.set_attribute(panel, control, attribute, value)
+
+    def _set_gui_ready(self, ready):
+        self.state["gui_ready"] = bool(ready)
+        if not self._connection_presentation:
+            return
+        for (panel, control), desired in list(self._desired_device_dimming.items()):
+            self.set_attribute(panel, control, 500, desired)
+        for attribute, desired in list(self._desired_alarm_attributes.items()):
+            self.set_attribute(6, 50, attribute, desired)
+        self._view_optional("set_connection_status", bool(ready), self._connection_message)
 
     def log(self, kind, payload):
         self.events.append((self.clock(), kind, payload))
@@ -103,43 +172,272 @@ class Controller:
         self.connect()
 
     def connect(self):
+        self.diagnostics['connect_attempts'] += 1
+        if self.diagnostics['connect_attempts'] > 1:
+            self.diagnostics['reconnects'] += 1
         if self.transport:
+            self._closed_transport_diagnostics.update(getattr(self.transport, "diagnostics", {}))
             self.transport.close()
         self.scheduler.clear()
+        self._default_optout_ack_deadline = None
+        self._default_optout_ack_timed_out = False
+        self._startup_retry_deadline = None
+        self._status_requested = False
+        self._pause_recovery_since = None
+        self._pause_probe_sent = False
+        self._pause_status_received = False
+        self._receive_queue_drained = False
+        self._last_status_at = None
+        self._inflight_deadline = None
+        self._inflight_retries = 0
+        self._next_send_at = 0.0
         self.scheduler.hold = True
         self.state["connected"] = False
-        self.set_value(6, 54, "Loading data, please wait")
+        self.state["curtain_not_open"] = 1
+        self.state["evnt_cmt"] = 0
+        self._button_started = None
+        self._set_gui_ready(False)
+        self.set_value(6, 30, 0)
+        self.apply(dispatch("close_curtain"))
+        self.set_value(6, 54, "Loading simulator data, please wait" if self.demo else
+                       f"Connecting to {self.host}:{self.port}...")
         self.transport = None
         self.startup = None
         self._opening_deadline = self.clock() + 3.0
+        self._next_open_attempt = 0.0
         self._opening_error = None
         self._attempt_open()
 
     def _attempt_open(self):
+        self._next_open_attempt = self.clock() + 0.25
+        self.diagnostics['open_attempts'] += 1
         transport = SimulatedTransport() if self.demo else UDPTransport(
             self.host, self.port, self.local_port, timeout=0.0)
         try:
             transport.open()
         except OSError as exc:
             transport.close()
+            self.diagnostics['open_errors'] += 1
             self._opening_error = str(exc)
             return False
         self.transport = transport
         self._opening_deadline = None
         self.startup = StartupAttempts()
-        self._send(self.startup.begin(self.clock()))
+        self._send_startup(self.startup.begin(self.clock()))
         return True
 
-    def _send(self, request):
+    def _send_startup(self, request):
+        self.diagnostics['startup_attempts'] += 1
+        try:
+            self._send(request)
+        except OSError as exc:
+            self.diagnostics['send_errors'] += 1
+            self.log("UDP error", f"Startup query send failed: {exc}")
+
+    def _send(self, request, *, retry=False):
+        # This is the final authority, including decoder/startup/poll requests.
+        # Partial legacy query 1026 and injected multi-line parameters are not
+        # exact catalog questions and are intentionally unavailable read-only.
+        if self.read_only and (type(request.tag) is not int or request.tag not in QUERIES
+                               or not QUERIES[request.tag].endswith('?')
+                               or request.parameter
+                               or request.message != f'[{request.tag}]{QUERIES[request.tag]}'):
+            self.diagnostics['blocked_writes'] += 1
+            self.log("read only", f"Blocked {request.tag}")
+            if self.scheduler.last_sent is request:
+                self.scheduler.balance = 0
+                self._inflight_deadline = None
+            return False
+        # Set deadlines for every attempt, including a failed sendto. Otherwise
+        # an expired retry can be attempted again on every GUI tick.
+        now = self.clock()
+        self._next_send_at = now + self.min_request_interval
+        if self.scheduler.last_sent is request and self.scheduler.balance:
+            if not retry:
+                self._inflight_retries = 0
+            self._inflight_deadline = now + (self.query_timeout if request.tag < 2000 else 1.0)
         packet = PacketBuffer()
         for part in packet.append(request.message):
             self.transport.send_packet(part)
+            self.diagnostics['tx_packets'] += 1
         data = packet.flush()
         if data is not None:
             self.transport.send_packet(data)
+            self.diagnostics['tx_packets'] += 1
         self.log("TX", request.message)
+        if request.tag == 1085:
+            self._status_requested = True
+        if request is self.scheduler.default_optout_write:
+            # A missing configuration-write receipt must not strand startup.
+            # The original EMPOPTOUT? readback still determines the state.
+            self._default_optout_ack_deadline = self._ack_clock() + 1.0
+        return True
+
+    def _drain_receive(self):
+        # A duplicate may arrive while balance is zero. Drain it before choosing
+        # a new request so it cannot become the next request's apparent reply.
+        # Bound work per UI tick so malformed traffic cannot freeze the GUI.
+        for _ in range(64):
+            sock = self.transport.socket
+            if sock is not None and not select.select([sock], [], [], 0)[0]:
+                return True
+            replies = self.transport.receive()
+            for reply in replies:
+                self._receive(reply.decorated)
+            if sock is None and not replies:
+                return True
+        # Hitting the work limit is not evidence that the old queue is empty.
+        # Real sockets can be checked without consuming another datagram; an
+        # in-memory transport must return an empty receive on a later tick.
+        return sock is not None and not bool(select.select([sock], [], [], 0)[0])
+
+    def _expire_request(self, now):
+        if (not self.scheduler.balance or self._inflight_deadline is None
+                or now < self._inflight_deadline or now < self._next_send_at):
+            return
+        request = self.scheduler.last_sent
+        safe_query = request.tag in QUERIES and QUERIES[request.tag].endswith('?') and not request.parameter
+        if safe_query and self._inflight_retries < self.max_query_retries:
+            self._inflight_retries += 1
+            self.diagnostics['query_retries'] += 1
+            self.log("retry", f"query {request.tag}, attempt {self._inflight_retries + 1}")
+            self._send(request, retry=True)
+            return
+        self.scheduler.balance = 0
+        self._inflight_deadline = None
+        key = 'query_timeouts' if request.tag < 2000 else 'write_ack_timeouts'
+        self.diagnostics[key] += 1
+        self.log("timeout", f"{request.tag}; {'skipped query' if request.tag < 2000 else 'write NOT replayed'}")
+
+    def cancel_pending_run(self, reason="RUN cancelled"):
+        armed = bool(self.state.get('evnt_cmt') or self._button_started is not None)
+        self.state['evnt_cmt'] = 0
+        self._button_started = None
+        removed = self._remove_queued_writes(lambda request: request.tag == 2027)
+        if armed:
+            self.diagnostics['cancelled_run_holds'] += 1
+        if removed:
+            self.diagnostics['cancelled_run_requests'] += removed
+        if armed or removed:
+            self.log('connection', reason)
+
+    def _remove_queued_writes(self, predicate):
+        removed = 0
+        for queue in (self.scheduler.inside, self.scheduler.outside):
+            retained = [request for request in queue if not predicate(request)]
+            removed += len(queue)-len(retained)
+            queue.clear()
+            queue.extend(retained)
+        return removed
+
+    def cancel_pending_actuation(self, reason="Pending writes cancelled"):
+        self.cancel_pending_run(reason)
+        removed = self._remove_queued_writes(lambda request: request.tag >= 2000 and not self._shutdown_request(request))
+        if removed:
+            self.diagnostics['cancelled_write_requests'] += removed
+            self.log('connection', reason)
+
+    @staticmethod
+    def _shutdown_request(request):
+        return request.tag in (2006, 2013, 2016, 2023, 2028) and request.parameter == ''
+
+    def notify_ui_pause(self, reason='GUI pause'):
+        self.diagnostics['gui_pause_events'] += 1
+        self.cancel_pending_run(reason)
+        if self._last_status_at is None:
+            # Before the first STATUS, preserve automatic Opt-out initialization.
+            # A UI pause is not elapsed time spent waiting in the network loop.
+            self.scheduler.last_received = self.clock()
+            return
+        self.cancel_pending_actuation(reason)
+        if self.startup and self.startup.complete and not self.scheduler.hold:
+            self._pause_recovery_since = self.clock()
+            self._pause_probe_sent = False
+            self._pause_status_received = False
 
     def tick(self):
+        # Native menu loops may dispatch a UI-thread timer while a CVI call is
+        # active. Never allow that callback to enter a second scheduler tick.
+        if self._tick_active:
+            self.diagnostics['reentrant_ticks_skipped'] += 1
+            return
+        self._tick_active = True
+        try:
+            now = self.clock()
+            gap = now-self._last_tick_at
+            self._last_tick_at = now
+            if gap > 2 and getattr(self.view, 'native_timers', False):
+                self.notify_ui_pause('GUI pause: cancelled pending actuation')
+            return self._tick_once()
+        finally:
+            self._tick_active = False
+
+    def _recover_after_pause(self, now):
+        if self._pause_recovery_since is None:
+            return False
+        if self._pause_status_received:
+            self._pause_recovery_since = None
+            self._pause_probe_sent = False
+            self._pause_status_received = False
+            self.log('connection', 'GUI pause recovered with a fresh STATUS; no startup replay')
+            return False
+        if not self._pause_probe_sent:
+            if self.state['gui_ready'] or self.state['curtain_not_open'] != 1:
+                self.state['curtain_not_open'] = 1
+                self._set_gui_ready(False)
+                self.apply(dispatch('close_curtain'))
+            if not self._receive_queue_drained:
+                self.diagnostics['pause_quarantine_wait_ticks'] += 1
+                if self.diagnostics['pause_quarantine_wait_ticks'] == 1:
+                    self.log('connection', 'GUI pause: draining buffered replies before STATUS probe')
+                # Existing deliberate shutdowns do not need a fresh status.
+                # Remove before attempting the send: even an uncertain sendto
+                # failure must never cause an actuator command to be replayed.
+                if now >= self._next_send_at:
+                    shutdown = None
+                    for queue in (self.scheduler.inside, self.scheduler.outside):
+                        shutdown = next((request for request in queue if self._shutdown_request(request)), None)
+                        if shutdown is not None:
+                            queue.remove(shutdown)
+                            break
+                    if shutdown is not None:
+                        try:
+                            if self._send(shutdown):
+                                self.diagnostics['quarantine_shutdowns_sent'] += 1
+                        except OSError as exc:
+                            self.diagnostics['send_errors'] += 1
+                            self.log('UDP error', f'Shutdown not replayed: {exc}')
+                return True
+            shutdowns = [request for queue in (self.scheduler.inside, self.scheduler.outside)
+                         for request in queue if self._shutdown_request(request)]
+            self.scheduler.clear()
+            self._inflight_deadline = None
+            self._default_optout_ack_deadline = None
+            self._status_requested = False
+            self.log('connection', 'GUI resumed: probing STATUS before any reconnect')
+            for request in shutdowns:
+                self.scheduler.push(request.tag)
+            self.scheduler.push(1085)
+            self._pause_probe_sent = True
+        try:
+            self._expire_request(now)
+        except OSError as exc:
+            self.diagnostics['send_errors'] += 1
+            self.log('UDP error', str(exc))
+        if not self.scheduler.balance:
+            if not self.scheduler.inside and not self.scheduler.outside:
+                self.log('connection', 'STATUS recovery probe failed; automatically reconnecting')
+                self.connect()
+            elif now >= self._next_send_at:
+                request = self.scheduler.next_request(auto_poll=False)
+                try:
+                    self._send(request)
+                except OSError as exc:
+                    self.diagnostics['send_errors'] += 1
+                    self.log('UDP error', str(exc))
+        return True
+
+    def _tick_once(self):
         if not self.running:
             return
         while self._pending_tcp_events:
@@ -148,59 +446,100 @@ class Controller:
             self._tcp_event(kind, payload)
         if self._opening_deadline is not None:
             if self.clock() < self._opening_deadline:
-                self._attempt_open()
+                if self.clock() >= self._next_open_attempt:
+                    self._attempt_open()
             else:
                 self._opening_deadline = None
                 self.set_value(6, 54, "Com error - cannot open!")
                 self.apply(dispatch("close_curtain"))
                 self.log("UDP error", self._opening_error or "could not open UDP")
+                self._startup_retry_deadline = self.clock() + 2.0
             return
-        waiting_startup = self.startup is not None and not self.startup.complete
-        if self.transport and (waiting_startup or self.scheduler.balance > 0):
+        if self._startup_retry_deadline is not None:
+            if self.clock() >= self._startup_retry_deadline:
+                self.connect()
+            return
+        if self.transport:
+            self._receive_queue_drained = False
             try:
-                sock = self.transport.socket
-                ready = sock is None or bool(select.select([sock], [], [], 0)[0])
-                if ready:
-                    for reply in self.transport.receive():
-                        self._receive(reply.decorated)
+                self._receive_queue_drained = self._drain_receive()
             except (OSError, ValueError) as exc:
                 self.log("UDP error", str(exc))
         if self.startup and not self.startup.complete:
-            if self.startup.should_advance(self.clock()):
+            if self.startup.should_advance(self.clock()) and self.clock() >= self._next_send_at:
                 success = self.startup.finish_attempt()
                 if not self.startup.complete:
-                    self._send(self.startup.begin(self.clock()))
+                    self._send_startup(self.startup.begin(self.clock()))
                 else:
-                    self.scheduler.hold = False
                     if success:
+                        self.scheduler.hold = False
                         self.scheduler.queue_initial()
                         self.scheduler.last_received = self.clock()
+                    else:
+                        self.scheduler.hold = True
+                        self.state["connected"] = False
+                        self._startup_retry_deadline = self.clock() + 2.0
+                        message = (f"No reply from {self.host}:{self.port}.\n"
+                                   "Check connection or use run_demo.bat.")
+                        self.set_value(6, 54, message)
+                        self.log("connection", message.replace("\n", " "))
             return
         now = self.clock()
         if self.transport and not self.scheduler.hold:
+            if self._recover_after_pause(now):
+                return
+            if (self._default_optout_ack_deadline is not None
+                    and self._ack_clock() >= self._default_optout_ack_deadline):
+                self._default_optout_ack_deadline = None
+                if (self.scheduler.balance
+                        and self.scheduler.last_sent is self.scheduler.default_optout_write):
+                    self.scheduler.balance = 0
+                    self._inflight_deadline = None
+                    self._default_optout_ack_timed_out = True
+                    self.diagnostics['write_ack_timeouts'] += 1
+                    self.log("connection", "No Opt-out write ACK; checking EMPOPTOUT? readback")
             action = self.scheduler.connection_action()
             if action:
-                self.log("connection", action)
+                last = self.scheduler.last_sent
+                self.log("connection", f"{action}; last TX={last.tag if last else None}; "
+                         f"last RX={self.state.get('last_query_id')}; "
+                         f"pending={len(self.scheduler.inside) + len(self.scheduler.outside)}")
                 self.state["connected"] = False
+                self.state["curtain_not_open"] = 1
+                self.state["evnt_cmt"] = 0
+                self._button_started = None
+                self._status_requested = False
+                self._set_gui_ready(False)
+                self.apply(dispatch("close_curtain"))
                 if action == "reconnect":
                     self.set_value(6, 30, 0)
-                    if not self.state.get("pardon_first_time_user", 1):
-                        self.set_value(6, 54, "Failed to connect to remote system!")
-                        self.scheduler.hold = True
-                        self._warn_retry("Remote system not responding, click OK to retry")
-                        return
+                    self.log('connection', 'Automatically reconnecting; no modal acknowledgement required')
                 self.connect()
                 return
-            self.set_value(6, 30, 1)
+            if self.state['gui_ready'] and self._last_status_at is not None and now-self._last_status_at > 30:
+                self.diagnostics['status_stale_events'] += 1
+                self.state['curtain_not_open'] = 1
+                self.cancel_pending_actuation('STALE STATUS: cancelled pending actuation')
+                self._set_gui_ready(False)
+                self.apply(dispatch('close_curtain'))
+                self.log('connection', 'No fresh STATUS for 30 seconds; device controls disabled')
+            try:
+                self._expire_request(now)
+            except OSError as exc:
+                self.diagnostics['send_errors'] += 1
+                self.log("UDP error", str(exc))
+            self.set_value(6, 30, int(bool(self.state.get("connected"))))
             if not self.scheduler.inside and not self.scheduler.outside:
                 self.last_health = now
                 self._apply_updates(self.decoder.check_health(self.scheduler.access_level))
                 self._decoder_effects()
-            request = self.scheduler.next_request()
+            request = self.scheduler.next_request() if now >= self._next_send_at else None
             if request is not None:
                 try:
                     self._send(request)
                 except OSError as exc:
+                    self._inflight_deadline = now + (self.query_timeout if request.tag < 2000 else 1.0)
+                    self.diagnostics['send_errors'] += 1
                     self.log("UDP error", str(exc))
         if self.state.get("evnt_cmt") and not self.scheduler.hold:
             if self._button_started is None:
@@ -216,15 +555,66 @@ class Controller:
         self.log("RX", line)
         match = re.search(r"<(\d+)>", line)
         if not match:
+            self.diagnostics['malformed_replies'] += 1
             return
         tag = int(match[1])
+        payload = line[match.end():]
+        if self._pause_recovery_since is not None and not self._pause_probe_sent:
+            # Arrival at our event loop after a pause is not proof that the
+            # device answered *after* the pause. Drain pre-pause buffered replies
+            # before issuing the explicit recovery probe on the same socket.
+            self.diagnostics['ignored_replies'] += 1
+            self.log('ignored reply', f'Buffered tag {tag} before post-pause STATUS probe')
+            return
+        if tag == 1085 and (not self._status_requested or not self.startup or not self.startup.complete):
+            self.log("connection", "Ignored STATUS before the current initialization requested it")
+            self.diagnostics['ignored_replies'] += 1
+            return
+        if tag == 1085 and payload.strip():
+            if (not re.fullmatch(r'\s*\+?\d+(?:\.0+)?\s*', payload)
+                    or not 0 <= int(payload.split('.', 1)[0]) <= 0xffffffff):
+                self.diagnostics['malformed_replies'] += 1
+                return
+        if (tag == 2036 and self._default_optout_ack_timed_out
+                and (self.scheduler.last_sent is None or self.scheduler.last_sent.tag != 2036
+                     or not self.scheduler.balance)):
+            # A delayed write receipt must not release the readback's balance.
+            self.log("connection", "Ignored late Opt-out write ACK")
+            self.diagnostics['ignored_replies'] += 1
+            return
         if tag == 1000 and self.startup and not self.startup.complete:
+            if self.startup.received or not line[match.end():].strip():
+                self.diagnostics['ignored_replies'] += 1
+                return
             self.startup.mark_received()
-        self.scheduler.acknowledge(tag)
-        self._apply_updates(self.decoder.decode_line(line))
+            self.scheduler.last_received = self.clock()
+        elif not self.scheduler.acknowledge(tag):
+            self.diagnostics['ignored_replies'] += 1
+            self.log("ignored reply", f"tag {tag}; pending {self.scheduler.last_sent.tag if self.scheduler.balance and self.scheduler.last_sent else None}")
+            return
+        self._inflight_deadline = None
+        if tag == 2036 and self.scheduler.last_sent is self.scheduler.default_optout_write:
+            self._default_optout_ack_deadline = None
+        self.diagnostics['matched_replies'] += 1
+        self._last_matched_at = self.clock()
+        if not payload.strip():
+            self.diagnostics['empty_replies'] += 1
+            # Never let the original empty-payload fallback reuse another tag's
+            # value (notably the real board's empty HEDOPTOUT response).
+            return
+        if tag == 1085:
+            self._last_status_at = self.clock()
+            if self._pause_recovery_since is not None and self._pause_probe_sent:
+                self._pause_status_received = True
+        updates = self.decoder.decode_line(line)
+        if self.read_only and tag == 1085:
+            # Original STATUS assumes RES12 is about to turn PC1/2 off. In
+            # read-only mode RES12 is suppressed, so keep actual DEL? indicators.
+            updates = [u for u in updates if u.attribute is not None or (u.panel_id, u.control_id) not in ((6, 23), (6, 21))]
+        self._apply_updates(updates)
         self._decoder_effects()
         if self.state.pop("call_for_reset_c1n2", 0):
-            self.scheduler.reset_channels_pending = True
+            self.scheduler.reset_channels_pending = not self.read_only
 
     def _tcp_event(self, kind, payload):
         """Original SERVER.UIR connection indicators and receive console."""
@@ -270,31 +660,53 @@ class Controller:
 
     def _decoder_effects(self):
         for tag, parameter in self.decoder.next_queries:
-            self.scheduler.push(tag, parameter)
+            if self.read_only and tag >= 2000:
+                self.diagnostics['blocked_writes'] += 1
+                self.log("read only", f"Blocked automatic {tag}")
+            else:
+                self.scheduler.push(tag, parameter)
         for kind, value in self.decoder.effects:
             if kind == "initial_updates":
                 self.scheduler.queue_subsystem_initial(value)
             elif kind == "open_curtain":
+                self._set_gui_ready(True)
                 self.apply(dispatch("open_curtain"))
             elif kind == "connected":
                 # Native control 48 is CMBATDEBUG, a readback preference.
                 # Connectivity refresh updates its timestamp, never that control.
                 self.state["connected"] = bool(value)
             elif kind == "hide_ecu":
-                self.apply(dispatch("hide_ecu_controls" if value else "show_ecu_controls"))
+                self.apply(dispatch("hide_ecu_controls" if value else "show_ecu_controls"), automatic=True)
             elif kind == "hide_emp":
                 self.apply(dispatch("hide_emp_controls" if value else "show_emp_controls"))
             elif kind == "menu_disabled":
                 item, disabled = value
                 self._view_optional("set_menu_attribute", 6, item, 500, int(disabled))
             elif kind == "fault_update":
-                self.apply(fault_update_actions())
+                self.apply(fault_update_actions(), automatic=True)
             else:
                 self.state[kind] = value
         self.decoder.next_queries = []
         self.decoder.effects = []
 
     def handle_callback(self, name, value=0, event=1, panel=6, control=0):
+        readonly_local = (set(SHOW_PANELS) | set(HIDE_PANELS) | {
+            'QuitProgram', 'Shutdown', 'exit_from_menu', 'display_faults',
+            'cmtRETUSERMODE', 'SetAccessLevel', 'ClearScreenCB', 'MainCallBack',
+            'MainPanelCB', 'tmr_Data_Logger', 'set_max_current',
+            'Ch1_Coarse_Check_Callback', 'Ch2_Coarse_Check_Callback',
+            'SYNC_Coarse_Check_Callback', 'Ch3_Coarse_Check_Callback',
+            'Ch4_Coarse_Check_Callback',
+        })
+        if self.read_only and name.lstrip('_') not in readonly_local:
+            self.diagnostics['blocked_callbacks'] += 1
+            self.log("read only", f"Blocked callback {name}")
+            return
+        if self._connection_presentation and not self.state["gui_ready"] and name == "tmr_Data_Logger":
+            return  # An offline display must not be logged as instrument data.
+        if self._connection_presentation and not self.state["gui_ready"] and name.lstrip('_') == 'cllbck':
+            self.log("connection", "RUN ignored while waiting for instrument status")
+            return  # A queued press must not become an armed RUN after STATUS.
         self.values[panel, control] = value
         if event in (3, 5):
             self.state["left_mouse_down" if event == 3 else "right_mouse_down"] = True
@@ -307,6 +719,10 @@ class Controller:
 
     def key_pressed(self, text):
         if text == "\x1b":
+            if self.read_only:
+                self.log("read only", "Blocked ESC device OFF")
+                self.diagnostics['blocked_callbacks'] += 1
+                return
             self.apply(dispatch("esc_turnoff", event=1))
         for character in text:
             level = self.keys.feed(character, read_max_level(self.config))
@@ -320,6 +736,10 @@ class Controller:
             self.apply(dispatch("tmr_Mouse_Callback1", event=15, state=self.state))
 
     def _held_turn_on(self, now):
+        if self.read_only or (self._connection_presentation and not self.state["gui_ready"]):
+            self.state["evnt_cmt"] = 0
+            self._button_started = None
+            return
         # Worker 0x406953 compares time(NULL): strictly more than 3 whole
         # seconds, then sends ON, reflects TEC-enable and clears the hold flag.
         if self._button_started is not None and int(now) - int(self._button_started) > 3:
@@ -328,10 +748,17 @@ class Controller:
             self.state["evnt_cmt"] = 0
             self._button_started = None
 
-    def apply(self, actions):
+    def apply(self, actions, *, automatic=False):
         for action in actions:
             kind, target, value = action.kind, action.target, action.value
             if kind in ("command", "query"):
+                if self.read_only and target >= 2000:
+                    self.diagnostics['blocked_writes'] += 1
+                    self.log("read only", f"Blocked action {target}")
+                    continue
+                if self._connection_presentation and not self.state["gui_ready"] and not automatic:
+                    self.log("connection", f"Control request {target} blocked while waiting for instrument status")
+                    continue
                 self.scheduler.push(target, value or "")
             elif kind == "set":
                 self.set_value(*target, value)
@@ -348,6 +775,8 @@ class Controller:
                 elif target == "turn_on_started" and value == "now":
                     self._button_started = self.clock()
             elif kind == "menu_attribute":
+                if self._connection_presentation and target == (6, 0, 500):
+                    value = 0  # Allow offline navigation; hardware controls remain dimmed.
                 self._view_optional("set_menu_attribute", *target, value)
             elif kind == "server_panel":
                 self._view_optional("show_server", bool(value))
@@ -379,6 +808,9 @@ class Controller:
 
     def stop(self):
         self.running = False
+        self.state["gui_ready"] = False
+        self.state["evnt_cmt"] = 0
+        self._button_started = None
         if self.transport:
             self.transport.close()
         if self.tcp:

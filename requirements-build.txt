@@ -1,0 +1,9 @@
+# Windows x86 build environment only. The Native application needs no Qt.
+# Keep these tools in the private venv created by packaging/windows/build.ps1.
+PyInstaller==6.16.0
+pyinstaller-hooks-contrib==2025.9
+altgraph==0.17.4
+packaging==25.0
+pefile==2023.2.7
+pywin32-ctypes==0.2.3
+setuptools==80.9.0

@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-01",
+  "environment": {
+    "os": "Windows 11 (10.0.26200)",
+    "native_python": "3.13.9",
+    "native_bits": 32,
+    "qt_python": "3.13.9",
+    "qt_bits": 64,
+    "app": "1.6.0.post2"
+  },
+  "file_sha256_normalized_lf": {
+    "install.bat": "9c461d693dec4862ecec22b1a1d9d29d3a3ae96274e98a0fdd0abe50b1df1c4c",
+    "tools/install_windows.ps1": "15b85417fd88f3ad48f084fba113f16674854c4146d145f5a390f369e104a194",
+    "run_native.bat": "f552987fb52cfc113642554cfdc71df528c99dfe12c0715ea83f5f99f0ffd8d7",
+    "run_demo.bat": "adbcf60f9d610b19fdb61dabe95f36597242503d584311fd0e5474cdbf3dd263"
+  },
+  "scope": {
+    "source": "Compact exact application Python sources and GUI-spec JSON plus native-first installer and launchers.",
+    "omitted": "NI runtime, UIR and images omitted from this staging copy. Full native GUI and final release artifact validation are separate.",
+    "hardware": "No instrument connection; launcher checks used --demo --headless --tcp-port 0.",
+    "pause": "Unattended tests set SPITFIRE_NO_PAUSE=1. Batch files pause on errors by default.",
+    "bootstrap_note": "Initial signed Python installation passed. Final helper additionally disables download progress, discovers PEP514 custom-location interpreters, ensures pip, and specifies /norestart; repeat installer and discovery tests cover these paths except a second clean bootstrap."
+  },
+  "bootstrap": {
+    "url": "https://www.python.org/ftp/python/3.13.9/python-3.13.9.exe",
+    "size_bytes": 27409328,
+    "sha256": "2ea6d14d994602c83306e39d792e74637612240cfa77096da1ac5ba9bacf613c",
+    "signature_status": "Valid",
+    "publisher": "Python Software Foundation",
+    "target": ".python32",
+    "venv": ".venv-native",
+    "path_and_file_association_changes_requested": false,
+    "per_user_interpreter_registration": "Official CPython setup registers the interpreter; this is not a portable extraction."
+  },
+  "results": {
+    "powershell_parser": "PASS",
+    "default_native_install_exit": 0,
+    "repeat_native_install_exit": 0,
+    "native_venv": {
+      "python": "3.13.9",
+      "bits": 32,
+      "venv": true,
+      "app": "1.6.0.post2"
+    },
+    "pip_check": "No broken requirements found.",
+    "native_launcher_demo": {
+      "arguments": "--demo --headless --tcp-port 0 --local-port 0 --duration 2",
+      "exit": 0,
+      "mode": "simulator",
+      "connected": true,
+      "controls_updated": 230
+    },
+    "default_demo_launcher": {
+      "arguments": "--headless --local-port 0 --duration 2",
+      "exit": 0,
+      "mode": "simulator",
+      "connected": true,
+      "controls_updated": 230
+    },
+    "native_launch_error": {
+      "arguments": "--demo --invalid-argument",
+      "exit": 2,
+      "error_displayed": true,
+      "persistent_log": "logs/native-launch.log"
+    },
+    "invalid_install_mode": {
+      "exit": 1,
+      "error_displayed": true,
+      "persistent_log": "logs/install-bootstrap-errors.log"
+    },
+    "qt_regression_install_exit": 0,
+    "legacy_qt_environment_preserved": true,
+    "registered_custom_python32_discovery_without_launcher_or_path": "PASS"
+  }
+}

@@ -1,6 +1,5 @@
 {
-  "uploaded_zip": "Spitfire_GUI_v_1_6_0-20261029T111415Z-1-001.zip",
-  "uploaded_zip_sha256": "e9861dd0c88dfb2ccf0889d6008b6853c5dc870f20b1936bfb2a8356045621c2",
+  "source": "Supplied Spitfire GUI1.6.0 vendor installer; upload-specific identifiers omitted",
   "files": [
     {
       "name": "SPITFIRE.EXE",

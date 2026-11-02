@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-01",
+  "environment": {
+    "os": "Windows 11 (10.0.26200)",
+    "python": "3.13.9",
+    "bits": 32
+  },
+  "command": "run_native.bat --demo --tcp-port 0",
+  "transport": "simulator; no hardware UDP and TCP server disabled",
+  "window_ownership": "Only the visible Spitfire window belonging to the spawned launcher process tree was captured and closed.",
+  "observations": [
+    "At 3 seconds: original blue main panel, RUN/STOP, PC controls, rates, motor buttons and menu visible; yellow FAULT button.",
+    "At 10 seconds: same visible blue panel; health button changed to ALL SYS OK.",
+    "The all-gray connection curtain reported by the user was not reproduced with the simulator."
+  ],
+  "screenshot": {
+    "path": "previews/post2-native-windows-demo.png",
+    "width": 895,
+    "height": 550,
+    "elapsed_seconds": 10,
+    "sha256": "40e3576ebeedde549f5b45b1b2532ad399ba2d43a9fd38687db0373ce52e1123"
+  },
+  "launcher_exit_code": 0,
+  "limits": [
+    "This validates Windows native rendering with the simulator only. Real-device connection/startup behavior was not exercised."
+  ]
+}

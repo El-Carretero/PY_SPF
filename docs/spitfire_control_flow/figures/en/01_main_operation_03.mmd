@@ -1,0 +1,12 @@
+%% caption: Figure 1C. Native STOP request and EMISSION indication. Neither GUI path proves optical output or complete shutdown.
+flowchart TB
+  A["STOP button / event 3"] --> B["Queue 2028 OFF, then 1013 EMP:STB?"]
+  A --> G["GUI request indicator 2/8 = 0"]
+  B --> C["Scheduler transmits global OFF"]
+  C -.-> U["Physical actuator result unverified"]
+  C --> T["Next queued status query<br/>Reply accepted if valid and nonempty"]
+  T --> O{"Empower opt-out set?"}
+  O -->|"Yes"| S["Skip EMISSION update<br/>Previous display can remain"]
+  O -->|"No"| F["EMISSION visible if<br/>word & 0x1 OR word & 0x200"]
+  F --> D["GUI indication only<br/>Optical output not measured"]
+  S --> D

@@ -1,47 +1,27 @@
-# Spitfire GUI 1.6.0 Python 재구현
+# Native PY_SPF 1.0
 
-업로드된 Spectra-Physics Spitfire GUI 1.6.0 Windows 설치본에서 복구한 Python 제어 코드, GUI, 분석 근거와 검증 자료입니다.
+현재 `main`의 기준은 **Native PY_SPF 1.0 설치형 Windows 앱**입니다. 원본 Spectra-Physics Spitfire GUI **1.6.0**의 NI 화면과 통신 규칙을 사용하며, 프로젝트 버전 **1.0.0**과 장치 펌웨어 버전은 별개입니다.
 
-**실장비 검증은 수행하지 않았으며, 원본과 모든 동작·화면이 완전히 동일하다고 인증한 결과는 아닙니다.** Windows용 화면은 원본 NI 런타임과 UIR 리소스를 사용합니다. Qt 모드는 별도의 Python GUI이며 동적 렌더링에 차이가 있습니다.
+## 다운로드와 실행
 
-- [실행 방법과 파일 구성](README.ko.md)
-- [원본 분석·동일성 검증 범위](ANALYSIS.ko.md)
-- [로깅 기능·저장 파일 확인 결과](analysis/logging.ko.md)
-- [전체 소스·분석 패키지 ZIP](output/Spitfire_Python_1_6_0.zip)
-- [설치용 Python wheel](output/spitfire_gui_reconstruction-1.6.0.post1-py3-none-any.whl)
-- [검증 결과 요약](analysis/validation_summary.json)
-- [공급된 NI 런타임·리소스 출처](THIRD_PARTY_NOTICES.md)
+- [Windows x86 설치 파일](output/native-installer/PY_SPF_1.0_Setup_x86.exe)
+- [Portable ZIP](output/native-installer/PY_SPF_1.0_win32_portable.zip)
+- [SHA256 체크섬](output/native-installer/SHA256SUMS)
+- [설치·실행·제거 및 환경 격리 검증 기록](output/native-installer/install-validation.json)
 
-## Qt 데모 실행
+Windows 10 **1903 이상** 또는 Windows 11에서 실행합니다. Python·pip·venv·NI Runtime을 별도로 설치할 필요가 없습니다. 설치 파일은 현재 사용자 계정에 앱 전용 런타임을 설치하며 관리자 권한을 요구하지 않습니다. 배포 EXE에는 코드 서명이 없습니다.
 
-Python 3.10 이상에서:
+설치 후 시작 메뉴의 **Native PY_SPF 1.0 Demo (no equipment)**로 장비 없이 화면을 확인할 수 있습니다. **Native PY_SPF 1.0**은 설정된 실장비 연결을 사용합니다. Portable ZIP은 압축을 모두 풀고 폴더 전체를 유지한 상태로 `PY_SPF.exe`를 실행합니다.
 
-```sh
-python -m pip install ".[qt]"
-python -m spitfire --backend qt --demo --tcp-port 0
-```
+기본 설치 위치는 `%LOCALAPPDATA%\Programs\Native_PY_SPF_1.0`, 설정·데이터·세션 로그는 `%LOCALAPPDATA%\PY_SPF_1.0`입니다. 기존 Python·venv·NI 등록, PATH·파일 연결, 방화벽·어댑터·네트워크 설정을 변경하지 않습니다. [설치·업데이트·제거 안내](packaging/windows/README.ko.md)에서 경로 제한과 보존되는 사용자 데이터를 확인하세요.
 
-`--demo`는 실장비에 연결하지 않는 개발용 시뮬레이터입니다.
+현재 설치 파일의 자동 검증은 **시뮬레이터를 사용한 Native GUI, 설치·실행·제거 및 환경 격리 시험**입니다. 실장비 제어와 광학적 Emission을 검증한 결과는 아닙니다. [배포 파일과 검증 출처](output/native-installer/README.md)에 정확한 소스와 시험 기록이 있습니다.
 
-## 원본 NI 화면 실행
+## 문서와 이전 버전
 
-32비트 Windows Python 3.10 이상에서:
-
-```bat
-python run_spitfire.py --backend native --demo --tcp-port 0
-```
-
-실장비 연결 설정과 원본 포트는 [실행 안내](README.ko.md)에 있습니다. NI 모드는 독립 응용 프로세스로 실행합니다.
-
-## 검증
-
-자동 시험 52개, 원본 x86 코드와 Python을 대조한 756개 사례가 통과했습니다. Windows NI 화면의 모의 장치 연결, 10개 패널, 4개 접근 단계, 실제 메뉴·버튼·모터 입력과 종료를 Wine/QEMU에서 확인했습니다. 검증 범위와 남은 차이는 [분석 보고서](ANALYSIS.ko.md)에 기록했습니다.
-
-```sh
-python -m pip install ".[qt,test]"
-python -m pytest -q
-```
-
-원본 기계어 대조 스크립트는 `analysis/`에 있습니다. `analysis/reference/SPITFIRE.EXE`는 검증용 사본이며 Python 응용 실행 경로에서는 사용하지 않습니다.
-
-![원본 NI 화면 엔진에서 실행한 Python 제어부](previews/native-cli.png)
+- [설치·실행 요약](README.ko.md)
+- [하드웨어–소프트웨어 통합 제어 흐름: 영문·한글 문서와 PDF](docs/README.md)
+- [Native 1.0 제어 로직 변경 및 과거 실장비 관측 범위](RELEASE.ko.md)
+- [소스 실행·개발·시험](docs/source-development.md)
+- [이전 배포물과 분석 기록](Legacy/README.md)
+- [원본 NI 리소스와 타사 구성요소 출처](THIRD_PARTY_NOTICES.md)

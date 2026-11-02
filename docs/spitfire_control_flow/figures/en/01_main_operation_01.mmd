@@ -1,0 +1,44 @@
+%% caption: Figure 1A. Integrated startup and readiness. GUI RUN eligibility is not hardware-ready or emission proof.
+%% layout: landscape
+flowchart LR
+  subgraph EX["External Signals"]
+    direction TB
+    ES["Seed light + RF sync"]
+    EP["Pump pulse + timing"]
+    EK["Keys / relay contacts"]
+    ES ~~~ EP ~~~ EK
+  end
+  subgraph HW["Hardware / Electronics"]
+    direction TB
+    HP["POWER ON / preparation"]
+    HB["SASC UDP interface"]
+    HD["TDG / HV / PC drivers"]
+    BW["BWD protection"]
+    HP ~~~ HB ~~~ HD ~~~ BW
+  end
+  subgraph SW["Software / Control Logic"]
+    direction TB
+    S0["Open UDP; identity attempts"]
+    S2["Opt-out 1 + initial queries"]
+    S3{"Fresh STATUS?<br/>RUN GUI permitted?"}
+    SF["Open / stale recovery"]
+    SX["Fault inhibit / reset readback"]
+    SR["GUI RUN eligible only"]
+    S0 -->|"Startup completed"| S2 --> S3
+    S0 -->|"Failed"| SF
+    S3 -->|"Missing / stale"| SF
+    SF --> S0
+    S3 -->|"Fault"| SX
+    SX -->|"Next STATUS"| S3
+    S3 -->|"Permitted"| SR
+  end
+  subgraph OP["Optical System"]
+    direction TB
+    OS["Seed stretcher"]
+    PD["PD1 red / PD2 blue"]
+    OS --> PD
+  end
+  EX --> OP
+  EX --> HW
+  OP --> HW
+  HW <--> SW

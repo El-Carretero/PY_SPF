@@ -1,0 +1,106 @@
+{
+  "validated_at_utc": "2026-11-01 16:28:58 UTC",
+  "client_timezone": "Asia/Seoul",
+  "environment": {
+    "device": "p01",
+    "os": "Windows 10",
+    "python": "3.13.9",
+    "bits": 32
+  },
+  "scope": "Installed application project on p01. Actual original NI main-panel attributes were checked using a simulator with all Python socket creation forbidden; no physical instrument was contacted.",
+  "source_backup": "backups/before-timeout-fix-20261102-012612-controller.py",
+  "force_reinstall_exit": 0,
+  "pip_check": "No broken requirements found.",
+  "synced_final_files": [
+    "POST2.ko.md",
+    "analysis/post2_validation_summary.json",
+    "tests/test_native_offline_presentation.py",
+    "analysis/post2_pytest.xml",
+    "output/README.md"
+  ],
+  "timeout": {
+    "python": "3.13.9",
+    "bits": 32,
+    "transport": "simulator",
+    "socket_creation_forbidden": true,
+    "warning_modal": "stubbed; title/text/callback recorded to avoid interactive modal while testing actual NI main-panel state",
+    "phases": [
+      "timeout_warning_offline_guard_and_recovery_verified",
+      "closed"
+    ],
+    "initial_ready": true,
+    "online_logger_wrote_data": true,
+    "warning_calls": [
+      {
+        "title": "Warning",
+        "text": "Remote system not responding, click OK to retry"
+      }
+    ],
+    "offline_after_timeout": {
+      "connected": false,
+      "gui_ready": false,
+      "curtain_not_open": 1,
+      "status_requested": false,
+      "native_visibility": {
+        "curtain_visible": 0,
+        "loading_text_visible": 0,
+        "run_visible": 1,
+        "stop_visible": 1,
+        "menu_dimmed": 0
+      },
+      "run_dimmed": 1,
+      "stop_dimmed": 1,
+      "alarm_label": "NOT CONNECTED",
+      "scheduler_hold": true
+    },
+    "offline_manual_io_blocked": true,
+    "offline_logger_paused": true,
+    "old_status_rejected_while_warning": true,
+    "early_status_rejected_after_retry": true,
+    "fresh_initialization_restored_ready": true,
+    "recovered_native_visibility": {
+      "curtain_visible": 0,
+      "loading_text_visible": 0,
+      "run_visible": 1,
+      "stop_visible": 1,
+      "menu_dimmed": 0
+    },
+    "recovered_run_stop_dimmed": [
+      0,
+      0
+    ],
+    "exit_code": 0
+  },
+  "module_hashes": {
+    "isolated_import": true,
+    "version": "1.6.0.post2",
+    "modules": {
+      "controller": {
+        "cloud_source_sha256": "e122e5d0c982b81508520c18c4983f2db6b6fc70c25b4756f948b60161d2ba5d",
+        "device_source_sha256": "e122e5d0c982b81508520c18c4983f2db6b6fc70c25b4756f948b60161d2ba5d",
+        "device_installed_sha256": "e122e5d0c982b81508520c18c4983f2db6b6fc70c25b4756f948b60161d2ba5d",
+        "installed_relative_path": "Lib/site-packages/spitfire/controller.py",
+        "all_equal": true
+      },
+      "native": {
+        "cloud_source_sha256": "a44c808eab8045dd10e4d40f06da44e7cdc3b97672eeacf325adf186caa1de51",
+        "device_source_sha256": "a44c808eab8045dd10e4d40f06da44e7cdc3b97672eeacf325adf186caa1de51",
+        "device_installed_sha256": "a44c808eab8045dd10e4d40f06da44e7cdc3b97672eeacf325adf186caa1de51",
+        "installed_relative_path": "Lib/site-packages/spitfire/native.py",
+        "all_equal": true
+      },
+      "decoders": {
+        "cloud_source_sha256": "09f62406a01c7a8af70c7a5ff2ae4f42fb4ca73dd2ce19e7bc06d7645e01cdc5",
+        "device_source_sha256": "09f62406a01c7a8af70c7a5ff2ae4f42fb4ca73dd2ce19e7bc06d7645e01cdc5",
+        "device_installed_sha256": "09f62406a01c7a8af70c7a5ff2ae4f42fb4ca73dd2ce19e7bc06d7645e01cdc5",
+        "installed_relative_path": "Lib/site-packages/spitfire/decoders.py",
+        "all_equal": true
+      }
+    },
+    "all_match": true
+  },
+  "limits": [
+    "The warning dialog itself was replaced with a recording callback to avoid unattended modal interaction; actual NI main-panel attributes and the retry callback path were exercised.",
+    "The test advances an injected clock to 31 seconds; it is not a long-duration physical communication test."
+  ]
+}

@@ -13,8 +13,8 @@ class SchedulingRecoveryTests(unittest.TestCase):
             request = queue.next_request(auto_poll=False)
             messages.append(request)
             queue.acknowledge(request.tag)
-        self.assertEqual(len(messages), 43)
-        self.assertEqual([r.tag for r in messages[:8]], [1069, 1068, 1087, 1033, 1038, 1037, 1032, 1057])
+        self.assertEqual(len(messages), 44)
+        self.assertEqual([r.tag for r in messages[:9]], [1069, 2036, 1068, 1087, 1033, 1038, 1037, 1032, 1057])
         self.assertEqual([(r.tag, r.parameter) for r in messages[-3:]], [(2047, ' 1'), (1078, ''), (1062, '')])
 
     def test_priority_and_acknowledgement(self):

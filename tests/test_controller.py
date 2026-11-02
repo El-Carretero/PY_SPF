@@ -69,6 +69,29 @@ class ControllerRecoveryTests(unittest.TestCase):
             self.assertEqual(view.values[6,54],'Com error - cannot open!')
             self.assertIsNone(controller._opening_deadline)
 
+    def test_silent_board_reports_connection_failure_without_claiming_ready(self):
+        from spitfire.simulator import SimulatedTransport
+
+        class SilentBoard(SimulatedTransport):
+            def receive(self):
+                return []
+
+        controller,view,now=self.make_controller()
+        with patch('spitfire.controller.SimulatedTransport', SilentBoard):
+            controller.start()
+            try:
+                for deadline in (3,6,9):
+                    now[0]=deadline
+                    controller.tick()
+                self.assertIn('No reply from 10.19.70.13:1024',view.read(6,54))
+                self.assertIn('run_demo.bat',view.read(6,54))
+                self.assertFalse(controller.state['connected'])
+                self.assertEqual(controller.state['curtain_not_open'],1)
+                self.assertEqual(controller.attributes[6,49,530],1)
+                self.assertEqual(view.menu_attributes[6,0,500],1)
+                self.assertFalse(any('[2036]' in payload for _,kind,payload in controller.events if kind=='TX'))
+            finally:controller.stop()
+
     def test_action_adapters_keypress_and_server_text(self):
         controller,view,now=self.make_controller()
         class Server:

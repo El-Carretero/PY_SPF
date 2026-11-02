@@ -1,0 +1,108 @@
+{
+  "fixture_sha256": "8a37651c618592d2836fded08d2a8f8f3a72ea5ed51c6b508abf595997cd1e31",
+  "fixture_kind": "synthetic",
+  "fixture_name": "optout-protocol-example",
+  "network_sockets_blocked": true,
+  "poll": {
+    "cycle_queries": 29,
+    "example_cycles": 37,
+    "generated_queries": 1073,
+    "example_rotation": 3
+  },
+  "wire": {
+    "exact_command_datagrams": 15
+  },
+  "decoder": {
+    "example_reply_samples_decoded": 15,
+    "configured_emp_optout": 1,
+    "example_hv_on": 1,
+    "empower_sentinels_retained": true
+  },
+  "native_oracle": {
+    "method": "Original x86 decoder in Unicorn; CVI/CRT intercepted",
+    "cases": [
+      {
+        "query": 1015,
+        "payload": "0.000000",
+        "pass": true
+      },
+      {
+        "query": 1039,
+        "payload": " 0X00220001",
+        "pass": true
+      },
+      {
+        "query": 1019,
+        "payload": "0.000000",
+        "pass": true
+      },
+      {
+        "query": 1013,
+        "payload": "2048.000000",
+        "pass": true
+      },
+      {
+        "query": 1028,
+        "payload": "0.000000",
+        "pass": true
+      },
+      {
+        "query": 1007,
+        "payload": "-99",
+        "pass": true
+      },
+      {
+        "query": 1008,
+        "payload": "-99",
+        "pass": true
+      },
+      {
+        "query": 1029,
+        "payload": "0.000000",
+        "pass": true
+      },
+      {
+        "query": 1030,
+        "payload": "21.250000",
+        "pass": true
+      },
+      {
+        "query": 1065,
+        "payload": " 1.0 MHz",
+        "pass": true
+      },
+      {
+        "query": 1031,
+        "payload": "12.500000",
+        "pass": true
+      },
+      {
+        "query": 1021,
+        "payload": " 1",
+        "pass": true
+      },
+      {
+        "query": 1077,
+        "payload": "-99",
+        "pass": true
+      },
+      {
+        "query": 1084,
+        "payload": "20.500000",
+        "pass": true
+      },
+      {
+        "query": 1085,
+        "payload": "0",
+        "pass": true
+      }
+    ],
+    "passed": 15,
+    "failed": 0
+  },
+  "limits": [
+    "All example values, ordering rotation and cycle multiplicities are synthetic test inputs.",
+    "No device log, acquisition clock, PCAP hash, user path or origin identifier is included.",
+    "Passing this fixture checks byte formatting and recovered decoder behavior; it does not establish physical device behavior or new hardware validation."
+  ]
+}

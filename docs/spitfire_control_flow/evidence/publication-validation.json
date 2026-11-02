@@ -1,0 +1,976 @@
+{
+  "schema_version": 2,
+  "document": "XL-TR-SPF-001",
+  "issue": "REVIEW / Draft0.2 / INTERNAL",
+  "status": "PASS_DOCUMENTATION_REVIEW_ARTIFACT",
+  "completed_at_utc": "2026-11-02T10:39:11.058336+00:00",
+  "languages": {
+    "en": {
+      "pdf": "XL-TR-SPF-001_Spitfire-Control-Flow_Review02.pdf",
+      "sha256": "f557985e1eebfe0275a7f349af888ac95896489e97b78229a06f8746ca5cee34",
+      "bytes": 305143,
+      "pages": 51,
+      "mermaid_figures_rendered": 10,
+      "minimum_figure_text_pt": 8.753708550855976,
+      "all_fonts_embedded": true,
+      "all_pages_a4": true,
+      "all_pages_grayscale": true,
+      "outside_text_count": 0,
+      "replacement_glyph_count": 0,
+      "automated_overlap_candidate_count": 0,
+      "unresolved_visual_collision_count": 0,
+      "overlap_candidate_disposition": "No candidates",
+      "links": {
+        "total": 242,
+        "uri": 192,
+        "named_internal": 50,
+        "local_file_launch": 0,
+        "invalid_internal_targets": []
+      },
+      "page_review": [
+        {
+          "page": 1,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 2,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 3,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 4,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": true,
+          "unchanged_pixels_from_individually_viewed_export": false,
+          "final_visual_record": "visual_review/r02-polish-root.json"
+        },
+        {
+          "page": 5,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 6,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 7,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 8,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": true,
+          "unchanged_pixels_from_individually_viewed_export": false,
+          "final_visual_record": "visual_review/r02-polish-root.json"
+        },
+        {
+          "page": 9,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 10,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 11,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 12,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 13,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 14,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 15,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 16,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 17,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 18,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 19,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 20,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 21,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 22,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 23,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 24,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 25,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-01-25.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-01-25.json"
+        },
+        {
+          "page": 26,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 27,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 28,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 29,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 30,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 31,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 32,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 33,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 34,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 35,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 36,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 37,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 38,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 39,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 40,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 41,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 42,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": true,
+          "unchanged_pixels_from_individually_viewed_export": false,
+          "final_visual_record": "visual_review/r02-polish-root.json"
+        },
+        {
+          "page": 43,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": true,
+          "unchanged_pixels_from_individually_viewed_export": false,
+          "final_visual_record": "visual_review/r02-polish-root.json"
+        },
+        {
+          "page": 44,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": true,
+          "unchanged_pixels_from_individually_viewed_export": false,
+          "final_visual_record": "visual_review/r02-polish-root.json"
+        },
+        {
+          "page": 45,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": true,
+          "unchanged_pixels_from_individually_viewed_export": false,
+          "final_visual_record": "visual_review/r02-polish-root.json"
+        },
+        {
+          "page": 46,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 47,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 48,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-en-26-51.json"
+        },
+        {
+          "page": 49,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": true,
+          "unchanged_pixels_from_individually_viewed_export": false,
+          "final_visual_record": "visual_review/r02-polish-root.json"
+        },
+        {
+          "page": 50,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": true,
+          "unchanged_pixels_from_individually_viewed_export": false,
+          "final_visual_record": "visual_review/r02-polish-root.json"
+        },
+        {
+          "page": 51,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-en-26-51.json",
+          "reopened_after_polish": true,
+          "unchanged_pixels_from_individually_viewed_export": false,
+          "final_visual_record": "visual_review/r02-polish-root.json"
+        }
+      ]
+    },
+    "ko": {
+      "pdf": "XL-TR-SPF-001_Spitfire-Control-Flow_KO_Review02.pdf",
+      "sha256": "0151d61c364430955d9250c738828668f4a6de36083103ba126041fe726386c6",
+      "bytes": 707992,
+      "pages": 48,
+      "mermaid_figures_rendered": 10,
+      "minimum_figure_text_pt": 8.674905647806023,
+      "all_fonts_embedded": true,
+      "all_pages_a4": true,
+      "all_pages_grayscale": true,
+      "outside_text_count": 0,
+      "replacement_glyph_count": 0,
+      "automated_overlap_candidate_count": 14,
+      "unresolved_visual_collision_count": 0,
+      "overlap_candidate_disposition": {
+        "reviewer": "Codex publication subagent and root; author-side rendered inspection",
+        "pdf_sha256": "0151d61c364430955d9250c738828668f4a6de36083103ba126041fe726386c6",
+        "candidate_count": 14,
+        "pages": [
+          10,
+          12
+        ],
+        "disposition": "Pages10/12 are pixel-identical to the fully inspected pre-polish export. Adjacent rotated CJK font bounding rectangles intersect in nominal extents; visible glyph ink is separated. No actual collision or clipping.",
+        "record": "publication-polish-comparison.json"
+      },
+      "links": {
+        "total": 235,
+        "uri": 185,
+        "named_internal": 50,
+        "local_file_launch": 0,
+        "invalid_internal_targets": []
+      },
+      "page_review": [
+        {
+          "page": 1,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 2,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 3,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 4,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 5,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 6,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 7,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 8,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 9,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 10,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 11,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 12,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 13,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 14,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 15,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 16,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 17,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 18,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 19,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 20,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 21,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 22,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 23,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 24,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-01-24.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-01-24.json"
+        },
+        {
+          "page": 25,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 26,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 27,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 28,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 29,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 30,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 31,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 32,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 33,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 34,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 35,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 36,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 37,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 38,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 39,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 40,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 41,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 42,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 43,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 44,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 45,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": true,
+          "unchanged_pixels_from_individually_viewed_export": false,
+          "final_visual_record": "visual_review/r02-polish-root.json"
+        },
+        {
+          "page": 46,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        },
+        {
+          "page": 47,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": true,
+          "unchanged_pixels_from_individually_viewed_export": false,
+          "final_visual_record": "visual_review/r02-polish-root.json"
+        },
+        {
+          "page": 48,
+          "disposition": "PASS",
+          "initial_visual_record": "visual_review/r02-visual-ko-25-48.json",
+          "reopened_after_polish": false,
+          "unchanged_pixels_from_individually_viewed_export": true,
+          "final_visual_record": "visual_review/r02-visual-ko-25-48.json"
+        }
+      ]
+    }
+  },
+  "total_pages_visually_covered": 99,
+  "method": "Every page of both reviewed exports was opened individually at full120dpi geometry; all11 final changed pages were reopened individually. The other88 pages are pixel-identical to their individually inspected reviewed export. Exact comparisons and prior/final hashes remain traceable.",
+  "comparison": "publication-polish-comparison.json",
+  "visual_records": [
+    "visual_review/r02-polish-publication.json",
+    "visual_review/r02-polish-root.json",
+    "visual_review/r02-polish-visual-independent.json",
+    "visual_review/r02-publication-subset.json",
+    "visual_review/r02-visual-en-01-25.json",
+    "visual_review/r02-visual-en-26-51.json",
+    "visual_review/r02-visual-ko-01-24.json",
+    "visual_review/r02-visual-ko-25-48.json"
+  ],
+  "bilingual_parity": [
+    {
+      "manuscript": "README.md",
+      "checks": [
+        "heading_levels",
+        "table_rows",
+        "inline_code_tokens",
+        "immutable_http_citations",
+        "mermaid_count"
+      ],
+      "result": "PASS"
+    },
+    {
+      "manuscript": "01_main_operation.md",
+      "checks": [
+        "heading_levels",
+        "table_rows",
+        "inline_code_tokens",
+        "immutable_http_citations",
+        "mermaid_count"
+      ],
+      "result": "PASS"
+    },
+    {
+      "manuscript": "02_signal_interlock.md",
+      "checks": [
+        "heading_levels",
+        "table_rows",
+        "inline_code_tokens",
+        "immutable_http_citations",
+        "mermaid_count"
+      ],
+      "result": "PASS"
+    },
+    {
+      "manuscript": "03_state_machine.md",
+      "checks": [
+        "heading_levels",
+        "table_rows",
+        "inline_code_tokens",
+        "immutable_http_citations",
+        "mermaid_count"
+      ],
+      "result": "PASS"
+    },
+    {
+      "manuscript": "04_communication_sequence.md",
+      "checks": [
+        "heading_levels",
+        "table_rows",
+        "inline_code_tokens",
+        "immutable_http_citations",
+        "mermaid_count"
+      ],
+      "result": "PASS"
+    },
+    {
+      "manuscript": "05_signal_reference.md",
+      "checks": [
+        "heading_levels",
+        "table_rows",
+        "inline_code_tokens",
+        "immutable_http_citations",
+        "mermaid_count"
+      ],
+      "result": "PASS"
+    },
+    {
+      "manuscript": "06_evidence_and_unknowns.md",
+      "checks": [
+        "heading_levels",
+        "table_rows",
+        "inline_code_tokens",
+        "immutable_http_citations",
+        "mermaid_count"
+      ],
+      "result": "PASS"
+    }
+  ],
+  "technical_translation_review": "Full root-manuscript Korean review and all-chapter source/code/citation parity checks; independent technical checks of preserved Native, XP, manual and log boundaries.",
+  "source_reference_checks": {
+    "status": "PASS",
+    "immutable_links_checked": 202,
+    "git_objects_checked": 12,
+    "mermaid_blocks": 20,
+    "runtime_source_hashes_unchanged": true,
+    "errors": [],
+    "limit": "Reference presence and line bounds, not semantic proof or Mermaid rendering; rendering and independent technical review are separate."
+  },
+  "excluded_content_hits": [],
+  "resolved_layout_findings": [
+    "Heading word hyphenation removed.",
+    "Section5.3 and unknowns heading retained with their table headers and first rows.",
+    "Two Korean adjective endings corrected to 필요하다."
+  ],
+  "unresolved_layout_blockers": [],
+  "scope": {
+    "controller_changed": false,
+    "new_equipment_actuation": false
+  },
+  "human_engineering_review": "PENDING",
+  "laboratory_release_approval": "NOT_RECORDED"
+}

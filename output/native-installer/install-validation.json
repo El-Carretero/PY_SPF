@@ -1,0 +1,746 @@
+{
+  "schema_version": 1,
+  "scope": "Per-user install, private Native GUI simulator, regular Demo entry, uninstall, selected persistent-setting isolation. No equipment operation.",
+  "physical_device_io": false,
+  "started_utc": "2026-11-02T14:10:12.3893194Z",
+  "run_id": "00f7df2e87374e84b322ec50c20a72ca",
+  "setup_sha256": "738cd8b891e76c3b49eebe0f00395719ffb69f6e19ae896bcdc98ba64adc12f7",
+  "install_directory": "D:\\a\\_temp\\PY_SPF_검증_🔬",
+  "use_installer_default_directory": false,
+  "output_directory": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\install-validation",
+  "settings_exported": "Digests/counts only; no raw environment or registry values.",
+  "firewall_rule_probe": {
+    "mode": "NetSecurity",
+    "automatic_fallback": false,
+    "registry_hive": "HKLM",
+    "registry_views": [
+      "Registry32",
+      "Registry64"
+    ],
+    "registry_targets": [
+      "SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\FirewallRules",
+      "SOFTWARE\\Policies\\Microsoft\\WindowsFirewall"
+    ],
+    "scope": "NetSecurity mode reads selected persistent rule properties; Registry mode hashes only the explicit persistent registry targets, including verified absence."
+  },
+  "fingerprints": {
+    "before": {
+      "machine_environment_including_path": {
+        "available": true,
+        "sha256": "2a7a52469a63d601862fb90c9993e52a0cbcc03170dfa5709aef47e3f532c3a2",
+        "records": 76
+      },
+      "user_environment_including_path": {
+        "available": true,
+        "sha256": "85feaea43c5a3b6529134f619c5a1747db7372d8b0185442cce9b00e98552902",
+        "records": 3
+      },
+      "python_and_ni_registry": {
+        "available": true,
+        "sha256": "53b204632a1a7325c47d12dfa1d9cf315d37ae2883475191da48aaa7f7a8dd45",
+        "records": 624
+      },
+      "associations": {
+        "available": true,
+        "sha256": "bd49e841fc329bb593a876b06ea133f859ed86138aa73b9e3c873f32e7f980d8",
+        "records": 268
+      },
+      "existing_python_selected_files": {
+        "available": true,
+        "sha256": "05fc361c3d7c207f04e1d9fe49b32debda9d3df2d53b0d8c3a29b7a1768eeeb2",
+        "records": 41
+      },
+      "root_config_sp": {
+        "available": true,
+        "exists": false,
+        "sha256": "08b6a0bc6906cd596f1458be5ac2911c478709b27e4f3c52e8edd0293e2f4c56",
+        "records": 0
+      },
+      "adapter_configuration": {
+        "available": true,
+        "sha256": "bd1bdf9a1b4997fed01617d9a6fb690157d7dd3dd4ad725c99f361f0c68c73d7",
+        "records": 8
+      },
+      "adapter_bindings": {
+        "available": true,
+        "sha256": "7fc2210926473e6924dc40ab0021ba3c151f95310c567a652d3180be2daac49f",
+        "records": 81
+      },
+      "persistent_ip_interfaces": {
+        "available": true,
+        "sha256": "7b2b57918891344974c135e5c7d514934a800e8f03fd72496f6dae5f79ebcc4f",
+        "records": 12
+      },
+      "persistent_ip_addresses": {
+        "available": true,
+        "sha256": "cfae9d82b1ccd8bb3957d0b062998acdee92a995c8b44d8819b9d8bc53e30999",
+        "records": 1
+      },
+      "persistent_routes": {
+        "available": true,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "records": 0
+      },
+      "dns_servers": {
+        "available": true,
+        "sha256": "346a35c67841754e486377f707300a51ab8c73d34947b7850b2eaf7b6a9a8d1c",
+        "records": 6
+      },
+      "firewall_profiles": {
+        "available": true,
+        "sha256": "28bfbe169288faffbc2c3789d2ec90c4d8ebedb5d2c4429d162ab5e365be0ec6",
+        "records": 3
+      },
+      "firewall_rule_settings": {
+        "available": true,
+        "sha256": "3992139b38670974bcb4e4ae8f4e864e1500ff164430dd14e561f5108d306ac6",
+        "records": 305,
+        "probe_method": "NetSecurity"
+      }
+    },
+    "after_install": {
+      "machine_environment_including_path": {
+        "available": true,
+        "sha256": "2a7a52469a63d601862fb90c9993e52a0cbcc03170dfa5709aef47e3f532c3a2",
+        "records": 76
+      },
+      "user_environment_including_path": {
+        "available": true,
+        "sha256": "85feaea43c5a3b6529134f619c5a1747db7372d8b0185442cce9b00e98552902",
+        "records": 3
+      },
+      "python_and_ni_registry": {
+        "available": true,
+        "sha256": "53b204632a1a7325c47d12dfa1d9cf315d37ae2883475191da48aaa7f7a8dd45",
+        "records": 624
+      },
+      "associations": {
+        "available": true,
+        "sha256": "bd49e841fc329bb593a876b06ea133f859ed86138aa73b9e3c873f32e7f980d8",
+        "records": 268
+      },
+      "existing_python_selected_files": {
+        "available": true,
+        "sha256": "05fc361c3d7c207f04e1d9fe49b32debda9d3df2d53b0d8c3a29b7a1768eeeb2",
+        "records": 41
+      },
+      "root_config_sp": {
+        "available": true,
+        "exists": false,
+        "sha256": "08b6a0bc6906cd596f1458be5ac2911c478709b27e4f3c52e8edd0293e2f4c56",
+        "records": 0
+      },
+      "adapter_configuration": {
+        "available": true,
+        "sha256": "bd1bdf9a1b4997fed01617d9a6fb690157d7dd3dd4ad725c99f361f0c68c73d7",
+        "records": 8
+      },
+      "adapter_bindings": {
+        "available": true,
+        "sha256": "7fc2210926473e6924dc40ab0021ba3c151f95310c567a652d3180be2daac49f",
+        "records": 81
+      },
+      "persistent_ip_interfaces": {
+        "available": true,
+        "sha256": "7b2b57918891344974c135e5c7d514934a800e8f03fd72496f6dae5f79ebcc4f",
+        "records": 12
+      },
+      "persistent_ip_addresses": {
+        "available": true,
+        "sha256": "cfae9d82b1ccd8bb3957d0b062998acdee92a995c8b44d8819b9d8bc53e30999",
+        "records": 1
+      },
+      "persistent_routes": {
+        "available": true,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "records": 0
+      },
+      "dns_servers": {
+        "available": true,
+        "sha256": "346a35c67841754e486377f707300a51ab8c73d34947b7850b2eaf7b6a9a8d1c",
+        "records": 6
+      },
+      "firewall_profiles": {
+        "available": true,
+        "sha256": "28bfbe169288faffbc2c3789d2ec90c4d8ebedb5d2c4429d162ab5e365be0ec6",
+        "records": 3
+      },
+      "firewall_rule_settings": {
+        "available": true,
+        "sha256": "3992139b38670974bcb4e4ae8f4e864e1500ff164430dd14e561f5108d306ac6",
+        "records": 305,
+        "probe_method": "NetSecurity"
+      }
+    },
+    "after_uninstall": {
+      "machine_environment_including_path": {
+        "available": true,
+        "sha256": "2a7a52469a63d601862fb90c9993e52a0cbcc03170dfa5709aef47e3f532c3a2",
+        "records": 76
+      },
+      "user_environment_including_path": {
+        "available": true,
+        "sha256": "85feaea43c5a3b6529134f619c5a1747db7372d8b0185442cce9b00e98552902",
+        "records": 3
+      },
+      "python_and_ni_registry": {
+        "available": true,
+        "sha256": "53b204632a1a7325c47d12dfa1d9cf315d37ae2883475191da48aaa7f7a8dd45",
+        "records": 624
+      },
+      "associations": {
+        "available": true,
+        "sha256": "bd49e841fc329bb593a876b06ea133f859ed86138aa73b9e3c873f32e7f980d8",
+        "records": 268
+      },
+      "existing_python_selected_files": {
+        "available": true,
+        "sha256": "05fc361c3d7c207f04e1d9fe49b32debda9d3df2d53b0d8c3a29b7a1768eeeb2",
+        "records": 41
+      },
+      "root_config_sp": {
+        "available": true,
+        "exists": false,
+        "sha256": "08b6a0bc6906cd596f1458be5ac2911c478709b27e4f3c52e8edd0293e2f4c56",
+        "records": 0
+      },
+      "adapter_configuration": {
+        "available": true,
+        "sha256": "bd1bdf9a1b4997fed01617d9a6fb690157d7dd3dd4ad725c99f361f0c68c73d7",
+        "records": 8
+      },
+      "adapter_bindings": {
+        "available": true,
+        "sha256": "7fc2210926473e6924dc40ab0021ba3c151f95310c567a652d3180be2daac49f",
+        "records": 81
+      },
+      "persistent_ip_interfaces": {
+        "available": true,
+        "sha256": "7b2b57918891344974c135e5c7d514934a800e8f03fd72496f6dae5f79ebcc4f",
+        "records": 12
+      },
+      "persistent_ip_addresses": {
+        "available": true,
+        "sha256": "cfae9d82b1ccd8bb3957d0b062998acdee92a995c8b44d8819b9d8bc53e30999",
+        "records": 1
+      },
+      "persistent_routes": {
+        "available": true,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "records": 0
+      },
+      "dns_servers": {
+        "available": true,
+        "sha256": "346a35c67841754e486377f707300a51ab8c73d34947b7850b2eaf7b6a9a8d1c",
+        "records": 6
+      },
+      "firewall_profiles": {
+        "available": true,
+        "sha256": "28bfbe169288faffbc2c3789d2ec90c4d8ebedb5d2c4429d162ab5e365be0ec6",
+        "records": 3
+      },
+      "firewall_rule_settings": {
+        "available": true,
+        "sha256": "3992139b38670974bcb4e4ae8f4e864e1500ff164430dd14e561f5108d306ac6",
+        "records": 305,
+        "probe_method": "NetSecurity"
+      }
+    }
+  },
+  "install": {
+    "pid": 2820,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 1.847
+  },
+  "manifest": {
+    "sha256": "58cc78c8fc815963f92dfcd2563ab669dfe4ab14f342a9ba2732927e996336af",
+    "payload_files_verified": 57,
+    "source_commit": "59e46a800ef65035243e5208258217a443be281a"
+  },
+  "native_self_test": {
+    "pid": 2436,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 2.341
+  },
+  "normal_demo": {
+    "pid": 4124,
+    "started_utc": "2026-11-02T14:10:32.1717824Z",
+    "ready": true,
+    "windows": [
+      {
+        "Handle": 393966,
+        "ProcessId": 4124,
+        "Visible": true,
+        "Title": "Spitfire [DEMO - CONNECTED]"
+      },
+      {
+        "Handle": 524770,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "TCP Server Console"
+      },
+      {
+        "Handle": 393972,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "Programmer"
+      },
+      {
+        "Handle": 655964,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "Empower Service"
+      },
+      {
+        "Handle": 459536,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "Help"
+      },
+      {
+        "Handle": 590398,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "Active Faults"
+      },
+      {
+        "Handle": 852750,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "Temperature Control"
+      },
+      {
+        "Handle": 918084,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "Empower Setup"
+      },
+      {
+        "Handle": 393968,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "Timing and High Voltage"
+      },
+      {
+        "Handle": 524642,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "Compressor"
+      },
+      {
+        "Handle": 262930,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "Standard Input/Output"
+      },
+      {
+        "Handle": 393974,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": ""
+      },
+      {
+        "Handle": 328270,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": ""
+      },
+      {
+        "Handle": 262938,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": ""
+      },
+      {
+        "Handle": 918270,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "Focus Finder"
+      },
+      {
+        "Handle": 328274,
+        "ProcessId": 4124,
+        "Visible": true,
+        "Title": "PY_SPF.exe"
+      },
+      {
+        "Handle": 262934,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "LWTCPJSOCKWNDYCLASS"
+      },
+      {
+        "Handle": 459528,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "MSCTFIME UI"
+      },
+      {
+        "Handle": 459516,
+        "ProcessId": 4124,
+        "Visible": false,
+        "Title": "Default IME"
+      }
+    ],
+    "matching_windows": 1,
+    "heartbeat": {
+      "pid": 4124,
+      "utc": "2026-11-02T14:10:34.4960000Z",
+      "sampled_utc": "2026-11-02T14:10:34.4800000Z",
+      "written_age_seconds": 0.1773155,
+      "sampled_age_seconds": 0.1933155,
+      "connected": true,
+      "gui_ready": true,
+      "running": true,
+      "closed": false,
+      "main_loop_progress_age_seconds": 0.009297699999990527
+    },
+    "visible_demo_window": true,
+    "gui_ready": true,
+    "connected": true,
+    "default_diagnostics": true,
+    "exit_code": 0,
+    "timed_out": false
+  },
+  "uninstall": {
+    "pid": 2864,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.497,
+    "remaining_payload_files": [],
+    "payload_files_checked": 57
+  },
+  "userdata": {
+    "preexisting_files": 9,
+    "files_before_uninstall": 19,
+    "preexisting_files_unchanged": true,
+    "new_session_files_retained": true,
+    "sentinel_retained": true,
+    "sentinel_sha256": "9179ade081ec1b7b5248eea001ac02c7308a5b64736b740f3c47a0e7c7c54f14",
+    "default_known_folder_used": true
+  },
+  "checks": [
+    {
+      "name": "windows-argv-roundtrip",
+      "passed": true,
+      "detail": "System CommandLineToArgvW must preserve empty, Unicode, quoted and terminal-backslash arguments."
+    },
+    {
+      "name": "setup-exists",
+      "passed": true,
+      "detail": "Caller supplies the already built installer; no download occurs."
+    },
+    {
+      "name": "private-native-path-byte-limit",
+      "passed": true,
+      "detail": "Full installed EXE path must fit the original private-runtime limit."
+    },
+    {
+      "name": "no-existing-installation",
+      "passed": true,
+      "detail": "Refuse to update or uninstall any existing user/machine installation from this AppId."
+    },
+    {
+      "name": "baseline-complete",
+      "passed": true,
+      "detail": "Missing or inaccessible observations prevent an isolation PASS."
+    },
+    {
+      "name": "silent-install-exit",
+      "passed": true,
+      "detail": "Silent per-user setup must exit0 without launching the application."
+    },
+    {
+      "name": "installed-executable",
+      "passed": true,
+      "detail": "Installed Native executable must exist."
+    },
+    {
+      "name": "per-user-uninstall-registration",
+      "passed": true,
+      "detail": "Only the application-owned HKCU uninstall entry is expected."
+    },
+    {
+      "name": "silent-install-did-not-launch",
+      "passed": true,
+      "detail": "No installed executable process exists before this harness launches it."
+    },
+    {
+      "name": "after_install/machine_environment_including_path",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_install/user_environment_including_path",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_install/python_and_ni_registry",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_install/associations",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_install/existing_python_selected_files",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_install/root_config_sp",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_install/adapter_configuration",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_install/adapter_bindings",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_install/persistent_ip_interfaces",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_install/persistent_ip_addresses",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_install/persistent_routes",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_install/dns_servers",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_install/firewall_profiles",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_install/firewall_rule_settings",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "install-isolation",
+      "passed": true,
+      "detail": "Installer may create only its app-owned files, shortcuts and uninstall registration within the tested scope."
+    },
+    {
+      "name": "existing-userdata-after-install",
+      "passed": true,
+      "detail": "All preexisting user-data files must retain their hashes."
+    },
+    {
+      "name": "manifest-identity",
+      "passed": true,
+      "detail": "Require a complete Native x86 onedir payload manifest."
+    },
+    {
+      "name": "every-manifest-payload-file",
+      "passed": true,
+      "detail": "Every listed payload file was read and hashed after installation."
+    },
+    {
+      "name": "native-self-test-exit",
+      "passed": true,
+      "detail": "Only the owned simulator self-test PID is bounded; no real transport is requested."
+    },
+    {
+      "name": "native-self-test-simulator-only",
+      "passed": true,
+      "detail": "Require frozen x86, process UTF-8 and explicit no-equipment proof."
+    },
+    {
+      "name": "frozen-python-isolation",
+      "passed": true,
+      "detail": "The poisoned child must ignore Python environment/user site and use only its in-memory transport, without a TCP server."
+    },
+    {
+      "name": "private-python-dll",
+      "passed": true,
+      "detail": "GetModuleFileName must identify the bundled Python DLL inside this installation, with existing 8.3 aliases normalized."
+    },
+    {
+      "name": "native-self-test-readiness",
+      "passed": true,
+      "detail": "Native panels, fresh simulated status, callbacks and clean teardown must be proven."
+    },
+    {
+      "name": "private-ni-dll-and-resources",
+      "passed": true,
+      "detail": "Loaded NI DLL and EXE-adjacent resource directory must be this install, never a global NI cache; existing 8.3 aliases are normalized."
+    },
+    {
+      "name": "native-visible-controls",
+      "passed": true,
+      "detail": "Actual Native visibility attributes must match the ready simulator screen."
+    },
+    {
+      "name": "native-bmp-written",
+      "passed": true,
+      "detail": "Native bitmap capture must exist and carry a BMP header."
+    },
+    {
+      "name": "regular-native-demo-ready",
+      "passed": true,
+      "detail": "Default frozen Native entry must create an owned visible DEMO window and fresh ready/connected default session heartbeat."
+    },
+    {
+      "name": "regular-native-demo-close-target",
+      "passed": true,
+      "detail": "Recheck exact HWND owner, visibility and Spitfire DEMO title immediately before SC_CLOSE."
+    },
+    {
+      "name": "regular-native-demo-owned-close",
+      "passed": true,
+      "detail": "Send the CVI-supported WM_SYSCOMMAND/SC_CLOSE only to the verified own-PID Native window; no mouse/keyboard input."
+    },
+    {
+      "name": "regular-native-demo-graceful-exit",
+      "passed": true,
+      "detail": "Normal Native window close must release the process and mutex without forced termination."
+    },
+    {
+      "name": "preexisting-userdata-after-demo",
+      "passed": true,
+      "detail": "No preexisting default user-data file may be overwritten by the simulator phases."
+    },
+    {
+      "name": "owned-uninstaller-found",
+      "passed": true,
+      "detail": "Use only the one uninstaller created in this previously empty test install."
+    },
+    {
+      "name": "silent-uninstall-exit",
+      "passed": true,
+      "detail": "Owned uninstall must exit0."
+    },
+    {
+      "name": "app-executable-removed",
+      "passed": true,
+      "detail": "The application-owned executable must be removed."
+    },
+    {
+      "name": "app-registration-removed",
+      "passed": true,
+      "detail": "The application-owned uninstall registration must be removed."
+    },
+    {
+      "name": "uninstalled-payload-files-removed",
+      "passed": true,
+      "detail": "Every verified manifest file must be removed; remaining payload files: "
+    },
+    {
+      "name": "default-userdata-retained",
+      "passed": true,
+      "detail": "Existing user files, newly created session files and the unique test sentinel must survive uninstall."
+    },
+    {
+      "name": "after_uninstall/machine_environment_including_path",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_uninstall/user_environment_including_path",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_uninstall/python_and_ni_registry",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_uninstall/associations",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_uninstall/existing_python_selected_files",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_uninstall/root_config_sp",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_uninstall/adapter_configuration",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_uninstall/adapter_bindings",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_uninstall/persistent_ip_interfaces",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_uninstall/persistent_ip_addresses",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_uninstall/persistent_routes",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_uninstall/dns_servers",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_uninstall/firewall_profiles",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    },
+    {
+      "name": "after_uninstall/firewall_rule_settings",
+      "passed": true,
+      "detail": "Selected persistent-state digests must match."
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "not_tested": [
+    "Physical instrument/optical output",
+    "Running-app update/uninstall refusal",
+    "Installer rejection of a foreign nonempty directory",
+    "Every machine file and every firewall rule filter"
+  ],
+  "child_environment_test": {
+    "applies_to": [
+      "native-self-test",
+      "regular-demo"
+    ],
+    "process_start_info_only": true,
+    "restricted_path": true,
+    "nonexistent_pythonhome": true,
+    "raising_sitecustomize_on_pythonpath": true,
+    "persistent_environment_modified": false
+  },
+  "completed_utc": "2026-11-02T14:10:35.6595705Z"
+}

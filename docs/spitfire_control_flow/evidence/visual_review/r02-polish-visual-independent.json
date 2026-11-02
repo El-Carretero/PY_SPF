@@ -1,0 +1,38 @@
+{
+  "reviewer": "Codex technical_review agent (automated independent visual review; no human approval)",
+  "disposition": "PASS",
+  "editions": {
+    "en": {
+      "pdf_path": "/workspace/PY_SPF/docs/spitfire_control_flow/XL-TR-SPF-001_Spitfire-Control-Flow_Review02.pdf",
+      "pdf_sha256": "f557985e1eebfe0275a7f349af888ac95896489e97b78229a06f8746ca5cee34",
+      "pages_visually_examined": [
+        42,
+        43,
+        44,
+        45,
+        49,
+        50,
+        51
+      ],
+      "render_directory": "/workspace/artifacts/spf-r02-polished-en-pages"
+    },
+    "ko": {
+      "pdf_path": "/workspace/PY_SPF/docs/spitfire_control_flow/XL-TR-SPF-001_Spitfire-Control-Flow_KO_Review02.pdf",
+      "pdf_sha256": "0151d61c364430955d9250c738828668f4a6de36083103ba126041fe726386c6",
+      "pages_visually_examined": [
+        45,
+        47
+      ],
+      "render_directory": "/workspace/artifacts/spf-r02-polished-ko-pages"
+    }
+  },
+  "method": "Confirmed both PDF SHA256 hashes from disk and individually opened all nine assigned refreshed 120 dpi PNG pages with view_image.",
+  "checks": [
+    "No overlapping prose, table rows/columns, rules or page furniture.",
+    "No clipped text, missing Hangul glyphs or heading/caption orphans.",
+    "English continued tables and moved paragraphs remain readable with coherent continuation.",
+    "Korean corrected 필요하다 wording is grammatical and fits the existing table/prose layout."
+  ],
+  "issues": [],
+  "scope_limit": "Only the listed nine pages were re-opened for this polish review. Other-page identity and separate review coverage are established by the publication/root agents, not recomputed here. This is not human or institutional approval."
+}

@@ -1,0 +1,14 @@
+%% caption: Figure 4C. C1. Fault reset
+%%{init: {'theme':'base','themeVariables':{'fontSize':'18px','primaryColor':'#ffffff','primaryTextColor':'#111111','primaryBorderColor':'#444444','lineColor':'#444444'},'sequence':{'htmlLabels':false,'actorMargin':35,'messageMargin':18}}}%%
+sequenceDiagram
+    participant PC as PC application
+    participant S as SASC UDP peer
+    PC->>S: 2044 EMP:RESETFAULTS
+    S-->>PC: Same-tag receipt, if available
+    PC->>S: 2049 ECU:RESETFAULTS
+    S-->>PC: Same-tag receipt, if available
+    PC->>S: 2052 TDG:RESFAULT
+    S-->>PC: Same-tag receipt, if available
+    PC->>S: 2050 RESET
+    S-->>PC: Same-tag receipt, if available
+    Note over PC: Then two fault-query passes

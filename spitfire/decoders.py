@@ -11,6 +11,7 @@ import struct
 
 _NUMBER = re.compile(r'^[\t\n\r\v\f ]*([+-]?(?:(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?|inf(?:inity)?|nan))', re.I)
 _INTEGER = re.compile(r'^\s*([+-]?\d+)')
+_HEX_INTEGER = re.compile(r'^\s*([+-]?(?:0[xX])?[0-9a-fA-F]+)')
 
 
 def c_atof(text: str) -> float:
@@ -21,6 +22,16 @@ def c_atof(text: str) -> float:
 def c_atoi(text: str) -> int:
     match = _INTEGER.match(text)
     return int(match[1]) if match else 0
+
+
+def c_scan_hex(text: str) -> int:
+    """Read the original sscanf("%x") unsigned 32-bit status field.
+
+    Actual controller captures include an uppercase 0X prefix. A bare-hex
+    regular expression would consume only its leading zero and clear faults.
+    """
+    match = _HEX_INTEGER.match(text)
+    return int(match[1], 16) & 0xffffffff if match else 0
 
 
 def f32(value: float) -> float:
@@ -205,11 +216,9 @@ class ResponseDecoder:
         elif query_id==1029:
             self._decode_ecu_status(int(f32(number))&0xffffffff)
         elif query_id==1039:
-            match=re.match(r'\s*([0-9a-fA-F]+)',payload)
-            self._decode_tdg_status(int(match[1],16) if match else 0)
+            self._decode_tdg_status(c_scan_hex(payload))
         elif query_id==1066:
-            match=re.match(r'\s*([0-9a-fA-F]+)',payload)
-            bits=int(match[1],16) if match else 0
+            bits=c_scan_hex(payload)
             for mask,control in ((0x2000,19),(0x4000,23),(0x1000,14),(0x800,21),(0x8000,22)):
                 self._bit(3,control,bits,mask)
             self._set(6,15,int(bool(bits & 0x7000)))

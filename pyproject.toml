@@ -1,12 +1,13 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "spitfire-gui-reconstruction"
-version = "1.6.0.post1"
-description = "Evidence-based Python reconstruction of the uploaded Spitfire GUI 1.6.0"
+version = "1.0.0"
+description = "PY_SPF 1.0 controller using the original Spitfire GUI 1.6.0 resources"
 requires-python = ">=3.10"
+license-files = ["THIRD_PARTY_NOTICES.md"]
 
 [project.optional-dependencies]
 qt = ["PySide6>=6.6,<7"]
@@ -21,7 +22,8 @@ where = ["."]
 include = ["spitfire*"]
 
 [tool.setuptools.package-data]
-spitfire = ["resources/*", "resources/runtime/*", "resources/assets/*", "resources/sprites/*"]
+spitfire = ["resources/*", "resources/runtime/*", "resources/runtime/bin/*",
+            "resources/runtime/fonts/*", "resources/assets/*", "resources/sprites/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

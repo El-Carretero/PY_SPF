@@ -1,0 +1,9 @@
+%% caption: 그림 3B. RUN: 입력, 억제, 요청과 물리적 결과
+%%{init: {'theme':'base','themeVariables':{'fontSize':'18px','primaryColor':'#ffffff','primaryTextColor':'#111111','primaryBorderColor':'#444444','lineColor':'#444444'},'flowchart':{'htmlLabels':false}}}%%
+flowchart TB
+    I[대기 중인 RUN 누르기 없음] -->|이벤트 3| H[길게 누르기 대기]
+    H -->|버튼 해제 또는 중단| I
+    H -->|정수 시간 차가 3 초과| Q[2027 ON 큐 등록]
+    Q -->|미전송 RUN 취소| I
+    Q -->|스케줄러 송신| S[PC 데이터그램 송신]
+    S -.-> U[물리적 결과 미검증]

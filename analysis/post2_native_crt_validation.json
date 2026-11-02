@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-01",
+  "os": "Windows 11 (10.0.26200)",
+  "method": "Direct calls into the bundled original NI cvirte.dll C runtime and GUI through Python x86; no Controller or device transport created.",
+  "python": "3.13.9",
+  "bits": 32,
+  "controller_created": false,
+  "device_connection": false,
+  "phases": [
+    "native_loaded",
+    "sscanf_and_sentinels_verified",
+    "closed"
+  ],
+  "sscanf": {
+    "input": " 0X00330409",
+    "format": "%x",
+    "conversions": 1,
+    "uint": 3343369,
+    "hex": "0x330409"
+  },
+  "sentinel_controls": [
+    {
+      "panel": 9,
+      "control": 2,
+      "requested": -9.9,
+      "actual_readback": -9.899999618530273,
+      "no_error": true
+    },
+    {
+      "panel": 9,
+      "control": 5,
+      "requested": -99,
+      "actual_readback": -99,
+      "no_error": true
+    }
+  ],
+  "exit_code": 0
+}

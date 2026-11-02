@@ -1,0 +1,32 @@
+{
+  "reviewer": "Codex root, automated-agent rendered visual review",
+  "pdf_sha256": {
+    "en": "f557985e1eebfe0275a7f349af888ac95896489e97b78229a06f8746ca5cee34",
+    "ko": "0151d61c364430955d9250c738828668f4a6de36083103ba126041fe726386c6"
+  },
+  "pages_visually_reopened": {
+    "en": [
+      4,
+      8,
+      42,
+      43,
+      44,
+      45,
+      49,
+      50,
+      51
+    ],
+    "ko": [
+      45,
+      47
+    ]
+  },
+  "disposition": "PASS",
+  "issues": [],
+  "checks": [
+    "Every changed page opened individually at full120dpi render geometry; EN43 additionally inspected bottom crop to confirm complete rows and clear margins.",
+    "English title, table headings, continued rows, contents and citations are readable and uncut.",
+    "Both corrected Korean adjective endings read 필요하다 naturally and fit the unchanged layout."
+  ],
+  "human_engineering_approval": false
+}

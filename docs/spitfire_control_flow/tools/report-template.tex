@@ -1,0 +1,68 @@
+\documentclass{xlapplas-doc-review}
+$if(korean)$
+\usepackage{xetexko}
+\setmainhangulfont{NotoSansCJKkr-Regular.otf}[Path={$korean_font_directory$},BoldFont=NotoSansCJKkr-Bold.otf,ItalicFont=NotoSansCJKkr-Regular.otf,BoldItalicFont=NotoSansCJKkr-Bold.otf,Script=Hangul,Language=Korean]
+\setsanshangulfont{NotoSansCJKkr-Regular.otf}[Path={$korean_font_directory$},BoldFont=NotoSansCJKkr-Bold.otf,ItalicFont=NotoSansCJKkr-Regular.otf,BoldItalicFont=NotoSansCJKkr-Bold.otf,Script=Hangul,Language=Korean]
+\setmonohangulfont{NotoSansMonoCJKkr-Regular.otf}[Path={$korean_font_directory$},BoldFont=NotoSansMonoCJKkr-Bold.otf,Script=Hangul,Language=Korean]
+$endif$
+\newcommand{\XLnumber}{$document_number$}
+\newcommand{\XLrevision}{$document_revision$ | $status$}
+\newcommand{\XLclassification}{$classification$}
+\newcommand{\XLshorttitle}{$short_title$}
+\renewcommand{\contentsname}{$ui.contents$}
+\hypersetup{pdftitle={$title$},pdfauthor={$prepared_by$},pdfsubject={$document_number$; $document_revision$; $status$; $classification$; $ui.pdf_subject$},pdfkeywords={Spitfire, SPTF-100F-1KHPR, XL-STD-DOC-001},pdflang={$language$}}
+\begin{document}
+\begin{titlepage}
+\thispagestyle{empty}
+{\fontsize{16}{19}\selectfont\bfseries xLaPPLAs\par}
+Extreme Laser Plasma Photonics \& LabAstrophysics\par
+UNIST, Department of Physics\par
+\vspace{21mm}
+{\fontsize{30}{34}\selectfont\bfseries $ui.cover_line1$\par $ui.cover_line2$\par $ui.cover_line3$\par}
+\vspace{8.4mm}
+{\fontsize{11.5}{15}\selectfont $subtitle$\par}
+\vspace{12.6mm}
+\textbf{$status$ --- $document_revision$}\par
+$ui.notice$
+\vfill
+\begin{tabular}{@{}p{53.33mm}p{111.67mm}@{}}
+$ui.document$ & \texttt{$document_number$} \\
+$ui.classification$ & $classification$ \\
+$ui.issue_date$ & $display_date$ \\
+$ui.prepared_by$ & $prepared_by$ \\
+$ui.human_review$ & $ui.pending$ \\
+$ui.laboratory_approval$ & $ui.not_recorded$ \\
+$ui.principal_investigator$ & Inhyuk Nam \\
+\end{tabular}
+\vspace{8.4mm}
+\end{titlepage}
+\thispagestyle{empty}
+\pdfbookmark[0]{$ui.document_control$}{document-control}
+\section*{$ui.document_control$}
+\begin{longtable}{@{}p{53.33mm}p{111.67mm}@{}}
+\toprule
+$ui.field$ & $ui.record$ \\
+\midrule
+$ui.document_number$ & \texttt{$document_number$} \\
+$ui.title$ & $title$ \\
+$ui.class_status$ & $ui.technical_report$; $status$; $document_revision$ \\
+$ui.classification$ & $classification$ \\
+$ui.issue_date$ & $display_date$ \\
+$ui.issuer$ & xLaPPLAs, Extreme Laser Plasma Photonics \& LabAstrophysics; UNIST, Department of Physics \\
+$ui.document_owner$ & $document_owner$ \\
+$ui.prepared_by$ & $prepared_by$ \\
+$ui.reviewed_by$ & $reviewed_by$ \\
+$ui.approved_by$ & $approved_by$ \\
+$ui.standard$ & XL-STD-DOC-001, $standard_revision_text$, $standard_date$ \\
+$ui.implementation$ & $ui.implementation_record$ \\
+$ui.source_package$ & $ui.source_record$ \\
+\bottomrule
+\end{longtable}
+\textbf{$ui.authority_label$} $ui.authority$
+\par\textbf{$ui.use_label$} $ui.use$
+\clearpage
+\pdfbookmark[0]{$ui.contents$}{contents}
+\tableofcontents
+\clearpage
+$body$
+\end{document}

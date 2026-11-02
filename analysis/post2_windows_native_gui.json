@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-01",
+  "os": "Windows 11 (10.0.26200)",
+  "python": "3.13.9",
+  "bits": 32,
+  "mode": "simulator",
+  "tcp_server": false,
+  "phases": [
+    "native_loaded",
+    "demo_verified",
+    "closed"
+  ],
+  "panels": 10,
+  "connected": true,
+  "emp_optout": 1,
+  "displayed_optout": 1,
+  "controls_updated": 230,
+  "callback_errors": [],
+  "optout_write_count": 1,
+  "exit_code": 0,
+  "fix": "Load system mpr.dll before the process-local HKLM override. No vendor DLL, original Python executable or DEP policy changes.",
+  "native_py_sha256": "677f3921b71672f9b86a1d7e9fc1a0177a5caad5583e9b33cf92f01f646e197b",
+  "native_resources_zip_sha256": "1bfdf6d480a6651deafa6f6271f8ebcc65608c07aaf88ebe0cd7589a17b8c787",
+  "scope": "Real NI GUI on Windows with original UIR/runtime and simulator only. No physical device connection. Standalone tools/verify_native_demo.py; final wheel and ZIP verified separately."
+}
