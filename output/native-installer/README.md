@@ -1,8 +1,8 @@
 # Tested Native PY_SPF 1.0 Windows x86 package
 
-Source: [59e46a800ef65035243e5208258217a443be281a](https://github.com/El-Carretero/PY_SPF/tree/59e46a800ef65035243e5208258217a443be281a).
+Source: [9d2697ff5b08c5e8cfc29886a68946b53bef0f09](https://github.com/El-Carretero/PY_SPF/tree/9d2697ff5b08c5e8cfc29886a68946b53bef0f09).
 
-Build and validation: [workflow run](https://github.com/El-Carretero/PY_SPF/actions/runs/41459115051).
+Build and validation: [workflow run](https://github.com/El-Carretero/PY_SPF/actions/runs/41463601830).
 
 - [Installer](PY_SPF_1.0_Setup_x86.exe)
 - [Portable onedir ZIP](PY_SPF_1.0_win32_portable.zip)

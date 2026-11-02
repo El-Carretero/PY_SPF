@@ -30,16 +30,16 @@
   "expected_cvirte": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\PY_SPF\\_internal\\spitfire\\resources\\runtime\\cvirte.dll",
   "resource_directory": "d:\\a\\py_spf\\py_spf\\packaging\\windows\\dist\\py_spf\\cvirte\\bin",
   "expected_resource_directory": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\PY_SPF\\cvirte\\bin",
-  "elapsed_seconds": 2.141,
+  "elapsed_seconds": 3.118,
   "controls_updated": 230,
   "timer": {
-    "timer_ticks": 57,
-    "outer_ticks": 44,
+    "timer_ticks": 59,
+    "outer_ticks": 45,
     "reentrant_skips": 0,
     "wrong_thread_skips": 0,
     "menu_ticks": 0,
     "cancelled_run": 0,
-    "owner_thread": 5552,
+    "owner_thread": 7380,
     "last_gui_flags": 0,
     "outer_event_cycles": 0,
     "tick_errors": 0
@@ -78,7 +78,7 @@
     9
   ],
   "snapshot": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\native-self-test.bmp",
-  "simulator_packets": 101,
+  "simulator_packets": 104,
   "identity_queries": 3,
   "exit_code": 0
 }

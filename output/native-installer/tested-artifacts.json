@@ -1,25 +1,22 @@
 {
-  "schema": 1,
-  "source_commit": "59e46a800ef65035243e5208258217a443be281a",
-  "run_id": "41459115051",
   "files": [
     {
-      "sha256": "738cd8b891e76c3b49eebe0f00395719ffb69f6e19ae896bcdc98ba64adc12f7",
+      "sha256": "7e1f2daace8c9194479f9a9baacd454263444dd3e572e959296aae640690c75d",
       "path": "installer/PY_SPF_1.0_Setup_x86.exe",
-      "bytes": 9393580
+      "bytes": 9398807
     },
     {
-      "sha256": "e4d65af27ac87a0fbe7e854b22775393c2151bf3ab4f4c2c5b91b5c3c6f49ff5",
+      "sha256": "5c21d9fbc38eaab0e049d39e867c98b9992b9cabc617ea4bbf090744aa47da7b",
       "path": "PY_SPF_1.0_win32_portable.zip",
-      "bytes": 9840331
+      "bytes": 9840733
     },
     {
-      "sha256": "58cc78c8fc815963f92dfcd2563ab669dfe4ab14f342a9ba2732927e996336af",
+      "sha256": "173e8a121725ece095f82e4f4f5170929bc632d95169e6c38a40be2d88ec56e4",
       "path": "PY_SPF/bundle-manifest.json",
       "bytes": 23801
     },
     {
-      "sha256": "46182ccecd3e07804816cf7c5aa7df80799bb18254c6ed1704765281feea171b",
+      "sha256": "cb060c2eb256a9fa0274654dcee6a9fd43603875ecbdf5be3c68f8b57ef19369",
       "path": "native-self-test.json",
       "bytes": 2991
     },
@@ -29,19 +26,22 @@
       "bytes": 2061542
     },
     {
-      "sha256": "39ecd36d43548bc44815690f072fd49d7faa08e70ec1d7c68836b6b20e9a16a4",
+      "sha256": "475173923909f496f2fba6af4be659dfc761f1969c3e02ad4ffd75777133d2d9",
       "path": "install-validation/install-validation.json",
-      "bytes": 24274
+      "bytes": 24275
     },
     {
-      "sha256": "953733b0597320951f59907c375562f023b57a1a9fab3bac9b0924c19d8a6edf",
+      "sha256": "c6e6a876cef89c3161a44d1b0759eebb0c0c488b25840295c16b11873b6e5f6d",
       "path": "install-validation/native-self-test.json",
-      "bytes": 2827
+      "bytes": 2826
     },
     {
       "sha256": "c8c4f5039e71d16bf3d8bc53cc31317dedf38dab06ad2c8e0d47c0bc1ce55db2",
       "path": "install-validation/native-self-test.bmp",
       "bytes": 2061542
     }
-  ]
+  ],
+  "run_id": "41463601830",
+  "schema": 1,
+  "source_commit": "9d2697ff5b08c5e8cfc29886a68946b53bef0f09"
 }

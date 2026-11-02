@@ -2,9 +2,9 @@
   "schema_version": 1,
   "scope": "Per-user install, private Native GUI simulator, regular Demo entry, uninstall, selected persistent-setting isolation. No equipment operation.",
   "physical_device_io": false,
-  "started_utc": "2026-11-02T14:10:12.3893194Z",
-  "run_id": "00f7df2e87374e84b322ec50c20a72ca",
-  "setup_sha256": "738cd8b891e76c3b49eebe0f00395719ffb69f6e19ae896bcdc98ba64adc12f7",
+  "started_utc": "2026-11-02T14:39:51.3683354Z",
+  "run_id": "5fe385de99d04ed6946a734a6476a3fe",
+  "setup_sha256": "7e1f2daace8c9194479f9a9baacd454263444dd3e572e959296aae640690c75d",
   "install_directory": "D:\\a\\_temp\\PY_SPF_검증_🔬",
   "use_installer_default_directory": false,
   "output_directory": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\install-validation",
@@ -27,7 +27,7 @@
     "before": {
       "machine_environment_including_path": {
         "available": true,
-        "sha256": "2a7a52469a63d601862fb90c9993e52a0cbcc03170dfa5709aef47e3f532c3a2",
+        "sha256": "9b211b804a9ed9ecb8abfa167a2a041567b4ea1c5ce2815f36e2268eba07f845",
         "records": 76
       },
       "user_environment_including_path": {
@@ -42,8 +42,8 @@
       },
       "associations": {
         "available": true,
-        "sha256": "bd49e841fc329bb593a876b06ea133f859ed86138aa73b9e3c873f32e7f980d8",
-        "records": 268
+        "sha256": "a57089ebf6faee8de2a1fb0419c5605a15ff9fe6a365059615a618d11ca7a7e6",
+        "records": 276
       },
       "existing_python_selected_files": {
         "available": true,
@@ -58,7 +58,7 @@
       },
       "adapter_configuration": {
         "available": true,
-        "sha256": "bd1bdf9a1b4997fed01617d9a6fb690157d7dd3dd4ad725c99f361f0c68c73d7",
+        "sha256": "4e88df2418191de68108636a9bcc48f63cf0c5f3550ee25bdb5b52a2cd7dc083",
         "records": 8
       },
       "adapter_bindings": {
@@ -73,7 +73,7 @@
       },
       "persistent_ip_addresses": {
         "available": true,
-        "sha256": "cfae9d82b1ccd8bb3957d0b062998acdee92a995c8b44d8819b9d8bc53e30999",
+        "sha256": "bec8d575082059438468b2c57fb7d5687b2ca590bf082260541dfa8688c17d1a",
         "records": 1
       },
       "persistent_routes": {
@@ -93,7 +93,7 @@
       },
       "firewall_rule_settings": {
         "available": true,
-        "sha256": "3992139b38670974bcb4e4ae8f4e864e1500ff164430dd14e561f5108d306ac6",
+        "sha256": "e1e96db07bf7208093b6962f938713f60ba94c6d6d0ac703cc043b993f9de7c6",
         "records": 305,
         "probe_method": "NetSecurity"
       }
@@ -101,7 +101,7 @@
     "after_install": {
       "machine_environment_including_path": {
         "available": true,
-        "sha256": "2a7a52469a63d601862fb90c9993e52a0cbcc03170dfa5709aef47e3f532c3a2",
+        "sha256": "9b211b804a9ed9ecb8abfa167a2a041567b4ea1c5ce2815f36e2268eba07f845",
         "records": 76
       },
       "user_environment_including_path": {
@@ -116,8 +116,8 @@
       },
       "associations": {
         "available": true,
-        "sha256": "bd49e841fc329bb593a876b06ea133f859ed86138aa73b9e3c873f32e7f980d8",
-        "records": 268
+        "sha256": "a57089ebf6faee8de2a1fb0419c5605a15ff9fe6a365059615a618d11ca7a7e6",
+        "records": 276
       },
       "existing_python_selected_files": {
         "available": true,
@@ -132,7 +132,7 @@
       },
       "adapter_configuration": {
         "available": true,
-        "sha256": "bd1bdf9a1b4997fed01617d9a6fb690157d7dd3dd4ad725c99f361f0c68c73d7",
+        "sha256": "4e88df2418191de68108636a9bcc48f63cf0c5f3550ee25bdb5b52a2cd7dc083",
         "records": 8
       },
       "adapter_bindings": {
@@ -147,7 +147,7 @@
       },
       "persistent_ip_addresses": {
         "available": true,
-        "sha256": "cfae9d82b1ccd8bb3957d0b062998acdee92a995c8b44d8819b9d8bc53e30999",
+        "sha256": "bec8d575082059438468b2c57fb7d5687b2ca590bf082260541dfa8688c17d1a",
         "records": 1
       },
       "persistent_routes": {
@@ -167,7 +167,7 @@
       },
       "firewall_rule_settings": {
         "available": true,
-        "sha256": "3992139b38670974bcb4e4ae8f4e864e1500ff164430dd14e561f5108d306ac6",
+        "sha256": "e1e96db07bf7208093b6962f938713f60ba94c6d6d0ac703cc043b993f9de7c6",
         "records": 305,
         "probe_method": "NetSecurity"
       }
@@ -175,7 +175,7 @@
     "after_uninstall": {
       "machine_environment_including_path": {
         "available": true,
-        "sha256": "2a7a52469a63d601862fb90c9993e52a0cbcc03170dfa5709aef47e3f532c3a2",
+        "sha256": "9b211b804a9ed9ecb8abfa167a2a041567b4ea1c5ce2815f36e2268eba07f845",
         "records": 76
       },
       "user_environment_including_path": {
@@ -190,8 +190,8 @@
       },
       "associations": {
         "available": true,
-        "sha256": "bd49e841fc329bb593a876b06ea133f859ed86138aa73b9e3c873f32e7f980d8",
-        "records": 268
+        "sha256": "a57089ebf6faee8de2a1fb0419c5605a15ff9fe6a365059615a618d11ca7a7e6",
+        "records": 276
       },
       "existing_python_selected_files": {
         "available": true,
@@ -206,7 +206,7 @@
       },
       "adapter_configuration": {
         "available": true,
-        "sha256": "bd1bdf9a1b4997fed01617d9a6fb690157d7dd3dd4ad725c99f361f0c68c73d7",
+        "sha256": "4e88df2418191de68108636a9bcc48f63cf0c5f3550ee25bdb5b52a2cd7dc083",
         "records": 8
       },
       "adapter_bindings": {
@@ -221,7 +221,7 @@
       },
       "persistent_ip_addresses": {
         "available": true,
-        "sha256": "cfae9d82b1ccd8bb3957d0b062998acdee92a995c8b44d8819b9d8bc53e30999",
+        "sha256": "bec8d575082059438468b2c57fb7d5687b2ca590bf082260541dfa8688c17d1a",
         "records": 1
       },
       "persistent_routes": {
@@ -241,161 +241,161 @@
       },
       "firewall_rule_settings": {
         "available": true,
-        "sha256": "3992139b38670974bcb4e4ae8f4e864e1500ff164430dd14e561f5108d306ac6",
+        "sha256": "e1e96db07bf7208093b6962f938713f60ba94c6d6d0ac703cc043b993f9de7c6",
         "records": 305,
         "probe_method": "NetSecurity"
       }
     }
   },
   "install": {
-    "pid": 2820,
+    "pid": 5536,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 1.847
+    "elapsed_seconds": 4.963
   },
   "manifest": {
-    "sha256": "58cc78c8fc815963f92dfcd2563ab669dfe4ab14f342a9ba2732927e996336af",
+    "sha256": "173e8a121725ece095f82e4f4f5170929bc632d95169e6c38a40be2d88ec56e4",
     "payload_files_verified": 57,
-    "source_commit": "59e46a800ef65035243e5208258217a443be281a"
+    "source_commit": "9d2697ff5b08c5e8cfc29886a68946b53bef0f09"
   },
   "native_self_test": {
-    "pid": 2436,
+    "pid": 724,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 2.341
+    "elapsed_seconds": 2.292
   },
   "normal_demo": {
-    "pid": 4124,
-    "started_utc": "2026-11-02T14:10:32.1717824Z",
+    "pid": 2496,
+    "started_utc": "2026-11-02T14:41:01.5196339Z",
     "ready": true,
     "windows": [
       {
-        "Handle": 393966,
-        "ProcessId": 4124,
+        "Handle": 393860,
+        "ProcessId": 2496,
         "Visible": true,
         "Title": "Spitfire [DEMO - CONNECTED]"
       },
       {
-        "Handle": 524770,
-        "ProcessId": 4124,
+        "Handle": 328322,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "TCP Server Console"
       },
       {
-        "Handle": 393972,
-        "ProcessId": 4124,
+        "Handle": 328330,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "Programmer"
       },
       {
-        "Handle": 655964,
-        "ProcessId": 4124,
+        "Handle": 786688,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "Empower Service"
       },
       {
-        "Handle": 459536,
-        "ProcessId": 4124,
+        "Handle": 852626,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "Help"
       },
       {
-        "Handle": 590398,
-        "ProcessId": 4124,
+        "Handle": 590200,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "Active Faults"
       },
       {
-        "Handle": 852750,
-        "ProcessId": 4124,
+        "Handle": 852628,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "Temperature Control"
       },
       {
-        "Handle": 918084,
-        "ProcessId": 4124,
+        "Handle": 918174,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "Empower Setup"
       },
       {
-        "Handle": 393968,
-        "ProcessId": 4124,
+        "Handle": 393862,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "Timing and High Voltage"
       },
       {
-        "Handle": 524642,
-        "ProcessId": 4124,
+        "Handle": 524434,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "Compressor"
       },
       {
-        "Handle": 262930,
-        "ProcessId": 4124,
+        "Handle": 328146,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "Standard Input/Output"
       },
       {
-        "Handle": 393974,
-        "ProcessId": 4124,
+        "Handle": 1311160,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": ""
       },
       {
-        "Handle": 328270,
-        "ProcessId": 4124,
+        "Handle": 328354,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": ""
       },
       {
-        "Handle": 262938,
-        "ProcessId": 4124,
+        "Handle": 1245840,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": ""
       },
       {
-        "Handle": 918270,
-        "ProcessId": 4124,
+        "Handle": 393898,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "Focus Finder"
       },
       {
-        "Handle": 328274,
-        "ProcessId": 4124,
+        "Handle": 459404,
+        "ProcessId": 2496,
         "Visible": true,
         "Title": "PY_SPF.exe"
       },
       {
-        "Handle": 262934,
-        "ProcessId": 4124,
+        "Handle": 459130,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "LWTCPJSOCKWNDYCLASS"
       },
       {
-        "Handle": 459528,
-        "ProcessId": 4124,
+        "Handle": 459430,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "MSCTFIME UI"
       },
       {
-        "Handle": 459516,
-        "ProcessId": 4124,
+        "Handle": 393896,
+        "ProcessId": 2496,
         "Visible": false,
         "Title": "Default IME"
       }
     ],
     "matching_windows": 1,
     "heartbeat": {
-      "pid": 4124,
-      "utc": "2026-11-02T14:10:34.4960000Z",
-      "sampled_utc": "2026-11-02T14:10:34.4800000Z",
-      "written_age_seconds": 0.1773155,
-      "sampled_age_seconds": 0.1933155,
+      "pid": 2496,
+      "utc": "2026-11-02T14:41:04.8860000Z",
+      "sampled_utc": "2026-11-02T14:41:03.8880000Z",
+      "written_age_seconds": 0.1530988,
+      "sampled_age_seconds": 1.1510988,
       "connected": true,
       "gui_ready": true,
       "running": true,
       "closed": false,
-      "main_loop_progress_age_seconds": 0.009297699999990527
+      "main_loop_progress_age_seconds": 0.006362099999989823
     },
     "visible_demo_window": true,
     "gui_ready": true,
@@ -405,10 +405,10 @@
     "timed_out": false
   },
   "uninstall": {
-    "pid": 2864,
+    "pid": 3212,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 0.497,
+    "elapsed_seconds": 0.734,
     "remaining_payload_files": [],
     "payload_files_checked": 57
   },
@@ -418,7 +418,7 @@
     "preexisting_files_unchanged": true,
     "new_session_files_retained": true,
     "sentinel_retained": true,
-    "sentinel_sha256": "9179ade081ec1b7b5248eea001ac02c7308a5b64736b740f3c47a0e7c7c54f14",
+    "sentinel_sha256": "730b20ba90f4d736ab5406daef0f7a52fdfb5f0025d40a530e5965f4a383a5fc",
     "default_known_folder_used": true
   },
   "checks": [
@@ -742,5 +742,5 @@
     "raising_sitecustomize_on_pythonpath": true,
     "persistent_environment_modified": false
   },
-  "completed_utc": "2026-11-02T14:10:35.6595705Z"
+  "completed_utc": "2026-11-02T14:41:06.4173931Z"
 }

@@ -16,7 +16,7 @@
     "pywin32-ctypes": "0.2.3",
     "setuptools": "80.9.0"
   },
-  "source_commit": "59e46a800ef65035243e5208258217a443be281a",
+  "source_commit": "9d2697ff5b08c5e8cfc29886a68946b53bef0f09",
   "source_sha256": {
     "spitfire/__init__.py": "fe15f653f5c69d94cadb760dd97dcd7789e8d0935d43cce07e538a6ac2225d4c",
     "spitfire/__main__.py": "4fd7a1429b77740f3b1b1516774d96a3505a5092a53c48b44595fbf364e3fec6",
@@ -100,7 +100,7 @@
     {
       "path": "_internal/base_library.zip",
       "bytes": 1403000,
-      "sha256": "dba1a6a9579f6f0d23e14963b6d23551b9a932cb8f2c60bf6c1e9c7636250863"
+      "sha256": "778b24f06ea68230b34a82aee9d9392a43209870e77dbf12589da7a1b670e6c1"
     },
     {
       "path": "_internal/libcrypto-3.dll",
@@ -310,7 +310,7 @@
     {
       "path": "PY_SPF.exe",
       "bytes": 2382355,
-      "sha256": "5e3e627d75f194e1b39b5bbb17020798ec4f1d27b3460d8c5ceb35eb04d03d05"
+      "sha256": "f3f8bb8d07f08241bffaa860df5de790b7924312e1e1a0b2880e16e341986767"
     },
     {
       "path": "THIRD_PARTY_NOTICES/PyInstaller-0-COPYING.txt",
