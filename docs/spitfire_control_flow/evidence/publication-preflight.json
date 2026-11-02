@@ -1,0 +1,852 @@
+{
+  "pdf": "docs/spitfire_control_flow/XL-TR-SPF-001_Spitfire-Control-Flow_Review01.pdf",
+  "pdf_sha256": "8aa141c86be34aa3717c4d1fe6d5d2418c0cf04c81ad234a9995445bc6c51dab",
+  "pages": 55,
+  "metadata": {
+    "format": "PDF 1.5",
+    "title": "Spitfire Hardware\u2013Software Integrated Control Flow",
+    "author": "Codex \u2014 AI-assisted source and evidence analysis",
+    "subject": "XL-TR-SPF-001; Draft 0.1; REVIEW; INTERNAL; source-traceable hardware/software analysis",
+    "keywords": "Spitfire, SPTF-100F-1KHPR, control flow, evidence, XL-STD-DOC-001",
+    "creator": "LaTeX with hyperref",
+    "producer": "xdvipdfmx (20240305)",
+    "creationDate": "D:20261102092753Z",
+    "modDate": "",
+    "trapped": "",
+    "encryption": null
+  },
+  "bookmarks": [
+    [
+      1,
+      "Document control",
+      2
+    ],
+    [
+      1,
+      "Contents",
+      3
+    ],
+    [
+      2,
+      "Spitfire hardware\u2013software integrated control flow",
+      5
+    ],
+    [
+      3,
+      "Executive result",
+      5
+    ],
+    [
+      3,
+      "Scope and baselines",
+      5
+    ],
+    [
+      3,
+      "Reading order and deliverables",
+      5
+    ],
+    [
+      3,
+      "Evidence legend",
+      6
+    ],
+    [
+      3,
+      "Consequential findings",
+      6
+    ],
+    [
+      3,
+      "Safety and authority",
+      7
+    ],
+    [
+      3,
+      "Document control and review status",
+      7
+    ],
+    [
+      3,
+      "Authoring capsule and production record",
+      7
+    ],
+    [
+      2,
+      "1. Integrated operation: power-on to expected emission",
+      8
+    ],
+    [
+      3,
+      "1.1 What the main flow establishes",
+      8
+    ],
+    [
+      3,
+      "1.2 Power-on, external inputs and software readiness",
+      9
+    ],
+    [
+      3,
+      "1.3 RUN, activation and optical consequence",
+      11
+    ],
+    [
+      3,
+      "1.4 External pump comparison: a different software branch",
+      13
+    ],
+    [
+      3,
+      "1.5 Failure, recovery and the final boundary",
+      15
+    ],
+    [
+      2,
+      "2. Optical timing and interlock boundaries",
+      16
+    ],
+    [
+      3,
+      "2.1 Applicability and evidence",
+      16
+    ],
+    [
+      3,
+      "2.2 Optical path and two independent timing references",
+      17
+    ],
+    [
+      3,
+      "2.3 Protection paths without an invented master gate",
+      19
+    ],
+    [
+      3,
+      "2.4 Pump state, GUI state, and optical emission",
+      21
+    ],
+    [
+      3,
+      "2.5 Software selection is not physical bypass evidence",
+      21
+    ],
+    [
+      2,
+      "3. PC control states and hardware observations",
+      23
+    ],
+    [
+      3,
+      "Evidence boundary",
+      23
+    ],
+    [
+      3,
+      "Separate state dimensions",
+      23
+    ],
+    [
+      3,
+      "PC session and display readiness",
+      24
+    ],
+    [
+      3,
+      "UI pause, recovery and cancellation",
+      26
+    ],
+    [
+      3,
+      "RUN: gesture, inhibit, request and physical result",
+      27
+    ],
+    [
+      3,
+      "STOP and HV remain separate",
+      29
+    ],
+    [
+      3,
+      "BWD, Emission and status are observations, not one machine state",
+      29
+    ],
+    [
+      3,
+      "External Control 2.0.0 has different PC states",
+      30
+    ],
+    [
+      3,
+      "Version and review limits",
+      31
+    ],
+    [
+      3,
+      "Source references",
+      31
+    ],
+    [
+      2,
+      "4. Communication sequences and confirmation limits",
+      32
+    ],
+    [
+      3,
+      "Boundary and notation",
+      32
+    ],
+    [
+      3,
+      "A \u2014 Open, initialize, request status",
+      32
+    ],
+    [
+      3,
+      "B \u2014 RUN request versus manufacturer start sequence",
+      35
+    ],
+    [
+      3,
+      "C \u2014 Reset, STOP and HV sequences",
+      37
+    ],
+    [
+      3,
+      "D \u2014 External Control 2.0.0 is a separate flow",
+      39
+    ],
+    [
+      3,
+      "Source references",
+      42
+    ],
+    [
+      2,
+      "5. Signal and state reference",
+      43
+    ],
+    [
+      3,
+      "5.1 External optical and timing signals",
+      43
+    ],
+    [
+      3,
+      "5.2 Protective inputs and physical output controls",
+      45
+    ],
+    [
+      3,
+      "5.3 Software signals and their limits",
+      46
+    ],
+    [
+      3,
+      "5.4 Independent optical proof boundary",
+      48
+    ],
+    [
+      3,
+      "5.5 Source key",
+      49
+    ],
+    [
+      2,
+      "6. Evidence, reproducibility, and unknowns",
+      50
+    ],
+    [
+      3,
+      "Reading the evidence labels",
+      50
+    ],
+    [
+      3,
+      "Evidence register",
+      50
+    ],
+    [
+      3,
+      "Physical observations and their exact limits",
+      52
+    ],
+    [
+      3,
+      "Reproducibility and access",
+      53
+    ],
+    [
+      3,
+      "Unknowns that remain open",
+      54
+    ],
+    [
+      3,
+      "Citation anchors",
+      54
+    ]
+  ],
+  "page_records": [
+    {
+      "page": 1,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 24,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 2,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 39,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 3,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 67,
+      "links": 27,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 4,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 64,
+      "links": 25,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 5,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 53,
+      "links": 4,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 6,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 52,
+      "links": 7,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 7,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 50,
+      "links": 2,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 8,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 81,
+      "links": 15,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 9,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 24,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 10,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 55,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 11,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 18,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 12,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 56,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 13,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 24,
+      "links": 1,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 14,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 42,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 15,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 69,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 16,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 79,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 17,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 55,
+      "links": 7,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 18,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 44,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 19,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 20,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 20,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 36,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 21,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 48,
+      "links": 1,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 22,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 11,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 23,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 95,
+      "links": 2,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 24,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 27,
+      "links": 7,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 25,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 25,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 26,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 76,
+      "links": 22,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 27,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 12,
+      "links": 4,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 28,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 17,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 29,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 59,
+      "links": 16,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 30,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 74,
+      "links": 19,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 31,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 22,
+      "links": 6,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 32,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 41,
+      "links": 8,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 33,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 36,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 34,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 72,
+      "links": 23,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 35,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 12,
+      "links": 6,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 36,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 25,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 37,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 27,
+      "links": 3,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 38,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 24,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 39,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 59,
+      "links": 22,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 40,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 5,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 41,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 30,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 42,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 30,
+      "links": 16,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 43,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 69,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 44,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 133,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 45,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 113,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 46,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 89,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 47,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 142,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 48,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 47,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 49,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 27,
+      "links": 12,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 50,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 62,
+      "links": 8,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 51,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 132,
+      "links": 17,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 52,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 75,
+      "links": 2,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 53,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 47,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 54,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 85,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 55,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 15,
+      "links": 5,
+      "images": 0,
+      "form_xobjects": 0
+    }
+  ],
+  "fonts_pdffonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nWGAPVF+URWGothic-Demi-Identity-H     CID Type 0C       Identity-H       yes yes yes      4  0\nDJLOBV+URWGothic-Book-Identity-H     CID Type 0C       Identity-H       yes yes yes      6  0\nSYPWJT+DejaVuSansMono                CID TrueType      Identity-H       yes yes yes      8  0\nOVPXWZ+URWGothic-BookOblique-Identity-H CID Type 0C       Identity-H       yes yes yes     75  0\nUUAFYN+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    120  0\nFSJXOR+DejaVuSansMono-Bold           CID TrueType      Identity-H       yes yes yes    130  0\nNNTFWW+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    135  0\nBLVXSQ+URWGothic-Book                CID Type 0C       Identity-H       yes yes yes    141  0\nODAGZV+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    156  0\nLFAWEP+URWGothic-Book                CID Type 0C       Identity-H       yes yes yes    162  0\nJAGHGP+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    189  0\nMUOAQY+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    202  0\nBLVXSQ+URWGothic-Book                CID Type 0C       Identity-H       yes yes yes    208  0\nHUIEGV+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    241  0\nWTPHMO+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    283  0\nBLVXSQ+URWGothic-Book                CID Type 0C       Identity-H       yes yes yes    289  0\nZAASZB+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    362  0\nWNICWN+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    407  0\nBLVXSQ+URWGothic-Book                CID Type 0C       Identity-H       yes yes yes    413  0\nIZTBMT+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    430  0\nZIBMIW+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    468  0\nPHDFPX+URWGothic-Book                CID Type 0C       Identity-H       yes yes yes    474  0\n",
+  "outside_page_text": [],
+  "potential_text_overlaps": [],
+  "replacement_characters": [],
+  "a4_mediaboxes": true,
+  "visual_review": "PASS automated-agent all-page visual inspection; see publication-validation.json and visual_review/. Human engineering review and laboratory release approval remain pending.",
+  "notes": [
+    "Overlap records are candidates, not automatic failures: diagram text, mathematical notation and table structures require visual interpretation.",
+    "Vector figure Form XObjects require rendered inspection for text/figure interference; structural checks alone cannot certify layout."
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "immutable_links_checked": 178,
+  "git_objects_checked": 34,
+  "mermaid_blocks": 12,
+  "runtime_source_hashes_unchanged": true,
+  "errors": [],
+  "limit": "Reference presence and line bounds, not semantic proof or Mermaid rendering; rendering and independent technical review are separate."
+}

@@ -1,0 +1,515 @@
+{
+  "schema_version": 1,
+  "document": "XL-TR-SPF-001",
+  "status": "PASS_DOCUMENTATION_REVIEW_ARTIFACT",
+  "reviewed_at_utc": "2026-11-02T09:30:48.525340+00:00",
+  "pdf": "XL-TR-SPF-001_Spitfire-Control-Flow_Review01.pdf",
+  "pdf_sha256": "8aa141c86be34aa3717c4d1fe6d5d2418c0cf04c81ad234a9995445bc6c51dab",
+  "pdf_bytes": 329589,
+  "pdf_pages": 55,
+  "review_method": "Automated-agent visual inspection: every prior-export page opened individually at120dpi; all51 unchanged final pages confirmed pixel-identical; all4 changed sequence pages reopened individually in the definitive export by root, independent technical reviewer and publication agent. This is not human engineering approval.",
+  "review_records": [
+    "visual_review/visual-review-01-22.json",
+    "visual_review/visual-review-23-42.json",
+    "visual_review/visual-review-43-55.json",
+    "visual_review/visual-review-sequence-final.json",
+    "visual_review/publication-agent-visual-review.json"
+  ],
+  "page_review": [
+    {
+      "page": 1,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "31fd19e20c96f98855315a8253f083c67734501263e8cb95cec8846ff8b8fe3d"
+    },
+    {
+      "page": 2,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "5e6027ff6141821b956f8b5d36ea7cf4d3e093540991919ce5da16103a4f6819"
+    },
+    {
+      "page": 3,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "29b9c7fe62e8abe8127bc709fc3960e3c8facfc106a861aa8e9fcea76056e035"
+    },
+    {
+      "page": 4,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "4a4502438369b34d0cb5a5eddd47ba63f6d0a94afd424970690781729fd14e7f"
+    },
+    {
+      "page": 5,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "b24cc9cdbd7c03e30590db90d40f49b90441279fad66e10671bccb3601494836"
+    },
+    {
+      "page": 6,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "fa11eb600c7ddd9ba9d477c7587a2aa7f052b3a47c17a844afc8f4fe43f34a60"
+    },
+    {
+      "page": 7,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "2d1fdea664e321fedc055fbfd3d83c464be554d17c8a87a591371b4691c0a653"
+    },
+    {
+      "page": 8,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "48ecddc5ac42304c7b675caec76bab1e44daf1e367028cd174f4b2e07b06cbcb"
+    },
+    {
+      "page": 9,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "0aa8adab08b0d7533cb2374a1f2d872d6df4f1fe436fc590d75b4c8cd91db288"
+    },
+    {
+      "page": 10,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "b493ca0112628f12c8ff1e042e6bb2101756974889b8a85cd22ac359eef3ef27"
+    },
+    {
+      "page": 11,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "20fbe6cc42c92cd1a2da58da7b1db59766a9cf759be06681b52fb4280cdf9ac9"
+    },
+    {
+      "page": 12,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "fc1622034722a1fbd9a5de9ffd503c45a421aa6d659195a67c30124d0892ea81"
+    },
+    {
+      "page": 13,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "819ffa384291ade7bffbb46dd6d2aa52ac24383180149f6c038d59ee57ee87ae"
+    },
+    {
+      "page": 14,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "3923c9daa8bd2a7c6e556ddc46aad1ddcbf7f75c3e81b4ff776a100099263b68"
+    },
+    {
+      "page": 15,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "f8f41069855118852dc90eb89fed5222b7ddb1a9813c7a48e14ded993306ae12"
+    },
+    {
+      "page": 16,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "4a9a3dbaf60e75da6c1923dad14e15e3c773a1d8d8bbc0875a97b11b66a510ae"
+    },
+    {
+      "page": 17,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "56f9d0caf2c9faad351406551c030ccd2461de921f8b305ea22c762155c96f97"
+    },
+    {
+      "page": 18,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "5fe2f9c9b04b01e4c81a0bcb430edf8a27f8ec289c5fbde08e238efbd8a1a2ca"
+    },
+    {
+      "page": 19,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "e373c54aa5abff64c68220d6558f11fef53804330cc6abe5c338b86e3b242f4d"
+    },
+    {
+      "page": 20,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "9c55aaebc7d23f4daad3e04ec28a1bcc161b9f01a7d8983a005b194e4b116c61"
+    },
+    {
+      "page": 21,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "50fac5a306db0406c6a8b779d7a93941188c0fe2891f7a75c34e65a2a03aa7b1"
+    },
+    {
+      "page": 22,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-01-22.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "bc36104e7b259a86df5d94dd2070e2764ec6752c730b953e4a9afff5e959e492"
+    },
+    {
+      "page": 23,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "977b797f28b9be743e44cb762272271f1871d0414e8893622d51e8f80a53cc74"
+    },
+    {
+      "page": 24,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "c53f871786492050684d2ff50319308b4a427f495c0795e80d3a64d64db5293d"
+    },
+    {
+      "page": 25,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "2d7d3ff1100e6a557f6ff7ec2475d33e3f347d2d7e57b5c52ee3b2568f68d527"
+    },
+    {
+      "page": 26,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "22ff95a76ef453c1e34488978cb95aaf1b532586b48105685e6591a449715d0d"
+    },
+    {
+      "page": 27,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "9ac2e97accd69687e3e1542974562e234eb12bf7ac2b6c0b9b0bcf473654bd51"
+    },
+    {
+      "page": 28,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "dfbc6c9793c28aeae6a59faf55193ad940307030df3da66a88bbcf731decff4e"
+    },
+    {
+      "page": 29,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "905910c29d7780f582f4d2e352ec4b2f4ba83282e84c518ef8db65d96f10838a"
+    },
+    {
+      "page": 30,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "55c95b0660bdff94b5e911b6129f510042accaeee3b092c991fbb2c0e1af6f3d"
+    },
+    {
+      "page": 31,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "566f6d65557f13fe5d07a41a747424ca503da0900c46f343bed36ad521955471"
+    },
+    {
+      "page": 32,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "cb25299599062915adeaf4a8ec3dea9aaf927328016bd5ae4ff8e833456b16f1"
+    },
+    {
+      "page": 33,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-sequence-final.json",
+      "final_page_reopened_after_fix": true,
+      "carried_forward_identical_pixels": false,
+      "final_pixel_sha256": "59e8fb65c4790da1fdc13fd55cd5eb10ad03340bab989bffd240a0cf63bdc3ed"
+    },
+    {
+      "page": 34,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "bf8dcc6cebc6fbd2e6ca6384b88a7467cfe84a72357b9c9376e1847b5b0769e9"
+    },
+    {
+      "page": 35,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "4c1db92a9b2b00164c1dc057194bcddf51e59b90962ad0537e7e64fce8b8472b"
+    },
+    {
+      "page": 36,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-sequence-final.json",
+      "final_page_reopened_after_fix": true,
+      "carried_forward_identical_pixels": false,
+      "final_pixel_sha256": "8b1274052f8f6bc3152c7fa6bfd16197854082199d918442fe06635c65ef2199"
+    },
+    {
+      "page": 37,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "cd0dceac922d9c73805c2be38318df014b102cd41525a3604a38a14d57fca154"
+    },
+    {
+      "page": 38,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-sequence-final.json",
+      "final_page_reopened_after_fix": true,
+      "carried_forward_identical_pixels": false,
+      "final_pixel_sha256": "ab43fb624846ef04915af104251ac48a4b0b1e9b8422aa41eb0fcce9befe7e42"
+    },
+    {
+      "page": 39,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "cadbb72d0c0f40b03e99bbde8f5f714b02ed1f2919a0edb4ac8f66b3209e085f"
+    },
+    {
+      "page": 40,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "b602b795d13bae02fac11b00e979cac79cc887f299dfa23691092a75f91e5dd6"
+    },
+    {
+      "page": 41,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-sequence-final.json",
+      "final_page_reopened_after_fix": true,
+      "carried_forward_identical_pixels": false,
+      "final_pixel_sha256": "f96fbb2db19b6ea8a14235c8ae5315257350c947e5cc998f5342b715f8bd8610"
+    },
+    {
+      "page": 42,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-23-42.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "afa5e2fc87b83b3e122ff6308c073bc3beb31bf59bc6e2a355fbb1e2e3b72d82"
+    },
+    {
+      "page": 43,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-43-55.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "82e552c56cca69b92fa29a86ce6cb037016fc5bd4d5ac182f0011ea3015b9f0f"
+    },
+    {
+      "page": 44,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-43-55.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "3033d9340d65814f85f6d6f7e5faeb44aeaf05c0d4867fc1cd179d48d3c673ab"
+    },
+    {
+      "page": 45,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-43-55.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "0ddb97c2e1b6354d2f891f82a318f8b1dc2a895497cd593cc30396b8ef5272be"
+    },
+    {
+      "page": 46,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-43-55.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "6c7ef2e445e5c7976198590d9956900381809e5047d3ebc140453451bbe3c011"
+    },
+    {
+      "page": 47,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-43-55.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "32cd3674d8b6a6dcfa88474e4df9a2a31b3e25b49395af2ded1da4189cf0e05e"
+    },
+    {
+      "page": 48,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-43-55.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "4374696d2a0d741ab110a50727b130b1eb308b8025f5a26b98b06c9fb880329b"
+    },
+    {
+      "page": 49,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-43-55.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "504775a61d3a8cdefa8305a9e1503315adbf73e94238b9bf8ac82a3621d85406"
+    },
+    {
+      "page": 50,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-43-55.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "f00278ae9faade9a077ec11b27710ebb0333a7f32a1438f31714f11ca8c9c5e3"
+    },
+    {
+      "page": 51,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-43-55.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "7fecc9c7d74d6d5bbceec8902b0b589c105f1e3d8789f973bed36b59bb70ca69"
+    },
+    {
+      "page": 52,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-43-55.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "8a8b661d769502d0e10cd583071fad87ba7210b01608e818b9f1487d5b1c4d8b"
+    },
+    {
+      "page": 53,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-43-55.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "30cd4c2f8385c8adeec124fbc09809c40ff6297450b0e3d94bdf16fe2991a538"
+    },
+    {
+      "page": 54,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-43-55.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "3f7b7c75c46841b325a9ec2c4a9addd967a0baa14d58a967eca0b203f485fc41"
+    },
+    {
+      "page": 55,
+      "disposition": "PASS",
+      "visual_record": "visual_review/visual-review-43-55.json",
+      "final_page_reopened_after_fix": false,
+      "carried_forward_identical_pixels": true,
+      "final_pixel_sha256": "ac69cfba82d739183963cf53c797218d9f47f9160b2e9930b36d8106ca8c05ce"
+    }
+  ],
+  "source_validation": {
+    "status": "PASS",
+    "immutable_links_checked": 178,
+    "git_objects_checked": 34,
+    "mermaid_blocks": 12,
+    "runtime_source_hashes_unchanged": true,
+    "errors": [],
+    "limit": "Reference presence and line bounds, not semantic proof or Mermaid rendering; rendering and independent technical review are separate."
+  },
+  "diagram_validation": {
+    "mermaid_parse_and_render_count": 12,
+    "incorporated_pdf_figures": 11,
+    "minimum_incorporated_figure_text_pt": 8.160912927814547,
+    "strict_readability_build_pass": true,
+    "manifest": "publication-build.json"
+  },
+  "pdf_validation": {
+    "all_pages_a4": true,
+    "all_fonts_embedded": true,
+    "all_rendered_pages_grayscale": true,
+    "bookmarks": 54,
+    "outside_page_text_count": 0,
+    "potential_text_overlap_count": 0,
+    "replacement_glyph_count": 0,
+    "link_annotations": {
+      "total": 287,
+      "uri": 235,
+      "named_internal": 52,
+      "local_file_launch": 0,
+      "invalid_internal_targets": []
+    },
+    "structural_preflight": "publication-preflight.json",
+    "render_comparison": "publication-render-comparison.json"
+  },
+  "resolved_defects": [
+    "p36 self-message and alternate-condition labels crossed by lifeline: output background/layering corrected and visually rechecked.",
+    "p38 multiline receipt and p41 multiline readback labels touched by reply arrows: shifted within label band, background corrected and visually rechecked.",
+    "Seven reference-style links emitted as local-file launches: converted to GitHub URLs; zero launch or invalid internal targets remain."
+  ],
+  "accepted_nonblocking_observations": [
+    "Eight TeX table alignment excesses0.14825pt each (~0.052mm), with no material text overflow, clipping or collisions in visual/preflight checks.",
+    "p46 section5.3 heading introduces a table that starts onp47; no content loss or ambiguous continuation."
+  ],
+  "unresolved_layout_blockers": [],
+  "authority": {
+    "human_engineering_review": "PENDING",
+    "laboratory_release_approval": "NOT_RECORDED",
+    "artifact_issue": "REVIEW / Draft0.1 / INTERNAL",
+    "operating_procedure": false
+  },
+  "scope": {
+    "control_program_changed": false,
+    "new_equipment_actuation": false,
+    "manufacturer_pdfs_redistributed": false
+  }
+}

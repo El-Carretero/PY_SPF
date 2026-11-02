@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/capture_analysis",
+  "review_method": "Automated-agent visual inspection of every assigned rendered PNG, at readable native image resolution. Not a human engineering review or approval.",
+  "reviewed_at_utc": "2026-11-02T09:23:47.112363+00:00",
+  "pdf": "/workspace/PY_SPF/docs/spitfire_control_flow/XL-TR-SPF-001_Spitfire-Control-Flow_Review01.pdf",
+  "pdf_sha256": "1d3dc970b1b6b1059d603c20ee4a139d689869bdcfe7d59da0862562f6be5648",
+  "pdf_total_pages": 55,
+  "assigned_range": {
+    "first": 43,
+    "last": 55
+  },
+  "pages_seen": [
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55
+  ],
+  "all_assigned_pages_seen": true,
+  "blocking_issues": 0,
+  "issues": [
+    {
+      "id": "VIS-43-55-01",
+      "page": 46,
+      "severity": "NONBLOCKING_OBSERVATION",
+      "category": "pagination",
+      "description": "Section5.3 heading is on page46 while its table starts on page47. No content loss, overlap or clipping observed.",
+      "disposition": "ACCEPT_AS_IS; no manuscript/PDF edit requested."
+    }
+  ],
+  "overall_disposition": "PASS_VISUAL_NO_BLOCKERS",
+  "checks": [
+    "Text overlap and clipping",
+    "Missing/replacement glyphs",
+    "Landscape signal-table column fit",
+    "Continued table headers and row flow",
+    "Caption/section/header/footer separation",
+    "Long hashes, code tokens, arrows and symbols",
+    "Portrait-table continuation and final bullet continuation"
+  ],
+  "pages": [
+    {
+      "page": 43,
+      "image": "/workspace/artifacts/spf-final-pages/page-043.png",
+      "image_sha256": "41e57e5c6496daaaaf4afa55501e12040689bb7c3fbb76e93796b81d5a975dc9",
+      "image_dimensions": [
+        1404,
+        993
+      ],
+      "opened_and_visually_inspected": true,
+      "result": "PASS_NO_BLOCKER",
+      "notes": "Landscape section opening and first signal-table rows legible; six columns fit within margins."
+    },
+    {
+      "page": 44,
+      "image": "/workspace/artifacts/spf-final-pages/page-044.png",
+      "image_sha256": "66bd7f5997fca9f9190c62752ea8410f735df3827cbc9328e80bba90ed021b35",
+      "image_dimensions": [
+        1404,
+        993
+      ],
+      "opened_and_visually_inspected": true,
+      "result": "PASS_NO_BLOCKER",
+      "notes": "Landscape continued table repeats header; no clipped row or overlap; explanatory note fits."
+    },
+    {
+      "page": 45,
+      "image": "/workspace/artifacts/spf-final-pages/page-045.png",
+      "image_sha256": "81140ab2335520c308dd332b9eee0a7db519194b47cc9e8ae43615a577d14677",
+      "image_dimensions": [
+        1404,
+        993
+      ],
+      "opened_and_visually_inspected": true,
+      "result": "PASS_NO_BLOCKER",
+      "notes": "Landscape protective-input table legible; communications paragraph and section heading clear."
+    },
+    {
+      "page": 46,
+      "image": "/workspace/artifacts/spf-final-pages/page-046.png",
+      "image_sha256": "4315fd0735acc235e98c2b3027f04f906c7ea7f71ebed22fad7397579d4b2e8b",
+      "image_dimensions": [
+        1404,
+        993
+      ],
+      "opened_and_visually_inspected": true,
+      "result": "PASS_NO_BLOCKER",
+      "notes": "Landscape continuation header and remaining protective rows clear. Section5.3 heading leads to the table on page47; nonblocking pagination observation."
+    },
+    {
+      "page": 47,
+      "image": "/workspace/artifacts/spf-final-pages/page-047.png",
+      "image_sha256": "567b16b9a0294a173f66f4d3d2a2402ebffabad245e31afa0bef1ae9c94969b6",
+      "image_dimensions": [
+        1404,
+        993
+      ],
+      "opened_and_visually_inspected": true,
+      "result": "PASS_NO_BLOCKER",
+      "notes": "Dense landscape software-signal table fully readable; all five columns and final row fit."
+    },
+    {
+      "page": 48,
+      "image": "/workspace/artifacts/spf-final-pages/page-048.png",
+      "image_sha256": "20c4152fc40f5afec954ba9a3e0deb5c0b4b1b93ff7778ece59527a9d8d21fc9",
+      "image_dimensions": [
+        1404,
+        993
+      ],
+      "opened_and_visually_inspected": true,
+      "result": "PASS_NO_BLOCKER",
+      "notes": "Landscape INTERNAL comparison table and independent-optical-proof text readable; arrows and symbols render."
+    },
+    {
+      "page": 49,
+      "image": "/workspace/artifacts/spf-final-pages/page-049.png",
+      "image_sha256": "aec54431c6ffeacd977716d44a6dcc7f7775e046d2cbfdeb2bcceda3ef1a82aa",
+      "image_dimensions": [
+        1404,
+        993
+      ],
+      "opened_and_visually_inspected": true,
+      "result": "PASS_NO_BLOCKER",
+      "notes": "Landscape source-key table and long manual hash readable, within margins; remaining whitespace is end-of-section space."
+    },
+    {
+      "page": 50,
+      "image": "/workspace/artifacts/spf-final-pages/page-050.png",
+      "image_sha256": "fba0ffaa6ac5def27a679b563f4174609f3b41b4566149ab11f3e23ef4085f86",
+      "image_dimensions": [
+        993,
+        1404
+      ],
+      "opened_and_visually_inspected": true,
+      "result": "PASS_NO_BLOCKER",
+      "notes": "Portrait evidence-label table and first registry row readable; header/footer clear."
+    },
+    {
+      "page": 51,
+      "image": "/workspace/artifacts/spf-final-pages/page-051.png",
+      "image_sha256": "a8264630c2ad769575e58c5751f9ef50e02fb8f8ce5f71f6bf2ac9f9faae4537",
+      "image_dimensions": [
+        993,
+        1404
+      ],
+      "opened_and_visually_inspected": true,
+      "result": "PASS_NO_BLOCKER",
+      "notes": "Portrait continued registry table repeats headers; dense last rows remain above footer."
+    },
+    {
+      "page": 52,
+      "image": "/workspace/artifacts/spf-final-pages/page-052.png",
+      "image_sha256": "a4faecdb75371345ec0d28d21a30dd096edd8b944cc5bea2ab4fd1e13e9c12b8",
+      "image_dimensions": [
+        993,
+        1404
+      ],
+      "opened_and_visually_inspected": true,
+      "result": "PASS_NO_BLOCKER",
+      "notes": "Portrait registry continuation, manual hashes and BWD history paragraphs readable; long tokens wrap without clipping."
+    },
+    {
+      "page": 53,
+      "image": "/workspace/artifacts/spf-final-pages/page-053.png",
+      "image_sha256": "17ee7cd20126cd0e93e594fbfa39005bb1bf150b288043976a1234b379856eab",
+      "image_dimensions": [
+        993,
+        1404
+      ],
+      "opened_and_visually_inspected": true,
+      "result": "PASS_NO_BLOCKER",
+      "notes": "Portrait Fault Reset, soak and reproducibility sections readable; no collision with footer."
+    },
+    {
+      "page": 54,
+      "image": "/workspace/artifacts/spf-final-pages/page-054.png",
+      "image_sha256": "1f977bd91e1a83ee6866ec73f15eac129e0cb7ee5f10867778e6a5dc9936e0bd",
+      "image_dimensions": [
+        993,
+        1404
+      ],
+      "opened_and_visually_inspected": true,
+      "result": "PASS_NO_BLOCKER",
+      "notes": "Portrait unknowns table fits; citation section begins below it; first bullet continues to page55."
+    },
+    {
+      "page": 55,
+      "image": "/workspace/artifacts/spf-final-pages/page-055.png",
+      "image_sha256": "c72ef6921fc24ac003ea938950b97c5ec5a62f1be9a8d26c4d5a700bf811f8db",
+      "image_dimensions": [
+        993,
+        1404
+      ],
+      "opened_and_visually_inspected": true,
+      "result": "PASS_NO_BLOCKER",
+      "notes": "Portrait citation-bullet continuation is readable with proper indentation; final bullets and footer clear."
+    }
+  ],
+  "source_modified": false,
+  "human_engineering_approval": false
+}

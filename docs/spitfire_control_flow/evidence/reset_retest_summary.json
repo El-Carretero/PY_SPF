@@ -1,0 +1,287 @@
+{
+  "sessions": {
+    "fault": {
+      "provenance": "Physical device, explicit Native adapter callback; allowlisted writes; not Windows mouse/NI event dispatch validation",
+      "write_tag_counts": {
+        "2044": 1,
+        "2049": 1,
+        "2050": 1,
+        "2052": 1
+      },
+      "write_receipts": [
+        {
+          "tag": 2044,
+          "tx_utc": "2026-11-02T07:22:10.491279+00:00",
+          "ack_utc": "2026-11-02T07:22:10.505208+00:00",
+          "ack_payload": "",
+          "ack_latency_ms": 13.929600005212706
+        },
+        {
+          "tag": 2049,
+          "tx_utc": "2026-11-02T07:22:10.771651+00:00",
+          "ack_utc": "2026-11-02T07:22:10.806229+00:00",
+          "ack_payload": "",
+          "ack_latency_ms": 34.5787999976892
+        },
+        {
+          "tag": 2052,
+          "tx_utc": "2026-11-02T07:22:11.025318+00:00",
+          "ack_utc": "2026-11-02T07:22:11.046745+00:00",
+          "ack_payload": "",
+          "ack_latency_ms": 21.42739999544574
+        },
+        {
+          "tag": 2050,
+          "tx_utc": "2026-11-02T07:22:11.304188+00:00",
+          "ack_utc": "2026-11-02T07:22:11.391609+00:00",
+          "ack_payload": "",
+          "ack_latency_ms": 87.42350000102306
+        }
+      ],
+      "readbacks": {
+        "1039": {
+          "before": {
+            "tag": 1039,
+            "payload": " 0X00330409",
+            "utc": "2026-11-02T07:22:09.452552+00:00",
+            "monotonic": 58027.9458363
+          },
+          "after": {
+            "tag": 1039,
+            "payload": " 0X00330409",
+            "utc": "2026-11-02T07:23:10.991379+00:00",
+            "monotonic": 58089.485408
+          }
+        },
+        "1066": {
+          "before": {
+            "tag": 1066,
+            "payload": " 0X00330409",
+            "utc": "2026-11-02T07:22:09.242020+00:00",
+            "monotonic": 58027.7353015
+          },
+          "after": {
+            "tag": 1066,
+            "payload": " 0X00330409",
+            "utc": "2026-11-02T07:23:09.459397+00:00",
+            "monotonic": 58087.9534074
+          }
+        },
+        "1068": {
+          "before": {
+            "tag": 1068,
+            "payload": "1",
+            "utc": "2026-11-02T07:22:10.275075+00:00",
+            "monotonic": 58028.7683689
+          },
+          "after": {
+            "tag": 1068,
+            "payload": "1",
+            "utc": "2026-11-02T07:23:10.486780+00:00",
+            "monotonic": 58088.9808027
+          }
+        },
+        "1085": {
+          "before": {
+            "tag": 1085,
+            "payload": "3",
+            "utc": "2026-11-02T07:22:10.020773+00:00",
+            "monotonic": 58028.5140644
+          },
+          "after": {
+            "tag": 1085,
+            "payload": "2",
+            "utc": "2026-11-02T07:23:10.202344+00:00",
+            "monotonic": 58088.6963632
+          }
+        },
+        "1089": {
+          "before": {
+            "tag": 1089,
+            "payload": "1",
+            "utc": "2026-11-02T07:22:09.770491+00:00",
+            "monotonic": 58028.2637792
+          },
+          "after": {
+            "tag": 1089,
+            "payload": "0",
+            "utc": "2026-11-02T07:23:09.987304+00:00",
+            "monotonic": 58088.4813209
+          }
+        }
+      },
+      "communication": {
+        "controller": {
+          "connect_attempts": 1,
+          "open_attempts": 1,
+          "startup_attempts": 3,
+          "tx_packets": 377,
+          "matched_replies": 373,
+          "empty_replies": 5,
+          "query_retries": 4
+        },
+        "transport": {
+          "tx_packets": 377,
+          "rx_packets": 373
+        },
+        "pending_tag": null,
+        "read_only": false,
+        "min_request_interval": 0.25,
+        "last_match_monotonic": 58089.7022162,
+        "last_match_age_seconds": 0.13476860000082524,
+        "last_status_monotonic": 58088.6964352,
+        "last_status_age_seconds": 1.1405496000006679
+      },
+      "optout_one_verified_after": true,
+      "post_events": [
+        {
+          "utc": "2026-11-02T07:22:32.861+00:00",
+          "monotonic": 58051.3553549,
+          "kind": "retry",
+          "payload": "query 1039, attempt 2"
+        },
+        {
+          "utc": "2026-11-02T07:22:42.859+00:00",
+          "monotonic": 58061.3533148,
+          "kind": "retry",
+          "payload": "query 1065, attempt 2"
+        }
+      ],
+      "source_artifact_sha256": "49a41615c897304a42e2b3e10a2db55c6db6dd58bdb3a71c25b11f919296bca0"
+    },
+    "bwd": {
+      "provenance": "Physical device, explicit Native adapter callback; allowlisted writes; not Windows mouse/NI event dispatch validation",
+      "write_tag_counts": {
+        "2018": 1
+      },
+      "write_receipts": [
+        {
+          "tag": 2018,
+          "tx_utc": "2026-11-02T07:19:04.259030+00:00",
+          "ack_utc": "2026-11-02T07:19:04.295674+00:00",
+          "ack_payload": "",
+          "ack_latency_ms": 36.644200001319405
+        }
+      ],
+      "readbacks": {
+        "1039": {
+          "before": {
+            "tag": 1039,
+            "payload": " 0X00330409",
+            "utc": "2026-11-02T07:19:03.257229+00:00",
+            "monotonic": 57841.7481404
+          },
+          "after": {
+            "tag": 1039,
+            "payload": " 0X00330409",
+            "utc": "2026-11-02T07:20:03.564004+00:00",
+            "monotonic": 57902.0557529
+          }
+        },
+        "1066": {
+          "before": {
+            "tag": 1066,
+            "payload": " 0X00330409",
+            "utc": "2026-11-02T07:19:02.982754+00:00",
+            "monotonic": 57841.4736613
+          },
+          "after": {
+            "tag": 1066,
+            "payload": " 0X00330409",
+            "utc": "2026-11-02T07:20:03.344790+00:00",
+            "monotonic": 57901.8365366
+          }
+        },
+        "1068": {
+          "before": {
+            "tag": 1068,
+            "payload": "1",
+            "utc": "2026-11-02T07:19:04.071009+00:00",
+            "monotonic": 57842.5619313
+          },
+          "after": {
+            "tag": 1068,
+            "payload": "1",
+            "utc": "2026-11-02T07:19:59.189083+00:00",
+            "monotonic": 57897.6807706
+          }
+        },
+        "1085": {
+          "before": {
+            "tag": 1085,
+            "payload": "3",
+            "utc": "2026-11-02T07:19:03.784118+00:00",
+            "monotonic": 57842.2750364
+          },
+          "after": {
+            "tag": 1085,
+            "payload": "3",
+            "utc": "2026-11-02T07:20:04.134297+00:00",
+            "monotonic": 57902.6260543
+          }
+        },
+        "1089": {
+          "before": {
+            "tag": 1089,
+            "payload": "1",
+            "utc": "2026-11-02T07:19:03.540441+00:00",
+            "monotonic": 57842.0313553
+          },
+          "after": {
+            "tag": 1089,
+            "payload": "1",
+            "utc": "2026-11-02T07:20:03.851685+00:00",
+            "monotonic": 57902.3434384
+          }
+        }
+      },
+      "communication": {
+        "controller": {
+          "connect_attempts": 1,
+          "open_attempts": 1,
+          "startup_attempts": 3,
+          "tx_packets": 377,
+          "matched_replies": 377,
+          "empty_replies": 2,
+          "ignored_replies": 3
+        },
+        "transport": {
+          "tx_packets": 377,
+          "rx_packets": 377
+        },
+        "pending_tag": null,
+        "read_only": false,
+        "min_request_interval": 0.25,
+        "last_match_monotonic": 57902.6261292,
+        "last_match_age_seconds": 0.1674570000031963,
+        "last_status_monotonic": 57902.6261295,
+        "last_status_age_seconds": 0.16745670000091195
+      },
+      "optout_one_verified_after": true,
+      "post_events": [
+        {
+          "utc": "2026-11-02T07:19:12.704+00:00",
+          "monotonic": 57851.195837,
+          "kind": "ignored reply",
+          "payload": "tag 1039; pending None"
+        },
+        {
+          "utc": "2026-11-02T07:19:44.724+00:00",
+          "monotonic": 57883.2157031,
+          "kind": "ignored reply",
+          "payload": "tag 1007; pending None"
+        },
+        {
+          "utc": "2026-11-02T07:19:52.727+00:00",
+          "monotonic": 57891.2193008,
+          "kind": "ignored reply",
+          "payload": "tag 1039; pending None"
+        }
+      ],
+      "source_artifact_sha256": "3186898c33942f08b213b88c20d8d13269020008d5484a62e824ff857b0ab9c8"
+    }
+  },
+  "limitations": [
+    "Separate sessions; no optical output measured; other automatic writes suppressed."
+  ]
+}

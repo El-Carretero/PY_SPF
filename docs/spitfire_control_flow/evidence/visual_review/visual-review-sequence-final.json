@@ -1,0 +1,42 @@
+{
+  "pdf_path": "/workspace/PY_SPF/docs/spitfire_control_flow/XL-TR-SPF-001_Spitfire-Control-Flow_Review01.pdf",
+  "pdf_sha256": "8aa141c86be34aa3717c4d1fe6d5d2418c0cf04c81ad234a9995445bc6c51dab",
+  "reviewer": "Codex technical_review agent (automated visual review; no human approval)",
+  "pages_visually_examined": [
+    33,
+    36,
+    38,
+    41
+  ],
+  "image_directory": "/workspace/artifacts/spf-final-pages",
+  "rendered_image_size_px": [
+    993,
+    1404
+  ],
+  "method": "Re-opened and visually examined all four refreshed full-resolution sequence-diagram page images individually with view_image; PDF SHA256 checked from disk.",
+  "disposition": "PASS",
+  "initial_review_reference": "/workspace/artifacts/visual-review-23-42.json",
+  "resolved_initial_findings": [
+    {
+      "id": "VIS-36-1",
+      "page": 36,
+      "result": "Resolved: Queue 2027 ON and both alt-branch condition labels have clear backgrounds; the lifelines no longer pass through their text."
+    },
+    {
+      "id": "VIS-38-1",
+      "page": 38,
+      "result": "Resolved: repeated multiline Same-tag receipt, if available labels now have clear separation above the dotted reply arrows."
+    },
+    {
+      "id": "VIS-41-1",
+      "page": 41,
+      "result": "Resolved: both multiline PC ON readback labels now have clear separation above the dotted reply arrows."
+    }
+  ],
+  "additional_checked_page": {
+    "page": 33,
+    "result": "No new overlap, clipping, or caption displacement found after sequence-label output correction."
+  },
+  "issues": [],
+  "scope_limit": "This record rechecks only the four changed pages. Earlier visual review covers pages 23\u201342 of the prior build; unchanged-page pixel equivalence was reported and independently checked by the publication/root agents, not recomputed by this reviewer."
+}

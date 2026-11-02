@@ -1,0 +1,13 @@
+%% caption: Figure 3A. PC session and display readiness
+%%{init: {'theme':'base','themeVariables':{'fontSize':'18px','primaryColor':'#ffffff','primaryTextColor':'#111111','primaryBorderColor':'#444444','lineColor':'#444444'},'flowchart':{'htmlLabels':false}}}%%
+flowchart TB
+    A[PC loop started] --> B[Open UDP socket]
+    B -->|open succeeds| C[Three identity attempts]
+    B -->|3 s window expires| R[Retry delay]
+    C -->|third attempt answered| D[Initialize and poll]
+    C -->|third attempt unanswered| R
+    R -->|2 s| B
+    D -->|accepted requested STATUS| E[Fresh display data]
+    E -->|status stale or UI pause| F[Inputs inhibited]
+    F -->|fresh recovery STATUS| E
+    F -->|recovery fails| B

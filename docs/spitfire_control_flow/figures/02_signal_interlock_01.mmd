@@ -1,0 +1,20 @@
+%% caption: Figure 2A. Optical path and two independent timing references
+%%{init: {"theme":"base","themeVariables":{"fontSize":"18px","fontFamily":"Arial","primaryColor":"#f4f4f4","primaryTextColor":"#111111","primaryBorderColor":"#555555","lineColor":"#555555","secondaryColor":"#dddddd","tertiaryColor":"#ffffff"},"flowchart":{"htmlLabels":false,"curve":"linear"}}}%%
+flowchart TB
+  SEED["Mode-locked seed laser\nMANUAL M-3.9 / M-4.6"]
+  STRETCH["Optical stretcher\nMANUAL M-3.9 / M-4.4"]
+  CAVITY["Capture, amplify, eject\nMANUAL M-3.9 / M-3.10"]
+  COMP["Compressor and output\nMANUAL M-3.9"]
+  RF["OSCILLATOR SYNC INPUT\nMANUAL M-4.6"]
+  PUMP["Pump laser pulse and SYNC\nMANUAL M-3.10 / M-4.5"]
+  TDG["TDG timing and division\nMANUAL M-3.10"]
+  PC["CH1 / PC1 and CH2 / PC2\nMANUAL M-3.10 / M-4.6"]
+  SEED -->|"Optical seed M-3.9"| STRETCH
+  STRETCH -->|"Stretched pulse M-3.9"| CAVITY
+  CAVITY -->|"Ejected pulse M-3.9"| COMP
+  SEED -.->|"Electrical reference M-4.6"| RF
+  RF -->|"Seed timing M-3.10"| TDG
+  PUMP -->|"AMPLIFIER TRIGGER INPUT M-4.5"| TDG
+  PUMP -.->|"Optical pumping M-3.9"| CAVITY
+  TDG -->|"Delayed triggers M-3.10"| PC
+  PC -->|"Capture and ejection M-3.10"| CAVITY

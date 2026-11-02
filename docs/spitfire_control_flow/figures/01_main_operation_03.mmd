@@ -1,0 +1,18 @@
+%% caption: Figure 1C. External Control 2.0 comparison only. Readback-confirmed channel control is not measured emission.
+flowchart TB
+  E0["External Control 2.0 startup: query only<br/>CODE VERIFIED EXT2-BRANCH"]
+  EO{"Opt-out 1 already confirmed?<br/>CODE VERIFIED"}
+  E1["If needed: manual apply at fresh HV OFF<br/>CODE VERIFIED"]
+  E2{"Fresh eligibility including HV ON + hold?<br/>CODE VERIFIED"}
+  E3["PC2 ON → readback → PC1 ON → readback<br/>CODE VERIFIED; field actuation UNKNOWN"]
+  E4["Channel state indicated<br/>Optical Emission UNKNOWN"]
+  ES["Cancel / failure / PC STOP<br/>Prioritize both PC OFF; confirm cleanup"]
+  ER["RUN inhibited; no ON request<br/>CODE VERIFIED"]
+  E0 --> EO
+  EO -->|"Yes"| E2
+  EO -->|"No"| E1
+  E1 -->|"Later HV ON is a separate prerequisite"| E2
+  E2 -->|"Permitted"| E3 --> E4
+  E2 -->|"Rejected / unknown"| ER
+  E3 -->|"Failure"| ES
+  E4 -->|"STOP / adverse state"| ES

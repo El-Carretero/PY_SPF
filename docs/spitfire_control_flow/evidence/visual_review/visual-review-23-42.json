@@ -1,0 +1,65 @@
+{
+  "pdf_path": "/workspace/PY_SPF/docs/spitfire_control_flow/XL-TR-SPF-001_Spitfire-Control-Flow_Review01.pdf",
+  "pdf_sha256": "1d3dc970b1b6b1059d603c20ee4a139d689869bdcfe7d59da0862562f6be5648",
+  "reviewer": "Codex technical_review agent (automated visual review; no human approval)",
+  "reviewed_page_range": [
+    23,
+    42
+  ],
+  "pages_visually_examined": [
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42
+  ],
+  "image_directory": "/workspace/artifacts/spf-final-pages",
+  "rendered_image_size_px": [
+    993,
+    1404
+  ],
+  "method": "Opened and visually examined each supplied full-resolution page image with view_image; no contact-sheet-only review.",
+  "disposition": "CHANGES_REQUIRED",
+  "issues": [
+    {
+      "id": "VIS-36-1",
+      "page": 36,
+      "figure": "4B",
+      "severity": "P2",
+      "type": "line_through_label",
+      "description": "PC controller lifeline intersects the self-message label Queue 2027 ON; the same lifeline passes through centered alt-branch condition text. Message/condition text needs an opaque background or corrected layering/placement."
+    },
+    {
+      "id": "VIS-38-1",
+      "page": 38,
+      "figure": "4C",
+      "severity": "P2",
+      "type": "arrow_through_multiline_label",
+      "description": "Dotted receipt arrows touch/cross the bottom available line of the repeated Same-tag receipt, if available labels. Provide clear vertical spacing or opaque message-text background."
+    },
+    {
+      "id": "VIS-41-1",
+      "page": 41,
+      "figure": "4D",
+      "severity": "P2",
+      "type": "arrow_through_multiline_label",
+      "description": "Dotted reply arrows touch/cross the bottom readback line of New valid PC2 ON readback and New valid PC1 ON readback. Provide clear vertical spacing or opaque message-text background."
+    }
+  ],
+  "other_checks": "No clipped or overlapping prose/table text, caption orphans, table/rule collisions, or page-edge clipping found on pages 23\u201342. All figure captions remain on their figure page. Figures 3A,3B,4A otherwise readable."
+}

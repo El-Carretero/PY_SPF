@@ -1,0 +1,44 @@
+%% caption: Figure 1A. Integrated startup and readiness. GUI RUN eligibility is not hardware-ready or emission proof.
+%% layout: landscape
+flowchart LR
+  subgraph EX["External Signals"]
+    direction TB
+    ES["Seed light + RF sync<br/>MANUAL M2 / M3"]
+    EP["Pump pulse + timing<br/>MANUAL M2 / M3"]
+    EK["Keys / relay contacts<br/>MANUAL M3"]
+    ES ~~~ EP ~~~ EK
+  end
+  subgraph HW["Hardware / Electronics"]
+    direction TB
+    HP["POWER ON / preparation<br/>MANUAL M1"]
+    HB["SASC UDP interface<br/>XP/LOG VERIFIED P01"]
+    HD["TDG / HV / PC drivers<br/>MANUAL M3"]
+    BW["BWD protection<br/>MANUAL M3 / M4"]
+    HP ~~~ HB ~~~ HD ~~~ BW
+  end
+  subgraph SW["Software / Control Logic"]
+    direction TB
+    S0["Open UDP; identity attempts<br/>CODE VERIFIED C1"]
+    S2["Opt-out 1 + initial queries<br/>CODE VERIFIED C3"]
+    S3{"Fresh STATUS?<br/>RUN GUI permitted?<br/>CODE VERIFIED C2 / C4"}
+    SF["Open / stale recovery<br/>CODE VERIFIED C2"]
+    SX["Fault inhibit / reset readback<br/>CODE VERIFIED C5"]
+    SR["GUI RUN eligible only<br/>CODE VERIFIED C4"]
+    S0 -->|"Startup completed"| S2 --> S3
+    S0 -->|"Failed"| SF
+    S3 -->|"Missing / stale"| SF
+    SF --> S0
+    S3 -->|"Fault"| SX
+    SX -->|"Next STATUS"| S3
+    S3 -->|"Permitted"| SR
+  end
+  subgraph OP["Optical System"]
+    direction TB
+    OS["Seed stretcher<br/>MANUAL M2 / M3"]
+    PD["PD1 red / PD2 blue<br/>MANUAL M4"]
+    OS --> PD
+  end
+  EX -->|"M2"| OP
+  EX -->|"M3"| HW
+  OP -->|"M3"| HW
+  HW <-->|"C1"| SW

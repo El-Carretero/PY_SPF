@@ -1,0 +1,16 @@
+%% caption: Figure 4B. B — RUN request versus manufacturer start sequence
+%%{init: {'theme':'base','themeVariables':{'fontSize':'18px','primaryColor':'#ffffff','primaryTextColor':'#111111','primaryBorderColor':'#444444','lineColor':'#444444'},'sequence':{'htmlLabels':false,'actorMargin':30,'messageMargin':18}}}%%
+sequenceDiagram
+    participant UI as RUN gesture
+    participant PC as PC controller
+    participant S as SASC UDP peer
+    UI->>PC: Event 3 arms hold
+    Note over PC: Integer time difference greater than 3
+    alt Release or interruption before send
+        UI->>PC: Clear pending hold / ON
+    else Hold remains permitted
+        PC->>PC: Queue 2027 ON
+        PC->>S: 2027 ON when scheduler permits
+        S-->>PC: Receipt, if provided
+        Note over S: Firmware actions UNKNOWN
+    end

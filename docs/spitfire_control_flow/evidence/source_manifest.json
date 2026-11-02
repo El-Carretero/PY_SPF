@@ -1,0 +1,53 @@
+{
+  "base_commit": "cebcc28490f48e9e5d4d1c2e2feef34d638244e7",
+  "files": [
+    {
+      "path": "spitfire/controller.py",
+      "sha256": "2fefed8f7d0188c39afb1f48487f558bedbac768f21e5aa773203d77e6745525"
+    },
+    {
+      "path": "spitfire/decoders.py",
+      "sha256": "09f62406a01c7a8af70c7a5ff2ae4f42fb4ca73dd2ce19e7bc06d7645e01cdc5"
+    },
+    {
+      "path": "spitfire/callbacks.py",
+      "sha256": "e11f4cad639feab80c1b52037eadc7440e50498e5d49763783271b8efe757170"
+    },
+    {
+      "path": "spitfire/scheduling.py",
+      "sha256": "cd0712a3ddc93c412911f4f6045f375606766b887399c6e993604d512da80ae0"
+    },
+    {
+      "path": "spitfire/native.py",
+      "sha256": "420b536dd3bfde4ffe0640980f1649b7025e9e632eaead85be5016226e22ea2a"
+    },
+    {
+      "path": "spitfire/native_ticker.py",
+      "sha256": "e22ff417de92bb047b42a386fcd25465431bf93139eb1f0f88bb0cbccd55c2fc"
+    },
+    {
+      "path": "spitfire/protocol.py",
+      "sha256": "bef7f8dd2ddfdd1b6d921f972c578631c255dac84b4d189d570d0a0c1a3b3adb"
+    },
+    {
+      "path": "analysis/reference/SPITFIRE.EXE",
+      "sha256": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b"
+    }
+  ],
+  "provided_documents": [
+    {
+      "id": "MAN-330A",
+      "title": "330A, Rev. A, Spitfire Pro User's Manual",
+      "pdf_pages": 110,
+      "sha256": "d9bb260827f78a2ed67477043cb3036a26b771aaf19a0c3ec9aa6649449d5e29",
+      "availability": "User-provided attachment; original retained by owner; full PDF not redistributed"
+    },
+    {
+      "id": "STD-XL",
+      "title": "XL-STD-DOC-001 xLaPPLAs Technical Publications Standards, Rev A",
+      "pdf_pages": 63,
+      "sha256": "3a59e249677683bc373a0a1f4ee35fbfb9e677310c49f778806a961654663157",
+      "availability": "User-provided attachment; formatting authority; full PDF not redistributed"
+    }
+  ]
+}
