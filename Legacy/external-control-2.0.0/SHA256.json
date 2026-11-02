@@ -1,0 +1,14 @@
+{
+  "PY_SPF_external_2.0.0.zip": {
+    "sha256": "9d9db7a72c301c4a00b3697204bc83a92e91dcadaf604e3d6f3eb3ce512c9377",
+    "size_bytes": 3805735
+  },
+  "source_manifest.json": {
+    "sha256": "a23de691f8e3626ed9dfec1b90b9bcee964fa57373ee4b2a93343e62ecc412ae",
+    "size_bytes": 112347
+  },
+  "spitfire_external_control-2.0.0-py3-none-any.whl": {
+    "sha256": "40d5896966680b0d5ab2fa6fe0421a55891a483909404eca66601921c72cb3e7",
+    "size_bytes": 2693646
+  }
+}

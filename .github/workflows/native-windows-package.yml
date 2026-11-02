@@ -3,7 +3,7 @@ name: Native Windows x86 package
 on:
   workflow_dispatch:
   push:
-    branches: [build/native-1.0-isolated-installer]
+    branches: [main]
     paths:
       - "spitfire/**"
       - "packaging/windows/**"
@@ -116,7 +116,7 @@ jobs:
 
   publish-tested-binaries:
     needs: native-x86
-    if: github.event_name == 'push' && github.ref == 'refs/heads/build/native-1.0-isolated-installer'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -124,7 +124,7 @@ jobs:
     env:
       TESTED_SHA: ${{ github.sha }}
       TESTED_RUN_ID: ${{ github.run_id }}
-      TARGET_BRANCH: build/native-1.0-isolated-installer
+      TARGET_BRANCH: main
     steps:
       - uses: actions/checkout@v4
         with:

@@ -1,4 +1,6 @@
-> 과거 post2 구현 기록입니다. 파일명·시험 수치는 당시 기준이며 구형 배포물은 현재 ZIP에 포함하지 않습니다. 현재 배포·검증 범위는 [RELEASE.ko.md](RELEASE.ko.md)를 참고하세요.
+> Legacy 기록입니다. 본문의 버전·시험 결과는 당시 기준이며, 현재 설치본은 [main 안내](../../README.ko.md)를 참고합니다. 코드 형태로 적힌 경로는 당시 저장소 루트를 기준으로 합니다.
+
+> 과거 post2 구현 기록입니다. 파일명·시험 수치는 당시 기준이며 구형 배포물은 현재 ZIP에 포함하지 않습니다. 현재 배포·검증 범위는 [RELEASE.ko.md](../../RELEASE.ko.md)를 참고하세요.
 
 # 원본 재구현 1.6.0.post2
 
@@ -74,7 +76,7 @@ post2 개발 당시 별도로 보관한 원본 통신 자료와 코드 대조를
 원본은 `STATUS?`(1085) 수신 전 DARKSCREEN 가림막으로 제어부를 가립니다.
 이전 post2는 자동 Opt-out 쓰기(2036)의 ACK가 없으면 1068 조회로 넘어가지 못했고,
 STATUS 조회도 보내지 못해 회색 화면에 남았습니다. 이전 커밋과 수정본에 같은 ACK 유실을
-주입해 정지와 회복을 재현했습니다. [전후 비교](analysis/post2_optout_ack_regression.json).
+주입해 정지와 회복을 재현했습니다. [전후 비교](../../analysis/post2_optout_ack_regression.json).
 첨부 화면만으로 실제 장비의 ACK 유실 여부를 확정한 것은 아닙니다.
 
 2026-11-02에 RDC의 p01(Windows 10, Python 3.13.9 x86) 실제 설치 폴더에서 확인했습니다.
@@ -99,11 +101,11 @@ identity 실패 시 재시도까지 초기화 큐를 보류합니다.
 01번 PC에서 무응답 전체 화면·수동 요청 차단·Help 탐색, 정상 데모 연결과 실제 STOP 마우스 클릭,
 캡처 응답 상태 표시, localhost만 대상으로 한 실제 배치 실행과 정상 종료를 확인했습니다.
 검증은 시뮬레이터 또는 localhost만 사용했습니다.
-[p01 실제 화면·조작 결과](analysis/post2_p01_gui_validation.json).
-[30초 응답 중단·재시도 검증](analysis/post2_p01_timeout_validation.json).
+[p01 실제 화면·조작 결과](../../analysis/post2_p01_gui_validation.json).
+[30초 응답 중단·재시도 검증](../../analysis/post2_p01_timeout_validation.json).
 이전 p04의 가림막 검증은 `analysis/post2_native_connection_validation.json`에 과거 기록으로 보존합니다.
 
-![01번 PC Native 오프라인 전체 화면](previews/post2-p01-offline-strict.png)
+![01번 PC Native 오프라인 전체 화면](../../previews/post2-p01-offline-strict.png)
 
 ## 16진수 상태 표시 수정
 
@@ -112,9 +114,9 @@ BWD와 PD1/PD2 표시를 잘못 갱신했습니다. 1039와 1066의 해석을 `%
 처리하도록 수정했습니다. 원본 기계어 대조 도구의 같은 정규식도 제거하고 독립적인 실제 C
 `sscanf`를 사용합니다. 실제 NI 런타임도 이 문자열을 `0x330409`로 읽는 것을 확인했습니다.
 `-99` 미지원 값은 원본처럼 유지하며 실제 NI 컨트롤에도 정상 입력됨을 확인했습니다.
-[NI C 런타임 대조](analysis/post2_native_crt_validation.json).
+[NI C 런타임 대조](../../analysis/post2_native_crt_validation.json).
 
-![실제 캡처 응답을 표시한 p01 Native 화면](previews/post2-p01-capture.png)
+![실제 캡처 응답을 표시한 p01 Native 화면](../../previews/post2-p01-capture.png)
 
 ## 검증
 
@@ -127,15 +129,15 @@ BWD와 PD1/PD2 표시를 잘못 갱신했습니다. 1039와 1066의 해석을 `%
 - Windows 11 기본 Native 설치: 공식 서명을 확인한 Python 3.13.9 32비트 자동 설치,
   `.venv-native` 생성, 반복 설치, pip 검사, 기존 Qt `.venv` 보존과 Qt 재설치 통과.
   Native/기본 데모 실행 배치의 headless 실행과 실패 시 오류 표시·파일 저장도 확인했습니다.
-  [현재 Native 설치 결과](analysis/post2_windows_native_install.json)에 기록했습니다.
+  [현재 Native 설치 결과](../../analysis/post2_windows_native_install.json)에 기록했습니다.
 - 실제 Windows NI 화면: 원본 UIR·런타임으로 패널 10개 로드, 시뮬레이터 연결,
   컨트롤 230개 갱신, Opt-out 쓰기 한 번과 조회 기반 ON 표시, 콜백 오류 없음,
   NI 리소스 정리와 종료 코드 0을 확인했습니다.
-  [NI GUI 실행 결과](analysis/post2_windows_native_gui.json)에 기록합니다.
+  [NI GUI 실행 결과](../../analysis/post2_windows_native_gui.json)에 기록합니다.
 - 실제 `run_native.bat --demo --tcp-port 0`에서도 소유 프로세스가 확인된 `Spitfire` 창 표시와
   시스템 창 닫기 동작 후 배치 종료 코드 0을 확인했습니다.
-  [실행 배치 GUI 검증](analysis/post2_native_launcher_gui.json)을 참고하세요.
-- 초기 Qt 설치 검증은 [이전 설치 결과](analysis/post2_windows_install.json)에 보존했습니다.
+  [실행 배치 GUI 검증](../../analysis/post2_native_launcher_gui.json)을 참고하세요.
+- 초기 Qt 설치 검증은 [이전 설치 결과](../../analysis/post2_windows_install.json)에 보존했습니다.
   해당 기록은 Native 기본 설치 수정 이전의 배치 파일·동작에 대한 것입니다.
 - 최종 Linux wheel을 새 가상환경에 설치해 headless 데모를 확인하고,
   포함된 리소스 526개를 소스와 바이트 단위로 대조했습니다.
