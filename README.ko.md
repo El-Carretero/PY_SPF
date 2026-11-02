@@ -3,6 +3,19 @@
 프로젝트 버전은 **1.0.0**이며 원본 NI GUI 리소스는 **1.6.0**입니다. 장치의 IDN 응답에 나오는
 펌웨어 버전은 다시 별개입니다. 프로젝트 버전을 바꾸어도 장치 펌웨어를 변경하지 않습니다.
 
+
+## Windows 설치형 EXE
+
+[검증된 설치 파일](output/native-installer/PY_SPF_1.0_Setup_x86.exe) 또는
+[Portable ZIP](output/native-installer/PY_SPF_1.0_win32_portable.zip)을 사용합니다.
+Windows 10 1903 이상·Windows 11에서 Python·pip·venv를 별도로 설치하지 않고 Native GUI를 실행합니다.
+앱 전용 Python·NI DLL·리소스를 포함하며 기존 Python/NI 등록, PATH, 파일 연결, 네트워크 설정을 바꾸지 않습니다.
+사용자 설정·데이터·진단 기록은 `%LOCALAPPDATA%\PY_SPF_1.0`에 보관합니다.
+[설치·제거 및 격리 범위](packaging/windows/README.ko.md)와
+[해당 설치 파일의 검증 기록](output/native-installer/install-validation.json)을 함께 확인하세요.
+
+아래 배치 파일 절차는 기존 소스 배포를 직접 실행할 때의 방법입니다.
+
 ## Windows 설치
 
 `PY_SPF_1.0.zip`을 풀고 `install.bat`을 실행합니다. 설치 뒤 원본 화면은 `run_native.bat`으로 시작합니다.

@@ -4,6 +4,7 @@ __pycache__/
 *.egg-info/
 .venv/
 .venv-native/
+.venv-build-win32/
 .venv-native.backup-*/
 .python32/
 .installer-cache/

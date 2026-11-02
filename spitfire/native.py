@@ -88,6 +88,15 @@ def _private_runtime_registry(runtime):
 
 def _prepare_runtime():
     source = RESOURCES / 'runtime'
+    if getattr(sys, 'frozen', False):
+        # A frozen application ships this complete tree. Never repair it from
+        # or stage it into the source-mode shared cache.
+        required = ('cvirte.dll', 'cvintwrk.dll', 'bin/cvirte.rsc',
+                    'bin/msgrte.txt', 'bin/cvierror.txt',
+                    'fonts/ni7seg.ttf', 'fonts/nisystem.ttf')
+        if any(not (source / name).is_file() for name in required):
+            raise RuntimeError('Incomplete private CVI runtime; reinstall PY_SPF.')
+        return source
     def arrange(runtime):
         for folder, names in {
             'bin': ('cvirte.rsc', 'msgrte.txt', 'cvierror.txt'),
@@ -149,7 +158,23 @@ class NativeGui:
         # CVI's own entrypoint runs (WinError 1114). Initialize it against the
         # real registry first, using only the Windows system DLL directory.
         self._mpr = C.WinDLL('mpr.dll', winmode=0x800)
-        with _private_runtime_registry(runtime):
+        frozen = bool(getattr(sys, 'frozen', False))
+        if frozen:
+            # CVI first looks next to the application executable for cvirte/bin
+            # and cvirte/fonts, before its system/registry fallback. Its legacy
+            # GetModuleFileNameA buffer has capacity259, including the NUL.
+            if len(str(Path(sys.executable).resolve()).encode('mbcs')) >= 259:
+                raise RuntimeError('The PY_SPF executable path exceeds the legacy NI limit; install in a shorter directory.')
+            private_root = Path(sys.executable).resolve().parent / 'cvirte'
+            required = ('bin/cvirte.rsc', 'bin/msgrte.txt', 'bin/cvierror.txt',
+                        'fonts/ni7seg.ttf', 'fonts/nisystem.ttf')
+            if any(not (private_root / name).is_file() for name in required):
+                raise RuntimeError('Missing EXE-adjacent private CVI resources; reinstall PY_SPF.')
+        # Frozen mode uses the vendor's intended app-local resource layout and
+        # never creates a temporary key or masks the process registry. Preserve
+        # the original Python/source-mode initialization path.
+        registry = contextlib.nullcontext() if frozen else _private_runtime_registry(runtime)
+        with registry:
             self.dll = C.WinDLL(str(runtime / 'cvirte.dll'))
             self.varargs = C.CDLL(str(runtime / 'cvirte.dll'))
             init = self.dll.InitCVIRTDll
@@ -157,6 +182,15 @@ class NativeGui:
             init.restype = C.c_int
             if not init(self._module, None, 0, None, 0, None, 0, None, 0, None, None):
                 raise RuntimeError('NI CVI runtime initialization failed.')
+        if frozen:
+            resource_path = C.create_string_buffer(4096)
+            getter = getattr(self.varargs, '__GetResDirPathString')
+            getter.argtypes = [C.c_void_p]
+            getter.restype = C.c_void_p
+            getter(resource_path)
+            self.resource_directory = Path(resource_path.value.decode('mbcs', errors='strict'))
+            if not resource_path.value or not self.resource_directory.samefile(private_root / 'bin'):
+                raise RuntimeError('NI selected resources outside this application; startup has been stopped.')
         self.dll.DisableBreakOnLibraryErrors()
         for panel in (7, 5, 6, 9, 2, 3, 4, 8, 1):
             handle = self.dll.LoadPanel(0, self._bytes(RESOURCES / 'SPITFIRE.UIR'), panel)
