@@ -10,6 +10,9 @@ p=argparse.ArgumentParser();p.add_argument('--artifacts',type=Path,required=True
 root=Path(__file__).resolve().parents[3];out=root/'docs/spitfire_control_flow/evidence';out.mkdir(exist_ok=True)
 def read(p):return json.loads(p.read_text(encoding='utf-8-sig'))
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def git_blob_sha256(commit,path):
+ data=subprocess.check_output(['git','show',f'{commit}:{path}'],cwd=root)
+ return hashlib.sha256(data).hexdigest()
 def write(name,value):(out/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 b=a.artifacts/'bwd-history-pc1';s=read(b/'summary.json')
 aliases={x['file']:f'P01-SOURCE-{i:02d}' for i,x in enumerate(s['sources'],1)}
@@ -43,12 +46,11 @@ write('fault_burst_summary.json',{'provenance':'Stored normal Native control-ses
  'cause_in_scope':'Priority reset queue delayed STATUS polling despite continuing matched replies; no UDP error/reconnect observed.',
  'not_proven':['Adapter failure','All physical states throughout gaps','Firmware-internal reset behavior']})
 r=root/'analysis/release_1_0_validation.json';write('release_validation.json',{'tracked_source':'analysis/release_1_0_validation.json','sha256':sha(r),'record':read(r)})
-refs={'native_1_0':'cebcc28490f48e9e5d4d1c2e2feef34d638244e7','reconstruction_post2':'c49fada3ffeb660acb56eeabc5c32647750df0',
+refs={'native_1_0':'cebcc28490f48e9e5d4d1c2e2feef34d638244e7','reconstruction_post2':'c49fada3ffeb660acb56ceeeabc5c32647750df0',
  'main_post1':'78d3f447b1ca3dea35c5a737b75569a882bc0650','comparison_1_5_1':'e87225bdc904aeb5348daa409abfa49de449b017'}
-refs['reconstruction_post2']=subprocess.check_output(['git','rev-parse','release/reconstruction-1.6.0-post2'],cwd=root,text=True).strip()
 write('branch_baselines.json',{'repository':'El-Carretero/PY_SPF','refs':refs,'native_field_scope':'native_1_0'})
 files=['spitfire/controller.py','spitfire/decoders.py','spitfire/callbacks.py','spitfire/scheduling.py','spitfire/native.py','spitfire/native_ticker.py','spitfire/protocol.py','analysis/reference/SPITFIRE.EXE']
-write('source_manifest.json',{'base_commit':refs['native_1_0'],'files':[{'path':f,'sha256':sha(root/f)} for f in files],
+write('source_manifest.json',{'base_commit':refs['native_1_0'],'files':[{'path':f,'sha256':git_blob_sha256(refs['native_1_0'],f)} for f in files],
  'provided_documents':[{'id':'MAN-330A','title':"330A, Rev. A, Spitfire Pro User's Manual",'pdf_pages':110,'sha256':'d9bb260827f78a2ed67477043cb3036a26b771aaf19a0c3ec9aa6649449d5e29','availability':'User-provided attachment; original retained by owner; full PDF not redistributed'},
  {'id':'STD-XL','title':'XL-STD-DOC-001 xLaPPLAs Technical Publications Standards, Rev A','pdf_pages':63,'sha256':'3a59e249677683bc373a0a1f4ee35fbfb9e677310c49f778806a961654663157','availability':'User-provided attachment; formatting authority; full PDF not redistributed'}]})
 print('Curated evidence written; no network/device access.')

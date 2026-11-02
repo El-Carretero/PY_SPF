@@ -104,9 +104,9 @@ python -m pytest -q
 ## 배포 제작
 
 개발용 소스 ZIP과 wheel은 `python tools/build_release.py`로 생성합니다.
-출력은 Git에서 제외한 `dist/source/PY_SPF_1.0/`이며, `Legacy/`의 원본 배포물과
+출력은 Git에서 제외한 `dist/source/PY_SPF_1.0/`이며, Git 이력에 보존된 과거 배포물과
 `output/native-installer/`의 검증된 설치 파일은 덮어쓰지 않습니다.
 
-현재 Windows EXE·설치 파일의 제작과 검증 계약은 [packaging/windows/README.md](../packaging/windows/README.md)에 있습니다. 현재 설치형 앱은 전용 런타임을 포함하고, 위 소스 실행 절차는 개발 PC의 Python·venv를 사용합니다. 이전 소스 ZIP·wheel은 [Legacy 안내](../Legacy/README.md)에 보관합니다.
+현재 Windows EXE·설치 파일의 제작과 검증 계약은 [packaging/windows/README.md](../packaging/windows/README.md)에 있습니다. 현재 설치형 앱은 전용 런타임을 포함하고, 위 소스 실행 절차는 개발 PC의 Python·venv를 사용합니다. 이전 소스 ZIP·wheel의 고정 커밋과 다운로드 링크는 [Legacy 안내](../Legacy/README.md)에 있습니다.
 
 현재 설치 파일의 시뮬레이터 검증은 실장비 구동 시험이 아닙니다. [현재 배포 검증 출처](../output/native-installer/README.md)는 실제로 시험한 소스와 설치 파일을 식별합니다.

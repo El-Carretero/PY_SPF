@@ -1,31 +1,26 @@
-# Legacy — 이전 버전 보관함
+# Legacy — 이전 버전 인덱스
 
-현재 유지하는 버전은 **main의 Native PY_SPF 1.0 설치형 배포본**입니다.
-[현재 설치·실행 안내](../README.ko.md) · [현재 배포 파일](../output/native-installer/)
+현재 전체 버전은 **[main의 Native PY_SPF 1.0](../README.ko.md)**입니다.
+현재 소스·설치 파일·원본 리소스·시험·검증 기록·영문 및 한글 문서는 main에 유지합니다.
 
-이 폴더는 이전 배포본과 역사적 설명을 보존합니다. 현재 앱과 혼합 설치하거나,
-이곳의 과거 시험 결과를 현재 설치본의 실장비 검증으로 합산하지 않습니다.
+중복 ZIP·wheel·스냅샷과 과거 설명의 사본은 main 작업 트리에서 삭제했습니다.
+이전 자료는 Git 이력의 고정 커밋에서 그대로 조회하거나 내려받을 수 있습니다.
 
-| 보관 대상 | 파일 및 출처 |
+| 이전 버전 | 고정 소스 |
 |---|---|
-| 원본 재구현 1.6.0.post1 | [ZIP·wheel](reconstruction-1.6.0.post1/) |
-| 원본 재구현 1.6.0.post2 | [ZIP·설치기 수정 ZIP·wheel](reconstruction-1.6.0.post2/) |
-| EXE 도입 전 Native PY_SPF 1.0 | [소스 ZIP·wheel](source-distributions/PY_SPF_1.0/) |
-| External Control 2.0.0 | [기존 배포물·통신 진단 브랜치 출처](external-control-2.0.0/) |
-| 외부 펌프 비교 프로그램 1.5.1 | [소스 스냅샷](external-pump-1.5.1/) |
-| 원본 복구 분석 | [역사적 분석 기록](notes/ANALYSIS.ko.md) |
-| post2 개발·검증 기록 | [당시 변경 기록](notes/POST2.ko.md) |
+| 재구현 1.6.0.post1 | [78d3f44](https://github.com/El-Carretero/PY_SPF/tree/78d3f447b1ca3dea35c5a737b75569a882bc0650) |
+| 재구현 1.6.0.post2 | [c49fada](https://github.com/El-Carretero/PY_SPF/tree/c49fada3ffeb660acb56ceeeabc5c32647750df0) |
+| 설치형 EXE 도입 전 Native 1.0 소스 배포 | [3075872](https://github.com/El-Carretero/PY_SPF/tree/3075872cf2417f2db5eab47af95b92e10bad3839) |
+| External Control 2.0.0·통신 진단 | [b42ac51](https://github.com/El-Carretero/PY_SPF/tree/b42ac51e2a8f93f938804ed609c8a83109a436c4), 태그 `legacy/external-control-2.0.0` |
+| 외부 펌프 비교 프로그램 1.5.1 | [e87225b의 variants/spitfire-control-1.5.1/](https://github.com/El-Carretero/PY_SPF/tree/e87225bdc904aeb5348daa409abfa49de449b017/variants/spitfire-control-1.5.1), 태그 `legacy/external-pump-1.5.1` |
 
-원본 배포 파일은 바이트를 바꾸지 않고 이동하거나 고정 Git 커밋에서 복원했습니다.
-[MANIFEST.json](MANIFEST.json)은 출처 커밋·원본 경로·크기·SHA256을 기록합니다.
-[SHA256SUMS](SHA256SUMS)는 이 보관함의 현재 파일을 확인하는 용도입니다.
-이동한 설명 문서는 상대 링크와 보관 안내만 조정했으며 원본 해시도 출처 목록에 남겼습니다.
+[versions.json](versions.json)에 배포 파일별 고정 경로·다운로드 링크·크기·SHA256을 남겼습니다.
+[이전 보관함 전체](https://github.com/El-Carretero/PY_SPF/tree/ded6b5fc7be1918480c8ad7710c4f52a223122fd/Legacy)와
+[원래 출처 목록](https://github.com/El-Carretero/PY_SPF/blob/ded6b5fc7be1918480c8ad7710c4f52a223122fd/Legacy/MANIFEST.json)도 Git 이력에서 확인할 수 있습니다.
+1.5.1의 기존 하위 폴더 ZIP과 GitHub의 태그 전체 저장소 ZIP은 서로 다른 파일입니다.
 
-현재 소스는 루트 `spitfire/` 하나를 기준으로 합니다. 과거 프로그램 소스를 다시
-활성 패키지 경로에 중복 배치하지 않으며, 기존 브랜치와 Git 이력은 그대로 보존합니다.
-원본 제조사 리소스·역설계 근거는 `analysis/`, 당시 화면은 `previews/`, 최신 영문·한글
-통합 제어 문서는 [docs/spitfire_control_flow/](../docs/spitfire_control_flow/)에 유지합니다.
-제조사 매뉴얼과 문서 양식 PDF 전문은 저장소에 없으며, 기존 문서에 첨부 출처와 해시가 기록돼 있습니다.
+main 이력에 없는 과거 소스는 위 태그 두 개로 보존하고, 불필요한 작업·릴리스 브랜치는 삭제했습니다.
+Git 이력은 다시 쓰지 않으므로 과거 객체와 자료는 남습니다. 이 정리는 현재 체크아웃의 중복 파일을 줄입니다.
 
-새 개발용 소스 ZIP과 wheel을 만들 때는 `python tools/build_release.py`를 사용합니다.
-생성물은 Git에서 제외한 `dist/source/PY_SPF_1.0/`에 기록되며, 이 보관함의 원본 배포물을 덮어쓰지 않습니다.
+원본 역설계 근거는 [analysis/](../analysis/), 당시 고유 화면은 [previews/](../previews/),
+현재 통합 제어 문서와 PDF는 [docs/](../docs/README.md)에 유지합니다.
