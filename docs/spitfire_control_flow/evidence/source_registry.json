@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "purpose": "Evidence provenance and availability registry for the control-flow guide; not a hardware certification.",
+  "primary_labels": ["CODE VERIFIED", "XP/LOG VERIFIED", "MANUAL", "INFERRED", "UNKNOWN"],
+  "provenance_kinds": {
+    "E-STATIC": "Recovered source, executable instructions, command tables, or resources.",
+    "E-EMULATED": "Selected original x86 functions in Unicorn with CVI/CRT interception.",
+    "E-SYNTHETIC": "Simulator, recorded-value replay, offline tests, or localhost transport.",
+    "E-NATIVE-NO-DEVICE": "Actual NI runtime calls or GUI with no physical device connection.",
+    "E-PHYSICAL-READONLY": "Actual device query observations with no actuator writes.",
+    "E-PHYSICAL-CONTROL-LOG": "Retained normal application control-session observations.",
+    "E-PHYSICAL-WRAPPED": "Actual device observations through a bounded diagnostic wrapper.",
+    "E-MANUAL": "Identified manufacturer operating manual; applicability limited to document model and revision.",
+    "E-PUBLICATION-STANDARD": "Identified document-formatting authority; not device-operation evidence.",
+    "E-UNKNOWN": "Required record or authoritative specification absent."
+  },
+  "availability_kinds": ["TRACKED-SOURCE", "TRACKED-REPORT", "TRACKED-CURATED-SUMMARY", "PRIVATE-RAW", "PRIVATE-REPORT", "ABSENT"],
+  "sources": [
+    {
+      "id": "SRC-ORIG",
+      "label": "XP/LOG VERIFIED",
+      "qualifier": "original x86 disassembly; not physical XP-PC operation",
+      "provenance": ["E-STATIC"],
+      "availability": ["TRACKED-SOURCE"],
+      "references": ["analysis/reference/SPITFIRE.EXE", "analysis/reference/SPITFIRE.UIR", "analysis/reference/SERVER.UIR", "analysis/annotated_disasm.txt", "analysis/command_tables.json", "analysis/poll_sequences.json", "analysis/transport_crc.md"],
+      "original_sha256": {
+        "SPITFIRE.EXE": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b",
+        "SPITFIRE.UIR": "1c5b82a8cf528934bffffe0989a73312059b07a15fc3056df8fbeb41607bd67b",
+        "SERVER.UIR": "75188db518d04a27e729ca01532695c618f64b3cff49f25b6f774e8311170d55"
+      },
+      "limit": "Application-side recovery; no complete firmware or circuit specification."
+    },
+    {
+      "id": "ORACLE-X86",
+      "label": "XP/LOG VERIFIED",
+      "qualifier": "emulated original x86; not actual XP field operation",
+      "provenance": ["E-EMULATED"],
+      "availability": ["TRACKED-SOURCE", "TRACKED-REPORT"],
+      "references": ["analysis/native_oracle.py", "analysis/native_oracle_results.json", "analysis/native_callback_extended_results.json", "analysis/native_decoder_oracle.py", "analysis/native_decoder_oracle_summary.json", "analysis/native_decoder_extra_summary.json", "analysis/native_logging_oracle.py", "analysis/native_logging_results.json"],
+      "saved_suite_cases": {"callbacks_initial": 42, "callbacks_extended": 395, "decoders": 338, "decoders_extra": 23, "logging": 14},
+      "limit": "CVI/CRT calls intercepted; some Python parsing/formatting helpers shared. Logging includes 13 paired cases and one original-only fopen failure. Selected final effects do not certify full application timing or hardware behavior."
+    },
+    {
+      "id": "UDP-LOCAL",
+      "label": "CODE VERIFIED",
+      "provenance": ["E-STATIC", "E-SYNTHETIC"],
+      "availability": ["TRACKED-SOURCE", "TRACKED-REPORT"],
+      "references": ["analysis/protocol_validation.json", "analysis/verify_optout_capture.py", "analysis/optout_protocol_verification.json", "tests/fixtures/optout_protocol.json"],
+      "fixture_sha256": "8a37651c618592d2836fded08d2a8f8f3a72ea5ed51c6b508abf595997cd1e31",
+      "limit": "Synthetic byte examples and localhost only; not retained physical capture data."
+    },
+    {
+      "id": "NATIVE-CRT",
+      "label": "XP/LOG VERIFIED",
+      "qualifier": "Native runtime without a physical device",
+      "provenance": ["E-NATIVE-NO-DEVICE"],
+      "availability": ["TRACKED-REPORT"],
+      "references": ["analysis/post2_native_crt_validation.json", "analysis/native_gui_validation.json"],
+      "limit": "CVI CRT test used Windows 11 x86 Python. GUI environment record used Debian/Wine/QEMU and simulator. Neither establishes actual Windows XP device operation."
+    },
+    {
+      "id": "P01-COLLECTOR",
+      "label": "XP/LOG VERIFIED",
+      "qualifier": "historical physical read-only UDP capture and file-fed NI observer",
+      "provenance": ["E-PHYSICAL-READONLY"],
+      "availability": ["PRIVATE-RAW", "PRIVATE-REPORT"],
+      "retained_names": ["initial-raw-before-gui.json", "primary/wire.jsonl", "primary/responses.jsonl", "continuation/wire.jsonl", "ending-defaults.json", "execution-scope.json"],
+      "original_sha256": {
+        "primary/wire.jsonl": "39271e06a8664403281f99d1cb5ec3763ec50616d944c3c735ac09376c068715",
+        "continuation/wire.jsonl": "3ea0368d897fc9a28f979a603a7740868d86167935cd9d3396896738d0ebc187",
+        "execution-scope.json": "e63c72e43d16f369b5fab985efefed4f517f5f7a7c8b7de46d61d2346532f91e"
+      },
+      "primary_utc": ["2026-11-02T03:40:59.754+00:00", "2026-11-02T04:10:59.756+00:00"],
+      "continuation_utc": ["2026-11-02T04:11:00.253+00:00", "2026-11-02T04:17:43.696+00:00"],
+      "limit": "Independent query collector; not stock Native application uninterrupted control soak. Approximate per-tag sampling and observation gaps remain."
+    },
+    {
+      "id": "P01-NATIVE-SOAK",
+      "label": "XP/LOG VERIFIED",
+      "qualifier": "production Native physical-device read-only observation",
+      "provenance": ["E-PHYSICAL-READONLY"],
+      "availability": ["TRACKED-REPORT", "TRACKED-CURATED-SUMMARY", "PRIVATE-RAW", "PRIVATE-REPORT"],
+      "references": ["analysis/release_1_0_validation.json", "docs/spitfire_control_flow/evidence/release_validation.json"],
+      "completion_window_seconds": 1800.552991,
+      "later_analysis_window_seconds": 1813.567083899994,
+      "later_source_prefix_sha256": "476b849759661d248f15e406bcc74e5abf51c90e8b65849ed976917faf351f9b",
+      "later_source_prefix_bytes": 1627710,
+      "limit": "Two snapshot windows of one session. Later append-only file hashes differ. Read-only behavior and exercised menu only; no complete actuator or modal-interaction certification."
+    },
+    {
+      "id": "P01-FAULT-BURST",
+      "label": "XP/LOG VERIFIED",
+      "qualifier": "retained normal-control log; corroborating replay is synthetic",
+      "provenance": ["E-PHYSICAL-CONTROL-LOG", "E-SYNTHETIC"],
+      "availability": ["TRACKED-CURATED-SUMMARY", "PRIVATE-RAW", "PRIVATE-REPORT"],
+      "references": ["docs/spitfire_control_flow/evidence/fault_burst_summary.json"],
+      "retained_report_name": "reset-communication-findings.md",
+      "retained_report_sha256": "b5e0009da693b156e4d3c4c3873aa210bf8f5fe79870bcf6cea01df0325d0880",
+      "observed_reset_groups": 8,
+      "sent_reset_writes_and_matching_acks": 31,
+      "canceled_reset_write_tag": 2050,
+      "status_reply_gap_seconds": 41.122,
+      "gui_unready_seconds_approx": 11.117,
+      "limit": "Does not establish a USB-adapter failure or complete firmware reset semantics. Offline queue reproduction is not another physical test."
+    },
+    {
+      "id": "P01-RESET-RETEST",
+      "label": "XP/LOG VERIFIED",
+      "qualifier": "bounded physical diagnostic using Native adapter invocation",
+      "provenance": ["E-PHYSICAL-WRAPPED"],
+      "availability": ["TRACKED-CURATED-SUMMARY", "PRIVATE-RAW", "PRIVATE-REPORT"],
+      "references": ["docs/spitfire_control_flow/evidence/reset_retest_summary.json"],
+      "retained_report_name": "reset-retest-20261102.md",
+      "retained_report_sha256": "1a90a1d16cbf333b52c7c6d99febd183ef674552192c08b0afb288ed0da57767",
+      "bounded_scopes": ["2018 once", "2044/2049/2052/2050 each once"],
+      "native_adapter_routes": ["BW_reset(panel=6, control=5, event=3)", "cllbckcmd_reset(panel=3, control=53, event=1)"],
+      "windows_mouse_validated": false,
+      "ni_event_dispatch_validated": false,
+      "limit": "Other automatic and manual device writes suppressed at two gates. ACK and UI readback do not measure optical output."
+    },
+    {
+      "id": "P01-BWD-HISTORY",
+      "label": "XP/LOG VERIFIED",
+      "qualifier": "deduplicated retained physical application records; discontinuous observation",
+      "provenance": ["E-PHYSICAL-READONLY", "E-PHYSICAL-CONTROL-LOG", "E-PHYSICAL-WRAPPED"],
+      "availability": ["TRACKED-CURATED-SUMMARY", "PRIVATE-RAW", "PRIVATE-REPORT"],
+      "references": ["docs/spitfire_control_flow/evidence/bwd_history_summary.json"],
+      "private_extraction_sha256": {
+        "bwd-rx.csv": "de678a4676a004128de1174973c7f537ee59f4900efa229d61a2f561965f10f5",
+        "bwd-reset-events.csv": "fedcb1965420c9dcd84083c6d70d8dc199edc4a130ce38c136ff98174f700bb1",
+        "summary.json": "dacc73eb06762e8525e7978fc76cbcd281cef028cc1e37058a9e8dd2570e83b5",
+        "reset-ack-summary.json": "480615121feb7f041af8e2da5c52dad12a92dc0cf66a1fd4e0df8e538b9d6e4c"
+      },
+      "response_lines": 10464,
+      "source_rx_records": 10459,
+      "retained_sources": 19,
+      "tags": {"1039": 10063, "1066": 401},
+      "words": {"0x00330409": 10204, "0x00334408": 260},
+      "either_bwd_bit_clear_response_lines": 0,
+      "reset_transmissions": 44,
+      "matching_reset_acks": 44,
+      "reset_ack_ms": {"min": 6, "max": 88},
+      "reset_source_counts": {"normal_native": 42, "bounded_diagnostics": 2},
+      "limit": "No stored valid clear response; no all-times assertion, physical detector mapping, or reset-success assertion."
+    },
+    {
+      "id": "MAN-330A",
+      "label": "MANUAL",
+      "provenance": ["E-MANUAL"],
+      "availability": ["PRIVATE-RAW"],
+      "title": "Spitfire Pro User Manual",
+      "document_id": "330A",
+      "revision": "A",
+      "pdf_pages": 110,
+      "original_sha256": "d9bb260827f78a2ed67477043cb3036a26b771aaf19a0c3ec9aa6649449d5e29",
+      "retrieval": "User-provided attachment; original retained by project owner, not redistributed in repository.",
+      "printed_to_pdf_examples": {"4-4": 50, "6-1": 61, "6-9": 69, "6-10": 70, "8-3": 89},
+      "limit": "Model/revision-specific operating documentation; installed SASC nameplate, circuit, and firmware equivalence not established."
+    },
+    {
+      "id": "STD-XL",
+      "label": "UNKNOWN",
+      "label_scope": "No device-behavior claim; document-formatting authority only.",
+      "provenance": ["E-PUBLICATION-STANDARD"],
+      "availability": ["PRIVATE-RAW"],
+      "title": "xLaPPLAs Technical Publications Standards",
+      "document_id": "XL-STD-DOC-001",
+      "revision": "A",
+      "pdf_pages": 63,
+      "original_sha256": "3a59e249677683bc373a0a1f4ee35fbfb9e677310c49f778806a961654663157",
+      "retrieval": "User-provided attachment; original retained by project owner, not redistributed in repository.",
+      "limit": "Publication and formatting authority only. Not an operating manual, firmware specification, or source of laser-control evidence."
+    },
+    {
+      "id": "UNKNOWN-PCAP-XP-OPTICS",
+      "label": "UNKNOWN",
+      "provenance": ["E-UNKNOWN"],
+      "availability": ["ABSENT"],
+      "missing_records": ["PCAP/PCAPNG of the physical sessions", "actual XP whole-application physical-device trace", "verified device nameplate and matching circuit-to-bit mapping", "authoritative complete installed-firmware protocol", "independent optical-output measurements"]
+    }
+  ]
+}

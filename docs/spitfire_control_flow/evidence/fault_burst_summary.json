@@ -1,0 +1,20 @@
+{
+  "provenance": "Stored normal Native control-session log plus separate socket-forbidden reproduction",
+  "source_log": "private:P01/logs/reset-investigation-20261102-062651/events.jsonl",
+  "source_sha256": "d4c7385b705312acff1b3a003cdb55f5eb88e3e462a37b99503a796dd36370a5",
+  "reset_groups": 8,
+  "writes_transmitted": 31,
+  "write_acks": 31,
+  "cancelled_write_tag": 2050,
+  "last_status_before_utc": "2026-11-02T06:20:53.709+00:00",
+  "stale_utc": "2026-11-02T06:21:23.714+00:00",
+  "next_status_utc": "2026-11-02T06:21:34.831+00:00",
+  "status_gap_seconds": 41.122,
+  "gui_unready_seconds": 11.117,
+  "cause_in_scope": "Priority reset queue delayed STATUS polling despite continuing matched replies; no UDP error/reconnect observed.",
+  "not_proven": [
+    "Adapter failure",
+    "All physical states throughout gaps",
+    "Firmware-internal reset behavior"
+  ]
+}

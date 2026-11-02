@@ -1,0 +1,15 @@
+%% caption: 그림 2B. 임의의 통합 게이트를 가정하지 않은 보호 경로
+%%{init: {"theme":"base","themeVariables":{"fontSize":"18px","fontFamily":"Noto Sans CJK KR, sans-serif","primaryColor":"#f4f4f4","primaryTextColor":"#111111","primaryBorderColor":"#555555","lineColor":"#555555","secondaryColor":"#dddddd","tertiaryColor":"#ffffff"},"flowchart":{"htmlLabels":false,"curve":"linear"}}}%%
+flowchart TB
+  PD["스트레처 PD1 적색 / PD2 청색"]
+  BWD["BWD가 검출기 신호 감시"]
+  BLOCK["어느 한 검출기라도 공장 임계값 미만:<br/>셀 트리거 억제"]
+  RESET["원인 해소 및 릴레이 리셋"]
+  KEY["TDG HV ENABLE 키스위치"]
+  EXT["외부 TDG 인터록 개방"]
+  HV["포켈스 셀 HV 출력"]
+  PD -->|"검출기 신호"| BWD
+  BWD -->|"트립 조건"| BLOCK
+  RESET -.->|"BWD 복구 조건"| BWD
+  KEY -->|"허용 또는 차단"| HV
+  EXT -->|"즉시 차단"| HV

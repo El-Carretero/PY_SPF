@@ -1,0 +1,212 @@
+{
+  "scan_cutoff": "2026-11-02T17:18:44.1049713+09:00",
+  "original_jsonl_files_scanned": 84,
+  "source_files_retained": 19,
+  "response_lines": 10464,
+  "source_rx_records": 10459,
+  "first_utc": "2026-11-02T03:13:55.059996+00:00",
+  "last_utc": "2026-11-02T08:12:48.504000+00:00",
+  "word_counts": {
+    "0x00330409": 10204,
+    "0x00334408": 260
+  },
+  "limits": [
+    "Not continuous monitoring; gaps exist. No conclusion about unlogged physical transitions.",
+    "1039 drives BWD OK button; 1066 fault query is reported separately.",
+    "Bit20/21 mapping to PC1/PC2 names is not established by available original code.",
+    "Five duplicate same-tag lines inside individual RX records remain response lines, not independent polls."
+  ],
+  "sources": [
+    {
+      "id": "P01-SOURCE-01",
+      "logical_path": "initial-raw-before-gui.json",
+      "sha256": "8fa3f1993619697b49c0649739355c798f70d43eb45d2b3c05971764d5585333",
+      "response_lines": 2,
+      "first_utc": "2026-11-02T03:13:55.059996+00:00",
+      "last_utc": "2026-11-02T03:13:55.118169+00:00"
+    },
+    {
+      "id": "P01-SOURCE-02",
+      "logical_path": "ending-defaults.json",
+      "sha256": "df3ce93e3628be7194514632bfded4de893eb5852e4f050cbe23d4570e3747e7",
+      "response_lines": 2,
+      "first_utc": "2026-11-02T04:17:55.950000+00:00",
+      "last_utc": "2026-11-02T04:17:56.226000+00:00"
+    },
+    {
+      "id": "P01-SOURCE-03",
+      "logical_path": "bwd-reset-adapter-probe-20261102-0644\\wire.jsonl",
+      "sha256": "10401667667F8C2C8AD11331F72B57DB53A75875F1FE2CE72D4AD7CDE5F61FB4",
+      "response_lines": 160,
+      "first_utc": "2026-11-02T06:45:00.104557+00:00",
+      "last_utc": "2026-11-02T06:46:24.625500+00:00"
+    },
+    {
+      "id": "P01-SOURCE-04",
+      "logical_path": "bwd-reset-probe-20261102-0640\\wire.jsonl",
+      "sha256": "1F4CA2DA617A34A752953DB707DDC620BD83599E7A2A455BBFB06DE16B7E1AD1",
+      "response_lines": 40,
+      "first_utc": "2026-11-02T06:40:23.864043+00:00",
+      "last_utc": "2026-11-02T06:40:46.705577+00:00"
+    },
+    {
+      "id": "P01-SOURCE-05",
+      "logical_path": "bwd-reset-probe-20261102-0641\\wire.jsonl",
+      "sha256": "0A6AEF4108EADECC216AD9B504C4460E9D30BD5B1FC290C3221DBF808251C8FE",
+      "response_lines": 46,
+      "first_utc": "2026-11-02T06:41:33.969751+00:00",
+      "last_utc": "2026-11-02T06:41:58.191350+00:00"
+    },
+    {
+      "id": "P01-SOURCE-06",
+      "logical_path": "bwd-reset-probe-20261102-0710\\wire.jsonl",
+      "sha256": "77DB890AEAD0939BA0485AB515EB6B221EEA7233A3EDFFCF9CCF0975019E85F6",
+      "response_lines": 56,
+      "first_utc": "2026-11-02T06:36:01.651898+00:00",
+      "last_utc": "2026-11-02T06:36:32.328301+00:00"
+    },
+    {
+      "id": "P01-SOURCE-07",
+      "logical_path": "bwd-reset-retest-20261102-0718\\wire.jsonl",
+      "sha256": "FDF2C4E0C78818578EB6DBB5ABFCAE48436778256B41CA5D2F60F0EDEA87BE9F",
+      "response_lines": 161,
+      "first_utc": "2026-11-02T07:18:39.035919+00:00",
+      "last_utc": "2026-11-02T07:20:03.564004+00:00"
+    },
+    {
+      "id": "P01-SOURCE-08",
+      "logical_path": "fault-reset-retest-20261102-0721\\wire.jsonl",
+      "sha256": "1A17954986A99BF314A9EE2F89FCDA928DF4FD454B145377A1FC4665A738EE08",
+      "response_lines": 148,
+      "first_utc": "2026-11-02T07:21:44.402904+00:00",
+      "last_utc": "2026-11-02T07:23:10.991379+00:00"
+    },
+    {
+      "id": "P01-SOURCE-09",
+      "logical_path": "native-soak-1\\events.jsonl",
+      "sha256": "7F40DB0F80CA7C2A196463EA6D9349C126448AFE72DB1C75E94BD135897214A7",
+      "response_lines": 1473,
+      "first_utc": "2026-11-02T05:07:22.898000+00:00",
+      "last_utc": "2026-11-02T05:19:58.514000+00:00"
+    },
+    {
+      "id": "P01-SOURCE-10",
+      "logical_path": "native-soak-final\\events.jsonl",
+      "sha256": "E2DB3B72802E7471EB2F9E8FAADF5F0092863AAD818138EAA05B06B070148F0F",
+      "response_lines": 248,
+      "first_utc": "2026-11-02T05:21:14.191000+00:00",
+      "last_utc": "2026-11-02T05:23:24.125000+00:00"
+    },
+    {
+      "id": "P01-SOURCE-11",
+      "logical_path": "native-soak-release\\events.jsonl",
+      "sha256": "ED8DC314D5A30867E912484EFDA697D752FB56321E3CB84A80407F91E6F48D86",
+      "response_lines": 4152,
+      "first_utc": "2026-11-02T05:44:44.310000+00:00",
+      "last_utc": "2026-11-02T06:20:25.305000+00:00"
+    },
+    {
+      "id": "P01-SOURCE-12",
+      "logical_path": "native-soak-verified\\events.jsonl",
+      "sha256": "DAAB59C682F8A0E72E80A8CF2183C6506FBE375DDFE55D5547601FF4DC2BEA01",
+      "response_lines": 289,
+      "first_utc": "2026-11-02T05:41:48.468000+00:00",
+      "last_utc": "2026-11-02T05:44:21.312000+00:00"
+    },
+    {
+      "id": "P01-SOURCE-13",
+      "logical_path": "native\\events.jsonl",
+      "sha256": "AECB8E398F543435C6B2DF6F9E1557B3DCC3F8D5D98B72631ED5AFFA1B93A6F9",
+      "response_lines": 3239,
+      "first_utc": "2026-11-02T06:20:44.142000+00:00",
+      "last_utc": "2026-11-02T08:12:48.504000+00:00"
+    },
+    {
+      "id": "P01-SOURCE-14",
+      "logical_path": "run-readiness-20261102-0753\\query-wire.jsonl",
+      "sha256": "7242BDBEE64D24AACF4E095FEDF8C87F4712345C2722D1A543E52AA05818C3C2",
+      "response_lines": 1,
+      "first_utc": "2026-11-02T07:53:44.213614+00:00",
+      "last_utc": "2026-11-02T07:53:44.213614+00:00"
+    },
+    {
+      "id": "P01-SOURCE-15",
+      "logical_path": "run-readiness-20261102-0758\\query-wire.jsonl",
+      "sha256": "BD072DD54C454F5ADEA94B237E1DDFCE6736077D57937BE83A446832161882C8",
+      "response_lines": 1,
+      "first_utc": "2026-11-02T07:58:02.595496+00:00",
+      "last_utc": "2026-11-02T07:58:02.595496+00:00"
+    },
+    {
+      "id": "P01-SOURCE-16",
+      "logical_path": "p01-initial-20261102\\native-capture-clean\\wire-and-blocked.jsonl",
+      "sha256": "45149AEF22F0F7D5A8213ACB3425CB2DBD5726B8AE2D650281A85D6C564D2E65",
+      "response_lines": 2,
+      "first_utc": "2026-11-02T03:21:31.469367+00:00",
+      "last_utc": "2026-11-02T03:21:32.931152+00:00"
+    },
+    {
+      "id": "P01-SOURCE-17",
+      "logical_path": "p01-initial-20261102\\native-capture\\wire-and-blocked.jsonl",
+      "sha256": "F1B7B846AB71C685636A72491223DFB26E721CE436BEE923F87BDC982206B210",
+      "response_lines": 4,
+      "first_utc": "2026-11-02T03:18:09.939528+00:00",
+      "last_utc": "2026-11-02T03:18:12.905099+00:00"
+    },
+    {
+      "id": "P01-SOURCE-18",
+      "logical_path": "p01-monitor-20261102\\continuation\\wire.jsonl",
+      "sha256": "3EA0368D897FC9A28F979A603A7740868D86167935CD9D3396896738D0EBC187",
+      "response_lines": 82,
+      "first_utc": "2026-11-02T04:11:00.778000+00:00",
+      "last_utc": "2026-11-02T04:17:43.660000+00:00"
+    },
+    {
+      "id": "P01-SOURCE-19",
+      "logical_path": "p01-monitor-20261102\\wire.jsonl",
+      "sha256": "39271E06A8664403281F99D1CB5EC3763EC50616D944C3C735AC09376C068715",
+      "response_lines": 358,
+      "first_utc": "2026-11-02T03:41:00.283000+00:00",
+      "last_utc": "2026-11-02T04:10:54.292000+00:00"
+    }
+  ],
+  "provenance": "Actual stored physical responses; synthetic/replay/mirrored files excluded; not continuous monitoring.",
+  "per_tag": {
+    "1039": {
+      "response_lines": 10063,
+      "source_rx_records": 10058,
+      "word_counts": {
+        "0x00330409": 9809,
+        "0x00334408": 254
+      },
+      "bit20_clear": 0,
+      "bit21_clear": 0,
+      "either_clear": 0,
+      "both_clear": 0
+    },
+    "1066": {
+      "response_lines": 401,
+      "source_rx_records": 401,
+      "word_counts": {
+        "0x00330409": 395,
+        "0x00334408": 6
+      },
+      "bit20_clear": 0,
+      "bit21_clear": 0,
+      "either_clear": 0,
+      "both_clear": 0
+    }
+  },
+  "source_artifact_sha256": "dacc73eb06762e8525e7978fc76cbcd281cef028cc1e37058a9e8dd2570e83b5",
+  "reset_commands": {
+    "tx": 44,
+    "rx": 44,
+    "pairs": 44,
+    "unmatched_rx": 0,
+    "unacknowledged_tx": 0,
+    "first": "2026-11-02T06:45:25.5419780+00:00",
+    "last": "2026-11-02T08:09:59.4680000+00:00",
+    "ack_ms_min": 6.0,
+    "ack_ms_max": 88.0
+  }
+}

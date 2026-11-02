@@ -1,0 +1,631 @@
+{
+  "en": {
+    "reviewed_pdf_sha256": "142bff96ae2ffea0a21a3e65d2150cc4c19e986408c3af74f7b33d0d9bb48736",
+    "final_pdf_sha256": "f557985e1eebfe0275a7f349af888ac95896489e97b78229a06f8746ca5cee34",
+    "reviewed_pages": 51,
+    "final_pages": 51,
+    "dpi": 120,
+    "changed_pages": [
+      4,
+      8,
+      42,
+      43,
+      44,
+      45,
+      49,
+      50,
+      51
+    ],
+    "page_comparison": [
+      {
+        "page": 1,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "e85c763c477bbda0f63084c444500626e53a863b96cc1b61d5f05712fc26456e",
+        "final_pixel_sha256": "e85c763c477bbda0f63084c444500626e53a863b96cc1b61d5f05712fc26456e"
+      },
+      {
+        "page": 2,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "5b98682974b9d30117104a84b575b58a48a8754dfe981ce98a7caeb157ca8484",
+        "final_pixel_sha256": "5b98682974b9d30117104a84b575b58a48a8754dfe981ce98a7caeb157ca8484"
+      },
+      {
+        "page": 3,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "0eabfc95b8431041fb495f8e2e1653c4e01fb4f1124ac8bfaf1e692493b8dffe",
+        "final_pixel_sha256": "0eabfc95b8431041fb495f8e2e1653c4e01fb4f1124ac8bfaf1e692493b8dffe"
+      },
+      {
+        "page": 4,
+        "pixel_identical": false,
+        "reviewed_pixel_sha256": "783d235ceb9ed15c6b02fcdb39bf795a99b606deb96bd47827fedb06e9517170",
+        "final_pixel_sha256": "8e6f276ca23dc8de77a0edbff2048b86ff863f703a7033703e51a53cb98737fc"
+      },
+      {
+        "page": 5,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "ab8eed02c6687467f92d6183c6ae6a73976ea25d7baf91994bcefcc128b6cab4",
+        "final_pixel_sha256": "ab8eed02c6687467f92d6183c6ae6a73976ea25d7baf91994bcefcc128b6cab4"
+      },
+      {
+        "page": 6,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "97e76259983cd23631ba06aa76e1613b25f78622c30ba55a231046f93af35eae",
+        "final_pixel_sha256": "97e76259983cd23631ba06aa76e1613b25f78622c30ba55a231046f93af35eae"
+      },
+      {
+        "page": 7,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "17da7e9bd5d9639c9aeadc11f2c72179a13e4faea1d86f02e35845de5aae329b",
+        "final_pixel_sha256": "17da7e9bd5d9639c9aeadc11f2c72179a13e4faea1d86f02e35845de5aae329b"
+      },
+      {
+        "page": 8,
+        "pixel_identical": false,
+        "reviewed_pixel_sha256": "7bb2cb0f3a8f42de213b053a6fd94ef9c9c928a93d43245ac972caf3b0af3c70",
+        "final_pixel_sha256": "2758c0be6fc25928d79652fa1013cd0a81866af862e3cb0fdd71101d4c7380a8"
+      },
+      {
+        "page": 9,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "67b9426d2c5d57233862d57a3dc78c0a302ad9bb4a188afd5100b9b452abefa4",
+        "final_pixel_sha256": "67b9426d2c5d57233862d57a3dc78c0a302ad9bb4a188afd5100b9b452abefa4"
+      },
+      {
+        "page": 10,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "d3de82934b898788df07b775b0445f55f5c993c89c3acd443a57b5c77fe3d610",
+        "final_pixel_sha256": "d3de82934b898788df07b775b0445f55f5c993c89c3acd443a57b5c77fe3d610"
+      },
+      {
+        "page": 11,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "af707123c130f6789619ba32337e51c1f77c6eeec497d5858be999520b637240",
+        "final_pixel_sha256": "af707123c130f6789619ba32337e51c1f77c6eeec497d5858be999520b637240"
+      },
+      {
+        "page": 12,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "8169fb76fc26088534aa3954d059cf19984588aac0466b602a9aa17f2c4d0ffe",
+        "final_pixel_sha256": "8169fb76fc26088534aa3954d059cf19984588aac0466b602a9aa17f2c4d0ffe"
+      },
+      {
+        "page": 13,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "6e23646c8c156dde3b5e120383ca1400ea0cbc7116d8513ab0c496002e39ac28",
+        "final_pixel_sha256": "6e23646c8c156dde3b5e120383ca1400ea0cbc7116d8513ab0c496002e39ac28"
+      },
+      {
+        "page": 14,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "f1584941f604d95360efc74878704b1f8328a3f632ce0cd899740aec1840a2bb",
+        "final_pixel_sha256": "f1584941f604d95360efc74878704b1f8328a3f632ce0cd899740aec1840a2bb"
+      },
+      {
+        "page": 15,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "50f1826c72f69a94b42e716db149ea0ff421b3ea3b8dba0175ab0bcca74d114f",
+        "final_pixel_sha256": "50f1826c72f69a94b42e716db149ea0ff421b3ea3b8dba0175ab0bcca74d114f"
+      },
+      {
+        "page": 16,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "a6b69b0d3c213daf35e34af58e20d17f387ab03c74d74269c0d6d8b79e4850f4",
+        "final_pixel_sha256": "a6b69b0d3c213daf35e34af58e20d17f387ab03c74d74269c0d6d8b79e4850f4"
+      },
+      {
+        "page": 17,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "7590722b36a03b6f2689f7800f930f6315559f3c456ddac6455555305d3b4c71",
+        "final_pixel_sha256": "7590722b36a03b6f2689f7800f930f6315559f3c456ddac6455555305d3b4c71"
+      },
+      {
+        "page": 18,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "e065a36c9f7d3d18d8894f94f31df54290c2c5fd59890d7eba1f53210a678e12",
+        "final_pixel_sha256": "e065a36c9f7d3d18d8894f94f31df54290c2c5fd59890d7eba1f53210a678e12"
+      },
+      {
+        "page": 19,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "88fb5e2778f1c999c0dff65fe7fb4a7ac2bbb93a9dc1d9194be942c661206776",
+        "final_pixel_sha256": "88fb5e2778f1c999c0dff65fe7fb4a7ac2bbb93a9dc1d9194be942c661206776"
+      },
+      {
+        "page": 20,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "8dc28d1f1c45ee3fe3592a696419f54e311ef4e1f2bf660a469d85ba424c84d9",
+        "final_pixel_sha256": "8dc28d1f1c45ee3fe3592a696419f54e311ef4e1f2bf660a469d85ba424c84d9"
+      },
+      {
+        "page": 21,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "33692983ee07d5b9b8dc6f7467d36695442e511decf92b8b1f96f788487fd0e6",
+        "final_pixel_sha256": "33692983ee07d5b9b8dc6f7467d36695442e511decf92b8b1f96f788487fd0e6"
+      },
+      {
+        "page": 22,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "3ddeb01fee01114d2c2ef4e6e447e5b3755d8133848ccadea9cfec0bc3ad38a0",
+        "final_pixel_sha256": "3ddeb01fee01114d2c2ef4e6e447e5b3755d8133848ccadea9cfec0bc3ad38a0"
+      },
+      {
+        "page": 23,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "b75c8520dffb013cf8a9f2a22c40ba46c233dba6cd23ed811a183015641c3fac",
+        "final_pixel_sha256": "b75c8520dffb013cf8a9f2a22c40ba46c233dba6cd23ed811a183015641c3fac"
+      },
+      {
+        "page": 24,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "6d690d7144fd47b79ee5365ade25de5e3816fc3a4083f75e2f3e98f2e7e0188f",
+        "final_pixel_sha256": "6d690d7144fd47b79ee5365ade25de5e3816fc3a4083f75e2f3e98f2e7e0188f"
+      },
+      {
+        "page": 25,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "ad3b5fc0b697281a99ec0f5014631c813f9afd809c9f35d5c687287f91107fc2",
+        "final_pixel_sha256": "ad3b5fc0b697281a99ec0f5014631c813f9afd809c9f35d5c687287f91107fc2"
+      },
+      {
+        "page": 26,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "84a66960cb3e07af9a4716ce62e5567b571af52123889e38583c7f52b789ee3e",
+        "final_pixel_sha256": "84a66960cb3e07af9a4716ce62e5567b571af52123889e38583c7f52b789ee3e"
+      },
+      {
+        "page": 27,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "801392a0b75a9ef03dde0f2e92a63a4535bab1a41faee8c464a04657a34aa8f3",
+        "final_pixel_sha256": "801392a0b75a9ef03dde0f2e92a63a4535bab1a41faee8c464a04657a34aa8f3"
+      },
+      {
+        "page": 28,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "56241232b0991c01ef6f89a3da511325ad5b1371a18642d8ffeb36b803a3202f",
+        "final_pixel_sha256": "56241232b0991c01ef6f89a3da511325ad5b1371a18642d8ffeb36b803a3202f"
+      },
+      {
+        "page": 29,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "2558aad8ccce9edb726080af3ff84343a26581f6e491427244990dfe2b349fd3",
+        "final_pixel_sha256": "2558aad8ccce9edb726080af3ff84343a26581f6e491427244990dfe2b349fd3"
+      },
+      {
+        "page": 30,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "3e6ea3a9ba292d9dc8f53a309621b93a6640473da82b3135746da3ea136cb0c0",
+        "final_pixel_sha256": "3e6ea3a9ba292d9dc8f53a309621b93a6640473da82b3135746da3ea136cb0c0"
+      },
+      {
+        "page": 31,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "f10977e0bb16b5b296069ef2c0f7393548377213cc78609a22333243e2007404",
+        "final_pixel_sha256": "f10977e0bb16b5b296069ef2c0f7393548377213cc78609a22333243e2007404"
+      },
+      {
+        "page": 32,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "0a6e8c04971d1699cec8e6298411b9bbf80ddb865ece824c9992818d17e452ab",
+        "final_pixel_sha256": "0a6e8c04971d1699cec8e6298411b9bbf80ddb865ece824c9992818d17e452ab"
+      },
+      {
+        "page": 33,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "efb544853944185b89c99db9b3c5b53d14fec486a5c0a697b3c4853d39bf1e8a",
+        "final_pixel_sha256": "efb544853944185b89c99db9b3c5b53d14fec486a5c0a697b3c4853d39bf1e8a"
+      },
+      {
+        "page": 34,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "45e6d82eb98a7dd7ffbce1982639699ae5d622158bdac5e90dc517ad216f520e",
+        "final_pixel_sha256": "45e6d82eb98a7dd7ffbce1982639699ae5d622158bdac5e90dc517ad216f520e"
+      },
+      {
+        "page": 35,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "5aed126a8da62effef3e0b183c07684bb3e773b0260c54df72157610ccda134b",
+        "final_pixel_sha256": "5aed126a8da62effef3e0b183c07684bb3e773b0260c54df72157610ccda134b"
+      },
+      {
+        "page": 36,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "8b419dcb08465fee678f961861c8381000a60ee958b1928c10460d55c284417a",
+        "final_pixel_sha256": "8b419dcb08465fee678f961861c8381000a60ee958b1928c10460d55c284417a"
+      },
+      {
+        "page": 37,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "a18f645f063c6888e11500f44cdfded92b35ffab6a73f3df00839077ba62bd16",
+        "final_pixel_sha256": "a18f645f063c6888e11500f44cdfded92b35ffab6a73f3df00839077ba62bd16"
+      },
+      {
+        "page": 38,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "47bd833ce3d0e44bc8bc1e658b3cd801ca1d722d91e22fbe2c96287214aca07c",
+        "final_pixel_sha256": "47bd833ce3d0e44bc8bc1e658b3cd801ca1d722d91e22fbe2c96287214aca07c"
+      },
+      {
+        "page": 39,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "b8026f68194a7bceeccd4a33599e06f9bf6605acab388bfe27a535cba1a010d2",
+        "final_pixel_sha256": "b8026f68194a7bceeccd4a33599e06f9bf6605acab388bfe27a535cba1a010d2"
+      },
+      {
+        "page": 40,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "32a8ccb81129c25b7d12dfc2e5f654e2e5c2f356950f4ea1889d3d4d9bab64c0",
+        "final_pixel_sha256": "32a8ccb81129c25b7d12dfc2e5f654e2e5c2f356950f4ea1889d3d4d9bab64c0"
+      },
+      {
+        "page": 41,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "51cd455d56b6833aa93ce7cea187e2dbc80f1d07e47133ebe34b045161adffc1",
+        "final_pixel_sha256": "51cd455d56b6833aa93ce7cea187e2dbc80f1d07e47133ebe34b045161adffc1"
+      },
+      {
+        "page": 42,
+        "pixel_identical": false,
+        "reviewed_pixel_sha256": "f068b6dafa50ee14b9d022cfc2b9268f77867162ba07a2070812a52cebaf89ab",
+        "final_pixel_sha256": "ab689d80a1385cf4f662314f3153a761d517dacb65b3d0d406c36b2dbf543d99"
+      },
+      {
+        "page": 43,
+        "pixel_identical": false,
+        "reviewed_pixel_sha256": "f0ffa300c6d8f405779a54dc0a52adc0f78289b93cce1a20cc1542bead0b29ec",
+        "final_pixel_sha256": "d7aa2a2b5010df164484c48bb0d27bdeada8bd1bb9b78d225e842004d0185b84"
+      },
+      {
+        "page": 44,
+        "pixel_identical": false,
+        "reviewed_pixel_sha256": "987f09e28e50b6c9dc97056aaa4b6883e323f0f99d27a3568942853ed633ee0b",
+        "final_pixel_sha256": "4423bce5f1dcbabade9dd5a41ac56549a97d3d22ba901f0e43dcfd5f895d86be"
+      },
+      {
+        "page": 45,
+        "pixel_identical": false,
+        "reviewed_pixel_sha256": "6c20b3290d06cf784ebe89a97b3c0273b6c3932a8ec7791169a50491f8c2f048",
+        "final_pixel_sha256": "20c4592913dd80311f2362b16d79c9b1305eca60f2a827446a1215fd08bd6caa"
+      },
+      {
+        "page": 46,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "041f26eb8f8048d84c0bcca67d65ab7fb4b467664cebaf1d7eb692bbb2db4cb1",
+        "final_pixel_sha256": "041f26eb8f8048d84c0bcca67d65ab7fb4b467664cebaf1d7eb692bbb2db4cb1"
+      },
+      {
+        "page": 47,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "28505e6418c6e2cf67b59c89a32f884d18d944e60a66de95c4054fe33a2c159f",
+        "final_pixel_sha256": "28505e6418c6e2cf67b59c89a32f884d18d944e60a66de95c4054fe33a2c159f"
+      },
+      {
+        "page": 48,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "538a21f4c09c59bd69f81ff36042f0568fd0a70bfef313d187d343c82fc0580f",
+        "final_pixel_sha256": "538a21f4c09c59bd69f81ff36042f0568fd0a70bfef313d187d343c82fc0580f"
+      },
+      {
+        "page": 49,
+        "pixel_identical": false,
+        "reviewed_pixel_sha256": "6c6c47ad4443e9b908b736e34931d0564c7f9cada5dd0edc8b3ae120e858351c",
+        "final_pixel_sha256": "f4c46b82a4180ae86cce5c722928e1bf22cc0c9c8a8d15472e598c6505824fe9"
+      },
+      {
+        "page": 50,
+        "pixel_identical": false,
+        "reviewed_pixel_sha256": "913953f2c931e4e2c3026cc5eed272b4ce07e6b8a46733ed0195009f47f2394d",
+        "final_pixel_sha256": "a4ce2f782873f58df603c127ea547777c010cb4655624e5c3087429aa0cca831"
+      },
+      {
+        "page": 51,
+        "pixel_identical": false,
+        "reviewed_pixel_sha256": "86f1e8477d2fbbbc3e83a0a4c3d33a3179460c94ef5c12d5968df9aeb9512c8a",
+        "final_pixel_sha256": "ed0d4a49bf7932920725e7328703fc9eb2ea23861157c2e4535f295bda5ea438"
+      }
+    ],
+    "changes": "Heading-only automatic hyphenation disabled; two table-section headings kept with header and first complete row. Korean06 also contains two user-authorized grammar corrections."
+  },
+  "ko": {
+    "reviewed_pdf_sha256": "0be9254407bba61d5b0ef7885b147df8085ac3239d6e08f5ab74c5452b2d9cb1",
+    "final_pdf_sha256": "0151d61c364430955d9250c738828668f4a6de36083103ba126041fe726386c6",
+    "reviewed_pages": 48,
+    "final_pages": 48,
+    "dpi": 120,
+    "changed_pages": [
+      45,
+      47
+    ],
+    "page_comparison": [
+      {
+        "page": 1,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "a5f9068ae1b943a357a4f17421185a138eeccb69a6db7280b5b3e696670bd752",
+        "final_pixel_sha256": "a5f9068ae1b943a357a4f17421185a138eeccb69a6db7280b5b3e696670bd752"
+      },
+      {
+        "page": 2,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "ca4957aa255146918942d0c744cf1c5cbf48a46f8836dbbfeb7607da895d3675",
+        "final_pixel_sha256": "ca4957aa255146918942d0c744cf1c5cbf48a46f8836dbbfeb7607da895d3675"
+      },
+      {
+        "page": 3,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "e03adef176d5435a769b3bbca56eed6588866529292dd73fbf61394bb705fc0a",
+        "final_pixel_sha256": "e03adef176d5435a769b3bbca56eed6588866529292dd73fbf61394bb705fc0a"
+      },
+      {
+        "page": 4,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "f416602628efadf6473b42dad59f51778a81fe0e5e5c88c76a7af87bfcc135e6",
+        "final_pixel_sha256": "f416602628efadf6473b42dad59f51778a81fe0e5e5c88c76a7af87bfcc135e6"
+      },
+      {
+        "page": 5,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "4a021746e1abfed15f42251d25ee8f465c243a7a30aaaae16937c045f749263e",
+        "final_pixel_sha256": "4a021746e1abfed15f42251d25ee8f465c243a7a30aaaae16937c045f749263e"
+      },
+      {
+        "page": 6,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "45071004fb1ac422cf76f501b77bd3787659d748c4e8fa4aac61dea99a5739f7",
+        "final_pixel_sha256": "45071004fb1ac422cf76f501b77bd3787659d748c4e8fa4aac61dea99a5739f7"
+      },
+      {
+        "page": 7,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "a72fe9e34ebecfdf0a79fa0d73d4ebf523393800699bca421bbe3710150120e3",
+        "final_pixel_sha256": "a72fe9e34ebecfdf0a79fa0d73d4ebf523393800699bca421bbe3710150120e3"
+      },
+      {
+        "page": 8,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "b29adafc42b89498ba7a73942709ae1a620a67679c7b4be8df34ec382945de2e",
+        "final_pixel_sha256": "b29adafc42b89498ba7a73942709ae1a620a67679c7b4be8df34ec382945de2e"
+      },
+      {
+        "page": 9,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "0867d547e02d37cec5b382c3baf9d1d8ca2ad794c68078052f389977d6156cbf",
+        "final_pixel_sha256": "0867d547e02d37cec5b382c3baf9d1d8ca2ad794c68078052f389977d6156cbf"
+      },
+      {
+        "page": 10,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "64f463b8b434d2c2732e92b4bf9bad3e4f9f9ceba69c9dd674f2b3d87439dd5c",
+        "final_pixel_sha256": "64f463b8b434d2c2732e92b4bf9bad3e4f9f9ceba69c9dd674f2b3d87439dd5c"
+      },
+      {
+        "page": 11,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "2b6c269437706e4941e86baabcf562dd66b44b2f02870c94bfb9244d07556f04",
+        "final_pixel_sha256": "2b6c269437706e4941e86baabcf562dd66b44b2f02870c94bfb9244d07556f04"
+      },
+      {
+        "page": 12,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "bea43022aa85a848ffbbfdfa92eabec2d35ccf249f92db1178cefa4d81850e49",
+        "final_pixel_sha256": "bea43022aa85a848ffbbfdfa92eabec2d35ccf249f92db1178cefa4d81850e49"
+      },
+      {
+        "page": 13,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "215578f50a050287b81e93506fcd0fedd8a9f4769714b95aa36bcd4c1277aec5",
+        "final_pixel_sha256": "215578f50a050287b81e93506fcd0fedd8a9f4769714b95aa36bcd4c1277aec5"
+      },
+      {
+        "page": 14,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "8eb77044637c57bdc7c62a618893c902f44dc85a4b17ec494eef5eb956cbad9e",
+        "final_pixel_sha256": "8eb77044637c57bdc7c62a618893c902f44dc85a4b17ec494eef5eb956cbad9e"
+      },
+      {
+        "page": 15,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "643dacf492e0793c6331550f7ba6fe9df5a39ba33ad1cae2fe8076d00a4dd941",
+        "final_pixel_sha256": "643dacf492e0793c6331550f7ba6fe9df5a39ba33ad1cae2fe8076d00a4dd941"
+      },
+      {
+        "page": 16,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "251050e812f96327dff8f02cb0f5e12f18229a9afb7877605af08a61eb12b818",
+        "final_pixel_sha256": "251050e812f96327dff8f02cb0f5e12f18229a9afb7877605af08a61eb12b818"
+      },
+      {
+        "page": 17,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "4cd3c1164c43ef76686b54fb277f570fef37ccd6d4ed30f90100fd93b8341ecf",
+        "final_pixel_sha256": "4cd3c1164c43ef76686b54fb277f570fef37ccd6d4ed30f90100fd93b8341ecf"
+      },
+      {
+        "page": 18,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "4f4b2edf2e53305a4a19a06b8990a7b2ca1fb64734ddf5b753d680c45daade51",
+        "final_pixel_sha256": "4f4b2edf2e53305a4a19a06b8990a7b2ca1fb64734ddf5b753d680c45daade51"
+      },
+      {
+        "page": 19,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "11d8ca87b781fc53de0d6a75cb987b3174ae481f13fc6197b8a3fdbed16ccc8c",
+        "final_pixel_sha256": "11d8ca87b781fc53de0d6a75cb987b3174ae481f13fc6197b8a3fdbed16ccc8c"
+      },
+      {
+        "page": 20,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "4b9c29499c564c02f6f31a3bf530297d479592719d374360829e448f8e010d21",
+        "final_pixel_sha256": "4b9c29499c564c02f6f31a3bf530297d479592719d374360829e448f8e010d21"
+      },
+      {
+        "page": 21,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "735c7909a2306fe839ba03765b8834c3c4208e205f464f2f6867eab82f050a9d",
+        "final_pixel_sha256": "735c7909a2306fe839ba03765b8834c3c4208e205f464f2f6867eab82f050a9d"
+      },
+      {
+        "page": 22,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "6af1f8739ea0f9bdad27323f99b58b26a0976a682299367ab920b31b4095ff99",
+        "final_pixel_sha256": "6af1f8739ea0f9bdad27323f99b58b26a0976a682299367ab920b31b4095ff99"
+      },
+      {
+        "page": 23,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "dc0aeac39f08e3b81dae0cca15e9135e91b7a02ac8911ae01735e9f3b08b6d2d",
+        "final_pixel_sha256": "dc0aeac39f08e3b81dae0cca15e9135e91b7a02ac8911ae01735e9f3b08b6d2d"
+      },
+      {
+        "page": 24,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "1b1a0a18b600ef91ef3a832fbaac148c62a3f4d2670e346ab8e5b044f094c1a0",
+        "final_pixel_sha256": "1b1a0a18b600ef91ef3a832fbaac148c62a3f4d2670e346ab8e5b044f094c1a0"
+      },
+      {
+        "page": 25,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "7fba1fbf899ccdf5a2d89b96cc272abf15b62415a247c80a75fe262e09d80d5d",
+        "final_pixel_sha256": "7fba1fbf899ccdf5a2d89b96cc272abf15b62415a247c80a75fe262e09d80d5d"
+      },
+      {
+        "page": 26,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "684facb0b67b2bbe1f1048f0c1c8a6f88500b007473309d255ba1739e7bcd70c",
+        "final_pixel_sha256": "684facb0b67b2bbe1f1048f0c1c8a6f88500b007473309d255ba1739e7bcd70c"
+      },
+      {
+        "page": 27,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "ecd31c024332f6961346c03018883e0229ae22f28a488ad9e52b2d24ea913e4d",
+        "final_pixel_sha256": "ecd31c024332f6961346c03018883e0229ae22f28a488ad9e52b2d24ea913e4d"
+      },
+      {
+        "page": 28,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "27237d442b4dc7ce417182140f9fc9f6b4a0810461bc7d75b7216643fae0229f",
+        "final_pixel_sha256": "27237d442b4dc7ce417182140f9fc9f6b4a0810461bc7d75b7216643fae0229f"
+      },
+      {
+        "page": 29,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "31cb400673feb31724e37125643dd242005be4474cc8171c6d6f71963a372707",
+        "final_pixel_sha256": "31cb400673feb31724e37125643dd242005be4474cc8171c6d6f71963a372707"
+      },
+      {
+        "page": 30,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "45b3b581772aea6818c99c73eeb31332aa4af00cf370b61a9f8cee31d4e61192",
+        "final_pixel_sha256": "45b3b581772aea6818c99c73eeb31332aa4af00cf370b61a9f8cee31d4e61192"
+      },
+      {
+        "page": 31,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "b267e223fbbce4faa607414b8440665b7dd95641672fd69f20b59732726e2699",
+        "final_pixel_sha256": "b267e223fbbce4faa607414b8440665b7dd95641672fd69f20b59732726e2699"
+      },
+      {
+        "page": 32,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "9b29ce73e9e8c3a1a7d12584bb11165606a8a126dadc3501c83aebdac228e90b",
+        "final_pixel_sha256": "9b29ce73e9e8c3a1a7d12584bb11165606a8a126dadc3501c83aebdac228e90b"
+      },
+      {
+        "page": 33,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "8db574de5722f7747d4d7c9f9fbe9e33ccf9a1551ad33dbad0ae898cc216c819",
+        "final_pixel_sha256": "8db574de5722f7747d4d7c9f9fbe9e33ccf9a1551ad33dbad0ae898cc216c819"
+      },
+      {
+        "page": 34,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "70259dd1c1d22b7463b9b75fcb196691d3cb293979dda20e264f4951181e6aef",
+        "final_pixel_sha256": "70259dd1c1d22b7463b9b75fcb196691d3cb293979dda20e264f4951181e6aef"
+      },
+      {
+        "page": 35,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "aac337044ee979711788407f73a84a1bc4da2eabedfd86706ba6d39d57f3b29b",
+        "final_pixel_sha256": "aac337044ee979711788407f73a84a1bc4da2eabedfd86706ba6d39d57f3b29b"
+      },
+      {
+        "page": 36,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "7de47bb9aa46f6f2f5364715d87b434f84e5510832ca3f04f1130b26079a9513",
+        "final_pixel_sha256": "7de47bb9aa46f6f2f5364715d87b434f84e5510832ca3f04f1130b26079a9513"
+      },
+      {
+        "page": 37,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "6e2fffde94004b780eb7755fb30639f6e5df5f192b37d5ac69ed26d0070d961d",
+        "final_pixel_sha256": "6e2fffde94004b780eb7755fb30639f6e5df5f192b37d5ac69ed26d0070d961d"
+      },
+      {
+        "page": 38,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "a044a836175f957412655ee369063d23fda9b930a2760e3eed7d1c0ebb86202d",
+        "final_pixel_sha256": "a044a836175f957412655ee369063d23fda9b930a2760e3eed7d1c0ebb86202d"
+      },
+      {
+        "page": 39,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "b11efb45076f8c604b0afdc8149d8b18f548b631d7fca165dc6bdffb05ba051a",
+        "final_pixel_sha256": "b11efb45076f8c604b0afdc8149d8b18f548b631d7fca165dc6bdffb05ba051a"
+      },
+      {
+        "page": 40,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "cab3acee17c5cbcefbde7697749f29bab9c1b587ea8303fd494e4b78a178c152",
+        "final_pixel_sha256": "cab3acee17c5cbcefbde7697749f29bab9c1b587ea8303fd494e4b78a178c152"
+      },
+      {
+        "page": 41,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "11ca14620511207c958f59371010aec69c51fdd4d6389d50d6976a8f4db53cc8",
+        "final_pixel_sha256": "11ca14620511207c958f59371010aec69c51fdd4d6389d50d6976a8f4db53cc8"
+      },
+      {
+        "page": 42,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "5f99685de1bc064f7bdf672132bf2e1822541fef3d4430c15f54611bafd884e1",
+        "final_pixel_sha256": "5f99685de1bc064f7bdf672132bf2e1822541fef3d4430c15f54611bafd884e1"
+      },
+      {
+        "page": 43,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "a2a6eb9313fc1ca7c303b1bf6902fac661e9abe39f8b0aec1e047cbf31bbc7ad",
+        "final_pixel_sha256": "a2a6eb9313fc1ca7c303b1bf6902fac661e9abe39f8b0aec1e047cbf31bbc7ad"
+      },
+      {
+        "page": 44,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "499ff691f87c52c21f391050469a0a0a9d297281176278476c2607c23434b722",
+        "final_pixel_sha256": "499ff691f87c52c21f391050469a0a0a9d297281176278476c2607c23434b722"
+      },
+      {
+        "page": 45,
+        "pixel_identical": false,
+        "reviewed_pixel_sha256": "0c0f60c024db5585b0a041c65080c4a8d26eb7881ecea964bcc966a87fd0f60a",
+        "final_pixel_sha256": "045b8b771894e7250fb52f873a318c4497813543094540076181118d8321a632"
+      },
+      {
+        "page": 46,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "97107c4555b84f76c34a34ebbde9314d1fd69054a5bd843803e7e02eb2160ddd",
+        "final_pixel_sha256": "97107c4555b84f76c34a34ebbde9314d1fd69054a5bd843803e7e02eb2160ddd"
+      },
+      {
+        "page": 47,
+        "pixel_identical": false,
+        "reviewed_pixel_sha256": "7db100110b42584fef9fb79b3e2733ad6f999d20904a42a9d1e63db1b7d8157e",
+        "final_pixel_sha256": "a0f6616642e39ea253f8fab20fec230fbfb724218af253fdbb0e24cd0aa2a832"
+      },
+      {
+        "page": 48,
+        "pixel_identical": true,
+        "reviewed_pixel_sha256": "4a9e36dad6495318d3a124b483db825696bd934208870fb9b2cff217f412d4ab",
+        "final_pixel_sha256": "4a9e36dad6495318d3a124b483db825696bd934208870fb9b2cff217f412d4ab"
+      }
+    ],
+    "changes": "Heading-only automatic hyphenation disabled; two table-section headings kept with header and first complete row. Korean06 also contains two user-authorized grammar corrections."
+  }
+}

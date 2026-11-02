@@ -1,0 +1,14 @@
+%% caption: 그림 4C. C1. 고장 리셋
+%%{init: {'theme':'base','themeVariables':{'fontSize':'18px','primaryColor':'#ffffff','primaryTextColor':'#111111','primaryBorderColor':'#444444','lineColor':'#444444'},'sequence':{'htmlLabels':false,'actorMargin':35,'messageMargin':18}}}%%
+sequenceDiagram
+    participant PC as PC 애플리케이션
+    participant S as SASC UDP 상대 장치
+    PC->>S: 2044 EMP:RESETFAULTS
+    S-->>PC: 수신된 경우 같은 태그의 수신 응답
+    PC->>S: 2049 ECU:RESETFAULTS
+    S-->>PC: 수신된 경우 같은 태그의 수신 응답
+    PC->>S: 2052 TDG:RESFAULT
+    S-->>PC: 수신된 경우 같은 태그의 수신 응답
+    PC->>S: 2050 RESET
+    S-->>PC: 수신된 경우 같은 태그의 수신 응답
+    Note over PC: 이어서 고장 조회를 두 차례 수행

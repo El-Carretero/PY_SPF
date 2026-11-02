@@ -1,0 +1,202 @@
+{
+  "tracked_source": "analysis/release_1_0_validation.json",
+  "sha256": "11e06358e9236172c254113f6c9996408bcc2b04ae9b79749c4ba568a63144b1",
+  "record": {
+    "schema_version": 1,
+    "release_name": "PY_SPF_1.0",
+    "package_version": "1.0.0",
+    "original_ni_gui_version": "1.6.0",
+    "report_status": "final_field_soak_passed",
+    "source_sha256": {
+      "spitfire/controller.py": "2fefed8f7d0188c39afb1f48487f558bedbac768f21e5aa773203d77e6745525",
+      "spitfire/protocol.py": "bef7f8dd2ddfdd1b6d921f972c578631c255dac84b4d189d570d0a0c1a3b3adb",
+      "spitfire/scheduling.py": "cd0712a3ddc93c412911f4f6045f375606766b887399c6e993604d512da80ae0",
+      "spitfire/native.py": "420b536dd3bfde4ffe0640980f1649b7025e9e632eaead85be5016226e22ea2a",
+      "spitfire/native_ticker.py": "e22ff417de92bb047b42a386fcd25465431bf93139eb1f0f88bb0cbccd55c2fc",
+      "spitfire/diagnostics.py": "7d57b0793c9644dd173a9f29d0a5a1142ef8a1b9d2c12b8c00c7d86474878f9e",
+      "spitfire/__main__.py": "33dc2335493a967bcee8200c5bf6bd01be8ce01d18a4dd9ecc6db2f0cb7ead7d"
+    },
+    "local_regression": {
+      "status": "passed",
+      "command": "python -m pytest -q",
+      "tests_passed": 219,
+      "subtests_passed": 7,
+      "date_utc": "2026-11-02"
+    },
+    "synthetic_protocol_oracle": {
+      "status": "passed",
+      "fixture_kind": "synthetic",
+      "reference": "original x86 decoder functions",
+      "responses_compared": 15,
+      "responses_matched": 15,
+      "scope": "Byte-example decoder comparison; not physical device operation validation"
+    },
+    "windows_fresh_install": {
+      "status": "passed",
+      "backend": "native",
+      "environment": ".venv-native",
+      "command": "install.bat",
+      "custom_python_argument": false,
+      "interpreter_bits": 32,
+      "installed_version": "1.0.0",
+      "installer_exit_code": 0,
+      "pip_check": "passed",
+      "latest_license_metadata_reinstall": "passed",
+      "operating_system": "Windows 10 build 19045",
+      "python_version": "3.13.9"
+    },
+    "windows_installer_regression": {
+      "status": "passed",
+      "operating_system": "Windows 10 build 19045",
+      "interpreter_bits": 32,
+      "python_version": "3.13.9",
+      "cases_passed": 11,
+      "exit_code": 0,
+      "cases": [
+        "Authentic PSF-signed installer accepted",
+        "Isolated interpreter probe ignores poisoned Python environment",
+        "Missing and wrong-architecture interpreters rejected",
+        "Zero exit without interpreter identity rejected",
+        "Timed-out owned child process tree bounded",
+        "Existing registered interpreter reused",
+        "Setup-log target path rediscovered",
+        "One repair restores missing registered runtime",
+        "Unrecoverable setup bounded",
+        "Reboot-required setup result visible",
+        "Failed repair exit reported"
+      ]
+    },
+    "reproduced_prior_candidate_failure": {
+      "status": "reproduced_aborted_run",
+      "included_in_successful_30_minute_runs": false,
+      "trigger": "Opening the NI menu kept ProcessSystemEvents inside its nested loop; device polling had been after that call.",
+      "followup": "After closing the menu about 58 seconds later, a modal MessagePopup communication warning again waited for user input and prevented polling.",
+      "evidence": "Main-thread stacks separately showed ProcessSystemEvents and MessagePopup.",
+      "attribution_limit": "Does not establish a USB adapter failure or intrinsic NI Runtime HALT."
+    },
+    "physical_device_menu_test": {
+      "status": "passed",
+      "mode": "production native read_only",
+      "started_utc": "2026-11-02T05:48:12.029Z",
+      "ended_utc": "2026-11-02T05:48:59.368Z",
+      "menu_open_seconds_approx": 45,
+      "measurement_window_seconds_approx": 29,
+      "outer_loop_cycles_delta": 0,
+      "ui_timer_ticks_delta": 947,
+      "device_transmissions_delta": 106,
+      "maximum_main_progress_age_seconds": 0.034130100000766106,
+      "stack_dumps": 0,
+      "connections": 1,
+      "reconnections": 0,
+      "gui_ready_before": true,
+      "gui_ready_after": true,
+      "source_scope": "Exact final source_sha256; same production Native process as final field soak.",
+      "coverage_limit": "This exercised menu case does not certify every NI modal interaction."
+    },
+    "final_physical_device_soak": {
+      "status": "passed",
+      "mode": "production native read_only",
+      "launcher": "run_readonly.bat",
+      "started_utc": "2026-11-02T05:44:31.531Z",
+      "phase_completed_utc": "2026-11-02T06:14:32.084Z",
+      "heartbeat_sampled_utc": "2026-11-02T06:14:31.933Z",
+      "elapsed_seconds": 1800.552991,
+      "source_scope": "Exact source_sha256 in this report; installed package and physical test source hashes matched.",
+      "counter_scope": "The 1800-second completion snapshot only; later raw capture samples are excluded.",
+      "external_progress_samples": 1772,
+      "bad_progress_samples_after_30_seconds": 0,
+      "maximum_gui_progress_age_seconds": 0.034130100000766106,
+      "maximum_heartbeat_age_seconds": 1,
+      "connected_at_completion": true,
+      "gui_ready_at_completion": true,
+      "read_only": true,
+      "minimum_request_interval_seconds": 0.25,
+      "physical_device_writes": 0,
+      "new_fault_transitions": 0,
+      "tracked_raw_state_changes": 0,
+      "controller": {
+        "transmissions": 6816,
+        "matched_responses": 6754,
+        "query_retries": 62,
+        "ignored_responses": 14,
+        "empty_responses": 1,
+        "exhausted_query_timeouts": 0,
+        "reconnections": 0,
+        "connect_attempts": 1
+      },
+      "transport": {
+        "received_datagrams": 6757,
+        "pending_tag": null,
+        "udp_errors": 0
+      },
+      "native_ticker": {
+        "timer_ticks": 57611,
+        "outer_event_cycles": 64124,
+        "reentry_attempts": 0,
+        "wrong_thread_callbacks": 0,
+        "errors": 0
+      },
+      "diagnostic_stack_bytes": 0,
+      "usb_interface": {
+        "status": "Up",
+        "link_speed_mbps": 100,
+        "receive_errors": 0,
+        "transmit_errors": 0,
+        "receive_discards": 0,
+        "transmit_discards": 0,
+        "scope": "Counter observation only; not a general adapter health certification."
+      },
+      "completion_screenshot": {
+        "captured": true,
+        "state": "READ ONLY CONNECTED"
+      },
+      "coverage_limit": "Read-only physical-device observation including the exercised NI menu; not a test of all device writes or every NI modal interaction."
+    },
+    "privacy": {
+      "raw_device_logs_included": false,
+      "user_paths_included": false,
+      "diagnostics_are_local": true
+    },
+    "limitations": [
+      "No complete hardware-control certification is claimed.",
+      "Replies have no transaction identifier; an arbitrarily delayed reply carrying the currently requested tag cannot always be distinguished.",
+      "The earlier independent read-only UDP collector and instrumented viewer are not counted as a stock Native 30-minute pass.",
+      "Same-datagram repeated response lines do not establish duplication by a USB adapter."
+    ],
+    "curated_source_validation": {
+      "status": "passed",
+      "git_metadata_present": false,
+      "source_files": 634,
+      "native_resources": 526,
+      "tests_passed": 219,
+      "subtests_passed": 7,
+      "scope": "Curated distributable source tree staged without creating a final archive; full regression suite passed."
+    },
+    "windows_installed_package_verification": {
+      "status": "passed",
+      "isolated_python": true,
+      "interpreter_bits": 32,
+      "package_version": "1.0.0",
+      "source_files_compared": 8,
+      "all_source_hashes_matched": true,
+      "native_resources_compared": 526,
+      "all_resource_hashes_matched": true,
+      "license_notice_present": true,
+      "license_notice_hash_matched": true,
+      "sockets_opened": false
+    },
+    "resource_identity": {
+      "status": "passed",
+      "algorithm": "SHA256(concat(sorted(relative_posix_path_utf8 + NUL + file_sha256_bytes)))",
+      "resource_count": 526,
+      "total_bytes": 6357769,
+      "aggregate_sha256": "ea41ce954bedb37771a1ce554556cefeb4123e27adc75310c79d77aa584f8440",
+      "repository_matches_curated_source": true,
+      "repository_matches_physical_test_source": true,
+      "repository_matches_windows_installed_package": true,
+      "probe_sockets_opened": false,
+      "probe_changed_running_application": false,
+      "wheel_verification_requirement": "The release builder must compare every bundled resource byte-for-byte before producing the source archive."
+    }
+  }
+}

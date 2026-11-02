@@ -1,0 +1,15 @@
+%% caption: Figure 2B. Protection paths without an invented master gate
+%%{init: {"theme":"base","themeVariables":{"fontSize":"18px","fontFamily":"URW Gothic","primaryColor":"#f4f4f4","primaryTextColor":"#111111","primaryBorderColor":"#555555","lineColor":"#555555","secondaryColor":"#dddddd","tertiaryColor":"#ffffff"},"flowchart":{"htmlLabels":false,"curve":"linear"}}}%%
+flowchart TB
+  PD["Stretcher PD1 red / PD2 blue"]
+  BWD["BWD monitors detector signals"]
+  BLOCK["Either detector below factory threshold:<br/>cell triggers inhibited"]
+  RESET["Cause restored and relay reset"]
+  KEY["TDG HV enable keyswitch"]
+  EXT["External TDG interlock opens"]
+  HV["Pockels-cell HV output"]
+  PD -->|"Detector signals"| BWD
+  BWD -->|"Trip condition"| BLOCK
+  RESET -.->|"BWD recovery condition"| BWD
+  KEY -->|"Enables or disables"| HV
+  EXT -->|"Immediately turns off"| HV

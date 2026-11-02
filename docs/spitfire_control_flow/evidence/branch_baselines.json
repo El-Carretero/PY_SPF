@@ -1,0 +1,10 @@
+{
+  "repository": "El-Carretero/PY_SPF",
+  "refs": {
+    "native_1_0": "cebcc28490f48e9e5d4d1c2e2feef34d638244e7",
+    "reconstruction_post2": "c49fada3ffeb660acb56ceeeabc5c32647750df0",
+    "main_post1": "78d3f447b1ca3dea35c5a737b75569a882bc0650",
+    "comparison_1_5_1": "e87225bdc904aeb5348daa409abfa49de449b017"
+  },
+  "native_field_scope": "native_1_0"
+}

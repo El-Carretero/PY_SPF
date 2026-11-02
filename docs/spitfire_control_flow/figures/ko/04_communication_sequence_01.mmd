@@ -1,0 +1,22 @@
+%% caption: 그림 4A. A — 연결 열기, 초기화, 상태 조회
+%%{init: {'theme':'base','themeVariables':{'fontSize':'18px','primaryColor':'#ffffff','primaryTextColor':'#111111','primaryBorderColor':'#444444','lineColor':'#444444'},'sequence':{'htmlLabels':false,'actorMargin':35,'messageMargin':18}}}%%
+sequenceDiagram
+    participant PC as PC 애플리케이션
+    participant S as SASC UDP 상대 장치
+    Note over PC: 로컬 UDP 소켓 열기
+    loop 식별 조회 세 번 시도
+        PC->>S: 1000 *idn?
+        S-->>PC: 수신된 경우 식별 응답
+    end
+    Note over PC: 세 번째 시도로 성공 여부 결정
+    opt 일반 모드
+        PC->>S: 2036 EMPOPTOUT 1
+        S-->>PC: 수신된 경우 명령 수신 응답
+    end
+    PC->>S: 1068 EMPOPTOUT?
+    S-->>PC: 실제 Opt-out 조회값
+    Note over PC: 나머지 초기화 요청
+    PC->>S: 1085 STATUS?
+    S-->>PC: 태그가 일치하는 유효한 STATUS
+    Note over PC: 화면 표시 데이터 준비 가능
+    Note over S: 내부 모듈 동작 미검증

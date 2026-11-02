@@ -1,0 +1,13 @@
+%% caption: 그림 3A. PC 세션과 표시 데이터 준비
+%%{init: {'theme':'base','themeVariables':{'fontSize':'18px','primaryColor':'#ffffff','primaryTextColor':'#111111','primaryBorderColor':'#444444','lineColor':'#444444'},'flowchart':{'htmlLabels':false}}}%%
+flowchart TB
+    A[PC 반복문 시작] --> B[UDP 소켓 열기]
+    B -->|소켓 열기 성공| C[식별 조회 3회 시도]
+    B -->|3초 시도 구간 종료| R[재시도 대기]
+    C -->|세 번째 시도에 응답| D[초기화와 주기 조회]
+    C -->|세 번째 시도에 무응답| R
+    R -->|2초| B
+    D -->|요청한 STATUS 수락| E[최신 표시 데이터]
+    E -->|상태 지연 또는 UI 일시 정지| F[입력 비활성화]
+    F -->|새 복구 STATUS| E
+    F -->|복구 실패| B

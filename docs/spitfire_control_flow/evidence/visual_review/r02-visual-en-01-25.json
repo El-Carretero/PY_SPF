@@ -1,0 +1,690 @@
+{
+  "schema": "spf-review02-visual-audit-1",
+  "review_completed_at_utc": "2026-11-02T10:29:05.632236+00:00",
+  "reviewer": "Codex /root/native_debug",
+  "review_type": "AI-assisted visual inspection of individually opened 120dpi rendered pages",
+  "pdf": {
+    "path": "/workspace/PY_SPF/docs/spitfire_control_flow/XL-TR-SPF-001_Spitfire-Control-Flow_Review02.pdf",
+    "sha256": "142bff96ae2ffea0a21a3e65d2150cc4c19e986408c3af74f7b33d0d9bb48736",
+    "total_pages": 51,
+    "frozen": true
+  },
+  "scope": {
+    "language": "English",
+    "pages_inclusive": [
+      1,
+      25
+    ],
+    "exact_pages_viewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "all_assigned_pages_individually_viewed": true,
+    "priority_figure_pages": [
+      10,
+      12,
+      14,
+      18,
+      20,
+      25
+    ],
+    "checks": [
+      "prose/table/header/footer overlap",
+      "clipping",
+      "missing or damaged glyphs",
+      "awkward line/page layout",
+      "diagram labels/arrows/captions",
+      "evidence/source badges absent from diagram nodes/edges"
+    ]
+  },
+  "issues": [
+    {
+      "id": "VIS-EN-008-01",
+      "page": 8,
+      "severity": "minor",
+      "category": "heading_line_break",
+      "description": "Chapter1 heading splits emission as emis- / sion over two lines. Text is fully visible and understandable.",
+      "blocking": false,
+      "disposition": "Reported as an optional editorial refinement; frozen document was not edited or rebuilt."
+    }
+  ],
+  "blocking_issue_count": 0,
+  "disposition": "No blocking visual issue found in assigned pages; one minor editorial note reported.",
+  "approval_boundary": {
+    "human_review_completed": false,
+    "human_approval": false,
+    "laboratory_approval": false,
+    "meaning": "This AI visual inspection is not human engineering approval, laboratory approval or verification of equipment behavior."
+  },
+  "mutations": {
+    "source_edits": false,
+    "pdf_rebuild": false,
+    "equipment_actions": false
+  },
+  "page_views": [
+    {
+      "page": 1,
+      "view_order": 1,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-001.png",
+      "image_sha256": "a67b264d4fd8621d45ee512819229b3aac6cadc8001b51d3bcb60b8f8eb16645",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Cover hierarchy, metadata and review boundary readable; no clipping or overlap.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 2,
+      "view_order": 2,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-002.png",
+      "image_sha256": "708a9c37d183bfc22d4571cdecad4418631083ff91715598acde5f5297804775",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Document-control table and authority/use paragraphs readable; issuer line wraps within cell.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 3,
+      "view_order": 3,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-003.png",
+      "image_sha256": "ece6cec6f019e6116d272abd74a07253776dae8ff4108c2f35c78dcdc5d46285",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Contents page1, headers, leaders and page numbers clear.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 4,
+      "view_order": 4,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-004.png",
+      "image_sha256": "937b0c9bb89963f7c177fe0eb7b01083a8ef8b8d1d1a1e105b4216805fcc6340",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Contents continuation, headers, leaders and page numbers clear.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 5,
+      "view_order": 5,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-005.png",
+      "image_sha256": "5271f9b5fa82f951ec27c165c87edbf0e37cca8217d49dd720917d5173cfa20b",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Executive prose, baseline table and list readable; long identities wrap within cells.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 6,
+      "view_order": 6,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-006.png",
+      "image_sha256": "b62e50ca3d3916bc15bde62ee16f0ac8505f23a4644387158273a8e718ce997e",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "List continuation, evidence legend and findings fit; grades remain in prose/table only.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 7,
+      "view_order": 7,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-007.png",
+      "image_sha256": "4de078470ee643f147867381ff7894ea9fe061a4b3a4c5690dccd5eaee6ff92a",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Safety prose, control table and production record fit; no footer collision.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 8,
+      "view_order": 8,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-008.png",
+      "image_sha256": "37b22f716d3611c5d416c3615ad888125bdebbeec4043e1ebc1ba400ff1ec255",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS_WITH_MINOR_EDITORIAL_NOTE",
+      "observation": "Chapter heading and evidence table readable; heading emission hyphenates across two lines (minor editorial note).",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 9,
+      "view_order": 9,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-009.png",
+      "image_sha256": "a9b866710badf52c586ffa003ffec1589a4f5d97fb6677d79befe39ceb6f9c36",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Continued evidence table repeats headers; subsection text clear; whitespace precedes isolated landscape figure.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 10,
+      "view_order": 10,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-010.png",
+      "image_sha256": "22afa845f5f48585122cf14d15de49f27240c498485f6beedc3faba464a1a5b3",
+      "pixel_dimensions": [
+        1404,
+        993
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "landscape",
+      "visual_disposition": "PASS",
+      "observation": "Figure1A individually inspected: domain labels, recovery arrows, conditions and caption legible; no clipping or diagram evidence badges.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.073,
+        120.105
+      ]
+    },
+    {
+      "page": 11,
+      "view_order": 11,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-011.png",
+      "image_sha256": "fd23c7cb8331bf60c90d36676644ad7aa8f2ec60af7c2eadfcb8d22cd3f37884",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Readiness prose and subsection introduction clear; whitespace precedes isolated landscape figure.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 12,
+      "view_order": 12,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-012.png",
+      "image_sha256": "026a1581c56ce6b43c0fed1fd535006a0c001fb802e28b391287124602e4fc85",
+      "pixel_dimensions": [
+        1404,
+        993
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "landscape",
+      "visual_disposition": "PASS",
+      "observation": "Figure1B individually inspected: all domain/node labels, solid/dashed arrows and caption legible; unverified boundary plain-language; no evidence badges.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.073,
+        120.105
+      ]
+    },
+    {
+      "page": 13,
+      "view_order": 13,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-013.png",
+      "image_sha256": "46de98f96ec38ce16c1bb340057ed3466e3cfd417027994d4b120b6781529664",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "RUN/STOP explanatory prose and indication-path introduction clear.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 14,
+      "view_order": 14,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-014.png",
+      "image_sha256": "82ba87adbcf34a391667a3a39b3f331b351aba48fd1f251fee9c150768eba6bd",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Figure1C individually inspected: full STOP path, opt-out branch labels, dashed unverified result and caption legible; no diagram badges.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 15,
+      "view_order": 15,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-015.png",
+      "image_sha256": "210c364eef30ebcc534e53d14a52e6afa63e67397864155d1b2d7c3e30d7de2f",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Failure/recovery table and explanatory paragraph fit; row boundaries and text clear.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 16,
+      "view_order": 16,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-016.png",
+      "image_sha256": "99bb202578f9e3f7aa2233835101754a886cdd889d1285d44366ffa618876a57",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Chapter introduction and evidence table fit; continuation handled on next page.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 17,
+      "view_order": 17,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-017.png",
+      "image_sha256": "51032b3e7ff12beb0583f02ec7b493df06d27c0c184e41d41ce1381ede6f9513",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Continued evidence table, manual hash and subsection introduction clear.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 18,
+      "view_order": 18,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-018.png",
+      "image_sha256": "2bbe87593b90a4c8bf19caa14713fd833f174f324981ac1994405186e6b3a25c",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Figure2A individually inspected: optical/electrical path labels, dotted/solid arrows and caption legible without clipping or badges.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 19,
+      "view_order": 19,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-019.png",
+      "image_sha256": "d57f74e6029f71466e5992629ebc4c8c1181cd27ef67f042cf56b2ae00279595",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Timing explanation and following section heading clear; whitespace before isolated figure.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 20,
+      "view_order": 20,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-020.png",
+      "image_sha256": "bb29750fa4b505375c67a6da21b447d500cec7e798e94432a40af8eac9ce7fc6",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Figure2B individually inspected: two independent protection paths, reset-condition dashed arrow and caption clear; no badges or clipping.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 21,
+      "view_order": 21,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-021.png",
+      "image_sha256": "35f6f04c42125aa81848da9df1de408954a5c9501128bd3a8a52c87193a4e823",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Protection and pump-state prose readable; code literals and subsection headings fit.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 22,
+      "view_order": 22,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-022.png",
+      "image_sha256": "291fcee007103d5d5d3ad7f3db3b7d8500f3a4c7ab3e201c82072be791726ac1",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Paragraph continuation readable; remaining whitespace follows chapter boundary.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 23,
+      "view_order": 23,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-023.png",
+      "image_sha256": "10dd519471da93439ed42395256e02c5c5810e848e2b7d9b733ae41708837bd6",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Chapter introduction, evidence legend and state-dimension table readable; wrapped inline identifiers remain within cells.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 24,
+      "view_order": 24,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-024.png",
+      "image_sha256": "97a7ab1f40e6edf1801ba588dbd60394cfe8f4d536f3d56053109cb61f487871",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "State-dimension table continuation repeats headers; source prose and figure introduction clear.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    },
+    {
+      "page": 25,
+      "view_order": 25,
+      "opened_individually": true,
+      "viewer": "tools.view_image",
+      "image": "/workspace/artifacts/spf-r02-en-pages/page-025.png",
+      "image_sha256": "03a102f4c67acbc2e79e287c856b26631ab6b91720f8d5ffde21a473ccfcf12e",
+      "pixel_dimensions": [
+        993,
+        1404
+      ],
+      "render_dpi_requested": 120,
+      "png_dpi_metadata": [
+        96.012,
+        96.012
+      ],
+      "orientation": "portrait",
+      "visual_disposition": "PASS",
+      "observation": "Figure3A individually inspected: retry/recovery routes, numeric conditions, labels and caption legible; no source IDs/grades in diagram.",
+      "effective_dpi_from_a4_page_geometry": [
+        120.105,
+        120.073
+      ]
+    }
+  ],
+  "render_resolution_note": "Images have A4 pixel geometry consistent with the requested 120dpi render (portrait993x1404; landscape1404x993). PNG pHYs metadata reads approximately96dpi, so PNG metadata alone is not used to infer the PDF rendering resolution."
+}

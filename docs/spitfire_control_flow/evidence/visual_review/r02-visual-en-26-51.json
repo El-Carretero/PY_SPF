@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "review_type": "automated_assistant_visual_audit",
+  "reviewed_utc": "2026-11-02T10:28:41.152470+00:00",
+  "pdf_path": "/workspace/PY_SPF/docs/spitfire_control_flow/XL-TR-SPF-001_Spitfire-Control-Flow_Review02.pdf",
+  "pdf_sha256": "142bff96ae2ffea0a21a3e65d2150cc4c19e986408c3af74f7b33d0d9bb48736",
+  "expected_pdf_sha256": "142bff96ae2ffea0a21a3e65d2150cc4c19e986408c3af74f7b33d0d9bb48736",
+  "sha256_matches": true,
+  "pdf_page_count": 51,
+  "scope": {
+    "language": "English",
+    "pages_inclusive": [
+      26,
+      51
+    ],
+    "pages_actually_viewed": [
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51
+    ],
+    "actual_view_count": 26,
+    "method": "Every assigned rendered page opened individually using view_image at the supplied 120 dpi; no contact sheet substituted for individual views.",
+    "checks": [
+      "text and line overlap",
+      "clipping and margin containment",
+      "missing or broken glyphs",
+      "diagram label and edge collisions",
+      "caption placement",
+      "landscape table row continuation and repeated headers",
+      "evidence pages 46 through 51",
+      "absence of grade and source-ID badges inside the diagrams on pages 28, 32, 35 and 37"
+    ],
+    "exclusions": [
+      "PDF pages 1 through 25",
+      "Korean PDF",
+      "semantic or electrical validation",
+      "human review or human approval"
+    ]
+  },
+  "pages": [
+    {
+      "page": 26,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-026.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 27,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-027.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 28,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-028.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 29,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-029.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 30,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-030.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 31,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-031.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 32,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-032.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 33,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-033.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 34,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-034.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 35,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-035.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 36,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-036.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 37,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-037.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 38,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-038.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 39,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-039.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 1404,
+      "height_px": 993,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 40,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-040.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 1404,
+      "height_px": 993,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 41,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-041.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 1404,
+      "height_px": 993,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 42,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-042.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 1404,
+      "height_px": 993,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 43,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-043.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 1404,
+      "height_px": 993,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 44,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-044.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 1404,
+      "height_px": 993,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 45,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-045.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 1404,
+      "height_px": 993,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 46,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-046.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 47,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-047.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 48,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-048.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 49,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-049.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 50,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-050.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    },
+    {
+      "page": 51,
+      "image_path": "/workspace/artifacts/spf-r02-en-pages/page-051.png",
+      "actual_viewed": true,
+      "view_method": "Individual functions view_image call; image inspected visually by the assistant",
+      "render_dpi": 120,
+      "width_px": 993,
+      "height_px": 1404,
+      "disposition": "no_blocking_visual_defect_observed"
+    }
+  ],
+  "issues": [
+    {
+      "id": "EN-VIS-26-51-01",
+      "severity": "minor",
+      "pages": [
+        27,
+        34
+      ],
+      "kind": "pagination_whitespace",
+      "description": "Large blank areas precede the following full-page figures. The figures and captions remain readable and complete.",
+      "disposition": "Nonblocking; retained frozen PDF unchanged."
+    },
+    {
+      "id": "EN-VIS-26-51-02",
+      "severity": "minor",
+      "pages": [
+        42,
+        43,
+        49,
+        50
+      ],
+      "kind": "heading_separated_from_table",
+      "description": "Page 42 ends with the 5.3 heading while its table begins on 43. Page 49 ends with Unknowns that remain open while its table begins on 50. No content is missing.",
+      "disposition": "Nonblocking; keep heading with table header/first row in a future layout revision."
+    },
+    {
+      "id": "EN-VIS-26-51-03",
+      "severity": "minor",
+      "pages": [
+        50
+      ],
+      "kind": "tight_table_column_gap",
+      "description": "The long Topic entry BWD reset conditions in this installed firmware is close to the adjacent bold UNKNOWN label. Both columns remain legible; no clipping or lost text observed.",
+      "disposition": "Nonblocking; additional cell padding or earlier wrapping would improve a future layout revision."
+    }
+  ],
+  "summary": {
+    "blocking_issues": 0,
+    "minor_issues": 3,
+    "figures_28_32_35_37": "Readable with no blocking line/text collisions; no grade/source-ID diagram badges observed.",
+    "landscape_tables_39_45": "Readable; no clipping, lost rows or broken glyphs observed. Continuation headers on 40 and 42 are present.",
+    "evidence_pages_46_51": "Readable and complete within the reviewed visual scope.",
+    "disposition": "No visual blocker identified for this exact frozen PDF and assigned pages; minor pagination/spacing observations recorded. PDF and source files were not edited.",
+    "human_approval": false,
+    "approval_statement": "This is an automated assistant visual inspection, not human approval."
+  }
+}

@@ -1,0 +1,20 @@
+%% caption: Figure 2A. Optical path and two independent timing references
+%%{init: {"theme":"base","themeVariables":{"fontSize":"18px","fontFamily":"URW Gothic","primaryColor":"#f4f4f4","primaryTextColor":"#111111","primaryBorderColor":"#555555","lineColor":"#555555","secondaryColor":"#dddddd","tertiaryColor":"#ffffff"},"flowchart":{"htmlLabels":false,"curve":"linear"}}}%%
+flowchart TB
+  SEED["Mode-locked seed laser"]
+  STRETCH["Optical stretcher"]
+  CAVITY["Capture, amplify, eject"]
+  COMP["Compressor and output"]
+  RF["OSCILLATOR SYNC INPUT"]
+  PUMP["Pump laser pulse and SYNC"]
+  TDG["TDG timing and division"]
+  PC["CH1 / PC1 and CH2 / PC2"]
+  SEED -->|"Optical seed"| STRETCH
+  STRETCH -->|"Stretched pulse"| CAVITY
+  CAVITY -->|"Ejected pulse"| COMP
+  SEED -.->|"Electrical reference"| RF
+  RF -->|"Seed timing"| TDG
+  PUMP -->|"AMPLIFIER TRIGGER INPUT"| TDG
+  PUMP -.->|"Optical pumping"| CAVITY
+  TDG -->|"Delayed triggers"| PC
+  PC -->|"Capture and ejection"| CAVITY

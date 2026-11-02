@@ -1,0 +1,20 @@
+%% caption: 그림 2A. 광학 경로와 서로 다른 두 타이밍 기준
+%%{init: {"theme":"base","themeVariables":{"fontSize":"18px","fontFamily":"Noto Sans CJK KR, sans-serif","primaryColor":"#f4f4f4","primaryTextColor":"#111111","primaryBorderColor":"#555555","lineColor":"#555555","secondaryColor":"#dddddd","tertiaryColor":"#ffffff"},"flowchart":{"htmlLabels":false,"curve":"linear"}}}%%
+flowchart TB
+  SEED["모드 잠금 시드 레이저"]
+  STRETCH["광학 스트레처"]
+  CAVITY["포획, 증폭, 방출"]
+  COMP["컴프레서와 출력"]
+  RF["OSCILLATOR SYNC INPUT"]
+  PUMP["펌프 레이저 펄스와 SYNC"]
+  TDG["TDG 타이밍 및 분주"]
+  PC["CH1 / PC1 및 CH2 / PC2"]
+  SEED -->|"광학 시드"| STRETCH
+  STRETCH -->|"늘어난 펄스"| CAVITY
+  CAVITY -->|"방출된 펄스"| COMP
+  SEED -.->|"전기적 기준 신호"| RF
+  RF -->|"시드 타이밍"| TDG
+  PUMP -->|"AMPLIFIER TRIGGER INPUT"| TDG
+  PUMP -.->|"광학 펌핑"| CAVITY
+  TDG -->|"지연 트리거"| PC
+  PC -->|"포획과 방출"| CAVITY
