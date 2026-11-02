@@ -21,7 +21,7 @@ controller's RUN, reset, polling or opt-out logic.
 1. Run the installation EXE on Windows 10 version 1903 (build 18362) or newer,
    or Windows 11.
 2. Keep the default application folder, or choose a new empty folder. The default
-   is `%LOCALAPPDATA%\Programs\PY_SPF_1.0`.
+   is `%LOCALAPPDATA%\Programs\Native_PY_SPF_1.0`.
 3. Finish installation. **Start Native PY_SPF** is unchecked by default.
 4. Open **Native PY_SPF 1.0 Demo (no equipment)** from the Start menu to inspect
    the Native interface without contacting equipment. Open **Native PY_SPF 1.0**
@@ -39,7 +39,7 @@ contact the configured equipment only when the application is explicitly opened.
 
 | Item | Location or behavior |
 |---|---|
-| Application and private runtime | `%LOCALAPPDATA%\Programs\PY_SPF_1.0` by default |
+| Application and private runtime | `%LOCALAPPDATA%\Programs\Native_PY_SPF_1.0` by default |
 | Private configuration | `%LOCALAPPDATA%\PY_SPF_1.0\settings\config.sp` |
 | Application data | `%LOCALAPPDATA%\PY_SPF_1.0\data` |
 | Session logs | `%LOCALAPPDATA%\PY_SPF_1.0\logs\<UTC>_<UUID>` |

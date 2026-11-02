@@ -20,7 +20,7 @@
 1. Windows 10 버전 1903(빌드 18362) 이상 또는 Windows 11에서 설치 EXE를
    실행한다.
 2. 기본 설치 폴더를 유지하거나 비어 있는 새 폴더를 선택한다. 기본 경로는
-   `%LOCALAPPDATA%\Programs\PY_SPF_1.0`이다.
+   `%LOCALAPPDATA%\Programs\Native_PY_SPF_1.0`이다.
 3. 설치를 마친다. 마지막 화면의 **Start Native PY_SPF** 실행 항목은
    기본적으로 선택되지 않는다.
 4. 장비에 접속하지 않고 Native 화면을 확인하려면 시작 메뉴에서
@@ -39,7 +39,7 @@
 
 | 항목 | 경로 또는 동작 |
 |---|---|
-| 프로그램과 전용 런타임 | 기본값 `%LOCALAPPDATA%\Programs\PY_SPF_1.0` |
+| 프로그램과 전용 런타임 | 기본값 `%LOCALAPPDATA%\Programs\Native_PY_SPF_1.0` |
 | 전용 설정 | `%LOCALAPPDATA%\PY_SPF_1.0\settings\config.sp` |
 | 프로그램 데이터 | `%LOCALAPPDATA%\PY_SPF_1.0\data` |
 | 세션 통신 로그 | `%LOCALAPPDATA%\PY_SPF_1.0\logs\<UTC>_<UUID>` |
