@@ -3,6 +3,7 @@ param(
     [Parameter(Mandatory = $true)][string]$SetupPath,
     [string]$OutputDirectory,
     [string]$InstallDirectory,
+    [switch]$UseInstallerDefaultDirectory,
     [ValidateSet('NetSecurity', 'Registry')][string]$FirewallRuleProbe = 'NetSecurity',
     [ValidateRange(30, 600)][int]$SetupTimeoutSeconds = 180
 )
@@ -16,6 +17,9 @@ $ProgressPreference = 'SilentlyContinue'
 Set-StrictMode -Version Latest
 if ([Environment]::OSVersion.Platform -ne [PlatformID]::Win32NT) {
     throw 'This installer validation requires Windows 10/11 and an interactive desktop.'
+}
+if ($UseInstallerDefaultDirectory -and [string]::IsNullOrWhiteSpace($InstallDirectory)) {
+    throw '-UseInstallerDefaultDirectory requires -InstallDirectory as the expected target for preflight and verification.'
 }
 
 $RunId = [Guid]::NewGuid().ToString('N')
@@ -41,6 +45,7 @@ $Report = [ordered]@{
     run_id = $RunId
     setup_sha256 = $null
     install_directory = $InstallDirectory
+    use_installer_default_directory = [bool]$UseInstallerDefaultDirectory
     output_directory = $OutputDirectory
     settings_exported = 'Digests/counts only; no raw environment or registry values.'
     firewall_rule_probe = [ordered]@{
@@ -485,7 +490,10 @@ try {
 
     $Stage = 'install'
     $InstallAttempted = $true
-    $Report.install = Invoke-OwnedProcess -File $SetupPath -Arguments @('/CURRENTUSER', '/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-', ('/DIR=' + $InstallDirectory), ('/LOG=' + (Join-Path $OutputDirectory 'installer.log'))) -Seconds $SetupTimeoutSeconds
+    $installArguments = @('/CURRENTUSER', '/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-')
+    if (-not $UseInstallerDefaultDirectory) { $installArguments += ('/DIR=' + $InstallDirectory) }
+    $installArguments += ('/LOG=' + (Join-Path $OutputDirectory 'installer.log'))
+    $Report.install = Invoke-OwnedProcess -File $SetupPath -Arguments $installArguments -Seconds $SetupTimeoutSeconds
     Add-Check 'silent-install-exit' (-not $Report.install.timed_out -and $Report.install.exit_code -eq 0) 'Silent per-user setup must exit0 without launching the application.'
     Add-Check 'installed-executable' (Test-Path -LiteralPath $Executable -PathType Leaf) 'Installed Native executable must exist.'
     $registrations = @(Get-AppRegistrations)
