@@ -125,6 +125,8 @@ def main(argv=None, *, default_output=None):
         assert report['panel_count'] == 10, report
         assert Path(report['cvirte_loaded_from']) == Path(report['expected_cvirte']), report
         if report['frozen']:
+            report['private_fonts'] = view._private_fonts.verify()
+            report['font_loading'] = 'process-private memory; adjacent files are loader placeholders'
             assert report['acp'] == 65001, report
             assert Path(report['resource_directory']).samefile(report['expected_resource_directory']), report
             assert Path(report['python_dll_loaded_from']).samefile(report['expected_python_dll']), report

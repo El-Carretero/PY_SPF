@@ -133,6 +133,7 @@ class NativeGui:
         self.controller = None
         self._callbacks = []
         self._closed = False
+        self._private_fonts = None
         self.values = {}
         self.events = []
         self._read_diagnostics = {'get_ctrl_val_calls': 0, 'timer_values_skipped': 0,
@@ -170,6 +171,8 @@ class NativeGui:
                         'fonts/ni7seg.ttf', 'fonts/nisystem.ttf')
             if any(not (private_root / name).is_file() for name in required):
                 raise RuntimeError('Missing EXE-adjacent private CVI resources; reinstall PY_SPF.')
+            from .private_fonts import PrivateNativeFonts
+            self._private_fonts = PrivateNativeFonts(runtime / 'fonts', private_root / 'fonts')
         # Frozen mode uses the vendor's intended app-local resource layout and
         # never creates a temporary key or masks the process registry. Preserve
         # the original Python/source-mode initialization path.
@@ -487,6 +490,8 @@ class NativeGui:
         _ctypes.FreeLibrary(self.dll._handle)
         self._callbacks.clear()
         self._search_handle.close()
+        if self._private_fonts is not None:
+            self._private_fonts.close()
 
 
 def run(opts):

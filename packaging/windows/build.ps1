@@ -70,6 +70,7 @@ $AuditScript = Join-Path $BuildDirectory "audit_bundle.py"
 @'
 from pathlib import Path
 from importlib import metadata
+import ast
 import hashlib
 import json
 import shutil
@@ -84,7 +85,6 @@ if not (bundle / "PY_SPF.exe").is_file():
 # PyInstaller's normal data destination is _internal, so stage these explicitly.
 private_resources = {
     "bin": ("cvirte.rsc", "msgrte.txt", "cvierror.txt"),
-    "fonts": ("ni7seg.ttf", "nisystem.ttf"),
 }
 for folder, names in private_resources.items():
     for name in names:
@@ -94,6 +94,26 @@ for folder, names in private_resources.items():
         shutil.copyfile(source, target)
         if hashlib.sha256(target.read_bytes()).digest() != hashlib.sha256(source.read_bytes()).digest():
             raise SystemExit(f"Private EXE-adjacent CVI resource differs: {folder}/{name}")
+# CVI's old AddFontResourceA registers disk fonts globally and can leave font
+# cache locks after a normal exit. The frozen entrypoint instead loads these
+# unmodified vendor fonts privately from memory before loading CVI. Existing
+# regular-file placeholders satisfy CVI's file-existence check; they are not
+# fonts, so its legacy global AddFontResourceA call fails harmlessly.
+font_source = ast.parse((root / "spitfire/private_fonts.py").read_text(encoding="utf-8"))
+font_placeholder = next(ast.literal_eval(node.value) for node in font_source.body
+                        if isinstance(node, ast.Assign) and any(isinstance(target, ast.Name) and target.id == "FONT_PLACEHOLDER" for target in node.targets))
+if not isinstance(font_placeholder, bytes) or not font_placeholder:
+    raise SystemExit("The private font placeholder must be a nonempty bytes literal")
+for name in ("ni7seg.ttf", "nisystem.ttf"):
+    source = root / "spitfire/resources/runtime/fonts" / name
+    original = bundle / "_internal/spitfire/resources/runtime/fonts" / name
+    if not original.is_file() or original.read_bytes() != source.read_bytes():
+        raise SystemExit(f"Private memory font source missing or changed: {name}")
+    target = bundle / "cvirte/fonts" / name
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(font_placeholder)
+    if target.read_bytes() != font_placeholder:
+        raise SystemExit(f"CVI font compatibility placeholder differs: {name}")
 notices = bundle / "THIRD_PARTY_NOTICES"
 notices.mkdir(exist_ok=True)
 shutil.copyfile(root / "THIRD_PARTY_NOTICES.md", bundle / "THIRD_PARTY_NOTICES.md")
@@ -151,7 +171,7 @@ except (OSError, subprocess.CalledProcessError):
     commit = None
 source_paths = sorted((root / "spitfire").glob("*.py")) + [root / "packaging/windows/native_app.py", root / "packaging/windows/native.manifest", root / "packaging/windows/PY_SPF.spec", root / "packaging/windows/build.ps1", root / "requirements-build.txt"]
 files = [dict(path=p.relative_to(bundle).as_posix(), bytes=p.stat().st_size, sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in sorted(bundle.rglob("*")) if p.is_file() and p.name != "bundle-manifest.json"]
-manifest = dict(schema=1, application="PY_SPF", package_version="1.0.0", original_ni_gui_version="1.6.0", layout="onedir", architecture="x86", python=sys.version, build_tools={name:metadata.version(name) for name in ("PyInstaller", "pyinstaller-hooks-contrib", "altgraph", "packaging", "pefile", "pywin32-ctypes", "setuptools")}, source_commit=commit, source_sha256={p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths}, files=files, pe_files=pe_records, unresolved_optional_dependencies=missing, validation_scope="static build audit only; execution/install/uninstall verification is separate")
+manifest = dict(schema=1, application="PY_SPF", package_version="1.0.0", original_ni_gui_version="1.6.0", layout="onedir", architecture="x86", font_strategy="original vendor TTFs retained internally for process-private memory loading; EXE-adjacent .ttf names are non-font ASCII compatibility placeholders", python=sys.version, build_tools={name:metadata.version(name) for name in ("PyInstaller", "pyinstaller-hooks-contrib", "altgraph", "packaging", "pefile", "pywin32-ctypes", "setuptools")}, source_commit=commit, source_sha256={p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths}, files=files, pe_files=pe_records, unresolved_optional_dependencies=missing, validation_scope="static build audit only; execution/install/uninstall verification is separate")
 (bundle / "bundle-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 print(f"Audited {len(files)} files and {len(pe_records)} x86 PE images; manifest: bundle-manifest.json")
 '@ | Set-Content -LiteralPath $AuditScript -Encoding UTF8

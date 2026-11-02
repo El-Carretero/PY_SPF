@@ -53,11 +53,20 @@ imported or overwritten by the installer. Keep the entire installed folder
 together; the standalone EXE uses its bundled `_internal` files and the adjacent
 `cvirte` resource folder. The original vendor runtime looks for
 `cvirte\bin` and `cvirte\fonts` beside the EXE before its system or registry
-resource locations. The bundle supplies all five required files there, and its
-preflight rejects missing private resources even if NI software is already
-installed. Private runtime DLLs remain under `_internal`; no NI registration or
-system-runtime replacement is performed. Bundled third-party notices are retained
-in `_internal\THIRD_PARTY_NOTICES.md`.
+resource locations. The three bin resources retain their original bytes. The
+two adjacent `.ttf` paths contain clearly identified, non-font loader placeholders.
+The unmodified original TTFs remain in `_internal` and are supplied through
+`AddFontMemResourceEx` before NI initialization. These memory fonts are private
+to this process; the vendor's file-existence check succeeds, while its attempted
+session-wide font registration of the non-font placeholders fails harmlessly.
+This avoids registering fonts for other applications and retaining font-file
+locks after exit. The Native self-test selects each face and checks its actual
+GDI font-data hash against the original TTF. Vendor DLLs are unmodified.
+
+The preflight rejects missing private resources or unexpected placeholders even
+if NI software is installed. Private runtime DLLs remain under `_internal`; no
+NI registration or system-runtime replacement is performed. Bundled third-party
+notices are retained in `_internal\THIRD_PARTY_NOTICES.md`.
 
 ## Updates and uninstall
 
@@ -85,8 +94,8 @@ packaging/windows/dist/PY_SPF/
     bin/cvirte.rsc
     bin/msgrte.txt
     bin/cvierror.txt
-    fonts/ni7seg.ttf
-    fonts/nisystem.ttf
+    fonts/ni7seg.ttf     # generated loader placeholder
+    fonts/nisystem.ttf  # generated loader placeholder
   _internal/
     ... bundled Python, packages, Native GUI resources and private runtime ...
 ```
@@ -95,7 +104,7 @@ Compile `installer.iss` with Inno Setup 6.4 or newer. The installer compiler is 
 build dependency, not something installed on the target PC. `PayloadDir` is
 required and must point to the whole onedir folder. Compilation checks the
 private Python library, Native UIR files, NI runtime/resource files and GUI fonts,
-including all five EXE-adjacent CVI resource files;
+including the three EXE-adjacent bin resources and both font placeholders;
 an EXE-only or incomplete payload is rejected. `AppVersion` defaults to
 `1.0.0`. `InstallerOutputDir` defaults to `dist\installer` relative to
 `installer.iss`, which is `packaging/windows/dist/installer` in the repository.
