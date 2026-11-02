@@ -1,4 +1,4 @@
-"""Replay sanitized original Opt-out capture without opening network sockets.
+"""Replay synthetic Opt-out protocol examples without opening network sockets.
 
 Run from the repository root:
     python analysis/verify_optout_capture.py --native-oracle
@@ -24,7 +24,7 @@ from spitfire.decoders import ResponseDecoder
 from spitfire.protocol import parse_datagram
 from spitfire.scheduling import Request, Scheduler
 
-FIXTURE = ROOT / "analysis" / "optout_post2_capture.json"
+FIXTURE = ROOT / "tests" / "fixtures" / "optout_protocol.json"
 
 
 def load_capture():
@@ -32,7 +32,7 @@ def load_capture():
 
 
 def verify_poll(capture):
-    """Compare real observed query order/counts with the original poll builder."""
+    """Compare independent synthetic query order/counts with the recovered poll builder."""
     scheduler = Scheduler(clock=lambda: 0)
     scheduler.queue_poll()
     generated = [request.tag for request in scheduler.outside]
@@ -40,7 +40,7 @@ def verify_poll(capture):
     assert len(generated) == len(observed) == 29
     rotations = [offset for offset in range(len(generated))
                  if generated[offset:] + generated[:offset] == observed]
-    assert rotations, "Original poll sequence differs from the captured order"
+    assert rotations, "Recovered poll sequence differs from the independent example order"
     counts = Counter(observed)
     commands = [sample for sample in capture["samples"] if sample["kind"] == "command"]
     assert set(counts) == {sample["tag"] for sample in commands}
@@ -49,13 +49,13 @@ def verify_poll(capture):
     for sample in commands:
         assert counts[sample["tag"]] * cycle_count == sample["count"]
     assert sum(sample["count"] for sample in commands) == capture["provenance"]["command_packets"]
-    return {"cycle_queries": len(generated), "captured_cycles": cycle_count,
-            "captured_queries": capture["provenance"]["command_packets"],
-            "capture_rotation": rotations[0]}
+    return {"cycle_queries": len(generated), "example_cycles": cycle_count,
+            "generated_queries": capture["provenance"]["command_packets"],
+            "example_rotation": rotations[0]}
 
 
 def verify_command_bytes(capture):
-    """Exercise Controller._send against actual captured UDP payload bytes."""
+    """Exercise Controller._send against static synthetic UDP payload bytes."""
     class RecordingTransport:
         def __init__(self):
             self.packets = []
@@ -78,9 +78,9 @@ def verify_command_bytes(capture):
 
 
 def verify_responses(capture):
-    """Decode real replies with the Opt-out state observed in process memory."""
+    """Decode synthetic replies with an explicitly supplied Opt-out state."""
     decoder = ResponseDecoder()
-    decoder.state["emp_optout"] = capture["provenance"]["observed_emp_optout"]
+    decoder.state["emp_optout"] = capture["provenance"]["emp_optout"]
     compared = 0
     raw_payloads = {}
     for sample in capture["samples"]:
@@ -94,7 +94,7 @@ def verify_responses(capture):
         assert updates
         assert ("connected", True) in decoder.effects
         compared += 1
-    # Independent values in this capture: Opt-out and HV ON coexist. Retain
+    # Synthetic inputs exercise Opt-out with an HV ON readback. Retain
     # original -99 handling (diode current is scaled by 1/10), not normal zeros.
     assert decoder.state["emp_optout"] == 1
     assert raw_payloads[1021] == " 1"
@@ -105,17 +105,17 @@ def verify_responses(capture):
     assert decoder.values[9, 5] == decoder.values[8, 15] == -99.0
     assert decoder.values[6, 19] == 0  # Original opted-out Empower indicator.
     assert decoder.values[6, 13] == decoder.values[6, 16] == decoder.values[6, 17] == 1
-    assert abs(decoder.values[2, 4] - 19.07) < 0.00001
-    assert abs(decoder.values[2, 2] - 0.76) < 0.00001
-    assert abs(decoder.values[2, 3] - 19.3) < 0.00001
+    assert abs(decoder.values[2, 4] - 21.25) < 0.00001
+    assert abs(decoder.values[2, 2] - 12.5) < 0.00001
+    assert abs(decoder.values[2, 3] - 20.5) < 0.00001
     assert decoder.state["delay_monitor_status"] == 0
-    return {"actual_reply_samples_decoded": compared, "observed_emp_optout": 1,
-            "observed_hv_on": decoder.values[5, 34],
+    return {"example_reply_samples_decoded": compared, "configured_emp_optout": 1,
+            "example_hv_on": decoder.values[5, 34],
             "empower_sentinels_retained": True}
 
 
 def verify_native(capture):
-    """Compare captured reply values with the original decoder instructions."""
+    """Compare synthetic reply values with the original decoder instructions."""
     sys.path.insert(0, str(ROOT / "analysis"))
     from native_decoder_oracle import compare
 
@@ -138,12 +138,12 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--native-oracle", action="store_true")
     parser.add_argument("--output", type=Path,
-                        default=ROOT / "analysis" / "optout_post2_replay_results.json")
+                        default=ROOT / "analysis" / "optout_protocol_verification.json")
     args = parser.parse_args(argv)
     capture = load_capture()
     with patch("socket.socket", side_effect=AssertionError("Replay must not open sockets")):
         result = {"fixture_sha256": hashlib.sha256(FIXTURE.read_bytes()).hexdigest(),
-                  "source_run": capture["source_run"], "network_sockets_blocked": True,
+                  "fixture_kind": capture["fixture_kind"], "fixture_name": capture["fixture_name"], "network_sockets_blocked": True,
                   "poll": verify_poll(capture),
                   "wire": verify_command_bytes(capture),
                   "decoder": verify_responses(capture),

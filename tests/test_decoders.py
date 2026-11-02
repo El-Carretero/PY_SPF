@@ -57,25 +57,25 @@ class OriginalDecoderFixtures(unittest.TestCase):
         self.assertEqual(v[(3,14)],1)
         self.assertEqual(v[(6,15)],1)
 
-    def test_captured_prefixed_status_preserves_bwd_and_photodiode_flags(self):
-        fixture=Path(__file__).resolve().parents[1]/'analysis'/'optout_post2_capture.json'
+    def test_synthetic_prefixed_status_preserves_bwd_and_photodiode_flags(self):
+        fixture=Path(__file__).resolve().parents[1]/'tests'/'fixtures'/'optout_protocol.json'
         capture=json.loads(fixture.read_text(encoding='utf-8'))
         sample=next(s for s in capture['samples'] if s['kind']=='response' and s['tag']==1039)
         reply=parse_datagram(bytes.fromhex(sample['payload_hex']))[0]
         payload=reply.body.split('>',1)[1]
-        self.assertEqual(payload,' 0X00330409')
+        self.assertEqual(payload,' 0X00220001')
         # This is the original API's conversion, independent of the decoder
         # and the emulator interception code. It must retain the prefix bits.
         word=ctypes.c_uint()
         crt=ctypes.CDLL('msvcrt' if sys.platform=='win32' else None)
         self.assertEqual(crt.sscanf(ctypes.c_char_p(payload.encode('ascii')),
                                    ctypes.c_char_p(b'%x'),ctypes.byref(word)),1)
-        self.assertEqual(word.value,0x00330409)
+        self.assertEqual(word.value,0x00220001)
         d=ResponseDecoder()
         updates=d.decode_line(reply.decorated)
         values=self.values(updates)
         self.assertEqual(values[(5,47)],1)
-        self.assertEqual(values[(6,27)],0)
+        self.assertEqual(values[(6,27)],1)
         self.assertEqual(values[(6,26)],0)
         attributes={(u.panel_id,u.control_id,u.attribute):u.value
                     for u in updates if u.attribute is not None}

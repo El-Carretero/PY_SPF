@@ -1,33 +1,34 @@
 {
-  "fixture_sha256": "f4cd2608053b7500c2fab85722b6a16041c003cdf3b055ad58d5279bb23d6336",
-  "source_run": "run-2010-10-9-20-46-32-11363",
+  "fixture_sha256": "8a37651c618592d2836fded08d2a8f8f3a72ea5ed51c6b508abf595997cd1e31",
+  "fixture_kind": "synthetic",
+  "fixture_name": "optout-protocol-example",
   "network_sockets_blocked": true,
   "poll": {
     "cycle_queries": 29,
-    "captured_cycles": 37,
-    "captured_queries": 1073,
-    "capture_rotation": 1
+    "example_cycles": 37,
+    "generated_queries": 1073,
+    "example_rotation": 3
   },
   "wire": {
     "exact_command_datagrams": 15
   },
   "decoder": {
-    "actual_reply_samples_decoded": 15,
-    "observed_emp_optout": 1,
-    "observed_hv_on": 1,
+    "example_reply_samples_decoded": 15,
+    "configured_emp_optout": 1,
+    "example_hv_on": 1,
     "empower_sentinels_retained": true
   },
   "native_oracle": {
     "method": "Original x86 decoder in Unicorn; CVI/CRT intercepted",
     "cases": [
       {
-        "query": 1039,
-        "payload": " 0X00330409",
+        "query": 1015,
+        "payload": "0.000000",
         "pass": true
       },
       {
-        "query": 1015,
-        "payload": "0.000000",
+        "query": 1039,
+        "payload": " 0X00220001",
         "pass": true
       },
       {
@@ -37,7 +38,7 @@
       },
       {
         "query": 1013,
-        "payload": "0.000000",
+        "payload": "2048.000000",
         "pass": true
       },
       {
@@ -57,22 +58,22 @@
       },
       {
         "query": 1029,
-        "payload": "3073.000000",
+        "payload": "0.000000",
         "pass": true
       },
       {
         "query": 1030,
-        "payload": "19.070000",
+        "payload": "21.250000",
         "pass": true
       },
       {
         "query": 1065,
-        "payload": " 0.0 MHz",
+        "payload": " 1.0 MHz",
         "pass": true
       },
       {
         "query": 1031,
-        "payload": "0.760000",
+        "payload": "12.500000",
         "pass": true
       },
       {
@@ -87,7 +88,7 @@
       },
       {
         "query": 1084,
-        "payload": "19.300000",
+        "payload": "20.500000",
         "pass": true
       },
       {
@@ -100,10 +101,8 @@
     "failed": 0
   },
   "limits": [
-    "Passive capture of an already-running original application; no startup, opt-out transition, reset, RUN/STOP or HV writes captured.",
-    "Opt-out=1 is process-state evidence, not an EMPOPTOUT? wire response.",
-    "HV ON readback was 1 in all 37 samples; this does not establish firmware behavior when applying opt-out with HV ON.",
-    "No 1068 EMPOPTOUT?, 2036 EMPOPTOUT or 1089 COMSTATUS? messages were captured.",
-    "Only UDP payloads and source sequence indexes are retained; addresses, usernames and screenshots are omitted."
+    "All example values, ordering rotation and cycle multiplicities are synthetic test inputs.",
+    "No device log, acquisition clock, PCAP hash, user path or origin identifier is included.",
+    "Passing this fixture checks byte formatting and recovered decoder behavior; it does not establish physical device behavior or new hardware validation."
   ]
 }

@@ -17,7 +17,7 @@ set "SPITFIRE_PYTHON=%~dp0.venv-native\Scripts\python.exe"
 :launch
 if not exist "logs" mkdir "logs"
 >"logs\native-launch.log" echo Native launch: %date% %time%
-"%SPITFIRE_PYTHON%" -E -s -u "%~dp0run_spitfire.py" --backend native %* 2>>"logs\native-launch.log"
+"%SPITFIRE_PYTHON%" -E -s -u "%~dp0run_spitfire.py" --backend native --diagnostics-dir "%~dp0logs\native" %* 2>>"logs\native-launch.log"
 set "SPITFIRE_RESULT=%errorlevel%"
 if "%SPITFIRE_RESULT%"=="0" exit /b 0
 echo Native GUI failed. Details are saved in logs\native-launch.log.

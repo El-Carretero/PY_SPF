@@ -17,6 +17,36 @@ import uuid
 
 RESOURCES = Path(__file__).with_name('resources')
 
+# Focus, redraw and value-change notifications are not user commits. In
+# particular, a CVI timer has no GetCtrlVal value at all.
+_CONTROL_EVENTS = {
+    'cllbck': frozenset((1, 3)),
+    'parse_command5': frozenset((3,)),
+    'BW_reset': frozenset((3,)),
+    'picture_Callback1': frozenset((3, 5)),
+    'picture_Callback2': frozenset((3, 4, 5, 6)),
+    'tmr_Mouse_Callback1': frozenset((15,)),
+    'tmr_Data_Logger': frozenset((15,)),
+}
+_LOCAL_CONTROLS = frozenset((
+    'Ch1_Coarse_Check_Callback', 'Ch2_Coarse_Check_Callback',
+    'SYNC_Coarse_Check_Callback', 'Ch3_Coarse_Check_Callback',
+    'Ch4_Coarse_Check_Callback',
+))
+
+
+def _callback_needs_value(name):
+    from .callbacks import NUMERIC_CALLBACKS, INTEGER_CALLBACKS
+    if name in NUMERIC_CALLBACKS:
+        return NUMERIC_CALLBACKS[name][3] is None
+    if name in INTEGER_CALLBACKS:
+        return INTEGER_CALLBACKS[name][2] is None
+    return (name in _LOCAL_CONTROLS or name in {
+        'osc_mode', 'trig_mode', 'humoverride', 'bwdpolarity', 'bwdduality',
+        'HV_switch', 'teconoff', 'setopmode', 'Monitor_switch', 'tdg_fault_override',
+    } or name.startswith(('swChannelEnableCallback_btn', 'SetCoarseCallback_btn',
+                          'setbwd', 'setena', 'secretcall')))
+
 
 @contextlib.contextmanager
 def _private_runtime_registry(runtime):
@@ -96,6 +126,8 @@ class NativeGui:
         self._closed = False
         self.values = {}
         self.events = []
+        self._read_diagnostics = {'get_ctrl_val_calls': 0, 'timer_values_skipped': 0,
+                                  'get_ctrl_val_errors': 0, 'last_control': None}
         self.panels = {}
         self.menu_ids = {}
         self.spec = json.loads((RESOURCES / 'gui_spec.json').read_text(encoding='utf-8'))
@@ -103,6 +135,8 @@ class NativeGui:
         self.bindings = json.loads((RESOURCES / 'callback_bindings.json').read_text())
         self._types = {(p['id'], c['id']): c.get('data_type', 1)
                        for p in self.spec['panels'] for c in p['controls']}
+        self._read_only_controls = self._hardware_controls()
+        self._initial_device_dimming = {}
         runtime = _prepare_runtime()
         self._search_handle = os.add_dll_directory(str(runtime))
         self._kernel = C.WinDLL('kernel32')
@@ -133,6 +167,7 @@ class NativeGui:
         self.panels['server'] = server
         for key in self.panels:
             self._bind_panel(key)
+        self._initialize_connection_layout()
         self.show_panel(6)
 
     @staticmethod
@@ -155,9 +190,19 @@ class NativeGui:
 
     def read(self, panel, control):
         dtype = self._dtype(panel, control)
+        diagnostics = getattr(self, '_read_diagnostics', None)
+        if dtype == 9:
+            if diagnostics is not None:
+                diagnostics['timer_values_skipped'] += 1
+            return self.values.get((panel, control), 0)
+        if diagnostics is not None:
+            diagnostics['get_ctrl_val_calls'] += 1
+            diagnostics['last_control'] = [panel, control, dtype]
         val = C.create_string_buffer(8192)
         rc = self.dll.GetCtrlVal(self.panels[panel], control, val)
         if rc < 0:
+            if diagnostics is not None:
+                diagnostics['get_ctrl_val_errors'] += 1
             return self.values.get((panel, control), 0)
         if dtype == 5:
             return val.value.decode('mbcs', errors='replace')
@@ -166,6 +211,28 @@ class NativeGui:
         if dtype == 3:
             return struct.unpack('<f', val.raw[:4])[0]
         return struct.unpack('<i', val.raw[:4])[0]
+
+    def _hardware_controls(self):
+        from .callbacks import SHOW_PANELS, HIDE_PANELS
+        navigation = set(SHOW_PANELS) | set(HIDE_PANELS) | {
+            'QuitProgram', 'Shutdown', 'exit_from_menu', 'display_faults', 'cmtRETUSERMODE',
+        }
+        return {(panel['id'], control['id'])
+                for panel in self.spec['panels'] if panel['id'] in (2, 3, 5, 6, 8, 9)
+                for control in panel['controls']
+                if control.get('attributes', {}).get('ctrl_mode') in (1, 2)
+                and control.get('callback', '') not in navigation | _LOCAL_CONTROLS}
+
+    def _initialize_connection_layout(self):
+        # UIR defaults include a full-panel gray curtain. Establish the visible
+        # native layout before DisplayPanel, even when a caller attaches a
+        # controller later or embeds the view without Controller.start().
+        for control in (49, 54):
+            self.set_attribute(6, control, 530, 0)
+        self.set_menu_attribute(6, 0, 500, 0)
+        for panel, control in self._read_only_controls:
+            self._initial_device_dimming[panel, control] = self.read_attribute(panel, control, 500)
+            self.set_attribute(panel, control, 500, 1)
 
     def connection_presentation(self):
         """Keep the native layout visible offline without exposing device input."""
@@ -184,14 +251,16 @@ class NativeGui:
                     100 <= style < 150 or 200 <= style < 290 or 300 <= style < 340)
                 if (editable or device_readout) and callback not in navigation:
                     key = panel['id'], control['id']
-                    controls[key] = self.read_attribute(*key, 500)
+                    controls[key] = (self._initial_device_dimming[key] if key in self._initial_device_dimming
+                                     else self.read_attribute(*key, 500))
         return {'controls': controls,
                 'alarm': {attribute: self.read_attribute(6, 50, attribute)
                           for attribute in (500, 641, 880)}}
 
     def set_connection_status(self, ready, message):
         demo = self.controller is not None and self.controller.demo
-        mode = 'DEMO - ' if demo else ''
+        read_only = self.controller is not None and getattr(self.controller, 'read_only', False)
+        mode = ('DEMO - ' if demo else '') + ('READ ONLY - ' if read_only else '')
         if ready:
             title = f'Spitfire [{mode}CONNECTED]'
         else:
@@ -241,6 +310,10 @@ class NativeGui:
                             'show readable connection message in front of curtain')
 
     def set_attribute(self, panel, control, attribute, value):
+        if (attribute == 500 and self.controller is not None
+                and getattr(self.controller, 'read_only', False)
+                and (panel, control) in self._read_only_controls):
+            value = 1
         spec = next((a for a in self.attributes.values() if a['id'] == attribute), {})
         dtype = spec.get('type', 1)
         if dtype == 9:
@@ -284,6 +357,20 @@ class NativeGui:
     def attach(self, controller):
         self.controller = controller
 
+    def _control_event(self, name, panel, control, event):
+        if self.controller is None or event not in _CONTROL_EVENTS.get(name, (1,)):
+            return
+        if (getattr(self.controller, 'read_only', False)
+                and (panel, control) in self._read_only_controls):
+            return
+        if name == 'tmr_Mouse_Callback1':
+            if not (self._user.GetAsyncKeyState(1) & 0x8000 or
+                    self._user.GetAsyncKeyState(2) & 0x8000):
+                self.controller.mouse_released()
+                return
+        value = self.read(panel, control) if event == 1 and _callback_needs_value(name) else 0
+        self.controller.handle_callback(name, value, event, panel, control)
+
     def _bind_panel(self, panel):
         entries = self.bindings['SERVER' if panel == 'server' else 'SPITFIRE']
         resource_panel = 1 if panel == 'server' else panel
@@ -293,15 +380,8 @@ class NativeGui:
             if entry['kind'] != 'control' or entry['panel'] != resource_panel:
                 continue
             def callback(handle, control, event, data, event1, event2, *, name=entry['name'], p=panel):
-                if self.controller is None:
-                    return 0
                 try:
-                    if name == 'tmr_Mouse_Callback1':
-                        if not (self._user.GetAsyncKeyState(1) & 0x8000 or
-                                self._user.GetAsyncKeyState(2) & 0x8000):
-                            self.controller.mouse_released()
-                            return 0
-                    self.controller.handle_callback(name, self.read(p, control), event, p, control)
+                    self._control_event(name, p, control, event)
                 except Exception as exc:
                     self.log(f'{name}: {exc}')
                 return 0
@@ -386,17 +466,25 @@ def run(opts):
     if sys.platform != 'win32' or struct.calcsize('P') != 4:
         raise SystemExit('The original NI GUI requires 32-bit Windows Python.')
     from .__main__ import make_controller
+    from .diagnostics import SessionDiagnostics
+    from .native_ticker import NativeEventTicker
     import traceback
-    view = controller = None
+    view = controller = diagnostics = ticker = None
     code = 0
     try:
         view = NativeGui()
         controller = make_controller(view, opts)
         view.attach(controller)
+        diagnostics = SessionDiagnostics(controller, getattr(opts, 'diagnostics_dir', None))
         controller.start()
+        ticker = NativeEventTicker(controller, diagnostics)
+        view._ticker_diagnostics = ticker.stats
         while controller.running:
             view.process_events()
-            controller.tick()
+            ticker.stats['outer_event_cycles'] += 1
+            ticker.raise_if_failed()
+            ticker.tick()
+            ticker.raise_if_failed()
             time.sleep(0.005)
     except KeyboardInterrupt:
         code = 130
@@ -405,6 +493,8 @@ def run(opts):
         code = 1
     finally:
         try:
+            if ticker is not None:
+                ticker.close()
             if controller is not None:
                 controller.stop()
             if view is not None:
@@ -412,6 +502,9 @@ def run(opts):
         except BaseException:
             traceback.print_exc()
             code = 1
+        finally:
+            if diagnostics is not None:
+                diagnostics.close()
     sys.stdout.flush()
     sys.stderr.flush()
     C.WinDLL('kernel32').ExitProcess(code)

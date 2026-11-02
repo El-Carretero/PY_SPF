@@ -1,23 +1,18 @@
 {
-  "schema": 1,
-  "source_run": "run-2010-10-9-20-46-32-11363",
+  "schema": 2,
+  "fixture_kind": "synthetic",
+  "fixture_name": "optout-protocol-example",
   "provenance": {
-    "packets_sha256": "46f6112d627fe915645634f156b49951a019572ce5fd2b641f3f77cc3d317720",
-    "pcap_sha256": "f54e787bb26fac1385d511ee41e3baa3ceeb9617077694a0889769efc51704f1",
+    "kind": "hand-written synthetic example, not a device capture",
     "original_exe_sha256": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b",
-    "clock": "XP guest clock; actual acquisition date not inferred",
-    "elapsed_ms": 63453,
     "command_packets": 1073,
     "response_packets": 1073,
+    "example_cycles": 37,
     "write_commands": 0,
-    "capture_drops": 0,
-    "truncated_frames": 0,
-    "observed_emp_optout": 1,
-    "observed_access_level": 0
+    "emp_optout": 1,
+    "access_level": 0
   },
   "poll_command_tags": [
-    1015,
-    1039,
     1019,
     1039,
     1013,
@@ -44,225 +39,225 @@
     1039,
     1085,
     1039,
+    1039,
+    1015,
     1039
   ],
   "samples": [
     {
-      "kind": "response",
-      "tag": 1039,
-      "count": 555,
-      "seq": 1,
-      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313033393e20305830303333303430390a"
-    },
-    {
       "kind": "command",
       "tag": 1015,
       "count": 37,
-      "seq": 2,
+      "seq": 1,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313031355d4845443a5354423f0a"
     },
     {
       "kind": "response",
       "tag": 1015,
       "count": 37,
-      "seq": 3,
+      "seq": 2,
       "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313031353e302e3030303030300a"
     },
     {
       "kind": "command",
       "tag": 1039,
       "count": 555,
-      "seq": 4,
+      "seq": 3,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313033395d5444473a535442483f0a"
+    },
+    {
+      "kind": "response",
+      "tag": 1039,
+      "count": 555,
+      "seq": 4,
+      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313033393e20305830303232303030310a"
     },
     {
       "kind": "command",
       "tag": 1019,
       "count": 37,
-      "seq": 6,
+      "seq": 5,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313031395d5444473a5354423f0a"
     },
     {
       "kind": "response",
       "tag": 1019,
       "count": 37,
-      "seq": 7,
+      "seq": 6,
       "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313031393e302e3030303030300a"
     },
     {
       "kind": "command",
       "tag": 1013,
       "count": 37,
-      "seq": 10,
+      "seq": 7,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313031335d454d503a5354423f0a"
     },
     {
       "kind": "response",
       "tag": 1013,
       "count": 37,
-      "seq": 11,
-      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313031333e302e3030303030300a"
+      "seq": 8,
+      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313031333e323034382e3030303030300a"
     },
     {
       "kind": "command",
       "tag": 1028,
       "count": 37,
-      "seq": 14,
+      "seq": 9,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313032385d4543553a5354423f0a"
     },
     {
       "kind": "response",
       "tag": 1028,
       "count": 37,
-      "seq": 15,
+      "seq": 10,
       "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313032383e302e3030303030300a"
     },
     {
       "kind": "command",
       "tag": 1007,
       "count": 37,
-      "seq": 18,
+      "seq": 11,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313030375d454d503a524541443a44494f44453a435552523f0a"
     },
     {
       "kind": "response",
       "tag": 1007,
       "count": 37,
-      "seq": 19,
+      "seq": 12,
       "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313030373e2d39390a"
     },
     {
       "kind": "command",
       "tag": 1008,
       "count": 37,
-      "seq": 22,
+      "seq": 13,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313030385d454d503a524541443a504f573f0a"
     },
     {
       "kind": "response",
       "tag": 1008,
       "count": 37,
-      "seq": 23,
+      "seq": 14,
       "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313030383e2d39390a"
     },
     {
       "kind": "command",
       "tag": 1029,
       "count": 37,
-      "seq": 26,
+      "seq": 15,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313032395d4543553a535442483f0a"
     },
     {
       "kind": "response",
       "tag": 1029,
       "count": 37,
-      "seq": 27,
-      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313032393e333037332e3030303030300a"
+      "seq": 16,
+      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313032393e302e3030303030300a"
     },
     {
       "kind": "command",
       "tag": 1030,
       "count": 37,
-      "seq": 30,
+      "seq": 17,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313033305d4543553a5245414454454d503f0a"
     },
     {
       "kind": "response",
       "tag": 1030,
       "count": 37,
-      "seq": 31,
-      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313033303e31392e3037303030300a"
+      "seq": 18,
+      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313033303e32312e3235303030300a"
     },
     {
       "kind": "command",
       "tag": 1065,
       "count": 37,
-      "seq": 34,
+      "seq": 19,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313036355d5444473a524541443a4f534351554553543f0a"
     },
     {
       "kind": "response",
       "tag": 1065,
       "count": 37,
-      "seq": 35,
-      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313036353e20302e30204d487a0a"
+      "seq": 20,
+      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313036353e20312e30204d487a0a"
     },
     {
       "kind": "command",
       "tag": 1031,
       "count": 37,
-      "seq": 38,
+      "seq": 21,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313033315d4543553a48554d3f0a"
     },
     {
       "kind": "response",
       "tag": 1031,
       "count": 37,
-      "seq": 39,
-      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313033313e302e3736303030300a"
+      "seq": 22,
+      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313033313e31322e3530303030300a"
     },
     {
       "kind": "command",
       "tag": 1021,
       "count": 37,
-      "seq": 42,
+      "seq": 23,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313032315d5444473a48563a4f4e3f0a"
     },
     {
       "kind": "response",
       "tag": 1021,
       "count": 37,
-      "seq": 43,
+      "seq": 24,
       "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313032313e20310a"
     },
     {
       "kind": "command",
       "tag": 1077,
       "count": 37,
-      "seq": 46,
+      "seq": 25,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313037375d454d503a4c424f54454d503f0a"
     },
     {
       "kind": "response",
       "tag": 1077,
       "count": 37,
-      "seq": 47,
+      "seq": 26,
       "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313037373e2d39390a"
     },
     {
       "kind": "command",
       "tag": 1084,
       "count": 37,
-      "seq": 50,
+      "seq": 27,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313038345d4543553a54454354454d503f0a"
     },
     {
       "kind": "response",
       "tag": 1084,
       "count": 37,
-      "seq": 51,
-      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313038343e31392e3330303030300a"
+      "seq": 28,
+      "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313038343e32302e3530303030300a"
     },
     {
       "kind": "command",
       "tag": 1085,
       "count": 37,
-      "seq": 54,
+      "seq": 29,
       "payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313038355d5354415455533f0a"
     },
     {
       "kind": "response",
       "tag": 1085,
       "count": 37,
-      "seq": 55,
+      "seq": 30,
       "payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313038353e300a"
     }
   ],
   "limits": [
-    "Passive capture of an already-running original application; no startup, opt-out transition, reset, RUN/STOP or HV writes captured.",
-    "Opt-out=1 is process-state evidence, not an EMPOPTOUT? wire response.",
-    "HV ON readback was 1 in all 37 samples; this does not establish firmware behavior when applying opt-out with HV ON.",
-    "No 1068 EMPOPTOUT?, 2036 EMPOPTOUT or 1089 COMSTATUS? messages were captured.",
-    "Only UDP payloads and source sequence indexes are retained; addresses, usernames and screenshots are omitted."
+    "All example values, ordering rotation and cycle multiplicities are synthetic test inputs.",
+    "No device log, acquisition clock, PCAP hash, user path or origin identifier is included.",
+    "Passing this fixture checks byte formatting and recovered decoder behavior; it does not establish physical device behavior or new hardware validation."
   ]
 }

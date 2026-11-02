@@ -1,4 +1,4 @@
-"""Run the reconstructed program: python -m spitfire [--demo]."""
+"""Run PY_SPF 1.0 with the original NI GUI or the portable Qt view."""
 from __future__ import annotations
 import argparse
 import json
@@ -10,8 +10,13 @@ import time
 
 
 def arguments(argv=None):
-    p = argparse.ArgumentParser(description="Spitfire GUI 1.6.0 — Python reconstruction")
+    from . import __version__
+    p = argparse.ArgumentParser(description="PY_SPF 1.0 — original Spitfire GUI 1.6.0 reconstruction")
+    p.add_argument("--version", action="version", version=f"PY_SPF 1.0 (package {__version__}; NI GUI 1.6.0)")
     p.add_argument("--demo", action="store_true", help="use the development simulator; no instrument connection")
+    p.add_argument("--read-only", action="store_true", help="query only; block all instrument writes including automatic opt-out and reset requests")
+    p.add_argument("--diagnostics-dir", type=Path,
+                   help="optional local session diagnostics, loop progress and delayed-loop stack dumps")
     p.add_argument("--backend", choices=("auto", "native", "qt"), default="auto",
                    help="native uses original NI GUI runtime on 32-bit Windows Python")
     p.add_argument("--host", default="10.19.70.13", help="instrument IPv4 address")
@@ -32,7 +37,12 @@ def make_controller(view, opts):
     return Controller(view, demo=opts.demo, host=opts.host, port=opts.port,
                       local_port=opts.local_port, config=opts.config,
                       data_dir=opts.data_dir, tcp_port=opts.tcp_port or None,
-                      tcp_host=opts.tcp_host)
+                      tcp_host=opts.tcp_host, read_only=getattr(opts, "read_only", False))
+
+
+def make_diagnostics(controller, opts):
+    from .diagnostics import SessionDiagnostics
+    return SessionDiagnostics(controller, getattr(opts, "diagnostics_dir", None))
 
 
 class MemoryView:
@@ -80,20 +90,26 @@ def main(argv=None):
     if opts.headless:
         view = MemoryView()
         controller = make_controller(view, opts)
+        diagnostics = make_diagnostics(controller, opts)
         try:
             controller.start()
             deadline = time.monotonic() + opts.duration
             while controller.running and time.monotonic() < deadline:
                 controller.tick()
+                diagnostics.tick()
                 time.sleep(0.002)
             print(json.dumps({"mode": "simulator" if opts.demo else "instrument",
+                              "read_only": bool(getattr(controller, "read_only", False)),
                               "connected": bool(controller.state.get("connected", False)),
                               "events": len(controller.events),
                               "controls_updated": len(controller.values),
                               "pending": len(controller.scheduler.inside) + len(controller.scheduler.outside)},
                              ensure_ascii=False))
         finally:
-            controller.stop()
+            try:
+                controller.stop()
+            finally:
+                diagnostics.close()
         return 0
     native_available = sys.platform == "win32" and struct.calcsize("P") == 4
     if opts.backend == "native" or (opts.backend == "auto" and native_available):
@@ -112,6 +128,7 @@ def main(argv=None):
     app.setApplicationName("Spitfire")
     window = SpitfireWindow()
     controller = make_controller(window, opts)
+    diagnostics = make_diagnostics(controller, opts)
     window.callback.connect(controller.handle_callback)
     window.key_pressed.connect(controller.key_pressed)
     if hasattr(window, "closing"):
@@ -122,8 +139,13 @@ def main(argv=None):
     window.show()
     if opts.demo:
         window.setWindowTitle(window.windowTitle() + " [DEMO]")
+    if opts.read_only:
+        window.setWindowTitle(window.windowTitle() + " [READ ONLY]")
     timer = QTimer(app)
-    timer.timeout.connect(controller.tick)
+    def tick():
+        controller.tick()
+        diagnostics.tick()
+    timer.timeout.connect(tick)
     timer.start(10)
     QTimer.singleShot(0, controller.start)
     if opts.render_dir:
@@ -133,7 +155,13 @@ def main(argv=None):
                 widget.grab().save(str(opts.render_dir / f"panel_{panel_id}.png"))
             app.quit()
         QTimer.singleShot(max(100, int(opts.duration * 1000)), render)
-    return app.exec()
+    try:
+        return app.exec()
+    finally:
+        try:
+            controller.stop()
+        finally:
+            diagnostics.close()
 
 
 if __name__ == "__main__":

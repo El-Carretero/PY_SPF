@@ -1,2 +1,2 @@
-"""Python reconstruction of Spectra-Physics Spitfire GUI 1.6.0."""
-__version__ = "1.6.0.post2"
+"""PY_SPF project release; original NI GUI resources remain version 1.6.0."""
+__version__ = "1.0.0"

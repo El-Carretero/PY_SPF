@@ -4,7 +4,7 @@ No connection is opened by importing this module. The original active path is
 ASCII UDP; CRC helpers below belong to the binary's separate legacy functions.
 """
 from __future__ import annotations
-from collections import deque
+from collections import Counter, deque
 from dataclasses import dataclass
 import socket
 
@@ -150,12 +150,23 @@ class UDPTransport:
         self.bind_port, self.timeout = bind_port, timeout
         self.socket: socket.socket | None = None
         self.packet_counter = 0
+        self.expected_peer: tuple[str, int] | None = None
+        self.diagnostics = Counter()
 
     def open(self) -> None:
+        self.expected_peer = (socket.gethostbyname(self.address), self.port)
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-        sock.bind(("0.0.0.0", self.bind_port))
-        sock.settimeout(self.timeout)
+        try:
+            # Windows otherwise allows a wildcard UDP bind to overlap a
+            # specific-address socket and can deliver our replies to that owner.
+            if hasattr(socket, 'SO_EXCLUSIVEADDRUSE'):
+                sock.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+            sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+            sock.bind(("0.0.0.0", self.bind_port))
+            sock.settimeout(self.timeout)
+        except BaseException:
+            sock.close()
+            raise
         self.socket = sock
 
     def close(self) -> None:
@@ -166,14 +177,22 @@ class UDPTransport:
     def send_packet(self, packet: bytes) -> None:
         if self.socket is None:
             raise RuntimeError("UDP transport is not open")
-        self.socket.sendto(packet, (self.address, self.port))
+        self.socket.sendto(packet, self.expected_peer or (self.address, self.port))
+        self.diagnostics['tx_packets'] += 1
 
     def receive(self) -> list[ReplyLine]:
         if self.socket is None:
             raise RuntimeError("UDP transport is not open")
         try:
-            data, _ = self.socket.recvfrom(1495)
-        except socket.timeout:
+            data, peer = self.socket.recvfrom(65535)
+        except (socket.timeout, BlockingIOError):
+            return []
+        self.diagnostics['rx_packets'] += 1
+        if peer != (self.expected_peer or (self.address, self.port)):
+            self.diagnostics['wrong_peer_packets'] += 1
             return []
         self.packet_counter += 1
-        return parse_datagram(data, self.packet_counter)
+        replies = parse_datagram(data, self.packet_counter)
+        if not replies:
+            self.diagnostics['malformed_packets'] += 1
+        return replies

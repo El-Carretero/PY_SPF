@@ -26,9 +26,8 @@
 
 ## 첨부 설치본과의 일치 확인
 
-`Spitfire_GUI_v_1_6_0-20261029T111415Z-1-001.zip`에서 `DistFile.cab`을 다시 풀어 기존 저장소의 분석용 EXE와 UIR 파일을 바이트 단위로 대조했습니다. EXE 두 사본, `SPITFIRE.UIR`, `SERVER.UIR`이 모두 일치했습니다. 해시는 [원본 식별 결과](logging_source_identity.json)에 보존했습니다.
+첨부된 원본 설치 자료의 `DistFile.cab`을 다시 풀어 기존 저장소의 분석용 EXE와 UIR 파일을 바이트 단위로 대조했습니다. EXE 두 사본, `SPITFIRE.UIR`, `SERVER.UIR`이 모두 일치했습니다. 해시는 [원본 식별 결과](logging_source_identity.json)에 보존했습니다.
 
-- ZIP SHA-256: `e9861dd0c88dfb2ccf0889d6008b6853c5dc870f20b1936bfb2a8356045621c2`
 - EXE SHA-256: `8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b`
 - 함수 근거: [디컴파일 결과](decompiled.c)의 `_tmr_Data_Logger`, [디스어셈블리](functions.json)의 같은 심볼.
 - 화면 기본값·열 이름·타이머 근거: [복구한 화면 정의](../spitfire/resources/gui_spec.json).

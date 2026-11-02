@@ -252,14 +252,14 @@ def test_long_connection_loss_disables_controls_before_retry_warning(app, monkey
     controller.view.values[1, 3] = 1
     controller.state["evnt_cmt"] = 1
     controller._button_started = 0.0
-    warnings = []
     monkeypatch.setattr(controller.view, "show_warning",
-                        lambda *args: warnings.append(args), raising=False)
+                        lambda *args: pytest.fail("Reconnect must not wait for modal acknowledgement"), raising=False)
+    old_transport = controller.transport
     monkeypatch.setattr(controller.transport, "receive", lambda: [])
-    before = list(controller.transport.sent_packets)
     now[0] = 31.0  # A stalled event loop can skip the normal >10s reopen branch.
     controller.tick()
-    assert warnings and callable(warnings[0][2])
+    assert controller.transport is not old_transport
+    assert sent_lines(controller) == ["[1000]*idn?"]
     assert controller.scheduler.hold
     assert not controller.state["connected"]
     assert_offline_presentation(controller)
@@ -271,7 +271,9 @@ def test_long_connection_loss_disables_controls_before_retry_warning(app, monkey
     controller.handle_callback("tmr_Data_Logger", event=15, panel=6, control=64)
     assert not controller.data_dir.exists()
     controller._held_turn_on(35.0)
-    assert controller.transport.sent_packets == before
-    warnings[0][2]()  # Acknowledging the original warning starts a new handshake.
+    assert sent_lines(controller) == ["[1000]*idn?"]
     assert_offline_presentation(controller)
     assert not controller._status_requested
+    settle(controller)
+    assert controller.state["gui_ready"]
+    assert "[2027]ON" not in sent_lines(controller)

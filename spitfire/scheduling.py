@@ -41,8 +41,10 @@ class Scheduler:
     This port retains complete strings; normal original messages fit that limit.
     Undefined original memory reads for overlong entries are not reproduced.
     """
-    def __init__(self, *, clock: Callable[[], float] = time.monotonic) -> None:
+    def __init__(self, *, clock: Callable[[], float] = time.monotonic,
+                 read_only: bool = False) -> None:
         self.clock = clock
+        self.read_only = read_only
         self.inside: deque[Request] = deque()
         self.outside: deque[Request] = deque()
         self.balance = 0
@@ -62,6 +64,7 @@ class Scheduler:
         self.balance = 0
         self.last_sent = None
         self.default_optout_write = None
+        self.reset_channels_pending = False
 
     def push(self, tag: int, parameter: str = "", *, inside: bool = True) -> Request:
         request = Request(tag, parameter)
@@ -78,8 +81,10 @@ class Scheduler:
             # each successful connection. Keep the original readback directly
             # after the write; only that reply updates the displayed setting.
             # There is deliberately no HV readback prerequisite.
-            if tag == 1068:
+            if tag == 1068 and not self.read_only:
                 self.default_optout_write = self.push(2036, " 1")
+            if self.read_only and tag >= 2000:
+                continue
             self.push(tag, " 1" if tag == 2047 else "")
         self.initializing = True
 
@@ -87,11 +92,14 @@ class Scheduler:
         sequences = {"ecu": INITIAL_ECU, "mil": INITIAL_MIL,
                      "tdg": INITIAL_TDG, "emp": INITIAL_EMP}
         for tag in sequences[subsystem.lower()]:
+            if self.read_only and tag >= 2000:
+                continue
             self.push(tag, " 1" if tag == 2047 else "")
 
     def queue_poll(self) -> None:
         if self.reset_channels_pending:
-            self.push(2054, self.current_parameter, inside=False)
+            if not self.read_only:
+                self.push(2054, self.current_parameter, inside=False)
             self.reset_channels_pending = False
         values = (SERVICE_POLL_VALUES if self.access_level > 0 else ()) + POLL_VALUES
         self.push(1039, inside=False)
@@ -112,11 +120,17 @@ class Scheduler:
         self.last_sent = request
         return request
 
-    def acknowledge(self, tag: int) -> None:
-        # The startup identity request is sent without incrementing balance.
-        if tag != 1000:
-            self.balance = max(0, self.balance - 1)
+    def acknowledge(self, tag: int) -> bool:
+        """Only the outstanding tag can complete a request.
+
+        Tags identify query types, not unique transactions: a delayed reply to
+        a repeated *same* tag cannot be distinguished by this wire protocol.
+        """
+        if not self.balance or self.last_sent is None or self.last_sent.tag != tag:
+            return False
+        self.balance = 0
         self.last_received = self.clock()
+        return True
 
     @property
     def inactivity(self) -> float:
