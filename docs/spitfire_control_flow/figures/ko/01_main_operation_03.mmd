@@ -1,0 +1,12 @@
+%% caption: 그림 1C. Native STOP 요청과 EMISSION 표시. 어느 GUI 경로도 광학 출력이나 완전한 정지를 입증하지 않는다.
+flowchart TB
+  A["STOP 버튼 / 이벤트 3"] --> B["2028 OFF 다음 1013 EMP:STB? 큐 적재"]
+  A --> G["GUI 요청 표시 2/8 = 0"]
+  B --> C["스케줄러가 전역 OFF 송신"]
+  C -.-> U["물리적 구동 결과 미확인"]
+  C --> T["다음 순서의 상태 조회<br/>유효하고 비어 있지 않은 응답 수락"]
+  T --> O{"Empower opt-out 설정 여부"}
+  O -->|"설정"| S["EMISSION 갱신 생략<br/>이전 표시가 남을 수 있음"]
+  O -->|"해제"| F["EMISSION 표시 조건<br/>word & 0x1 OR word & 0x200"]
+  F --> D["GUI 표시만 확인<br/>광학 출력은 실측하지 않음"]
+  S --> D

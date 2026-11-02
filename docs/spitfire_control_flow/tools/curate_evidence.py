@@ -22,7 +22,7 @@ base['source_artifact_sha256']=sha(b/'summary.json')
 reset=read(b/'reset-ack-summary.json');base['reset_commands']=reset['summary'].copy();base['reset_commands'].pop('tx_sources',None)
 write('bwd_history_summary.json',base)
 with (out/'bwd_rx.csv').open('w',encoding='utf-8',newline='') as f:
- w=csv.DictWriter(f,['utc','tag','word','bwd20_clear','bwd21_clear','both_bwd_clear','source_id','source_line_or_query_index']);w.writeheader()
+ w=csv.DictWriter(f,['utc','tag','word','bwd20_clear','bwd21_clear','both_bwd_clear','source_id','source_line_or_query_index'],lineterminator='\n');w.writeheader()
  for x in csv.DictReader((b/'bwd-rx.csv').open(encoding='utf-8-sig')):
   w.writerow({**{k:x[k] for k in w.fieldnames if k!='source_id'},'source_id':aliases[x['source_file']]})
 v=a.artifacts/'PY_SPF_1.0-validation';modes={}
@@ -44,10 +44,9 @@ write('fault_burst_summary.json',{'provenance':'Stored normal Native control-ses
  'not_proven':['Adapter failure','All physical states throughout gaps','Firmware-internal reset behavior']})
 r=root/'analysis/release_1_0_validation.json';write('release_validation.json',{'tracked_source':'analysis/release_1_0_validation.json','sha256':sha(r),'record':read(r)})
 refs={'native_1_0':'cebcc28490f48e9e5d4d1c2e2feef34d638244e7','reconstruction_post2':'c49fada3ffeb660acb56eeabc5c32647750df0',
- 'main_post1':'78d3f447b1ca3dea35c5a737b75569a882bc0650','external_2_0_0':'4c319aa7ed3a6068c86622b759535dc693c4c056',
- 'external_2_feature':'89de13d0fcb9cefdfc8d4908a628e89e391169ca','comparison_1_5_1':'e87225bdc904aeb5348daa409abfa49de449b017'}
+ 'main_post1':'78d3f447b1ca3dea35c5a737b75569a882bc0650','comparison_1_5_1':'e87225bdc904aeb5348daa409abfa49de449b017'}
 refs['reconstruction_post2']=subprocess.check_output(['git','rev-parse','release/reconstruction-1.6.0-post2'],cwd=root,text=True).strip()
-write('branch_baselines.json',{'repository':'El-Carretero/PY_SPF','refs':refs,'native_field_scope':'native_1_0','external_field_validation':'UNKNOWN; branch tests are simulated/loopback'})
+write('branch_baselines.json',{'repository':'El-Carretero/PY_SPF','refs':refs,'native_field_scope':'native_1_0'})
 files=['spitfire/controller.py','spitfire/decoders.py','spitfire/callbacks.py','spitfire/scheduling.py','spitfire/native.py','spitfire/native_ticker.py','spitfire/protocol.py','analysis/reference/SPITFIRE.EXE']
 write('source_manifest.json',{'base_commit':refs['native_1_0'],'files':[{'path':f,'sha256':sha(root/f)} for f in files],
  'provided_documents':[{'id':'MAN-330A','title':"330A, Rev. A, Spitfire Pro User's Manual",'pdf_pages':110,'sha256':'d9bb260827f78a2ed67477043cb3036a26b771aaf19a0c3ec9aa6649449d5e29','availability':'User-provided attachment; original retained by owner; full PDF not redistributed'},

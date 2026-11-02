@@ -1,0 +1,43 @@
+{
+  "records": [
+    {
+      "language": "en",
+      "pdf_sha256": "142bff96ae2ffea0a21a3e65d2150cc4c19e986408c3af74f7b33d0d9bb48736",
+      "reviewer": "Codex publication subagent; author-side rendered inspection, not human engineering approval",
+      "pages_individually_viewed": [
+        10,
+        12,
+        14
+      ],
+      "render_dpi": 120,
+      "findings": [
+        "Main landscape nodes, branch labels and captions readable without clipping",
+        "STOP figure1C clean with independent physical-result boundary",
+        "No per-node or per-edge evidence badges retained"
+      ],
+      "unresolved_layout_blockers": []
+    },
+    {
+      "language": "ko",
+      "pdf_sha256": "0be9254407bba61d5b0ef7885b147df8085ac3239d6e08f5ab74c5452b2d9cb1",
+      "reviewer": "Codex publication subagent; author-side rendered inspection, not human engineering approval",
+      "pages_individually_viewed": [
+        1,
+        2,
+        10,
+        12,
+        14
+      ],
+      "render_dpi": 120,
+      "findings": [
+        "Main landscape nodes, branch labels and captions readable without clipping",
+        "STOP figure1C clean with independent physical-result boundary",
+        "No per-node or per-edge evidence badges retained",
+        "Translated cover and control record clean",
+        "All14 automated overlap candidates on pages10/12 inspected: rotated CJK font bounding rectangles overlap but visible glyph ink is separated; no actual text collision"
+      ],
+      "unresolved_layout_blockers": []
+    }
+  ],
+  "authority": "Subset visual review only; parent records complete99page coverage and pending human review/approval."
+}

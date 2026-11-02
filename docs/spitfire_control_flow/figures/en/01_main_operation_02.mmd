@@ -1,0 +1,41 @@
+%% caption: Figure 1B. RUN, expected optical consequence, and STOP/protection functions. Figure 1C expands the STOP path; dashed transfers remain unverified.
+%% layout: landscape
+flowchart LR
+  subgraph EXB["External Signals"]
+    direction TB
+    UR["RUN / STOP gestures"]
+    IN["Prepared seed / pump / timing"]
+    UR ~~~ IN
+  end
+  subgraph HWB["Hardware / Electronics"]
+    direction TB
+    ON["SASC global ON / OFF<br/>Actuator effects unverified"]
+    PM["Empower start / stop sequence<br/>Applicability unverified"]
+    PC["Separate PC1 / PC2 enable"]
+    PR["BWD / relay protection"]
+    ON -.->|"Unverified"| PM
+    PM -.-> PC
+    PR --> PC
+  end
+  subgraph SWB["Software / Control Logic"]
+    direction TB
+    ACCEPT["GUI permit + hold"]
+    CMD["1.0 queues 2027 ON"]
+    STOP["STOP queues 2028 OFF"]
+    LABEL["EMISSION label: EMP bits"]
+    ACCEPT --> CMD
+    CMD ~~~ STOP ~~~ LABEL
+  end
+  subgraph OPB["Optical System"]
+    direction TB
+    CAP["Capture / gain / ejection"]
+    OUT["Compression<br/>Emission Expected"]
+    PROOF["Measured optical output<br/>No trace supplied"]
+    CAP --> OUT
+    OUT -.->|"Unverified"| PROOF
+  end
+  EXB --> SWB
+  EXB --> OPB
+  SWB --> HWB
+  HWB --> SWB
+  HWB --> OPB

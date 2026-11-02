@@ -1,0 +1,52 @@
+{
+  "theme": "base",
+  "securityLevel": "strict",
+  "htmlLabels": false,
+  "fontFamily": "\"URW Gothic\", \"Noto Sans CJK KR\", \"Latin Modern Math\"",
+  "themeVariables": {
+    "fontFamily": "\"URW Gothic\", \"Noto Sans CJK KR\", \"Latin Modern Math\"",
+    "fontSize": "18px",
+    "primaryColor": "#FFFFFF",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#333333",
+    "secondaryColor": "#F2F2F2",
+    "tertiaryColor": "#FFFFFF",
+    "lineColor": "#333333",
+    "textColor": "#000000",
+    "mainBkg": "#FFFFFF",
+    "nodeBorder": "#333333",
+    "clusterBkg": "#FFFFFF",
+    "clusterBorder": "#A6A6A6",
+    "edgeLabelBackground": "#FFFFFF",
+    "actorBkg": "#FFFFFF",
+    "actorBorder": "#333333",
+    "actorTextColor": "#000000",
+    "actorLineColor": "#666666",
+    "signalColor": "#333333",
+    "signalTextColor": "#000000",
+    "labelBoxBkgColor": "#F2F2F2",
+    "labelBoxBorderColor": "#666666",
+    "labelTextColor": "#000000",
+    "loopTextColor": "#000000",
+    "noteBkgColor": "#F2F2F2",
+    "noteBorderColor": "#666666",
+    "noteTextColor": "#000000",
+    "activationBkgColor": "#D9D9D9",
+    "activationBorderColor": "#666666"
+  },
+  "flowchart": {
+    "htmlLabels": false,
+    "curve": "linear",
+    "nodeSpacing": 20,
+    "rankSpacing": 32,
+    "padding": 12
+  },
+  "sequence": {
+    "useMaxWidth": false,
+    "wrap": true,
+    "actorMargin": 35,
+    "messageMargin": 25,
+    "noteMargin": 10
+  },
+  "themeCSS": ".node rect,.node polygon,.node path,.flowchart-link,.messageLine0,.messageLine1,.actor-line{stroke-width:2px!important}.nodeLabel,.edgeLabel,.messageText,.noteText,.labelText,.loopText{font-family:'URW Gothic','Noto Sans CJK KR','Latin Modern Math'!important;font-size:18px!important}"
+}

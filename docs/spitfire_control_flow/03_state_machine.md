@@ -92,7 +92,7 @@ flowchart TB
     H -->|integer time difference greater than 3| Q[2027 ON queued]
     Q -->|unsent RUN cancelled| I
     Q -->|scheduler sends| S[PC datagram sent]
-    S -.-> U[Physical result UNKNOWN]
+    S -.-> U[Physical result unverified]
 ```
 
 **CODE VERIFIED:** main panel `6`, control `10`, callback `cllbck` uses event `3` to arm the hold; event `1` clears the arm flag. The worker checks `int(now) - int(start) > 3`, queues `[2027]ON`, writes the TCU GUI toggle `2/8=1`, and clears the pending hold. This is a whole-second comparison, not an exact fixed four-second physical start time. Queueing and actual wire transmission can occur at different times. [PY-CALLBACKS: L194–203][CB-RUN], [PY-CONTROLLER: L738–749][C-HELD].
@@ -124,26 +124,9 @@ The current timer cancels held or unsent `2027` on a released mouse, Alt/F10, st
 
 **CODE VERIFIED:** main `6/32`, `MSG_EMISSION`, starts hidden with fixed text and color. When `emp_optout == 0`, accepted `1013 EMP:STB?` makes it visible if bit `0x1` or `0x200` is set. `emp_optout == 1` skips that update; it does not actively clear a previously visible label. `STATUS`, HV readback and a queued RUN do not directly set this visibility. [PY-DECODER: L269–292][D-EMP]. **XP/LOG VERIFIED — original decoder/emulation:** the same opt-out early return and visibility condition appear in the original and oracle. [XP-DECODER: L11965–11983][X-EMP-OPT], [L12179–12200][X-EMISSION]. **UNKNOWN:** the label is not an independently verified optical power measurement; hidden does not establish absence of light.
 
-## External Control 2.0.0 has different PC states
-
-**CODE VERIFIED — EXT-2 only:** External Control `2.0.0` at `4c319aa7ed3a6068c86622b759535dc693c4c056` is a dedicated Empower-independent implementation. Its PC state boundaries must not be substituted for the reconstructed 1.0 RUN callback above.
-
-| External2 boundary | Implemented PC condition/action | Evidence |
-|---|---|---|
-| Ordinary initialization/polling | Query-only queues; no automatic Opt-out write, EMP startup sequence or legacy `2054 RES12` side effect. A reconnect with unresolved prior PC operation may reissue owed PC OFF cleanup. | [EXT-2: scheduling L117–133][E-INIT], [external decoder L263–289][E-DECODER], [controller L116–155][E-RECONNECT] |
-| Explicit Opt-out apply | Only `2036=1` is permitted. Fresh HV OFF is checked when accepting the request and again before transmission. Querying `1068` does not apply the setting. | [EXT-2: controller L405–410][E-OPT], [L462–475][E-VALIDATE], [readback L177–180][E-HVOFF] |
-| RUN eligibility | Fresh independent communications/fault/timing facts, Opt-out `1`, TCU/Head Opt-out and overrides `0`, both timing sources EXT, positive measured seed frequency, BWD/ENA gating, existing HV ON with positive measured HV1/HV2, and both PCs initially OFF. | [EXT-2: external state L201–239][E-GATES] |
-| RUN request/confirmation | A continuous 3 s hold requests PC2 ON; a new valid ON readback permits PC1 ON; its new valid readback marks PC RUN confirmed. A receipt alone does not confirm either channel. | [EXT-2: controller L449–455][E-HOLD], [L509–568][E-RUN] |
-| STOP/failed RUN | Cancel unsent enables, prioritize independent PC1/PC2 OFF requests and require new OFF readbacks. Unverified cleanup survives reconnect and blocks the next RUN; no automatic RUN resume. | [EXT-2: controller L116–155][E-RECONNECT], [L527–583][E-STOP] |
-| Forbidden legacy requests | Original global `2027 ON`/`2028 OFF`, EMP/MIL and raw operations, BWD/ENA disabling and protection-override enabling are rejected by policy. | [EXT-2: external policy L47–114][E-POLICY] |
-
-The RUN prerequisite of existing HV ON and the Opt-out-apply prerequisite of fresh HV OFF apply to **different actions**. They do not authorize changing HV as a side effect of RUN. External2's STOP requests turn off the PC channels; they do not request external pump or HV OFF. Physical output remains **UNKNOWN** from those channel confirmations alone. The detailed sequence is in [04, section D](04_communication_sequence.md#d--external-control-200-is-a-separate-flow).
-
-**CODE VERIFIED — version boundary:** External2 retains an older Native outer event loop and a conditional modal-warning reconnect path. It does not contain the 1.0 UI-thread ticker and pause-recovery behavior described earlier. **UNKNOWN:** actual External2 Windows-NI/XP equipment execution and physical actuation are not established by the 1.0 read-only soak or inherited original-x86 oracles. [EXT-2: native L397–405][E-NATIVE], [controller L243–255][E-MODAL], [branch evidence analysis](evidence/external_control_2_analysis.md).
-
 ## Version and review limits
 
-Except for the explicitly labelled External2 section, this chapter's Python claims are limited to `cebcc28`. `origin/main` at `78d3f447b1ca3dea35c5a737b75569a882bc0650` is package `1.6.0.post1` and does not contain all current transport/read-only/timer protections. [Older main version][OLD-MAIN]. Original XP worker scheduling, current Python scheduling, External2 policy, manufacturer operating instructions and physical observations remain separate evidence layers.
+This chapter's Python claims are limited to `cebcc28`. `origin/main` at `78d3f447b1ca3dea35c5a737b75569a882bc0650` is package `1.6.0.post1` and does not contain all current transport/read-only/timer protections. [Older main version][OLD-MAIN]. Original XP worker scheduling, current Python scheduling, manufacturer operating instructions and physical observations remain separate evidence layers.
 
 ## Source references
 
@@ -190,16 +173,3 @@ The links below are immutable code references. `MAN-330A` means *Spitfire Pro Us
 [LOG-BWD]: evidence/bwd_history_summary.json
 [LOG-SOAK]: evidence/release_validation.json
 [OLD-MAIN]: https://github.com/El-Carretero/PY_SPF/blob/78d3f447b1ca3dea35c5a737b75569a882bc0650/spitfire/__init__.py#L1-L2
-[E-INIT]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/scheduling.py#L117-L133
-[E-DECODER]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/external_state.py#L263-L289
-[E-OPT]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L405-L410
-[E-VALIDATE]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L462-L475
-[E-HVOFF]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/external_state.py#L177-L180
-[E-GATES]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/external_state.py#L201-L239
-[E-HOLD]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L449-L455
-[E-RUN]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L509-L568
-[E-RECONNECT]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L116-L155
-[E-STOP]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L527-L583
-[E-POLICY]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/external_policy.py#L47-L114
-[E-NATIVE]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/native.py#L397-L405
-[E-MODAL]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L243-L255

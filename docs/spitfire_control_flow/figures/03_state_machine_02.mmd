@@ -1,9 +1,0 @@
-%% caption: Figure 3B. RUN: gesture, inhibit, request and physical result
-%%{init: {'theme':'base','themeVariables':{'fontSize':'18px','primaryColor':'#ffffff','primaryTextColor':'#111111','primaryBorderColor':'#444444','lineColor':'#444444'},'flowchart':{'htmlLabels':false}}}%%
-flowchart TB
-    I[No pending RUN hold] -->|event 3| H[Hold pending]
-    H -->|release or interruption| I
-    H -->|integer time difference greater than 3| Q[2027 ON queued]
-    Q -->|unsent RUN cancelled| I
-    Q -->|scheduler sends| S[PC datagram sent]
-    S -.-> U[Physical result UNKNOWN]

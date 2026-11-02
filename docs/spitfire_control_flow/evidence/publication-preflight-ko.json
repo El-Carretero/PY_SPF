@@ -1,0 +1,1175 @@
+{
+  "pdf": "docs/spitfire_control_flow/XL-TR-SPF-001_Spitfire-Control-Flow_KO_Review02.pdf",
+  "pdf_sha256": "0151d61c364430955d9250c738828668f4a6de36083103ba126041fe726386c6",
+  "pages": 48,
+  "metadata": {
+    "format": "PDF 1.5",
+    "title": "Spitfire 하드웨어–소프트웨어 통합 제어 흐름",
+    "author": "Codex — AI 지원 소스 및 근거 분석",
+    "subject": "XL-TR-SPF-001; Draft 0.2; REVIEW; INTERNAL; 출처를 추적할 수 있는 하드웨어·소프트웨어 분석",
+    "keywords": "Spitfire, SPTF-100F-1KHPR, XL-STD-DOC-001",
+    "creator": "LaTeX with hyperref",
+    "producer": "xdvipdfmx (20240305)",
+    "creationDate": "D:20261102103458Z",
+    "modDate": "",
+    "trapped": "",
+    "encryption": null
+  },
+  "bookmarks": [
+    [
+      1,
+      "문서 관리",
+      2
+    ],
+    [
+      1,
+      "목차",
+      3
+    ],
+    [
+      2,
+      "Spitfire 하드웨어–소프트웨어 통합 제어 흐름",
+      5
+    ],
+    [
+      3,
+      "핵심 결과",
+      5
+    ],
+    [
+      3,
+      "범위와 분석 기준",
+      5
+    ],
+    [
+      3,
+      "읽는 순서와 산출물",
+      5
+    ],
+    [
+      3,
+      "근거 등급",
+      6
+    ],
+    [
+      3,
+      "주요 분석 결과",
+      6
+    ],
+    [
+      3,
+      "안전 및 권한 범위",
+      6
+    ],
+    [
+      3,
+      "문서 관리와 검토 상태",
+      7
+    ],
+    [
+      3,
+      "작성 설정과 제작 기록",
+      7
+    ],
+    [
+      2,
+      "1. 통합 운전: 전원 투입부터 예상 광학 방출까지",
+      8
+    ],
+    [
+      3,
+      "1.1 메인 흐름이 설명하는 범위",
+      8
+    ],
+    [
+      3,
+      "1.2 전원 투입, 외부 입력 및 소프트웨어 준비",
+      9
+    ],
+    [
+      3,
+      "1.3 RUN, 활성화 및 광학적 결과",
+      11
+    ],
+    [
+      3,
+      "1.4 실패, 복구 및 최종 확인 범위",
+      15
+    ],
+    [
+      2,
+      "2. 광학 타이밍과 인터록의 경계",
+      16
+    ],
+    [
+      3,
+      "2.1 적용 범위와 근거",
+      16
+    ],
+    [
+      3,
+      "2.2 광학 경로와 서로 다른 두 타이밍 기준",
+      17
+    ],
+    [
+      3,
+      "2.3 임의의 통합 게이트를 가정하지 않은 보호 경로",
+      19
+    ],
+    [
+      3,
+      "2.4 펌프 상태, GUI 상태, 광방출",
+      21
+    ],
+    [
+      3,
+      "2.5 소프트웨어 선택과 물리적 우회 근거의 구분",
+      21
+    ],
+    [
+      2,
+      "3. PC 제어 상태와 하드웨어 관측",
+      22
+    ],
+    [
+      3,
+      "근거의 범위",
+      22
+    ],
+    [
+      3,
+      "서로 구분해야 하는 상태 차원",
+      22
+    ],
+    [
+      3,
+      "PC 세션과 표시 데이터 준비",
+      23
+    ],
+    [
+      3,
+      "UI 일시 정지, 복구와 취소",
+      25
+    ],
+    [
+      3,
+      "RUN: 입력, 억제, 요청과 물리적 결과",
+      26
+    ],
+    [
+      3,
+      "STOP과 HV는 별개",
+      28
+    ],
+    [
+      3,
+      "BWD·Emission·상태는 하나의 장비 상태가 아닌 관측값",
+      28
+    ],
+    [
+      3,
+      "버전과 검토의 한계",
+      29
+    ],
+    [
+      3,
+      "출처 참조",
+      29
+    ],
+    [
+      2,
+      "4. 통신 순서와 확인의 한계",
+      30
+    ],
+    [
+      3,
+      "통신 경계와 표기법",
+      30
+    ],
+    [
+      3,
+      "A — 연결 열기, 초기화, 상태 조회",
+      30
+    ],
+    [
+      3,
+      "B — RUN 요청과 제조사의 시작 순서",
+      33
+    ],
+    [
+      3,
+      "C — 리셋, STOP, HV 순서",
+      35
+    ],
+    [
+      3,
+      "D — 로컬 TCP 상태 조회 서비스",
+      37
+    ],
+    [
+      3,
+      "출처",
+      37
+    ],
+    [
+      2,
+      "5. 신호 및 상태 참조",
+      38
+    ],
+    [
+      3,
+      "5.1 외부 광학 및 타이밍 신호",
+      38
+    ],
+    [
+      3,
+      "5.2 보호 입력과 물리 출력 제어",
+      39
+    ],
+    [
+      3,
+      "5.3 소프트웨어 신호와 그 한계",
+      41
+    ],
+    [
+      3,
+      "5.4 독립적인 광학 입증의 경계",
+      42
+    ],
+    [
+      3,
+      "5.5 출처 키",
+      42
+    ],
+    [
+      2,
+      "6. 근거, 재현 가능성, 미확인 사항",
+      44
+    ],
+    [
+      3,
+      "근거 라벨 읽는 법",
+      44
+    ],
+    [
+      3,
+      "근거 목록",
+      44
+    ],
+    [
+      3,
+      "실장비 관측과 정확한 한계",
+      46
+    ],
+    [
+      3,
+      "재현 가능성과 접근 범위",
+      46
+    ],
+    [
+      3,
+      "남아 있는 미확인 사항",
+      47
+    ],
+    [
+      3,
+      "인용 기준점",
+      48
+    ]
+  ],
+  "page_records": [
+    {
+      "page": 1,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 23,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 2,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 36,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 3,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 71,
+      "links": 27,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 4,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 63,
+      "links": 23,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 5,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 46,
+      "links": 7,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 6,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 49,
+      "links": 7,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 7,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 38,
+      "links": 3,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 8,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 83,
+      "links": 16,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 9,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 17,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 10,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 35,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 11,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 17,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 12,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 33,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 13,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 23,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 14,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 25,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 15,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 55,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 16,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 90,
+      "links": 2,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 17,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 26,
+      "links": 5,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 18,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 25,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 19,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 16,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 20,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 21,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 21,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 44,
+      "links": 1,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 22,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 93,
+      "links": 2,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 23,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 12,
+      "links": 5,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 24,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 22,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 25,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 74,
+      "links": 24,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 26,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 7,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 27,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 16,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 28,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 56,
+      "links": 18,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 29,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 19,
+      "links": 4,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 30,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 37,
+      "links": 8,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 31,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 33,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 32,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 68,
+      "links": 24,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 33,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 10,
+      "links": 4,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 34,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 27,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 35,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 25,
+      "links": 3,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 36,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 25,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 1
+    },
+    {
+      "page": 37,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 44,
+      "links": 13,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 38,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 92,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 39,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 106,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 40,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 136,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 41,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 122,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 42,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 44,
+      "links": 1,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 43,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 90,
+      "text_lines": 24,
+      "links": 11,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 44,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 74,
+      "links": 14,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 45,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 108,
+      "links": 9,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 46,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 43,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 47,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 75,
+      "links": 0,
+      "images": 0,
+      "form_xobjects": 0
+    },
+    {
+      "page": 48,
+      "width_pt": 595.280029296875,
+      "height_pt": 841.8900146484375,
+      "rotation": 0,
+      "text_lines": 16,
+      "links": 4,
+      "images": 0,
+      "form_xobjects": 0
+    }
+  ],
+  "fonts_pdffonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nJPLSUK+URWGothic-Demi-Identity-H     CID Type 0C       Identity-H       yes yes yes      4  0\nEBLIMV+URWGothic-Book-Identity-H     CID Type 0C       Identity-H       yes yes yes      6  0\nENHEEI+NotoSansCJKjp-Bold-Identity-H CID Type 0C       Identity-H       yes yes yes      8  0\nIMCXEO+NotoSansCJKjp-Regular-Identity-H CID Type 0C       Identity-H       yes yes yes     10  0\nSQEVDD+DejaVuSansMono                CID TrueType      Identity-H       yes yes yes     12  0\nCJBEHA+URWGothic-BookOblique-Identity-H CID Type 0C       Identity-H       yes yes yes     77  0\nCKBCVO+NotoSansCJKkr-Regular         CID Type 0C       Identity-H       yes yes yes    127  0\nYMYDXW+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    134  0\nIAQPAF+DejaVuSansMono-Bold           CID TrueType      Identity-H       yes yes yes    144  0\nUUDDKK+NotoSansCJKkr-Regular         CID Type 0C       Identity-H       yes yes yes    149  0\nSNPYEK+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    156  0\nZPLJCA+NotoSansCJKkr-Regular         CID Type 0C       Identity-H       yes yes yes    169  0\nAQGZQF+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    176  0\nXXNDBS+NotoSansCJKkr-Regular         CID Type 0C       Identity-H       yes yes yes    202  0\nHVCLWF+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    209  0\nDAETDR+NotoSansCJKkr-Regular         CID Type 0C       Identity-H       yes yes yes    222  0\nYSEIFM+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    229  0\nBWWIUP+NotoSansCJKjp-Regular-Identity-H CID Type 0C       Identity-H       yes yes yes    245  0\nCLIKVM+NotoSansCJKkr-Regular         CID Type 0C       Identity-H       yes yes yes    258  0\nPBQRQL+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    265  0\nNGTFBJ+NotoSansCJKkr-Regular         CID Type 0C       Identity-H       yes yes yes    305  0\nRWCCPV+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    312  0\nFSGLMN+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    362  0\nAAMPGT+NotoSansCJKkr-Regular         CID Type 0C       Identity-H       yes yes yes    368  0\nJMBSIX+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    413  0\nTDQQKB+NotoSansCJKkr-Regular         CID Type 0C       Identity-H       yes yes yes    419  0\nJEEGVQ+URWGothic-Book                Type 1C           WinAnsi          yes yes yes    436  0\nLFNRQF+NotoSansCJKkr-Regular         CID Type 0C       Identity-H       yes yes yes    442  0\n",
+  "unembedded_fonts": [],
+  "pdf_language": [
+    "string",
+    "ko-KR"
+  ],
+  "link_annotations": {
+    "total": 235,
+    "uri": 185,
+    "named_internal": 50,
+    "local_file_launch": 0,
+    "invalid_internal_targets": []
+  },
+  "forbidden_text_hits": [],
+  "outside_page_text": [],
+  "potential_text_overlaps": [
+    {
+      "page": 10,
+      "a": {
+        "bbox": [
+          147.3702850341797,
+          273.78948974609375,
+          159.9314422607422,
+          351.42913818359375
+        ],
+        "text": "UDP 열기 / 식별 조회"
+      },
+      "b": {
+        "bbox": [
+          156.91259765625,
+          304.62841796875,
+          169.4737548828125,
+          320.590087890625
+        ],
+        "text": "시도"
+      },
+      "intersection": [
+        156.91259765625,
+        304.62841796875,
+        159.9314422607422,
+        320.590087890625
+      ]
+    },
+    {
+      "page": 10,
+      "a": {
+        "bbox": [
+          289.6141357421875,
+          176.6314697265625,
+          302.17529296875,
+          243.47100830078125
+        ],
+        "text": "최신 STATUS인가?"
+      },
+      "b": {
+        "bbox": [
+          299.1564636230469,
+          184.5384979248047,
+          311.7176208496094,
+          235.56390380859375
+        ],
+        "text": "GUI의 RUN이"
+      },
+      "intersection": [
+        299.1564636230469,
+        184.5384979248047,
+        302.17529296875,
+        235.56390380859375
+      ]
+    },
+    {
+      "page": 10,
+      "a": {
+        "bbox": [
+          299.1564636230469,
+          184.5384979248047,
+          311.7176208496094,
+          235.56390380859375
+        ],
+        "text": "GUI의 RUN이"
+      },
+      "b": {
+        "bbox": [
+          308.69879150390625,
+          187.5357666015625,
+          321.25994873046875,
+          232.5667724609375
+        ],
+        "text": "허용되는가?"
+      },
+      "intersection": [
+        308.69879150390625,
+        187.5357666015625,
+        311.7176208496094,
+        232.5667724609375
+      ]
+    },
+    {
+      "page": 10,
+      "a": {
+        "bbox": [
+          391.7610168457031,
+          312.4334716796875,
+          404.3221740722656,
+          396.28424072265625
+        ],
+        "text": "연결 실패 / 오래된 상태"
+      },
+      "b": {
+        "bbox": [
+          401.3033142089844,
+          346.3779602050781,
+          413.8644714355469,
+          362.3396301269531
+        ],
+        "text": "복구"
+      },
+      "intersection": [
+        401.3033142089844,
+        346.3779602050781,
+        404.3221740722656,
+        362.3396301269531
+      ]
+    },
+    {
+      "page": 10,
+      "a": {
+        "bbox": [
+          391.7610168457031,
+          182.80332946777344,
+          404.3221740722656,
+          273.13421630859375
+        ],
+        "text": "Fault 차단 / 리셋 후 상태"
+      },
+      "b": {
+        "bbox": [
+          401.3033142089844,
+          219.9878387451172,
+          413.8644714355469,
+          235.94952392578125
+        ],
+        "text": "조회"
+      },
+      "intersection": [
+        401.3033142089844,
+        219.9878387451172,
+        404.3221740722656,
+        235.94952392578125
+      ]
+    },
+    {
+      "page": 12,
+      "a": {
+        "bbox": [
+          212.1627197265625,
+          108.61418151855469,
+          227.86151123046875,
+          128.56292724609375
+        ],
+        "text": "압축"
+      },
+      "b": {
+        "bbox": [
+          224.08859252929688,
+          86.23698425292969,
+          239.78738403320312,
+          150.94024658203125
+        ],
+        "text": "광학 방출 예상"
+      },
+      "intersection": [
+        224.08859252929688,
+        108.61418151855469,
+        227.86151123046875,
+        128.56292724609375
+      ]
+    },
+    {
+      "page": 12,
+      "a": {
+        "bbox": [
+          286.1272888183594,
+          86.23698425292969,
+          301.8260803222656,
+          150.94024658203125
+        ],
+        "text": "실측 광학 출력"
+      },
+      "b": {
+        "bbox": [
+          298.0531921386719,
+          86.23698425292969,
+          313.7519836425781,
+          150.94024658203125
+        ],
+        "text": "측정 기록 없음"
+      },
+      "intersection": [
+        298.0531921386719,
+        86.23698425292969,
+        301.8260803222656,
+        150.94024658203125
+      ]
+    },
+    {
+      "page": 12,
+      "a": {
+        "bbox": [
+          251.13265991210938,
+          492.0581970214844,
+          266.8314514160156,
+          596.8759155273438
+        ],
+        "text": "1.0이 2027 ON을 큐에"
+      },
+      "b": {
+        "bbox": [
+          263.0585632324219,
+          534.49267578125,
+          278.7573547363281,
+          554.44140625
+        ],
+        "text": "추가"
+      },
+      "intersection": [
+        263.0585632324219,
+        534.49267578125,
+        266.8314514160156,
+        554.44140625
+      ]
+    },
+    {
+      "page": 12,
+      "a": {
+        "bbox": [
+          310.039306640625,
+          485.5910949707031,
+          325.73809814453125,
+          603.343017578125
+        ],
+        "text": "STOP이 2028 OFF를 큐에"
+      },
+      "b": {
+        "bbox": [
+          321.9651794433594,
+          534.49267578125,
+          337.6639709472656,
+          554.44140625
+        ],
+        "text": "추가"
+      },
+      "intersection": [
+        321.9651794433594,
+        534.49267578125,
+        325.73809814453125,
+        554.44140625
+      ]
+    },
+    {
+      "page": 12,
+      "a": {
+        "bbox": [
+          368.9459533691406,
+          494.2807312011719,
+          384.6447448730469,
+          594.6533203125
+        ],
+        "text": "EMISSION 표시: EMP"
+      },
+      "b": {
+        "bbox": [
+          380.8718566894531,
+          534.49267578125,
+          396.5706481933594,
+          554.44140625
+        ],
+        "text": "비트"
+      },
+      "intersection": [
+        380.8718566894531,
+        534.49267578125,
+        384.6447448730469,
+        554.44140625
+      ]
+    },
+    {
+      "page": 12,
+      "a": {
+        "bbox": [
+          219.81214904785156,
+          330.65692138671875,
+          235.51095581054688,
+          432.4280700683594
+        ],
+        "text": "SASC 전역 ON / OFF"
+      },
+      "b": {
+        "bbox": [
+          231.738037109375,
+          344.2036437988281,
+          247.43682861328125,
+          418.8813781738281
+        ],
+        "text": "구동 효과 미확인"
+      },
+      "intersection": [
+        231.738037109375,
+        344.2036437988281,
+        235.51095581054688,
+        418.8813781738281
+      ]
+    },
+    {
+      "page": 12,
+      "a": {
+        "bbox": [
+          293.7767333984375,
+          330.2395935058594,
+          309.47552490234375,
+          432.8454895019531
+        ],
+        "text": "Empower 시작/ 정지"
+      },
+      "b": {
+        "bbox": [
+          305.7026062011719,
+          371.568115234375,
+          321.4013977050781,
+          391.5168762207031
+        ],
+        "text": "순서"
+      },
+      "intersection": [
+        305.7026062011719,
+        371.568115234375,
+        309.47552490234375,
+        391.5168762207031
+      ]
+    },
+    {
+      "page": 12,
+      "a": {
+        "bbox": [
+          305.7026062011719,
+          371.568115234375,
+          321.4013977050781,
+          391.5168762207031
+        ],
+        "text": "순서"
+      },
+      "b": {
+        "bbox": [
+          317.6285095214844,
+          344.2036437988281,
+          333.3273010253906,
+          418.8813781738281
+        ],
+        "text": "적용 여부 미확인"
+      },
+      "intersection": [
+        317.6285095214844,
+        371.568115234375,
+        321.4013977050781,
+        391.5168762207031
+      ]
+    },
+    {
+      "page": 12,
+      "a": {
+        "bbox": [
+          249.14501953125,
+          651.8692016601562,
+          264.84381103515625,
+          761.0560913085938
+        ],
+        "text": "준비된 Seed / Pump /"
+      },
+      "b": {
+        "bbox": [
+          261.0708923339844,
+          691.5010986328125,
+          276.7696838378906,
+          721.4242553710938
+        ],
+        "text": "타이밍"
+      },
+      "intersection": [
+        261.0708923339844,
+        691.5010986328125,
+        264.84381103515625,
+        721.4242553710938
+      ]
+    }
+  ],
+  "replacement_characters": [],
+  "a4_mediaboxes": true,
+  "visual_review": "PASS automated-agent every-page visual inspection with final changed-page reinspection and pixel-equivalence audit; see publication-validation.json. Human engineering approval remains pending.",
+  "notes": [
+    "Overlap records are candidates, not automatic failures: diagram text, mathematical notation and table structures require visual interpretation.",
+    "Vector figure Form XObjects require rendered inspection for text/figure interference; structural checks alone cannot certify layout."
+  ],
+  "potential_text_overlap_review": {
+    "reviewer": "Codex publication subagent and root; author-side rendered inspection",
+    "pdf_sha256": "0151d61c364430955d9250c738828668f4a6de36083103ba126041fe726386c6",
+    "candidate_count": 14,
+    "pages": [
+      10,
+      12
+    ],
+    "disposition": "Pages10/12 are pixel-identical to the fully inspected pre-polish export. Adjacent rotated CJK font bounding rectangles intersect in nominal extents; visible glyph ink is separated. No actual collision or clipping.",
+    "record": "publication-polish-comparison.json"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "pdf_path": "/workspace/PY_SPF/docs/spitfire_control_flow/XL-TR-SPF-001_Spitfire-Control-Flow_KO_Review02.pdf",
+  "pdf_sha256": "0be9254407bba61d5b0ef7885b147df8085ac3239d6e08f5ab74c5452b2d9cb1",
+  "pdf_page_count": 48,
+  "reviewer": "Codex technical_review agent (automated visual review; no human approval)",
+  "review_scope": "Korean edition, pages 25–48 inclusive; every owned page individually opened and visually examined.",
+  "pages_visually_examined": [
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48
+  ],
+  "render_directory": "/workspace/artifacts/spf-r02-ko-pages",
+  "render_dpi": 120,
+  "page_sizes_px": {
+    "portrait": [
+      993,
+      1404
+    ],
+    "landscape": [
+      1404,
+      993
+    ]
+  },
+  "method": "Confirmed frozen PDF SHA256, opened every supplied full-resolution PNG individually with view_image in page order, and inspected Hangul glyphs and spacing, Korean phrasing, line/text intersections, clipping, table rows and columns, captions and header/footer boundaries.",
+  "special_checks": [
+    {
+      "pages": [
+        27,
+        31,
+        34,
+        36
+      ],
+      "check": "RUN-state and communication diagrams; no lifeline/message/condition collisions, clipped Hangul, or caption separation found."
+    },
+    {
+      "pages": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "check": "Landscape signal-reference tables; readable Hangul and code, no overlapping columns or rows, repeated table headers present where needed."
+    },
+    {
+      "pages": [
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "check": "Evidence register, observations, unknowns and citations; no clipped prose or table content; restored hardware-only installed-pump wiring row is visible on page 47."
+    }
+  ],
+  "disposition": "PASS",
+  "issues": [],
+  "scope_limit": "This is an automated visual review of pages 25–48 only, not institutional or human approval and not equipment validation. Other pages are reviewed separately by the root agent."
+}

@@ -1,6 +1,6 @@
 # 4. Communication sequences and confirmation limits
 
-**Status: REVIEW — human approval pending.** Sections A–C describe PY_SPF 1.0 at commit `cebcc28490f48e9e5d4d1c2e2feef34d638244e7`. Section D explicitly switches to External Control **2.0.0** at `4c319aa7ed3a6068c86622b759535dc693c4c056`. These are distinct implementations. No commands were executed to write this document.
+**Status: REVIEW — human approval pending.** This chapter describes PY_SPF 1.0 at commit `cebcc28490f48e9e5d4d1c2e2feef34d638244e7`. No commands were executed to write this document.
 
 ## Boundary and notation
 
@@ -46,7 +46,7 @@ sequenceDiagram
     PC->>S: 1085 STATUS?
     S-->>PC: Matching valid STATUS
     Note over PC: Display data may become ready
-    Note over S: Internal module actions UNKNOWN
+    Note over S: Internal module actions unverified
 ```
 
 **CODE VERIFIED — detail and limits:**
@@ -96,7 +96,7 @@ sequenceDiagram
         PC->>PC: Queue 2027 ON
         PC->>S: 2027 ON when scheduler permits
         S-->>PC: Receipt, if provided
-        Note over S: Firmware actions UNKNOWN
+        Note over S: Firmware actions unverified
     end
 ```
 
@@ -151,51 +151,13 @@ Each pass is **five separate requests**, in order: `1089 COMSTATUS?`, `1088 ECU:
 
 For BWD, four claims remain distinct: `2018` was submitted; a matching receipt arrived; `1039` later reported one/both latch bits clear; and optical prerequisites/output were physically established. The log evidence reports these separately. **MANUAL:** printed 6-10 / PDF page 70 says reset operates the relay and amplification resumes after the underlying problem is resolved and both PD indicators are green. **UNKNOWN:** an ACK alone does not establish either condition. [LOG-BWD][LOG-BWD], [MAN-330A].
 
-## D — External Control 2.0.0 is a separate flow
-
-**CODE VERIFIED — EXT-2 only:** this section uses `spitfire-external-control` **2.0.0**, not the older 1.5.1 comparison variant. Ordinary initialization and periodic queues contain queries only; automatic Opt-out application, EMP startup traffic and the legacy `2054 RES12` side effect are absent. A reconnect with an unresolved prior PC operation may reissue owed PC OFF cleanup. A manual Opt-out action may queue only `2036=1`, with fresh HV OFF checked at acceptance and final dispatch. This is different from reconstructed 1.0's default-on startup policy. [EXT-2: scheduling L117–133][EXT-INIT], [external decoder L263–289][EXT-DECODER], [controller L116–155][EXT-RECONNECT], [L405–410][EXT-OPT], [L462–475][EXT-VALIDATE].
-
-External2 blocks global `2027 ON`/`2028 OFF`, EMP/MIL operations, raw/injected requests, BWD/ENA disabling and protection-override enabling. Its RUN path controls the PC channels instead. Eligibility requires fresh independent subsystem facts, Opt-out `1`, TCU/Head Opt-out and overrides `0`, both timing sources EXT, positive measured seed frequency, BWD/ENA gating, HV already ON with positive measured HV1/HV2, and both PC channels initially OFF. The freshness limit is `max(5 s, 3 × request_timeout)`, or 6 s with the default timeout. These are source-level conditions, not a physical validation of this branch. [EXT-2: policy L47–114][EXT-PROFILE], [external state L201–239][EXT-GATES], [controller L31–35][EXT-FRESH].
-
-A continuous 3 s hold calls `request_pc_run()`. PC2 ON is requested first. Its receipt queues `1046`, and a new valid ON readback allows the PC1 ON step after renewed checks. The equivalent `1045` confirmation completes the PC operation. The order is an External2 design; it is not recovered original-GUI RUN behavior. [EXT-2: controller L449–455][EXT-HOLD], [L509–568][EXT-RUN], [L585–599][EXT-READBACK].
-
-Figure 4D shows the separate External Control 2.0 PC-channel sequence.
-
-```mermaid
-%% caption: Figure 4D. D — External Control 2.0.0 is a separate flow
-%%{init: {'theme':'base','themeVariables':{'fontSize':'18px','primaryColor':'#ffffff','primaryTextColor':'#111111','primaryBorderColor':'#444444','lineColor':'#444444'},'sequence':{'htmlLabels':false,'actorMargin':35,'messageMargin':18}}}%%
-sequenceDiagram
-    participant E as External2 PC
-    participant S as Configured UDP peer
-    Note over E: Check fresh prerequisites
-    E->>S: 2019 TDG:DEL 2 ON
-    S-->>E: Matching receipt
-    E->>S: 1046 DEL2 readback
-    S-->>E: New valid PC2 ON readback
-    Note over E: Recheck prerequisites
-    E->>S: 2019 TDG:DEL 1 ON
-    S-->>E: Matching receipt
-    E->>S: 1045 DEL1 readback
-    S-->>E: New valid PC1 ON readback
-    Note over E: Channel confirmation only
-    Note over S: Optical output not measured
-```
-
-The diagram is a source-level sequence, not a physical capture. A receipt alone neither supplies a readback fact nor confirms optical output. Missing/mismatched readback, stale prerequisites or a later loss of gating aborts RUN and requests STOP. **UNKNOWN:** actual External2 PC actuation, firmware response and optical output are not established by the reconstruction's physical logs. [EXT-2: controller L548–583][EXT-ADVANCE], [branch evidence analysis](evidence/external_control_2_analysis.md).
-
-External2 STOP cancels unsent enables and prioritizes separate `2019 ... 1 OFF` and `2019 ... 2 OFF` requests. Both need new OFF readbacks; failure of one does not discard the other. Unverified cleanup survives reconnect and blocks the next RUN; there is no automatic RUN resume. This STOP does not request external pump or HV OFF, and cannot retract an already transmitted request. [EXT-2: scheduler L73–115][EXT-URGENT], [controller L116–155][EXT-RECONNECT], [L527–583][EXT-ADVANCE].
-
-External2 Fault Reset also differs: `2049 ECU:RESETFAULTS → 2052 TDG:RESFAULT → 2050 RESET`, with independent readbacks inserted after each receipt; `2044 EMP:RESETFAULTS` is excluded. Reset is rejected while a PC operation is active and never starts RUN automatically. BWD Reset remains the separate `2018 → 1066` callback. [EXT-2: policy L16–20][EXT-RESET-IDS], [controller L415–422][EXT-RESET-GUARD], [L585–599][EXT-READBACK], [callbacks L202–203][EXT-BWD].
-
-The Native event loop and conditional modal-warning path in this branch predate the 1.0 UI-thread ticker/recovery changes. The 1.0 native soak is not proof of External2 Windows-NI operation. [EXT-2: native L397–405][EXT-NATIVE], [controller L243–255][EXT-MODAL].
-
-### Separate TCP status reader in current 1.0
+## D — Local TCP status reader
 
 The reconstructed local TCP status service is another boundary again. It serves `FAULTS?`, `*IDN?`, `TDG_STATUS?`, and `TEMP_STATUS?` from cached GUI/controller values. It does not forward arbitrary commands to the laser. A TCP `TDG_STATUS?` result can include a GUI DIM-derived flag; it is not an independent hardware sensor. [PY-CONTROLLER: L160–166][C-TCP], [PY-PROTOCOL: `tcp.py` L94–120][TCP-READ].
 
 ## Source references
 
-`MAN-330A` is the supplied *Spitfire Pro User's Manual*, 330A, Rev. A. Printed/PDF page pairs are stated at the relevant claims. Current-source links use `cebcc28`; EXT-2 links intentionally use the different immutable external snapshot.
+`MAN-330A` is the supplied *Spitfire Pro User's Manual*, 330A, Rev. A. Printed/PDF page pairs are stated at the relevant claims. Current-source links use `cebcc28`.
 
 [P-UDP]: https://github.com/El-Carretero/PY_SPF/blob/cebcc28490f48e9e5d4d1c2e2feef34d638244e7/spitfire/protocol.py#L147-L198
 [P-FORMAT]: https://github.com/El-Carretero/PY_SPF/blob/cebcc28490f48e9e5d4d1c2e2feef34d638244e7/spitfire/protocol.py#L13-L26
@@ -229,24 +191,6 @@ The reconstructed local TCP status service is another boundary again. It serves 
 [X-BWD-ORACLE]: https://github.com/El-Carretero/PY_SPF/blob/cebcc28490f48e9e5d4d1c2e2feef34d638244e7/analysis/native_callback_extended_results.json#L9-L24
 [X-STOP]: https://github.com/El-Carretero/PY_SPF/blob/cebcc28490f48e9e5d4d1c2e2feef34d638244e7/analysis/annotated_disasm.txt#L14177-L14207
 [X-HV]: https://github.com/El-Carretero/PY_SPF/blob/cebcc28490f48e9e5d4d1c2e2feef34d638244e7/analysis/annotated_disasm.txt#L18795-L18850
-[EXT-RUN]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L509-L568
-[EXT-ADVANCE]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L527-L583
-[EXT-PROFILE]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/external_policy.py#L47-L114
-[EXT-INIT]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/scheduling.py#L117-L133
-[EXT-DECODER]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/external_state.py#L263-L289
-[EXT-OPT]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L405-L410
-[EXT-VALIDATE]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L462-L475
-[EXT-GATES]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/external_state.py#L201-L239
-[EXT-FRESH]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L31-L35
-[EXT-HOLD]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L449-L455
-[EXT-READBACK]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L585-L599
-[EXT-URGENT]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/scheduling.py#L73-L115
-[EXT-RECONNECT]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L116-L155
-[EXT-RESET-IDS]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/external_policy.py#L16-L20
-[EXT-RESET-GUARD]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L415-L422
-[EXT-BWD]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/callbacks.py#L202-L203
-[EXT-NATIVE]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/native.py#L397-L405
-[EXT-MODAL]: https://github.com/El-Carretero/PY_SPF/blob/4c319aa7ed3a6068c86622b759535dc693c4c056/spitfire/controller.py#L243-L255
 [LOG-BWD]: evidence/bwd_history_summary.json
 [LOG-RESET]: evidence/reset_retest_summary.json
 [LOG-SOAK]: evidence/release_validation.json

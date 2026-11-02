@@ -1,0 +1,22 @@
+{
+  "en": {
+    "pdf_sha256": "f557985e1eebfe0275a7f349af888ac95896489e97b78229a06f8746ca5cee34",
+    "pages": 51,
+    "all_pages_grayscale_rgb": true,
+    "input_sha_mismatches": [],
+    "tool_sha_mismatches": [],
+    "figure_count": 10,
+    "minimum_figure_text_pt": 8.753708550855976,
+    "diagram_annotation_hits": []
+  },
+  "ko": {
+    "pdf_sha256": "0151d61c364430955d9250c738828668f4a6de36083103ba126041fe726386c6",
+    "pages": 48,
+    "all_pages_grayscale_rgb": true,
+    "input_sha_mismatches": [],
+    "tool_sha_mismatches": [],
+    "figure_count": 10,
+    "minimum_figure_text_pt": 8.674905647806023,
+    "diagram_annotation_hits": []
+  }
+}

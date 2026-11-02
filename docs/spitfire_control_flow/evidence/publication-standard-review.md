@@ -1,6 +1,6 @@
 # Publication-standard implementation review
 
-Document: **XL-TR-SPF-001, REVIEW, Draft 0.1, INTERNAL, 2 November 2026**.
+Document: **XL-TR-SPF-001, REVIEW, Draft 0.2, INTERNAL, 2 November 2026**.
 Governing source: **XL-STD-DOC-001, Revision A**, supplied 63-page PDF. The
 source manifest records the attachment hash. This is a review issue, not an
 approved controlled release, laboratory approval, or operating procedure.
@@ -31,16 +31,30 @@ and release approval remain pending (AI-03, AI-04, AI-07, CMP-01).
 | TYP-07/08 | Explicit authored section numbers retained; no second automatic numbering layer. Linked contents and PDF bookmarks follow the heading hierarchy. |
 | COL-01/02, REP-01–03 | Black, white and neutral grays; solid/dashed lines and evidence labels convey meaning without color. Primary diagram strokes use 2 px before placement; the final figure-size check preserves readability. |
 | TAB-01–05 | Left-aligned narrative cells, unique section/table labels, strong top/bottom and header rules, repeated column heads plus explicit continuation notices. Wide signal tables are landscape. |
-| FIG-01–05 | Technical diagrams only; stable Figure 1A–4D IDs, captions below figures, editable Mermaid plus vector SVG/PDF. No manufacturer image or copyrighted manual page is redistributed. |
+| FIG-01–05 | Technical diagrams only; stable Figure 1A–4C IDs, captions below figures, editable Mermaid plus vector SVG/PDF. No manufacturer image or copyrighted manual page is redistributed. |
 | WRT-04/05, TRP-01 | Important claims carry a source grade and baseline; manufacturer applicability, firmware unknowns, command acceptance and optical output remain separate. |
 | AI-01–07 | Governing PDF reviewed; authoring capsule and editable tools supplied; no approval, field actuation, measurement or validation completion invented. |
 | PDF-01–06 | Searchable text, embedded fonts, metadata, links, bookmarks, structural preflight and all-page rendered inspection are required. Actual results are recorded separately against the final PDF hash. |
 
+## Complete Korean edition
+
+The user explicitly requested a complete Korean counterpart with the same content
+and format. The seven Korean manuscripts, diagrams, cover, control record,
+contents, metadata labels and table-continuation notices are translated. The
+shared class preserves the A4 geometry, grid, type scale, hierarchy and grayscale
+controls. Latin retains URW Gothic; Hangul uses Noto Sans CJK KR Regular/Bold via
+XeTeX-ko. This requested language support does not invent an institutional font
+approval or alter the standard's English-font requirement. Its installed Korean
+collection faces, hashes and family identities are recorded by the build. All
+text remains searchable and all used font subsets must be embedded. Both editions
+require separate all-page rendered inspection against their final PDF hashes.
+
 ## Rendering controls
 
 The installed Mermaid CLI and library versions, input hashes and production-tool
-hashes are in `publication-build.json`. Every Mermaid fence in the seven main
-sources and additional Markdown evidence is parsed and rendered by Mermaid.
+hashes are in the per-language `publication-build-en.json` and
+`publication-build-ko.json` records. Every Mermaid fence in the seven English sources and the seven corresponding
+Korean sources is parsed and rendered by Mermaid.
 Puppeteer receives only local source/bundle content through `setContent`; browser
 network requests are blocked. No control application is imported or equipment
 endpoint accessed.
@@ -57,8 +71,7 @@ main landscape maps use compact layout spacing without removing nodes or arrows.
 These are disclosed production transformations, not alterations to evidence.
 
 The build rejects a PDF-incorporated figure with a final text size below 8 pt
-when `--strict` is used. Supporting evidence diagrams are validated and exported
-without being forced into an A4 report frame. The signal-reference tables retain
+when `--strict` is used. The signal-reference tables retain
 one complete row per record; repeated headers identify continued tables.
 
 ## Check disposition
@@ -71,6 +84,7 @@ requirement is **pending human release approval**; the GitHub package is a revie
 artifact with editable sources. It must not be relabeled RELEASED from this
 production record alone.
 
-The final `publication-build.json`, `publication-preflight.json` and visual-review
+The per-language `publication-build-en.json` / `publication-build-ko.json`,
+`publication-preflight-en.json` / `publication-preflight-ko.json` and visual-review
 record provide the measured output disposition. This file states implementation
 and authority boundaries; it is not a signature or a completed release approval.

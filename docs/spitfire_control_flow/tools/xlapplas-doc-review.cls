@@ -17,7 +17,7 @@
 \definecolor{XLgray15}{HTML}{D9D9D9}
 \definecolor{XLgray05}{HTML}{F2F2F2}
 \RequirePackage{graphicx,grffile,booktabs,longtable,array,calc}
-\RequirePackage{ragged2e,titlesec,caption,fancyhdr,lastpage,pdflscape}
+\RequirePackage{ragged2e,titlesec,caption,fancyhdr,lastpage,pdflscape,needspace}
 \RequirePackage{fvextra,seqsplit,xurl,etoolbox,enumitem}
 \RequirePackage[unicode,hidelinks]{hyperref}
 \RequirePackage{bookmark}
@@ -36,7 +36,7 @@
 \AtBeginDocument{\normalsize\RaggedRight}
 \AtBeginEnvironment{longtable}{\footnotesize\RaggedRight}
 \AtBeginEnvironment{tabular}{\RaggedRight}
-\titleformat{\section}{\fontsize{18}{22}\selectfont\bfseries}{\thesection}{0.7em}{}
+\titleformat{\section}{\raggedright\hyphenpenalty=10000\fontsize{18}{22}\selectfont\bfseries}{\thesection}{0.7em}{}
 \titleformat{\subsection}{\fontsize{11.5}{14}\selectfont\bfseries}{\thesubsection}{0.7em}{}
 \titleformat{\subsubsection}{\fontsize{10.5}{13}\selectfont\bfseries}{\thesubsubsection}{0.7em}{}
 \titlespacing*{\section}{0pt}{8.4mm}{4.2mm}

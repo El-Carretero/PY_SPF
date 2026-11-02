@@ -1,0 +1,38 @@
+{
+  "reviewer": "Codex publication subagent; author-side rendered inspection, not human engineering approval",
+  "render_dpi": 120,
+  "records": [
+    {
+      "language": "en",
+      "pdf_sha256": "f557985e1eebfe0275a7f349af888ac95896489e97b78229a06f8746ca5cee34",
+      "pages_individually_viewed": [
+        4,
+        8,
+        42,
+        43,
+        44,
+        45,
+        49,
+        50,
+        51
+      ],
+      "unresolved_layout_blockers": []
+    },
+    {
+      "language": "ko",
+      "pdf_sha256": "0151d61c364430955d9250c738828668f4a6de36083103ba126041fe726386c6",
+      "pages_individually_viewed": [
+        45,
+        47
+      ],
+      "unresolved_layout_blockers": []
+    }
+  ],
+  "findings": [
+    "Chapter heading preserves whole emission word and original power-on hyphen",
+    "Section5.3 and unknowns headings appear with table header and first complete row",
+    "Continuation table labels, following sections and citation anchors remain readable",
+    "Both Korean grammar corrections rendered cleanly"
+  ],
+  "remaining_pages": "Other88pages are pixel-identical to the99page export already individually inspected by the team."
+}

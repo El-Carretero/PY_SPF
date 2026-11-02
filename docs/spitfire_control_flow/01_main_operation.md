@@ -4,9 +4,11 @@
 
 The main diagrams combine documented hardware functions with the software actually examined. Inter-lane arrows identify interfaces; node-specific signal and protection relationships are expanded in Diagram 2. Unconnected hardware items are not a hidden sequential power-up program. They are **functional evidence maps**, not a certified wiring diagram or startup SOP. Physical power, seed preparation, pump preparation, keys and relay contacts are external events; running Python does not perform them. The exact applicability of the supplied Spitfire Pro manual to the requested SPTF-100F-1KHPR remains **UNKNOWN**.
 
-The software baseline for Figures 1A–1B is **Native PY_SPF 1.0**, commit `cebcc284`. Figure 1C presents **External Control 2.0.0** as a separate comparison. Recovered XP behavior, current Python behavior, manufacturer description and recorded field responses are not interchangeable.
+The software baseline for Figures 1A–1B is **Native PY_SPF 1.0**, commit `cebcc284`. Recovered XP behavior, current Python behavior, manufacturer description and recorded field responses are not interchangeable.
 
 ### Main-figure evidence key
+
+Figure 1A uses C1 for UDP startup, C3 for opt-out and initialization, C2/C4 for freshness and GUI eligibility, C5 for reset, P01 for observed board communication, and M1–M4 for external preparation and hardware functions. Figure 1B uses C6 for RUN/STOP requests, C7 for the displayed EMISSION label, M1/M2/M4 for the manufacturer-described activation and optical path, and U1 for the unobserved firmware/optical boundary. Figure 1C uses C8 for the STOP callback, C7 for the status decoder, and U1 for the unverified physical result. These references are kept here rather than inside the diagram elements.
 
 | Key | Grade | Exact reference and claim boundary |
 |---|---|---|
@@ -17,6 +19,7 @@ The software baseline for Figures 1A–1B is **Native PY_SPF 1.0**, commit `cebc
 | C5 | CODE VERIFIED / XP/LOG VERIFIED | [Reset callback, lines 290–291](https://github.com/El-Carretero/PY_SPF/blob/cebcc28490f48e9e5d4d1c2e2feef34d638244e7/spitfire/callbacks.py#L290-L291), [burst evidence](evidence/fault_burst_summary.json), [single trials](evidence/reset_retest_summary.json): reset receipt and recovery readbacks are separate observations. |
 | C6 | CODE VERIFIED / XP/LOG VERIFIED | [RUN event, lines 194–198](https://github.com/El-Carretero/PY_SPF/blob/cebcc28490f48e9e5d4d1c2e2feef34d638244e7/spitfire/callbacks.py#L194-L198), [held ON, lines 738–749](https://github.com/El-Carretero/PY_SPF/blob/cebcc28490f48e9e5d4d1c2e2feef34d638244e7/spitfire/controller.py#L738-L749), original callback/worker evidence in Section 3: command generation, not observed optical emission. |
 | C7 | CODE VERIFIED | [Empower decoder, lines 270–292](https://github.com/El-Carretero/PY_SPF/blob/cebcc28490f48e9e5d4d1c2e2feef34d638244e7/spitfire/decoders.py#L270-L292): GUI `EMISSION` visibility from Empower ON/COUNT bits; skipped on opt-out. |
+| C8 | CODE VERIFIED | [STOP callback, lines 200–201](https://github.com/El-Carretero/PY_SPF/blob/cebcc28490f48e9e5d4d1c2e2feef34d638244e7/spitfire/callbacks.py#L200-L201): event 3 queues global OFF then an Empower status query and clears the GUI request indicator. |
 | M1 | MANUAL | MAN-330A, printed 6-1–6-2 / PDF 61–62: operator preparation, seed/PD checks, pump RUN and later separate PC enables. |
 | M2 | MANUAL | Printed 3-9–3-10 / PDF 41–42: optical capture, gain, ejection and timing references. |
 | M3 | MANUAL | Printed 4-3–4-6 / PDF 49–52: TDG supplies/drivers, keys, BWD and connector paths. |
@@ -34,27 +37,27 @@ Figure 1A retains four swimlane domains. The manually prepared seed and pump pat
 flowchart LR
   subgraph EX["External Signals"]
     direction TB
-    ES["Seed light + RF sync<br/>MANUAL M2 / M3"]
-    EP["Pump pulse + timing<br/>MANUAL M2 / M3"]
-    EK["Keys / relay contacts<br/>MANUAL M3"]
+    ES["Seed light + RF sync"]
+    EP["Pump pulse + timing"]
+    EK["Keys / relay contacts"]
     ES ~~~ EP ~~~ EK
   end
   subgraph HW["Hardware / Electronics"]
     direction TB
-    HP["POWER ON / preparation<br/>MANUAL M1"]
-    HB["SASC UDP interface<br/>XP/LOG VERIFIED P01"]
-    HD["TDG / HV / PC drivers<br/>MANUAL M3"]
-    BW["BWD protection<br/>MANUAL M3 / M4"]
+    HP["POWER ON / preparation"]
+    HB["SASC UDP interface"]
+    HD["TDG / HV / PC drivers"]
+    BW["BWD protection"]
     HP ~~~ HB ~~~ HD ~~~ BW
   end
   subgraph SW["Software / Control Logic"]
     direction TB
-    S0["Open UDP; identity attempts<br/>CODE VERIFIED C1"]
-    S2["Opt-out 1 + initial queries<br/>CODE VERIFIED C3"]
-    S3{"Fresh STATUS?<br/>RUN GUI permitted?<br/>CODE VERIFIED C2 / C4"}
-    SF["Open / stale recovery<br/>CODE VERIFIED C2"]
-    SX["Fault inhibit / reset readback<br/>CODE VERIFIED C5"]
-    SR["GUI RUN eligible only<br/>CODE VERIFIED C4"]
+    S0["Open UDP; identity attempts"]
+    S2["Opt-out 1 + initial queries"]
+    S3{"Fresh STATUS?<br/>RUN GUI permitted?"}
+    SF["Open / stale recovery"]
+    SX["Fault inhibit / reset readback"]
+    SR["GUI RUN eligible only"]
     S0 -->|"Startup completed"| S2 --> S3
     S0 -->|"Failed"| SF
     S3 -->|"Missing / stale"| SF
@@ -65,14 +68,14 @@ flowchart LR
   end
   subgraph OP["Optical System"]
     direction TB
-    OS["Seed stretcher<br/>MANUAL M2 / M3"]
-    PD["PD1 red / PD2 blue<br/>MANUAL M4"]
+    OS["Seed stretcher"]
+    PD["PD1 red / PD2 blue"]
     OS --> PD
   end
-  EX -->|"M2"| OP
-  EX -->|"M3"| HW
-  OP -->|"M3"| HW
-  HW <-->|"C1"| SW
+  EX --> OP
+  EX --> HW
+  OP --> HW
+  HW <--> SW
 ```
 
 Native 1.0's `gui_ready` concerns a current connection/STATUS path; `check_health` separately dims RUN when STATUS bit0 is set. The figure's shorthand **GUI RUN eligible** means both presentation conditions are satisfied. It is an analysis label, not a device-reported READY enum. An observed `STATUS=2`, `COMSTATUS=0` coexisted with `TDG:STBH?=0x00330409`; therefore a general fault clear does not establish BWD clearance. **XP/LOG VERIFIED:** bounded reset trial in `evidence/reset_retest_summary.json`.
@@ -84,47 +87,47 @@ The original-style decoder also predicts cleared PC toggle values and requests `
 Figure 1B distinguishes a software command from the manufacturer-described normal optical path. **The global `ON` example is an energizing command reference, not an instruction to execute.** No physical ON-to-optical-output capture is claimed for the curated dataset. The manual describes an Empower configuration; its pump sequence is not assumed to be the firmware behavior under Native 1.0 opt-out or an external pump.
 
 ```mermaid
-%% caption: Figure 1B. RUN, expected optical consequence, and independent STOP/protection paths. Dashed transfers remain unverified.
+%% caption: Figure 1B. RUN, expected optical consequence, and STOP/protection functions. Figure 1C expands the STOP path; dashed transfers remain unverified.
 %% layout: landscape
 flowchart LR
   subgraph EXB["External Signals"]
     direction TB
-    UR["RUN / STOP gestures<br/>CODE VERIFIED C6"]
-    IN["Prepared seed / pump / timing<br/>MANUAL M1 / M2"]
+    UR["RUN / STOP gestures"]
+    IN["Prepared seed / pump / timing"]
     UR ~~~ IN
   end
   subgraph HWB["Hardware / Electronics"]
     direction TB
-    ON["SASC global ON / OFF<br/>CODE VERIFIED; effects UNKNOWN"]
-    PM["Empower start / stop sequence<br/>MANUAL M4; applicability UNKNOWN"]
-    PC["Separate PC1 / PC2 enable<br/>MANUAL M1"]
-    PR["BWD / relay protection<br/>MANUAL M3"]
-    ON -.->|"UNKNOWN U1"| PM
-    PM -.->|"M1"| PC
-    PR -->|"M3"| PC
+    ON["SASC global ON / OFF<br/>Actuator effects unverified"]
+    PM["Empower start / stop sequence<br/>Applicability unverified"]
+    PC["Separate PC1 / PC2 enable"]
+    PR["BWD / relay protection"]
+    ON -.->|"Unverified"| PM
+    PM -.-> PC
+    PR --> PC
   end
   subgraph SWB["Software / Control Logic"]
     direction TB
-    ACCEPT["GUI permit + hold<br/>CODE VERIFIED C2 / C6"]
-    CMD["1.0 queues 2027 ON<br/>CODE VERIFIED C6"]
-    STOP["STOP queues 2028 OFF<br/>CODE VERIFIED"]
-    LABEL["EMISSION label: EMP bits<br/>CODE VERIFIED C7"]
+    ACCEPT["GUI permit + hold"]
+    CMD["1.0 queues 2027 ON"]
+    STOP["STOP queues 2028 OFF"]
+    LABEL["EMISSION label: EMP bits"]
     ACCEPT --> CMD
     CMD ~~~ STOP ~~~ LABEL
   end
   subgraph OPB["Optical System"]
     direction TB
-    CAP["Capture / gain / ejection<br/>MANUAL M2"]
-    OUT["Compression<br/>Emission Expected: MANUAL M2"]
-    PROOF["Measured optical output<br/>UNKNOWN: no trace supplied"]
+    CAP["Capture / gain / ejection"]
+    OUT["Compression<br/>Emission Expected"]
+    PROOF["Measured optical output<br/>No trace supplied"]
     CAP --> OUT
-    OUT -.->|"UNKNOWN U1"| PROOF
+    OUT -.->|"Unverified"| PROOF
   end
-  EXB -->|"C6"| SWB
-  EXB -->|"M2"| OPB
-  SWB -->|"C6"| HWB
-  HWB -->|"C7"| SWB
-  HWB -->|"M2"| OPB
+  EXB --> SWB
+  EXB --> OPB
+  SWB --> HWB
+  HWB --> SWB
+  HWB --> OPB
 ```
 
 In Native 1.0, the hold worker queues global `ON` strictly after more than three **whole** seconds. Release/menu interruption cancels a pending start; the code does not implement the manual's full pump, shutter and ramp sequence itself. The decoded control values are not proof that the seed arrived, the pump fired or the PC drivers switched. The backend hold worker does not independently re-check every GUI fault-disable condition; a direct callback injection could bypass the natural disabled-button path. Such injection was not used to energize RUN in the physical checks. Details are in Sections 3 and 4.
@@ -133,34 +136,26 @@ The manual's normal procedure puts PC1/PC2 enable after pump start (printed 6-2)
 
 STOP/OFF must not be generalized to **all energy removed**: the manual's described STOP turns pump diodes off and closes its shutter; it does not establish that the seed, TDG HV supply or an independently controlled external pump is off. BWD-trigger inhibition and external-interlock HV removal are distinct manufacturer-described protections, detailed separately in Figure 2B. A generic software Fault does not, by itself, prove which physical protection acted.
 
-## 1.4 External pump comparison: a different software branch
+### Explicit STOP and indication paths
 
-Native 1.0 Empower opt-out is a board configuration/readback and skips selected Empower interpretation. It neither implements External Control 2.0's policy nor proves the physical external-pump wiring. The separate External Control branch blocks global `ON`/`OFF`, Empower/MIL commands and raw forwarding; it does not control the external pump or seed. **CODE VERIFIED:** [External Control analysis and immutable line citations](evidence/external_control_2_analysis.md).
+Figure 1C makes the Native STOP callback and subsequent indication path explicit. **CODE VERIFIED:** C8, C7 and the scheduler described in Section 4. Event 3 queues `2028 OFF` followed by `1013 EMP:STB?`, and immediately sets GUI `2/8=0`. A write receipt is not a mandatory success gate: after its acknowledgement/grace window, the scheduler can proceed to the query. Only an accepted valid, nonempty status reply can supply the shown decoder input; `1013` has no independent STATUS-style age guard. Esc has a different path: it queues `2028` and clears the request indicator without this immediate `1013` query. These software actions do not prove the firmware's physical OFF sequence or removal of all energy.
 
 ```mermaid
-%% caption: Figure 1C. External Control 2.0 comparison only. Readback-confirmed channel control is not measured emission.
+%% caption: Figure 1C. Native STOP request and EMISSION indication. Neither GUI path proves optical output or complete shutdown.
 flowchart TB
-  E0["External Control 2.0 startup: query only<br/>CODE VERIFIED EXT2-BRANCH"]
-  EO{"Opt-out 1 already confirmed?<br/>CODE VERIFIED"}
-  E1["If needed: manual apply at fresh HV OFF<br/>CODE VERIFIED"]
-  E2{"Fresh eligibility including HV ON + hold?<br/>CODE VERIFIED"}
-  E3["PC2 ON → readback → PC1 ON → readback<br/>CODE VERIFIED; field actuation UNKNOWN"]
-  E4["Channel state indicated<br/>Optical Emission UNKNOWN"]
-  ES["Cancel / failure / PC STOP<br/>Prioritize both PC OFF; confirm cleanup"]
-  ER["RUN inhibited; no ON request<br/>CODE VERIFIED"]
-  E0 --> EO
-  EO -->|"Yes"| E2
-  EO -->|"No"| E1
-  E1 -->|"Later HV ON is a separate prerequisite"| E2
-  E2 -->|"Permitted"| E3 --> E4
-  E2 -->|"Rejected / unknown"| ER
-  E3 -->|"Failure"| ES
-  E4 -->|"STOP / adverse state"| ES
+  A["STOP button / event 3"] --> B["Queue 2028 OFF, then 1013 EMP:STB?"]
+  A --> G["GUI request indicator 2/8 = 0"]
+  B --> C["Scheduler transmits global OFF"]
+  C -.-> U["Physical actuator result unverified"]
+  C --> T["Next queued status query<br/>Reply accepted if valid and nonempty"]
+  T --> O{"Empower opt-out set?"}
+  O -->|"Yes"| S["Skip EMISSION update<br/>Previous display can remain"]
+  O -->|"No"| F["EMISSION visible if<br/>word & 0x1 OR word & 0x200"]
+  F --> D["GUI indication only<br/>Optical output not measured"]
+  S --> D
 ```
 
-The comparison branch's manual HV-OFF check for applying opt-out, fresh/valid readback eligibility and PC2-before-PC1 sequence are implementation facts, not manufacturer specifications or a field qualification. Ordinary initialization/polling is query-only; reconnecting with an unresolved prior PC operation can reissue owed PC OFF cleanup. Its PC STOP requests channel OFF; it does not turn off the independently controlled external pump, seed or HV power. Failed/unconfirmed cleanup remains a restart inhibit. See Sections 3–6 for the precise distinctions and test scope.
-
-## 1.5 Failure, recovery and the final boundary
+## 1.4 Failure, recovery and the final boundary
 
 | Condition | Confirmed response | Recovery boundary |
 |---|---|---|

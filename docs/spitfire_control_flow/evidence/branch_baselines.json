@@ -4,10 +4,7 @@
     "native_1_0": "cebcc28490f48e9e5d4d1c2e2feef34d638244e7",
     "reconstruction_post2": "c49fada3ffeb660acb56ceeeabc5c32647750df0",
     "main_post1": "78d3f447b1ca3dea35c5a737b75569a882bc0650",
-    "external_2_0_0": "4c319aa7ed3a6068c86622b759535dc693c4c056",
-    "external_2_feature": "89de13d0fcb9cefdfc8d4908a628e89e391169ca",
     "comparison_1_5_1": "e87225bdc904aeb5348daa409abfa49de449b017"
   },
-  "native_field_scope": "native_1_0",
-  "external_field_validation": "UNKNOWN; branch tests are simulated/loopback"
+  "native_field_scope": "native_1_0"
 }

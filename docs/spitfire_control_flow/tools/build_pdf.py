@@ -6,7 +6,7 @@ Only documentation assets are written. No Spitfire package is imported and no
 equipment endpoint is accessed. Working TeX files stay outside the repository.
 """
 from __future__ import annotations
-import argparse,hashlib,json,os,re,shutil,subprocess,tempfile,xml.etree.ElementTree as ET
+import argparse,hashlib,json,os,posixpath,re,shutil,subprocess,tempfile
 from datetime import date
 from pathlib import Path
 import fitz
@@ -32,6 +32,23 @@ def tex(s):
 def first_heading(text):
     m=re.search(r'^#{1,6}\s+(.+?)\s*#*$',text,re.M)
     return m[1] if m else 'Technical diagram'
+def prepare_korean_fonts(build):
+    """Extract the named Korean faces from the shared CJK collections."""
+    from fontTools.ttLib import TTCollection
+    target=build/'fonts';target.mkdir(exist_ok=True)
+    records=[]
+    for weight in ['Regular','Bold']:
+        source=Path('/usr/share/fonts/opentype/noto')/f'NotoSansCJK-{weight}.ttc'
+        collection=TTCollection(source,lazy=True)
+        for index,family in [(1,'NotoSansCJKkr'),(6,'NotoSansMonoCJKkr')]:
+            font=collection.fonts[index];font.recalcTimestamp=False
+            output=target/f'{family}-{weight}.otf';font.save(output)
+            records.append({'collection':str(source),'collection_sha256':sha(source),'index':index,
+                'family':font['name'].getDebugName(1),'postscript_name':font['name'].getDebugName(6),
+                'shared_cff_font_name':font['CFF '].cff.fontNames,
+                'extracted_face':output.name,'sha256':sha(output)})
+        collection.close()
+    return target,records
 def figure_properties(pdf,maxw,maxh):
     with fitz.open(pdf) as d:
         p=d[0];scale=min(maxw/p.rect.width,maxh/p.rect.height)
@@ -42,6 +59,7 @@ def figure_properties(pdf,maxw,maxh):
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--language',choices=['en','ko'],default='en',help='English root sources or complete Korean sources under ko/')
     ap.add_argument('--mmdc',default=shutil.which('mmdc') or '/workspace/tooling/mermaid/node_modules/.bin/mmdc')
     ap.add_argument('--chromium',default=shutil.which('chromium') or '/usr/bin/chromium')
     ap.add_argument('--tooling-root',type=Path,help='npm project containing mermaid and puppeteer; defaults to parent of node_modules/.bin/mmdc')
@@ -53,14 +71,21 @@ def main():
     ap.add_argument('--strict',action='store_true',help='fail if a figure needs readability review')
     args=ap.parse_args()
     tooling=args.tooling_root or Path(args.mmdc).absolute().parent.parent.parent
-    meta=json.loads((TOOLS/'publication.json').read_text())
-    meta['display_date']=date.fromisoformat(meta['issue_date']).strftime('%-d %B %Y')
-    missing=[name for name in INPUTS if not (ROOT/name).exists()]
+    language=args.language
+    manuscript_root=ROOT/('ko' if language=='ko' else '')
+    meta=json.loads((TOOLS/('publication-ko.json' if language=='ko' else 'publication.json')).read_text())
+    issue_date=date.fromisoformat(meta['issue_date'])
+    meta['display_date']=(f'{issue_date.year}년 {issue_date.month}월 {issue_date.day}일' if language=='ko' else issue_date.strftime('%-d %B %Y'))
+    missing=[str((manuscript_root/name).relative_to(ROOT)) for name in INPUTS if not (manuscript_root/name).exists()]
     if missing and not args.allow_partial:raise SystemExit('Missing input files: '+', '.join(missing))
     build=args.build_dir or Path(tempfile.mkdtemp(prefix='spitfire-control-pdf-'))
     build.mkdir(parents=True,exist_ok=True)
-    figures=ROOT/'figures';figures.mkdir(exist_ok=True)
-    config=TOOLS/'mermaid-theme.json'
+    font_sources=[]
+    if language=='ko':
+        font_dir,font_sources=prepare_korean_fonts(build)
+        meta['korean_font_directory']=font_dir.as_posix()+'/'
+    figures=ROOT/'figures'/language;figures.mkdir(parents=True,exist_ok=True)
+    config=TOOLS/('mermaid-theme-ko.json' if language=='ko' else 'mermaid-theme.json')
     puppet=build/'puppeteer.json'
     puppet.write_text(json.dumps({'executablePath':args.chromium,'args':['--no-sandbox','--disable-dev-shm-usage']}))
     cachepath=figures/'render-cache.json'
@@ -68,8 +93,8 @@ def main():
     mermaid_version=run([args.mmdc,'--version']).stdout.strip()
     library_version=json.loads((tooling/'node_modules/mermaid/package.json').read_text())['version']
     records=[];pieces=[];figure_index=0;newcache={};input_hashes={}
-    extra=[str(p.relative_to(ROOT)) for p in sorted((ROOT/'evidence').glob('*.md')) if FENCES.search(p.read_text(encoding='utf-8'))]
-    all_inputs=INPUTS+extra
+    extra=[]
+    all_inputs=[str((manuscript_root/name).relative_to(ROOT)) for name in INPUTS]
     for name in all_inputs:
         path=ROOT/name
         if not path.exists():continue
@@ -83,9 +108,9 @@ def main():
             caption_match=re.search(r'^\s*%%\s*caption:\s*(.+)$',body,re.M)
             heads=list(re.finditer(r'^#{1,6}\s+(.+?)\s*#*$',text[:match.start()],re.M))
             caption=caption_match[1] if caption_match else (heads[-1][1] if heads else first_heading(text))
-            if name not in extra and not re.match(r'^Figure\s+\d',caption):
+            if name not in extra and not re.match(r'^(?:Figure|그림)\s+\d',caption):
                 section=int(path.name[:2]);suffix=chr(64+block_index)
-                caption=f'Figure {section}{suffix}. '+re.sub(r'^\d+(?:\.\d+)*\.?\s*','',caption)
+                caption=f'{meta["ui"]["figure"]} {section}{suffix}. '+re.sub(r'^\d+(?:\.\d+)*\.?\s*','',caption)
             landscape=bool(re.search(r'^\s*%%\s*layout:\s*landscape\s*$',body,re.M))
             stem=f'{"evidence_" if name in extra else ""}{path.stem}_{block_index:02d}'
             source=figures/(stem+'.mmd');svg=figures/(stem+'.svg');pdf=figures/(stem+'.pdf')
@@ -105,7 +130,7 @@ def main():
             record['readability_review_required']=name not in extra and (props['effective_min_text_pt'] is None or props['effective_min_text_pt']<args.min_figure_font)
             records.append(record)
             cap=tex(caption);label='fig:'+stem
-            caption_parts=re.match(r'^(Figure\s+\d+[A-Z]?\.)\s*(.*)',caption)
+            caption_parts=re.match(r'^((?:Figure|그림)\s+\d+[A-Z]?\.)\s*(.*)',caption)
             if caption_parts:cap=r'\textbf{'+tex(caption_parts[1])+'} '+tex(caption_parts[2])
             fig=(r'\clearpage'+'\n'+(r'\begin{landscape}'+'\n' if landscape else '')+
                 r'\begin{figure}[p]'+'\n'+r'\centering'+'\n'+
@@ -123,16 +148,18 @@ def main():
             if dest.startswith('/'):return m[0]
             from urllib.parse import quote
             base=f'https://github.com/{meta["repository"]}/blob/{meta["documentation_ref"]}/docs/spitfire_control_flow/'
-            return f'[{label}]({base}{quote(dest,safe="/#:?=&%")})'
+            resolved=posixpath.normpath(posixpath.join(str(path.parent.relative_to(ROOT)),dest))
+            return f'[{label}]({base}{quote(resolved,safe="/#:?=&%")})'
         text=re.sub(r'(?<!!)\[([^\]]+)\]\(([^)]+)\)',link,text)
         def reference_link(m):
             prefix,dest=m.groups()
             if dest.startswith(('http:','https:','#','mailto:','/')):return m[0]
             from urllib.parse import quote
             base=f'https://github.com/{meta["repository"]}/blob/{meta["documentation_ref"]}/docs/spitfire_control_flow/'
-            return prefix+base+quote(dest,safe='/#:?=&%')
+            resolved=posixpath.normpath(posixpath.join(str(path.parent.relative_to(ROOT)),dest))
+            return prefix+base+quote(resolved,safe='/#:?=&%')
         text=re.sub(r'^(\[[^\]\n]+\]:\s*)(\S+)',reference_link,text,flags=re.M)
-        if name=='05_signal_reference.md':
+        if path.name=='05_signal_reference.md':
             # Six-column technical reference tables need PAG-02 landscape width.
             text='::: {.landscape}\n\n'+text+'\n\n:::\n'
         if pieces:pieces.append('\\clearpage\n')
@@ -140,7 +167,7 @@ def main():
     cachepath.write_text(json.dumps(newcache,indent=2)+'\n')
     changed=[n for n,digest in input_hashes.items() if sha(ROOT/n)!=digest]
     if changed:raise RuntimeError('Inputs changed during rendering; rebuild: '+', '.join(changed))
-    manifest={'document':meta,'input_sha256':input_hashes,
+    manifest={'language':language,'document':meta,'input_sha256':input_hashes,'korean_font_sources':font_sources,
         'tool_sha256':{p.name:sha(p) for p in sorted(TOOLS.iterdir()) if p.is_file() and p.suffix in {'.py','.lua','.tex','.cls','.mjs','.json'}},
         'missing_inputs':missing,'partial_proof':bool(missing),'renderer':{'mermaid_cli_installation':mermaid_version,'mermaid_library':library_version,'chromium':args.chromium,'route':'Puppeteer setContent plus local Mermaid bundle; no URL navigation; all network requests blocked'},
         'figures':records,'landscape_sections':['05_signal_reference.md — wide six-column signal tables, PAG-02'],
@@ -164,7 +191,7 @@ def main():
             header=table[start:end]
             columns=header.count(r'\begin{minipage}')
             if not columns:return table
-            continuation=(f'\\multicolumn{{{columns}}}{{@{{}}l@{{}}}}{{\\footnotesize\\itshape Table continued from previous page}}\\\\\n')
+            continuation=(f'\\multicolumn{{{columns}}}{{@{{}}l@{{}}}}{{\\footnotesize\\itshape {tex(meta["ui"]["table_continued"])}}}\\\\\n')
             return table[:start]+header+r'\endfirsthead'+'\n'+continuation+header+table[end:]
         texpath.write_text(re.sub(r'\\begin\{longtable\}[\s\S]*?\\end\{longtable\}',continued_table,texpath.read_text()))
         env=dict(os.environ);env['TEXINPUTS']=str(TOOLS)+os.pathsep+env.get('TEXINPUTS','')
@@ -178,11 +205,11 @@ def main():
         manifest['pdf']={'file':str(output),'sha256':sha(output),'bytes':output.stat().st_size,
             'latex_overfull_boxes':re.findall(r'Overfull[^\n]*',log),'latex_missing_characters':re.findall(r'Missing character:[^\n]*',log)}
         manifest['build_directory']=str(build)
-    manifest_path=ROOT/'evidence'/'publication-build.json'
+    manifest_path=ROOT/'evidence'/f'publication-build-{language}.json'
     manifest_path.parent.mkdir(exist_ok=True)
     manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({'pdf':manifest.get('pdf'),'missing_inputs':missing,'figures':len(records),
         'readability_review_required':manifest['readability_review_required'],'build_directory':str(build)},indent=2))
-    if args.strict and manifest['readability_review_required']:raise SystemExit(2)
+    if args.strict and (manifest['readability_review_required'] or manifest.get('pdf',{}).get('latex_missing_characters')):raise SystemExit(2)
 
 if __name__=='__main__':main()

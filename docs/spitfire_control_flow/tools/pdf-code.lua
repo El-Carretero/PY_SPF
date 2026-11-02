@@ -1,5 +1,14 @@
 -- Inline code is deliberately left to Pandoc's exact literal-string writer.
 -- Long code blocks wrap without inserted hyphens; no device command is run.
+function Header(el)
+  local heading=pandoc.utils.stringify(el.content)
+  -- These two dense table sections need the heading, column heads and first
+  -- complete record together. The reserve fits that group at the shared scale.
+  if el.level==2 and (heading:match('^5%.3 ') or heading=='Unknowns that remain open' or heading=='남아 있는 미확인 사항') then
+    return {pandoc.RawBlock('latex','\\Needspace{14\\baselineskip}'),el}
+  end
+  return el
+end
 function Code(el)
   if #el.text>25 and el.text:match('^[-%w_/:.#?]+$') then
     return pandoc.RawInline('latex','\\nolinkurl{'..el.text..'}')

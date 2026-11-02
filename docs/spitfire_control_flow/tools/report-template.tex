@@ -1,9 +1,16 @@
 \documentclass{xlapplas-doc-review}
+$if(korean)$
+\usepackage{xetexko}
+\setmainhangulfont{NotoSansCJKkr-Regular.otf}[Path={$korean_font_directory$},BoldFont=NotoSansCJKkr-Bold.otf,ItalicFont=NotoSansCJKkr-Regular.otf,BoldItalicFont=NotoSansCJKkr-Bold.otf,Script=Hangul,Language=Korean]
+\setsanshangulfont{NotoSansCJKkr-Regular.otf}[Path={$korean_font_directory$},BoldFont=NotoSansCJKkr-Bold.otf,ItalicFont=NotoSansCJKkr-Regular.otf,BoldItalicFont=NotoSansCJKkr-Bold.otf,Script=Hangul,Language=Korean]
+\setmonohangulfont{NotoSansMonoCJKkr-Regular.otf}[Path={$korean_font_directory$},BoldFont=NotoSansMonoCJKkr-Bold.otf,Script=Hangul,Language=Korean]
+$endif$
 \newcommand{\XLnumber}{$document_number$}
 \newcommand{\XLrevision}{$document_revision$ | $status$}
 \newcommand{\XLclassification}{$classification$}
 \newcommand{\XLshorttitle}{$short_title$}
-\hypersetup{pdftitle={$title$},pdfauthor={$prepared_by$},pdfsubject={$document_number$; $document_revision$; $status$; $classification$; source-traceable hardware/software analysis},pdfkeywords={Spitfire, SPTF-100F-1KHPR, control flow, evidence, XL-STD-DOC-001}}
+\renewcommand{\contentsname}{$ui.contents$}
+\hypersetup{pdftitle={$title$},pdfauthor={$prepared_by$},pdfsubject={$document_number$; $document_revision$; $status$; $classification$; $ui.pdf_subject$},pdfkeywords={Spitfire, SPTF-100F-1KHPR, XL-STD-DOC-001},pdflang={$language$}}
 \begin{document}
 \begin{titlepage}
 \thispagestyle{empty}
@@ -11,50 +18,50 @@
 Extreme Laser Plasma Photonics \& LabAstrophysics\par
 UNIST, Department of Physics\par
 \vspace{21mm}
-{\fontsize{30}{34}\selectfont\bfseries Spitfire\par Hardware--Software\par Integrated Control Flow\par}
+{\fontsize{30}{34}\selectfont\bfseries $ui.cover_line1$\par $ui.cover_line2$\par $ui.cover_line3$\par}
 \vspace{8.4mm}
 {\fontsize{11.5}{15}\selectfont $subtitle$\par}
 \vspace{12.6mm}
 \textbf{$status$ --- $document_revision$}\par
-Evidence-led technical report. This review issue is not an approved operating procedure or proof of physical emission.
+$ui.notice$
 \vfill
 \begin{tabular}{@{}p{53.33mm}p{111.67mm}@{}}
-Document & \texttt{$document_number$} \\
-Classification & $classification$ \\
-Issue date & $display_date$ \\
-Prepared by & $prepared_by$ \\
-Human review & Pending \\
-Laboratory approval & Not recorded \\
-Principal Investigator & Inhyuk Nam \\
+$ui.document$ & \texttt{$document_number$} \\
+$ui.classification$ & $classification$ \\
+$ui.issue_date$ & $display_date$ \\
+$ui.prepared_by$ & $prepared_by$ \\
+$ui.human_review$ & $ui.pending$ \\
+$ui.laboratory_approval$ & $ui.not_recorded$ \\
+$ui.principal_investigator$ & Inhyuk Nam \\
 \end{tabular}
 \vspace{8.4mm}
 \end{titlepage}
 \thispagestyle{empty}
-\pdfbookmark[0]{Document control}{document-control}
-\section*{Document control}
+\pdfbookmark[0]{$ui.document_control$}{document-control}
+\section*{$ui.document_control$}
 \begin{longtable}{@{}p{53.33mm}p{111.67mm}@{}}
 \toprule
-Field & Record \\
+$ui.field$ & $ui.record$ \\
 \midrule
-Document number & \texttt{$document_number$} \\
-Title & $title$ \\
-Class and status & Technical Report (TR); $status$; $document_revision$ \\
-Classification & $classification$ \\
-Issue date & $display_date$ \\
-Issuer & xLaPPLAs, Extreme Laser Plasma Photonics \& LabAstrophysics; UNIST, Department of Physics \\
-Document owner & $document_owner$ \\
-Prepared by & $prepared_by$ \\
-Reviewed by & $reviewed_by$ \\
-Approved by & $approved_by$ \\
-Governing standard & XL-STD-DOC-001, Revision A, 21 September 2026 \\
-Implementation & Documented review derivative of the supplied PDF standard; no official template, logo asset or separate design-contract file was supplied \\
-Source package & Editable Markdown, Mermaid sources and figures, publication configuration, build tooling and evidence references accompany this PDF \\
+$ui.document_number$ & \texttt{$document_number$} \\
+$ui.title$ & $title$ \\
+$ui.class_status$ & $ui.technical_report$; $status$; $document_revision$ \\
+$ui.classification$ & $classification$ \\
+$ui.issue_date$ & $display_date$ \\
+$ui.issuer$ & xLaPPLAs, Extreme Laser Plasma Photonics \& LabAstrophysics; UNIST, Department of Physics \\
+$ui.document_owner$ & $document_owner$ \\
+$ui.prepared_by$ & $prepared_by$ \\
+$ui.reviewed_by$ & $reviewed_by$ \\
+$ui.approved_by$ & $approved_by$ \\
+$ui.standard$ & XL-STD-DOC-001, $standard_revision_text$, $standard_date$ \\
+$ui.implementation$ & $ui.implementation_record$ \\
+$ui.source_package$ & $ui.source_record$ \\
 \bottomrule
 \end{longtable}
-\textbf{Authority boundary.} The named document owner and Principal Investigator identify the standard's institutional context; they are not signatures or evidence of review or approval. Human engineering review and laboratory approval remain pending. No new equipment actuation was performed for this documentation task.
-\par\textbf{Use boundary.} The diagrams separate user request, Python acceptance, recovered XP behavior, equipment response and optical output. They are an analysis of evidence, not authorization to energize equipment, alter calibration, or bypass an interlock.
+\textbf{$ui.authority_label$} $ui.authority$
+\par\textbf{$ui.use_label$} $ui.use$
 \clearpage
-\pdfbookmark[0]{Contents}{contents}
+\pdfbookmark[0]{$ui.contents$}{contents}
 \tableofcontents
 \clearpage
 $body$

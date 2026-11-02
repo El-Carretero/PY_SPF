@@ -34,29 +34,29 @@ PDF pages are one-based physical pages, including the cover and front matter. Ma
 
 ## 2.2 Optical path and two independent timing references
 
-Figure 2A shows functional paths described by the manual, rather than a connector pinout or circuit schematic. Node and edge evidence IDs refer to the table above. A line indicates a documented signal or optical relationship; it does not assert an unmeasured voltage level, propagation delay, or hidden firmware gate.
+Figure 2A shows functional paths described by the manual, rather than a connector pinout or circuit schematic [M-3.9; M-3.10; M-4.5; M-4.6]. A line indicates a documented signal or optical relationship; it does not assert an unmeasured voltage level, propagation delay, or hidden firmware gate.
 
 ```mermaid
 %% caption: Figure 2A. Optical path and two independent timing references
-%%{init: {"theme":"base","themeVariables":{"fontSize":"18px","fontFamily":"Arial","primaryColor":"#f4f4f4","primaryTextColor":"#111111","primaryBorderColor":"#555555","lineColor":"#555555","secondaryColor":"#dddddd","tertiaryColor":"#ffffff"},"flowchart":{"htmlLabels":false,"curve":"linear"}}}%%
+%%{init: {"theme":"base","themeVariables":{"fontSize":"18px","fontFamily":"URW Gothic","primaryColor":"#f4f4f4","primaryTextColor":"#111111","primaryBorderColor":"#555555","lineColor":"#555555","secondaryColor":"#dddddd","tertiaryColor":"#ffffff"},"flowchart":{"htmlLabels":false,"curve":"linear"}}}%%
 flowchart TB
-  SEED["Mode-locked seed laser\nMANUAL M-3.9 / M-4.6"]
-  STRETCH["Optical stretcher\nMANUAL M-3.9 / M-4.4"]
-  CAVITY["Capture, amplify, eject\nMANUAL M-3.9 / M-3.10"]
-  COMP["Compressor and output\nMANUAL M-3.9"]
-  RF["OSCILLATOR SYNC INPUT\nMANUAL M-4.6"]
-  PUMP["Pump laser pulse and SYNC\nMANUAL M-3.10 / M-4.5"]
-  TDG["TDG timing and division\nMANUAL M-3.10"]
-  PC["CH1 / PC1 and CH2 / PC2\nMANUAL M-3.10 / M-4.6"]
-  SEED -->|"Optical seed M-3.9"| STRETCH
-  STRETCH -->|"Stretched pulse M-3.9"| CAVITY
-  CAVITY -->|"Ejected pulse M-3.9"| COMP
-  SEED -.->|"Electrical reference M-4.6"| RF
-  RF -->|"Seed timing M-3.10"| TDG
-  PUMP -->|"AMPLIFIER TRIGGER INPUT M-4.5"| TDG
-  PUMP -.->|"Optical pumping M-3.9"| CAVITY
-  TDG -->|"Delayed triggers M-3.10"| PC
-  PC -->|"Capture and ejection M-3.10"| CAVITY
+  SEED["Mode-locked seed laser"]
+  STRETCH["Optical stretcher"]
+  CAVITY["Capture, amplify, eject"]
+  COMP["Compressor and output"]
+  RF["OSCILLATOR SYNC INPUT"]
+  PUMP["Pump laser pulse and SYNC"]
+  TDG["TDG timing and division"]
+  PC["CH1 / PC1 and CH2 / PC2"]
+  SEED -->|"Optical seed"| STRETCH
+  STRETCH -->|"Stretched pulse"| CAVITY
+  CAVITY -->|"Ejected pulse"| COMP
+  SEED -.->|"Electrical reference"| RF
+  RF -->|"Seed timing"| TDG
+  PUMP -->|"AMPLIFIER TRIGGER INPUT"| TDG
+  PUMP -.->|"Optical pumping"| CAVITY
+  TDG -->|"Delayed triggers"| PC
+  PC -->|"Capture and ejection"| CAVITY
 ```
 
 **Figure 2A.** The seed-reference cable and pump-trigger cable serve different functions. The manual describes the TDG as first triggered by a **positive-edge TTL pulse from the pump** and synchronized to the seed modelocker reference for selecting a seed pulse [M-3.10]. The absolute delay calibration, phase window, pulse shape, and exact installed electrical interfaces are **UNKNOWN** for the user's system.
@@ -69,23 +69,23 @@ The manual associates PC1/CH1 with capture and PC2/CH2 with ejection. Its 0–10
 
 ```mermaid
 %% caption: Figure 2B. Protection paths without an invented master gate
-%%{init: {"theme":"base","themeVariables":{"fontSize":"18px","fontFamily":"Arial","primaryColor":"#f4f4f4","primaryTextColor":"#111111","primaryBorderColor":"#555555","lineColor":"#555555","secondaryColor":"#dddddd","tertiaryColor":"#ffffff"},"flowchart":{"htmlLabels":false,"curve":"linear"}}}%%
+%%{init: {"theme":"base","themeVariables":{"fontSize":"18px","fontFamily":"URW Gothic","primaryColor":"#f4f4f4","primaryTextColor":"#111111","primaryBorderColor":"#555555","lineColor":"#555555","secondaryColor":"#dddddd","tertiaryColor":"#ffffff"},"flowchart":{"htmlLabels":false,"curve":"linear"}}}%%
 flowchart TB
-  PD["Stretcher PD1 red / PD2 blue\nMANUAL M-4.4 / M-6.10"]
-  BWD["BWD monitors detector signals\nMANUAL M-4.4"]
-  BLOCK["Below either factory threshold:\ncell triggers inhibited\nMANUAL M-4.4"]
-  RESET["Cause restored and relay reset\nMANUAL M-6.10"]
-  KEY["TDG HV enable keyswitch\nMANUAL M-4.3"]
-  EXT["External TDG interlock opens\nMANUAL M-4.5"]
-  HV["Pockels-cell HV output\nMANUAL M-4.3 / M-4.5"]
-  PD -->|"Detector signals M-4.4"| BWD
-  BWD -->|"Documented trip condition M-4.4"| BLOCK
-  RESET -.->|"BWD recovery condition M-6.10"| BWD
-  KEY -->|"Enables or disables M-4.3"| HV
-  EXT -->|"Immediately turns off M-4.5"| HV
+  PD["Stretcher PD1 red / PD2 blue"]
+  BWD["BWD monitors detector signals"]
+  BLOCK["Either detector below factory threshold:<br/>cell triggers inhibited"]
+  RESET["Cause restored and relay reset"]
+  KEY["TDG HV enable keyswitch"]
+  EXT["External TDG interlock opens"]
+  HV["Pockels-cell HV output"]
+  PD -->|"Detector signals"| BWD
+  BWD -->|"Trip condition"| BLOCK
+  RESET -.->|"BWD recovery condition"| BWD
+  KEY -->|"Enables or disables"| HV
+  EXT -->|"Immediately turns off"| HV
 ```
 
-**Figure 2B.** Separate documented protection functions. The drawing deliberately supplies no common AND/OR circuit, priority ordering, relay-coil polarity, or shared pump/seed interlock wiring. Those details are **UNKNOWN**. A dashed recovery arrow identifies a reset condition, not a proven circuit path.
+**Figure 2B.** Separate documented protection functions [M-4.3; M-4.4; M-4.5; M-6.10]. The drawing deliberately supplies no common AND/OR circuit, priority ordering, relay-coil polarity, or shared pump/seed interlock wiring. Those details have not been established. A dashed recovery arrow identifies a reset condition, not a proven circuit path.
 
 The BWD samples parts of the seed spectrum in the stretcher. PD1 corresponds to its red end and PD2 to its blue end. If either detector signal falls below its factory-set threshold, the manual says that the Pockels-cell triggers are disabled and no pulses are selected for amplification [M-4.4; M-6.10]. This is a detector-based protective inhibit with a described relay/reset state. It does not measure output pulse duration directly. Both PD indicators being on is not independent proof of full spectral quality, correct compressor position, or safe peak intensity. Factory threshold values, analog transfer functions, debounce time, latch implementation, and target-hardware calibration are **UNKNOWN**.
 

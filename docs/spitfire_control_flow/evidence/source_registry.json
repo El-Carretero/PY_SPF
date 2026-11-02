@@ -144,15 +144,6 @@
       "limit": "No stored valid clear response; no all-times assertion, physical detector mapping, or reset-success assertion."
     },
     {
-      "id": "EXT2-BRANCH",
-      "label": "CODE VERIFIED",
-      "provenance": ["E-STATIC", "E-SYNTHETIC"],
-      "availability": ["TRACKED-SOURCE", "TRACKED-REPORT"],
-      "references": ["docs/spitfire_control_flow/evidence/external_control_2_analysis.md", "docs/spitfire_control_flow/evidence/branch_baselines.json"],
-      "physical_external_pump_actuation": "UNKNOWN",
-      "limit": "Separate feature branch evidence; not covered by the 1.0 read-only physical soak."
-    },
-    {
       "id": "MAN-330A",
       "label": "MANUAL",
       "provenance": ["E-MANUAL"],
@@ -185,7 +176,7 @@
       "label": "UNKNOWN",
       "provenance": ["E-UNKNOWN"],
       "availability": ["ABSENT"],
-      "missing_records": ["PCAP/PCAPNG of the physical sessions", "actual XP whole-application physical-device trace", "verified device nameplate and matching circuit-to-bit mapping", "authoritative complete installed-firmware protocol", "independent optical-output measurements", "physical External Control 2.0 external-pump actuation"]
+      "missing_records": ["PCAP/PCAPNG of the physical sessions", "actual XP whole-application physical-device trace", "verified device nameplate and matching circuit-to-bit mapping", "authoritative complete installed-firmware protocol", "independent optical-output measurements"]
     }
   ]
 }
