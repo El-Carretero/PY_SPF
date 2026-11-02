@@ -178,6 +178,10 @@ jobs:
           proof = json.loads((artifact / "install-validation/install-validation.json").read_text(encoding="utf-8-sig"))
           if proof.get("passed") is not True:
               raise SystemExit("Install/run/uninstall proof is not a passing result")
+          checks = {row.get("name"): row.get("passed") for row in proof.get("checks", [])}
+          for required in ("regular-native-demo-graceful-exit", "uninstalled-payload-files-removed"):
+              if checks.get(required) is not True:
+                  raise SystemExit(f"Required installation proof is missing or failed: {required}")
           destination = Path("output/native-installer")
           if destination.exists():
               shutil.rmtree(destination)
