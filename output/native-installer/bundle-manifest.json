@@ -1,0 +1,728 @@
+{
+  "schema": 1,
+  "application": "PY_SPF",
+  "package_version": "1.0.0",
+  "original_ni_gui_version": "1.6.0",
+  "layout": "onedir",
+  "architecture": "x86",
+  "font_strategy": "original vendor TTFs retained internally for process-private memory loading; EXE-adjacent .ttf names are non-font ASCII compatibility placeholders",
+  "python": "3.13.9 (tags/v3.13.9:8183fa5, Oct 14 2025, 14:00:05) [MSC v.1944 32 bit (Intel)]",
+  "build_tools": {
+    "PyInstaller": "6.16.0",
+    "pyinstaller-hooks-contrib": "2025.9",
+    "altgraph": "0.17.4",
+    "packaging": "25.0",
+    "pefile": "2023.2.7",
+    "pywin32-ctypes": "0.2.3",
+    "setuptools": "80.9.0"
+  },
+  "source_commit": "5ec01261cf843885f579d5afaa8da0706f8c0ef4",
+  "source_sha256": {
+    "spitfire/__init__.py": "fe15f653f5c69d94cadb760dd97dcd7789e8d0935d43cce07e538a6ac2225d4c",
+    "spitfire/__main__.py": "4fd7a1429b77740f3b1b1516774d96a3505a5092a53c48b44595fbf364e3fec6",
+    "spitfire/callbacks.py": "3d4bc2755b2de5bf60afec061b986e20cbf25ff9ee5b96a2caa927ec5d3f8f00",
+    "spitfire/controller.py": "fd748a98e3eda887608bdc270cfe8c76055825077210c7b20d9b949cb72af0cb",
+    "spitfire/decoders.py": "030e840687936431ed75844773b2e2fa4640c7e2893a9cbd2e37556c4c5a70ee",
+    "spitfire/diagnostics.py": "a7b6f741ff6f20ec89d5e924eea9ce953e5c789acf2debfa2a2c775daf854b25",
+    "spitfire/frozen.py": "bfe64c8ccb71c4be46a733991b96d2e407b13a226032e56ec2c395494c98eda0",
+    "spitfire/gui.py": "6151569e677643bd26bc6f6d09af2673025631b3435d59b7d2c19a34133b5284",
+    "spitfire/native.py": "8966534cb808a7273c00dcd2593d26757229221a10689fc158b7d086db7b5c73",
+    "spitfire/native_ticker.py": "03415f09a81f325f088ec28baeadfaa765214a025be4da1fb68754c9c7a668bf",
+    "spitfire/packaged_check.py": "5782057721261b3bcd93a7be1f3618a117dd0aef16e8a4dc07adf3f419080950",
+    "spitfire/private_fonts.py": "225780ceda5d398e29cbd4f39aa382bcda350387379b9945ca80fcbd1e9df07a",
+    "spitfire/protocol.py": "f3817917c66fb5a29e0f2bcac59f2f550e67fe73b64645dab6d7029b5cb5118f",
+    "spitfire/scheduling.py": "6555f0eea9b0b77ea0fca80638ba891647a2c0e1edd8f71d128641a6c4567bf4",
+    "spitfire/settings.py": "22fd3ba0327225ce1535f7473f7884646864c624f009db30245a8c2315aa5712",
+    "spitfire/simulator.py": "70aed8602e9debb5ee018a647a50fb9f06b3eb7d6971db720c6b40f752cf32af",
+    "spitfire/tcp.py": "1f2909d3b4d80b7451878c95b88ced9a181783deb795ba9200c206e76f9bbe5a",
+    "packaging/windows/native_app.py": "585aaa2ff62fc636090a91ac4a54b5f043e11598e8c14b90855961c53f858a6a",
+    "packaging/windows/native.manifest": "855c3a46cc8440bbaa7f56ae5133f27e5354336f6bad901070c7dd603cc760e1",
+    "packaging/windows/PY_SPF.spec": "0817f3092fc9f467c3f20d4eb42255bf0720e850bc8fd28e469ca260b5908ebf",
+    "packaging/windows/build.ps1": "f44e52b773060ab0e44f3e66cc750141df61bdbaf7b0867dfd62ca358081634c",
+    "requirements-build.txt": "4cad729cf9ddf009e783da87d9914757cbe5ba6807d04c4e89de3294858cab27"
+  },
+  "files": [
+    {
+      "path": "_internal/_bz2.pyd",
+      "bytes": 83800,
+      "sha256": "b24f2b381299047ae1a77516e21cd26ee06a4efe4ff6b54c0849707f9c5bbaf4"
+    },
+    {
+      "path": "_internal/_ctypes.pyd",
+      "bytes": 121176,
+      "sha256": "64e8398b7e66acfd1c1fd4c6b330d736ac65a863eec719546d500d2f721c8c26"
+    },
+    {
+      "path": "_internal/_decimal.pyd",
+      "bytes": 234328,
+      "sha256": "bf3c6da5145bae69f7f4c46307d4f60b3baca60ec950b95d0afc2426ad2056d5"
+    },
+    {
+      "path": "_internal/_hashlib.pyd",
+      "bytes": 55128,
+      "sha256": "ef05bb2789d7a0fc0c2c4a438836a59aacbd92da54adc4907532244ad8d0b03e"
+    },
+    {
+      "path": "_internal/_lzma.pyd",
+      "bytes": 148312,
+      "sha256": "5a1dc5f1bda65cf2c818765708e8c65819b998ee84fb5e025ac05ce48a57a83d"
+    },
+    {
+      "path": "_internal/_multiprocessing.pyd",
+      "bytes": 32600,
+      "sha256": "b21c9d85b3c62399e3b594099c706940a689686776dd6d25d849239fe05ba2f7"
+    },
+    {
+      "path": "_internal/_queue.pyd",
+      "bytes": 31576,
+      "sha256": "9d5aff449f30570bef662f142539dc13b1bdb3490328f2c526f8bbc0884d0238"
+    },
+    {
+      "path": "_internal/_socket.pyd",
+      "bytes": 76120,
+      "sha256": "d6512c12ecde7932f62e3a5f106dbb48bce0e6afcc81ac8c2a3c445c297edb7c"
+    },
+    {
+      "path": "_internal/_ssl.pyd",
+      "bytes": 162648,
+      "sha256": "bfcf421fa0e41b483da98dd40d3c1fb6644fc1680e6eebc753abf7993cdd5910"
+    },
+    {
+      "path": "_internal/_uuid.pyd",
+      "bytes": 25944,
+      "sha256": "e533f54f37b81c3b7f39d61d51d4dd9968e40e3e7037cd4c258828c481a9c754"
+    },
+    {
+      "path": "_internal/_wmi.pyd",
+      "bytes": 35160,
+      "sha256": "c9b9ffb55fbe5a0c3fe0b4dcd4f79d938d98ddbe70f3f20b0a1e0d0f3473087a"
+    },
+    {
+      "path": "_internal/base_library.zip",
+      "bytes": 1403000,
+      "sha256": "4f9f11b5d24cd52cc403ae1e0ad8f80e15fe78e79d9232bb6bb11e95ec4d37e4"
+    },
+    {
+      "path": "_internal/libcrypto-3.dll",
+      "bytes": 3503984,
+      "sha256": "64a65ca297a879839e436269d1f8a257b7411d667c0988a4fbcd56729543d632"
+    },
+    {
+      "path": "_internal/libffi-8.dll",
+      "bytes": 35088,
+      "sha256": "b982741576a050860c3f3608c7b269dbd35ab296429192b8afa53f1f190069c0"
+    },
+    {
+      "path": "_internal/libssl-3.dll",
+      "bytes": 639856,
+      "sha256": "8dd682b158496623237d0d2acdd24156b791d91cbf0705a013a52137a7b3ae22"
+    },
+    {
+      "path": "_internal/pyexpat.pyd",
+      "bytes": 189784,
+      "sha256": "2e322c1719c51edf104ec47c1d9cf49113db6918a25db5090751f9ae3f202cd6"
+    },
+    {
+      "path": "_internal/python313.dll",
+      "bytes": 5495640,
+      "sha256": "e3c1b4d2033071e4835bf4d13b5da21d3d11b097124983eb4d71b2ec399dbca4"
+    },
+    {
+      "path": "_internal/select.pyd",
+      "bytes": 30040,
+      "sha256": "29795c569683aa2892fc7205c47734e79f22a655da1e582a7b26f4147320f0fd"
+    },
+    {
+      "path": "_internal/spitfire/controller.py",
+      "bytes": 40931,
+      "sha256": "fd748a98e3eda887608bdc270cfe8c76055825077210c7b20d9b949cb72af0cb"
+    },
+    {
+      "path": "_internal/spitfire/native.py",
+      "bytes": 25978,
+      "sha256": "8966534cb808a7273c00dcd2593d26757229221a10689fc158b7d086db7b5c73"
+    },
+    {
+      "path": "_internal/spitfire/native_ticker.py",
+      "bytes": 6467,
+      "sha256": "03415f09a81f325f088ec28baeadfaa765214a025be4da1fb68754c9c7a668bf"
+    },
+    {
+      "path": "_internal/spitfire/protocol.py",
+      "bytes": 11245,
+      "sha256": "f3817917c66fb5a29e0f2bcac59f2f550e67fe73b64645dab6d7029b5cb5118f"
+    },
+    {
+      "path": "_internal/spitfire/resources/callback_bindings.json",
+      "bytes": 17365,
+      "sha256": "9a95363306792921285f5a21a2576d0b60e5ff8c5c9650880848669eb8bf9fe2"
+    },
+    {
+      "path": "_internal/spitfire/resources/cvi_attributes.json",
+      "bytes": 37746,
+      "sha256": "1e071ffe0eac770b33290f156b90ffff1eece8160d40eed146a80322d22583e8"
+    },
+    {
+      "path": "_internal/spitfire/resources/gui_spec.json",
+      "bytes": 1042497,
+      "sha256": "d902fea51603b38f9ba5f9dd9acf1ac5fbd76f4d150d0ca462a402bfbb7c4d57"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/bin/cvierror.txt",
+      "bytes": 8032,
+      "sha256": "b2e1a2edb4967e50f03b2d3f8c42e0fd3c71bf889f58a96f4a299fbea5433475"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/bin/cvirte.rsc",
+      "bytes": 238615,
+      "sha256": "70779ada1197f16fa61fa17b9f49c8a79cbb113241c66ae17a2ef5e03d957fb4"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/bin/msgrte.txt",
+      "bytes": 41634,
+      "sha256": "aabbd948da3bb58b3ddf595108759e4cdc40ed5bd9788bb3194ca8ad0b41c0b0"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/cviauto.dll",
+      "bytes": 352256,
+      "sha256": "234970e42cd0d80a8cb23182dd807f9f61ee21e5a5e039979c545e980ac51af8"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/cvierror.txt",
+      "bytes": 8032,
+      "sha256": "b2e1a2edb4967e50f03b2d3f8c42e0fd3c71bf889f58a96f4a299fbea5433475"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/cvintwrk.dll",
+      "bytes": 98304,
+      "sha256": "0d424c2ed357cd38bd13c0ec86e251d6cf967a0c3772b22c6dd64cba3d8e6b81"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/cvirt.dll",
+      "bytes": 45056,
+      "sha256": "7955b65d65f95133f5a2cab28ad2a9dea2086c060b9f385dfe47b886fe15b456"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/cvirte.dll",
+      "bytes": 2224128,
+      "sha256": "d4151c53a2ecee4431ba88cd90d88db575f8ad18a6e48484501ff10a83c0db6d"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/cvirte.rsc",
+      "bytes": 238615,
+      "sha256": "70779ada1197f16fa61fa17b9f49c8a79cbb113241c66ae17a2ef5e03d957fb4"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/cviUSI.dll",
+      "bytes": 102400,
+      "sha256": "58f7382f114f2736b94cb2854eeffb41a4ae24b420ab7635c7133ccf8d0519bc"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/dataskt.dll",
+      "bytes": 126976,
+      "sha256": "f7728f1c887ebd526d41ffea9abdc67b6be8613f1bf2d61d7f14f48b49cea75a"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/fonts/ni7seg.ttf",
+      "bytes": 25160,
+      "sha256": "e44341af524376fadc7ffcaa3d7a189aee4f693efa87e8db3cf1ec420c07a6cf"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/fonts/nisystem.ttf",
+      "bytes": 49588,
+      "sha256": "18b85d7f10fa7d8b3914ab75242f9147dc3fbdd165abd84fdd5ab94a1bc09fea"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/mesa.dll",
+      "bytes": 872507,
+      "sha256": "506f7a59fb7f37d406617db83b83ebeb1d28e45505deb79b793a915a5b00e8f7"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/msgrte.txt",
+      "bytes": 41634,
+      "sha256": "aabbd948da3bb58b3ddf595108759e4cdc40ed5bd9788bb3194ca8ad0b41c0b0"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/ni7seg.ttf",
+      "bytes": 25160,
+      "sha256": "e44341af524376fadc7ffcaa3d7a189aee4f693efa87e8db3cf1ec420c07a6cf"
+    },
+    {
+      "path": "_internal/spitfire/resources/runtime/nisystem.ttf",
+      "bytes": 49588,
+      "sha256": "18b85d7f10fa7d8b3914ab75242f9147dc3fbdd165abd84fdd5ab94a1bc09fea"
+    },
+    {
+      "path": "_internal/spitfire/resources/SERVER.UIR",
+      "bytes": 5946,
+      "sha256": "77ef834d4e564326621b0cadebf52a60c9f3725365ee25dc9f8740b00473beff"
+    },
+    {
+      "path": "_internal/spitfire/resources/server_gui_spec.json",
+      "bytes": 46790,
+      "sha256": "8305811916df354dd53e20fb4696fdc8a1d6b980aaeeaf78f62b45584f401e9a"
+    },
+    {
+      "path": "_internal/spitfire/resources/SPITFIRE.UIR",
+      "bytes": 152636,
+      "sha256": "a68267302650d1115d23470c0add7de3fe6b8af3b80cd8c0f48ab859f7383212"
+    },
+    {
+      "path": "_internal/THIRD_PARTY_NOTICES.md",
+      "bytes": 1203,
+      "sha256": "f6d08060ef825650ef70044d8befb6a63aa072303ba4411b0ace75f74518b095"
+    },
+    {
+      "path": "_internal/unicodedata.pyd",
+      "bytes": 703320,
+      "sha256": "afaf43a165e9b80efdfd8757235df27874dfa98521fc0e40fa8dba2ff7be8952"
+    },
+    {
+      "path": "_internal/VCRUNTIME140.dll",
+      "bytes": 90192,
+      "sha256": "bf33857f46e56ea7930c1eea25c5f7175a6aaa3df36bf8301a785e6ca726a0b9"
+    },
+    {
+      "path": "cvirte/bin/cvierror.txt",
+      "bytes": 8032,
+      "sha256": "b2e1a2edb4967e50f03b2d3f8c42e0fd3c71bf889f58a96f4a299fbea5433475"
+    },
+    {
+      "path": "cvirte/bin/cvirte.rsc",
+      "bytes": 238615,
+      "sha256": "70779ada1197f16fa61fa17b9f49c8a79cbb113241c66ae17a2ef5e03d957fb4"
+    },
+    {
+      "path": "cvirte/bin/msgrte.txt",
+      "bytes": 41634,
+      "sha256": "aabbd948da3bb58b3ddf595108759e4cdc40ed5bd9788bb3194ca8ad0b41c0b0"
+    },
+    {
+      "path": "cvirte/fonts/ni7seg.ttf",
+      "bytes": 78,
+      "sha256": "83961f4839b79a96e613676f6736124b5c24b0d74cd6efdf46563b1947bffb6e"
+    },
+    {
+      "path": "cvirte/fonts/nisystem.ttf",
+      "bytes": 78,
+      "sha256": "83961f4839b79a96e613676f6736124b5c24b0d74cd6efdf46563b1947bffb6e"
+    },
+    {
+      "path": "PY_SPF.exe",
+      "bytes": 2382355,
+      "sha256": "f72c77c3964881538bfc0f3e2ee40a68edcad6eb5389d37f040b43e205bc63c0"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/PyInstaller-0-COPYING.txt",
+      "bytes": 32138,
+      "sha256": "dcf75fdb959db1e3b41c0f8505069d2ece781b5ec6b3d0a4d30975cfc6580245"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/Python-LICENSE.txt",
+      "bytes": 33861,
+      "sha256": "62bec384df47b0328307db41455ff6ea2559e5546b394ac69148561b21703120"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 1203,
+      "sha256": "f6d08060ef825650ef70044d8befb6a63aa072303ba4411b0ace75f74518b095"
+    }
+  ],
+  "pe_files": [
+    {
+      "file": "_internal/_bz2.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "kernel32.dll",
+        "python313.dll",
+        "vcruntime140.dll"
+      ]
+    },
+    {
+      "file": "_internal/_ctypes.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "kernel32.dll",
+        "libffi-8.dll",
+        "ole32.dll",
+        "oleaut32.dll",
+        "python313.dll",
+        "vcruntime140.dll"
+      ]
+    },
+    {
+      "file": "_internal/_decimal.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "kernel32.dll",
+        "python313.dll",
+        "vcruntime140.dll"
+      ]
+    },
+    {
+      "file": "_internal/_hashlib.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "kernel32.dll",
+        "libcrypto-3.dll",
+        "python313.dll",
+        "vcruntime140.dll"
+      ]
+    },
+    {
+      "file": "_internal/_lzma.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "kernel32.dll",
+        "python313.dll",
+        "vcruntime140.dll"
+      ]
+    },
+    {
+      "file": "_internal/_multiprocessing.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "kernel32.dll",
+        "python313.dll",
+        "vcruntime140.dll",
+        "ws2_32.dll"
+      ]
+    },
+    {
+      "file": "_internal/_queue.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "kernel32.dll",
+        "python313.dll",
+        "vcruntime140.dll"
+      ]
+    },
+    {
+      "file": "_internal/_socket.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "iphlpapi.dll",
+        "kernel32.dll",
+        "python313.dll",
+        "rpcrt4.dll",
+        "vcruntime140.dll",
+        "ws2_32.dll"
+      ]
+    },
+    {
+      "file": "_internal/_ssl.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "crypt32.dll",
+        "kernel32.dll",
+        "libcrypto-3.dll",
+        "libssl-3.dll",
+        "python313.dll",
+        "vcruntime140.dll",
+        "ws2_32.dll"
+      ]
+    },
+    {
+      "file": "_internal/_uuid.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "kernel32.dll",
+        "python313.dll",
+        "rpcrt4.dll",
+        "vcruntime140.dll"
+      ]
+    },
+    {
+      "file": "_internal/_wmi.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "kernel32.dll",
+        "ole32.dll",
+        "oleaut32.dll",
+        "propsys.dll",
+        "python313.dll",
+        "vcruntime140.dll"
+      ]
+    },
+    {
+      "file": "_internal/libcrypto-3.dll",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "advapi32.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "bcrypt.dll",
+        "kernel32.dll",
+        "user32.dll",
+        "vcruntime140.dll",
+        "ws2_32.dll"
+      ]
+    },
+    {
+      "file": "_internal/libffi-8.dll",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "kernel32.dll",
+        "vcruntime140.dll"
+      ]
+    },
+    {
+      "file": "_internal/libssl-3.dll",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "kernel32.dll",
+        "libcrypto-3.dll",
+        "vcruntime140.dll"
+      ]
+    },
+    {
+      "file": "_internal/pyexpat.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "kernel32.dll",
+        "python313.dll",
+        "vcruntime140.dll"
+      ]
+    },
+    {
+      "file": "_internal/python313.dll",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "advapi32.dll",
+        "api-ms-win-core-path-l1-1-0.dll",
+        "api-ms-win-crt-conio-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-process-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "bcrypt.dll",
+        "kernel32.dll",
+        "vcruntime140.dll",
+        "version.dll",
+        "ws2_32.dll"
+      ]
+    },
+    {
+      "file": "_internal/select.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "kernel32.dll",
+        "python313.dll",
+        "vcruntime140.dll",
+        "ws2_32.dll"
+      ]
+    },
+    {
+      "file": "_internal/spitfire/resources/runtime/cviauto.dll",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "advapi32.dll",
+        "kernel32.dll",
+        "ole32.dll",
+        "oleaut32.dll",
+        "user32.dll"
+      ]
+    },
+    {
+      "file": "_internal/spitfire/resources/runtime/cvintwrk.dll",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "advapi32.dll",
+        "kernel32.dll",
+        "user32.dll"
+      ]
+    },
+    {
+      "file": "_internal/spitfire/resources/runtime/cvirt.dll",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "advapi32.dll",
+        "comdlg32.dll",
+        "gdi32.dll",
+        "kernel32.dll",
+        "mpr.dll",
+        "shell32.dll",
+        "user32.dll",
+        "winmm.dll",
+        "winspool.drv",
+        "wsock32.dll"
+      ]
+    },
+    {
+      "file": "_internal/spitfire/resources/runtime/cvirte.dll",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "advapi32.dll",
+        "comdlg32.dll",
+        "gdi32.dll",
+        "kernel32.dll",
+        "mpr.dll",
+        "ole32.dll",
+        "oleaut32.dll",
+        "shell32.dll",
+        "user32.dll",
+        "winmm.dll",
+        "winspool.drv"
+      ]
+    },
+    {
+      "file": "_internal/spitfire/resources/runtime/cviUSI.dll",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "advapi32.dll",
+        "kernel32.dll",
+        "msvcp60.dll",
+        "msvcrt.dll",
+        "nidscmem.dll"
+      ]
+    },
+    {
+      "file": "_internal/spitfire/resources/runtime/dataskt.dll",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "cvirte.dll",
+        "kernel32.dll",
+        "ole32.dll",
+        "oleaut32.dll",
+        "user32.dll"
+      ]
+    },
+    {
+      "file": "_internal/spitfire/resources/runtime/mesa.dll",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "gdi32.dll",
+        "kernel32.dll",
+        "msvcrt.dll",
+        "user32.dll"
+      ]
+    },
+    {
+      "file": "_internal/unicodedata.pyd",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "kernel32.dll",
+        "python313.dll",
+        "vcruntime140.dll"
+      ]
+    },
+    {
+      "file": "_internal/VCRUNTIME140.dll",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "kernel32.dll"
+      ]
+    },
+    {
+      "file": "PY_SPF.exe",
+      "machine": "I386",
+      "optional_header": "PE32",
+      "imports": [
+        "advapi32.dll",
+        "comctl32.dll",
+        "gdi32.dll",
+        "kernel32.dll",
+        "user32.dll"
+      ]
+    }
+  ],
+  "unresolved_optional_dependencies": [
+    {
+      "file": "_internal/spitfire/resources/runtime/cviUSI.dll",
+      "dependency": "nidscmem.dll",
+      "disposition": "unresolved supplied optional USI plugin; not collected from host"
+    }
+  ],
+  "validation_scope": "static build audit only; execution/install/uninstall verification is separate"
+}
