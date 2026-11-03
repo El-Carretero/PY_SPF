@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Example requirement: HV OFF request after a synthetic fault",
+    "kind": "require",
+    "command_id": 2016,
+    "after_ms": 100,
+    "before_ms": 500
+  },
+  {
+    "name": "Example requirement: no HV ON automatic restart",
+    "kind": "forbid",
+    "command_id": 2017,
+    "after_ms": 100,
+    "before_ms": 1000
+  }
+]

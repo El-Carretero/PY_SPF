@@ -1,0 +1,10 @@
+Report: C:\Users\physi\Desktop\Spitfire_Twin_Verifier_v0.3.0\Spitfire_Twin_Verifier\validation_frozen_release\selftest\comparison_20261027_012400_301933
+{
+  "version": "0.3.0",
+  "transactions": 18,
+  "verdict": "MATCH",
+  "similarity": 1.0,
+  "differences": 0,
+  "status": "PASS"
+}
+

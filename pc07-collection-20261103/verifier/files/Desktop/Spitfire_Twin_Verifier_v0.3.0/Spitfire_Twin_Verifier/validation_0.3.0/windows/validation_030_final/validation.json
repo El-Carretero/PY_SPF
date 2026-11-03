@@ -1,0 +1,236 @@
+{
+  "created_utc": "2026-10-27T01:22:53.369387+00:00",
+  "python": "3.13.9 (tags/v3.13.9:8183fa5, Oct 14 2025, 14:09:13) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "tests_run": 205,
+  "passed": 204,
+  "failures": [],
+  "errors": [],
+  "skipped": [
+    [
+      "test_user_supplied_original_binary (test_catalog_provenance.CatalogProvenanceTests.test_user_supplied_original_binary)",
+      "optional vendor EXE not bundled; set SPITFIRE_XP_EXE"
+    ]
+  ],
+  "unit_status": "PASS",
+  "xp_execution": "NOT_PERFORMED",
+  "hardware_validation": "NOT_PERFORMED",
+  "scenarios": [
+    {
+      "id": "communication_loss",
+      "verdict": "PASS"
+    },
+    {
+      "id": "duplicate_trigger",
+      "verdict": "PASS"
+    },
+    {
+      "id": "interlock_open",
+      "verdict": "PASS"
+    },
+    {
+      "id": "missing_trigger",
+      "verdict": "PASS"
+    },
+    {
+      "id": "nominal_external_10hz",
+      "verdict": "PASS"
+    },
+    {
+      "id": "phase_slip",
+      "verdict": "PASS"
+    },
+    {
+      "id": "pump_absent",
+      "verdict": "PASS"
+    },
+    {
+      "id": "pump_not_ready",
+      "verdict": "PASS"
+    },
+    {
+      "id": "seed_loss_recovery",
+      "verdict": "PASS"
+    },
+    {
+      "id": "thermal_flow_hv",
+      "verdict": "PASS"
+    },
+    {
+      "id": "trigger_jitter",
+      "verdict": "PASS"
+    },
+    {
+      "id": "trigger_rate_mismatch",
+      "verdict": "PASS"
+    }
+  ],
+  "loopback_self_test_exit": 0,
+  "client_matrix": [
+    {
+      "version": "1.1.3",
+      "status": "FAIL",
+      "cases": [
+        {
+          "id": "nominal_readbacks",
+          "status": "PASS"
+        },
+        {
+          "id": "config_readback",
+          "status": "PASS"
+        },
+        {
+          "id": "empower_fault_words",
+          "status": "PASS"
+        },
+        {
+          "id": "tdg_hex_fault",
+          "status": "FAIL"
+        },
+        {
+          "id": "dedicated_tdg_fault",
+          "status": "FAIL"
+        },
+        {
+          "id": "invalid_numeric",
+          "status": "PASS"
+        },
+        {
+          "id": "crlf_replies",
+          "status": "PASS"
+        },
+        {
+          "id": "response_loss",
+          "status": "PASS"
+        },
+        {
+          "id": "malformed_header",
+          "status": "PASS"
+        },
+        {
+          "id": "external_ready",
+          "status": "UNSUPPORTED"
+        },
+        {
+          "id": "external_seed_loss_recovery",
+          "status": "UNSUPPORTED"
+        },
+        {
+          "id": "external_oscillator_source",
+          "status": "UNSUPPORTED"
+        },
+        {
+          "id": "external_trigger_source",
+          "status": "UNSUPPORTED"
+        },
+        {
+          "id": "external_key_interlock",
+          "status": "UNSUPPORTED"
+        },
+        {
+          "id": "external_tcu_humidity",
+          "status": "UNSUPPORTED"
+        },
+        {
+          "id": "external_tdg_communication",
+          "status": "UNSUPPORTED"
+        },
+        {
+          "id": "external_empower_absent",
+          "status": "UNSUPPORTED"
+        },
+        {
+          "id": "external_optout_confirmation",
+          "status": "UNSUPPORTED"
+        },
+        {
+          "id": "external_invalid_pump_expectation",
+          "status": "UNSUPPORTED"
+        }
+      ]
+    },
+    {
+      "version": "1.3.0",
+      "status": "PASS",
+      "cases": [
+        {
+          "id": "nominal_readbacks",
+          "status": "PASS"
+        },
+        {
+          "id": "config_readback",
+          "status": "PASS"
+        },
+        {
+          "id": "empower_fault_words",
+          "status": "PASS"
+        },
+        {
+          "id": "tdg_hex_fault",
+          "status": "PASS"
+        },
+        {
+          "id": "dedicated_tdg_fault",
+          "status": "PASS"
+        },
+        {
+          "id": "invalid_numeric",
+          "status": "PASS"
+        },
+        {
+          "id": "crlf_replies",
+          "status": "PASS"
+        },
+        {
+          "id": "response_loss",
+          "status": "PASS"
+        },
+        {
+          "id": "malformed_header",
+          "status": "PASS"
+        },
+        {
+          "id": "external_ready",
+          "status": "PASS"
+        },
+        {
+          "id": "external_seed_loss_recovery",
+          "status": "PASS"
+        },
+        {
+          "id": "external_oscillator_source",
+          "status": "PASS"
+        },
+        {
+          "id": "external_trigger_source",
+          "status": "PASS"
+        },
+        {
+          "id": "external_key_interlock",
+          "status": "PASS"
+        },
+        {
+          "id": "external_tcu_humidity",
+          "status": "PASS"
+        },
+        {
+          "id": "external_tdg_communication",
+          "status": "PASS"
+        },
+        {
+          "id": "external_empower_absent",
+          "status": "PASS"
+        },
+        {
+          "id": "external_optout_confirmation",
+          "status": "PASS"
+        },
+        {
+          "id": "external_invalid_pump_expectation",
+          "status": "PASS"
+        }
+      ]
+    }
+  ],
+  "client_matrix_status": "FAIL"
+}

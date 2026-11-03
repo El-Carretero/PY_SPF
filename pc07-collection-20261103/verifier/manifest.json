@@ -1,0 +1,2105 @@
+[
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/build_support/source_transfer.b64",
+    "size": 954224,
+    "sha256": "9a6aba479ed41099290422b25a52c745de923ed836a7c4b8f3d069829ce4a984",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/build_support/source_transfer.b64"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/.gitignore",
+    "size": 115,
+    "sha256": "87d18fcbb6575ae23406f3a2c136f34d0cf1d96dca98dfb2246edca228f26085",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/.gitignore"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/build_windows.ps1",
+    "size": 1347,
+    "sha256": "17e750c8dcfad65889c93eadb36e59515ae5805145034da1a3768ca71f27ecd2",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/build_windows.ps1"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/CHANGELOG.md",
+    "size": 1780,
+    "sha256": "8c4c8515c8009f4cd688fcf37d5b96a58648a99a3049b5ddedcd81553fe0f93a",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/CHANGELOG.md"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/PROTOCOL_BASIS.md",
+    "size": 3422,
+    "sha256": "3f56f851a53fe077ebe6d636e09ebddf73c24db67fe765f84b1ec0db65a80df8",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/PROTOCOL_BASIS.md"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/PROVENANCE_0.3.0.txt",
+    "size": 6974,
+    "sha256": "ca9178d139ac9045e5c01d3bc8e2bb72351211a471a3949d8cfb5605a82785a9",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/PROVENANCE_0.3.0.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/RELEASE_CHANGES_0.3.0.txt",
+    "size": 1728,
+    "sha256": "258086bb29d1a6b2c7f6a29f05a137732f5c0e36dd46f16ba468f1fe0337f50b",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/RELEASE_CHANGES_0.3.0.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/REVIEW_FIXES_0.2.0.md",
+    "size": 2979,
+    "sha256": "cfad1c1fa6df0abcd3767274099940c46f267e18b079594fa12f4bd34a0c1ea1",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/REVIEW_FIXES_0.2.0.md"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/third_party/PYINSTALLER_COPYING.txt",
+    "size": 32138,
+    "sha256": "dcf75fdb959db1e3b41c0f8505069d2ece781b5ec6b3d0a4d30975cfc6580245",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/third_party/PYINSTALLER_COPYING.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/third_party/PYTHON_LICENSE.txt",
+    "size": 33861,
+    "sha256": "62bec384df47b0328307db41455ff6ea2559e5546b394ac69148561b21703120",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/third_party/PYTHON_LICENSE.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/third_party/TK_LICENSE.txt",
+    "size": 2307,
+    "sha256": "0d1e4405f6273f091732764ed89b57066be63ce64869be6c71ea337dc4f2f9b5",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/third_party/TK_LICENSE.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/USER_GUIDE_0.3.0_KO.txt",
+    "size": 6349,
+    "sha256": "9064fe9dc15bdb66a8546f4113da15e0c0bd7fe5e9aaefe733f357e0731ce74f",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/USER_GUIDE_0.3.0_KO.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/VALIDATION_PLAYBOOK.md",
+    "size": 2896,
+    "sha256": "f81a3bb93a7feef44af97484c1463a54abe27534f9a1cb52eec2c1ceaff94167",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/VALIDATION_PLAYBOOK.md"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/VALIDATION_RESULTS_0.1.0.txt",
+    "size": 2587,
+    "sha256": "81d08e65ee1bc1fce20e96bab11bd2fe951daf0fbe5f1c411d66778bb9599c55",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/VALIDATION_RESULTS_0.1.0.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/VALIDATION_RESULTS_0.2.0.txt",
+    "size": 11233,
+    "sha256": "2b92ef2e1074bfdb91c0a3b82f88a6eb55b36f3df4520a623838db37add31d4c",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/VALIDATION_RESULTS_0.2.0.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/VALIDATION_RESULTS_0.3.0.txt",
+    "size": 4995,
+    "sha256": "057578242c1e24fddbf29ad5cc609095d4e1bbd0aa76b04f5c5cedf3e6ffd907",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/VALIDATION_RESULTS_0.3.0.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/LICENSE",
+    "size": 1105,
+    "sha256": "5f6a04129c2a125546b3a18ab632dff49443659b7f5ba455b06c0322e791c8d2",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/LICENSE"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/List-NetworkAdapters.ps1",
+    "size": 133,
+    "sha256": "bd710a376340a93511d85a5d8fef893af6f9d08f01b3b28bc92839fbaed6901e",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/List-NetworkAdapters.ps1"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/MANIFEST_SHA256.txt",
+    "size": 13822,
+    "sha256": "cda9118b265ac11d179d6a3b11ea323943bf026c4f3fcf0464a5cb8c54bb5ac9",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/MANIFEST_SHA256.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/NOTICE.md",
+    "size": 494,
+    "sha256": "be9a2cc4993bc3b4984bacbd7b956645438ba6c4f2625718eb3bce388bb30388",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/NOTICE.md"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/pyproject.toml",
+    "size": 568,
+    "sha256": "e4802c70ca5c52700fd581bc0ca640dc236ffcbb4b358a40907024850b39fcfc",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/pyproject.toml"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/README.md",
+    "size": 4804,
+    "sha256": "5af804e9803ddaca1e0d5d26161b84819ffaee48564318ee7a8b09c90e194b47",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/README.md"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/reference/command_catalog.csv",
+    "size": 4480,
+    "sha256": "ec9d9f878f9f789e70ba8dea52012f476c8a55c6944913c309c379a866e773db",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/reference/command_catalog.csv"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/reference/default_network.json",
+    "size": 351,
+    "sha256": "4b1b80cabb8a3b86520161d38d74e9e00c4841da14e84895ce420884449a0bd8",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/reference/default_network.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/reference/reaction_rules.example.json",
+    "size": 337,
+    "sha256": "748835b3c959a8ef4e9b473491d9519dfa11ddbdb6cbca22cc809cfa3cfa6b0b",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/reference/reaction_rules.example.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/release/spitfire_twin_verifier-0.3.0-py3-none-any.whl",
+    "size": 86366,
+    "sha256": "d18fa5700b5b3cf3d7fdbd3e0e8d7bf751988a6e4c735775afab93fd5938ef7f",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/release/spitfire_twin_verifier-0.3.0-py3-none-any.whl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Run-ScenarioSuite.bat",
+    "size": 260,
+    "sha256": "6545d2d4c1d593598c78fa8ff782b7e12545bcc4fae3212a291afb94a99b9593",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Run-ScenarioSuite.bat"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Run-SelfTest.bat",
+    "size": 250,
+    "sha256": "dd4863e446347b6463e2211143fa28bf318fa4de8873e4497390d914510d7c26",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Run-SelfTest.bat"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/run_tests.py",
+    "size": 416,
+    "sha256": "f266caecdb31c41b50ed7dfea43b06a51930ebe21be03ac227ec259c691a902b",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/run_tests.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/run_verifier.py",
+    "size": 360,
+    "sha256": "2bc8fcb0201f5683a88b49407c7644d3c388f510ef239174f51f3f4896cc8bc4",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/run_verifier.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Setup-HostOnlyNetwork.ps1",
+    "size": 3330,
+    "sha256": "0287d4f6f5a4c9757296de1137b927dec840aad79ce84f480fc8726977343642",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Setup-HostOnlyNetwork.ps1"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/__init__.py",
+    "size": 54,
+    "sha256": "62bf9632579167908cdddc2448a6dea58b76c1a898ecb1791b3440d22de991c5",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/__init__.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/__main__.py",
+    "size": 49,
+    "sha256": "76fa916e93e0ae1a6c1bb51dcc0bcf289c014e9f760a47165f8a84401ccf41d7",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/__main__.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/app.py",
+    "size": 38849,
+    "sha256": "e3e5407de6d87c8da618bb4b95f7bbe5c442c4f7bd2ab2de61326686c31508a1",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/app.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/catalog.py",
+    "size": 5938,
+    "sha256": "9e780900177bf703477f6292bbaf44772286d56baf798cdf9f8bd3bc23e1395b",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/catalog.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/cli.py",
+    "size": 9717,
+    "sha256": "e7f94cc61bc9184000b8bff021732f42183679f8322383c1b6bd339f0066da64",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/cli.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/client_matrix.py",
+    "size": 23808,
+    "sha256": "0b3b17f1380a3e7a04294237e99d0b76ec27f195c2f23796ebc2734fb99b2029",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/client_matrix.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/compare.py",
+    "size": 15324,
+    "sha256": "38635b0cfd811af5c664ac5cf54eb43abb75bb8706102257dab74bf3e6c7a3fe",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/compare.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/config.py",
+    "size": 4889,
+    "sha256": "6e4d6029e409a2b0c3ca215d1730dcd91b754b6f135fd3663bf260fdab7be9f2",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/config.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/communication_loss.json",
+    "size": 1654,
+    "sha256": "5f7acb03221fcc398f201d861f6cbe84c63abf57c124fcde7658f2efc2e1981c",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/communication_loss.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/duplicate_trigger.json",
+    "size": 854,
+    "sha256": "0ee4e8d6914d9007ae7385cb603354de4adf7893acbe75023358d0cbd15b8c94",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/duplicate_trigger.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/interlock_open.json",
+    "size": 1555,
+    "sha256": "f81abe2f0319b80256879c5bfd99d7e21dba66bc34723442940a6d4b369ed0e7",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/interlock_open.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/missing_trigger.json",
+    "size": 731,
+    "sha256": "d03acb3c029c262e5a216f4bc7585c98dc8bb72899523800bf041c6496d21b72",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/missing_trigger.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/nominal_external_10hz.json",
+    "size": 937,
+    "sha256": "7cedcfcd89bb4293f0ab5033c2d5a7e089a661099a8ea30eb47899f6030979df",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/nominal_external_10hz.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/phase_slip.json",
+    "size": 719,
+    "sha256": "b9c6f5729ce1f87e8967880ad130c3a83f6cf2c6d1d020fdb4b07b810f042eea",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/phase_slip.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/pump_absent.json",
+    "size": 757,
+    "sha256": "6c2022ff8ee9e958803733d8949436084e8600b1c61fd36a2c41a310e98ef859",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/pump_absent.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/pump_not_ready.json",
+    "size": 1234,
+    "sha256": "8c9e374104f53552e86036b5b73880345150cab7aa739aaae0f9d073b291e223",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/pump_not_ready.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/seed_loss_recovery.json",
+    "size": 1917,
+    "sha256": "849055b09a371584f5615f5f493857fdf417256fce02d9d353a012bc626c85d3",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/seed_loss_recovery.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/thermal_flow_hv.json",
+    "size": 1588,
+    "sha256": "a2c662b570e48b0907a666f14fb28423b9664a88d66a11cff3f919c330fa2097",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/thermal_flow_hv.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/trigger_jitter.json",
+    "size": 677,
+    "sha256": "ef300716494ba9bb104dc70605dcb49d5da556e579fe609670a1982efbcae43f",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/trigger_jitter.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/trigger_rate_mismatch.json",
+    "size": 711,
+    "sha256": "b5d889c689014e63be1c8ab3a9e165c3ef8e81bcf9c4d81d07972ca3c4b01928",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/trigger_rate_mismatch.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/demo.py",
+    "size": 2313,
+    "sha256": "998056a60d55d7e89bc8843b08bfb3eea1734af6b9f4a5812e358b373aabbb83",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/demo.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/evidence.py",
+    "size": 12821,
+    "sha256": "7d71c6ed88531afd1ec6bd226f747f15b20c6ed929ea1381668fe86720b95f1e",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/evidence.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/evidence_report.py",
+    "size": 4597,
+    "sha256": "a14616d81939fd80ae64c3c393f5a23acc4b9f57868eddc75731744960e836f1",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/evidence_report.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/model.py",
+    "size": 14005,
+    "sha256": "1010148510c027d3960c671b5f0942a8629136d231153e59e549caa6222104bd",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/model.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/network.py",
+    "size": 2130,
+    "sha256": "80ba087d915e2653f882042862259fdfbfe51a492d69e50b692df8200b6ee048",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/network.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/profiles.py",
+    "size": 13951,
+    "sha256": "ed6859da5d21f0097199a2714af017efe01c245b9123b1323ad4efed80e56f7b",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/profiles.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/protocol.py",
+    "size": 3877,
+    "sha256": "c43e6fb775e1d8322ed894667b24a33398f2c2c2bfbcf18b859e096548cef59c",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/protocol.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/records.py",
+    "size": 6416,
+    "sha256": "7aed443ae5d5f862f9232f2b66ce0acce39d5a0b810f77612df4a7c88c4485c2",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/records.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/replay.py",
+    "size": 7668,
+    "sha256": "c7c1e3dc20c48a300607e93ed8d5da26c64b858bd797db009b06f054377388b1",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/replay.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/report.py",
+    "size": 8857,
+    "sha256": "7651fe509fb6c4b8910631068b87048523da5ed046c2a83cf29077351be7ab4b",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/report.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/scenarios.py",
+    "size": 21844,
+    "sha256": "8ddcc7ac982522da740a9abdf89e648ad3e7dee5a3337b8cf03759dac52ad86b",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/scenarios.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/server.py",
+    "size": 15460,
+    "sha256": "0b7a43eb42832f8fa18198ce1f6002e24248c41ef36de529985982db6b3e8b97",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/server.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/workbench_ui.py",
+    "size": 21465,
+    "sha256": "f8f65c4828fb9bf40ab7dcce18e826ef7761be48805a7599368afaf151328754",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/workbench_ui.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Start-SpitfireTwinVerifier.bat",
+    "size": 278,
+    "sha256": "ae2c9719c1314df749160c364ca6567165d2f25eaf09b9e86f63e51939a350e0",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Start-SpitfireTwinVerifier.bat"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Start-SpitfireTwinVerifier.ps1",
+    "size": 179,
+    "sha256": "cb735a1eee26fd563439a63af1cf860d73c1ee43f480ed683082f644d364391f",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Start-SpitfireTwinVerifier.ps1"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/START_HERE_KO.txt",
+    "size": 2412,
+    "sha256": "01b7b5d56d361270dd96881375a0ad9b0a8bcbcf8920f9920943c095ab8b40bc",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/START_HERE_KO.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_catalog_provenance.py",
+    "size": 2742,
+    "sha256": "4effd9a022ece1388850dfb6d5aefce662acabdbaba788a608fb8f5c1069019f",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_catalog_provenance.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_client_matrix.py",
+    "size": 4462,
+    "sha256": "90e5a1c3da4e323baa5c4960eae5c5f2431c97e447b7ab7a8487dbc27622cb2b",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_client_matrix.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_compare.py",
+    "size": 2379,
+    "sha256": "1a4fd9aab0eef9887fa224d65f88ef32c7d45ca46b83102828fd9821dc6f0726",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_compare.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_config.py",
+    "size": 6658,
+    "sha256": "753e1a7b27610b80086ea318f8274edd5a8b372d7e1f2f69b58f210775a97789",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_config.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_demo.py",
+    "size": 922,
+    "sha256": "994feb6592f4feb3fc3766fa56ff2eb3fa841e34eb7a5cff54f7b62143b9e8a4",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_demo.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_evidence.py",
+    "size": 6018,
+    "sha256": "d23826de61b404308bb9098f18c7c691483988b8c853a70b4dab81b6b12d304c",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_evidence.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_gui.py",
+    "size": 4110,
+    "sha256": "0da2d3770bdac80074a7bd3b9c11fb7f16138b263b2702a7a2ff367fbc606f2f",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_gui.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_gui_handlers.py",
+    "size": 4610,
+    "sha256": "037048ed48d60d458d7e21cdd3cf5f25f9b8a91c86eeae2f0505c4178e4cbebb",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_gui_handlers.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_live_scenarios.py",
+    "size": 9226,
+    "sha256": "bdeb1ebcbb3ab5e8db01ac93071d619d05e8d1a6128f1618f9cf7d3cff5b5743",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_live_scenarios.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_model.py",
+    "size": 2455,
+    "sha256": "c4e45d6fbb879fc46ffe40b1d7dd43974f24ba80fb324275f9cf603d3ff2d56d",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_model.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_model_030.py",
+    "size": 1946,
+    "sha256": "ed3373badf4acb3c2689e022960930d2f3497ae01bf0758e69356e9dd7f009f4",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_model_030.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_profiles.py",
+    "size": 6113,
+    "sha256": "b8751b104a4a1262c786348839101d899db668d6e0de43af26c260c93e3acd3f",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_profiles.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_protocol.py",
+    "size": 1484,
+    "sha256": "2a93924d2e2f0019176770e9506ce6d4733d8235a0334169f5e7727e5ce54d6c",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_protocol.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_regressions.py",
+    "size": 16915,
+    "sha256": "7fbe8255f7a85b3a0da525b25c15726403c37bc41a0da8f1b4e8668d3fcef6a5",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_regressions.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_replay.py",
+    "size": 3148,
+    "sha256": "c3f11b7591c1821961e3fd1b5162b7214a0ba16a1d83e0635a84c6bf67ac526b",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_replay.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_review_030.py",
+    "size": 5378,
+    "sha256": "25003488ad1b954aaaacb645dfc167e3476b3315f2b8cf6bb448235980aed3cc",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_review_030.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_scenarios.py",
+    "size": 12877,
+    "sha256": "d8a934881ff7fe0903d3e4ad099aba6ee9c3cd6d7f8c5724ea50c1f90584d293",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_scenarios.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_server.py",
+    "size": 2116,
+    "sha256": "6e0a15001cab6dd6db9d790484c3b96773d6752176f839abc0c223d1a7372bd4",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_server.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_workbench_ui.py",
+    "size": 9124,
+    "sha256": "e4546d561c50fb17a49dda967bb4d785f4ab12384b8929993fa7492ba317b77d",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_workbench_ui.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/THIRD_PARTY_NOTICES.txt",
+    "size": 830,
+    "sha256": "8a2cda563f8a0bdfbb09e81cbc6ac713f08bb63f79a65a115e42c2e1bd954503",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/THIRD_PARTY_NOTICES.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/export_catalog.py",
+    "size": 564,
+    "sha256": "fd33e00caf94d4af39b1484cb61de75b9a3fcfbe5989d1a8fe924b7fb55e71ee",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/export_catalog.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/package_release.py",
+    "size": 2733,
+    "sha256": "5a17215df992739f645ddcbe50972f77fd5b218f9c0bfe6ccc7b96ea68da8d12",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/package_release.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/validate_release.py",
+    "size": 3310,
+    "sha256": "62621603a9bb65c75dad884f411efb293085d175f39399310b6b8136a18fcf46",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/validate_release.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/windows_frozen_smoke.py",
+    "size": 5018,
+    "sha256": "9e7d60f479437c6330aa24e15625e873493a22544352c144ae47b33bad97f40a",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/windows_frozen_smoke.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/windows_gui_smoke.py",
+    "size": 15481,
+    "sha256": "8fb519143e35f9faa10a9d654a960d9bc3e68566e57daf71c889cc2617d1e703",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/windows_gui_smoke.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Undo-HostOnlyNetwork.ps1",
+    "size": 1284,
+    "sha256": "e467959cae09e02c6c16caacc927679b2a998696840c403e4c597aaa9a9398c8",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Undo-HostOnlyNetwork.ps1"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/clients/client_matrix_d025389b6bd9/matrix.html",
+    "size": 1060182,
+    "sha256": "0d1924c7329ea065c8da1972bf0e3db31f2dd6711c1a8b3a0c636a787996bb03",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/clients/client_matrix_d025389b6bd9/matrix.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/clients/client_matrix_d025389b6bd9/matrix.json",
+    "size": 759750,
+    "sha256": "ddd3246e3492472cfd7ca82928d7b42e99218cd92b2862e57bda8e6196389f8c",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/clients/client_matrix_d025389b6bd9/matrix.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/loopback/comparison_20261027_012254_153091/capture.jsonl",
+    "size": 29374,
+    "sha256": "aadd169a83d8463b54f697ec5ffbd6d448594be01b9a3aed016a6808bf4ba433",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/loopback/comparison_20261027_012254_153091/capture.jsonl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/loopback/comparison_20261027_012254_153091/report.html",
+    "size": 7639,
+    "sha256": "7ceea3c0b597cd2ccfd981dfefa55316be4b41ab4d34ef81f735cd6d5ba36211",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/loopback/comparison_20261027_012254_153091/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/loopback/comparison_20261027_012254_153091/report.json",
+    "size": 7454,
+    "sha256": "8c08973ce9466262c2ba5f73b9ff4bdde554ad8040fff862af3c47acb8497cc7",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/loopback/comparison_20261027_012254_153091/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/scenarios/workbench_20261027T012254Z_451f8de4/report.html",
+    "size": 160144,
+    "sha256": "6a4d268c1d92e40e324f6137643fdf38dc16c9a2e2872fcb941b2f4e2e95762c",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/scenarios/workbench_20261027T012254Z_451f8de4/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/scenarios/workbench_20261027T012254Z_451f8de4/report.json",
+    "size": 120162,
+    "sha256": "348209c1af951d16a55b47481db28d9dee6c8477d97ac1e401fa0ece1b9ff47a",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/scenarios/workbench_20261027T012254Z_451f8de4/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/unit_tests.txt",
+    "size": 26199,
+    "sha256": "8c9342b45b636abc8a0729fec624a54dc7bbd09f8e2a3a293dd4cefa82fe4632",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/unit_tests.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/validation.json",
+    "size": 5775,
+    "sha256": "5619a6948a064a24f0f7645a07f6cb2917d674b7778e68f892768846b6fb6e3d",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/validation.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/gui_smoke.json",
+    "size": 41410,
+    "sha256": "e0ce5c7e3249f241ea69383a9c1cab3a6b47b147b7ed9d3ff5f48353075d6f43",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/gui_smoke.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/clients/client_matrix_930e55c600fd/matrix.html",
+    "size": 1075617,
+    "sha256": "ee431548569f5994c5b84770361a1a9ead785b328d21eb868f6259e2771ab9f2",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/clients/client_matrix_930e55c600fd/matrix.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/clients/client_matrix_930e55c600fd/matrix.json",
+    "size": 775185,
+    "sha256": "8725ad2618452511aab70e5fd3c647debaa621fca258695720fa47b8d8faafcc",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/clients/client_matrix_930e55c600fd/matrix.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/loopback/comparison_20261027_012253_530812/capture.jsonl",
+    "size": 29370,
+    "sha256": "b4c18e38e3eee63a0b4552568c936ccc99c1752ee8d32018d1cd8f006b908dd9",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/loopback/comparison_20261027_012253_530812/capture.jsonl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/loopback/comparison_20261027_012253_530812/report.html",
+    "size": 7717,
+    "sha256": "00465b346c534edcf83ce35defbb40ec44924cc6464120b19fc150f9ab64af16",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/loopback/comparison_20261027_012253_530812/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/loopback/comparison_20261027_012253_530812/report.json",
+    "size": 7710,
+    "sha256": "d60b511b7837a596a294f0d46b2d2672a39f5972e675c734fd26bd625d2a8b96",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/loopback/comparison_20261027_012253_530812/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/scenarios/workbench_20261027T012253Z_b5fe55a2/report.html",
+    "size": 164079,
+    "sha256": "5900ad731f29b10d3bb38890342d3b735030b2b0e100d0a993678b3d2848e1a9",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/scenarios/workbench_20261027T012253Z_b5fe55a2/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/scenarios/workbench_20261027T012253Z_b5fe55a2/report.json",
+    "size": 124097,
+    "sha256": "fc11954a670ed0a81244041fb8d51f854b83af8a68df602daaa5bc82917e7271",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/scenarios/workbench_20261027T012253Z_b5fe55a2/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/unit_tests.txt",
+    "size": 26357,
+    "sha256": "afbf7b9aa9d34f9eadb6274e410ccef65cdfd4e683847bd4da7e17a3aa4dfcfb",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/unit_tests.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/validation.json",
+    "size": 5351,
+    "sha256": "491abeb35605dae81d342e3a04f4b08f6e48c4672dc38c0bc2ab60954f7a7b68",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/validation.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/frozen_validation.json",
+    "size": 835,
+    "sha256": "80aee86f451ac3f5d5bc10bf0cac148ccbf5ff1e23e90723c82bb8ad4f527d72",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/frozen_validation.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix.txt",
+    "size": 718383,
+    "sha256": "198ba4e0c8001bb61703b55098bc4c9204a85da6af23867f7adbc6df585b6d21",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix/client_matrix_a10d697d453c/matrix.html",
+    "size": 997205,
+    "sha256": "56684c204d1b4b6b92f54656c649f8316bcefef5085f573b4286d24261e67798",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix/client_matrix_a10d697d453c/matrix.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix/client_matrix_a10d697d453c/matrix.json",
+    "size": 718225,
+    "sha256": "cc66788c5ebed7d315f0ec18b75d5c9f076d69352bfb2d67d0a5cb33a71488ca",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix/client_matrix_a10d697d453c/matrix.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix/workbench_20261027T012410Z_4f744966/report.html",
+    "size": 998386,
+    "sha256": "2152ab15f434638cbbfeac77e627bc2d93567a009aa48fd3a4b397742cab24ea",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix/workbench_20261027T012410Z_4f744966/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix/workbench_20261027T012410Z_4f744966/report.json",
+    "size": 718280,
+    "sha256": "61898e01100dd01cf0c7c701fa683b2067eb12d3d9f597c3ad9971d9fa217daa",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix/workbench_20261027T012410Z_4f744966/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/scenarios.txt",
+    "size": 124491,
+    "sha256": "19315a63bba543e9776b3c6cd0bb987916a35eddc977116e8174bbc1fbb34205",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/scenarios.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/scenarios/workbench_20261027T012402Z_957edc0e/report.html",
+    "size": 164198,
+    "sha256": "024fbe37e152c65a2b50fdace5a95b43463bc808f6a76367931bc2479eea3ed5",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/scenarios/workbench_20261027T012402Z_957edc0e/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/scenarios/workbench_20261027T012402Z_957edc0e/report.json",
+    "size": 124176,
+    "sha256": "ab59feb2f1ec35f7e1d0edf91fad6b9d23283feb0437a43aa37bc64e51cb9c44",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/scenarios/workbench_20261027T012402Z_957edc0e/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/selftest.txt",
+    "size": 294,
+    "sha256": "369a27624da3694ea0bebecf34ae79a8c3e3386fab704581c435d2a5d012cb51",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/selftest.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/selftest/comparison_20261027_012400_301933/capture.jsonl",
+    "size": 29375,
+    "sha256": "8f05814df0e7b95c71c0e6d729a3e0871dbd8e008c38dcea535734eb0f6ef033",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/selftest/comparison_20261027_012400_301933/capture.jsonl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/selftest/comparison_20261027_012400_301933/report.html",
+    "size": 7717,
+    "sha256": "244c133959d11bf3eb426c7e5c895de18f41d37a57234a38fd149de4495079f6",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/selftest/comparison_20261027_012400_301933/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/selftest/comparison_20261027_012400_301933/report.json",
+    "size": 7710,
+    "sha256": "6d4acb0bc96a2f759a8da3e85a7d1a8349b77ffb0084c681b8d7a62722955fe4",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/selftest/comparison_20261027_012400_301933/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke.json",
+    "size": 40877,
+    "sha256": "01c5324e39bf6c14016f349541f4b4c02d4bb241286cdf15e1ec752f50e0042a",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/capture.jsonl",
+    "size": 7930,
+    "sha256": "e8ad00047a4a7794981110a43b33eed7fd1e39c24d07e178adcc3dc0263f96a5",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/capture.jsonl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/report.html",
+    "size": 10355,
+    "sha256": "b0e5f2e19b8f20c63fa4f17a0676b28e89ce5e3ab946c5da8a557b33a0748312",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/report.json",
+    "size": 6866,
+    "sha256": "c63778e7ff79a96eaa51765810f7fd1d1643fa270cf077c8742089aaae3fdbc1",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/ui_observations.csv",
+    "size": 147,
+    "sha256": "d67f1032bdafcb8d976949b09ebcf339bd364aff2278b36154b5876f1eee1e08",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/ui_observations.csv"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/workbench_20261027T044502Z_61e18bab/report.html",
+    "size": 17563,
+    "sha256": "5da340e9827fb4012ffe8a3cec8fd897d51593c43a4e7feffc25deeee94a973f",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/workbench_20261027T044502Z_61e18bab/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/workbench_20261027T044502Z_61e18bab/report.json",
+    "size": 12139,
+    "sha256": "2cda1318a41115bb565d30c908c7babbe89ea1682b62cfc62a40e757afc8ab2e",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/workbench_20261027T044502Z_61e18bab/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/loopback/comparison_20261027_044430_008953/capture.jsonl",
+    "size": 29361,
+    "sha256": "e376d929bf134bd90a87b14562d921b4bc928e8f66b187994dfacfd6fb0c4187",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/loopback/comparison_20261027_044430_008953/capture.jsonl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/loopback/comparison_20261027_044430_008953/report.html",
+    "size": 7717,
+    "sha256": "605e6c5bab7aa9fe4fce26e6b2b3b7447141dc3d868d719b63f50670d519089c",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/loopback/comparison_20261027_044430_008953/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/loopback/comparison_20261027_044430_008953/report.json",
+    "size": 7710,
+    "sha256": "5e7f4d52e892e575a00ad1dd6a31cd61099c1c5300d021866ac88a832e8eb1d3",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/loopback/comparison_20261027_044430_008953/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/loopback/comparison_20261027_044430_008953/ui_observations.csv",
+    "size": 147,
+    "sha256": "d67f1032bdafcb8d976949b09ebcf339bd364aff2278b36154b5876f1eee1e08",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/ui_observations.csv"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/scenarios/workbench_20261027T044429Z_c593b1b5/report.html",
+    "size": 164079,
+    "sha256": "8adaf42478a45bde42e1faea38bff9ebb4b2d747f60ec33288bd527fa207d2ec",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/scenarios/workbench_20261027T044429Z_c593b1b5/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/scenarios/workbench_20261027T044429Z_c593b1b5/report.json",
+    "size": 124097,
+    "sha256": "3309953c47ddfa51fca2571a0ff4df40ba4687ed086c1d148fe3cc39f84c6a1f",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/scenarios/workbench_20261027T044429Z_c593b1b5/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/unit_tests.txt",
+    "size": 28519,
+    "sha256": "01d8e9df11366a068b8c8ab11212de5af10076a6d3aac7a96b897ea5996f07a6",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/unit_tests.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/validation.json",
+    "size": 3697,
+    "sha256": "333068a2b46e669bd7e178218ce5435be3de0729b323b8558bda2dc3997cd48c",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/validation.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier_v0.3.0_Source.zip",
+    "size": 715666,
+    "sha256": "3a8fe8b468d06b81b80e6fc276c7e3d655ddf309ca2fe1871a0c01365c09704f",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier_v0.3.0_Source.zip"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/MANIFEST_SHA256.txt",
+    "size": 13822,
+    "sha256": "cda9118b265ac11d179d6a3b11ea323943bf026c4f3fcf0464a5cb8c54bb5ac9",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/MANIFEST_SHA256.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/release/spitfire_twin_verifier-0.3.0-py3-none-any.whl",
+    "size": 86366,
+    "sha256": "d18fa5700b5b3cf3d7fdbd3e0e8d7bf751988a6e4c735775afab93fd5938ef7f",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/release/spitfire_twin_verifier-0.3.0-py3-none-any.whl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/linux/clients/client_matrix_d025389b6bd9/matrix.html",
+    "size": 1060182,
+    "sha256": "0d1924c7329ea065c8da1972bf0e3db31f2dd6711c1a8b3a0c636a787996bb03",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/clients/client_matrix_d025389b6bd9/matrix.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/linux/clients/client_matrix_d025389b6bd9/matrix.json",
+    "size": 759750,
+    "sha256": "ddd3246e3492472cfd7ca82928d7b42e99218cd92b2862e57bda8e6196389f8c",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/clients/client_matrix_d025389b6bd9/matrix.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/linux/loopback/comparison_20261027_012254_153091/capture.jsonl",
+    "size": 29374,
+    "sha256": "aadd169a83d8463b54f697ec5ffbd6d448594be01b9a3aed016a6808bf4ba433",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/loopback/comparison_20261027_012254_153091/capture.jsonl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/linux/loopback/comparison_20261027_012254_153091/report.html",
+    "size": 7639,
+    "sha256": "7ceea3c0b597cd2ccfd981dfefa55316be4b41ab4d34ef81f735cd6d5ba36211",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/loopback/comparison_20261027_012254_153091/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/linux/loopback/comparison_20261027_012254_153091/report.json",
+    "size": 7454,
+    "sha256": "8c08973ce9466262c2ba5f73b9ff4bdde554ad8040fff862af3c47acb8497cc7",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/loopback/comparison_20261027_012254_153091/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/linux/scenarios/workbench_20261027T012254Z_451f8de4/report.html",
+    "size": 160144,
+    "sha256": "6a4d268c1d92e40e324f6137643fdf38dc16c9a2e2872fcb941b2f4e2e95762c",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/scenarios/workbench_20261027T012254Z_451f8de4/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/linux/scenarios/workbench_20261027T012254Z_451f8de4/report.json",
+    "size": 120162,
+    "sha256": "348209c1af951d16a55b47481db28d9dee6c8477d97ac1e401fa0ece1b9ff47a",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/scenarios/workbench_20261027T012254Z_451f8de4/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/linux/unit_tests.txt",
+    "size": 26199,
+    "sha256": "8c9342b45b636abc8a0729fec624a54dc7bbd09f8e2a3a293dd4cefa82fe4632",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/unit_tests.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/linux/validation.json",
+    "size": 5775,
+    "sha256": "5619a6948a064a24f0f7645a07f6cb2917d674b7778e68f892768846b6fb6e3d",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/linux/validation.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/gui_smoke.json",
+    "size": 41410,
+    "sha256": "e0ce5c7e3249f241ea69383a9c1cab3a6b47b147b7ed9d3ff5f48353075d6f43",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/gui_smoke.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_030_final/clients/client_matrix_930e55c600fd/matrix.html",
+    "size": 1075617,
+    "sha256": "ee431548569f5994c5b84770361a1a9ead785b328d21eb868f6259e2771ab9f2",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/clients/client_matrix_930e55c600fd/matrix.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_030_final/clients/client_matrix_930e55c600fd/matrix.json",
+    "size": 775185,
+    "sha256": "8725ad2618452511aab70e5fd3c647debaa621fca258695720fa47b8d8faafcc",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/clients/client_matrix_930e55c600fd/matrix.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_030_final/loopback/comparison_20261027_012253_530812/capture.jsonl",
+    "size": 29370,
+    "sha256": "b4c18e38e3eee63a0b4552568c936ccc99c1752ee8d32018d1cd8f006b908dd9",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/loopback/comparison_20261027_012253_530812/capture.jsonl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_030_final/loopback/comparison_20261027_012253_530812/report.html",
+    "size": 7717,
+    "sha256": "00465b346c534edcf83ce35defbb40ec44924cc6464120b19fc150f9ab64af16",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/loopback/comparison_20261027_012253_530812/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_030_final/loopback/comparison_20261027_012253_530812/report.json",
+    "size": 7710,
+    "sha256": "d60b511b7837a596a294f0d46b2d2672a39f5972e675c734fd26bd625d2a8b96",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/loopback/comparison_20261027_012253_530812/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_030_final/scenarios/workbench_20261027T012253Z_b5fe55a2/report.html",
+    "size": 164079,
+    "sha256": "5900ad731f29b10d3bb38890342d3b735030b2b0e100d0a993678b3d2848e1a9",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/scenarios/workbench_20261027T012253Z_b5fe55a2/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_030_final/scenarios/workbench_20261027T012253Z_b5fe55a2/report.json",
+    "size": 124097,
+    "sha256": "fc11954a670ed0a81244041fb8d51f854b83af8a68df602daaa5bc82917e7271",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/scenarios/workbench_20261027T012253Z_b5fe55a2/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_030_final/unit_tests.txt",
+    "size": 26357,
+    "sha256": "afbf7b9aa9d34f9eadb6274e410ccef65cdfd4e683847bd4da7e17a3aa4dfcfb",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/unit_tests.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_030_final/validation.json",
+    "size": 5351,
+    "sha256": "491abeb35605dae81d342e3a04f4b08f6e48c4672dc38c0bc2ab60954f7a7b68",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_030_final/validation.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_frozen_release/frozen_validation.json",
+    "size": 835,
+    "sha256": "80aee86f451ac3f5d5bc10bf0cac148ccbf5ff1e23e90723c82bb8ad4f527d72",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/frozen_validation.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_frozen_release/matrix.txt",
+    "size": 718383,
+    "sha256": "198ba4e0c8001bb61703b55098bc4c9204a85da6af23867f7adbc6df585b6d21",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_frozen_release/matrix/client_matrix_a10d697d453c/matrix.html",
+    "size": 997205,
+    "sha256": "56684c204d1b4b6b92f54656c649f8316bcefef5085f573b4286d24261e67798",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix/client_matrix_a10d697d453c/matrix.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_frozen_release/matrix/client_matrix_a10d697d453c/matrix.json",
+    "size": 718225,
+    "sha256": "cc66788c5ebed7d315f0ec18b75d5c9f076d69352bfb2d67d0a5cb33a71488ca",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix/client_matrix_a10d697d453c/matrix.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_frozen_release/matrix/workbench_20261027T012410Z_4f744966/report.html",
+    "size": 998386,
+    "sha256": "2152ab15f434638cbbfeac77e627bc2d93567a009aa48fd3a4b397742cab24ea",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix/workbench_20261027T012410Z_4f744966/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_frozen_release/matrix/workbench_20261027T012410Z_4f744966/report.json",
+    "size": 718280,
+    "sha256": "61898e01100dd01cf0c7c701fa683b2067eb12d3d9f597c3ad9971d9fa217daa",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/matrix/workbench_20261027T012410Z_4f744966/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_frozen_release/scenarios.txt",
+    "size": 124491,
+    "sha256": "19315a63bba543e9776b3c6cd0bb987916a35eddc977116e8174bbc1fbb34205",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/scenarios.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_frozen_release/scenarios/workbench_20261027T012402Z_957edc0e/report.html",
+    "size": 164198,
+    "sha256": "024fbe37e152c65a2b50fdace5a95b43463bc808f6a76367931bc2479eea3ed5",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/scenarios/workbench_20261027T012402Z_957edc0e/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_frozen_release/scenarios/workbench_20261027T012402Z_957edc0e/report.json",
+    "size": 124176,
+    "sha256": "ab59feb2f1ec35f7e1d0edf91fad6b9d23283feb0437a43aa37bc64e51cb9c44",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/scenarios/workbench_20261027T012402Z_957edc0e/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_frozen_release/selftest.txt",
+    "size": 294,
+    "sha256": "369a27624da3694ea0bebecf34ae79a8c3e3386fab704581c435d2a5d012cb51",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/selftest.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_frozen_release/selftest/comparison_20261027_012400_301933/capture.jsonl",
+    "size": 29375,
+    "sha256": "8f05814df0e7b95c71c0e6d729a3e0871dbd8e008c38dcea535734eb0f6ef033",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/selftest/comparison_20261027_012400_301933/capture.jsonl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_frozen_release/selftest/comparison_20261027_012400_301933/report.html",
+    "size": 7717,
+    "sha256": "244c133959d11bf3eb426c7e5c895de18f41d37a57234a38fd149de4495079f6",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/selftest/comparison_20261027_012400_301933/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_0.3.0/windows/validation_frozen_release/selftest/comparison_20261027_012400_301933/report.json",
+    "size": 7710,
+    "sha256": "6d4acb0bc96a2f759a8da3e85a7d1a8349b77ffb0084c681b8d7a62722955fe4",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_0.3.0/windows/validation_frozen_release/selftest/comparison_20261027_012400_301933/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/gui_smoke.json",
+    "size": 40877,
+    "sha256": "01c5324e39bf6c14016f349541f4b4c02d4bb241286cdf15e1ec752f50e0042a",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/capture.jsonl",
+    "size": 7930,
+    "sha256": "e8ad00047a4a7794981110a43b33eed7fd1e39c24d07e178adcc3dc0263f96a5",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/capture.jsonl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/report.html",
+    "size": 10355,
+    "sha256": "b0e5f2e19b8f20c63fa4f17a0676b28e89ce5e3ab946c5da8a557b33a0748312",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/report.json",
+    "size": 6866,
+    "sha256": "c63778e7ff79a96eaa51765810f7fd1d1643fa270cf077c8742089aaae3fdbc1",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/ui_observations.csv",
+    "size": 147,
+    "sha256": "d67f1032bdafcb8d976949b09ebcf339bd364aff2278b36154b5876f1eee1e08",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/ui_observations.csv"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/gui_smoke_reports/workbench_20261027T044502Z_61e18bab/report.html",
+    "size": 17563,
+    "sha256": "5da340e9827fb4012ffe8a3cec8fd897d51593c43a4e7feffc25deeee94a973f",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/workbench_20261027T044502Z_61e18bab/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/gui_smoke_reports/workbench_20261027T044502Z_61e18bab/report.json",
+    "size": 12139,
+    "sha256": "2cda1318a41115bb565d30c908c7babbe89ea1682b62cfc62a40e757afc8ab2e",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/workbench_20261027T044502Z_61e18bab/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/loopback/comparison_20261027_044430_008953/capture.jsonl",
+    "size": 29361,
+    "sha256": "e376d929bf134bd90a87b14562d921b4bc928e8f66b187994dfacfd6fb0c4187",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/loopback/comparison_20261027_044430_008953/capture.jsonl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/loopback/comparison_20261027_044430_008953/report.html",
+    "size": 7717,
+    "sha256": "605e6c5bab7aa9fe4fce26e6b2b3b7447141dc3d868d719b63f50670d519089c",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/loopback/comparison_20261027_044430_008953/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/loopback/comparison_20261027_044430_008953/report.json",
+    "size": 7710,
+    "sha256": "5e7f4d52e892e575a00ad1dd6a31cd61099c1c5300d021866ac88a832e8eb1d3",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/loopback/comparison_20261027_044430_008953/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/loopback/comparison_20261027_044430_008953/ui_observations.csv",
+    "size": 147,
+    "sha256": "d67f1032bdafcb8d976949b09ebcf339bd364aff2278b36154b5876f1eee1e08",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/ui_observations.csv"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/scenarios/workbench_20261027T044429Z_c593b1b5/report.html",
+    "size": 164079,
+    "sha256": "8adaf42478a45bde42e1faea38bff9ebb4b2d747f60ec33288bd527fa207d2ec",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/scenarios/workbench_20261027T044429Z_c593b1b5/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/scenarios/workbench_20261027T044429Z_c593b1b5/report.json",
+    "size": 124097,
+    "sha256": "3309953c47ddfa51fca2571a0ff4df40ba4687ed086c1d148fe3cc39f84c6a1f",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/scenarios/workbench_20261027T044429Z_c593b1b5/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/unit_tests.txt",
+    "size": 28519,
+    "sha256": "01d8e9df11366a068b8c8ab11212de5af10076a6d3aac7a96b897ea5996f07a6",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/unit_tests.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/inherited_v0.3.0/validation_p07_20261027/validation.json",
+    "size": 3697,
+    "sha256": "333068a2b46e669bd7e178218ce5435be3de0729b323b8558bda2dc3997cd48c",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/validation.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/.gitignore",
+    "size": 115,
+    "sha256": "87d18fcbb6575ae23406f3a2c136f34d0cf1d96dca98dfb2246edca228f26085",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/.gitignore"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/build_windows.ps1",
+    "size": 1347,
+    "sha256": "17e750c8dcfad65889c93eadb36e59515ae5805145034da1a3768ca71f27ecd2",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/build_windows.ps1"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/CHANGELOG.md",
+    "size": 1780,
+    "sha256": "8c4c8515c8009f4cd688fcf37d5b96a58648a99a3049b5ddedcd81553fe0f93a",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/CHANGELOG.md"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/PROTOCOL_BASIS.md",
+    "size": 3422,
+    "sha256": "3f56f851a53fe077ebe6d636e09ebddf73c24db67fe765f84b1ec0db65a80df8",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/PROTOCOL_BASIS.md"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/PROVENANCE_0.3.0.txt",
+    "size": 6974,
+    "sha256": "ca9178d139ac9045e5c01d3bc8e2bb72351211a471a3949d8cfb5605a82785a9",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/PROVENANCE_0.3.0.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/RELEASE_CHANGES_0.3.0.txt",
+    "size": 1728,
+    "sha256": "258086bb29d1a6b2c7f6a29f05a137732f5c0e36dd46f16ba468f1fe0337f50b",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/RELEASE_CHANGES_0.3.0.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/RELEASE_CHANGES_0.3.1.txt",
+    "size": 3815,
+    "sha256": "d8a01e1159e4968574beb7197677400546cf30e9d7fca0cc2a4e9e347bfcfc66",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/RELEASE_CHANGES_0.3.1.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/REVIEW_FIXES_0.2.0.md",
+    "size": 2979,
+    "sha256": "cfad1c1fa6df0abcd3767274099940c46f267e18b079594fa12f4bd34a0c1ea1",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/REVIEW_FIXES_0.2.0.md"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/third_party/PYINSTALLER_COPYING.txt",
+    "size": 32138,
+    "sha256": "dcf75fdb959db1e3b41c0f8505069d2ece781b5ec6b3d0a4d30975cfc6580245",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/third_party/PYINSTALLER_COPYING.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/third_party/PYTHON_LICENSE.txt",
+    "size": 33861,
+    "sha256": "62bec384df47b0328307db41455ff6ea2559e5546b394ac69148561b21703120",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/third_party/PYTHON_LICENSE.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/third_party/TK_LICENSE.txt",
+    "size": 2307,
+    "sha256": "0d1e4405f6273f091732764ed89b57066be63ce64869be6c71ea337dc4f2f9b5",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/third_party/TK_LICENSE.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/USER_GUIDE_0.3.0_KO.txt",
+    "size": 6349,
+    "sha256": "9064fe9dc15bdb66a8546f4113da15e0c0bd7fe5e9aaefe733f357e0731ce74f",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/USER_GUIDE_0.3.0_KO.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/VALIDATION_PLAYBOOK.md",
+    "size": 2896,
+    "sha256": "f81a3bb93a7feef44af97484c1463a54abe27534f9a1cb52eec2c1ceaff94167",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/VALIDATION_PLAYBOOK.md"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/VALIDATION_RESULTS_0.1.0.txt",
+    "size": 2587,
+    "sha256": "81d08e65ee1bc1fce20e96bab11bd2fe951daf0fbe5f1c411d66778bb9599c55",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/VALIDATION_RESULTS_0.1.0.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/VALIDATION_RESULTS_0.2.0.txt",
+    "size": 11233,
+    "sha256": "2b92ef2e1074bfdb91c0a3b82f88a6eb55b36f3df4520a623838db37add31d4c",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/VALIDATION_RESULTS_0.2.0.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/docs/VALIDATION_RESULTS_0.3.0.txt",
+    "size": 4995,
+    "sha256": "057578242c1e24fddbf29ad5cc609095d4e1bbd0aa76b04f5c5cedf3e6ffd907",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/docs/VALIDATION_RESULTS_0.3.0.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/LICENSE",
+    "size": 1105,
+    "sha256": "5f6a04129c2a125546b3a18ab632dff49443659b7f5ba455b06c0322e791c8d2",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/LICENSE"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/List-NetworkAdapters.ps1",
+    "size": 133,
+    "sha256": "bd710a376340a93511d85a5d8fef893af6f9d08f01b3b28bc92839fbaed6901e",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/List-NetworkAdapters.ps1"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/NOTICE.md",
+    "size": 494,
+    "sha256": "be9a2cc4993bc3b4984bacbd7b956645438ba6c4f2625718eb3bce388bb30388",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/NOTICE.md"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/pyproject.toml",
+    "size": 568,
+    "sha256": "7356208dfa7ce4155e8f117ef14c75a21a841f9ab6407983c22f3ee53ccda883",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/pyproject.toml"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/README.md",
+    "size": 5106,
+    "sha256": "1d364c6cc8a83828cb0f8d3b1172b55e4149e85d4fdf232264e1c2820884942e",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/README.md"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/reference/command_catalog.csv",
+    "size": 4480,
+    "sha256": "ec9d9f878f9f789e70ba8dea52012f476c8a55c6944913c309c379a866e773db",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/reference/command_catalog.csv"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/reference/default_network.json",
+    "size": 351,
+    "sha256": "4b1b80cabb8a3b86520161d38d74e9e00c4841da14e84895ce420884449a0bd8",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/reference/default_network.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/reference/reaction_rules.example.json",
+    "size": 337,
+    "sha256": "748835b3c959a8ef4e9b473491d9519dfa11ddbdb6cbca22cc809cfa3cfa6b0b",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/reference/reaction_rules.example.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/Run-ScenarioSuite.bat",
+    "size": 260,
+    "sha256": "6545d2d4c1d593598c78fa8ff782b7e12545bcc4fae3212a291afb94a99b9593",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Run-ScenarioSuite.bat"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/Run-SelfTest.bat",
+    "size": 250,
+    "sha256": "dd4863e446347b6463e2211143fa28bf318fa4de8873e4497390d914510d7c26",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Run-SelfTest.bat"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/run_tests.py",
+    "size": 416,
+    "sha256": "f266caecdb31c41b50ed7dfea43b06a51930ebe21be03ac227ec259c691a902b",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/run_tests.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/run_verifier.py",
+    "size": 360,
+    "sha256": "2bc8fcb0201f5683a88b49407c7644d3c388f510ef239174f51f3f4896cc8bc4",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/run_verifier.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/Setup-HostOnlyNetwork.ps1",
+    "size": 3330,
+    "sha256": "0287d4f6f5a4c9757296de1137b927dec840aad79ce84f480fc8726977343642",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Setup-HostOnlyNetwork.ps1"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/__init__.py",
+    "size": 54,
+    "sha256": "6c08302e07a86a5cccb69b40ec501b41c46bad974868a6b719adfc272508d8a8",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/__init__.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/__main__.py",
+    "size": 49,
+    "sha256": "76fa916e93e0ae1a6c1bb51dcc0bcf289c014e9f760a47165f8a84401ccf41d7",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/__main__.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/app.py",
+    "size": 38849,
+    "sha256": "e3e5407de6d87c8da618bb4b95f7bbe5c442c4f7bd2ab2de61326686c31508a1",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/app.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/catalog.py",
+    "size": 5938,
+    "sha256": "9e780900177bf703477f6292bbaf44772286d56baf798cdf9f8bd3bc23e1395b",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/catalog.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/cli.py",
+    "size": 9717,
+    "sha256": "e7f94cc61bc9184000b8bff021732f42183679f8322383c1b6bd339f0066da64",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/cli.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/client_matrix.py",
+    "size": 23808,
+    "sha256": "0b3b17f1380a3e7a04294237e99d0b76ec27f195c2f23796ebc2734fb99b2029",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/client_matrix.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/compare.py",
+    "size": 15324,
+    "sha256": "38635b0cfd811af5c664ac5cf54eb43abb75bb8706102257dab74bf3e6c7a3fe",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/compare.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/config.py",
+    "size": 5444,
+    "sha256": "3f42ad41d65692e4bd2620352869742de8a58f75148a09ddaa73f56e8a5c9414",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/config.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/communication_loss.json",
+    "size": 1654,
+    "sha256": "5f7acb03221fcc398f201d861f6cbe84c63abf57c124fcde7658f2efc2e1981c",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/communication_loss.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/duplicate_trigger.json",
+    "size": 854,
+    "sha256": "0ee4e8d6914d9007ae7385cb603354de4adf7893acbe75023358d0cbd15b8c94",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/duplicate_trigger.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/interlock_open.json",
+    "size": 1555,
+    "sha256": "f81abe2f0319b80256879c5bfd99d7e21dba66bc34723442940a6d4b369ed0e7",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/interlock_open.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/missing_trigger.json",
+    "size": 731,
+    "sha256": "d03acb3c029c262e5a216f4bc7585c98dc8bb72899523800bf041c6496d21b72",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/missing_trigger.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/nominal_external_10hz.json",
+    "size": 937,
+    "sha256": "7cedcfcd89bb4293f0ab5033c2d5a7e089a661099a8ea30eb47899f6030979df",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/nominal_external_10hz.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/phase_slip.json",
+    "size": 719,
+    "sha256": "b9c6f5729ce1f87e8967880ad130c3a83f6cf2c6d1d020fdb4b07b810f042eea",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/phase_slip.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/pump_absent.json",
+    "size": 757,
+    "sha256": "6c2022ff8ee9e958803733d8949436084e8600b1c61fd36a2c41a310e98ef859",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/pump_absent.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/pump_not_ready.json",
+    "size": 1234,
+    "sha256": "8c9e374104f53552e86036b5b73880345150cab7aa739aaae0f9d073b291e223",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/pump_not_ready.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/seed_loss_recovery.json",
+    "size": 1917,
+    "sha256": "849055b09a371584f5615f5f493857fdf417256fce02d9d353a012bc626c85d3",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/seed_loss_recovery.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/thermal_flow_hv.json",
+    "size": 1588,
+    "sha256": "a2c662b570e48b0907a666f14fb28423b9664a88d66a11cff3f919c330fa2097",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/thermal_flow_hv.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/trigger_jitter.json",
+    "size": 677,
+    "sha256": "ef300716494ba9bb104dc70605dcb49d5da556e579fe609670a1982efbcae43f",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/trigger_jitter.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/trigger_rate_mismatch.json",
+    "size": 711,
+    "sha256": "b5d889c689014e63be1c8ab3a9e165c3ef8e81bcf9c4d81d07972ca3c4b01928",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/data/scenarios/trigger_rate_mismatch.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/demo.py",
+    "size": 2313,
+    "sha256": "998056a60d55d7e89bc8843b08bfb3eea1734af6b9f4a5812e358b373aabbb83",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/demo.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/evidence.py",
+    "size": 12821,
+    "sha256": "7d71c6ed88531afd1ec6bd226f747f15b20c6ed929ea1381668fe86720b95f1e",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/evidence.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/evidence_report.py",
+    "size": 4597,
+    "sha256": "a14616d81939fd80ae64c3c393f5a23acc4b9f57868eddc75731744960e836f1",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/evidence_report.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/model.py",
+    "size": 14005,
+    "sha256": "1010148510c027d3960c671b5f0942a8629136d231153e59e549caa6222104bd",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/model.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/network.py",
+    "size": 2130,
+    "sha256": "80ba087d915e2653f882042862259fdfbfe51a492d69e50b692df8200b6ee048",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/network.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/profiles.py",
+    "size": 13951,
+    "sha256": "ed6859da5d21f0097199a2714af017efe01c245b9123b1323ad4efed80e56f7b",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/profiles.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/protocol.py",
+    "size": 3877,
+    "sha256": "c43e6fb775e1d8322ed894667b24a33398f2c2c2bfbcf18b859e096548cef59c",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/protocol.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/records.py",
+    "size": 6416,
+    "sha256": "7aed443ae5d5f862f9232f2b66ce0acce39d5a0b810f77612df4a7c88c4485c2",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/records.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/replay.py",
+    "size": 7668,
+    "sha256": "c7c1e3dc20c48a300607e93ed8d5da26c64b858bd797db009b06f054377388b1",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/replay.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/report.py",
+    "size": 8857,
+    "sha256": "7651fe509fb6c4b8910631068b87048523da5ed046c2a83cf29077351be7ab4b",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/report.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/scenarios.py",
+    "size": 21844,
+    "sha256": "8ddcc7ac982522da740a9abdf89e648ad3e7dee5a3337b8cf03759dac52ad86b",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/scenarios.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/server.py",
+    "size": 15460,
+    "sha256": "0b7a43eb42832f8fa18198ce1f6002e24248c41ef36de529985982db6b3e8b97",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/server.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/workbench_ui.py",
+    "size": 21465,
+    "sha256": "f8f65c4828fb9bf40ab7dcce18e826ef7761be48805a7599368afaf151328754",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/src/spitfire_twin_verifier/workbench_ui.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/Start-SpitfireTwinVerifier.bat",
+    "size": 278,
+    "sha256": "ae2c9719c1314df749160c364ca6567165d2f25eaf09b9e86f63e51939a350e0",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Start-SpitfireTwinVerifier.bat"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/Start-SpitfireTwinVerifier.ps1",
+    "size": 179,
+    "sha256": "cb735a1eee26fd563439a63af1cf860d73c1ee43f480ed683082f644d364391f",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Start-SpitfireTwinVerifier.ps1"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/START_HERE_KO.txt",
+    "size": 2855,
+    "sha256": "e59810dab815ff113b6a2ea5563acd9fc9f20138786edd850ac40f774b98e2c1",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/START_HERE_KO.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_catalog_provenance.py",
+    "size": 2742,
+    "sha256": "4effd9a022ece1388850dfb6d5aefce662acabdbaba788a608fb8f5c1069019f",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_catalog_provenance.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_client_matrix.py",
+    "size": 4462,
+    "sha256": "90e5a1c3da4e323baa5c4960eae5c5f2431c97e447b7ab7a8487dbc27622cb2b",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_client_matrix.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_compare.py",
+    "size": 2379,
+    "sha256": "1a4fd9aab0eef9887fa224d65f88ef32c7d45ca46b83102828fd9821dc6f0726",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_compare.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_config.py",
+    "size": 14108,
+    "sha256": "bdfefbe25e17f4cc7514632b2ee2331b75f9094ae0b18b58815fe56da744d654",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_config.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_demo.py",
+    "size": 922,
+    "sha256": "994feb6592f4feb3fc3766fa56ff2eb3fa841e34eb7a5cff54f7b62143b9e8a4",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_demo.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_evidence.py",
+    "size": 6018,
+    "sha256": "d23826de61b404308bb9098f18c7c691483988b8c853a70b4dab81b6b12d304c",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_evidence.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_gui.py",
+    "size": 4110,
+    "sha256": "0da2d3770bdac80074a7bd3b9c11fb7f16138b263b2702a7a2ff367fbc606f2f",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_gui.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_gui_handlers.py",
+    "size": 4610,
+    "sha256": "037048ed48d60d458d7e21cdd3cf5f25f9b8a91c86eeae2f0505c4178e4cbebb",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_gui_handlers.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_live_scenarios.py",
+    "size": 9226,
+    "sha256": "bdeb1ebcbb3ab5e8db01ac93071d619d05e8d1a6128f1618f9cf7d3cff5b5743",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_live_scenarios.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_model.py",
+    "size": 2455,
+    "sha256": "c4e45d6fbb879fc46ffe40b1d7dd43974f24ba80fb324275f9cf603d3ff2d56d",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_model.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_model_030.py",
+    "size": 1946,
+    "sha256": "ed3373badf4acb3c2689e022960930d2f3497ae01bf0758e69356e9dd7f009f4",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_model_030.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_profiles.py",
+    "size": 6113,
+    "sha256": "b8751b104a4a1262c786348839101d899db668d6e0de43af26c260c93e3acd3f",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_profiles.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_protocol.py",
+    "size": 1484,
+    "sha256": "2a93924d2e2f0019176770e9506ce6d4733d8235a0334169f5e7727e5ce54d6c",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_protocol.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_regressions.py",
+    "size": 16915,
+    "sha256": "7fbe8255f7a85b3a0da525b25c15726403c37bc41a0da8f1b4e8668d3fcef6a5",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_regressions.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_replay.py",
+    "size": 3148,
+    "sha256": "c3f11b7591c1821961e3fd1b5162b7214a0ba16a1d83e0635a84c6bf67ac526b",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_replay.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_review_030.py",
+    "size": 5378,
+    "sha256": "25003488ad1b954aaaacb645dfc167e3476b3315f2b8cf6bb448235980aed3cc",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_review_030.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_scenarios.py",
+    "size": 12877,
+    "sha256": "d8a934881ff7fe0903d3e4ad099aba6ee9c3cd6d7f8c5724ea50c1f90584d293",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_scenarios.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_server.py",
+    "size": 2116,
+    "sha256": "6e0a15001cab6dd6db9d790484c3b96773d6752176f839abc0c223d1a7372bd4",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_server.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tests/test_workbench_ui.py",
+    "size": 9124,
+    "sha256": "e4546d561c50fb17a49dda967bb4d785f4ab12384b8929993fa7492ba317b77d",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tests/test_workbench_ui.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/THIRD_PARTY_NOTICES.txt",
+    "size": 830,
+    "sha256": "8a2cda563f8a0bdfbb09e81cbc6ac713f08bb63f79a65a115e42c2e1bd954503",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/THIRD_PARTY_NOTICES.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tools/export_catalog.py",
+    "size": 564,
+    "sha256": "fd33e00caf94d4af39b1484cb61de75b9a3fcfbe5989d1a8fe924b7fb55e71ee",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/export_catalog.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tools/package_release.py",
+    "size": 2838,
+    "sha256": "23d71bccdd1d6ffec15eabeda361af3fa8152eb6d1c48f2dd5b6bbcae28fe5ba",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tools/package_release.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tools/stress_config.py",
+    "size": 2066,
+    "sha256": "ae726c32e80b626a36e2998c7f637b673ced8054ae83d54cc3a794875a24d685",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tools/stress_config.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tools/validate_release.py",
+    "size": 3310,
+    "sha256": "62621603a9bb65c75dad884f411efb293085d175f39399310b6b8136a18fcf46",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/validate_release.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tools/windows_frozen_smoke.py",
+    "size": 5018,
+    "sha256": "9e7d60f479437c6330aa24e15625e873493a22544352c144ae47b33bad97f40a",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/windows_frozen_smoke.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/tools/windows_gui_smoke.py",
+    "size": 15481,
+    "sha256": "8fb519143e35f9faa10a9d654a960d9bc3e68566e57daf71c889cc2617d1e703",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/tools/windows_gui_smoke.py"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/Undo-HostOnlyNetwork.ps1",
+    "size": 1284,
+    "sha256": "e467959cae09e02c6c16caacc927679b2a998696840c403e4c597aaa9a9398c8",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/Undo-HostOnlyNetwork.ps1"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/config_stress.json",
+    "size": 448,
+    "sha256": "d9213e3439c6ce41facd64adc861f24289aa22bd20478c62c2128da1de1473dd",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/config_stress.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/config_stress.log",
+    "size": 13506,
+    "sha256": "56c3dcbd7b62804c11650c7234c31eb28213410a2d2600b06e180dd6a9ca489e",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/config_stress.log"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/gui_smoke.json",
+    "size": 40867,
+    "sha256": "8d865392b12f91f369f525a195c1ccf971587de94fbefb5f1dcab74d05fa6bb4",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/gui_smoke.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/gui_smoke_reports/comparison_20261027_050009_885068/capture.jsonl",
+    "size": 7930,
+    "sha256": "408baf54070b31c62dc83716795618ac3a0df0037746c6adbda10913ddd7957d",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/gui_smoke_reports/comparison_20261027_050009_885068/capture.jsonl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/gui_smoke_reports/comparison_20261027_050009_885068/report.html",
+    "size": 10355,
+    "sha256": "19527ae27797ffca3ab500e7294e1122095c36d704c6d5018828b5726260dafd",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/gui_smoke_reports/comparison_20261027_050009_885068/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/gui_smoke_reports/comparison_20261027_050009_885068/report.json",
+    "size": 6866,
+    "sha256": "980979eb254d086c0c9522fb9a9840f0f6bd1aa4f66e364b4228b4c3513f518c",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/gui_smoke_reports/comparison_20261027_050009_885068/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/gui_smoke_reports/comparison_20261027_050009_885068/ui_observations.csv",
+    "size": 147,
+    "sha256": "d67f1032bdafcb8d976949b09ebcf339bd364aff2278b36154b5876f1eee1e08",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/ui_observations.csv"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/gui_smoke_reports/workbench_20261027T050009Z_fb61ea4e/report.html",
+    "size": 17563,
+    "sha256": "941bce9e9e4651d0afd118714c611a6f1b4b2c43594ced57eea12748ee6a4533",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/gui_smoke_reports/workbench_20261027T050009Z_fb61ea4e/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/gui_smoke_reports/workbench_20261027T050009Z_fb61ea4e/report.json",
+    "size": 12139,
+    "sha256": "73d5462367b3be3cbe47b7edad46d29fce0f72f639a71a23616aefad2ff65225",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/gui_smoke_reports/workbench_20261027T050009Z_fb61ea4e/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/loopback/comparison_20261027_045957_507940/capture.jsonl",
+    "size": 29364,
+    "sha256": "733d90a29c39bd438d5e79bff2545073ac5fcf2b3bb5c1d1282b282bcf975ca0",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/loopback/comparison_20261027_045957_507940/capture.jsonl"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/loopback/comparison_20261027_045957_507940/report.html",
+    "size": 7717,
+    "sha256": "09a351fcf7a630bf7d1b8d0e6e717d7de6d25734b7011c0d846d6c11664f628a",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/loopback/comparison_20261027_045957_507940/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/loopback/comparison_20261027_045957_507940/report.json",
+    "size": 7710,
+    "sha256": "814b81b8a641306bb286f8130c8303f9770d0c7357b8f115b707c24a7e740961",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/loopback/comparison_20261027_045957_507940/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/loopback/comparison_20261027_045957_507940/ui_observations.csv",
+    "size": 147,
+    "sha256": "d67f1032bdafcb8d976949b09ebcf339bd364aff2278b36154b5876f1eee1e08",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.0/Spitfire_Twin_Verifier/validation_p07_20261027/gui_smoke_reports/comparison_20261027_044502_377473/ui_observations.csv"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/scenarios/workbench_20261027T045957Z_6aa981d3/report.html",
+    "size": 164079,
+    "sha256": "7a89c5b55dbf61df1e60735792cd942d6e641c1e6a486a1172d57195bcf8f906",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/scenarios/workbench_20261027T045957Z_6aa981d3/report.html"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/scenarios/workbench_20261027T045957Z_6aa981d3/report.json",
+    "size": 124097,
+    "sha256": "e0f5871b561eeb8834241e675c69574c5e9feeca4868bacf3317535dcb37a6ee",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/scenarios/workbench_20261027T045957Z_6aa981d3/report.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/unit_tests.txt",
+    "size": 27087,
+    "sha256": "79f4525c06e05a6dfa8af5a98f4f9934797e1b250a7495acd64b3696db7e447c",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/unit_tests.txt"
+  },
+  {
+    "source": "Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/validation.json",
+    "size": 1535,
+    "sha256": "040089e54694c3df86450e7795f4361d4b5472b50752c3429e4ad623c39f88de",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/verifier/files/Desktop/Spitfire_Twin_Verifier_v0.3.1/Spitfire_Twin_Verifier/validation_p07_031/validation.json"
+  },
+  {
+    "source": "Desktop/Spitfire_Verifier_0.3.0.lnk",
+    "size": 1727,
+    "status": "excluded-generated-or-shortcut"
+  },
+  {
+    "source": "Desktop/Spitfire_Verifier_0.3.1.lnk",
+    "size": 1727,
+    "status": "excluded-generated-or-shortcut"
+  }
+]

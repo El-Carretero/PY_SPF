@@ -1,0 +1,1467 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-27T05:00:08.849363+00:00",
+  "verifier_version": "0.3.1",
+  "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "status": "PASS",
+  "scope": "Actual Verifier Tk construction, handlers, geometry, synthetic model, and internal loopback probe",
+  "xp_vendor_execution": "NOT_PERFORMED",
+  "physical_hardware": "NOT_PERFORMED",
+  "user_configuration": "not loaded; AppConfig.save mocked",
+  "layouts": [
+    {
+      "requested": [
+        1536,
+        768
+      ],
+      "actual": [
+        1536,
+        768
+      ],
+      "viewport_height": 644,
+      "content_height": 873,
+      "bottom_reachable": true,
+      "controls": [
+        {
+          "class": "TCombobox",
+          "label": "PY_VAR31",
+          "width": 1369,
+          "height": 21,
+          "requested_width": 163,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            129,
+            146,
+            1498,
+            167
+          ],
+          "visible_rect": [
+            43,
+            143,
+            1498,
+            225
+          ]
+        },
+        {
+          "class": "TCombobox",
+          "label": "PY_VAR32",
+          "width": 1369,
+          "height": 21,
+          "requested_width": 163,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            129,
+            146,
+            1498,
+            167
+          ],
+          "visible_rect": [
+            43,
+            134,
+            1498,
+            198
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "버전 선택 적용",
+          "width": 90,
+          "height": 25,
+          "requested_width": 90,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            129,
+            146,
+            219,
+            171
+          ],
+          "visible_rect": [
+            43,
+            134,
+            1498,
+            171
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "ZIP 추가",
+          "width": 87,
+          "height": 25,
+          "requested_width": 87,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            53,
+            146,
+            140,
+            171
+          ],
+          "visible_rect": [
+            53,
+            146,
+            1488,
+            171
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "폴더 추가",
+          "width": 87,
+          "height": 25,
+          "requested_width": 87,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            146,
+            146,
+            233,
+            171
+          ],
+          "visible_rect": [
+            53,
+            146,
+            1488,
+            171
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "선택 제거",
+          "width": 87,
+          "height": 25,
+          "requested_width": 87,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            239,
+            146,
+            326,
+            171
+          ],
+          "visible_rect": [
+            53,
+            146,
+            1488,
+            171
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "추가한 코드로 loopback 시험",
+          "width": 167,
+          "height": 25,
+          "requested_width": 167,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            53,
+            146,
+            220,
+            171
+          ],
+          "visible_rect": [
+            43,
+            134,
+            1498,
+            273
+          ]
+        },
+        {
+          "class": "TCombobox",
+          "label": "PY_VAR34",
+          "width": 1435,
+          "height": 21,
+          "requested_width": 163,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            53,
+            289,
+            1488,
+            310
+          ],
+          "visible_rect": [
+            53,
+            289,
+            1488,
+            310
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "JSON 시나리오 열기",
+          "width": 119,
+          "height": 25,
+          "requested_width": 119,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            53,
+            316,
+            172,
+            341
+          ],
+          "visible_rect": [
+            53,
+            316,
+            1488,
+            341
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "모델 자체 시험",
+          "width": 90,
+          "height": 25,
+          "requested_width": 90,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            178,
+            316,
+            268,
+            341
+          ],
+          "visible_rect": [
+            53,
+            316,
+            1488,
+            341
+          ]
+        },
+        {
+          "class": "TRadiobutton",
+          "label": "실시간",
+          "width": 59,
+          "height": 21,
+          "requested_width": 59,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            53,
+            347,
+            112,
+            368
+          ],
+          "visible_rect": [
+            53,
+            347,
+            1488,
+            368
+          ]
+        },
+        {
+          "class": "TRadiobutton",
+          "label": "수동 시간",
+          "width": 75,
+          "height": 21,
+          "requested_width": 75,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            115,
+            347,
+            190,
+            368
+          ],
+          "visible_rect": [
+            53,
+            347,
+            1488,
+            368
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "다음 장비 시작에 적용",
+          "width": 130,
+          "height": 25,
+          "requested_width": 130,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            53,
+            374,
+            183,
+            399
+          ],
+          "visible_rect": [
+            53,
+            374,
+            1488,
+            399
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "예약 해제",
+          "width": 87,
+          "height": 25,
+          "requested_width": 87,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            189,
+            374,
+            276,
+            399
+          ],
+          "visible_rect": [
+            53,
+            374,
+            1488,
+            399
+          ]
+        },
+        {
+          "class": "TEntry",
+          "label": "PY_VAR36",
+          "width": 62,
+          "height": 21,
+          "requested_width": 62,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            139,
+            407,
+            201,
+            428
+          ],
+          "visible_rect": [
+            53,
+            405,
+            1488,
+            430
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "ms까지 이동",
+          "width": 87,
+          "height": 25,
+          "requested_width": 87,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            205,
+            405,
+            292,
+            430
+          ],
+          "visible_rect": [
+            53,
+            405,
+            1488,
+            430
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "시험 JSON / HTML 저장",
+          "width": 140,
+          "height": 25,
+          "requested_width": 140,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            43,
+            525,
+            183,
+            550
+          ],
+          "visible_rect": [
+            43,
+            525,
+            1498,
+            573
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "requested": [
+        1024,
+        768
+      ],
+      "actual": [
+        1024,
+        768
+      ],
+      "viewport_height": 644,
+      "content_height": 873,
+      "bottom_reachable": true,
+      "controls": [
+        {
+          "class": "TCombobox",
+          "label": "PY_VAR31",
+          "width": 857,
+          "height": 21,
+          "requested_width": 163,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            129,
+            146,
+            986,
+            167
+          ],
+          "visible_rect": [
+            43,
+            143,
+            986,
+            225
+          ]
+        },
+        {
+          "class": "TCombobox",
+          "label": "PY_VAR32",
+          "width": 857,
+          "height": 21,
+          "requested_width": 163,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            129,
+            146,
+            986,
+            167
+          ],
+          "visible_rect": [
+            43,
+            134,
+            986,
+            198
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "버전 선택 적용",
+          "width": 90,
+          "height": 25,
+          "requested_width": 90,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            129,
+            146,
+            219,
+            171
+          ],
+          "visible_rect": [
+            43,
+            134,
+            986,
+            171
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "ZIP 추가",
+          "width": 87,
+          "height": 25,
+          "requested_width": 87,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            53,
+            146,
+            140,
+            171
+          ],
+          "visible_rect": [
+            53,
+            146,
+            976,
+            171
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "폴더 추가",
+          "width": 87,
+          "height": 25,
+          "requested_width": 87,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            146,
+            146,
+            233,
+            171
+          ],
+          "visible_rect": [
+            53,
+            146,
+            976,
+            171
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "선택 제거",
+          "width": 87,
+          "height": 25,
+          "requested_width": 87,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            239,
+            146,
+            326,
+            171
+          ],
+          "visible_rect": [
+            53,
+            146,
+            976,
+            171
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "추가한 코드로 loopback 시험",
+          "width": 167,
+          "height": 25,
+          "requested_width": 167,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            53,
+            146,
+            220,
+            171
+          ],
+          "visible_rect": [
+            43,
+            134,
+            986,
+            273
+          ]
+        },
+        {
+          "class": "TCombobox",
+          "label": "PY_VAR34",
+          "width": 923,
+          "height": 21,
+          "requested_width": 163,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            53,
+            289,
+            976,
+            310
+          ],
+          "visible_rect": [
+            53,
+            289,
+            976,
+            310
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "JSON 시나리오 열기",
+          "width": 119,
+          "height": 25,
+          "requested_width": 119,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            53,
+            316,
+            172,
+            341
+          ],
+          "visible_rect": [
+            53,
+            316,
+            976,
+            341
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "모델 자체 시험",
+          "width": 90,
+          "height": 25,
+          "requested_width": 90,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            178,
+            316,
+            268,
+            341
+          ],
+          "visible_rect": [
+            53,
+            316,
+            976,
+            341
+          ]
+        },
+        {
+          "class": "TRadiobutton",
+          "label": "실시간",
+          "width": 59,
+          "height": 21,
+          "requested_width": 59,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            53,
+            347,
+            112,
+            368
+          ],
+          "visible_rect": [
+            53,
+            347,
+            976,
+            368
+          ]
+        },
+        {
+          "class": "TRadiobutton",
+          "label": "수동 시간",
+          "width": 75,
+          "height": 21,
+          "requested_width": 75,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            115,
+            347,
+            190,
+            368
+          ],
+          "visible_rect": [
+            53,
+            347,
+            976,
+            368
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "다음 장비 시작에 적용",
+          "width": 130,
+          "height": 25,
+          "requested_width": 130,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            53,
+            374,
+            183,
+            399
+          ],
+          "visible_rect": [
+            53,
+            374,
+            976,
+            399
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "예약 해제",
+          "width": 87,
+          "height": 25,
+          "requested_width": 87,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            189,
+            374,
+            276,
+            399
+          ],
+          "visible_rect": [
+            53,
+            374,
+            976,
+            399
+          ]
+        },
+        {
+          "class": "TEntry",
+          "label": "PY_VAR36",
+          "width": 62,
+          "height": 21,
+          "requested_width": 62,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            139,
+            407,
+            201,
+            428
+          ],
+          "visible_rect": [
+            53,
+            405,
+            976,
+            430
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "ms까지 이동",
+          "width": 87,
+          "height": 25,
+          "requested_width": 87,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            205,
+            405,
+            292,
+            430
+          ],
+          "visible_rect": [
+            53,
+            405,
+            976,
+            430
+          ]
+        },
+        {
+          "class": "TButton",
+          "label": "시험 JSON / HTML 저장",
+          "width": 140,
+          "height": 25,
+          "requested_width": 140,
+          "mapped": true,
+          "horizontal_visible": true,
+          "vertical_visible": true,
+          "usable_size": true,
+          "reachable": true,
+          "widget_rect": [
+            43,
+            525,
+            183,
+            550
+          ],
+          "visible_rect": [
+            43,
+            525,
+            986,
+            573
+          ]
+        }
+      ],
+      "status": "PASS"
+    }
+  ],
+  "dialogs": [],
+  "callback_errors": [],
+  "screen": [
+    1920,
+    1080
+  ],
+  "model": {
+    "schema_version": 1,
+    "scenario_id": "nominal_external_10hz",
+    "name": "정상 외부 펌프 10 Hz",
+    "model_verdict": "PASS",
+    "client_equivalence": "UNVERIFIED",
+    "physical_validation": "UNVERIFIED",
+    "evidence": "synthetic_policy",
+    "assertions": [
+      {
+        "at_ms": 300,
+        "path": "armed",
+        "op": "eq",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "at_ms": 300,
+        "path": "accepted_trigger_count",
+        "op": "eq",
+        "expected": 4,
+        "actual": 4,
+        "passed": true
+      },
+      {
+        "at_ms": 400,
+        "path": "inhibited",
+        "op": "eq",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      }
+    ],
+    "transitions": [
+      {
+        "time_ms": 0.0,
+        "event": "arm",
+        "note": "",
+        "state": {
+          "time_ms": 0.0,
+          "signals": {
+            "seed_present": true,
+            "seed_frequency_mhz": 80.0,
+            "pump_present": true,
+            "pump_ready": true,
+            "interlock_closed": true,
+            "temperature_ok": true,
+            "flow_ok": true,
+            "hv_ok": true,
+            "communication_ok": true
+          },
+          "duration_ms": 400,
+          "finished": false,
+          "phase": 1,
+          "processed_events": 1,
+          "active_faults": [],
+          "latched_faults": [],
+          "armed": true,
+          "inhibited": false,
+          "trigger_count": 0,
+          "accepted_trigger_count": 0,
+          "last_trigger_ms": null,
+          "last_interval_ms": null,
+          "last_phase_us": null,
+          "last_jitter_us": null,
+          "reset_accepted": false,
+          "evidence": "synthetic_policy",
+          "physical_validation": "UNVERIFIED"
+        }
+      },
+      {
+        "time_ms": 0.0,
+        "event": "trigger",
+        "note": "",
+        "state": {
+          "time_ms": 0.0,
+          "signals": {
+            "seed_present": true,
+            "seed_frequency_mhz": 80.0,
+            "pump_present": true,
+            "pump_ready": true,
+            "interlock_closed": true,
+            "temperature_ok": true,
+            "flow_ok": true,
+            "hv_ok": true,
+            "communication_ok": true
+          },
+          "duration_ms": 400,
+          "finished": false,
+          "phase": 2,
+          "processed_events": 2,
+          "active_faults": [],
+          "latched_faults": [],
+          "armed": true,
+          "inhibited": false,
+          "trigger_count": 1,
+          "accepted_trigger_count": 1,
+          "last_trigger_ms": 0.0,
+          "last_interval_ms": null,
+          "last_phase_us": 0.0,
+          "last_jitter_us": 0.0,
+          "reset_accepted": false,
+          "evidence": "synthetic_policy",
+          "physical_validation": "UNVERIFIED"
+        }
+      },
+      {
+        "time_ms": 100.0,
+        "event": "trigger",
+        "note": "",
+        "state": {
+          "time_ms": 100.0,
+          "signals": {
+            "seed_present": true,
+            "seed_frequency_mhz": 80.0,
+            "pump_present": true,
+            "pump_ready": true,
+            "interlock_closed": true,
+            "temperature_ok": true,
+            "flow_ok": true,
+            "hv_ok": true,
+            "communication_ok": true
+          },
+          "duration_ms": 400,
+          "finished": false,
+          "phase": 3,
+          "processed_events": 3,
+          "active_faults": [],
+          "latched_faults": [],
+          "armed": true,
+          "inhibited": false,
+          "trigger_count": 2,
+          "accepted_trigger_count": 2,
+          "last_trigger_ms": 100.0,
+          "last_interval_ms": 100.0,
+          "last_phase_us": 0.0,
+          "last_jitter_us": 0.0,
+          "reset_accepted": false,
+          "evidence": "synthetic_policy",
+          "physical_validation": "UNVERIFIED"
+        }
+      },
+      {
+        "time_ms": 200.0,
+        "event": "trigger",
+        "note": "",
+        "state": {
+          "time_ms": 200.0,
+          "signals": {
+            "seed_present": true,
+            "seed_frequency_mhz": 80.0,
+            "pump_present": true,
+            "pump_ready": true,
+            "interlock_closed": true,
+            "temperature_ok": true,
+            "flow_ok": true,
+            "hv_ok": true,
+            "communication_ok": true
+          },
+          "duration_ms": 400,
+          "finished": false,
+          "phase": 4,
+          "processed_events": 4,
+          "active_faults": [],
+          "latched_faults": [],
+          "armed": true,
+          "inhibited": false,
+          "trigger_count": 3,
+          "accepted_trigger_count": 3,
+          "last_trigger_ms": 200.0,
+          "last_interval_ms": 100.0,
+          "last_phase_us": 0.0,
+          "last_jitter_us": 0.0,
+          "reset_accepted": false,
+          "evidence": "synthetic_policy",
+          "physical_validation": "UNVERIFIED"
+        }
+      },
+      {
+        "time_ms": 300.0,
+        "event": "trigger",
+        "note": "",
+        "state": {
+          "time_ms": 300.0,
+          "signals": {
+            "seed_present": true,
+            "seed_frequency_mhz": 80.0,
+            "pump_present": true,
+            "pump_ready": true,
+            "interlock_closed": true,
+            "temperature_ok": true,
+            "flow_ok": true,
+            "hv_ok": true,
+            "communication_ok": true
+          },
+          "duration_ms": 400,
+          "finished": false,
+          "phase": 5,
+          "processed_events": 5,
+          "active_faults": [],
+          "latched_faults": [],
+          "armed": true,
+          "inhibited": false,
+          "trigger_count": 4,
+          "accepted_trigger_count": 4,
+          "last_trigger_ms": 300.0,
+          "last_interval_ms": 100.0,
+          "last_phase_us": 0.0,
+          "last_jitter_us": 0.0,
+          "reset_accepted": false,
+          "evidence": "synthetic_policy",
+          "physical_validation": "UNVERIFIED"
+        }
+      },
+      {
+        "time_ms": 400.0,
+        "event": "disarm",
+        "note": "",
+        "state": {
+          "time_ms": 400.0,
+          "signals": {
+            "seed_present": true,
+            "seed_frequency_mhz": 80.0,
+            "pump_present": true,
+            "pump_ready": true,
+            "interlock_closed": true,
+            "temperature_ok": true,
+            "flow_ok": true,
+            "hv_ok": true,
+            "communication_ok": true
+          },
+          "duration_ms": 400,
+          "finished": true,
+          "phase": 6,
+          "processed_events": 6,
+          "active_faults": [],
+          "latched_faults": [],
+          "armed": false,
+          "inhibited": true,
+          "trigger_count": 4,
+          "accepted_trigger_count": 4,
+          "last_trigger_ms": 300.0,
+          "last_interval_ms": 100.0,
+          "last_phase_us": 0.0,
+          "last_jitter_us": 0.0,
+          "reset_accepted": false,
+          "evidence": "synthetic_policy",
+          "physical_validation": "UNVERIFIED"
+        }
+      }
+    ],
+    "final_state": {
+      "time_ms": 400.0,
+      "signals": {
+        "seed_present": true,
+        "seed_frequency_mhz": 80.0,
+        "pump_present": true,
+        "pump_ready": true,
+        "interlock_closed": true,
+        "temperature_ok": true,
+        "flow_ok": true,
+        "hv_ok": true,
+        "communication_ok": true
+      },
+      "duration_ms": 400,
+      "finished": true,
+      "phase": 6,
+      "processed_events": 6,
+      "active_faults": [],
+      "latched_faults": [],
+      "armed": false,
+      "inhibited": true,
+      "trigger_count": 4,
+      "accepted_trigger_count": 4,
+      "last_trigger_ms": 300.0,
+      "last_interval_ms": 100.0,
+      "last_phase_us": 0.0,
+      "last_jitter_us": 0.0,
+      "reset_accepted": false,
+      "evidence": "synthetic_policy",
+      "physical_validation": "UNVERIFIED"
+    },
+    "wire_effects": {
+      "overrides": {},
+      "drop_ids": [],
+      "request_drop_ids": [],
+      "error_ids": [],
+      "delay_ms": {}
+    },
+    "limitations": [
+      "Synthetic policy fixture, not measured or certified Spitfire firmware behavior.",
+      "No physical laser, electrical edge, energy, or optical pulse simulation.",
+      "Model assertions do not prove XP/Python client reactions or GUI alarms.",
+      "Wire overrides are explicit synthetic stimuli; no automatic fault-bit causation is claimed.",
+      "Virtual time is deterministic; live UDP wall-clock scheduling is not nanosecond timing."
+    ]
+  },
+  "model_summary_rows": [
+    [
+      "정상 외부 펌프 10 Hz",
+      "합성 정책 자체 시험",
+      "PASS",
+      "실제 XP/Python 반응 시험 아님"
+    ],
+    [
+      "300 ms",
+      "armed",
+      "PASS",
+      "기대 True / 실제 True"
+    ],
+    [
+      "300 ms",
+      "accepted_trigger_count",
+      "PASS",
+      "기대 4 / 실제 4"
+    ],
+    [
+      "400 ms",
+      "inhibited",
+      "PASS",
+      "기대 True / 실제 True"
+    ],
+    [
+      "동등성",
+      "클라이언트 / 실제 하드웨어",
+      "UNVERIFIED",
+      "별도 측정과 관찰 필요"
+    ]
+  ],
+  "endpoint": [
+    "127.0.0.1",
+    50400
+  ],
+  "probes": [
+    {
+      "request_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313030305d2a49444e3f0a",
+      "response_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313030303e4552524f523a56414c49444154494f4e3a49445f544558545f4d49534d415443480a",
+      "sender": [
+        "127.0.0.1",
+        50400
+      ],
+      "source_ip": "127.0.0.2",
+      "replies": [
+        {
+          "command_id": 1000,
+          "value": "ERROR:VALIDATION:ID_TEXT_MISMATCH",
+          "raw_line": "<1000>ERROR:VALIDATION:ID_TEXT_MISMATCH"
+        }
+      ]
+    },
+    {
+      "request_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313030305d2a49444e3f0a",
+      "response_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313030303e4552524f523a56414c49444154494f4e3a49445f544558545f4d49534d415443480a",
+      "sender": [
+        "127.0.0.1",
+        50400
+      ],
+      "source_ip": "127.0.0.3",
+      "replies": [
+        {
+          "command_id": 1000,
+          "value": "ERROR:VALIDATION:ID_TEXT_MISMATCH",
+          "raw_line": "<1000>ERROR:VALIDATION:ID_TEXT_MISMATCH"
+        }
+      ]
+    }
+  ],
+  "capture_transactions": [
+    {
+      "sequence": 1,
+      "datagram_sequence": 1,
+      "timestamp_utc": "2026-10-27T05:00:09.829+00:00",
+      "client_key": "Smoke probe A (not XP)",
+      "client_label": "Smoke probe A (not XP)",
+      "source_ip": "127.0.0.2",
+      "source_port": 64365,
+      "command_index": 1,
+      "command_id": 1000,
+      "command": "*IDN?",
+      "base": "*IDN?",
+      "argument": "",
+      "request_hex": "53 70 65 63 74 72 61 2d 50 68 79 73 69 63 73 3a 43 4d 44 5f 45 43 4c 49 50 53 45 2c 5b 31 30 30 30 5d 2a 49 44 4e 3f 0a",
+      "response_value": "ERROR:VALIDATION:ID_TEXT_MISMATCH",
+      "response_hex": "53 70 65 63 74 72 61 2d 50 68 79 73 69 63 73 3a 52 45 50 4c 59 5f 45 43 4c 49 50 53 45 3a 3c 31 30 30 30 3e 45 52 52 4f 52 3a 56 41 4c 49 44 41 54 49 4f 4e 3a 49 44 5f 54 45 58 54 5f 4d 49 53 4d 41 54 43 48 0a",
+      "latency_ms": 0.3501999999571126,
+      "status": "REPLIED",
+      "note": "verifier validation error",
+      "session_id": "ebb8305c0134445ba205fbba1a59f3e3",
+      "sent_utc": "2026-10-27T05:00:09.829+00:00",
+      "processing_ms": 0.2786999993986683,
+      "configured_delay_ms": 0,
+      "validation": "ID_TEXT_MISMATCH",
+      "modelled": false,
+      "effect": "rejected",
+      "profile_json": "{\"delay_ms\": {}, \"drop_ids\": [], \"error_ids\": [], \"line_ending\": \"\\n\", \"malformed_reply_header\": false, \"name\": \"Nominal\", \"overrides\": {}, \"request_drop_ids\": []}",
+      "scenario": "nominal_external_10hz",
+      "request_line_hex": "5b 31 30 30 30 5d 2a 49 44 4e 3f 0a",
+      "reply_line_hex": "3c 31 30 30 30 3e 45 52 52 4f 52 3a 56 41 4c 49 44 41 54 49 4f 4e 3a 49 44 5f 54 45 58 54 5f 4d 49 53 4d 41 54 43 48 0a",
+      "request_framing": "CMD_ECLIPSE/LF",
+      "reply_framing": "Spectra-Physics:REPLY_ECLIPSE:'\\n'",
+      "scenario_time_ms": 0.0,
+      "scenario_phase": 2,
+      "scenario_state_json": "{\"accepted_trigger_count\": 1, \"active_faults\": [], \"armed\": true, \"duration_ms\": 400, \"evidence\": \"synthetic_policy\", \"finished\": false, \"inhibited\": false, \"last_interval_ms\": null, \"last_jitter_us\": 0.0, \"last_phase_us\": 0.0, \"last_trigger_ms\": 0.0, \"latched_faults\": [], \"phase\": 2, \"physical_validation\": \"UNVERIFIED\", \"processed_events\": 2, \"reset_accepted\": false, \"signals\": {\"communication_ok\": true, \"flow_ok\": true, \"hv_ok\": true, \"interlock_closed\": true, \"pump_present\": true, \"pump_ready\": true, \"seed_frequency_mhz\": 80.0, \"seed_present\": true, \"temperature_ok\": true}, \"time_ms\": 0.0, \"trigger_count\": 1}"
+    },
+    {
+      "sequence": 2,
+      "datagram_sequence": 2,
+      "timestamp_utc": "2026-10-27T05:00:09.832+00:00",
+      "client_key": "Smoke probe B (not Python client)",
+      "client_label": "Smoke probe B (not Python client)",
+      "source_ip": "127.0.0.3",
+      "source_port": 64366,
+      "command_index": 1,
+      "command_id": 1000,
+      "command": "*IDN?",
+      "base": "*IDN?",
+      "argument": "",
+      "request_hex": "53 70 65 63 74 72 61 2d 50 68 79 73 69 63 73 3a 43 4d 44 5f 45 43 4c 49 50 53 45 2c 5b 31 30 30 30 5d 2a 49 44 4e 3f 0a",
+      "response_value": "ERROR:VALIDATION:ID_TEXT_MISMATCH",
+      "response_hex": "53 70 65 63 74 72 61 2d 50 68 79 73 69 63 73 3a 52 45 50 4c 59 5f 45 43 4c 49 50 53 45 3a 3c 31 30 30 30 3e 45 52 52 4f 52 3a 56 41 4c 49 44 41 54 49 4f 4e 3a 49 44 5f 54 45 58 54 5f 4d 49 53 4d 41 54 43 48 0a",
+      "latency_ms": 0.6765999987692339,
+      "status": "REPLIED",
+      "note": "verifier validation error",
+      "session_id": "ebb8305c0134445ba205fbba1a59f3e3",
+      "sent_utc": "2026-10-27T05:00:09.833+00:00",
+      "processing_ms": 0.5829999990965007,
+      "configured_delay_ms": 0,
+      "validation": "ID_TEXT_MISMATCH",
+      "modelled": false,
+      "effect": "rejected",
+      "profile_json": "{\"delay_ms\": {}, \"drop_ids\": [], \"error_ids\": [], \"line_ending\": \"\\n\", \"malformed_reply_header\": false, \"name\": \"Nominal\", \"overrides\": {}, \"request_drop_ids\": []}",
+      "scenario": "nominal_external_10hz",
+      "request_line_hex": "5b 31 30 30 30 5d 2a 49 44 4e 3f 0a",
+      "reply_line_hex": "3c 31 30 30 30 3e 45 52 52 4f 52 3a 56 41 4c 49 44 41 54 49 4f 4e 3a 49 44 5f 54 45 58 54 5f 4d 49 53 4d 41 54 43 48 0a",
+      "request_framing": "CMD_ECLIPSE/LF",
+      "reply_framing": "Spectra-Physics:REPLY_ECLIPSE:'\\n'",
+      "scenario_time_ms": 200.0,
+      "scenario_phase": 4,
+      "scenario_state_json": "{\"accepted_trigger_count\": 3, \"active_faults\": [], \"armed\": true, \"duration_ms\": 400, \"evidence\": \"synthetic_policy\", \"finished\": false, \"inhibited\": false, \"last_interval_ms\": 100.0, \"last_jitter_us\": 0.0, \"last_phase_us\": 0.0, \"last_trigger_ms\": 200.0, \"latched_faults\": [], \"phase\": 4, \"physical_validation\": \"UNVERIFIED\", \"processed_events\": 4, \"reset_accepted\": false, \"signals\": {\"communication_ok\": true, \"flow_ok\": true, \"hv_ok\": true, \"interlock_closed\": true, \"pump_present\": true, \"pump_ready\": true, \"seed_frequency_mhz\": 80.0, \"seed_present\": true, \"temperature_ok\": true}, \"time_ms\": 200.0, \"trigger_count\": 3}"
+    }
+  ],
+  "capture_metadata": {
+    "response_profile": {
+      "name": "Nominal",
+      "overrides": {},
+      "error_ids": [],
+      "drop_ids": [],
+      "delay_ms": {},
+      "request_drop_ids": [],
+      "line_ending": "\n",
+      "malformed_reply_header": false
+    },
+    "selected_client_profiles": {},
+    "xp_execution_evidence": "UNVERIFIED (requires actual XP capture + GUI observations)",
+    "configured_scenario": {
+      "schema_version": 1,
+      "id": "nominal_external_10hz",
+      "name": "정상 외부 펌프 10 Hz",
+      "description": "80 MHz seed와 10 Hz 외부 트리거가 정상인 합성 정책 시험.",
+      "duration_ms": 400,
+      "policy": {
+        "expected_seed_mhz": 80.0,
+        "seed_tolerance_mhz": 1.0,
+        "expected_trigger_hz": 10.0,
+        "trigger_timeout_ms": 250.0,
+        "max_jitter_us": 1000.0,
+        "max_phase_slip_us": 100.0,
+        "rate_tolerance_fraction": 0.05
+      },
+      "initial_signals": {},
+      "events": [
+        {
+          "at_ms": 0,
+          "type": "arm"
+        },
+        {
+          "at_ms": 0,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 100,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 200,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 300,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 400,
+          "type": "disarm"
+        }
+      ],
+      "assertions": [
+        {
+          "at_ms": 300,
+          "path": "armed",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "at_ms": 300,
+          "path": "accepted_trigger_count",
+          "op": "eq",
+          "expected": 4
+        },
+        {
+          "at_ms": 400,
+          "path": "inhibited",
+          "op": "eq",
+          "expected": true
+        }
+      ]
+    },
+    "scenario_clock": "manual",
+    "virtual_device": "127.0.0.1:50400",
+    "client_labels": {
+      "127.0.0.2": "Smoke probe A (not XP)",
+      "127.0.0.3": "Smoke probe B (not Python client)"
+    },
+    "isolated_client_state": true,
+    "live_scenario": {
+      "schema_version": 1,
+      "id": "nominal_external_10hz",
+      "name": "정상 외부 펌프 10 Hz",
+      "description": "80 MHz seed와 10 Hz 외부 트리거가 정상인 합성 정책 시험.",
+      "duration_ms": 400,
+      "policy": {
+        "expected_seed_mhz": 80.0,
+        "seed_tolerance_mhz": 1.0,
+        "expected_trigger_hz": 10.0,
+        "trigger_timeout_ms": 250.0,
+        "max_jitter_us": 1000.0,
+        "max_phase_slip_us": 100.0,
+        "rate_tolerance_fraction": 0.05
+      },
+      "initial_signals": {},
+      "events": [
+        {
+          "at_ms": 0,
+          "type": "arm"
+        },
+        {
+          "at_ms": 0,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 100,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 200,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 300,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 400,
+          "type": "disarm"
+        }
+      ],
+      "assertions": [
+        {
+          "at_ms": 300,
+          "path": "armed",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "at_ms": 300,
+          "path": "accepted_trigger_count",
+          "op": "eq",
+          "expected": 4
+        },
+        {
+          "at_ms": 400,
+          "path": "inhibited",
+          "op": "eq",
+          "expected": true
+        }
+      ]
+    },
+    "scenario_scope": "synthetic stimulus; client GUI and physical behavior unverified",
+    "xp_runtime_validation": "UNVERIFIED",
+    "physical_validation": "UNVERIFIED"
+  },
+  "comparison_reports": [
+    "C:\\Users\\Fluke\\Desktop\\Spitfire_Twin_Verifier_v0.3.1\\Spitfire_Twin_Verifier\\validation_p07_031\\gui_smoke_reports\\comparison_20261027_050009_885068\\report.json"
+  ],
+  "workbench_reports": [
+    "C:\\Users\\Fluke\\Desktop\\Spitfire_Twin_Verifier_v0.3.1\\Spitfire_Twin_Verifier\\validation_p07_031\\gui_smoke_reports\\workbench_20261027T050009Z_fb61ea4e\\report.json"
+  ],
+  "config_save_calls_suppressed": 1
+}

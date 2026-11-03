@@ -1,0 +1,2 @@
+﻿scenario,field,expected,XP original display,Python display,same?,notes
+Q-switch,1250 Hz 설정 후 표시,1250 Hz,,,,직접 관찰 후 입력

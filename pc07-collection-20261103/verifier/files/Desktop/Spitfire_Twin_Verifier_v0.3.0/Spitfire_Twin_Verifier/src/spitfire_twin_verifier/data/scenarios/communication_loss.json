@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "id": "communication_loss",
+  "name": "통신 단절·응답 지연·복구",
+  "description": "합성 통신 상실과 명시적 TDG COM fault·응답 손실 fixture.",
+  "duration_ms": 300,
+  "policy": {},
+  "initial_signals": {},
+  "events": [
+    {
+      "at_ms": 0,
+      "type": "arm"
+    },
+    {
+      "at_ms": 0,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 50,
+      "type": "signals",
+      "values": {
+        "communication_ok": false
+      }
+    },
+    {
+      "at_ms": 50,
+      "type": "wire",
+      "wire": {
+        "overrides": {
+          "1089": "2"
+        },
+        "drop_ids": [
+          1065
+        ],
+        "request_drop_ids": [
+          2017
+        ],
+        "delay_ms": {
+          "1088": 100
+        }
+      },
+      "note": "Synthetic TDG COM mask 2 and independent drop/delay fixtures; not measured causal firmware behavior."
+    },
+    {
+      "at_ms": 150,
+      "type": "signals",
+      "values": {
+        "communication_ok": true
+      }
+    },
+    {
+      "at_ms": 150,
+      "type": "clear_wire"
+    },
+    {
+      "at_ms": 200,
+      "type": "reset"
+    },
+    {
+      "at_ms": 210,
+      "type": "arm"
+    },
+    {
+      "at_ms": 210,
+      "type": "trigger"
+    },
+    {
+      "at_ms": 300,
+      "type": "disarm"
+    }
+  ],
+  "assertions": [
+    {
+      "at_ms": 50,
+      "path": "latched_faults",
+      "op": "contains",
+      "expected": "communication_lost"
+    },
+    {
+      "at_ms": 150,
+      "path": "armed",
+      "op": "eq",
+      "expected": false
+    },
+    {
+      "at_ms": 210,
+      "path": "armed",
+      "op": "eq",
+      "expected": true
+    }
+  ]
+}

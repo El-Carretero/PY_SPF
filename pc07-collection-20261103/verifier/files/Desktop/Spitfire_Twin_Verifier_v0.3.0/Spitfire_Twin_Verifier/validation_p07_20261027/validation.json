@@ -1,0 +1,74 @@
+{
+  "created_utc": "2026-10-27T04:44:29.815460+00:00",
+  "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "tests_run": 205,
+  "passed": 203,
+  "failures": [],
+  "errors": [
+    [
+      "test_concurrent_saves_produce_complete_valid_json (test_config.ConfigTests.test_concurrent_saves_produce_complete_valid_json)",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\Fluke\\Desktop\\Spitfire_Twin_Verifier_v0.3.0\\Spitfire_Twin_Verifier\\tests\\test_config.py\", line 128, in test_concurrent_saves_produce_complete_valid_json\n    list(pool.map(lambda config: config.save(), configs))\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Fluke\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\concurrent\\futures\\_base.py\", line 625, in result_iterator\n    yield _result_or_cancel(fs.pop())\n          ~~~~~~~~~~~~~~~~~^^^^^^^^^^\n  File \"C:\\Users\\Fluke\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\concurrent\\futures\\_base.py\", line 318, in _result_or_cancel\n    return fut.result(timeout)\n           ~~~~~~~~~~^^^^^^^^^\n  File \"C:\\Users\\Fluke\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\concurrent\\futures\\_base.py\", line 453, in result\n    return self.__get_result()\n           ~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Fluke\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\concurrent\\futures\\_base.py\", line 402, in __get_result\n    raise self._exception\n  File \"C:\\Users\\Fluke\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\concurrent\\futures\\thread.py\", line 59, in run\n    result = self.fn(*self.args, **self.kwargs)\n  File \"C:\\Users\\Fluke\\Desktop\\Spitfire_Twin_Verifier_v0.3.0\\Spitfire_Twin_Verifier\\tests\\test_config.py\", line 128, in <lambda>\n    list(pool.map(lambda config: config.save(), configs))\n                                 ~~~~~~~~~~~^^\n  File \"C:\\Users\\Fluke\\Desktop\\Spitfire_Twin_Verifier_v0.3.0\\Spitfire_Twin_Verifier\\src\\spitfire_twin_verifier\\config.py\", line 127, in save\n    os.replace(temporary, path)\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^\nPermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\\\Users\\\\Fluke\\\\AppData\\\\Local\\\\Temp\\\\tmp63gs8vvy\\\\config-435mz7gx.tmp' -> 'C:\\\\Users\\\\Fluke\\\\AppData\\\\Local\\\\Temp\\\\tmp63gs8vvy\\\\config.json'\n"
+    ]
+  ],
+  "skipped": [
+    [
+      "test_user_supplied_original_binary (test_catalog_provenance.CatalogProvenanceTests.test_user_supplied_original_binary)",
+      "optional vendor EXE not bundled; set SPITFIRE_XP_EXE"
+    ]
+  ],
+  "unit_status": "FAIL",
+  "xp_execution": "NOT_PERFORMED",
+  "hardware_validation": "NOT_PERFORMED",
+  "scenarios": [
+    {
+      "id": "communication_loss",
+      "verdict": "PASS"
+    },
+    {
+      "id": "duplicate_trigger",
+      "verdict": "PASS"
+    },
+    {
+      "id": "interlock_open",
+      "verdict": "PASS"
+    },
+    {
+      "id": "missing_trigger",
+      "verdict": "PASS"
+    },
+    {
+      "id": "nominal_external_10hz",
+      "verdict": "PASS"
+    },
+    {
+      "id": "phase_slip",
+      "verdict": "PASS"
+    },
+    {
+      "id": "pump_absent",
+      "verdict": "PASS"
+    },
+    {
+      "id": "pump_not_ready",
+      "verdict": "PASS"
+    },
+    {
+      "id": "seed_loss_recovery",
+      "verdict": "PASS"
+    },
+    {
+      "id": "thermal_flow_hv",
+      "verdict": "PASS"
+    },
+    {
+      "id": "trigger_jitter",
+      "verdict": "PASS"
+    },
+    {
+      "id": "trigger_rate_mismatch",
+      "verdict": "PASS"
+    }
+  ],
+  "loopback_self_test_exit": 0
+}

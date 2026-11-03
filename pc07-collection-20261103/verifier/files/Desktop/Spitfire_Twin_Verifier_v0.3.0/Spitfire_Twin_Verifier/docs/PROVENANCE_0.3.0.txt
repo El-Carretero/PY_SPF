@@ -1,0 +1,133 @@
+SPITFIRE TWIN VERIFIER 0.3.0 — ORIGINAL-BINARY PROVENANCE
+Audit date: 2026-10-27 (Asia/Seoul)
+
+Scope
+-----
+The user-supplied XP ZIP contains an installer and compiled NI/CVI executable
+and UIR resources, not editable C source. This audit did NOT execute setup.exe,
+the MSI, SPITFIRE.EXE, or any laser/hardware control. Static evidence does not
+certify runtime equivalence, physical protection, or firmware behavior.
+
+Inputs and independent extraction
+---------------------------------
+Source ZIP: Spitfire_GUI_v_1_6_0-20260915T154258Z-1-001.zip
+Size: 12,823,803 bytes
+SHA-256: bd35c7b4ffe8bc2cb663c3914bd37217fb04f67abf8ef3730f0bfd49dd8b59d8
+All six ZIP member CRC checks passed. The CAB was freshly extracted and read
+with system libarchive without executing its contents. It contains 63 files.
+One older local scratch CAB was truncated; it was NOT used for these results.
+
+SPITFIRE.EXE: 271,360 bytes
+SHA-256: 8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b
+SPITFIRE.EXE2 has exactly the same hash.
+SPITFIRE.UIR: 152,636 bytes
+SHA-256: 1c5b82a8cf528934bffffe0989a73312059b07a15fc3056df8fbeb41607bd67b
+Vendor binaries are deliberately not included in this Verifier distribution.
+
+What “146 commands” precisely means
+----------------------------------
+The fresh EXE extraction independently confirms every catalog string:
+  query slots: IDs 1000–1089, 90 records at file offset 0x30b70;
+  write slots: IDs 2000–2055, 56 records at file offset 0x315fc;
+  record size: 30 bytes, NUL-terminated text inside each record.
+All 146 slots match catalog.py byte-for-byte, including capitalization.
+
+146 = numeric slots, NOT 146 distinct nonempty commands.
+145 slots have nonempty strings; ID 2034 is empty/reserved.
+132 distinct exact strings INCLUDE the empty string.
+131 distinct nonempty exact strings.
+130 distinct case-insensitive strings INCLUDE the empty string.
+Names such as *idn?, *IDN?, *IdN? differ only in case.
+
+Fingerprint of concatenated raw query+write slot regions:
+e9a3064e9c50429eb8118d7c9a913422a71361e2888384e721151694c9182308
+Fingerprint of sorted ASCII rows ID + TAB + exact text + LF:
+ea17f85b5b3213a3ee52141072c2da5349994cd18478c589fc36965bc3ddc8c4
+
+This establishes completeness of these two recovered GUI tables only. It does
+not establish the complete controller firmware/service/serial command set.
+
+Separate TCP surface
+--------------------
+Static code at VA 0x4070f8 pushes port 1001 and calls the server setup routine
+0x405f08. That routine calls 0x40300a, an import thunk for RegisterTCPServer
+at IAT VA 0x43a078. The binary also has separate command comparisons for
+FAULTS?, TDG_STATUS?, EMP_STATUS?, and *IDN?. Examples: FAULTS? reference
+0x41281a, TDG_STATUS? reference 0x412a95, EMP_STATUS? reference 0x412c44.
+These are not extra entries in the 146-slot UDP GUI table.
+The Verifier does not silently expose an unauthenticated TCP status service.
+
+Fault/readback mapping evidence
+------------------------------
+The Python Control 1.3.0 package supplies a more detailed prior static analysis
+in docs/xp_1_6_0_evidence/. This audit independently checked the newly extracted
+EXE instruction blocks with objdump, associated format strings, and relevant
+UIR tags/control indices. Selected evidence:
+
+1014 EMP:FAULT?
+  Four decimal fields, Empower-specific. The old assumption that all hardware
+  faults are packed into this reply is incorrect.
+  Word 0: 0x40 VSWR,0x20 Q-switch under-temperature,0x10 protection,
+          0x08 overpower,0x02 driver overtemperature,0x01 array overtemperature.
+  Word 1: 0x80 water flow,0x40 cover,0x20 keyswitch,0x10 kill switch,
+          0x08 overvoltage,0x04 overcurrent,0x02 underfrequency.
+  Word 2: 0x10 Empower communication,0x02 LBO under-temperature,0x01 array open.
+  Word 3: entire nonzero LBO-stability scalar, NOT an 8-bit mask.
+  Independent mask/destination check: VA 0x40a881–0x40aa71.
+  Example water-flow mask0x80 targets runtime fault control6; UIR LEDH2O
+  stored index5 is consistent with runtime index=stored index+1.
+
+1066 TDG:STBHFLT?
+  Unsigned hexadecimal, not decimal. Original handler0x40cb4b loads %x at
+  VA0x436b7c and calls decoder0x410053.
+  0x0800 system,0x1000 head interlock,0x2000 user interlock,
+  0x4000 key interlock,0x8000 relay.
+  Example reply "2000" means hex0x2000, not decimal2000.
+  Mask→runtime control: user19,key23,head14,system21,relay22.
+
+1039 TDG:STBH?
+  Hexadecimal. Original handler0x40cb20 loads %x at VA0x436b80 and calls
+  decoder0x41023e. Combined BWD/PD mask0x00330000 is a protection indication,
+  NOT measured optical phase lock or pump optical-pulse arrival.
+
+1088 ECU:STBH?
+  Decimal status register. Decoder0x4099d9 checks low-byte0x04 for TEC
+  overtemperature and0x10 for humidity latch. The first sends runtime8
+  (UIR stored7 TECOVERTEMP), the second runtime10 (stored9 HUMIDITY_LATCH).
+  Other nonzero bits must not be invented as specific faults.
+
+1089 COMSTATUS?
+  Decimal: main0x01,TDG0x02,Empower0x04,TCU0x08. Its Empower indication and
+  1014's communication indication are distinct sources; zero in one source
+  must not erase a fault from the other.
+
+These mappings say what the XP GUI decodes. They do NOT prove which physical
+event causes a firmware bit, at what threshold, or with what temporal latency.
+Synthetic event→status mappings must remain explicitly labeled as assumptions.
+Unrecognized status bits/values must not silently become healthy.
+
+Timing and compatibility warnings
+---------------------------------
+1065 is measured oscillator MHz: handler0x40dd8f writes runtime INFO7.
+2046 uses INFO7 and then queues1065 (callback0x4124db–0x412545). This is not
+evidence that2046 changes actual measured seed or the1024 internal rate.
+1079 TDG:TRIG? is NOT established as actual external-pump Hz telemetry.
+The exact meaning of1024 vs1053 and10Hz firmware compatibility is unresolved.
+INT/EXT mode responses are appropriate legacy textual fixtures; accepting
+numeric0/1 in the newer Python parser does not establish XP compatibility.
+The fixed fixture ACK "OK", startup defaults, and motor/reset dynamics remain
+synthetic unless supported by actual controller capture.
+Reset commands must not imply unproven cross-module fault clearing.
+
+Reproducibility and release tests
+--------------------------------
+tests/test_catalog_provenance.py locks the original catalog digest, cardinality,
+reserved slot and distinct status-source command names. For a direct binary
+comparison, set SPITFIRE_XP_EXE to an extracted original SPITFIRE.EXE and run:
+  python -m unittest discover -s tests -p test_catalog_provenance.py -v
+The binary test checks the EXE hash, both raw slot regions and every string.
+Without the proprietary binary, that one optional test is explicitly skipped.
+
+This audit completed with4 tests PASS when the extracted EXE was supplied.
+An XP VM/GUI runtime acceptance result must be separately recorded and must
+not be inferred from these four tests, synthetic scenarios or matrix labels.

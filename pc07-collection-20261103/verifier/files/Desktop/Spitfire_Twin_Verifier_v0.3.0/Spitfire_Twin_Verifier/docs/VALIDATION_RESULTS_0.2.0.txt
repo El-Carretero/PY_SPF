@@ -1,0 +1,129 @@
+Spitfire Twin Verifier 0.2.0 validation record
+Date: 2026-09-17
+Environment: Linux / Python 3.12.14
+
+Source regression run: python run_tests.py
+- 78 tests discovered
+- 72 passed
+- 6 GUI-window tests skipped: no display
+- 0 failures / 0 errors
+- Includes 5 tests of actual GUI handler methods using headless widget stubs.
+- These handler tests are NOT visual or DPI verification.
+
+Display attempt:
+- Xvfb could not establish listening sockets in this execution environment.
+- Therefore the six real Tk-window tests could not be run here.
+- They are included for desktop execution with python run_tests.py.
+
+Standalone source launcher:
+- python run_verifier.py --version: 0.2.0
+- python run_verifier.py --self-test: 18 transactions, MATCH, PASS
+
+Clean wheel installation:
+- Built release/spitfire_twin_verifier-0.2.0-py3-none-any.whl locally.
+- Installed with --no-deps --no-index into a clean venv.
+- Installed console entry point --self-test: 18 transactions, MATCH, PASS.
+- All Python modules in wheel compared byte-for-byte with source modules.
+
+Not performed:
+- Windows EXE build/execution or PowerShell networking scripts.
+- Actual XP vendor GUI or Spitfire Python Control 1.1.3 integration for this release.
+- Physical controller, firmware, laser, motor, HV, or interlock validation.
+- Original catalogue/static-recovery claims are inherited from the supplied v0.1.0;
+  the original installer/binaries were not independently re-analysed for v0.2.0.
+
+Full final source test output
+-----------------------------
+test_argument_difference_detected (test_compare.CompareTests.test_argument_difference_detected) ... ok
+test_different_poll_coverage_is_not_hidden (test_compare.CompareTests.test_different_poll_coverage_is_not_hidden) ... ok
+test_equal_sequences_match (test_compare.CompareTests.test_equal_sequences_match) ... ok
+test_missing_client_is_incomplete (test_compare.CompareTests.test_missing_client_is_incomplete) ... ok
+test_polling_can_be_ignored_but_counts_remain (test_compare.CompareTests.test_polling_can_be_ignored_but_counts_remain) ... ok
+test_loopback_demo_matches (test_demo.DemoTests.test_loopback_demo_matches) ... ok
+test_self_test_writes_report (test_demo.DemoTests.test_self_test_writes_report) ... ok
+test_demo_runs_inside_application (test_gui.GuiTests.test_demo_runs_inside_application) ... skipped 'Tk display required'
+test_export_refreshes_cached_result (test_gui.GuiTests.test_export_refreshes_cached_result) ... skipped 'Tk display required'
+test_old_events_are_ignored_after_clear (test_gui.GuiTests.test_old_events_are_ignored_after_clear) ... skipped 'Tk display required'
+test_profile_and_request_loss_controls_are_saved (test_gui.GuiTests.test_profile_and_request_loss_controls_are_saved) ... skipped 'Tk display required'
+test_protocol_errors_are_visible (test_gui.GuiTests.test_protocol_errors_are_visible) ... skipped 'Tk display required'
+test_scenario_and_observation_export (test_gui.GuiTests.test_scenario_and_observation_export) ... skipped 'Tk display required'
+test_clear_handler_filters_old_events_and_keeps_new_events (test_gui_handlers.GuiHandlerTests.test_clear_handler_filters_old_events_and_keeps_new_events) ... ok
+test_export_handler_refreshes_result (test_gui_handlers.GuiHandlerTests.test_export_handler_refreshes_result) ... ok
+test_observation_handler_persists_values (test_gui_handlers.GuiHandlerTests.test_observation_handler_persists_values) ... ok
+test_profile_handler_persists_full_conditions (test_gui_handlers.GuiHandlerTests.test_profile_handler_persists_full_conditions) ... ok
+test_protocol_diagnostic_handler_displays_error (test_gui_handlers.GuiHandlerTests.test_protocol_diagnostic_handler_displays_error) ... ok
+test_all_recovered_ids_receive_answer (test_model.ModelTests.test_all_recovered_ids_receive_answer) ... ok
+test_client_states_are_isolated (test_model.ModelTests.test_client_states_are_isolated) ... ok
+test_default_qswitch_wire_unit (test_model.ModelTests.test_default_qswitch_wire_unit) ... ok
+test_delay_compound_record (test_model.ModelTests.test_delay_compound_record) ... ok
+test_profile_override_drop_and_error (test_model.ModelTests.test_profile_override_drop_and_error) ... ok
+test_shared_state_option (test_model.ModelTests.test_shared_state_option) ... ok
+test_write_and_readback (test_model.ModelTests.test_write_and_readback) ... ok
+test_argument_is_preserved (test_protocol.ProtocolTests.test_argument_is_preserved) ... ok
+test_bad_header_rejected (test_protocol.ProtocolTests.test_bad_header_rejected) ... ok
+test_maximum_enforced (test_protocol.ProtocolTests.test_maximum_enforced) ... ok
+test_multi_command_round_trip (test_protocol.ProtocolTests.test_multi_command_round_trip) ... ok
+test_non_ascii_rejected (test_protocol.ProtocolTests.test_non_ascii_rejected) ... ok
+test_reply_round_trip_lf_and_crlf (test_protocol.ProtocolTests.test_reply_round_trip_lf_and_crlf) ... ok
+test_gui_observations_remain_separate (test_regressions.CaptureReportRegressions.test_gui_observations_remain_separate) ... ok
+test_old_session_transaction_is_rejected (test_regressions.CaptureReportRegressions.test_old_session_transaction_is_rejected) ... ok
+test_profile_snapshot_is_not_a_live_reference (test_regressions.CaptureReportRegressions.test_profile_snapshot_is_not_a_live_reference) ... ok
+test_report_recomputes_a_stale_comparison (test_regressions.CaptureReportRegressions.test_report_recomputes_a_stale_comparison) ... ok
+test_report_uses_one_snapshot_after_capture_changes (test_regressions.CaptureReportRegressions.test_report_uses_one_snapshot_after_capture_changes) ... ok
+test_shared_state_comparison_is_unverified (test_regressions.CaptureReportRegressions.test_shared_state_comparison_is_unverified) ... ok
+test_different_scenarios_do_not_match (test_regressions.ComparisonRegressions.test_different_scenarios_do_not_match) ... ok
+test_identical_injected_fault_needs_observation (test_regressions.ComparisonRegressions.test_identical_injected_fault_needs_observation) ... ok
+test_identical_send_errors_do_not_pass (test_regressions.ComparisonRegressions.test_identical_send_errors_do_not_pass) ... ok
+test_line_endings_are_compared_separately (test_regressions.ComparisonRegressions.test_line_endings_are_compared_separately) ... ok
+test_missing_raw_evidence_is_unverified (test_regressions.ComparisonRegressions.test_missing_raw_evidence_is_unverified) ... ok
+test_numeric_meaning_does_not_hide_raw_difference (test_regressions.ComparisonRegressions.test_numeric_meaning_does_not_hide_raw_difference) ... ok
+test_pending_response_makes_snapshot_incomplete (test_regressions.ComparisonRegressions.test_pending_response_makes_snapshot_incomplete) ... ok
+test_poll_bad_command_is_not_hidden (test_regressions.ComparisonRegressions.test_poll_bad_command_is_not_hidden) ... ok
+test_poll_response_loss_is_not_hidden (test_regressions.ComparisonRegressions.test_poll_response_loss_is_not_hidden) ... ok
+test_poll_state_transitions_survive_compression (test_regressions.ComparisonRegressions.test_poll_state_transitions_survive_compression) ... ok
+test_poll_values_are_compared (test_regressions.ComparisonRegressions.test_poll_values_are_compared) ... ok
+test_protocol_diagnostic_affects_verdict (test_regressions.ComparisonRegressions.test_protocol_diagnostic_affects_verdict) ... ok
+test_reply_header_difference_is_detected (test_regressions.ComparisonRegressions.test_reply_header_difference_is_detected) ... ok
+test_same_label_cannot_compare_to_itself (test_regressions.ComparisonRegressions.test_same_label_cannot_compare_to_itself) ... ok
+test_test_condition_mismatch_is_not_a_match (test_regressions.ComparisonRegressions.test_test_condition_mismatch_is_not_a_match) ... ok
+test_unknown_client_prevents_full_match (test_regressions.ComparisonRegressions.test_unknown_client_prevents_full_match) ... ok
+test_unmodelled_writes_are_not_certified (test_regressions.ComparisonRegressions.test_unmodelled_writes_are_not_certified) ... ok
+test_bwd_aliases_share_state (test_regressions.ModelRegressions.test_bwd_aliases_share_state) ... ok
+test_delay_snapshot_matches_actual_readback (test_regressions.ModelRegressions.test_delay_snapshot_matches_actual_readback) ... ok
+test_id_text_mismatch_cannot_switch_on (test_regressions.ModelRegressions.test_id_text_mismatch_cannot_switch_on) ... ok
+test_motor_speed_aliases_share_state (test_regressions.ModelRegressions.test_motor_speed_aliases_share_state) ... ok
+test_no_argument_command_rejects_extra_argument (test_regressions.ModelRegressions.test_no_argument_command_rejects_extra_argument) ... ok
+test_numeric_argument_is_required_and_finite (test_regressions.ModelRegressions.test_numeric_argument_is_required_and_finite) ... ok
+test_reply_loss_still_executes_write (test_regressions.ModelRegressions.test_reply_loss_still_executes_write) ... ok
+test_request_loss_does_not_execute_write (test_regressions.ModelRegressions.test_request_loss_does_not_execute_write) ... ok
+test_response_override_does_not_skip_write (test_regressions.ModelRegressions.test_response_override_does_not_skip_write) ... ok
+test_unknown_query_text_is_rejected (test_regressions.ModelRegressions.test_unknown_query_text_is_rejected) ... ok
+test_unmodelled_command_is_explicit (test_regressions.ModelRegressions.test_unmodelled_command_is_explicit) ... ok
+test_control_characters_cannot_split_fake_commands (test_regressions.ProtocolRegressions.test_control_characters_cannot_split_fake_commands) ... ok
+test_reply_header_must_be_exact (test_regressions.ProtocolRegressions.test_reply_header_must_be_exact) ... ok
+test_delayed_client_does_not_block_other_and_latency_is_honest (test_regressions.UdpRegressions.test_delayed_client_does_not_block_other_and_latency_is_honest) ... ok
+test_profile_is_frozen_until_delayed_reply (test_regressions.UdpRegressions.test_profile_is_frozen_until_delayed_reply) ... ok
+test_real_malformed_packet_invalidates_comparison (test_regressions.UdpRegressions.test_real_malformed_packet_invalidates_comparison) ... ok
+test_reconnect_keeps_logical_client_state (test_regressions.UdpRegressions.test_reconnect_keeps_logical_client_state) ... ok
+test_reply_loss_roundtrip_readback_has_changed (test_regressions.UdpRegressions.test_reply_loss_roundtrip_readback_has_changed) ... ok
+test_reset_cancels_old_delayed_evidence (test_regressions.UdpRegressions.test_reset_cancels_old_delayed_evidence) ... ok
+test_same_client_response_order_and_wait_are_recorded (test_regressions.UdpRegressions.test_same_client_response_order_and_wait_are_recorded) ... ok
+test_stop_does_not_wait_for_sixty_second_injection (test_regressions.UdpRegressions.test_stop_does_not_wait_for_sixty_second_injection) ... ok
+test_batch_reply_and_capture (test_server.ServerTests.test_batch_reply_and_capture) ... ok
+test_malformed_packet_is_logged_without_reply (test_server.ServerTests.test_malformed_packet_is_logged_without_reply) ... ok
+test_stateful_write (test_server.ServerTests.test_stateful_write) ... ok
+
+----------------------------------------------------------------------
+Ran 78 tests in 3.072s
+
+OK (skipped=6)
+Report: /tmp/tmpj7mxqtqb/comparison_20260917_062220_567001
+{
+  "version": "0.2.0",
+  "transactions": 18,
+  "verdict": "MATCH",
+  "similarity": 1.0,
+  "differences": 0,
+  "status": "PASS"
+}
+

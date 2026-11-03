@@ -1,0 +1,29 @@
+0.3.0 — version/event/evidence workbench
+
+Added client artifact profiles and static safe ZIP/folder inspection.
+Added19 real-client transport/state/external-policy fixture cases.
+Added12 deterministic event scenarios with explicit synthetic evidence labels.
+Added manual/per-client realtime epochs and phase-aware captures/comparisons.
+Added strict offline evidence loading, reaction-rule checks and passive replay.
+Added scrollable multi-row workbench, summary tables and headless-safe reports.
+Added Windows GUI/frozen validation tools and reproducible packaging.
+
+Correctness changes from0.2.0:
+- INT/EXT wire mode strings replace unsupported numeric0/1 assumption.
+-2046 no longer mutates ambiguous1024; measured seed fixture1065 kept separate.
+- Module reset fixtures do not clear unrelated device faults.
+- UnmodelledRESET/CLEAR effects remain explicitly unverified.
+-1026 argument path accepted with explicitly unverified fixture response.
+- HEX register semantics are not normalized as decimal/exponent values.
+- Scenario phase differences survive polling compression.
+- Equal synthetic fault replies require client-response observation.
+- CLI failure/incomplete outcomes are not reported as exit0.
+- Global manual time update preflights all clients before modifying any.
+- Default listener uses127.0.0.1; no lab-network reconfiguration.
+
+Original table independently re-extracted:146 slots,145nonempty,132unique
+exact strings including empty2034. No full firmware completeness claim.
+
+Not added or certified: XP VM/vendor GUI execution, physical firmware model,
+10Hz pump timing limits, optical phase/energy simulation, Signal/HIL adapter,
+full controller polling-loop/UI reaction equivalence, TCP1001/RS232 service.

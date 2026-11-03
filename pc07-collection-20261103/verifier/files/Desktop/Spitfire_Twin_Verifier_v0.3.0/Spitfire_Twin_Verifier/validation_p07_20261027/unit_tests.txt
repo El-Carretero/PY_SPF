@@ -1,0 +1,247 @@
+test_count_means_slots_not_unique_named_commands (test_catalog_provenance.CatalogProvenanceTests.test_count_means_slots_not_unique_named_commands) ... ok
+test_recovered_table_fingerprint (test_catalog_provenance.CatalogProvenanceTests.test_recovered_table_fingerprint) ... ok
+test_status_sources_are_distinct_commands (test_catalog_provenance.CatalogProvenanceTests.test_status_sources_are_distinct_commands) ... ok
+test_user_supplied_original_binary (test_catalog_provenance.CatalogProvenanceTests.test_user_supplied_original_binary) ... skipped 'optional vendor EXE not bundled; set SPITFIRE_XP_EXE'
+test_arbitrary_exception_is_not_timeout_success (test_client_matrix.ClientMatrixTests.test_arbitrary_exception_is_not_timeout_success) ... ok
+test_cases_never_issue_emission_hv_or_motion_command (test_client_matrix.ClientMatrixTests.test_cases_never_issue_emission_hv_or_motion_command) ... ok
+test_empty_matrix_cannot_pass (test_client_matrix.ClientMatrixTests.test_empty_matrix_cannot_pass) ... ok
+test_evaluator_flags_value_and_fault_differences (test_client_matrix.ClientMatrixTests.test_evaluator_flags_value_and_fault_differences) ... ok
+test_execution_requires_trust_consent (test_client_matrix.ClientMatrixTests.test_execution_requires_trust_consent) ... ok
+test_frozen_app_does_not_spawn_itself (test_client_matrix.ClientMatrixTests.test_frozen_app_does_not_spawn_itself) ... ok
+test_invalid_artifact_is_error_not_pass (test_client_matrix.ClientMatrixTests.test_invalid_artifact_is_error_not_pass) ... ok
+test_missing_and_extra_results_fail (test_client_matrix.ClientMatrixTests.test_missing_and_extra_results_fail) ... ok
+test_network_guard_blocks_remote_at_import (test_client_matrix.ClientMatrixTests.test_network_guard_blocks_remote_at_import) ... ok
+test_ordered_wire_override_recovery (test_client_matrix.ClientMatrixTests.test_ordered_wire_override_recovery) ... ok
+test_policy_rejection_must_be_observed_not_just_numeric_reply (test_client_matrix.ClientMatrixTests.test_policy_rejection_must_be_observed_not_just_numeric_reply) ... ok
+test_unknown_external_policy_is_unsupported_not_success (test_client_matrix.ClientMatrixTests.test_unknown_external_policy_is_unsupported_not_success) ... ok
+test_argument_difference_detected (test_compare.CompareTests.test_argument_difference_detected) ... ok
+test_different_poll_coverage_is_not_hidden (test_compare.CompareTests.test_different_poll_coverage_is_not_hidden) ... ok
+test_equal_sequences_match (test_compare.CompareTests.test_equal_sequences_match) ... ok
+test_missing_client_is_incomplete (test_compare.CompareTests.test_missing_client_is_incomplete) ... ok
+test_polling_can_be_ignored_but_counts_remain (test_compare.CompareTests.test_polling_can_be_ignored_but_counts_remain) ... ok
+test_bad_fields_fallback_without_erasing_valid_user_settings (test_config.ConfigTests.test_bad_fields_fallback_without_erasing_valid_user_settings) ... ok
+test_bad_json_duplicate_keys_and_nonfinite_use_defaults (test_config.ConfigTests.test_bad_json_duplicate_keys_and_nonfinite_use_defaults) ... ok
+test_colliding_addresses_or_labels_restore_only_related_group (test_config.ConfigTests.test_colliding_addresses_or_labels_restore_only_related_group) ... ok
+test_concurrent_saves_produce_complete_valid_json (test_config.ConfigTests.test_concurrent_saves_produce_complete_valid_json) ... ERROR
+test_dataclass_positional_layout_and_defaults_unchanged (test_config.ConfigTests.test_dataclass_positional_layout_and_defaults_unchanged) ... ok
+test_invalid_save_does_not_replace_previous_file (test_config.ConfigTests.test_invalid_save_does_not_replace_previous_file) ... ok
+test_ipv4_policy_preserves_valid_addresses_and_rejects_wildcard (test_config.ConfigTests.test_ipv4_policy_preserves_valid_addresses_and_rejects_wildcard) ... ok
+test_missing_file_and_nonobject_json_use_defaults (test_config.ConfigTests.test_missing_file_and_nonobject_json_use_defaults) ... ok
+test_oversized_json_does_not_load (test_config.ConfigTests.test_oversized_json_does_not_load) ... ok
+test_ports_booleans_and_control_characters_fail_closed (test_config.ConfigTests.test_ports_booleans_and_control_characters_fail_closed) ... ok
+test_replace_failure_preserves_existing_and_cleans_temp (test_config.ConfigTests.test_replace_failure_preserves_existing_and_cleans_temp) ... ok
+test_valid_roundtrip_and_no_shared_temp_file (test_config.ConfigTests.test_valid_roundtrip_and_no_shared_temp_file) ... ok
+test_loopback_demo_matches (test_demo.DemoTests.test_loopback_demo_matches) ... ok
+test_self_test_writes_report (test_demo.DemoTests.test_self_test_writes_report) ... Report: C:\Users\Fluke\AppData\Local\Temp\tmp48qcreae\comparison_20261027_044422_417208
+{
+  "version": "0.3.0",
+  "transactions": 18,
+  "verdict": "MATCH",
+  "similarity": 1.0,
+  "differences": 0,
+  "status": "PASS"
+}
+ok
+test_duplicate_and_unknown_fields_rejected (test_evidence.EvidenceTests.test_duplicate_and_unknown_fields_rejected) ... ok
+test_full_window_required_even_when_command_observed (test_evidence.EvidenceTests.test_full_window_required_even_when_command_observed) ... ok
+test_missing_client_and_missing_time_never_pass (test_evidence.EvidenceTests.test_missing_client_and_missing_time_never_pass) ... ok
+test_missing_sequence_rejected (test_evidence.EvidenceTests.test_missing_sequence_rejected) ... ok
+test_mixed_missing_or_reversed_time_never_passes (test_evidence.EvidenceTests.test_mixed_missing_or_reversed_time_never_passes) ... ok
+test_nan_and_bad_hex_rejected (test_evidence.EvidenceTests.test_nan_and_bad_hex_rejected) ... ok
+test_request_loss_excluded_reply_loss_counted (test_evidence.EvidenceTests.test_request_loss_excluded_reply_loss_counted) ... ok
+test_require_and_forbid (test_evidence.EvidenceTests.test_require_and_forbid) ... ok
+test_roundtrip (test_evidence.EvidenceTests.test_roundtrip) ... ok
+test_rule_validation (test_evidence.EvidenceTests.test_rule_validation) ... ok
+test_truncated_file_rejected (test_evidence.EvidenceTests.test_truncated_file_rejected) ... ok
+test_unmodelled_and_pending_do_not_pass (test_evidence.EvidenceTests.test_unmodelled_and_pending_do_not_pass) ... ok
+test_wrong_types_and_session_rejected (test_evidence.EvidenceTests.test_wrong_types_and_session_rejected) ... ok
+test_demo_runs_inside_application (test_gui.GuiTests.test_demo_runs_inside_application) ... ok
+test_export_refreshes_cached_result (test_gui.GuiTests.test_export_refreshes_cached_result) ... ok
+test_old_events_are_ignored_after_clear (test_gui.GuiTests.test_old_events_are_ignored_after_clear) ... ok
+test_profile_and_request_loss_controls_are_saved (test_gui.GuiTests.test_profile_and_request_loss_controls_are_saved) ... ok
+test_protocol_errors_are_visible (test_gui.GuiTests.test_protocol_errors_are_visible) ... ok
+test_scenario_and_observation_export (test_gui.GuiTests.test_scenario_and_observation_export) ... ok
+test_clear_handler_filters_old_events_and_keeps_new_events (test_gui_handlers.GuiHandlerTests.test_clear_handler_filters_old_events_and_keeps_new_events) ... ok
+test_export_handler_refreshes_result (test_gui_handlers.GuiHandlerTests.test_export_handler_refreshes_result) ... ok
+test_observation_handler_persists_values (test_gui_handlers.GuiHandlerTests.test_observation_handler_persists_values) ... ok
+test_profile_handler_persists_full_conditions (test_gui_handlers.GuiHandlerTests.test_profile_handler_persists_full_conditions) ... ok
+test_protocol_diagnostic_handler_displays_error (test_gui_handlers.GuiHandlerTests.test_protocol_diagnostic_handler_displays_error) ... ok
+test_changing_scenario_while_running_is_blocked (test_live_scenarios.LiveScenarioTests.test_changing_scenario_while_running_is_blocked) ... ok
+test_extreme_integer_rejected_as_validation_error (test_live_scenarios.LiveScenarioTests.test_extreme_integer_rejected_as_validation_error) ... ok
+test_global_manual_advance_preflights_all_client_clocks_atomically (test_live_scenarios.LiveScenarioTests.test_global_manual_advance_preflights_all_client_clocks_atomically) ... ok
+test_manual_advance_rejected_for_realtime_or_no_scenario (test_live_scenarios.LiveScenarioTests.test_manual_advance_rejected_for_realtime_or_no_scenario) ... ok
+test_manual_clock_rejects_nonfinite_and_wrong_types_without_crash (test_live_scenarios.LiveScenarioTests.test_manual_clock_rejects_nonfinite_and_wrong_types_without_crash) ... ok
+test_manual_interlock_fixture_replies_raw_hex_and_records_provenance (test_live_scenarios.LiveScenarioTests.test_manual_interlock_fixture_replies_raw_hex_and_records_provenance) ... ok
+test_matching_wire_and_phase_keeps_gui_and_physical_unverified (test_live_scenarios.LiveScenarioTests.test_matching_wire_and_phase_keeps_gui_and_physical_unverified) ... ok
+test_pending_response_retains_request_phase_after_manual_advance (test_live_scenarios.LiveScenarioTests.test_pending_response_retains_request_phase_after_manual_advance) ... ok
+test_realtime_epochs_start_independently_on_first_client_packet (test_live_scenarios.LiveScenarioTests.test_realtime_epochs_start_independently_on_first_client_packet) ... ok
+test_reset_clears_engines_epochs_time_and_capture (test_live_scenarios.LiveScenarioTests.test_reset_clears_engines_epochs_time_and_capture) ... ok
+test_same_wire_value_at_different_phase_is_not_match (test_live_scenarios.LiveScenarioTests.test_same_wire_value_at_different_phase_is_not_match) ... ok
+test_server_continues_after_scenario_end (test_live_scenarios.LiveScenarioTests.test_server_continues_after_scenario_end) ... ok
+test_all_recovered_ids_receive_answer (test_model.ModelTests.test_all_recovered_ids_receive_answer) ... ok
+test_client_states_are_isolated (test_model.ModelTests.test_client_states_are_isolated) ... ok
+test_default_qswitch_wire_unit (test_model.ModelTests.test_default_qswitch_wire_unit) ... ok
+test_delay_compound_record (test_model.ModelTests.test_delay_compound_record) ... ok
+test_profile_override_drop_and_error (test_model.ModelTests.test_profile_override_drop_and_error) ... ok
+test_shared_state_option (test_model.ModelTests.test_shared_state_option) ... ok
+test_write_and_readback (test_model.ModelTests.test_write_and_readback) ... ok
+test_generic_query_argument_is_accepted_but_not_certified (test_model_030.Model030Tests.test_generic_query_argument_is_accepted_but_not_certified) ... ok
+test_modes_are_original_text_tokens (test_model_030.Model030Tests.test_modes_are_original_text_tokens) ... ok
+test_osc_reference_does_not_mutate_ambiguous_rate (test_model_030.Model030Tests.test_osc_reference_does_not_mutate_ambiguous_rate) ... ok
+test_reset_is_module_scoped_fixture (test_model_030.Model030Tests.test_reset_is_module_scoped_fixture) ... ok
+test_builtin_profiles_are_declarations_not_test_claims (test_profiles.ProfileTests.test_builtin_profiles_are_declarations_not_test_claims) ... ok
+test_features_are_detected_from_api_not_version_string (test_profiles.ProfileTests.test_features_are_detected_from_api_not_version_string) ... ok
+test_rejects_ambiguous_zip_packages (test_profiles.ProfileTests.test_rejects_ambiguous_zip_packages) ... ok
+test_rejects_dynamic_catalogue (test_profiles.ProfileTests.test_rejects_dynamic_catalogue) ... ok
+test_rejects_zip_symlink (test_profiles.ProfileTests.test_rejects_zip_symlink) ... ok
+test_rejects_zip_traversal_absolute_and_backslash (test_profiles.ProfileTests.test_rejects_zip_traversal_absolute_and_backslash) ... ok
+test_source_hash_covers_behavior_modules (test_profiles.ProfileTests.test_source_hash_covers_behavior_modules) ... ok
+test_static_inspection_does_not_execute_init (test_profiles.ProfileTests.test_static_inspection_does_not_execute_init) ... ok
+test_zip_roundtrip (test_profiles.ProfileTests.test_zip_roundtrip) ... ok
+test_argument_is_preserved (test_protocol.ProtocolTests.test_argument_is_preserved) ... ok
+test_bad_header_rejected (test_protocol.ProtocolTests.test_bad_header_rejected) ... ok
+test_maximum_enforced (test_protocol.ProtocolTests.test_maximum_enforced) ... ok
+test_multi_command_round_trip (test_protocol.ProtocolTests.test_multi_command_round_trip) ... ok
+test_non_ascii_rejected (test_protocol.ProtocolTests.test_non_ascii_rejected) ... ok
+test_reply_round_trip_lf_and_crlf (test_protocol.ProtocolTests.test_reply_round_trip_lf_and_crlf) ... ok
+test_gui_observations_remain_separate (test_regressions.CaptureReportRegressions.test_gui_observations_remain_separate) ... ok
+test_old_session_transaction_is_rejected (test_regressions.CaptureReportRegressions.test_old_session_transaction_is_rejected) ... ok
+test_profile_snapshot_is_not_a_live_reference (test_regressions.CaptureReportRegressions.test_profile_snapshot_is_not_a_live_reference) ... ok
+test_report_recomputes_a_stale_comparison (test_regressions.CaptureReportRegressions.test_report_recomputes_a_stale_comparison) ... ok
+test_report_uses_one_snapshot_after_capture_changes (test_regressions.CaptureReportRegressions.test_report_uses_one_snapshot_after_capture_changes) ... ok
+test_shared_state_comparison_is_unverified (test_regressions.CaptureReportRegressions.test_shared_state_comparison_is_unverified) ... ok
+test_different_scenarios_do_not_match (test_regressions.ComparisonRegressions.test_different_scenarios_do_not_match) ... ok
+test_identical_injected_fault_needs_observation (test_regressions.ComparisonRegressions.test_identical_injected_fault_needs_observation) ... ok
+test_identical_send_errors_do_not_pass (test_regressions.ComparisonRegressions.test_identical_send_errors_do_not_pass) ... ok
+test_line_endings_are_compared_separately (test_regressions.ComparisonRegressions.test_line_endings_are_compared_separately) ... ok
+test_missing_raw_evidence_is_unverified (test_regressions.ComparisonRegressions.test_missing_raw_evidence_is_unverified) ... ok
+test_numeric_meaning_does_not_hide_raw_difference (test_regressions.ComparisonRegressions.test_numeric_meaning_does_not_hide_raw_difference) ... ok
+test_pending_response_makes_snapshot_incomplete (test_regressions.ComparisonRegressions.test_pending_response_makes_snapshot_incomplete) ... ok
+test_poll_bad_command_is_not_hidden (test_regressions.ComparisonRegressions.test_poll_bad_command_is_not_hidden) ... ok
+test_poll_response_loss_is_not_hidden (test_regressions.ComparisonRegressions.test_poll_response_loss_is_not_hidden) ... ok
+test_poll_state_transitions_survive_compression (test_regressions.ComparisonRegressions.test_poll_state_transitions_survive_compression) ... ok
+test_poll_values_are_compared (test_regressions.ComparisonRegressions.test_poll_values_are_compared) ... ok
+test_protocol_diagnostic_affects_verdict (test_regressions.ComparisonRegressions.test_protocol_diagnostic_affects_verdict) ... ok
+test_reply_header_difference_is_detected (test_regressions.ComparisonRegressions.test_reply_header_difference_is_detected) ... ok
+test_same_label_cannot_compare_to_itself (test_regressions.ComparisonRegressions.test_same_label_cannot_compare_to_itself) ... ok
+test_test_condition_mismatch_is_not_a_match (test_regressions.ComparisonRegressions.test_test_condition_mismatch_is_not_a_match) ... ok
+test_unknown_client_prevents_full_match (test_regressions.ComparisonRegressions.test_unknown_client_prevents_full_match) ... ok
+test_unmodelled_writes_are_not_certified (test_regressions.ComparisonRegressions.test_unmodelled_writes_are_not_certified) ... ok
+test_bwd_aliases_share_state (test_regressions.ModelRegressions.test_bwd_aliases_share_state) ... ok
+test_delay_snapshot_matches_actual_readback (test_regressions.ModelRegressions.test_delay_snapshot_matches_actual_readback) ... ok
+test_id_text_mismatch_cannot_switch_on (test_regressions.ModelRegressions.test_id_text_mismatch_cannot_switch_on) ... ok
+test_motor_speed_aliases_share_state (test_regressions.ModelRegressions.test_motor_speed_aliases_share_state) ... ok
+test_no_argument_command_rejects_extra_argument (test_regressions.ModelRegressions.test_no_argument_command_rejects_extra_argument) ... ok
+test_numeric_argument_is_required_and_finite (test_regressions.ModelRegressions.test_numeric_argument_is_required_and_finite) ... ok
+test_reply_loss_still_executes_write (test_regressions.ModelRegressions.test_reply_loss_still_executes_write) ... ok
+test_request_loss_does_not_execute_write (test_regressions.ModelRegressions.test_request_loss_does_not_execute_write) ... ok
+test_response_override_does_not_skip_write (test_regressions.ModelRegressions.test_response_override_does_not_skip_write) ... ok
+test_unknown_query_text_is_rejected (test_regressions.ModelRegressions.test_unknown_query_text_is_rejected) ... ok
+test_unmodelled_command_is_explicit (test_regressions.ModelRegressions.test_unmodelled_command_is_explicit) ... ok
+test_control_characters_cannot_split_fake_commands (test_regressions.ProtocolRegressions.test_control_characters_cannot_split_fake_commands) ... ok
+test_reply_header_must_be_exact (test_regressions.ProtocolRegressions.test_reply_header_must_be_exact) ... ok
+test_delayed_client_does_not_block_other_and_latency_is_honest (test_regressions.UdpRegressions.test_delayed_client_does_not_block_other_and_latency_is_honest) ... ok
+test_profile_is_frozen_until_delayed_reply (test_regressions.UdpRegressions.test_profile_is_frozen_until_delayed_reply) ... ok
+test_real_malformed_packet_invalidates_comparison (test_regressions.UdpRegressions.test_real_malformed_packet_invalidates_comparison) ... ok
+test_reconnect_keeps_logical_client_state (test_regressions.UdpRegressions.test_reconnect_keeps_logical_client_state) ... ok
+test_reply_loss_roundtrip_readback_has_changed (test_regressions.UdpRegressions.test_reply_loss_roundtrip_readback_has_changed) ... ok
+test_reset_cancels_old_delayed_evidence (test_regressions.UdpRegressions.test_reset_cancels_old_delayed_evidence) ... ok
+test_same_client_response_order_and_wait_are_recorded (test_regressions.UdpRegressions.test_same_client_response_order_and_wait_are_recorded) ... ok
+test_stop_does_not_wait_for_sixty_second_injection (test_regressions.UdpRegressions.test_stop_does_not_wait_for_sixty_second_injection) ... ok
+test_drop_preserved_and_peer_isolation (test_replay.ReplayTests.test_drop_preserved_and_peer_isolation) ... ok
+test_exact_match_and_mismatch (test_replay.ReplayTests.test_exact_match_and_mismatch) ... ok
+test_extra_packet_has_no_reply (test_replay.ReplayTests.test_extra_packet_has_no_reply) ... ok
+test_loopback_only (test_replay.ReplayTests.test_loopback_only) ... ok
+test_missing_or_corrupted_capture_rejected (test_replay.ReplayTests.test_missing_or_corrupted_capture_rejected) ... ok
+test_capture_difference_or_incomplete_is_nonzero_exit (test_review_030.IndependentReview030Tests.test_capture_difference_or_incomplete_is_nonzero_exit) ... ok
+test_capture_match_without_reaction_fail_is_zero_exit (test_review_030.IndependentReview030Tests.test_capture_match_without_reaction_fail_is_zero_exit) ... ok
+test_hex_register_semantics_do_not_use_decimal_exponent_rules (test_review_030.IndependentReview030Tests.test_hex_register_semantics_do_not_use_decimal_exponent_rules) ... ok
+test_manual_global_advance_is_atomic_on_backwards_client (test_review_030.IndependentReview030Tests.test_manual_global_advance_is_atomic_on_backwards_client) ... ok
+test_matrix_cli_passes_explicit_trust_flag (test_review_030.IndependentReview030Tests.test_matrix_cli_passes_explicit_trust_flag) ... ok
+test_reaction_fail_or_incomplete_overrides_capture_match_exit (test_review_030.IndependentReview030Tests.test_reaction_fail_or_incomplete_overrides_capture_match_exit) ... ok
+test_reset_and_clear_noops_are_not_reported_as_modelled (test_review_030.IndependentReview030Tests.test_reset_and_clear_noops_are_not_reported_as_modelled) ... ok
+test_same_scenario_different_event_phases_do_not_match (test_review_030.IndependentReview030Tests.test_same_scenario_different_event_phases_do_not_match) ... ok
+test_abstract_fault_does_not_invent_wire_bits (test_scenarios.ScenarioTests.test_abstract_fault_does_not_invent_wire_bits) ... ok
+test_all_builtins_have_assertions_pass_and_no_physical_claim (test_scenarios.ScenarioTests.test_all_builtins_have_assertions_pass_and_no_physical_claim) ... ok
+test_beyond_duration_clamps_and_remains_stable (test_scenarios.ScenarioTests.test_beyond_duration_clamps_and_remains_stable) ... ok
+test_bool_not_equal_numeric_one (test_scenarios.ScenarioTests.test_bool_not_equal_numeric_one) ... ok
+test_clients_have_independent_clocks_and_state (test_scenarios.ScenarioTests.test_clients_have_independent_clocks_and_state) ... ok
+test_comparison_type_error_is_failed_assertion (test_scenarios.ScenarioTests.test_comparison_type_error_is_failed_assertion) ... ok
+test_duplicate_json_field_rejected (test_scenarios.ScenarioTests.test_duplicate_json_field_rejected) ... ok
+test_explicit_seed_fixture_only_uses_measured_seed_id (test_scenarios.ScenarioTests.test_explicit_seed_fixture_only_uses_measured_seed_id) ... ok
+test_failed_assertion_is_fail (test_scenarios.ScenarioTests.test_failed_assertion_is_fail) ... ok
+test_injected_event_is_current_time_only (test_scenarios.ScenarioTests.test_injected_event_is_current_time_only) ... ok
+test_invalid_assertion_rejected (test_scenarios.ScenarioTests.test_invalid_assertion_rejected) ... ok
+test_invalid_event_shapes_rejected (test_scenarios.ScenarioTests.test_invalid_event_shapes_rejected) ... ok
+test_invalid_policy_rejected (test_scenarios.ScenarioTests.test_invalid_policy_rejected) ... ok
+test_invalid_wire_ids_and_values_rejected (test_scenarios.ScenarioTests.test_invalid_wire_ids_and_values_rejected) ... ok
+test_json_roundtrip_path_and_bom (test_scenarios.ScenarioTests.test_json_roundtrip_path_and_bom) ... ok
+test_late_trigger_cannot_erase_timeout_history (test_scenarios.ScenarioTests.test_late_trigger_cannot_erase_timeout_history) ... ok
+test_missing_name_and_traversal_rejected (test_scenarios.ScenarioTests.test_missing_name_and_traversal_rejected) ... ok
+test_no_assertions_is_unverified_not_pass (test_scenarios.ScenarioTests.test_no_assertions_is_unverified_not_pass) ... ok
+test_nonfinite_json_rejected (test_scenarios.ScenarioTests.test_nonfinite_json_rejected) ... ok
+test_null_override_removes_one_override (test_scenarios.ScenarioTests.test_null_override_removes_one_override) ... ok
+test_oversized_file_rejected (test_scenarios.ScenarioTests.test_oversized_file_rejected) ... ok
+test_recovery_does_not_auto_arm (test_scenarios.ScenarioTests.test_recovery_does_not_auto_arm) ... ok
+test_repeated_arm_cannot_extend_watchdog (test_scenarios.ScenarioTests.test_repeated_arm_cannot_extend_watchdog) ... ok
+test_replay_is_exactly_deterministic (test_scenarios.ScenarioTests.test_replay_is_exactly_deterministic) ... ok
+test_reset_while_signal_bad_is_denied (test_scenarios.ScenarioTests.test_reset_while_signal_bad_is_denied) ... ok
+test_schema_version_bool_is_not_one (test_scenarios.ScenarioTests.test_schema_version_bool_is_not_one) ... ok
+test_snapshot_does_not_share_mutable_state (test_scenarios.ScenarioTests.test_snapshot_does_not_share_mutable_state) ... ok
+test_stable_order_at_equal_timestamps (test_scenarios.ScenarioTests.test_stable_order_at_equal_timestamps) ... ok
+test_time_reversal_and_nonfinite_rejected (test_scenarios.ScenarioTests.test_time_reversal_and_nonfinite_rejected) ... ok
+test_trigger_exactly_at_deadline_wins (test_scenarios.ScenarioTests.test_trigger_exactly_at_deadline_wins) ... ok
+test_unknown_fields_rejected_at_all_levels (test_scenarios.ScenarioTests.test_unknown_fields_rejected_at_all_levels) ... ok
+test_watchdog_expires_without_new_input (test_scenarios.ScenarioTests.test_watchdog_expires_without_new_input) ... ok
+test_wire_effects_clear_and_copy (test_scenarios.ScenarioTests.test_wire_effects_clear_and_copy) ... ok
+test_batch_reply_and_capture (test_server.ServerTests.test_batch_reply_and_capture) ... ok
+test_malformed_packet_is_logged_without_reply (test_server.ServerTests.test_malformed_packet_is_logged_without_reply) ... ok
+test_stateful_write (test_server.ServerTests.test_stateful_write) ... ok
+test_busy_prevents_overlapping_jobs (test_workbench_ui.WorkbenchHandlers.test_busy_prevents_overlapping_jobs) ... ok
+test_closed_panel_does_not_schedule_tk_callback (test_workbench_ui.WorkbenchHandlers.test_closed_panel_does_not_schedule_tk_callback) ... ok
+test_declined_trust_does_not_execute_source (test_workbench_ui.WorkbenchHandlers.test_declined_trust_does_not_execute_source) ... ok
+test_export_escapes_html_and_keeps_runs_separate (test_workbench_ui.WorkbenchHandlers.test_export_escapes_html_and_keeps_runs_separate) ... ok
+test_headless_report_module_does_not_import_tk (test_workbench_ui.WorkbenchHandlers.test_headless_report_module_does_not_import_tk) ... ok
+test_live_configuration_copied_into_server (test_workbench_ui.WorkbenchHandlers.test_live_configuration_copied_into_server) ... ok
+test_manual_advance_requires_manual_live_server (test_workbench_ui.WorkbenchHandlers.test_manual_advance_requires_manual_live_server) ... ok
+test_matrix_requires_explicit_trust_and_captures_paths (test_workbench_ui.WorkbenchHandlers.test_matrix_requires_explicit_trust_and_captures_paths) ... ok
+test_matrix_summary_exposes_real_differences (test_workbench_ui.WorkbenchHandlers.test_matrix_summary_exposes_real_differences) ... ok
+test_model_execution_does_not_run_client_matrix (test_workbench_ui.WorkbenchHandlers.test_model_execution_does_not_run_client_matrix) ... ok
+test_model_summary_keeps_equivalence_unverified (test_workbench_ui.WorkbenchHandlers.test_model_summary_keeps_equivalence_unverified) ... ok
+test_profile_selection_is_not_execution_evidence (test_workbench_ui.WorkbenchHandlers.test_profile_selection_is_not_execution_evidence) ... ok
+test_running_server_prevents_profile_relabeling (test_workbench_ui.WorkbenchHandlers.test_running_server_prevents_profile_relabeling) ... ok
+test_smoke_visibility_rejects_unmapped_and_horizontal_clipping (test_workbench_ui.WorkbenchHandlers.test_smoke_visibility_rejects_unmapped_and_horizontal_clipping) ... ok
+test_worker_error_is_drained_on_main_thread (test_workbench_ui.WorkbenchHandlers.test_worker_error_is_drained_on_main_thread) ... ok
+
+======================================================================
+ERROR: test_concurrent_saves_produce_complete_valid_json (test_config.ConfigTests.test_concurrent_saves_produce_complete_valid_json)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Fluke\Desktop\Spitfire_Twin_Verifier_v0.3.0\Spitfire_Twin_Verifier\tests\test_config.py", line 128, in test_concurrent_saves_produce_complete_valid_json
+    list(pool.map(lambda config: config.save(), configs))
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Fluke\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 625, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Fluke\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 318, in _result_or_cancel
+    return fut.result(timeout)
+           ~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Fluke\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 453, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Fluke\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 402, in __get_result
+    raise self._exception
+  File "C:\Users\Fluke\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\Fluke\Desktop\Spitfire_Twin_Verifier_v0.3.0\Spitfire_Twin_Verifier\tests\test_config.py", line 128, in <lambda>
+    list(pool.map(lambda config: config.save(), configs))
+                                 ~~~~~~~~~~~^^
+  File "C:\Users\Fluke\Desktop\Spitfire_Twin_Verifier_v0.3.0\Spitfire_Twin_Verifier\src\spitfire_twin_verifier\config.py", line 127, in save
+    os.replace(temporary, path)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\Fluke\\AppData\\Local\\Temp\\tmp63gs8vvy\\config-435mz7gx.tmp' -> 'C:\\Users\\Fluke\\AppData\\Local\\Temp\\tmp63gs8vvy\\config.json'
+
+----------------------------------------------------------------------
+Ran 205 tests in 7.824s
+
+FAILED (errors=1, skipped=1)

@@ -1,0 +1,13 @@
+{
+  "virtual_device": {"ip": "10.19.70.13", "udp_port": 1024},
+  "xp_original": {"ip": "10.19.70.2", "local_udp_port": 1024},
+  "python_1_1_3": {
+    "ip": "10.19.70.1",
+    "remote_host": "10.19.70.13",
+    "remote_port": 1024,
+    "local_host": "10.19.70.1",
+    "local_port": 1024
+  },
+  "subnet_mask": "255.255.255.0",
+  "topology": "host-only"
+}

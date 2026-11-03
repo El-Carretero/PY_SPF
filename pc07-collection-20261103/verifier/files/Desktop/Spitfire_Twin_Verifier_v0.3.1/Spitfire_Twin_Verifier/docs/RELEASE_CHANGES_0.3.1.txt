@@ -1,0 +1,64 @@
+Spitfire Twin Verifier 0.3.1 — P07 설정 저장 수정
+================================================
+확인일: 2026-10-27 한국시간
+
+수정
+----
+P07의 0.3.0 회귀시험에서 같은 설정 파일에 4개 스레드가 16회 저장할 때
+os.replace가 WinError 5로 실패했다. 이전 결과는 203 PASS / 1 ERROR / 1 SKIP.
+0.3.1은 같은 프로세스의 설정 읽기(open/read/close)와 저장 전체를 공유 RLock으로
+직렬화한다. JSON 검증, 고유 임시 파일, fsync, atomic replace, 정리를 유지한다.
+저장 권한 오류를 재시도하거나 숨기지 않는다. ACL/관리자 권한 변경은 없다.
+load()가 읽기 실패 시 기본값으로 복귀하는 기존 동작은 변경하지 않았다.
+별도 프로세스나 백신·파일시스템 필터까지 조정하는 잠금은 아니다.
+
+검증
+----
+P07 Windows 11 / Python 3.13.15:
+- 전체 210개: 209 PASS / 0 ERROR / 0 FAIL / 1 SKIP.
+- 생략: 선택적 원본 EXE 카탈로그 검사(원본 EXE 환경변수 미지정).
+- 동시 저장 회귀시험 100회: 총 1,600번 저장, 모두 PASS.
+- 추가 결정적 시험: writer/writer 및 reader/writer 양쪽 순서의 상호 배제,
+  WinError 5 저장 오류의 1회 전파/기존 파일 보존/잠금 해제/임시 파일 정리.
+- 실제 Tk GUI smoke PASS, 12개 합성 시나리오 PASS.
+- loopback 18거래 MATCH, 차이 0.
+Linux / Python 3.12.14:
+- 전체 210개: 204 PASS / 6 SKIP(Tk 화면 없음), 오류 0.
+- 원본 EXE 정적 카탈로그 검사 PASS(실행 시험 아님).
+- 동시 저장 100회 및 12개 합성 시나리오 PASS, loopback MATCH.
+
+범위
+----
+이번 수정은 설정 파일 동시 접근에 한정된다. 원본/Python 장비 명령이나
+합성 모델의 물리적 의미는 변경하지 않았다. XP 원본 실행은 아직 하지 않았다.
+사용자 확인: 실제 장비는 연결되어 있지 않으며 XP에 원본은 미설치 상태.
+P07에서 XP VM은 실행 중이지만 NAT이고 VMware Tools가 동작하지 않는다.
+이번 작업은 VM, 네트워크, 방화벽, 원본 설치 파일을 변경하지 않았다.
+네트워크 변경/재시작은 사용자의 명시적 동의와 필요한 관리자 승인 후 진행한다.
+
+P07 배포
+--------
+C:\Users\Fluke\Desktop\Spitfire_Twin_Verifier_v0.3.1\Spitfire_Twin_Verifier
+새 바로가기: Spitfire_Verifier_0.3.1
+기존 0.3.0 폴더와 실패 기록을 그대로 보존한다.
+이 배포본은 소스판이며 기존 Python/Tk로 실행한다. 새로운 EXE 빌드는 하지 않았다.
+
+XP 설치 준비
+------------
+원본 폴더: C:\Users\Fluke\Downloads\Spitfire_GUI_v_1_6_0
+setup.exe, setup.ini, Spitfire.msi, DistFile.cab, instmsi.exe, instmsiw.exe를
+함께 XP에 전달한 뒤 XP 내부에서 setup.exe를 실행한다. Win11에서 실행하지 않는다.
+제공된 설치 묶음은 CVI runtime을 포함한다. 현대 NI runtime을 따로 설치하지 않는다.
+VMware Tools가 없어도 가상 CD ISO를 통해 설치 파일을 전달할 수 있다.
+Tools 없이 게스트 프로세스 자동 실행은 현재 사용할 수 없으므로 XP 내부 조작 협조가 필요하다.
+XP용 Tools가 필요하면 마지막 지원 버전은 10.0.12이며 현재 Workstation의 현대
+windows.iso와 혼동하지 않는다. 이 작업에서 Tools를 내려받거나 설치하지 않았다.
+Host-only 설정 경로: VM > Settings > Hardware > Network Adapter > Host Only.
+Host-only 가상 어댑터만 사용하고 물리 LAN 설정은 보존한다.
+계획 주소: Verifier10.19.70.13/24, XP10.19.70.2/24, XP gateway/DNS 없음.
+원본은 시작 중 자동 설정 쓰기 경로가 있어 격리/수신기를 먼저 확인해야 한다.
+
+공식 참고
+---------
+https://knowledge.broadcom.com/external/article/339371
+https://knowledge.broadcom.com/external/article/316388

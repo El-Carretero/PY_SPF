@@ -1,0 +1,254 @@
+{
+  "metadata": {
+    "scope": "fixture wire evidence; GUI observations are manual; no firmware/physical certification",
+    "response_profile": {
+      "name": "Nominal",
+      "overrides": {},
+      "error_ids": [],
+      "drop_ids": [],
+      "delay_ms": {},
+      "request_drop_ids": [],
+      "line_ending": "\n",
+      "malformed_reply_header": false
+    },
+    "selected_client_profiles": {},
+    "xp_execution_evidence": "UNVERIFIED (requires actual XP capture + GUI observations)",
+    "configured_scenario": {
+      "schema_version": 1,
+      "id": "nominal_external_10hz",
+      "name": "정상 외부 펌프 10 Hz",
+      "description": "80 MHz seed와 10 Hz 외부 트리거가 정상인 합성 정책 시험.",
+      "duration_ms": 400,
+      "policy": {
+        "expected_seed_mhz": 80.0,
+        "seed_tolerance_mhz": 1.0,
+        "expected_trigger_hz": 10.0,
+        "trigger_timeout_ms": 250.0,
+        "max_jitter_us": 1000.0,
+        "max_phase_slip_us": 100.0,
+        "rate_tolerance_fraction": 0.05
+      },
+      "initial_signals": {},
+      "events": [
+        {
+          "at_ms": 0,
+          "type": "arm"
+        },
+        {
+          "at_ms": 0,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 100,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 200,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 300,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 400,
+          "type": "disarm"
+        }
+      ],
+      "assertions": [
+        {
+          "at_ms": 300,
+          "path": "armed",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "at_ms": 300,
+          "path": "accepted_trigger_count",
+          "op": "eq",
+          "expected": 4
+        },
+        {
+          "at_ms": 400,
+          "path": "inhibited",
+          "op": "eq",
+          "expected": true
+        }
+      ]
+    },
+    "scenario_clock": "manual",
+    "virtual_device": "127.0.0.1:64138",
+    "client_labels": {
+      "127.0.0.2": "Smoke probe A (not XP)",
+      "127.0.0.3": "Smoke probe B (not Python client)"
+    },
+    "isolated_client_state": true,
+    "live_scenario": {
+      "schema_version": 1,
+      "id": "nominal_external_10hz",
+      "name": "정상 외부 펌프 10 Hz",
+      "description": "80 MHz seed와 10 Hz 외부 트리거가 정상인 합성 정책 시험.",
+      "duration_ms": 400,
+      "policy": {
+        "expected_seed_mhz": 80.0,
+        "seed_tolerance_mhz": 1.0,
+        "expected_trigger_hz": 10.0,
+        "trigger_timeout_ms": 250.0,
+        "max_jitter_us": 1000.0,
+        "max_phase_slip_us": 100.0,
+        "rate_tolerance_fraction": 0.05
+      },
+      "initial_signals": {},
+      "events": [
+        {
+          "at_ms": 0,
+          "type": "arm"
+        },
+        {
+          "at_ms": 0,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 100,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 200,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 300,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 400,
+          "type": "disarm"
+        }
+      ],
+      "assertions": [
+        {
+          "at_ms": 300,
+          "path": "armed",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "at_ms": 300,
+          "path": "accepted_trigger_count",
+          "op": "eq",
+          "expected": 4
+        },
+        {
+          "at_ms": 400,
+          "path": "inhibited",
+          "op": "eq",
+          "expected": true
+        }
+      ]
+    },
+    "scenario_scope": "synthetic stimulus; client GUI and physical behavior unverified",
+    "xp_runtime_validation": "UNVERIFIED",
+    "physical_validation": "UNVERIFIED",
+    "created_utc": "2026-10-27T04:45:02.377+00:00",
+    "verifier_version": "0.3.0",
+    "session_id": "c6f99d7d823245878694019c24bd39f7",
+    "snapshot_transactions": 2,
+    "pending_datagrams": [],
+    "batching": {
+      "Smoke probe A (not XP)": {
+        "1": 1
+      },
+      "Smoke probe B (not Python client)": {
+        "1": 1
+      }
+    }
+  },
+  "comparison": {
+    "original_label": "Smoke probe A (not XP)",
+    "python_label": "Smoke probe B (not Python client)",
+    "original_total": 1,
+    "python_total": 1,
+    "original_writes": 0,
+    "python_writes": 0,
+    "original_query_ids": [
+      1000
+    ],
+    "python_query_ids": [
+      1000
+    ],
+    "original_write_ids": [],
+    "python_write_ids": [],
+    "sequence_similarity": 1.0,
+    "matched": 0,
+    "differences": 1,
+    "only_original": 0,
+    "only_python": 0,
+    "poll_coverage_differences": [],
+    "ignored_polling": true,
+    "verdict": "ERROR",
+    "rows": [
+      {
+        "status": "SCENARIO_PHASE_DIFF",
+        "command_id": 1000,
+        "original_sequence": 1,
+        "python_sequence": 2,
+        "original_command": "*IDN?",
+        "python_command": "*IDN?",
+        "original_argument": "",
+        "python_argument": "",
+        "original_response": "ERROR:VALIDATION:ID_TEXT_MISMATCH",
+        "python_response": "ERROR:VALIDATION:ID_TEXT_MISMATCH",
+        "note": "clients observed different event phases; rerun at matched checkpoints",
+        "semantic_equal": false,
+        "framing_equal": true,
+        "polling": false,
+        "scenario": "nominal_external_10hz"
+      }
+    ],
+    "count_differences": [],
+    "content_verdict": "DIFFERENT",
+    "semantic_verdict": "DIFFERENT",
+    "framing_verdict": "MATCH",
+    "transport_health": "ERROR",
+    "issues": [
+      {
+        "kind": "ERROR",
+        "client": "Smoke probe A (not XP)",
+        "sequence": 1,
+        "note": "ID_TEXT_MISMATCH; REPLIED"
+      },
+      {
+        "kind": "UNMODELLED",
+        "client": "Smoke probe A (not XP)",
+        "sequence": 1,
+        "note": "device effect not verified"
+      },
+      {
+        "kind": "ERROR",
+        "client": "Smoke probe B (not Python client)",
+        "sequence": 2,
+        "note": "ID_TEXT_MISMATCH; REPLIED"
+      },
+      {
+        "kind": "UNMODELLED",
+        "client": "Smoke probe B (not Python client)",
+        "sequence": 2,
+        "note": "device effect not verified"
+      }
+    ],
+    "pending_datagrams": 0,
+    "session_id": "c6f99d7d823245878694019c24bd39f7",
+    "snapshot_utc": "2026-10-27T04:45:02.377+00:00",
+    "gui_verdict": "NOT_CHECKED",
+    "batching": {
+      "Smoke probe A (not XP)": {
+        "1": 1
+      },
+      "Smoke probe B (not Python client)": {
+        "1": 1
+      }
+    },
+    "client_reaction_verdict": "NOT_CHECKED",
+    "physical_validation": "UNVERIFIED"
+  }
+}

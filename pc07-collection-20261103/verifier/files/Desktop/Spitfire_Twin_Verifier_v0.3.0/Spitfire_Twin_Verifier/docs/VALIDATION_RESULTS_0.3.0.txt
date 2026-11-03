@@ -1,0 +1,94 @@
+Spitfire Twin Verifier0.3.0 — validation evidence
+Date:2026-10-27 (Asia/Seoul)
+
+Final source regression suite
+-----------------------------
+205 tests discovered.
+Linux/Python3.12.14:199 passed,6 display-dependent Tk tests skipped,0fail/error.
+The optional original EXE test was enabled here and passed with the freshly
+extracted vendor EXE. All146 numeric catalog slots matched byte-for-byte.
+Windows11Pro10.0.26200/Python3.13.9 x64:204 passed,1optional vendor EXE test
+skipped (binary not included on this test path),0fail/error.
+The six actual Tk-window tests passed on Windows.
+These counts are separate environments, not410 unique tests.
+
+Actual Windows GUI smoke
+------------------------
+PASS: visible Tk construction, profile/workbench controls, asynchronous model
+run, manual scenario staging/time advance, loopback UDP responses, clean stop,
+JSON/HTML export. Requested1536x768 and1024x768 layouts were exercised with
+screen-aware bounds; final checks include all parent clipping regions, screen
+edges, button requested size and rejection of hidden1x1 widgets. Multi-row
+controls fix horizontal clipping. No screenshot is included as a deliverable.
+User configuration saving was mocked/isolated during smoke testing.
+
+Actual client code matrix
+-------------------------
+Two supplied ZIPs were statically inspected and their actual unmodified
+Python modules executed against fresh127.0.0.1-only virtual UDP servers.
+On Windows, byte-identical source modules were staged from those ZIPs; source
+SHA-256 provenance is retained. No vendor EXE or physical controller was used.
+
+Python1.1.3:7PASS /2FAIL /10UNSUPPORTED.
+FAIL tdg_hex_fault: raw1066='4000' interpreted as decimal4000 rather than
+hexadecimal0x4000=16384.
+FAIL dedicated_tdg_fault: dedicated TDG fault did not activate fault_active.
+The10 external-pump policy cases are unsupported by that version; not passes.
+
+Python1.3.0:19PASS /0FAIL.
+Nine common fixtures plus ten external software-policy fixtures cover seed
+loss/recovery, source modes, key interlock, humidity, module communication,
+Empower absent, opt-out confirmation and invalid pump expectations.
+The tested functions are real command formatters, transports, reply parsers,
+state decoders and optional external-enable/timing-policy checks. The harness
+does not execute the entire controller polling scheduler or automate the
+external application's GUI. No optical synchronization/shutdown claim.
+
+Synthetic event suite
+---------------------
+12/12 built-in model scenarios PASS. Faults latch and require explicit reset
+and rearm in the chosen synthetic policy. The state-machine policy is not
+claimed to be measured Spitfire firmware behavior. Scenarios with no proven
+hardware mapping do not invent device fault bits. Model PASS is distinct from
+client parity and physical validation, which remainUNVERIFIED.
+
+Frozen Windows applications
+---------------------------
+Built on the connected P04 with existing Python3.13.9/PyInstaller6.19.0.
+No build packages were installed globally and no firewall/IP configuration
+was changed. Final build explicitly includes data/scenarios/*.json.
+PASS: CLI loopback self-test18transactions MATCH.
+PASS: frozen CLI12scenario suite.
+PASS: frozen CLI actual Python1.3.0 matrix19cases.
+PASS: GUI EXE visible main window titled'Spitfire Twin Verifier0.3.0'
+(normal title spacing in application), normal close, exit0.
+
+Final executables are installed on P04 only; the downloadable Source ZIP
+contains source, tests, wheel, documentation and reports, not these binaries.
+SpitfireTwinVerifier.exe:11,572,746B
+SHA2562073b82f9b42a0858497714dc01cb0227caa488a309400266b5a2404ed7eaac8
+SpitfireTwinVerifierCLI.exe:11,577,451B
+SHA2562cf81fa6f7f734da46eab6e15629c03921d0e2a1abdd46ca49cb17617e335ae0
+
+Wheel
+-----
+spitfire_twin_verifier-0.3.0-py3-none-any.whl:86,366B
+SHA256d18fa5700b5b3cf3d7fdbd3e0e8d7bf751988a6e4c735775afab93fd5938ef7f
+Installed into a clean venv with--no-index; version0.3.0,12packaged scenarios,
+all model assertions and safe default127.0.0.1 confirmed.
+
+Scope exclusions / required next acceptance
+------------------------------------------
+No XP VM was found on the currently connected P04 at standard inventory,
+process,installation and user VM locations. No vendor installer was executed.
+XP application runtime startup/panels/timing/fault-display equivalence remains
+NOT_PERFORMED. Windows10 was not tested.
+No hardware power-up, laser/HV activation, physical interlock, photodiode edge,
+10Hz pump/80MHz seed synchronization, jitter or optical energy was measured.
+No Signal/HIL adapter or complete firmware/device-family model is claimed.
+TCP1001 and physicalRS232 service protocols remain outside this UDP twin.
+Next gate: authorized isolated XP VM, vendor GUI startup capture and manual
+panel observations, then separate laser-inhibited signal/hardware acceptance.
+
+Raw final evidence is in validation_0.3.0/linux and validation_0.3.0/windows.
+Historical reports from earlier releases are not counted as current passes.

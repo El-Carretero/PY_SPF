@@ -1,0 +1,73 @@
+HISTORICAL v0.1.0 RECORD — not the current v0.2.0 validation result.
+
+Spitfire Twin Verifier 0.1.0 validation record
+================================================
+Date (UTC): 2026-09-17
+
+1. Recovered catalogue cross-check
+----------------------------------
+Compared against Spitfire Python Control 1.1.3 commands.py obtained from the
+current project artifact.
+
+  old commands: 146
+  verifier commands: 146
+  missing IDs: none
+  extra IDs: none
+  command-text mismatches: none
+  risk-class mismatches: none
+
+2. Unit and loopback integration tests
+--------------------------------------
+Command:
+  PYTHONPATH=src python -m unittest discover -s tests -v
+
+Result:
+  23 tests run
+  23 passed
+  0 failed / 0 errors
+
+Covered behaviour includes multi-command datagrams, ASCII and 1400-byte
+validation, LF/CRLF replies, all 146 recovered IDs, per-client state isolation,
+Q-switch wire units, delay compound records, response override/error/drop,
+stateful UDP round-trips, malformed packet logging, sequence comparison,
+polling exclusion and coverage-difference detection, report generation, and
+the 18-transaction demo.
+
+3. Clean install check
+----------------------
+Installed `release/spitfire_twin_verifier-0.1.0-py3-none-any.whl` without
+dependencies into a new Python virtual environment and ran the installed
+console entry point with --self-test.
+
+  transactions: 18
+  verdict: MATCH
+  sequence similarity: 1.0
+  differences: 0
+  status: PASS
+
+4. Spitfire Python Control 1.1.3 transport integration
+------------------------------------------------------
+Used the unmodified UdpTransport, format_command, and engineering_argument
+from the current Spitfire Python Control 1.1.3 artifact against the verifier's
+loopback virtual-device server.
+
+  IDN reply: Spectra-Physics,Spitfire,0,TWIN-0.1
+  initial 1010 raw reply: 100
+  GUI engineering input: 1250 Hz
+  2004 wire argument produced by 1.1.3: 125.00
+  write acknowledgement: OK
+  1010 raw readback: 125
+  2019 delay write acknowledgement: OK
+  1045 delay reply: OFF BWD ENA DELAY VALUE = 12.5
+  captured transactions: 6
+
+5. Boundary
+-----------
+The original vendor EXE was not executed in an XP VM in this build environment.
+The XP half is covered by the statically recovered framing/catalogue and by a
+legacy-style multi-command UDP client fixture. Final acceptance therefore
+requires the user's XP VM run described in VALIDATION_PLAYBOOK.md.
+
+Tk modules imported and all sources compiled. A real Windows DPI/render pass
+and optional PyInstaller EXE build remain host-side checks because this build
+environment has no Windows desktop.

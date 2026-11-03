@@ -1,0 +1,15 @@
+Spitfire Twin Verifier0.3.0
+
+The Verifier source is provided under the included MIT LICENSE.
+The original Spectra-Physics installer, executable, UIR and firmware remain
+their owners' materials and are not redistributed in this package.
+
+Windows frozen binaries built locally may contain Python3.13 and Tcl/Tk8.6
+runtime components and the PyInstaller bootloader. See docs/third_party/
+for Python, Tcl/Tk, and PyInstaller license/exception notices supplied with
+the current project sources. PyInstaller's bootloader exception permits
+distribution of generated applications under their own chosen license.
+
+Imported client source is supplied separately by the user. The Verifier does
+not alter its copyright, license, or ownership. Test reports contain protocol
+interoperability observations, not copied vendor implementation code.

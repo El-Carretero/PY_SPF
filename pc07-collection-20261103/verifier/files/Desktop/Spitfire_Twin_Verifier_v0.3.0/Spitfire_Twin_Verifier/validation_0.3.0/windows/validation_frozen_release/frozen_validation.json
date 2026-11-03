@@ -1,0 +1,33 @@
+{
+  "scope": "Frozen EXE launch and loopback software tests; no vendor/physical hardware",
+  "status": "PASS",
+  "xp_execution": "NOT_PERFORMED",
+  "hardware_validation": "NOT_PERFORMED",
+  "executables": {
+    "SpitfireTwinVerifier.exe": {
+      "size": 11572746,
+      "sha256": "2073b82f9b42a0858497714dc01cb0227caa488a309400266b5a2404ed7eaac8"
+    },
+    "SpitfireTwinVerifierCLI.exe": {
+      "size": 11577451,
+      "sha256": "2cf81fa6f7f734da46eab6e15629c03921d0e2a1abdd46ca49cb17617e335ae0"
+    }
+  },
+  "cli": [
+    {
+      "name": "selftest",
+      "returncode": 0
+    },
+    {
+      "name": "scenarios",
+      "returncode": 0
+    },
+    {
+      "name": "matrix",
+      "returncode": 0
+    }
+  ],
+  "gui_window_found": true,
+  "gui_title": "Spitfire Twin Verifier 0.3.0",
+  "gui_exitcode": 0
+}

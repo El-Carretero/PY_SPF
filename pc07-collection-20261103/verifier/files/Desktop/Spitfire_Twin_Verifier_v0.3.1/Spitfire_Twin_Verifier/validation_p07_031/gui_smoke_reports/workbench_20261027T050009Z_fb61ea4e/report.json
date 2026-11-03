@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "scope": "version/scenario workbench evidence",
+  "metadata": {
+    "selected_client_profiles": {},
+    "xp_execution_evidence": "UNVERIFIED (requires actual XP capture + GUI observations)",
+    "configured_scenario": {
+      "schema_version": 1,
+      "id": "nominal_external_10hz",
+      "name": "정상 외부 펌프 10 Hz",
+      "description": "80 MHz seed와 10 Hz 외부 트리거가 정상인 합성 정책 시험.",
+      "duration_ms": 400,
+      "policy": {
+        "expected_seed_mhz": 80.0,
+        "seed_tolerance_mhz": 1.0,
+        "expected_trigger_hz": 10.0,
+        "trigger_timeout_ms": 250.0,
+        "max_jitter_us": 1000.0,
+        "max_phase_slip_us": 100.0,
+        "rate_tolerance_fraction": 0.05
+      },
+      "initial_signals": {},
+      "events": [
+        {
+          "at_ms": 0,
+          "type": "arm"
+        },
+        {
+          "at_ms": 0,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 100,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 200,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 300,
+          "type": "trigger"
+        },
+        {
+          "at_ms": 400,
+          "type": "disarm"
+        }
+      ],
+      "assertions": [
+        {
+          "at_ms": 300,
+          "path": "armed",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "at_ms": 300,
+          "path": "accepted_trigger_count",
+          "op": "eq",
+          "expected": 4
+        },
+        {
+          "at_ms": 400,
+          "path": "inhibited",
+          "op": "eq",
+          "expected": true
+        }
+      ]
+    },
+    "scenario_clock": "manual"
+  },
+  "inspected_artifacts": [],
+  "runs": [
+    {
+      "kind": "합성 모델 자체 시험",
+      "completed_utc": "2026-10-27T05:00:09.818134+00:00",
+      "operation_completed": true,
+      "result": {
+        "schema_version": 1,
+        "scenario_id": "nominal_external_10hz",
+        "name": "정상 외부 펌프 10 Hz",
+        "model_verdict": "PASS",
+        "client_equivalence": "UNVERIFIED",
+        "physical_validation": "UNVERIFIED",
+        "evidence": "synthetic_policy",
+        "assertions": [
+          {
+            "at_ms": 300,
+            "path": "armed",
+            "op": "eq",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "at_ms": 300,
+            "path": "accepted_trigger_count",
+            "op": "eq",
+            "expected": 4,
+            "actual": 4,
+            "passed": true
+          },
+          {
+            "at_ms": 400,
+            "path": "inhibited",
+            "op": "eq",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          }
+        ],
+        "transitions": [
+          {
+            "time_ms": 0.0,
+            "event": "arm",
+            "note": "",
+            "state": {
+              "time_ms": 0.0,
+              "signals": {
+                "seed_present": true,
+                "seed_frequency_mhz": 80.0,
+                "pump_present": true,
+                "pump_ready": true,
+                "interlock_closed": true,
+                "temperature_ok": true,
+                "flow_ok": true,
+                "hv_ok": true,
+                "communication_ok": true
+              },
+              "duration_ms": 400,
+              "finished": false,
+              "phase": 1,
+              "processed_events": 1,
+              "active_faults": [],
+              "latched_faults": [],
+              "armed": true,
+              "inhibited": false,
+              "trigger_count": 0,
+              "accepted_trigger_count": 0,
+              "last_trigger_ms": null,
+              "last_interval_ms": null,
+              "last_phase_us": null,
+              "last_jitter_us": null,
+              "reset_accepted": false,
+              "evidence": "synthetic_policy",
+              "physical_validation": "UNVERIFIED"
+            }
+          },
+          {
+            "time_ms": 0.0,
+            "event": "trigger",
+            "note": "",
+            "state": {
+              "time_ms": 0.0,
+              "signals": {
+                "seed_present": true,
+                "seed_frequency_mhz": 80.0,
+                "pump_present": true,
+                "pump_ready": true,
+                "interlock_closed": true,
+                "temperature_ok": true,
+                "flow_ok": true,
+                "hv_ok": true,
+                "communication_ok": true
+              },
+              "duration_ms": 400,
+              "finished": false,
+              "phase": 2,
+              "processed_events": 2,
+              "active_faults": [],
+              "latched_faults": [],
+              "armed": true,
+              "inhibited": false,
+              "trigger_count": 1,
+              "accepted_trigger_count": 1,
+              "last_trigger_ms": 0.0,
+              "last_interval_ms": null,
+              "last_phase_us": 0.0,
+              "last_jitter_us": 0.0,
+              "reset_accepted": false,
+              "evidence": "synthetic_policy",
+              "physical_validation": "UNVERIFIED"
+            }
+          },
+          {
+            "time_ms": 100.0,
+            "event": "trigger",
+            "note": "",
+            "state": {
+              "time_ms": 100.0,
+              "signals": {
+                "seed_present": true,
+                "seed_frequency_mhz": 80.0,
+                "pump_present": true,
+                "pump_ready": true,
+                "interlock_closed": true,
+                "temperature_ok": true,
+                "flow_ok": true,
+                "hv_ok": true,
+                "communication_ok": true
+              },
+              "duration_ms": 400,
+              "finished": false,
+              "phase": 3,
+              "processed_events": 3,
+              "active_faults": [],
+              "latched_faults": [],
+              "armed": true,
+              "inhibited": false,
+              "trigger_count": 2,
+              "accepted_trigger_count": 2,
+              "last_trigger_ms": 100.0,
+              "last_interval_ms": 100.0,
+              "last_phase_us": 0.0,
+              "last_jitter_us": 0.0,
+              "reset_accepted": false,
+              "evidence": "synthetic_policy",
+              "physical_validation": "UNVERIFIED"
+            }
+          },
+          {
+            "time_ms": 200.0,
+            "event": "trigger",
+            "note": "",
+            "state": {
+              "time_ms": 200.0,
+              "signals": {
+                "seed_present": true,
+                "seed_frequency_mhz": 80.0,
+                "pump_present": true,
+                "pump_ready": true,
+                "interlock_closed": true,
+                "temperature_ok": true,
+                "flow_ok": true,
+                "hv_ok": true,
+                "communication_ok": true
+              },
+              "duration_ms": 400,
+              "finished": false,
+              "phase": 4,
+              "processed_events": 4,
+              "active_faults": [],
+              "latched_faults": [],
+              "armed": true,
+              "inhibited": false,
+              "trigger_count": 3,
+              "accepted_trigger_count": 3,
+              "last_trigger_ms": 200.0,
+              "last_interval_ms": 100.0,
+              "last_phase_us": 0.0,
+              "last_jitter_us": 0.0,
+              "reset_accepted": false,
+              "evidence": "synthetic_policy",
+              "physical_validation": "UNVERIFIED"
+            }
+          },
+          {
+            "time_ms": 300.0,
+            "event": "trigger",
+            "note": "",
+            "state": {
+              "time_ms": 300.0,
+              "signals": {
+                "seed_present": true,
+                "seed_frequency_mhz": 80.0,
+                "pump_present": true,
+                "pump_ready": true,
+                "interlock_closed": true,
+                "temperature_ok": true,
+                "flow_ok": true,
+                "hv_ok": true,
+                "communication_ok": true
+              },
+              "duration_ms": 400,
+              "finished": false,
+              "phase": 5,
+              "processed_events": 5,
+              "active_faults": [],
+              "latched_faults": [],
+              "armed": true,
+              "inhibited": false,
+              "trigger_count": 4,
+              "accepted_trigger_count": 4,
+              "last_trigger_ms": 300.0,
+              "last_interval_ms": 100.0,
+              "last_phase_us": 0.0,
+              "last_jitter_us": 0.0,
+              "reset_accepted": false,
+              "evidence": "synthetic_policy",
+              "physical_validation": "UNVERIFIED"
+            }
+          },
+          {
+            "time_ms": 400.0,
+            "event": "disarm",
+            "note": "",
+            "state": {
+              "time_ms": 400.0,
+              "signals": {
+                "seed_present": true,
+                "seed_frequency_mhz": 80.0,
+                "pump_present": true,
+                "pump_ready": true,
+                "interlock_closed": true,
+                "temperature_ok": true,
+                "flow_ok": true,
+                "hv_ok": true,
+                "communication_ok": true
+              },
+              "duration_ms": 400,
+              "finished": true,
+              "phase": 6,
+              "processed_events": 6,
+              "active_faults": [],
+              "latched_faults": [],
+              "armed": false,
+              "inhibited": true,
+              "trigger_count": 4,
+              "accepted_trigger_count": 4,
+              "last_trigger_ms": 300.0,
+              "last_interval_ms": 100.0,
+              "last_phase_us": 0.0,
+              "last_jitter_us": 0.0,
+              "reset_accepted": false,
+              "evidence": "synthetic_policy",
+              "physical_validation": "UNVERIFIED"
+            }
+          }
+        ],
+        "final_state": {
+          "time_ms": 400.0,
+          "signals": {
+            "seed_present": true,
+            "seed_frequency_mhz": 80.0,
+            "pump_present": true,
+            "pump_ready": true,
+            "interlock_closed": true,
+            "temperature_ok": true,
+            "flow_ok": true,
+            "hv_ok": true,
+            "communication_ok": true
+          },
+          "duration_ms": 400,
+          "finished": true,
+          "phase": 6,
+          "processed_events": 6,
+          "active_faults": [],
+          "latched_faults": [],
+          "armed": false,
+          "inhibited": true,
+          "trigger_count": 4,
+          "accepted_trigger_count": 4,
+          "last_trigger_ms": 300.0,
+          "last_interval_ms": 100.0,
+          "last_phase_us": 0.0,
+          "last_jitter_us": 0.0,
+          "reset_accepted": false,
+          "evidence": "synthetic_policy",
+          "physical_validation": "UNVERIFIED"
+        },
+        "wire_effects": {
+          "overrides": {},
+          "drop_ids": [],
+          "request_drop_ids": [],
+          "error_ids": [],
+          "delay_ms": {}
+        },
+        "limitations": [
+          "Synthetic policy fixture, not measured or certified Spitfire firmware behavior.",
+          "No physical laser, electrical edge, energy, or optical pulse simulation.",
+          "Model assertions do not prove XP/Python client reactions or GUI alarms.",
+          "Wire overrides are explicit synthetic stimuli; no automatic fault-bit causation is claimed.",
+          "Virtual time is deterministic; live UDP wall-clock scheduling is not nanosecond timing."
+        ]
+      }
+    }
+  ],
+  "physical_validation": "UNVERIFIED",
+  "exported_utc": "2026-10-27T05:00:09.890571+00:00"
+}

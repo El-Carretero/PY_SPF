@@ -1,0 +1,257 @@
+{
+  "metadata": {
+    "mode": "loopback self-test",
+    "virtual_device": "127.0.0.1:0",
+    "client_labels": {
+      "127.0.0.1:65018": "XP Original 1.6.0",
+      "127.0.0.1:65019": "Python 1.1.3"
+    },
+    "isolated_client_state": true,
+    "response_profile": {
+      "name": "Nominal",
+      "overrides": {},
+      "error_ids": [],
+      "drop_ids": [],
+      "delay_ms": {},
+      "request_drop_ids": [],
+      "line_ending": "\n",
+      "malformed_reply_header": false
+    },
+    "live_scenario": null,
+    "scenario_clock": "manual",
+    "scenario_scope": "synthetic stimulus; client GUI and physical behavior unverified",
+    "xp_runtime_validation": "UNVERIFIED",
+    "physical_validation": "UNVERIFIED",
+    "created_utc": "2026-10-27T01:22:53.530+00:00",
+    "verifier_version": "0.3.0",
+    "session_id": "1afe990b4fda4c47b6921c5870f664af",
+    "snapshot_transactions": 18,
+    "pending_datagrams": [],
+    "batching": {
+      "XP Original 1.6.0": {
+        "3": 1,
+        "1": 6
+      },
+      "Python 1.1.3": {
+        "1": 9
+      }
+    },
+    "scope": "fixture wire evidence; GUI observations are manual; no firmware/physical certification"
+  },
+  "comparison": {
+    "original_label": "XP Original 1.6.0",
+    "python_label": "Python 1.1.3",
+    "original_total": 9,
+    "python_total": 9,
+    "original_writes": 3,
+    "python_writes": 3,
+    "original_query_ids": [
+      1000,
+      1009,
+      1010,
+      1013,
+      1045
+    ],
+    "python_query_ids": [
+      1000,
+      1009,
+      1010,
+      1013,
+      1045
+    ],
+    "original_write_ids": [
+      2004,
+      2006,
+      2019
+    ],
+    "python_write_ids": [
+      2004,
+      2006,
+      2019
+    ],
+    "sequence_similarity": 1.0,
+    "matched": 9,
+    "differences": 0,
+    "only_original": 0,
+    "only_python": 0,
+    "poll_coverage_differences": [],
+    "ignored_polling": true,
+    "verdict": "MATCH",
+    "rows": [
+      {
+        "status": "MATCH",
+        "command_id": 1000,
+        "original_sequence": 1,
+        "python_sequence": 10,
+        "original_command": "*idn?",
+        "python_command": "*idn?",
+        "original_argument": "",
+        "python_argument": "",
+        "original_response": "Spectra-Physics,Spitfire,0,TWIN-0.3.0",
+        "python_response": "Spectra-Physics,Spitfire,0,TWIN-0.3.0",
+        "note": "same command, response and observed transport status",
+        "semantic_equal": true,
+        "framing_equal": true,
+        "polling": false,
+        "scenario": ""
+      },
+      {
+        "status": "MATCH",
+        "command_id": 1009,
+        "original_sequence": 2,
+        "python_sequence": 11,
+        "original_command": "EMP:DIODE:CURR?",
+        "python_command": "EMP:DIODE:CURR?",
+        "original_argument": "",
+        "python_argument": "",
+        "original_response": "18",
+        "python_response": "18",
+        "note": "same command, response and observed transport status",
+        "semantic_equal": true,
+        "framing_equal": true,
+        "polling": false,
+        "scenario": ""
+      },
+      {
+        "status": "MATCH",
+        "command_id": 1010,
+        "original_sequence": 3,
+        "python_sequence": 12,
+        "original_command": "EMP:QSW:PRF?",
+        "python_command": "EMP:QSW:PRF?",
+        "original_argument": "",
+        "python_argument": "",
+        "original_response": "100",
+        "python_response": "100",
+        "note": "same command, response and observed transport status",
+        "semantic_equal": true,
+        "framing_equal": true,
+        "polling": false,
+        "scenario": ""
+      },
+      {
+        "status": "MATCH",
+        "command_id": 2004,
+        "original_sequence": 4,
+        "python_sequence": 13,
+        "original_command": "EMP:QSW:PRF 125.00",
+        "python_command": "EMP:QSW:PRF 125.00",
+        "original_argument": "125.00",
+        "python_argument": "125.00",
+        "original_response": "OK",
+        "python_response": "OK",
+        "note": "same command, response and observed transport status",
+        "semantic_equal": true,
+        "framing_equal": true,
+        "polling": false,
+        "scenario": ""
+      },
+      {
+        "status": "MATCH",
+        "command_id": 1010,
+        "original_sequence": 5,
+        "python_sequence": 14,
+        "original_command": "EMP:QSW:PRF?",
+        "python_command": "EMP:QSW:PRF?",
+        "original_argument": "",
+        "python_argument": "",
+        "original_response": "125",
+        "python_response": "125",
+        "note": "same command, response and observed transport status",
+        "semantic_equal": true,
+        "framing_equal": true,
+        "polling": false,
+        "scenario": ""
+      },
+      {
+        "status": "MATCH",
+        "command_id": 2019,
+        "original_sequence": 6,
+        "python_sequence": 15,
+        "original_command": "TDG:DEL 1 12.5",
+        "python_command": "TDG:DEL 1 12.5",
+        "original_argument": "1 12.5",
+        "python_argument": "1 12.5",
+        "original_response": "OK",
+        "python_response": "OK",
+        "note": "same command, response and observed transport status",
+        "semantic_equal": true,
+        "framing_equal": true,
+        "polling": false,
+        "scenario": ""
+      },
+      {
+        "status": "MATCH",
+        "command_id": 1045,
+        "original_sequence": 7,
+        "python_sequence": 16,
+        "original_command": "TDG:DEL1?",
+        "python_command": "TDG:DEL1?",
+        "original_argument": "",
+        "python_argument": "",
+        "original_response": "OFF BWD ENA DELAY VALUE = 12.5",
+        "python_response": "OFF BWD ENA DELAY VALUE = 12.5",
+        "note": "same command, response and observed transport status",
+        "semantic_equal": true,
+        "framing_equal": true,
+        "polling": false,
+        "scenario": ""
+      },
+      {
+        "status": "MATCH",
+        "command_id": 2006,
+        "original_sequence": 8,
+        "python_sequence": 17,
+        "original_command": "EMP:OFF",
+        "python_command": "EMP:OFF",
+        "original_argument": "",
+        "python_argument": "",
+        "original_response": "OK",
+        "python_response": "OK",
+        "note": "same command, response and observed transport status",
+        "semantic_equal": true,
+        "framing_equal": true,
+        "polling": false,
+        "scenario": ""
+      },
+      {
+        "status": "MATCH",
+        "command_id": 1013,
+        "original_sequence": 9,
+        "python_sequence": 18,
+        "original_command": "EMP:STB?",
+        "python_command": "EMP:STB?",
+        "original_argument": "",
+        "python_argument": "",
+        "original_response": "0",
+        "python_response": "0",
+        "note": "same command, response and observed transport status",
+        "semantic_equal": true,
+        "framing_equal": true,
+        "polling": true,
+        "scenario": ""
+      }
+    ],
+    "count_differences": [],
+    "content_verdict": "MATCH",
+    "semantic_verdict": "MATCH",
+    "framing_verdict": "MATCH",
+    "transport_health": "OK",
+    "issues": [],
+    "pending_datagrams": 0,
+    "session_id": "1afe990b4fda4c47b6921c5870f664af",
+    "snapshot_utc": "2026-10-27T01:22:53.530+00:00",
+    "gui_verdict": "NOT_CHECKED",
+    "batching": {
+      "XP Original 1.6.0": {
+        "3": 1,
+        "1": 6
+      },
+      "Python 1.1.3": {
+        "1": 9
+      }
+    },
+    "client_reaction_verdict": "NOT_CHECKED",
+    "physical_validation": "UNVERIFIED"
+  }
+}
