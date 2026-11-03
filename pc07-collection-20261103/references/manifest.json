@@ -1,0 +1,205 @@
+[
+  {
+    "source": "Desktop/Empower 통신 오류.pptx",
+    "size": 55647,
+    "sha256": "f7093df70e843633d815cb1c15ba7e8351c505d46cf6765952930b8e190e817d",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Empower 통신 오류.pptx"
+  },
+  {
+    "source": "Desktop/Installers_4_Emergency/(Spitfire_technote)AppNote43-Amplifier-Synchronization-for-Pump-Probe-Experiments.pdf",
+    "size": 2983681,
+    "sha256": "577fe1fe43f5a548d140b01b5f0a2fb50c5c429b009376d163e713aaa60cf501",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Installers_4_Emergency/(Spitfire_technote)AppNote43-Amplifier-Synchronization-for-Pump-Probe-Experiments.pdf"
+  },
+  {
+    "source": "Desktop/Installers_4_Emergency/330A, Rev. A, Spitfire Pro User's Manual.pdf",
+    "size": 1805534,
+    "sha256": "d9bb260827f78a2ed67477043cb3036a26b771aaf19a0c3ec9aa6649449d5e29",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Installers_4_Emergency/330A, Rev. A, Spitfire Pro User's Manual.pdf"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/330A, Rev. A, Spitfire Pro User's Manual.pdf",
+    "size": 1805534,
+    "sha256": "d9bb260827f78a2ed67477043cb3036a26b771aaf19a0c3ec9aa6649449d5e29",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Installers_4_Emergency/330A, Rev. A, Spitfire Pro User's Manual.pdf"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/334A Rev. A Empower User's Manual.pdf",
+    "size": 1418493,
+    "sha256": "1412fd6dd27a894d84ff7881bbc552a5bcb6906909b87ede9518165addc65e4a",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Laser_Manuals_Blueprints/334A Rev. A Empower User's Manual.pdf"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/Empower_spectation.pdf",
+    "size": 388019,
+    "sha256": "30a07af965592660095efeb1ada6bfdfad0b4342acdc9b74aba1a54dcf90078c",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Laser_Manuals_Blueprints/Empower_spectation.pdf"
+  },
+  {
+    "source": "Desktop/Projects/CAD/Laboratory_CAD/2025_CAD_TABLE/Spitfire-Ace-Drawingt.pdf",
+    "size": 241363,
+    "sha256": "4ae7884321d357dd299ee7d7a6d928fcecf77c6810245ae6df533f83fa466f63",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Projects/CAD/Laboratory_CAD/2025_CAD_TABLE/Spitfire-Ace-Drawingt.pdf"
+  },
+  {
+    "source": "Desktop/Projects/CAD/Laboratory_CAD/2025_CAD_TABLE/spitfire_pro.SLDPRT",
+    "size": 381117,
+    "sha256": "7a186aa9c21ca511d2323291faf5389ab8ed546f1b7c780b9cbf35a176d4f1e8",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Projects/CAD/Laboratory_CAD/2025_CAD_TABLE/spitfire_pro.SLDPRT"
+  },
+  {
+    "source": "Desktop/Projects/CAD/Laboratory_CAD/2025_CAD_TABLE/Spitfire_PRO1.SLDPRT",
+    "size": 71194,
+    "sha256": "887cd412ec1e7c71ed157fa0ad91757d88fe7aa8a29f754d4e71c54dd8fc5e04",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Projects/CAD/Laboratory_CAD/2025_CAD_TABLE/Spitfire_PRO1.SLDPRT"
+  },
+  {
+    "source": "Desktop/Projects/CAD/Laboratory_CAD/Spitfire_Pro_XP.pdf",
+    "size": 240779,
+    "sha256": "6dcb14b9659ea7dc2763820371a24b42cab04ecbf993ef664a9054b55594b71b",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Projects/CAD/Laboratory_CAD/Spitfire_Pro_XP.pdf"
+  },
+  {
+    "source": "Desktop/Spitfire_manual.pdf",
+    "size": 1457195,
+    "sha256": "25632aba3a24bd46c5facbf966ce93aa0d5a5786f2df552ea11200f15cb18497",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Spitfire_manual.pdf"
+  },
+  {
+    "source": "Desktop/XL-QRH-SPF-001_Spitfire_Empower_Raw_Commands_Quick_Reference_Handbook_RevA.pdf",
+    "size": 416375,
+    "sha256": "de741e7a81229d5bbdb9477889e6990b87d2b5f3210fada9b535bedcd09a3bc0",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Desktop/XL-QRH-SPF-001_Spitfire_Empower_Raw_Commands_Quick_Reference_Handbook_RevA.pdf"
+  },
+  {
+    "source": "Desktop/백업/새 폴더/Spitfire_regen.pdf",
+    "size": 1457195,
+    "sha256": "25632aba3a24bd46c5facbf966ce93aa0d5a5786f2df552ea11200f15cb18497",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Spitfire_manual.pdf"
+  },
+  {
+    "source": "Downloads/Spitfire Pro 운용 사례.pdf",
+    "size": 718059,
+    "sha256": "3a1c3721e7f6f498370e5fe11019f1f1fa47736ebab895b9f205ddfcf3ee18fd",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Downloads/Spitfire Pro 운용 사례.pdf"
+  },
+  {
+    "source": "Downloads/Spitfire_manual.pdf",
+    "size": 1457195,
+    "sha256": "25632aba3a24bd46c5facbf966ce93aa0d5a5786f2df552ea11200f15cb18497",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Spitfire_manual.pdf"
+  },
+  {
+    "source": "Downloads/Spitfire_Scheme_1990s (1).zip",
+    "size": 8342843,
+    "sha256": "d78ce59056f4e9f60f926765a7373aaf0c814aaa11fa3a498d6abf482ca380b1",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Downloads/Spitfire_Scheme_1990s (1).zip"
+  },
+  {
+    "source": "Downloads/Spitfire_Scheme_1990s.zip",
+    "size": 8342843,
+    "sha256": "d78ce59056f4e9f60f926765a7373aaf0c814aaa11fa3a498d6abf482ca380b1",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/references/files/Downloads/Spitfire_Scheme_1990s (1).zip"
+  },
+  {
+    "source": "Downloads/Spitfire_Scheme_Full_1990s.zip",
+    "size": 13683324,
+    "sha256": "557192f086124a68855a7f9df8c22c5223c720b1d7c6768280d7946d39e8504e",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Downloads/Spitfire_Scheme_Full_1990s.zip"
+  },
+  {
+    "source": "Downloads/XL-TR-SPF-001_Spitfire-Control-Flow_KO_Review02.pdf",
+    "size": 707992,
+    "sha256": "0151d61c364430955d9250c738828668f4a6de36083103ba126041fe726386c6",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Downloads/XL-TR-SPF-001_Spitfire-Control-Flow_KO_Review02.pdf"
+  },
+  {
+    "source": "Downloads/XL-TR-SPF-001_Spitfire-Control-Flow_Review01.pdf",
+    "size": 329589,
+    "sha256": "8aa141c86be34aa3717c4d1fe6d5d2418c0cf04c81ad234a9995445bc6c51dab",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Downloads/XL-TR-SPF-001_Spitfire-Control-Flow_Review01.pdf"
+  },
+  {
+    "source": "Downloads/XL-TR-SPF-001_Spitfire-Control-Flow_Review02.pdf",
+    "size": 305143,
+    "sha256": "f557985e1eebfe0275a7f349af888ac95896489e97b78229a06f8746ca5cee34",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Downloads/XL-TR-SPF-001_Spitfire-Control-Flow_Review02.pdf"
+  },
+  {
+    "source": "Downloads/XL-TR-SPF-001_Spitfire_Empower_Schematic_Research_RevA.pdf",
+    "size": 448790,
+    "sha256": "a5861e43c40015dff37afd2b4d977f3cf972e1ea432ffd16529d7dac28c2aea0",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Downloads/XL-TR-SPF-001_Spitfire_Empower_Schematic_Research_RevA.pdf"
+  },
+  {
+    "source": "Downloads/정리중/유재형/레이저 관련/LAB_CAD/0428~ 실험실 전체 도면 작업폴더/Materials/Empower.DWG",
+    "size": 20071,
+    "sha256": "1518b6ec89ef329afb3104d79548c55fd1b89e5585db2a9025f25fa14b2367d7",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Downloads/정리중/유재형/레이저 관련/LAB_CAD/0428~ 실험실 전체 도면 작업폴더/Materials/Empower.DWG"
+  },
+  {
+    "source": "Downloads/정리중/유재형/레이저 관련/LAB_CAD/0428~ 실험실 전체 도면 작업폴더/Materials/Empower.SLDPRT",
+    "size": 232314,
+    "sha256": "d129eabfc2be5c739079fbf5523ce630c442c4671fe31b4efd7ea5240080a105",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Downloads/정리중/유재형/레이저 관련/LAB_CAD/0428~ 실험실 전체 도면 작업폴더/Materials/Empower.SLDPRT"
+  },
+  {
+    "source": "Downloads/정리중/유재형/레이저 관련/LAB_CAD/0428~ 실험실 전체 도면 작업폴더/Materials/spitfire_pro.DWG",
+    "size": 19687,
+    "sha256": "f57f4422c0972a928e70638c1850cfbb4bb3163a4553b98bd4622fb04e19c447",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Downloads/정리중/유재형/레이저 관련/LAB_CAD/0428~ 실험실 전체 도면 작업폴더/Materials/spitfire_pro.DWG"
+  },
+  {
+    "source": "Downloads/정리중/유재형/레이저 관련/LAB_CAD/0428~ 실험실 전체 도면 작업폴더/Materials/spitfire_pro.SLDPRT",
+    "size": 382597,
+    "sha256": "ca29abe8efd11074489139b7f85b1a2bdf7acdb6f3553d055ad8b30568d4b57d",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/references/files/Downloads/정리중/유재형/레이저 관련/LAB_CAD/0428~ 실험실 전체 도면 작업폴더/Materials/spitfire_pro.SLDPRT"
+  },
+  {
+    "source": "Downloads/정리중/유재형/레이저 관련/LAB_CAD/Lab_Solidworks/Materials/spitfire_pro.SLDPRT",
+    "size": 381117,
+    "sha256": "7a186aa9c21ca511d2323291faf5389ab8ed546f1b7c780b9cbf35a176d4f1e8",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Projects/CAD/Laboratory_CAD/2025_CAD_TABLE/spitfire_pro.SLDPRT"
+  },
+  {
+    "source": "Downloads/정리중/유재형/레이저 관련/LAB_CAD/Lab_Solidworks/Materials/Spitfire_PRO1.SLDPRT",
+    "size": 71194,
+    "sha256": "887cd412ec1e7c71ed157fa0ad91757d88fe7aa8a29f754d4e71c54dd8fc5e04",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Projects/CAD/Laboratory_CAD/2025_CAD_TABLE/Spitfire_PRO1.SLDPRT"
+  },
+  {
+    "source": "Downloads/정리중/유재형/레이저 관련/LAB_CAD/Lab_Solidworks/Spitfire-Ace-Drawingt.pdf",
+    "size": 241363,
+    "sha256": "4ae7884321d357dd299ee7d7a6d928fcecf77c6810245ae6df533f83fa466f63",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/references/files/Desktop/Projects/CAD/Laboratory_CAD/2025_CAD_TABLE/Spitfire-Ace-Drawingt.pdf"
+  }
+]
