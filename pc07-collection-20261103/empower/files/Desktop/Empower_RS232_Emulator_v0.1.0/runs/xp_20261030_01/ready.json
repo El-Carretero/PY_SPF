@@ -1,0 +1,14 @@
+{
+  "version": "0.1.0",
+  "pid": 10292,
+  "binary_endpoint": [
+    "127.0.0.1",
+    19200
+  ],
+  "udp_bind": "10.19.70.13",
+  "udp_port": 1024,
+  "allowed_client": "10.19.70.2",
+  "profile": "stop",
+  "log": "C:\\Users\\Fluke\\Desktop\\Empower_RS232_Emulator_v0.1.0\\runs\\xp_20261030_01\\traffic.jsonl",
+  "scope": "virtual SASC + capture-based binary peer; physical RS232 unverified"
+}

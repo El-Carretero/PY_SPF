@@ -1,0 +1,44 @@
+﻿python.exe : test_actual_udp_request_reaches_binary_peer_and_gets_reply (test_emulator.BridgeTests.test_actual_udp_requ
+est_reaches_binary_peer_and_gets_reply) ... ok
+위치 줄:1 문자:380
++ ... Test.ps1'); & 'C:\Users\Fluke\AppData\Local\Programs\Python\Python313 ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_actual_udp...s_reply) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_compound_modes_and_delay_channel_roundtrip (test_emulator.BridgeTests.test_compound_modes_and_delay_channel_roundt
+rip) ... ok
+test_current_write_query_roundtrip_uses_binary_wire (test_emulator.BridgeTests.test_current_write_query_roundtrip_uses_
+binary_wire) ... ok
+test_empower_queries_reach_binary_endpoint (test_emulator.BridgeTests.test_empower_queries_reach_binary_endpoint) ... o
+k
+test_prf_units_match_fw12_and_original_spitfire_gui (test_emulator.BridgeTests.test_prf_units_match_fw12_and_original_s
+pitfire_gui) ... ok
+test_synthetic_board_identity_cannot_be_mistaken_for_real_firmware (test_emulator.BridgeTests.test_synthetic_board_iden
+tity_cannot_be_mistaken_for_real_firmware) ... ok
+test_write_query_id_text_mismatch_is_rejected (test_emulator.BridgeTests.test_write_query_id_text_mismatch_is_rejected)
+ ... ok
+test_all_capture_templates_have_valid_checksums_and_length (test_emulator.PeerTests.test_all_capture_templates_have_val
+id_checksums_and_length) ... ok
+test_corrupted_packet_does_not_mutate_state (test_emulator.PeerTests.test_corrupted_packet_does_not_mutate_state) ... o
+k
+test_current_write_preserves_other_operating_words (test_emulator.PeerTests.test_current_write_preserves_other_operatin
+g_words) ... ok
+test_exact_captured_firmware_reply (test_emulator.PeerTests.test_exact_captured_firmware_reply) ... ok
+test_exact_captured_stopped_status (test_emulator.PeerTests.test_exact_captured_stopped_status) ... ok
+test_fault_reset_preserves_recorded_current_fault (test_emulator.PeerTests.test_fault_reset_preserves_recorded_current_
+fault) ... ok
+test_initial_qswitch_service_lbo_power_replies_match_capture (test_emulator.PeerTests.test_initial_qswitch_service_lbo_
+power_replies_match_capture) ... ok
+test_service_setting_not_falsely_acknowledged_as_changed (test_emulator.PeerTests.test_service_setting_not_falsely_ackn
+owledged_as_changed) ... ok
+test_stream_fragmentation_noise_and_checksum_recovery (test_emulator.PeerTests.test_stream_fragmentation_noise_and_chec
+ksum_recovery) ... ok
+test_synthetic_countdown_and_stop_are_explicit (test_emulator.PeerTests.test_synthetic_countdown_and_stop_are_explicit)
+ ... ok
+test_unknown_opcode_gets_no_invented_reply (test_emulator.PeerTests.test_unknown_opcode_gets_no_invented_reply) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 3.521s
+
+OK

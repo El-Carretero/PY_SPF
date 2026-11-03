@@ -1,0 +1,331 @@
+[
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/emulator.py",
+    "size": 21248,
+    "sha256": "66c1c5c8e647f631e72876615d6a825a0a1233ececbae88e87353a4696769bea",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/emulator.py"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/evidence/xp_20261030.zip",
+    "size": 43304,
+    "sha256": "e5159ac45be6370857264f60a1b53e712fade2aba188a708bd90ffac2d5cdcd6",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/evidence/xp_20261030.zip"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/evidence/xp_20261030.zip.b64",
+    "size": 57740,
+    "sha256": "acec6e7379426a6d881a0e3260bc6ace03ab74ac04e2ce76a1759f65ed8b4a33",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/evidence/xp_20261030.zip.b64"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/export_evidence.py",
+    "size": 3018,
+    "sha256": "93ce1ff6a994215737111b7cabad96d4c1a69962c94131f62672bb99c352c2fa",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/export_evidence.py"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/README_KO.txt",
+    "size": 3789,
+    "sha256": "b38c693bc63a3edd2defc19794bb40759a08a2b6eca3ef00788aa95bf7b46cd5",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/README_KO.txt"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/requirements.txt",
+    "size": 17,
+    "sha256": "95fdad543f34e4a191cd17219e1a73b4ab4b0b5ad9806a25c3b49e7b48ab8ca0",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/requirements.txt"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/RESULT_20261030.txt",
+    "size": 4498,
+    "sha256": "2a810bc28869bed2c2afaec154305b1f44361026f9fcf0665d7f92df03187109",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/RESULT_20261030.txt"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/ready.json",
+    "size": 400,
+    "sha256": "39a8b97a803902d4f46b5820345028d23a9595e912ad2c1210b6d50cd815ede6",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/ready.json"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/stderr.txt",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/stderr.txt"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/stdout.txt",
+    "size": 357,
+    "sha256": "08f46f5272710a1c122353dbf635278c38917ae0c064f438b2e8171654ad9dec",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/stdout.txt"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/STOP",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/stderr.txt"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/summary.json",
+    "size": 80,
+    "sha256": "7af5847ad7ab6d9838fd626ff3b89cc99ee43a99d34ea77f8bde3ed037472469",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/summary.json"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/traffic.jsonl",
+    "size": 283702,
+    "sha256": "57ac1b8c32a759ec5b0659832eb57f1bc4cd936fec308a12bf22e9ec0f557ebd",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/traffic.jsonl"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_155255_152/ready.json",
+    "size": 408,
+    "sha256": "3d5fd80f1331811820cac857658e74750347443f1abcea9996eb44c748259ded",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_155255_152/ready.json"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_155255_152/stderr.txt",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/stderr.txt"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_155255_152/stdout.txt",
+    "size": 365,
+    "sha256": "e4c08e53f9a45a7e82eb3150b5cdd16857dc175fa95cc3a829602fc030ade2f2",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_155255_152/stdout.txt"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_155255_152/summary.json",
+    "size": 82,
+    "sha256": "988acfcb97c25d50e27859be37a330313d4508b3ee59b5053fd0edce1a8fcf4a",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_155255_152/summary.json"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_155255_152/traffic.jsonl",
+    "size": 9866630,
+    "sha256": "3fc4f1eb44934cc08b085d961294bd8f959e678fbed9a05f58342e3a2a24ca29",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_155255_152/traffic.jsonl"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/Start-Virtual-XP-Test.ps1",
+    "size": 1158,
+    "sha256": "954b038340da6e68353ea274aa410c37695e624c69e21cadec3ea4b3b19de684",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/Start-Virtual-XP-Test.ps1"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/test_emulator.py",
+    "size": 7134,
+    "sha256": "67da2ed36a314d1d76b319a9a79fe5ad19e38a2cc1afba0b7ae16e3c52e61726",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/test_emulator.py"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/test_serial_endpoint.py",
+    "size": 2487,
+    "sha256": "b9840ecf5e33e4b8fff88a4155c3bdae1e77335c4998057aedf4fe9ccca40864",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/test_serial_endpoint.py"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/unit_results.txt",
+    "size": 108,
+    "sha256": "b33680c9303a2b5b21531c21f2a4e32c267d4182bb29f5c67053341fc03c5ed2",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/unit_results.txt"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/unit_windows.txt",
+    "size": 2926,
+    "sha256": "94cda3ea6f496f57a0f2d0416c736c65eac665876c2da55fb7c27b2a91953df9",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/unit_windows.txt"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/vendor/empower/__init__.py",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/runs/xp_20261030_01/stderr.txt"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/vendor/empower/commands.py",
+    "size": 8328,
+    "sha256": "c94ff7272fa537803a86fe1a74ecb561c000ea7822439d7694fefd9af3e9d083",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/vendor/empower/commands.py"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/vendor/empower/framing.py",
+    "size": 2829,
+    "sha256": "d5733bd7173eb8d99d7977badee3aae87e365959601c93c3bcc3d0ec3c89c7f8",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/vendor/empower/framing.py"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/vendor/empower/responses.py",
+    "size": 6344,
+    "sha256": "7f7b93194f9af6d6c7922d7e232bf5b560f2846ea309da267968c52cf9acb560",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/vendor/empower/responses.py"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00.zip",
+    "size": 13828498,
+    "sha256": "a821539a87ca93ef5a7a0e73b25497f1fe98109c5a4195a86e23bc161ea122e5",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00.zip"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/bin/dp/DevPartDef.xml",
+    "size": 1762,
+    "sha256": "17db1a1472e2ed38d9f0f8e0870ec8e5999575db7e86509720481bb916f32194",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/bin/dp/DevPartDef.xml"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/bin/dp/Distfile.cab",
+    "size": 8480939,
+    "sha256": "83e48efcf49b9d246f5b3cf701d0a2ca56636c04a848ab002b7ed655dc0dd0fa",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/bin/dp/Distfile.cab"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/bin/dp/Empower.msi",
+    "size": 1421824,
+    "sha256": "7e87b083503462c2aa08e91a5bdbb893ec07c372fc8c1123bf0a226ff8ab40f0",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/bin/dp/Empower.msi"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/nidist.id",
+    "size": 229,
+    "sha256": "029f552284f421f11e403ef896c5c78543eabb04da6d443a664ebb57c33816a3",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/nidist.id"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/setup.exe",
+    "size": 4038656,
+    "sha256": "fa3acd94629fdb0da386b327ac91a3d517b983b76cb1b86eb401673b0db859af",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/setup.exe"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/setup.ini",
+    "size": 1477,
+    "sha256": "4fede7da50d150602856e6d5a7f7ba464c5f849da36b25e33fd22d0c555c4a07",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/setup.ini"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/supportfiles/customResource0009.dll",
+    "size": 2105344,
+    "sha256": "3c7d716bdd38b07f37b18c0bb11ef7b339fe7f1f4ccf082767bac07e5edd07ce",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/supportfiles/customResource0009.dll"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/supportfiles/merged.cab",
+    "size": 545463,
+    "sha256": "e0fa31dff154ca6978d13630c2167b43954bb73e73bca1e5738c19050ff9a112",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/supportfiles/merged.cab"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/supportfiles/niPie.exe",
+    "size": 64056,
+    "sha256": "3d957f7935829dc4644f8eef638b78349bff35a363ffd84ddf5c1e98be397787",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/supportfiles/niPie.exe"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/supportfiles/NISysInf.dll",
+    "size": 311296,
+    "sha256": "e5838adf13571cd3970fd29b1956a136b7f804c85dbb62170e115bc89c08732b",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/supportfiles/NISysInf.dll"
+  },
+  {
+    "source": "Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/supportfiles/WindowsInstaller-KB893803-v2-x86.exe",
+    "size": 2585872,
+    "sha256": "69b61b2c00323cea3686315617d0f452e205dae10c47e02cbe1ea96fea38f582",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Laser_Manuals_Blueprints/Empower GUI CD 3.02.00/supportfiles/WindowsInstaller-KB893803-v2-x86.exe"
+  },
+  {
+    "source": "Downloads/Defaukt/01-empower-setup.png",
+    "size": 14094,
+    "sha256": "87da52862fa1e7ab2b09a6d46c370330adf1416c607da5dd6397beb902238ee9",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Downloads/Defaukt/01-empower-setup.png"
+  },
+  {
+    "source": "Downloads/Empower_Python_Control_v1.0.5.zip",
+    "size": 923107,
+    "sha256": "977b5819759fed5ad11125dada5b1a9c62e4bc1b03d46cdfded6f29a19aa857b",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Downloads/Empower_Python_Control_v1.0.5.zip"
+  },
+  {
+    "source": "Downloads/Spitfire_Python_Control_1.3.0/Spitfire_Python_Control/docs/validation_1_2_0/empower_gui_exe_120.json",
+    "size": 511,
+    "sha256": "a61e868cdf2bfe3d4a4cc5362a8a61b170c7adb2fdeb3ed674898e28c4364062",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Downloads/Spitfire_Python_Control_1.3.0/Spitfire_Python_Control/docs/validation_1_2_0/empower_gui_exe_120.json"
+  },
+  {
+    "source": "Downloads/Spitfire_Python_Control_1.3.0/Spitfire_Python_Control/docs/validation_1_2_0/empower_gui_source_final_120.json",
+    "size": 511,
+    "sha256": "a61e868cdf2bfe3d4a4cc5362a8a61b170c7adb2fdeb3ed674898e28c4364062",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/empower/files/Downloads/Spitfire_Python_Control_1.3.0/Spitfire_Python_Control/docs/validation_1_2_0/empower_gui_exe_120.json"
+  },
+  {
+    "source": "Downloads/Spitfire_Python_Control_1.3.0/Spitfire_Python_Control/docs/validation_1_3_0/empower_gui_exe_130.json",
+    "size": 511,
+    "sha256": "7795b08b9d4d2932d07a58b6b091dc9b31ceed9a89bb3fb5cdb8ad9703aabbe9",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Downloads/Spitfire_Python_Control_1.3.0/Spitfire_Python_Control/docs/validation_1_3_0/empower_gui_exe_130.json"
+  },
+  {
+    "source": "Downloads/Spitfire_Python_Control_1.3.0/Spitfire_Python_Control/docs/validation_1_3_0/empower_gui_source_130.json",
+    "size": 511,
+    "sha256": "7795b08b9d4d2932d07a58b6b091dc9b31ceed9a89bb3fb5cdb8ad9703aabbe9",
+    "status": "duplicate",
+    "stored": "pc07-collection-20261103/empower/files/Downloads/Spitfire_Python_Control_1.3.0/Spitfire_Python_Control/docs/validation_1_3_0/empower_gui_exe_130.json"
+  },
+  {
+    "source": "Downloads/Spitfire_Python_Control_1.3.0/Spitfire_Python_Control/start_empower.cmd",
+    "size": 791,
+    "sha256": "19d342e71aeb17cc34adbbdff40beddf2a8348586ded9d377a3c9fbe6daca236",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Downloads/Spitfire_Python_Control_1.3.0/Spitfire_Python_Control/start_empower.cmd"
+  },
+  {
+    "source": "Desktop/Empower_RS232_Emulator_v0.1.0/spitfire_catalog.json",
+    "size": 4038,
+    "sha256": "3753b4b6c58c62c42e2d7838169ca10ecd26e90e533e28ac5f9ea1c0e256e864",
+    "status": "stored",
+    "stored": "pc07-collection-20261103/empower/files/Desktop/Empower_RS232_Emulator_v0.1.0/spitfire_catalog.json"
+  }
+]
