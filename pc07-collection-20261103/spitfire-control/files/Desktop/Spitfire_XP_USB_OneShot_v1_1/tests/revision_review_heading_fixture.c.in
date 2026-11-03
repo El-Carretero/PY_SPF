@@ -1,0 +1,112 @@
+#include <assert.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+#include <wchar.h>
+#include <wctype.h>
+
+typedef uint32_t DWORD;
+typedef int32_t LONG;
+typedef unsigned char BYTE;
+typedef uintptr_t HWND;
+typedef wchar_t WCHAR;
+typedef struct {int32_t left,top,right,bottom;} RECT;
+typedef struct {int32_t x,y;} POINT;
+typedef struct {int ignored;} Panel;
+#define ZeroMemory(p,n) memset((p),0,(n))
+
+/* SNAPSHOT_TYPES */
+/* GDI_FEATURE */
+
+static HeaderSnapshot heading_snapshot,model;
+static MenuSnapshot menu_snapshot;
+static int heading_frozen,valid,evidence_ok,popup_ok,visible,enabled,stop_requested,held_modifier;
+static unsigned checks,observations;
+static HWND main_hwnd=100,foreground=100,under=100,popup_hwnd=200;
+static DWORD original_pid=77,owner_pid;
+static POINT action_main_origin,origin;
+static RECT client;
+static WCHAR title[32],cls[64];
+static const char *menu_reason="",*menu_detail="";
+static Panel panel;
+static const Panel *action_panel_spec=&panel;
+
+static int inspect_heading(const Panel *p,HeaderSnapshot *h) {assert(p==&panel);*h=model;return valid;}
+static int heading_observation(const HeaderSnapshot *h,int ok,const char *phase) {(void)h;(void)ok;(void)phase;observations++;return evidence_ok;}
+static int observed_popup(int freeze) {assert(!freeze);return popup_ok;}
+static void GetWindowThreadProcessId(HWND h,DWORD *pid) {(void)h;*pid=owner_pid;}
+static int IsWindowVisible(HWND h) {(void)h;return visible;}
+static int IsWindowEnabled(HWND h) {(void)h;return enabled;}
+static HWND GetForegroundWindow(void) {return foreground;}
+static void window_text(HWND h,WCHAR *out,int n) {(void)h;wcsncpy(out,title,(size_t)n);}
+static int GetClassNameW(HWND h,WCHAR *out,int n) {(void)h;wcsncpy(out,cls,(size_t)n);return (int)wcslen(cls);}
+static int _wcsicmp(const WCHAR *a,const WCHAR *b) {while(*a&&towlower(*a)==towlower(*b)){a++;b++;}return (int)towlower(*a)-(int)towlower(*b);}
+static int GetClientRect(HWND h,RECT *r) {(void)h;*r=client;return 1;}
+static int ClientToScreen(HWND h,POINT *p) {(void)h;*p=origin;return 1;}
+static HWND WindowFromPoint(POINT p) {(void)p;return under;}
+static int IsChild(HWND parent,HWND child) {(void)parent;(void)child;return 0;}
+static int cancelled(void) {return stop_requested;}
+static int modifiers_down(void) {return held_modifier;}
+
+/* ACTUAL_FUNCTIONS */
+
+static void reset(void) {
+ ZeroMemory(&model,sizeof(model));ZeroMemory(&heading_snapshot,sizeof(heading_snapshot));ZeroMemory(&menu_snapshot,sizeof(menu_snapshot));
+ heading_frozen=stop_requested=held_modifier=0;observations=0;valid=evidence_ok=popup_ok=visible=enabled=1;
+ owner_pid=77;foreground=under=main_hwnd;action_main_origin=origin=(POINT){193,125};
+ client=(RECT){0,0,895,550};wcscpy(title,L"Spitfire");wcscpy(cls,L"CVIRTLVDChild4194304");
+ model.hwnd=100;model.font_index=1;model.font_data[8]=0x94;model.public_menu_ids[1]=4;
+ model.native_menu_handles[1]=1234;model.hit=(POINT){245,136};
+ model.client_origin=origin;model.bar_rect=(RECT){0,0,895,22};model.heading_rects[1]=(RECT){32,0,72,22};
+ strcpy(model.labels[1],"View");menu_snapshot.hit=(POINT){320,190};menu_reason=menu_detail="";
+}
+static void passed(const char *s) {checks++;printf("PASS %s\n",s);}
+static void freeze(void) {assert(observed_heading(1));assert(heading_frozen);}
+#define CHANGED(statement,label) do {reset();freeze();statement;assert(!observed_heading(0));passed(label);}while(0)
+#define FINAL_REJECT(statement,label) do {reset();freeze();statement;assert(!menu_target_unchanged(main_hwnd,heading_snapshot.hit,0));passed(label);}while(0)
+
+int main(void) {
+ reset();freeze();assert(observed_heading(0));passed("unchanged valid heading may be rechecked");
+ reset();assert(!observed_heading(0));passed("heading recheck requires a prior freeze");
+ reset();valid=0;assert(!observed_heading(1));passed("failed native heading inspection blocks selection");
+ reset();evidence_ok=0;assert(!observed_heading(1));assert(!strcmp(menu_reason,"evidence_write_failed"));passed("missing heading evidence blocks selection");
+ CHANGED(model.hwnd++,"replaced main HWND blocks heading input");
+ CHANGED(model.font_index++,"changed native font index blocks heading input");
+ CHANGED(model.font_data[8]^=1,"changed original HFONT blocks heading input");
+ CHANGED(model.widths['V']++,"changed cached letter advance blocks heading input");
+ CHANGED(model.bearings['V']++,"changed cached first bearing blocks heading input");
+ CHANGED(model.padding++,"changed native heading padding blocks heading input");
+ CHANGED(model.public_menu_ids[1]=2,"switched View public ID to File blocks heading input");
+ CHANGED(model.native_menu_handles[1]++,"changed native submenu binding blocks heading input");
+ CHANGED(model.labels[1][0]='X',"changed heading label blocks input");
+ CHANGED(model.heading_rects[1].left++,"changed actual heading bounds block input");
+ CHANGED(model.bar_rect.right=4096,"normal-to-sentinel native bounds change after freeze blocks input");
+ reset();model.bar_rect.right=4096;freeze();model.bar_rect.right=895;assert(!observed_heading(0));passed("sentinel-to-normal native bounds change after freeze blocks input");
+ CHANGED(model.hit.x++,"changed heading hit point blocks input");
+#if HAS_GDI_FIELDS
+ CHANGED(model.font_measure_kind++,"changed cached versus GDI measurement path blocks input");
+ CHANGED(model.font_logfont[28]^=1,"changed exact GDI face bytes block input");
+ CHANGED(model.runtime_modes[0]++,"changed native rendering mode blocks input");
+ CHANGED(model.runtime_platform++,"changed native extent API selector blocks input");
+ CHANGED(model.gdi_widths[1]++,"changed measured View width blocks input");
+ CHANGED(model.font_metrics[3]++,"changed measured font charset blocks input");
+#endif
+ reset();freeze();assert(menu_target_unchanged(main_hwnd,heading_snapshot.hit,0));passed("final heading guard permits only unchanged bound context");
+ reset();freeze();POINT wrong=heading_snapshot.hit;wrong.x++;assert(!menu_target_unchanged(main_hwnd,wrong,0));passed("final guard rejects coordinates different from verified heading");
+ FINAL_REJECT(owner_pid++,"final guard rejects foreign owner");
+ FINAL_REJECT(foreground++,"final guard rejects focus loss");
+ FINAL_REJECT(visible=0,"final guard rejects hidden main window");
+ FINAL_REJECT(enabled=0,"final guard rejects disabled main window");
+ FINAL_REJECT(origin.x++,"final guard rejects moved main window");
+ FINAL_REJECT(client.right++,"final guard rejects changed main client size");
+ FINAL_REJECT(wcscpy(title,L"Other"),"final guard rejects changed original title");
+ FINAL_REJECT(wcscpy(cls,L"Other"),"final guard rejects changed original class");
+ FINAL_REJECT(under=300,"final guard rejects unrecognized same-PID auxiliary window under point");
+ FINAL_REJECT(stop_requested=1,"final guard honors cancellation before mouse-down");
+ FINAL_REJECT(held_modifier=1,"final guard rejects held input modifier");
+ reset();freeze();assert(menu_target_unchanged(main_hwnd,menu_snapshot.hit,1));passed("native disabled popup may hit underlying verified main window");
+ reset();freeze();under=popup_hwnd;assert(menu_target_unchanged(main_hwnd,menu_snapshot.hit,1));passed("final item guard accepts the bound popup HWND");
+ reset();freeze();POINT baditem=menu_snapshot.hit;baditem.y++;assert(!menu_target_unchanged(main_hwnd,baditem,1));passed("final item guard rejects unverified row point");
+ reset();freeze();popup_ok=0;assert(!menu_target_unchanged(main_hwnd,menu_snapshot.hit,1));passed("final item guard rejects changed popup snapshot");
+ printf("%u independent heading and final-point checks passed\n",checks);return 0;
+}

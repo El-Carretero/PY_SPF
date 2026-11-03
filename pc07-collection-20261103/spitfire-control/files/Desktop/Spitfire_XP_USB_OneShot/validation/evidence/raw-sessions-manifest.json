@@ -1,0 +1,1802 @@
+[
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/actions/00-preflight/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "8e54d69d568ddbad97e3ac00806f3e0a8573916a7e3942603949cc2f227e4943"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/actions/00-preflight/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "8e54d69d568ddbad97e3ac00806f3e0a8573916a7e3942603949cc2f227e4943"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/actions/00-preflight/original-state-before.json",
+    "size": 684,
+    "sha256": "ce774828c92da1f0493f2fd9394830633b8dc650a9eae02500da1d366c8a7114"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/actions/00-preflight/original-state.json",
+    "size": 684,
+    "sha256": "ce774828c92da1f0493f2fd9394830633b8dc650a9eae02500da1d366c8a7114"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/actions/00-preflight/processes.jsonl",
+    "size": 3199,
+    "sha256": "93ea96442818e8a726ec7fb534b78d4831d576963fa4275b72ef1612962bc442"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/actions/00-preflight/result.json",
+    "size": 337,
+    "sha256": "dd6338b60e0330425e2f2d47aba6a1e85c852f7811d8bbdd67212c97427f79fc"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/actions/00-preflight/skipped.jsonl",
+    "size": 553,
+    "sha256": "fc026bc966590559f104815df3218c87d6bd6cab81d3efb8717dd8826278b6f1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/actions/00-preflight/timeline.jsonl",
+    "size": 339,
+    "sha256": "67684618fe230448ade1ed7c7cedeb3f69ec07180f0bc5d8868e9406ff682ae0"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/actions/00-preflight/windows-after.jsonl",
+    "size": 6225,
+    "sha256": "711e96fb780d68e9f02a8861d8afd505ee1f07af2c76a253d256958c7434db9c"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/actions/00-preflight/windows-before.jsonl",
+    "size": 6225,
+    "sha256": "711e96fb780d68e9f02a8861d8afd505ee1f07af2c76a253d256958c7434db9c"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/capture/adapter-01.pcap",
+    "size": 16417,
+    "sha256": "ac3bb4fae0aaf0de55b6bb73d4e0de51e2cc61c64e2f3a6d2bc4376227cde19a"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/capture/adapters.jsonl",
+    "size": 493,
+    "sha256": "9a696fc6ed24863d874a5d24483bb0af05d75fe62471508bbb171452ba9a07d7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/capture/packets.jsonl",
+    "size": 77077,
+    "sha256": "18ad77b448391aa45809855c16862d9d09ff8c1654f490d2da458b7b0cbcc72b"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/capture/status.json",
+    "size": 9514,
+    "sha256": "41841287dbf614dd0af31e5c92c40aa4097f4cfd7fc1358f6b6d08fe2ba4d640"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/capture/summary.json",
+    "size": 9514,
+    "sha256": "9e817e8d925871972b458504bf9f26eafd95d4e22892e5dd8cc9fc2b931d5dd2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/driver-after.json",
+    "size": 903,
+    "sha256": "ca41df0fd840c02ba8de872f17ce2a81d90324af7c6c13a5cbcb72d4fb44eff2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/driver-before.json",
+    "size": 332,
+    "sha256": "54dfb5ff26e68df7a3f5f2c52bfe117d288f57f141948b8f09982c91a78fd808"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/driver-install/winpcap-install.jsonl",
+    "size": 17710,
+    "sha256": "b4b6ac65e9575dd105156fc15bd06147d539329b18444d13d31f0ffb43bbdfe6"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/REPORT.html",
+    "size": 6012,
+    "sha256": "52c994ecc26b8f4010ea6fd77b3110c012d0cbc6334251362b26d93a22a57391"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/REPORT.txt",
+    "size": 798,
+    "sha256": "bc32c105d2d3a225c4cc0f5cf05d798eb1db1c80a5cf8020c36ec2ea7ec4af4f"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/result.json",
+    "size": 10227,
+    "sha256": "e7643944e8e00ec08d77a695324de92d29479724dea1071c07d35c4a92cf1c9c"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/STOP",
+    "size": 39,
+    "sha256": "bbb1b1e97edcdcb4540bc453db0a9927b117c9244c743adcabf68ef8cc6fece4"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/timeline.jsonl",
+    "size": 1814,
+    "sha256": "3a4d92717606e6d0f8243d2b0b7bb0b18a1d65b20da1aca1c68b1ba3d05d256a"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-52-36-32777/UI_STOP",
+    "size": 17,
+    "sha256": "b3e636f289ea73c826bf6639861890c2e887e3f67e282a192dab6571f22dffd1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/00-preflight/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "500f24715e983ec7a0ff84c056b4a6d043f4edc6bb737b954f156bdf7a15f6df"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/00-preflight/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "500f24715e983ec7a0ff84c056b4a6d043f4edc6bb737b954f156bdf7a15f6df"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/00-preflight/original-state-before.json",
+    "size": 684,
+    "sha256": "ce774828c92da1f0493f2fd9394830633b8dc650a9eae02500da1d366c8a7114"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/00-preflight/original-state.json",
+    "size": 684,
+    "sha256": "ce774828c92da1f0493f2fd9394830633b8dc650a9eae02500da1d366c8a7114"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/00-preflight/processes.jsonl",
+    "size": 3303,
+    "sha256": "d6a029745266e789b2f0c9e5b2e62e7b800d839aa821184551baadc379e26c81"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/00-preflight/result.json",
+    "size": 337,
+    "sha256": "797be40879406e4319462e280900af911264b03bcc59286f3020d2f200ec99db"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/00-preflight/skipped.jsonl",
+    "size": 553,
+    "sha256": "fc026bc966590559f104815df3218c87d6bd6cab81d3efb8717dd8826278b6f1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/00-preflight/timeline.jsonl",
+    "size": 339,
+    "sha256": "f29ea90c2ed7f514cfd41900a27d1bf2aefad1023f661ed822393ca061ff985d"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/00-preflight/windows-after.jsonl",
+    "size": 6229,
+    "sha256": "0dc0f1ee211aed8f1d66d496ce861bf1d06f05ef1074d82996ff89a91364870d"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/00-preflight/windows-before.jsonl",
+    "size": 6229,
+    "sha256": "0dc0f1ee211aed8f1d66d496ce861bf1d06f05ef1074d82996ff89a91364870d"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/01-temperature/capture-proof.txt",
+    "size": 135,
+    "sha256": "36c91b5c0af7f1cf5d572da5e851b1e894cbc6a15e13316f78230387c6fe59a8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/01-temperature/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "0cf58bd8c07b50c126ede753988201ff0a4f54f598655eb6021c013c91393787"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/01-temperature/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "1281f170e74b8871b07d9b570498b787ffbd57b7805a3480dcbcb6c8c85c0b35"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/01-temperature/original-state-before.json",
+    "size": 684,
+    "sha256": "ce774828c92da1f0493f2fd9394830633b8dc650a9eae02500da1d366c8a7114"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/01-temperature/original-state-immediate.json",
+    "size": 684,
+    "sha256": "ce774828c92da1f0493f2fd9394830633b8dc650a9eae02500da1d366c8a7114"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/01-temperature/original-state.json",
+    "size": 684,
+    "sha256": "ce774828c92da1f0493f2fd9394830633b8dc650a9eae02500da1d366c8a7114"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/01-temperature/processes.jsonl",
+    "size": 3303,
+    "sha256": "8e041bf096c068ffd6181e9dadcc20ffe1170975451acceaa1f325ed37cd2390"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/01-temperature/result.json",
+    "size": 346,
+    "sha256": "f9a1aeb3741927258bbe74db38af584098368102ec741d5f3e238cd145429bb9"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/01-temperature/skipped.jsonl",
+    "size": 553,
+    "sha256": "fc026bc966590559f104815df3218c87d6bd6cab81d3efb8717dd8826278b6f1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/01-temperature/timeline.jsonl",
+    "size": 511,
+    "sha256": "d52ea5129a3c0d7fdec58d184fd0532b10a96a4280f7e8d16d467d742d18a1a0"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/01-temperature/windows-after.jsonl",
+    "size": 5907,
+    "sha256": "e06e182a6008014f69d6fbf47b7c1e692a4b2274cb1b5a555cc77f1c4a482d7c"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/actions/01-temperature/windows-before.jsonl",
+    "size": 6227,
+    "sha256": "626a6dc0eda9494a461538d1f464c0f4eed88f10278003036a92b97182c55066"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/capture/adapter-01.pcap",
+    "size": 51303,
+    "sha256": "51e41e356d5f04e7a93f0ac72c94f4b18b8861580a7de49b36943433bbd96aa4"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/capture/adapters.jsonl",
+    "size": 493,
+    "sha256": "9a696fc6ed24863d874a5d24483bb0af05d75fe62471508bbb171452ba9a07d7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/capture/packets.jsonl",
+    "size": 241571,
+    "sha256": "2a7840461e27d14ca1a2f32155248c75b09701b8add13c1a89b5552626c8f659"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/capture/status.json",
+    "size": 9527,
+    "sha256": "8ce14a04fdb9a2111cb987c194a5fad465b218d59dd1a9b83fe3ec950e9ba741"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/capture/summary.json",
+    "size": 9527,
+    "sha256": "207505dd26a2ce75c97b09a2e08a8196859823570e4fc01d62ae0c5aeaa0ec75"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/driver-before.json",
+    "size": 903,
+    "sha256": "ca41df0fd840c02ba8de872f17ce2a81d90324af7c6c13a5cbcb72d4fb44eff2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/REPORT.html",
+    "size": 6354,
+    "sha256": "3811deddff345086ef9b938086a14a1d33e2b85670877604c8fbce9c88f24737"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/REPORT.txt",
+    "size": 798,
+    "sha256": "5bc307912485c27366438b4303cf5b146ec55dfa5d6a0fbeb77cfa8d6f51bd87"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/result.json",
+    "size": 10700,
+    "sha256": "21a4e349d2d55fb0fc6756ce6ee0f0af9408055952df68a79bfd6142a54da1c1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/STOP",
+    "size": 39,
+    "sha256": "e90e736f66279cabd78650371753883b94cd0bf6b933bf1ec0fc57a363b6832a"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/timeline.jsonl",
+    "size": 2387,
+    "sha256": "ae97c17989094ef3a1935a59efe222ae19f2b22b5df82b5022f63b8d0ed8a7cf"
+  },
+  {
+    "path": "sessions/run-2026-10-31-17-55-57-52547/UI_STOP",
+    "size": 17,
+    "sha256": "b3e636f289ea73c826bf6639861890c2e887e3f67e282a192dab6571f22dffd1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-1-33-25927/REPORT.html",
+    "size": 2966,
+    "sha256": "65350008426c9e277016f757449d8149b9aecdbdd98b47a491611301c289f923"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-1-33-25927/REPORT.txt",
+    "size": 801,
+    "sha256": "10c4a0a99e355841e9cf4e37a9255be49d67eabdcc98e637aa1d62b3ef7ce83c"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-1-33-25927/result.json",
+    "size": 372,
+    "sha256": "11d30510678c66253312cce0e58210c3bbe8d934140014e47aeeca4f5f49fddd"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-1-33-25927/STOP",
+    "size": 21,
+    "sha256": "bc4dfce8e8c1b7fd934e179b6030fb7ba56b40d3a7ee521a2de3e041178082c5"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-1-33-25927/timeline.jsonl",
+    "size": 540,
+    "sha256": "d1115eead21225afaac526e7d08840f736c8661b03f4f2dec0f3a82939548d20"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-1-33-25927/UI_STOP",
+    "size": 21,
+    "sha256": "bc4dfce8e8c1b7fd934e179b6030fb7ba56b40d3a7ee521a2de3e041178082c5"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/00-preflight/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "488b6dd6ade1f1d0f6898aad5dbab1256dc6f2ede5c98fe6de84cb19436c271b"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/00-preflight/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "488b6dd6ade1f1d0f6898aad5dbab1256dc6f2ede5c98fe6de84cb19436c271b"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/00-preflight/original-state-before.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/00-preflight/original-state.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/00-preflight/processes.jsonl",
+    "size": 3196,
+    "sha256": "6c460a072ad200d0a0d8d3fb592bea33e5702c051b13fd87868891366624cfee"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/00-preflight/result.json",
+    "size": 338,
+    "sha256": "7292ffecd64949f1047f35fd7d7eeb117ed6142780587ffe5f74c181098d914f"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/00-preflight/skipped.jsonl",
+    "size": 553,
+    "sha256": "fc026bc966590559f104815df3218c87d6bd6cab81d3efb8717dd8826278b6f1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/00-preflight/timeline.jsonl",
+    "size": 339,
+    "sha256": "b51a4e158cb0074620dbab974ae57a3da0f6071023196cb61c713def0e529bab"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/00-preflight/windows-after.jsonl",
+    "size": 6234,
+    "sha256": "e6d0d5df4186fd3fc7e44bb8be3aca0c73a911c02fc235e8de15ef6ab109d196"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/00-preflight/windows-before.jsonl",
+    "size": 6234,
+    "sha256": "e6d0d5df4186fd3fc7e44bb8be3aca0c73a911c02fc235e8de15ef6ab109d196"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/capture-proof.txt",
+    "size": 135,
+    "sha256": "185e337998c05ea8a0b31cdf77dbe47423385424d0a60fbafd6ca07ea1e003ca"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "9a5ad2e210ad83815b1fa9ef8716322be92e321b7e9a720eb48bdf5afc8053d7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "dbe412d60e41e114d3fe103238227cfdb43e2288d90e1727dbe9f5b601ee0b16"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/desktop-menu-open.bmp",
+    "size": 3072054,
+    "sha256": "a1800f8171a1728f6e8141a0ded3def4e1887505587a6adc516ee7b32ea83ca7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/desktop-panel-open.bmp",
+    "size": 3072054,
+    "sha256": "eee0d1663ff07538bc2654ad378b8da8b4f1b4105c39232fd3b0f70e4c30112a"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/original-state-before.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/original-state-immediate.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/original-state-open.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/original-state.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/processes.jsonl",
+    "size": 3196,
+    "sha256": "c024ea8fb8f7c99b8a922674a5051c796ef85aeff787632de5d2c64321cbbebc"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/result.json",
+    "size": 346,
+    "sha256": "1828a933d8c5e52bb3edec70174884811197ca17c59f1231e2aece36b2edbe8f"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/skipped.jsonl",
+    "size": 553,
+    "sha256": "fc026bc966590559f104815df3218c87d6bd6cab81d3efb8717dd8826278b6f1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/timeline.jsonl",
+    "size": 677,
+    "sha256": "979385e49589dfb81510c99489c300b2572376ba9ace70d8329af212d24ba731"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/windows-after.jsonl",
+    "size": 6396,
+    "sha256": "74f8c0545711dfc51c79eeccc911084471dd82314fb1c8a0bbfbe1b0f4802627"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/windows-before.jsonl",
+    "size": 6226,
+    "sha256": "14b363f6400312616ef2d15b6f954f342ef182ae7163eb81562e97085474419d"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/windows-menu-open.jsonl",
+    "size": 6165,
+    "sha256": "f8a42a11d2657460739ec9117ddcc720dd31afc07705a9615f72e5f52074218e"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/01-temperature/windows-panel-open.jsonl",
+    "size": 6395,
+    "sha256": "1fa6759ec5d464e805f9045f4483a1bc73bdb1874fb84189e6e06dc19d429af6"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/capture-proof.txt",
+    "size": 135,
+    "sha256": "1652b2edaf8960bdc3352c0cc9bbc00a0094339d935eee7975484b4349153784"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "dbf515f5b40295d86ef5d3eeadfe679d1567bae72396c14f6a37803ac15d76c5"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "889062a1f34f3e486ab830c66d3555e5595a5b8d285d19b0fd1fe0779cc63dfe"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/desktop-menu-open.bmp",
+    "size": 3072054,
+    "sha256": "9fe2f465e6741a4066f965cc7f8f8acce6dcc7bc69dda7d893c6b2de5b8ee808"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/desktop-panel-open.bmp",
+    "size": 3072054,
+    "sha256": "ce9de7cd8f77aa9b086804278e4de2424be4b7de33df35c39993295bb600ade0"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/original-state-before.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/original-state-immediate.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/original-state-open.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/original-state.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/processes.jsonl",
+    "size": 3196,
+    "sha256": "145eb4f30ade6ecf18fb8d097194e8c81b982eb7d5dfa87756056b8b28f06684"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/result.json",
+    "size": 341,
+    "sha256": "ee64f209c60024b60a671ad386dd0c716c48b5f5ff86016ce1167ddd7395156f"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/skipped.jsonl",
+    "size": 553,
+    "sha256": "fc026bc966590559f104815df3218c87d6bd6cab81d3efb8717dd8826278b6f1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/timeline.jsonl",
+    "size": 658,
+    "sha256": "55f742f8bfc95cb0d09f82060b7a61d181eac914de0918893db02a614f116468"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/windows-after.jsonl",
+    "size": 6396,
+    "sha256": "f1cbe5d3771da7768544575a0be72e3f77d08219cd45327b0df7349ac04de3cb"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/windows-before.jsonl",
+    "size": 6713,
+    "sha256": "8ce23a392a5c4d02862ea1914a3652aee9f58a4738e3b9a42d2ae42f4d008f91"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/windows-menu-open.jsonl",
+    "size": 6653,
+    "sha256": "9c738fa15bcede2f90b4f2c3478d3853f41432235175ee8eb6106c3af73e32d6"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/02-timing/windows-panel-open.jsonl",
+    "size": 6394,
+    "sha256": "0dba3a37827d0e7feb0c465d3ebd2b933519e027a14ffa722dcdb0bd6cf4fad1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/capture-proof.txt",
+    "size": 135,
+    "sha256": "55ce7a1df55562a03a29be45ddbc4eac61c1a474ded086361ddba6962d35b46c"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "e53c98c82f158eaebb09aafcfe1f9d74b003134f6bb9a1a4a222c196a6b9075c"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "372ed3e06af36f52d8346df8a0588425f3766b15cd36cc9106bf18b3182da204"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/desktop-menu-open.bmp",
+    "size": 3072054,
+    "sha256": "8b2275ecd27a2c74bb7bb6671a417948ab279da9234f62be29ee639cbf3e62ff"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/desktop-panel-open.bmp",
+    "size": 3072054,
+    "sha256": "099a283948a0a8622e466dd0d4b2d942e43a124b7771b2b5b1a6f52004d0bf10"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/original-state-before.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/original-state-immediate.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/original-state-open.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/original-state.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/processes.jsonl",
+    "size": 3196,
+    "sha256": "9247f40c37b0760c6f98392cbcd6383d36a1ccf183defb27373d1afb0664ae8d"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/result.json",
+    "size": 341,
+    "sha256": "37fdee019d37cc85c6e141b2f53dcca3e6f444b16febcb2fd65218590a69dd9b"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/skipped.jsonl",
+    "size": 553,
+    "sha256": "fc026bc966590559f104815df3218c87d6bd6cab81d3efb8717dd8826278b6f1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/timeline.jsonl",
+    "size": 658,
+    "sha256": "16d8f454ffb0e8d5d5fefa2278ee5a8507417238f9311f39faa94be911ca23ea"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/windows-after.jsonl",
+    "size": 6396,
+    "sha256": "4f06c4258250d951682b6e08ba306a7d2c5fca24a8f9551a22d343b61118ae37"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/windows-before.jsonl",
+    "size": 6714,
+    "sha256": "f8834e9b5b887153bad69a2ea74d4c4c563ded470819fd438a094fb6251a8d65"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/windows-menu-open.jsonl",
+    "size": 6652,
+    "sha256": "1b985899b42f4d72dee2e481e9434a27f146b266f921f5f3799c60f220f40e92"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/03-faults/windows-panel-open.jsonl",
+    "size": 6394,
+    "sha256": "003b938eaef6c3d3be4819eacbffb482aecb669b89033ac675f8c1dc0b597cf8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/capture-proof.txt",
+    "size": 135,
+    "sha256": "ac63aa1c789f6754d5b47fae2e68d67a8a7dd40054f97a1c38a870e9ab953f68"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "736c841e05958adac745895423b4a583f115c66f9b7d272b9a6af1d89e075d26"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "3591c94e7c50832be6288a8c945f39ed03447a34220d65ef8c6908d628a7f8b3"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/desktop-menu-open.bmp",
+    "size": 3072054,
+    "sha256": "811dc8f9fe1bc942114bee9a634142eafe4e81ecd1aef4ab4c76a9cfcd930d4f"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/original-state-before.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/original-state-immediate.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/original-state-open.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/original-state.json",
+    "size": 685,
+    "sha256": "1b34c3cce50caff3fbd801a8f339ab8709360f8beeea4e381dc492dfa9e7aed8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/processes.jsonl",
+    "size": 3195,
+    "sha256": "75f8998d893d96e458bfad3c8a3c43a0902ae18937ff16b6aaf6662b5a0a1daa"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/result.json",
+    "size": 341,
+    "sha256": "37ff6a48f69b2fde44dec092e880496883aefe57537c0a11c84c33a9dcb4e498"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/skipped.jsonl",
+    "size": 553,
+    "sha256": "fc026bc966590559f104815df3218c87d6bd6cab81d3efb8717dd8826278b6f1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/timeline.jsonl",
+    "size": 676,
+    "sha256": "c98fe52bb898917be1d0a6e10be66657c6fee2614990e051ab47f45e420cdae6"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/windows-after.jsonl",
+    "size": 6652,
+    "sha256": "eb06d92dcfec3095fea3dbb2edd24ba6912907aefd6a5f3cdb2dc503ebbaf389"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/windows-before.jsonl",
+    "size": 6714,
+    "sha256": "f8abe2c9773657bf550724c7ad67f791a822279835aa1a317bea4465dcc25b2e"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/actions/04-setup/windows-menu-open.jsonl",
+    "size": 6652,
+    "sha256": "eb06d92dcfec3095fea3dbb2edd24ba6912907aefd6a5f3cdb2dc503ebbaf389"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/capture/adapter-01.pcap",
+    "size": 348358,
+    "sha256": "c3140c6a737e53d539578eab09a98670ac128ba4aad6e2450337523c9ce7c805"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/capture/adapters.jsonl",
+    "size": 493,
+    "sha256": "9a696fc6ed24863d874a5d24483bb0af05d75fe62471508bbb171452ba9a07d7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/capture/packets.jsonl",
+    "size": 1646964,
+    "sha256": "0960636b6317d6e94672f213953489583e417112f0478b7f3206c1d676efe900"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/capture/status.json",
+    "size": 9539,
+    "sha256": "e2ccb7ee0be67cc8692a9309b1e6866454f465616684c4e07d76f7d2bc3d70b3"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/capture/summary.json",
+    "size": 9541,
+    "sha256": "383894b3a0a0f0b6146b77105add3b4f536ccbac66c921518476ca581c3b9e75"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/driver-before.json",
+    "size": 903,
+    "sha256": "ca41df0fd840c02ba8de872f17ce2a81d90324af7c6c13a5cbcb72d4fb44eff2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/REPORT.html",
+    "size": 7269,
+    "sha256": "d49ded2c9a4b191b64537986bf5426722cc16b5342d3228d012ffc3a27d8765a"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/REPORT.txt",
+    "size": 808,
+    "sha256": "d05b736053c85fbea2a1189b8f238dbf694a6f835f4816079d9eebc74f33fc82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/result.json",
+    "size": 12074,
+    "sha256": "78545817d2b5ce8eb3024a281bb22ae96484775c0699e49a0e1790f9398d6262"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/STOP",
+    "size": 39,
+    "sha256": "d5ebb3b88f24fdeba05abc71eda0430348ad0056210e4f745c99e196242537c6"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/timeline.jsonl",
+    "size": 7985,
+    "sha256": "86e2267a7f82b75ae67372277b7e1a1b1f4e843b5edddbad9bd71aec43c2d091"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-11-16-95053/UI_STOP",
+    "size": 27,
+    "sha256": "8d1e18e2744b26db5dd5b3fa1753d1c26c70a57b3c66e1eb95a80f088cf0203f"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/context-001.json",
+    "size": 504,
+    "sha256": "a06845f33685ac3bf0af0fda4e8481d3f4bf2cd0dc52cb1afdf6d04a631172c3"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/cvi-focus-map.jsonl",
+    "size": 54227,
+    "sha256": "f6ccbe1a7f0ffbec7d642820215b328fce913f7508db62e6b7538af87c6de7ec"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/cvi-focus-raw.jsonl",
+    "size": 89634,
+    "sha256": "15796a6e1bfee66a5f739efa27aab11883f905a5ae892960a0672e80d4252588"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/cvi-focus.jsonl",
+    "size": 9436,
+    "sha256": "b1695390f1dcbbca7778c78191c0369b8efaa1c49d4cd5674c8580302102426b"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "66083090f8475a914d492265356dd3dc67594977f1971ee0a6ea1bca6e813f04"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "66083090f8475a914d492265356dd3dc67594977f1971ee0a6ea1bca6e813f04"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/original-state-before.json",
+    "size": 683,
+    "sha256": "d4463e72a0c22ce54b2a111c2c6f841a56c0a913d714470e03a80ede09f44fe5"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/original-state.json",
+    "size": 683,
+    "sha256": "d4463e72a0c22ce54b2a111c2c6f841a56c0a913d714470e03a80ede09f44fe5"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/processes.jsonl",
+    "size": 2631,
+    "sha256": "849f0dbbf1e11d8a45ac23a0fb732440e6a690ba35c7a1853b2a0c171b852c69"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/result.json",
+    "size": 446,
+    "sha256": "03b2ccd342ef0a5cade39b871cc925aff95e13b6647398cea4af0f205d1df609"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/skipped.jsonl",
+    "size": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/timeline.jsonl",
+    "size": 339,
+    "sha256": "3a9f1104dde1b352e06b2224f80f2ce1d9e3aec39496176e28321bd85bfd0216"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/windows-after.jsonl",
+    "size": 6432,
+    "sha256": "d9b1a9849f24e5a74bd54a30ea09e53df50e070d0dbb9fc08e56cdc251516263"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/00-preflight/windows-before.jsonl",
+    "size": 6432,
+    "sha256": "d9b1a9849f24e5a74bd54a30ea09e53df50e070d0dbb9fc08e56cdc251516263"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/capture-proof.txt",
+    "size": 134,
+    "sha256": "ed27c0bc37e64c8b12a900fd879ea2ece5217763204d17e2648981bb289f1c17"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/context-001.json",
+    "size": 504,
+    "sha256": "5ccbe86a56f39a6f26a886a4aabe6d3cc5c74af44b69f7569ed320ea9f41199a"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/context-002.json",
+    "size": 511,
+    "sha256": "a7a658c292e06f202a83cf9aabd35ef5b6aa2d9d007494ce42d79b104dbfe7f0"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/context-004.json",
+    "size": 513,
+    "sha256": "ae4ef63a1ca75bf6abd11b0432572aa7aeafeaebb2441062f0e32ec8226fcd43"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/context-005.json",
+    "size": 516,
+    "sha256": "d1a24c90570500a9d5a694a5ebfd03d0d97fbc0747d93531a6e7114f1770b8b7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/context-007.json",
+    "size": 528,
+    "sha256": "2de4dd657025dfdd006fd42327669c1beac086275859ac4d8a22ec0ea08eaf52"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "875c3c20277c616e22ac8332bc2dc7640b635fa34480b063ebb4370de452ceef"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "eba86a589ce67bf0046bf57af819d90123e3ecb134ccd9e1aeddef280c36eee7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/desktop-menu-open.bmp",
+    "size": 3072054,
+    "sha256": "6c4cb4264fac19fa0211e86f5c9035e59fd890986e7665be462f34db9b19a715"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/desktop-panel-open.bmp",
+    "size": 3072054,
+    "sha256": "875c3c20277c616e22ac8332bc2dc7640b635fa34480b063ebb4370de452ceef"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/original-state-before.json",
+    "size": 683,
+    "sha256": "d4463e72a0c22ce54b2a111c2c6f841a56c0a913d714470e03a80ede09f44fe5"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/original-state-immediate.json",
+    "size": 683,
+    "sha256": "d4463e72a0c22ce54b2a111c2c6f841a56c0a913d714470e03a80ede09f44fe5"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/original-state-open.json",
+    "size": 683,
+    "sha256": "d4463e72a0c22ce54b2a111c2c6f841a56c0a913d714470e03a80ede09f44fe5"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/original-state.json",
+    "size": 683,
+    "sha256": "d4463e72a0c22ce54b2a111c2c6f841a56c0a913d714470e03a80ede09f44fe5"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/processes.jsonl",
+    "size": 2632,
+    "sha256": "1268ebd9db0b69d94868088213d7ca6d8772cbcddfb42b73787cd15c7b6e0682"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/result.json",
+    "size": 455,
+    "sha256": "4b887f26fb4a9d58a8d79251cc3f5b33e26b689122f9b884783a883dcce522fc"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/skipped.jsonl",
+    "size": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/target-context-003.json",
+    "size": 220,
+    "sha256": "3b1c579b693a1e443d76d358225d70416b7eac474a7e1cb79fe75124fc31855f"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/target-context-006.json",
+    "size": 220,
+    "sha256": "3b1c579b693a1e443d76d358225d70416b7eac474a7e1cb79fe75124fc31855f"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/timeline.jsonl",
+    "size": 514,
+    "sha256": "ce6c47aa1f6e28ce797613c1b07defc242240949ffb4bb7a064095b10de9a701"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/windows-after.jsonl",
+    "size": 6365,
+    "sha256": "232f61b701857d2cff2ec84494cf09ccb5db594134627d57c5014fd02c87d6d7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/windows-before.jsonl",
+    "size": 6432,
+    "sha256": "d9b1a9849f24e5a74bd54a30ea09e53df50e070d0dbb9fc08e56cdc251516263"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/windows-menu-open.jsonl",
+    "size": 6620,
+    "sha256": "a10735aaedcb64d43754764e338305e07fbb2b19879786e3537d1e55b9a12711"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/actions/01-temperature/windows-panel-open.jsonl",
+    "size": 6365,
+    "sha256": "232f61b701857d2cff2ec84494cf09ccb5db594134627d57c5014fd02c87d6d7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/capture/adapter-01.pcap",
+    "size": 115016,
+    "sha256": "a0c3ee5cd86f69ec2ba1a0d316c6fd546c24b1e37ac598d5be88b7f4bf7386a4"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/capture/adapters.jsonl",
+    "size": 493,
+    "sha256": "9a696fc6ed24863d874a5d24483bb0af05d75fe62471508bbb171452ba9a07d7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/capture/packets.jsonl",
+    "size": 542191,
+    "sha256": "d556b4680a48b7573e8456c286d5e4da831cb9a280da8664d5b4d1b05fdef95c"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/capture/status.json",
+    "size": 9529,
+    "sha256": "41189dc41c3f9370cb874e4bd24e88f9d457f97a950a9ac4a469c0ae161caa4b"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/capture/summary.json",
+    "size": 9531,
+    "sha256": "b211670e013f9776acf5a1d72907fd378383182dae4b7fcc8362c7422440cc4f"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/driver-before.json",
+    "size": 903,
+    "sha256": "ca41df0fd840c02ba8de872f17ce2a81d90324af7c6c13a5cbcb72d4fb44eff2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/REPORT.html",
+    "size": 6600,
+    "sha256": "f12d55d999e98bf189904e98fc9f23e784c73013e2c80a3567173a549838ba0e"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/REPORT.txt",
+    "size": 781,
+    "sha256": "88da9f878013e909cd2ce30fa3a097387ae76540f34c3d1b8b420fc789cdc7d5"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/result.json",
+    "size": 11097,
+    "sha256": "eb3497f58f1c00b011ced604412750bf251e99dbcc46eb779737b117ba494847"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/STOP",
+    "size": 39,
+    "sha256": "49aa30ab59a4bc2f2e3ecb035a1434cd83454a2140c1eabf73e19f4dc11e6f0d"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/timeline.jsonl",
+    "size": 4287,
+    "sha256": "67bcedcc8e874c21b082041fa81eefcde030ace7623a9b91a20173f529d419ef"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-40-7-8660/UI_STOP",
+    "size": 17,
+    "sha256": "b3e636f289ea73c826bf6639861890c2e887e3f67e282a192dab6571f22dffd1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/context-001.json",
+    "size": 504,
+    "sha256": "3a3f143f8f5a7fb91ff7961f9ea186d023316c7c9f0b67fa7a28b587380487d5"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/cvi-focus-map.jsonl",
+    "size": 54241,
+    "sha256": "a0a0d3ce23d6eaeed23337e9d17690b6336af7290723f12da57758b2b5c35293"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/cvi-focus-raw.jsonl",
+    "size": 89643,
+    "sha256": "91ec311d206bbeeff8a117146e9afedd1f56fd073306be98b3ffb579497f61cc"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/cvi-focus.jsonl",
+    "size": 9444,
+    "sha256": "db8aa70f4d30321d15e57d7a10c9ce1275a42051b31933afcf0ed832543f55b9"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "63801c310d36ed1342d546b3206c958e31311d9b681a9133e3897a4cb3523fc7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "63801c310d36ed1342d546b3206c958e31311d9b681a9133e3897a4cb3523fc7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/original-state-before.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/original-state.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/processes.jsonl",
+    "size": 2639,
+    "sha256": "f939501536bedfd16ad5636ee23ee38b2e3580080177108a93c646cae666d49c"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/result.json",
+    "size": 446,
+    "sha256": "01ba514d28bf6cd7f4b9645ee2d6932f3289b2f56f35b344f57dd5f6b3c20053"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/skipped.jsonl",
+    "size": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/timeline.jsonl",
+    "size": 339,
+    "sha256": "c278931f54a15d05419659b226502b9236f9faad102cfaf4b24b5b3dbc65b0e2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/windows-after.jsonl",
+    "size": 6439,
+    "sha256": "466bdd4957be5f11f04203f74124a68dd9d101d27465b09c0319c72992e554d2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/00-preflight/windows-before.jsonl",
+    "size": 6439,
+    "sha256": "466bdd4957be5f11f04203f74124a68dd9d101d27465b09c0319c72992e554d2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/capture-proof.txt",
+    "size": 135,
+    "sha256": "67c561e0cd5213c6b4648db4e96ccd1db9fdcf42e1bbc18a0d0d4b1df4e58bb2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/context-001.json",
+    "size": 504,
+    "sha256": "dfbe3ac090eacac1f28dbc64bdc178b096a3fcf72fbb10a77f10f7767b79f5bd"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/context-002.json",
+    "size": 511,
+    "sha256": "2bcaf047c821928188f8421d3b0313c6043a6d9aab0639eb816d353a1b06f1fc"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/context-004.json",
+    "size": 513,
+    "sha256": "27d0af022f292382a2b985d518e7d356f2ff239c57f56344301cc23a8b1e5277"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/context-005.json",
+    "size": 518,
+    "sha256": "84a7f992f5df2217b4be41ad5dfefbe90bcde26d905ed7dd262dcc32c06a0d54"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/context-007.json",
+    "size": 530,
+    "sha256": "6b8f908f0862ac93775b76e8a325e4c31388e646f6fdd9d7a6ce426c0f4eae7d"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/context-008.json",
+    "size": 530,
+    "sha256": "0ba6539ab27f15c9fab066f20df4acb82a8b39c3275ec83ab16407e475247be4"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "b269360b595630747d4f0089bbe23abf05de2b923a1ea0cbae035e0f5f36cefc"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "dc1c0e7d2004a166ddef0306d5aa4d6c6476c0993751b869d1c53fd055d46b43"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/desktop-menu-open.bmp",
+    "size": 3072054,
+    "sha256": "d1d1d2ebd92087f3e65eccf61c613adadc6f499062551646ff5994d288e29130"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/desktop-panel-open.bmp",
+    "size": 3072054,
+    "sha256": "464029f760ff9f637b336fcb1e544a7feaf95773627edea4fd9a5fc513df30ca"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/original-state-before.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/original-state-immediate.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/original-state-open.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/original-state.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/processes.jsonl",
+    "size": 2639,
+    "sha256": "e69dd6730b766570852906f9cfbdeeed3601b895552c1dbfb68345e3b29c6241"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/result.json",
+    "size": 455,
+    "sha256": "be47d02c1b2871e1ae9c487a81400077083095607ae1f81411d979280309e9ec"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/skipped.jsonl",
+    "size": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/target-context-003.json",
+    "size": 220,
+    "sha256": "81dc41f994b997c7b8b836767e313056c1d422985412272b7d2ce893902bffb2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/target-context-006.json",
+    "size": 220,
+    "sha256": "81dc41f994b997c7b8b836767e313056c1d422985412272b7d2ce893902bffb2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/timeline.jsonl",
+    "size": 677,
+    "sha256": "f1f5d75cfcf8ae58ba24f4e578200f3dfd7754e003baa0b06f1e6be443262ed3"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/windows-after.jsonl",
+    "size": 6372,
+    "sha256": "ca0c0cbb9bd8471a4c956da1a66ab4e7a1cba24a2b3c55b81e05fbc0524517fb"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/windows-before.jsonl",
+    "size": 6439,
+    "sha256": "466bdd4957be5f11f04203f74124a68dd9d101d27465b09c0319c72992e554d2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/windows-menu-open.jsonl",
+    "size": 6628,
+    "sha256": "191c955f5280d8dee3ebd887228b73932b5ac99e2e1a61863ed085d4a0b4a0d8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/01-temperature/windows-panel-open.jsonl",
+    "size": 6372,
+    "sha256": "1a89b1b338faf4394576d71f43848ad379be64ddc3ec5f63a567ea69da09f502"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/capture-proof.txt",
+    "size": 135,
+    "sha256": "88c0922fe58bf5962de171792d95e821e1cec8f8305595ca6a36fe64e40ff0e3"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/context-001.json",
+    "size": 510,
+    "sha256": "69710acf310e1174b905e90e86472f652743944be4e9bd0fd5d630d2cda5595f"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/context-002.json",
+    "size": 517,
+    "sha256": "df442a3bd54b4835b0e5bc7efa6f5db860ca10593e75f5c0b121ff462df8ce10"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/context-004.json",
+    "size": 514,
+    "sha256": "f30dfee22e0ba54952c7df7f1e2da77641c8b43a72a3a8e219ec836a3a3a4d92"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/context-005.json",
+    "size": 518,
+    "sha256": "40c30485321d8f4ded441ea481180ceb5cb7816214042234af0b5f6cd5f59d9e"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/context-007.json",
+    "size": 528,
+    "sha256": "ccb09b249a26e502a179ad895182a299d50eaa875e860faeb7356de03fcac467"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/context-008.json",
+    "size": 528,
+    "sha256": "60ccdb5021039b346aea5a9af46e57ee489d80cc4b91b04e33fbb9ceea89e57a"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "b269360b595630747d4f0089bbe23abf05de2b923a1ea0cbae035e0f5f36cefc"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "b269360b595630747d4f0089bbe23abf05de2b923a1ea0cbae035e0f5f36cefc"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/desktop-menu-open.bmp",
+    "size": 3072054,
+    "sha256": "d1d1d2ebd92087f3e65eccf61c613adadc6f499062551646ff5994d288e29130"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/desktop-panel-open.bmp",
+    "size": 3072054,
+    "sha256": "fbbf5c101113bba4b81c156460d09247a244303679fc0c6c6a140421195f42a1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/original-state-before.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/original-state-immediate.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/original-state-open.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/original-state.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/processes.jsonl",
+    "size": 2720,
+    "sha256": "2ac68c1dc19cfbaaac47934143d7013a70e0f12cd81f2b860cdb7dcc1dd18df1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/result.json",
+    "size": 450,
+    "sha256": "bb545bf0da2e99be94681053884245f1bf2e3f73d74818291fc290cafb538e0d"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/skipped.jsonl",
+    "size": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/target-context-003.json",
+    "size": 214,
+    "sha256": "5189f3434b7fece22f6936cf32fffb0c9c3ce626aa41f55a3bc66a68a7ed0bae"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/target-context-006.json",
+    "size": 214,
+    "sha256": "5189f3434b7fece22f6936cf32fffb0c9c3ce626aa41f55a3bc66a68a7ed0bae"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/timeline.jsonl",
+    "size": 658,
+    "sha256": "c7047aaf6d89cbae4d945c8e390387ca200ba7ae79c0a4f660a78b557d35350e"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/windows-after.jsonl",
+    "size": 6372,
+    "sha256": "3499e9bd420cd970526a5889e0dbabce6d2692535d11c56859f86d86cb59ab76"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/windows-before.jsonl",
+    "size": 6372,
+    "sha256": "ca0c0cbb9bd8471a4c956da1a66ab4e7a1cba24a2b3c55b81e05fbc0524517fb"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/windows-menu-open.jsonl",
+    "size": 6628,
+    "sha256": "ad4f536f0e531a264daee610fdb614b70f645b0088c8c57a44e28825ee4566eb"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/02-timing/windows-panel-open.jsonl",
+    "size": 6371,
+    "sha256": "d1702c7feda41e8e160d8703df6ddb7bd81946d1ee873c30fb3ecf8d4db288e4"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/capture-proof.txt",
+    "size": 135,
+    "sha256": "7c0e3e3d84124dbec38ce115d0b0ef7a2fca499dee1c46f767f45d57c8ae3f72"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/context-001.json",
+    "size": 510,
+    "sha256": "e1c0e3c7b4c8fd91ab59fbce85828c9fb7ab82a02a513312894b2ea4df2c62eb"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/context-002.json",
+    "size": 517,
+    "sha256": "7389679cda23bf5b5886ba907b29b7a339d93fdf6c77c147be5e0ee7279c9bc5"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/context-004.json",
+    "size": 514,
+    "sha256": "a252f10391d74eb3de1be398e85a60faa5e3654389ffa4fea4eb9db147662656"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/context-005.json",
+    "size": 518,
+    "sha256": "82bd48d88548a0fc5ab847353fe514cd0e8e1b35e855c252c196b1be870323c2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/context-007.json",
+    "size": 528,
+    "sha256": "174bd913cec25c6218f57000b8a564d9adacee848f6fa36012ec4467b6acea5a"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/context-008.json",
+    "size": 528,
+    "sha256": "6ad448067a6111d0ee57838b1387975cad1dcbd485b1533a29643c0524fc2bbf"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "eb29d27be930f04b5a34d7a01fec9773f874f74b899c2fa6efe5fe9419d695ca"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "b269360b595630747d4f0089bbe23abf05de2b923a1ea0cbae035e0f5f36cefc"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/desktop-menu-open.bmp",
+    "size": 3072054,
+    "sha256": "784be76d2520cd5a41c3dba6d015fa3bf610c3c29818f9b1cc50100f8be76419"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/desktop-panel-open.bmp",
+    "size": 3072054,
+    "sha256": "38029a8f1452a08a908ade8dd1f20e18a0fc600f0d1370a34b036a3a9bdf87aa"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/original-state-before.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/original-state-immediate.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/original-state-open.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/original-state.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/processes.jsonl",
+    "size": 2721,
+    "sha256": "d65aed4a989e699dd70a842e51741cd2b220e8f238a08220a7839c8ed633b4ce"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/result.json",
+    "size": 450,
+    "sha256": "c7a4a84193f51c3533318e68eff58714e8c67f42957550442c015e2f9ed8c36c"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/skipped.jsonl",
+    "size": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/target-context-003.json",
+    "size": 214,
+    "sha256": "fb227e4cb457be935e78a6e190f39771b50c98af55bea010681e2d24c326bda9"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/target-context-006.json",
+    "size": 214,
+    "sha256": "fb227e4cb457be935e78a6e190f39771b50c98af55bea010681e2d24c326bda9"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/timeline.jsonl",
+    "size": 658,
+    "sha256": "c64f562fab7bce4694b69676bee673cda40b36008bc714aa07446093789b5426"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/windows-after.jsonl",
+    "size": 6372,
+    "sha256": "c7924dcee307a508c189c8578b38a6fd71bab1c823ca777f39c7e73666cca518"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/windows-before.jsonl",
+    "size": 6372,
+    "sha256": "3499e9bd420cd970526a5889e0dbabce6d2692535d11c56859f86d86cb59ab76"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/windows-menu-open.jsonl",
+    "size": 6628,
+    "sha256": "13ea03a0224a63068caaba95955655f2c10348b6575fed0bfd76fa1655697e8f"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/03-faults/windows-panel-open.jsonl",
+    "size": 6371,
+    "sha256": "f2f7230515c1b905babe310493a07a65c14e4b9b1fbc61bd4e744df9cfb3fa14"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/04-setup/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "eb29d27be930f04b5a34d7a01fec9773f874f74b899c2fa6efe5fe9419d695ca"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/04-setup/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "eb29d27be930f04b5a34d7a01fec9773f874f74b899c2fa6efe5fe9419d695ca"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/04-setup/original-state-before.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/04-setup/original-state.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/04-setup/processes.jsonl",
+    "size": 2644,
+    "sha256": "8a34c7f8e301abf6f78129eaaf486351e90160ecf3bd69ee393f55954e6a499d"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/04-setup/result.json",
+    "size": 459,
+    "sha256": "2673c08ef6d81d2f8d1f9b506266b84469b960207865acd94ec336e7597b278f"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/04-setup/skipped.jsonl",
+    "size": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/04-setup/timeline.jsonl",
+    "size": 527,
+    "sha256": "ba0c87d818325c0d6d5673c878d5e3312cd867783d5299a2c577ec6ed5ad888b"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/04-setup/windows-after.jsonl",
+    "size": 6372,
+    "sha256": "c7924dcee307a508c189c8578b38a6fd71bab1c823ca777f39c7e73666cca518"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/04-setup/windows-before.jsonl",
+    "size": 6372,
+    "sha256": "c7924dcee307a508c189c8578b38a6fd71bab1c823ca777f39c7e73666cca518"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/capture-proof.txt",
+    "size": 135,
+    "sha256": "73cc220341160de43c2e3e50abbf7ac27a6b096fea3ea9d98382cf565891db02"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/context-001.json",
+    "size": 510,
+    "sha256": "80419b5b513b56e084596043381d8cab20c15e1c5f0b39ff3c8fdc88e2815f41"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/context-002.json",
+    "size": 517,
+    "sha256": "3fb7ac93fc72f82711ae0995d307d92c3ffc77120b6b4c72e99f786b731fb75e"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/context-004.json",
+    "size": 514,
+    "sha256": "a417af4c843468db9206f16ab49cd6419b6c5e9e78939d6198ba548abfd20403"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/context-005.json",
+    "size": 518,
+    "sha256": "82660198412ceb7e054928f888bde5dce4ced7347749fdc27a2f1d643b505bf1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/context-007.json",
+    "size": 528,
+    "sha256": "ba4f7a0a593bbd3a793f75445c48f2c6aa9301fa79ac74cde82eb4b839465f1b"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/context-008.json",
+    "size": 528,
+    "sha256": "e95569a7793a20fd001809948b71ae9363a2203835925bb1d9c40aec52c8f6e3"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "eb29d27be930f04b5a34d7a01fec9773f874f74b899c2fa6efe5fe9419d695ca"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "eb29d27be930f04b5a34d7a01fec9773f874f74b899c2fa6efe5fe9419d695ca"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/desktop-menu-open.bmp",
+    "size": 3072054,
+    "sha256": "cd0d47d9e7960391e753a3dd973a2baf34821a93c545dea603d5a7b4c8281832"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/desktop-panel-open.bmp",
+    "size": 3072054,
+    "sha256": "f573d3b93b35506503abc8bc06fe01135bc27cbc9a3442b0fff9103b608f4a5f"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/original-state-before.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/original-state-immediate.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/original-state-open.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/original-state.json",
+    "size": 683,
+    "sha256": "bb0288f781606300368659a3bba3a78385002c3746e935d0030a5f7379b39d82"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/processes.jsonl",
+    "size": 2721,
+    "sha256": "4f1cfb16096fc374fff6117889c0c878140b5b695b5dec3af356ad8bab33763e"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/result.json",
+    "size": 449,
+    "sha256": "6c01646618973c3f29fc58a23671095d54f51cf7f8d57a95782980ce2d492605"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/skipped.jsonl",
+    "size": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/target-context-003.json",
+    "size": 213,
+    "sha256": "bc413b1fa5bee8601a87c7573b6eaadc70f68e6e5d12d7f71a82d3ce1bbb4b24"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/target-context-006.json",
+    "size": 213,
+    "sha256": "bc413b1fa5bee8601a87c7573b6eaadc70f68e6e5d12d7f71a82d3ce1bbb4b24"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/timeline.jsonl",
+    "size": 653,
+    "sha256": "f1f5df338ade2166fb967ab412ab002f8f5049ef985689299a8b9d9263832a4d"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/windows-after.jsonl",
+    "size": 6372,
+    "sha256": "4f73ae8915db3c9e74e3b9a064041acfd9501f811182ad5e239e040801301a38"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/windows-before.jsonl",
+    "size": 6372,
+    "sha256": "c7924dcee307a508c189c8578b38a6fd71bab1c823ca777f39c7e73666cca518"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/windows-menu-open.jsonl",
+    "size": 6627,
+    "sha256": "80b9594a3b206dc69a4678d37ca19f841ec63ed18fcab6994826b064df364fce"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/actions/05-about/windows-panel-open.jsonl",
+    "size": 6371,
+    "sha256": "d5df76305fcf31a4faa3ac912ed5a170ff8835a96c1b73698f34adc40b7c7cc3"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/capture/adapter-01.pcap",
+    "size": 349883,
+    "sha256": "5f84a114c29521b9d1dec46405e996be55a7b17163c4efb96bf1be1abc97b0f6"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/capture/adapters.jsonl",
+    "size": 493,
+    "sha256": "9a696fc6ed24863d874a5d24483bb0af05d75fe62471508bbb171452ba9a07d7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/capture/packets.jsonl",
+    "size": 1657368,
+    "sha256": "057b07eeaf8b28fc5535432692cf7c9322a5ad98629d4e17cca32fc3b2d7b9c2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/capture/status.json",
+    "size": 9539,
+    "sha256": "b2227bc08a03eebcbe09ea90692f357d28caf6621b09eb30168ed1901da2d829"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/capture/summary.json",
+    "size": 9540,
+    "sha256": "10e486afe6178ebd9078058da969c4b058e054f46c108eaf3bad9aec7537fba4"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/driver-before.json",
+    "size": 903,
+    "sha256": "ca41df0fd840c02ba8de872f17ce2a81d90324af7c6c13a5cbcb72d4fb44eff2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/proof.txt",
+    "size": 135,
+    "sha256": "77d1efe4f92cfc74e09826ded51c7e7680120afd505bec2bfac31c654886e3c1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/REPORT.html",
+    "size": 7793,
+    "sha256": "5287b6c425dc52be03e2308d101ffa85499169745bb8411fef6bf28d10927919"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/REPORT.txt",
+    "size": 755,
+    "sha256": "df78ca54728fbb573f3fe21633f2290966ccca670927894e03e812603f670084"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/result.json",
+    "size": 13162,
+    "sha256": "23edf1ee3bad563e778ece7349cff24eb3dd12a878489232818169474be8ba39"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/STOP",
+    "size": 39,
+    "sha256": "d1ddec1337daaa0f314d030e0da3e515a68d0af9ebc1290ff79f9226877a9df2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-46-25-78376/timeline.jsonl",
+    "size": 10723,
+    "sha256": "b384d6c561b4084022e6ecd0004f5e9cddf7b3a6227654e28202d198d35fa2fc"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/actions/00-preflight/desktop-after.bmp",
+    "size": 3072054,
+    "sha256": "1bd1bbd61f978050042bf70dc52bf2cd184a3102ebd8b8f0b02eb1bb99fc99fa"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/actions/00-preflight/desktop-before.bmp",
+    "size": 3072054,
+    "sha256": "d9072663f57efc9646f53aea8f1712b9407607acc898115c3388b3f57a5dc44c"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/actions/00-preflight/original-state-before.json",
+    "size": 685,
+    "sha256": "d8dbd30d52c991a831d1c9d70d61b23e7b513ca6a0c0be52f69a0c64b1e33230"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/actions/00-preflight/original-state.json",
+    "size": 685,
+    "sha256": "d8dbd30d52c991a831d1c9d70d61b23e7b513ca6a0c0be52f69a0c64b1e33230"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/actions/00-preflight/processes.jsonl",
+    "size": 3510,
+    "sha256": "3e87aff43f46b5ce1c404898498ae860747b6d569b8be08f551e3cf4877e7f94"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/actions/00-preflight/result.json",
+    "size": 339,
+    "sha256": "07b65874899fd9a93672447c3bdecef2be21caba14ec6e167f47d14b3d7890c3"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/actions/00-preflight/skipped.jsonl",
+    "size": 553,
+    "sha256": "fc026bc966590559f104815df3218c87d6bd6cab81d3efb8717dd8826278b6f1"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/actions/00-preflight/timeline.jsonl",
+    "size": 540,
+    "sha256": "526df9377976333afa073442725920e6f7068596b552c2f994be148bd3259d47"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/actions/00-preflight/windows-after.jsonl",
+    "size": 7231,
+    "sha256": "b15afa02981c0ce511dbb915dea425b7c44a7b46ff7e447ad4fde0210a74fbcf"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/actions/00-preflight/windows-before.jsonl",
+    "size": 7231,
+    "sha256": "b15afa02981c0ce511dbb915dea425b7c44a7b46ff7e447ad4fde0210a74fbcf"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/capture/adapter-01.pcap",
+    "size": 24,
+    "sha256": "acc530668c8bc60b2d229281130b1899bfc81d70fdada5c34b3236c628f739c8"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/capture/adapters.jsonl",
+    "size": 493,
+    "sha256": "9a696fc6ed24863d874a5d24483bb0af05d75fe62471508bbb171452ba9a07d7"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/capture/packets.jsonl",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/capture/status.json",
+    "size": 1610,
+    "sha256": "f5b200b333a669c9a06677ef658efbf91332168617e0805fe7a6f82db9e1c9a9"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/capture/summary.json",
+    "size": 1610,
+    "sha256": "4744734a4c58597d9964902eb584fe8f88fdd87f52a1e33886a2290de70a94d5"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/driver-before.json",
+    "size": 903,
+    "sha256": "ca41df0fd840c02ba8de872f17ce2a81d90324af7c6c13a5cbcb72d4fb44eff2"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/REPORT.html",
+    "size": 3023,
+    "sha256": "63fe38b3d7cfd336f8ff18fd22aa9f7f543e81bfa5cac6f6ed7450473981426a"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/REPORT.txt",
+    "size": 800,
+    "sha256": "a4cd7daadf87439104bf9331a483b46bfdd9d4ab0170cb68ade12c86b7b23f6c"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/result.json",
+    "size": 2328,
+    "sha256": "4cf0a6c424aecdfa447ff8639c734acbe6bfd3e5fab66eec015fa79217518c18"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/STOP",
+    "size": 39,
+    "sha256": "a69066e2635f2e4b70ff487b9e40b50e8d95aa483568c49fdc7c8dfeefee8fd6"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/timeline.jsonl",
+    "size": 1061,
+    "sha256": "d4dbb5950a509d37b1900a77ba204ad9ef9b056fbd2b7646611bf2ff5a646e91"
+  },
+  {
+    "path": "sessions/run-2026-10-31-18-7-3-13544/UI_STOP",
+    "size": 20,
+    "sha256": "fa4f831a2350fb96b320c471b1b270b5a11157f5ce9ec05d1f1d01f9d1e7afb7"
+  }
+]

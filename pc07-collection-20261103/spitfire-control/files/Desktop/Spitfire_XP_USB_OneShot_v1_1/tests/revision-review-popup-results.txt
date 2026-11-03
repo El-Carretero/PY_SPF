@@ -1,0 +1,20 @@
+PASS unchanged bound metadata permits recheck
+PASS input recheck cannot run before freezing
+PASS foreign process popup is not accepted
+PASS hidden popup is not accepted
+PASS unrecognized popup class is not accepted
+PASS failed identity inspector cannot freeze a popup
+PASS missing selected-layout evidence blocks freeze success
+PASS two valid original popups are ambiguous
+PASS extra original popup blocks even when only one validates
+PASS disappearing popup blocks input
+PASS replaced popup HWND blocks input
+PASS changed popup bounds block input
+PASS changed hit target blocks input
+PASS switched public menu identity blocks input
+PASS changed callback blocks input
+PASS changed item label blocks input
+PASS newly disabled target blocks input
+PASS changed native row metric blocks input
+PASS changed checked state blocks input
+19 independent popup envelope checks passed

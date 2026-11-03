@@ -1,0 +1,80 @@
+PASS VM View menu validates actual16pixel rows
+PASS Temperature hit is center of actualfourthrow
+PASS Caller process handle restored and not closed
+PASS Field View menu validates actual17pixel rows andnarrowerwidth
+PASS About requiresHelp menu andshow_help callback
+PASS File Exit neverbelongs toallowlist
+PASS Earlyfailurepreserves caller handle
+PASS Wrong publicmenutonativepopup binding blocks
+PASS Unexpected callback blocksentiremenu
+PASS Wrong publicitembarbacklink blocks
+PASS Public submenu blocks
+PASS Wrong publicitemparent blocks
+PASS Duplicate orwrong publictopmenuID blocks
+PASS Wrong itemcount blocks
+PASS Wrong windowhandlebacklink blocks
+PASS Wrong nativemenubacklink blocks
+PASS Wrong nativecallback blocks
+PASS Disabled entiremenu blocks
+PASS Disabled target blocks
+PASS Native submenu blocks
+PASS Separator blocksuniformrow assumption
+PASS Unexpected checkeditem blocks
+PASS Wrong label blocks
+PASS Negative packedrecordlength blocks
+PASS Oversized native label blocks
+PASS Scrolled firstrow blocks
+PASS Clipped lastrow blocks
+PASS Invalid rowheight blocks
+PASS Win32 versusnative geometrymismatch blocks
+PASS Offscreen menu blocks
+PASS Unreadable packedrecord blocks
+PASS Processreadfailure preserves callerhandle
+PASS Read-only fontcache derives View header
+PASS Header reader preserves caller handle
+PASS Narrow fieldfont derives Help at actual center
+PASS Initialized fixedwidth fontpath accepted
+PASS Initialized firstglyph bearing path accepted
+PASS Heading File is excluded before any input
+PASS Invalid nativebar binding blocks
+PASS Wrong View nativebinding blocks
+PASS Incorrect heading label blocks
+PASS Disabled heading blocks
+PASS Separator header blocks
+PASS Unreviewed rightside accessories block
+PASS Non-menubar native object blocks
+PASS Header outside top menu strip blocks
+PASS Exact native tracking sentinel preserves bounded headings
+PASS Nearby unreviewed native virtualwidth4095 blocks
+PASS Nearby unreviewed native virtualwidth4097 blocks
+PASS Virtual sentinel never permits headings beyond actualclient
+PASS Negative fontindex blocks runtimefallback
+PASS Uninitialized fontcache blocks
+PASS Uninitialized mono property blocks
+PASS Uninitialized metricflag blocks
+PASS Complex fontpath blocks
+PASS Italic fontpath blocks
+PASS Uninitialized glyphwidth blocks
+PASS Unsupported zero padding blocks
+PASS Empty submenu invalidates heading geometry
+PASS NonANSI GDI path uses exact legacy nativeAPI and actual width
+PASS Other native platform selects Point32 API
+PASS Native metric-correction flag selects exactGDI path
+PASS Hosted runtime GDI path blocks
+PASS Alternate runtime measurement mode blocks
+PASS Unreadable original HFONT blocks
+PASS Rotated logical font blocks
+PASS Local font clone creation failure blocks
+PASS Different cloned LOGFONT blocks and cleans
+PASS Local DC creation failure blocks and cleans
+PASS Nondefault DC mapmode blocks and cleans
+PASS Font selection failure blocks and cleans
+PASS Font metrics unequal to native cache block and clean
+PASS Charset inconsistent with original native font flag blocks
+PASS GDI measurement failure blocks and cleans
+PASS Native saturated too-short width blocks
+PASS Unbounded signed16 width blocks
+PASS Runtime mode changed during measure blocks
+PASS Native fontcache changed during measure blocks
+PASS Native HFONT LOGFONT changed during measure blocks
+79 native menu checks passed

@@ -1,0 +1,19 @@
+﻿검증 기록 (2026-09-17)
+
+수행한 검사
+- qemu-img check: No errors were found on the image.
+- VMDK: 20GiB, monolithicSparse, 부모 이미지 없음, 단일 파일 extent.
+- qemu-img map: 전체 가상 디스크 영역이 zero로 표시됨.
+- PowerShell에 기재된 디스크 SHA-256과 실제 템플릿 해시 일치.
+- VMX: 키 중복 없음, XP/BIOS/CPU 1개/RAM 1GB/IDE/Host-only 설정 확인.
+- ISO 자리 표시자 1개, 공백 및 한글 포함 Windows 경로의 단순 치환 확인.
+- PowerShell 소스 정적 검토 및 UTF-8 BOM/CRLF 저장 확인.
+- 압축 후 ZIP 무결성 검사 수행.
+
+검증하지 못한 항목
+- 실제 PowerShell 엔진에서 구문 검사 또는 실행.
+- Windows에서 VMware 설치 및 가상머신 시작.
+- 실제 XP ISO의 부팅, XP 설치, 장치 드라이버 인식.
+- Spitfire 설치/실행 및 네트워크 통신.
+
+이 패키지는 VM 준비 도우미이며 VMware/XP 설치 완료 결과물이 아닙니다.

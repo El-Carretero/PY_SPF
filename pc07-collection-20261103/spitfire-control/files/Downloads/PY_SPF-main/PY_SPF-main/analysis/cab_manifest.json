@@ -1,0 +1,317 @@
+[
+  {
+    "cab_name": "F324_HtmlWH.dll.418EB79A_933F_4406_9330_5F5078FF32FF",
+    "size": 85504,
+    "sha256": "658f99f3373b1d12752c660c686be2880c483380f41acae90cf9d71f6a216b78"
+  },
+  {
+    "cab_name": "Global_Controls_COMCATDLL_f0.3207D1B0_80E5_11D2_B95D_006097C4DE24",
+    "size": 22288,
+    "sha256": "96d04cdfaf4f4d7b8722b139a15074975d4c244302f78034b7be65df1a92fd03"
+  },
+  {
+    "cab_name": "Global_Controls_Comctl32ocx_f0.3207D1B4_80E5_11D2_B95D_006097C4DE24",
+    "size": 608448,
+    "sha256": "bf4147f8a12bec3d54e3ef941475e29d852a1876117c6ce88f47b882ef6d4a03"
+  },
+  {
+    "cab_name": "Global_Controls_Comdlg32ocx_f0.576D64B0_7413_11D2_B954_006097C4DE24",
+    "size": 140488,
+    "sha256": "64c6ee999562961d11af130254ad3ffd24bb725d3c18e7877f9fd362f4936195"
+  },
+  {
+    "cab_name": "Global_Controls_MSCOMCTLOCX_f0.3207D1B9_80E5_11D2_B95D_006097C4DE24",
+    "size": 1066176,
+    "sha256": "09f126e65d90026c3f659ff41b1287671b8cc1aa16240fc75dae91079a6b9712"
+  },
+  {
+    "cab_name": "Global_System_OLEAUT32_f2.8C0C59A0_7DC8_11D2_B95D_006097C4DE24",
+    "size": 147728,
+    "sha256": "de83c9d9203050b40c098e4143ef8f577aa90016c7a64d4f2931b57a4c43e566"
+  },
+  {
+    "cab_name": "Global_System_OLEAUT32_f3.8C0C59A0_7DC8_11D2_B95D_006097C4DE24",
+    "size": 598288,
+    "sha256": "baeb2f7c1b8be56738d34e1d1ddf8e0eebd3a633215dc1575e14656be38b939d"
+  },
+  {
+    "cab_name": "Global_System_OLEPRO32_f0.8C0C59A0_7DC8_11D2_B95D_006097C4DE24",
+    "size": 164112,
+    "sha256": "789c3c45eda1749bd939f4a96616e1e9ef1b7dcc62a2889f65088954c64d0938"
+  },
+  {
+    "cab_name": "Global_System_STDOLE_f1.8C0C59A0_7DC8_11D2_B95D_006097C4DE24",
+    "size": 17920,
+    "sha256": "6ea525bface5467c1045c3708f339a4b92a3a273f70656e061c7f7322c56d667"
+  },
+  {
+    "cab_name": "Global_VC_CPPRT60_f0.51D569E3_8A28_11D2_B962_006097C4DE24",
+    "size": 401462,
+    "sha256": "2b6b93c2d66969eb00258e2b5ad6172decebada096e3b1b077a3380c80e4a072"
+  },
+  {
+    "cab_name": "Global_VC_CRT_f0.51D569E0_8A28_11D2_B962_006097C4DE24",
+    "size": 278581,
+    "sha256": "887eb5ce93edb7192ca3e9220f07f9ca0f94db02af5862ebcbdfcb852db99fd1"
+  },
+  {
+    "cab_name": "Global_VC_MFC42ANSICore_f0.51D569E2_8A28_11D2_B962_006097C4DE24",
+    "size": 995383,
+    "sha256": "ec63a85030c60716acdcf060abfaa95a6a3528631622fa60e7d17fbea2f751f9"
+  },
+  {
+    "cab_name": "Global_Vba_VbRuntime_f0.1E64E430_36E0_11D2_A794_0060089A724B",
+    "size": 1388544,
+    "sha256": "5d5a5c66ee708ae768937ded1f577499095d8ba286e834155dcec39c41c8fe2d"
+  },
+  {
+    "cab_name": "OPCDAAuto.dll.27EC6D16_5415_4E72_B83E_7BAA28671A7F",
+    "size": 155648,
+    "sha256": "5fe8cb760aaba85ab871fb763f18f773230babb8758be1a1a97db890c76f056f"
+  },
+  {
+    "cab_name": "OPCDemo.exe4.0DED9891_8CB9_41F7_A2A0_A7E11270DB0A",
+    "size": 159744,
+    "sha256": "994b742c408d0535ab4935ae6f0525e52acbf1e083be5c6344a5a2c0e38b8b9d"
+  },
+  {
+    "cab_name": "Opcenum.exe.27EC6D16_5415_4E72_B83E_7BAA28671A7F",
+    "size": 60416,
+    "sha256": "183ce2db9350f8d078650dcbd4867da93ffa8a55f0b92493bd11e9c4ce0b18cf"
+  },
+  {
+    "cab_name": "SERVER.UIR",
+    "size": 5946,
+    "sha256": "75188db518d04a27e729ca01532695c618f64b3cff49f25b6f774e8311170d55"
+  },
+  {
+    "cab_name": "SPITFIRE.EXE",
+    "size": 271360,
+    "sha256": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b"
+  },
+  {
+    "cab_name": "SPITFIRE.EXE2",
+    "size": 271360,
+    "sha256": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b"
+  },
+  {
+    "cab_name": "SPITFIRE.UIR",
+    "size": 152636,
+    "sha256": "1c5b82a8cf528934bffffe0989a73312059b07a15fc3056df8fbeb41607bd67b"
+  },
+  {
+    "cab_name": "cviUSI.dll.0A12B0D3_94AF_489F_AA01_DDC6E268E50A",
+    "size": 102400,
+    "sha256": "58f7382f114f2736b94cb2854eeffb41a4ae24b420ab7635c7133ccf8d0519bc"
+  },
+  {
+    "cab_name": "cviauto.dll.0A12B0D3_94AF_489F_AA01_DDC6E268E50A",
+    "size": 352256,
+    "sha256": "234970e42cd0d80a8cb23182dd807f9f61ee21e5a5e039979c545e980ac51af8"
+  },
+  {
+    "cab_name": "cvierror.txt.0A12B0D3_94AF_489F_AA01_DDC6E268E50A",
+    "size": 8032,
+    "sha256": "b2e1a2edb4967e50f03b2d3f8c42e0fd3c71bf889f58a96f4a299fbea5433475"
+  },
+  {
+    "cab_name": "cvintwrk.dll.0A12B0D3_94AF_489F_AA01_DDC6E268E50A",
+    "size": 98304,
+    "sha256": "0d424c2ed357cd38bd13c0ec86e251d6cf967a0c3772b22c6dd64cba3d8e6b81"
+  },
+  {
+    "cab_name": "cvirt.dll1.0A12B0D3_94AF_489F_AA01_DDC6E268E50A",
+    "size": 45056,
+    "sha256": "7955b65d65f95133f5a2cab28ad2a9dea2086c060b9f385dfe47b886fe15b456"
+  },
+  {
+    "cab_name": "cvirt4.rsc.0A12B0D3_94AF_489F_AA01_DDC6E268E50A",
+    "size": 238615,
+    "sha256": "70779ada1197f16fa61fa17b9f49c8a79cbb113241c66ae17a2ef5e03d957fb4"
+  },
+  {
+    "cab_name": "cvirte.dll1.0A12B0D3_94AF_489F_AA01_DDC6E268E50A",
+    "size": 2224128,
+    "sha256": "d4151c53a2ecee4431ba88cd90d88db575f8ad18a6e48484501ff10a83c0db6d"
+  },
+  {
+    "cab_name": "cvirte.rsc.0A12B0D3_94AF_489F_AA01_DDC6E268E50A",
+    "size": 238615,
+    "sha256": "70779ada1197f16fa61fa17b9f49c8a79cbb113241c66ae17a2ef5e03d957fb4"
+  },
+  {
+    "cab_name": "cwds.chm1.0DED9891_8CB9_41F7_A2A0_A7E11270DB0A",
+    "size": 54425,
+    "sha256": "4dd289827106d760bb798950c27abbf72369dd4f7dc17f5bfdddc85dd8ba996e"
+  },
+  {
+    "cab_name": "cwds.dep.7E558351_CC99_490A_AE53_824DFFEF7D04",
+    "size": 457,
+    "sha256": "0d80d7c5bd8c9b69deaf971a7ec28327d452623fdd6aa29632d4dc6a6e3ed33a"
+  },
+  {
+    "cab_name": "cwds.ocx.7E558351_CC99_490A_AE53_824DFFEF7D04",
+    "size": 32768,
+    "sha256": "33f35d65151ac40eef8b174fd50e971a0a3ac69e5dd7bd83272cb96735ba8597"
+  },
+  {
+    "cab_name": "cwdss.exe.0DED9891_8CB9_41F7_A2A0_A7E11270DB0A",
+    "size": 684032,
+    "sha256": "d7872e04ca18c3728d439b1bbbd19513b24430030627e1a0bf2da36787fefe73"
+  },
+  {
+    "cab_name": "cwdss.exe.manifest.0DED9891_8CB9_41F7_A2A0_A7E11270DB0A",
+    "size": 702,
+    "sha256": "a02116d31274420d35317e2de7c8f23cb185da43d2ed83caf12bbd2695fd6204"
+  },
+  {
+    "cab_name": "cwdssini.dss2.0DED9891_8CB9_41F7_A2A0_A7E11270DB0A",
+    "size": 5180,
+    "sha256": "6d07deb5399c3e3048b3ebfd5ac5185dadbf322c8e63590cea2f204fb175361a"
+  },
+  {
+    "cab_name": "cwdssmgr.exe3.0DED9891_8CB9_41F7_A2A0_A7E11270DB0A",
+    "size": 319488,
+    "sha256": "5dc5bd6c1992eb81330dba7ffae883dd18b9f2f449b281f67a8c6da152763419"
+  },
+  {
+    "cab_name": "cwui.dep.058B041E_15EB_408B_ABBE_88DE9D7604A0",
+    "size": 304,
+    "sha256": "164b108aa720a744062c3275361012bcd4ac97503ae7f1c4330a6d1cac90ae79"
+  },
+  {
+    "cab_name": "cwui.ocx.058B041E_15EB_408B_ABBE_88DE9D7604A0",
+    "size": 2327048,
+    "sha256": "20e7740eb66d2989d8c8c5bcb17b41e01c3ecc876bc2447743e1d8dc866f1e98"
+  },
+  {
+    "cab_name": "dataskt.dll.0A12B0D3_94AF_489F_AA01_DDC6E268E50A",
+    "size": 126976,
+    "sha256": "f7728f1c887ebd526d41ffea9abdc67b6be8613f1bf2d61d7f14f48b49cea75a"
+  },
+  {
+    "cab_name": "icudt24l.dll.1608B7AB_A1A2_43B4_8A7F_C1C51840FD3E",
+    "size": 3198976,
+    "sha256": "df0094faaaaf7889cb4e96ef3b647a57343414b339cd10fd3b4c08bb32f869bd"
+  },
+  {
+    "cab_name": "icuuc24.dll.1608B7AB_A1A2_43B4_8A7F_C1C51840FD3E",
+    "size": 540672,
+    "sha256": "cd7890b4c9eaad673e86ac901cded665bc80cd385273bc109cf1db25a59505fa"
+  },
+  {
+    "cab_name": "lkbrow.dll.BF5238DA_DE56_11D3_8AD7_006008C16337",
+    "size": 122943,
+    "sha256": "2fe832dee63f42686dff10dd5b5a990f394bb3f1008571e646e3974f85c57979"
+  },
+  {
+    "cab_name": "lkdynam.dll.BF5238DA_DE56_11D3_8AD7_006008C16337",
+    "size": 233536,
+    "sha256": "76f6fdad02506a634835710a8e103030edfcd3e026c0acb8bd7fcedad2b9e98f"
+  },
+  {
+    "cab_name": "lkhist.dll.BF5238DA_DE56_11D3_8AD7_006008C16337",
+    "size": 745535,
+    "sha256": "55c15fa2a9785a40b556389aa5957f208e56ad758402918516adf95d0b8fdf69"
+  },
+  {
+    "cab_name": "lkmgrtn.dll.BF5238DA_DE56_11D3_8AD7_006008C16337",
+    "size": 188480,
+    "sha256": "2f9c20f8c9bf1f1345784af1481a37ebfcbf681a3a7a8cc235f70fd3a1db83d1"
+  },
+  {
+    "cab_name": "lkobenv.dll.BF5238DA_DE56_11D3_8AD7_006008C16337",
+    "size": 290880,
+    "sha256": "37eed80c6d71482919e933da775b5929bdb675b1c2d39d244405dd9e7e6786c6"
+  },
+  {
+    "cab_name": "lkproc.dll.BF5238DA_DE56_11D3_8AD7_006008C16337",
+    "size": 106559,
+    "sha256": "09ea4d5188d92d4ce0aacf29b6986bb87e7c82f8327ea579709089aa33790ef5"
+  },
+  {
+    "cab_name": "lkrealt.dll.BF5238DA_DE56_11D3_8AD7_006008C16337",
+    "size": 311360,
+    "sha256": "fc1e49ad965ee57df400e41362e00f1c017405bed37d6c1f0795ae97bbf5043d"
+  },
+  {
+    "cab_name": "lksec.dll.BF5238DA_DE56_11D3_8AD7_006008C16337",
+    "size": 237630,
+    "sha256": "9665e20d5a0299d2412a66fdae40085cddbcee6ad2c253a43d3c5e1019020c73"
+  },
+  {
+    "cab_name": "lksock.dll.BF5238DA_DE56_11D3_8AD7_006008C16337",
+    "size": 479295,
+    "sha256": "9de86b2e2e476f7fe3ce7a2d8c1f5b339b5fe650afd8302661a6ee4ef96ee892"
+  },
+  {
+    "cab_name": "mesa.dll.6FE8CEDD_964F_47A2_8F23_5A607953B235",
+    "size": 872507,
+    "sha256": "506f7a59fb7f37d406617db83b83ebeb1d28e45505deb79b793a915a5b00e8f7"
+  },
+  {
+    "cab_name": "msgrt4.txt.0A12B0D3_94AF_489F_AA01_DDC6E268E50A",
+    "size": 41634,
+    "sha256": "aabbd948da3bb58b3ddf595108759e4cdc40ed5bd9788bb3194ca8ad0b41c0b0"
+  },
+  {
+    "cab_name": "msgrte.txt.0A12B0D3_94AF_489F_AA01_DDC6E268E50A",
+    "size": 41634,
+    "sha256": "aabbd948da3bb58b3ddf595108759e4cdc40ed5bd9788bb3194ca8ad0b41c0b0"
+  },
+  {
+    "cab_name": "ni7seg.ttf1.0A12B0D3_94AF_489F_AA01_DDC6E268E50A",
+    "size": 25160,
+    "sha256": "e44341af524376fadc7ffcaa3d7a189aee4f693efa87e8db3cf1ec420c07a6cf"
+  },
+  {
+    "cab_name": "nids.dep.7E558351_CC99_490A_AE53_824DFFEF7D04",
+    "size": 457,
+    "sha256": "84c591091f2d220be2ebb3ff55043e783cf51a281329b312bba004fbe051b7d3"
+  },
+  {
+    "cab_name": "nids.dll.7E558351_CC99_490A_AE53_824DFFEF7D04",
+    "size": 828784,
+    "sha256": "3643cf234439fd1c98f8eea331b8e671fa701b3929da3a4308422397fc4cf504"
+  },
+  {
+    "cab_name": "nidscmem.dll.BF5238DA_DE56_11D3_8AD7_006008C16337",
+    "size": 24641,
+    "sha256": "fd2092a4bef50d5b2e9d5c553b98bb253d6f122d31c0437e62d913ea584c6c1e"
+  },
+  {
+    "cab_name": "nidslk.dll.7E558351_CC99_490A_AE53_824DFFEF7D04",
+    "size": 86016,
+    "sha256": "25d8c2e8018023b49df6aa6a0d0c33478597a34435c7fa306f215d1b4f7de99d"
+  },
+  {
+    "cab_name": "nidss.chm.0DED9891_8CB9_41F7_A2A0_A7E11270DB0A",
+    "size": 53887,
+    "sha256": "471a6e60ab6eb0c7f90614c1f9afca19b5ea58257c4f000c6d1e014d565e6c0f"
+  },
+  {
+    "cab_name": "ninetbrw.ocx.22EFAA12_77DF_41A9_B343_E69E516FC03A",
+    "size": 352256,
+    "sha256": "d36c580104d10614e8353040968bf4d5db369baf5c1584158e43674dcf4b8200"
+  },
+  {
+    "cab_name": "nisystem.ttf2.0A12B0D3_94AF_489F_AA01_DDC6E268E50A",
+    "size": 49588,
+    "sha256": "18b85d7f10fa7d8b3914ab75242f9147dc3fbdd165abd84fdd5ab94a1bc09fea"
+  },
+  {
+    "cab_name": "opc_aeps.dll.27EC6D16_5415_4E72_B83E_7BAA28671A7F",
+    "size": 45056,
+    "sha256": "db48d763688c3912edb0a891ccd12948224633133ac7da75cc9bc214da4c631e"
+  },
+  {
+    "cab_name": "opccomn_ps.dll.27EC6D16_5415_4E72_B83E_7BAA28671A7F",
+    "size": 61440,
+    "sha256": "ba6b6788b3fbb6768558295f87342ecfbfe3fee9a1b9169966e71ee2f1010488"
+  },
+  {
+    "cab_name": "opcproxy.dll.27EC6D16_5415_4E72_B83E_7BAA28671A7F",
+    "size": 77824,
+    "sha256": "9695acee5a588ba25586696b9125889351f7f455de22851c66dc2cc9c507814c"
+  }
+]

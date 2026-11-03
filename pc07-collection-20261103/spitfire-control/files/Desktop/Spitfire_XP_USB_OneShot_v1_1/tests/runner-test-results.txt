@@ -1,0 +1,45 @@
+PASS successful normal-user pass keeps the original mode and checks five fixed screens
+PASS initial service display is preserved with one screen pass
+PASS missing driver is provisioned and probed again
+PASS existing incompatible driver is never replaced
+PASS failed installation prevents capture and UI
+PASS Opt-out OFF native preflight failure retains capture only
+PASS missing original native preflight failure retains capture only
+PASS no bidirectional traffic prevents every input action
+PASS two failed status reads retain the actual native timestamp without renewing it
+PASS third consecutive status read failure stops further UI
+PASS atomic publisher hard failure blocks input and never creates a valid proof
+PASS publisher sharing result preserves existing proof and refuses missing old proof
+PASS generic runner failure signals an active UI child and capture immediately
+PASS action timeout requests graceful stop before terminating the helper
+PASS observed state command stops subsequent UI
+PASS UI guard failure stops subsequent actions
+PASS missing action result prevents successful completion
+PASS changed original PID in action evidence stops subsequent UI
+PASS Opt-out OFF in action evidence stops subsequent UI
+PASS changed access mode in action evidence stops subsequent UI
+PASS capture early failure is not a completed run
+PASS collector death stops an active UI child on the next poll despite fresh stale status
+PASS capture final nonzero exit is not a completed run
+PASS missing capture summary is not a completed run
+PASS capture output error is not a completed run
+PASS missing final replies is not a completed run
+PASS failed PCAP reopening validation is not a completed run
+PASS report error cannot leave result.json marked completed
+PASS explicit stop before any action prevents all inputs
+PASS real field native86 remains an actionable failure, not missing evidence
+PASS new native failure detail survives into the saved top-level result
+PASS real field preflight identifies the already open original auxiliary windows
+PASS missing optional window inventory does not hide a confirmed preflight failure
+PASS native result exit0 cannot conceal a failed native process exit86
+PASS native failure result cannot be accepted when the process claims success
+PASS malformed action JSON is still unconfirmed evidence
+PASS action evidence for the wrong mode is rejected
+PASS successful preflight requires a valid original identity and ready evidence
+PASS capture write detection stays primary over a simultaneous native UI failure
+PASS status snapshot failures never read an old private copy as a fresh sample
+PASS FSO status stream closes even when ReadAll throws
+PASS status snapshot preserves source timestamp and source bytes
+PASS native snapshot failure before any valid status prevents all UI input
+PASS snapshot helper is not launched before capture exists
+{"tests":44,"passed":44,"failed":0}

@@ -1,0 +1,127 @@
+#include <wchar.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+typedef uint32_t DWORD;typedef wchar_t WCHAR;typedef unsigned char BYTE;typedef intptr_t HANDLE;
+typedef struct{DWORD dwLowDateTime,dwHighDateTime;} FILETIME;
+typedef struct{DWORD dwFileAttributes;FILETIME ftLastWriteTime;DWORD nFileSizeHigh,nFileSizeLow;} BY_HANDLE_FILE_INFORMATION;
+#define MAX_PATH 260
+#define INVALID_FILE_ATTRIBUTES 0xffffffffu
+#define FILE_ATTRIBUTE_DIRECTORY 16
+#define FILE_ATTRIBUTE_REPARSE_POINT 1024
+#define FILE_ATTRIBUTE_NORMAL 128
+#define FILE_FLAG_OPEN_REPARSE_POINT 0x00200000
+#define MOVEFILE_REPLACE_EXISTING 1
+#define MOVEFILE_WRITE_THROUGH 8
+#define ERROR_SHARING_VIOLATION 32
+#define ERROR_LOCK_VIOLATION 33
+#define ERROR_ACCESS_DENIED 5
+#define ERROR_FILE_NOT_FOUND 2
+#define GENERIC_READ 0x80000000u
+#define GENERIC_WRITE 0x40000000u
+#define FILE_SHARE_READ 1
+#define FILE_SHARE_WRITE 2
+#define FILE_SHARE_DELETE 4
+#define OPEN_EXISTING 3
+#define CREATE_ALWAYS 2
+#define FILE_TYPE_DISK 1
+#define INVALID_HANDLE_VALUE ((HANDLE)-1)
+static BYTE input[524290],output[524290];
+static DWORD last_error,opens[3],moves[3],input_size,offset,output_size;
+static int open_calls,move_calls,sleeps,read_closes,write_closes,read_calls,write_calls,info_calls;
+static int bad_type,bad_info,read_failure,write_failure,flush_failure,read_close_failure,write_close_failure;
+static int source_kind,target_kind,temp_kind,change_size,change_stamp,extra_byte,early_eof,short_read,short_write,output_open_failure;
+static int old_target,checks;
+static int lstrcmpiW(const WCHAR*a,const WCHAR*b){return wcscmp(a,b);}
+static WCHAR*lstrcpynW(WCHAR*a,const WCHAR*b,int n){wcsncpy(a,b,n);a[n-1]=0;return a;}
+static DWORD GetFullPathNameW(const WCHAR*a,DWORD n,WCHAR*b,WCHAR**leaf){if(wcslen(a)>=n)return n;wcscpy(b,a);*leaf=wcsrchr(b,L'\\')+1;return (DWORD)wcslen(a);}
+static DWORD GetFileAttributesW(const WCHAR*p){return wcsstr(p,L"writing")?(DWORD)temp_kind:(DWORD)target_kind;}
+static DWORD GetLastError(void){return last_error;}
+static void Sleep(DWORD ms){if(ms!=20)abort();sleeps++;}
+static HANDLE CreateFileW(const WCHAR*p,DWORD access,DWORD share,void*sa,DWORD disposition,DWORD flags,void*template){
+ (void)sa;(void)template;
+ if(access==GENERIC_READ){
+  if(!wcsstr(p,L"\\capture\\status.json")||share!=7||disposition!=OPEN_EXISTING||flags!=(FILE_ATTRIBUTE_NORMAL|FILE_FLAG_OPEN_REPARSE_POINT))abort();
+  last_error=opens[open_calls++];return last_error?INVALID_HANDLE_VALUE:1;
+ }
+ if(access!=GENERIC_WRITE||share||disposition!=CREATE_ALWAYS||!wcsstr(p,L"capture-status-writing.tmp"))abort();
+ if(read_closes!=1)abort();
+ return output_open_failure?INVALID_HANDLE_VALUE:2;
+}
+static DWORD GetFileType(HANDLE h){(void)h;return bad_type?0:FILE_TYPE_DISK;}
+static int GetFileInformationByHandle(HANDLE h,BY_HANDLE_FILE_INFORMATION*i){
+ if(bad_info)return 0;memset(i,0,sizeof(*i));
+ if(h==1){info_calls++;i->dwFileAttributes=(DWORD)source_kind;i->nFileSizeLow=input_size+(change_size&&info_calls>1);i->ftLastWriteTime.dwLowDateTime=17+(change_stamp&&info_calls>1);}
+ return 1;
+}
+static int ReadFile(HANDLE h,void*p,DWORD size,DWORD*got,void*overlapped){
+ (void)overlapped;if(h!=1)abort();read_calls++;if(read_failure)return 0;
+ if(early_eof){*got=0;return 1;}
+ if(offset>=input_size){*got=extra_byte?1:0;return 1;}
+ *got=size<input_size-offset?size:input_size-offset;if(short_read&&*got>7)*got=7;
+ memcpy(p,input+offset,*got);offset+=*got;return 1;
+}
+static int WriteFile(HANDLE h,const void*p,DWORD size,DWORD*got,void*overlapped){
+ (void)overlapped;if(h!=2)abort();write_calls++;if(write_failure)return 0;
+ *got=size;if(short_write&&*got>7)*got=7;memcpy(output+output_size,p,*got);output_size+=*got;return 1;
+}
+static int FlushFileBuffers(HANDLE h){if(h!=2)abort();return !flush_failure;}
+static int CloseHandle(HANDLE h){if(h==1){read_closes++;return !read_close_failure;}if(h==2){write_closes++;return !write_close_failure;}abort();}
+static int MoveFileExW(const WCHAR*a,const WCHAR*b,DWORD flags){
+ (void)a;(void)b;if(flags!=9)abort();last_error=moves[move_calls++];
+ if(!last_error)old_target=0;return !last_error;
+}
+
+@NATIVE_FUNCTIONS@
+
+static WCHAR*args[]={L"proof_publish.exe",L"--snapshot",L"C:\\SpitfireLogs\\run-1\\capture\\status.json",L"C:\\SpitfireLogs\\run-1\\capture-status.json"};
+static void reset(void){
+ memset(opens,0,sizeof(opens));memset(moves,0,sizeof(moves));last_error=0;
+ open_calls=move_calls=sleeps=read_closes=write_closes=read_calls=write_calls=info_calls=0;
+ bad_type=bad_info=read_failure=write_failure=flush_failure=read_close_failure=write_close_failure=0;
+ source_kind=target_kind=temp_kind=change_size=change_stamp=extra_byte=early_eof=short_read=short_write=output_open_failure=0;
+ old_target=1;offset=output_size=0;const char*s="{\"updated_tick\":1234,\"ui_ready\":true}\r\n";input_size=(DWORD)strlen(s);memcpy(input,s,input_size);
+}
+static void expect(int rc,int expected,const char*name){checks++;if(rc!=expected){fprintf(stderr,"FAIL %s rc%d expected%d\n",name,rc,expected);exit(1);}}
+static void failed(int expected,const char*name){expect(snapshot(4,args),expected,name);if(!old_target){fprintf(stderr,"FAIL %s changed old snapshot\n",name);exit(1);}}
+int main(void){
+ reset();expect(snapshot(4,args),0,"fresh exact snapshot");if(old_target||input_size!=output_size||memcmp(input,output,input_size)||read_closes!=1||write_closes!=1)return 1;
+ reset();opens[0]=32;expect(snapshot(4,args),0,"retry sharing read");if(sleeps!=1||open_calls!=2)return 1;
+ reset();opens[0]=opens[1]=opens[2]=2;failed(1,"missing source exhausted");if(open_calls!=3||sleeps!=2||read_calls||write_calls)return 1;
+ reset();opens[0]=opens[1]=opens[2]=5;failed(2,"denied source exhausted");
+ reset();opens[0]=87;failed(2,"permanent open failure");if(open_calls!=1||sleeps)return 1;
+ reset();input_size=0;failed(2,"empty source");if(read_closes!=1||write_calls)return 1;
+ reset();input_size=524289;failed(2,"oversized source");if(read_calls||write_calls)return 1;
+ reset();input_size=524288;memset(input,'A',input_size);expect(snapshot(4,args),0,"exact size bound");if(output_size!=input_size||memcmp(input,output,input_size))return 1;
+ reset();source_kind=FILE_ATTRIBUTE_DIRECTORY;failed(2,"source directory");
+ reset();source_kind=FILE_ATTRIBUTE_REPARSE_POINT;failed(2,"source reparse");
+ reset();bad_type=1;failed(2,"source nondisk");
+ reset();bad_info=1;failed(2,"source info failure");
+ reset();change_size=1;failed(2,"source size changed");
+ reset();change_stamp=1;failed(2,"source timestamp changed");
+ reset();extra_byte=1;failed(2,"source grew beyond size");
+ reset();early_eof=1;failed(2,"source short EOF");
+ reset();read_failure=1;failed(2,"source read error");if(read_closes!=1)return 1;
+ reset();short_read=1;expect(snapshot(4,args),0,"partial reads exact bytes");if(input_size!=output_size||memcmp(input,output,input_size))return 1;
+ reset();read_close_failure=1;failed(2,"source close error");if(write_calls)return 1;
+ reset();target_kind=FILE_ATTRIBUTE_REPARSE_POINT;failed(2,"target reparse");
+ reset();temp_kind=FILE_ATTRIBUTE_DIRECTORY;failed(2,"temp directory");
+ reset();output_open_failure=1;failed(2,"temp open error");
+ reset();write_failure=1;failed(2,"temp write error");if(write_closes!=1)return 1;
+ reset();flush_failure=1;failed(2,"temp flush error");
+ reset();write_close_failure=1;failed(2,"temp close error");
+ reset();short_write=1;expect(snapshot(4,args),0,"partial writes exact bytes");if(input_size!=output_size||memcmp(input,output,input_size))return 1;
+ reset();moves[0]=32;expect(snapshot(4,args),0,"retry snapshot replace");if(sleeps!=1||move_calls!=2)return 1;
+ reset();moves[0]=moves[1]=moves[2]=32;failed(1,"replace sharing exhausted");if(move_calls!=3||sleeps!=2)return 1;
+ reset();moves[0]=moves[1]=moves[2]=5;failed(2,"replace access denied exhausted");
+ reset();moves[0]=87;failed(2,"replace permanent failure");
+ reset();WCHAR*bad[]={L"x",L"--snapshot",L"C:\\wrong\\capture\\status.json",L"C:\\other\\capture-status.json"};expect(snapshot(4,bad),2,"different run root");if(open_calls)return 1;
+ reset();bad[2]=L"capture\\status.json";expect(snapshot(4,bad),2,"relative source");
+ reset();bad[2]=L"C:\\other\\capture\\proof.txt";expect(snapshot(4,bad),2,"wrong source leaf");
+ reset();bad[2]=args[2];bad[3]=L"C:\\SpitfireLogs\\run-1\\capture-status.json:ads";expect(snapshot(4,bad),2,"wrong target leaf");
+ reset();expect(snapshot(3,args),2,"bad argc");
+ reset();bad[1]=L"--read";expect(snapshot(4,bad),2,"wrong mode");
+ reset();WCHAR*pub[]={L"x",L"C:\\run\\proof.tmp",L"C:\\run\\proof.txt"};expect(publish(3,pub),0,"original publisher still callable");
+ printf("%d status snapshot contract checks passed\n",checks);return 0;
+}

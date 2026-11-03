@@ -1,0 +1,8 @@
+locked_return=2
+locked_old_content=old
+success_return=0
+success_new_content=new
+missing_source_return=2
+invalid_name_return=2
+probe_return=0
+probe_elapsed_seconds=29.42188

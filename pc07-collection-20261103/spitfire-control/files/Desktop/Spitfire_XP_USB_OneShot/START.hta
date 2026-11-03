@@ -1,0 +1,18 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Spitfire 로그 수집 준비</title><hta:application id="boot" singleinstance="yes" scroll="no" border="dialog" maximizebutton="no" />
+<script language="JScript">
+function bootRun(){
+ var f=new ActiveXObject('Scripting.FileSystemObject'),s=new ActiveXObject('WScript.Shell');
+ try {
+  var p=decodeURIComponent(location.pathname).replace(/\//g,'\\');if(p.charAt(0)=='\\')p=p.substr(1);
+  var source=f.GetParentFolderName(p),base=s.ExpandEnvironmentStrings('%SystemDrive%')+'\\SpitfireLogs';
+  if(f.GetDrive(s.ExpandEnvironmentStrings('%SystemDrive%')).FreeSpace<500*1024*1024)throw new Error('결과 저장을 위해 시스템 드라이브에 500 MB 이상의 여유 공간이 필요합니다.');if(!f.FolderExists(base))f.CreateFolder(base);
+  var d=new Date(),name='run-'+d.getUTCFullYear()+'-'+(d.getUTCMonth()+1)+'-'+d.getUTCDate()+'-'+d.getUTCHours()+'-'+d.getUTCMinutes()+'-'+d.getUTCSeconds()+'-'+Math.floor(Math.random()*100000);
+  var dest=base+'\\'+name;f.CreateFolder(dest);f.CreateFolder(dest+'\\app');
+  var dirs=['bin','payload','docs'];for(var i=0;i<dirs.length;i++)f.CopyFolder(source+'\\'+dirs[i],dest+'\\app\\'+dirs[i]);
+  f.CopyFile(source+'\\RUN.hta',dest+'\\app\\RUN.hta');f.CopyFile(source+'\\runner.js',dest+'\\app\\runner.js');
+  f.CopyFile(source+'\\report.js',dest+'\\app\\report.js');f.CopyFile(source+'\\SHA256SUMS.txt',dest+'\\app\\SHA256SUMS.txt');
+  s.Run('"'+s.ExpandEnvironmentStrings('%SystemRoot%')+'\\system32\\mshta.exe" "'+dest+'\\app\\RUN.hta"',1,false);window.close();
+ }catch(e){document.getElementById('msg').innerText='준비 실패: '+e.message+'\r\n관리자 계정과 C: 드라이브 쓰기 권한을 확인하세요. 장비에는 명령을 보내지 않았습니다.';}
+}
+</script></head><body onload="window.resizeTo(570,240);bootRun()" style="font-family:Arial,sans-serif"><h3>Spitfire 1회 로그 수집</h3><p id="msg">USB의 실행 파일을 PC의 SpitfireLogs 폴더로 복사하고 있습니다.</p></body></html>

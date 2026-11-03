@@ -1,0 +1,27 @@
+{
+  "test": "exact native-C parser replay + offline boundary/fail-closed cases",
+  "passed": true,
+  "fixture": "/workspace/spitfire-evidence/original.pcap",
+  "fixture_sha256": "5ea50730103796b16a8d1bb1d44fdfcddfd4c901e7835b910d5e848a60883608",
+  "fixture_provenance": "previous XP original-program requests / simulator-generated replies; not physical controller",
+  "frames": 46666,
+  "command_packets": 20148,
+  "response_packets": 20148,
+  "request_and_response_tag_counts_match_independent_audit": true,
+  "write_commands_detected": 14,
+  "first_write_tag": 2047,
+  "checks": [
+    "all actual frames, counts and per-tag counts",
+    "unique bidirectional pair",
+    "no replies fails closed",
+    "freshness and tick wrap",
+    "duplicate adapter ambiguity",
+    "nonlocal traffic exclusion",
+    "all request truncations",
+    "VLAN single/double",
+    "fragment exclusion",
+    "malformed/unknown tag rejection",
+    "multiple write tags per packet and permanent UI-stop latch"
+  ],
+  "limitation": "Does not validate a live WinPcap driver or physical controller."
+}

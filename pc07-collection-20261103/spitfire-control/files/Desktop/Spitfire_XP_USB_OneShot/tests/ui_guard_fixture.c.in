@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <stdlib.h>
+typedef uint32_t DWORD;
+typedef FILE *HANDLE;
+#define GENERIC_READ 0x80000000u
+#define FILE_SHARE_READ 1
+#define FILE_SHARE_WRITE 2
+#define FILE_SHARE_DELETE 4
+#define OPEN_EXISTING 3
+#define FILE_ATTRIBUTE_NORMAL 128
+#define INVALID_HANDLE_VALUE ((HANDLE)(intptr_t)-1)
+static DWORD now=10000,original_pid=42,proof_tick;
+static int initial_access=-1;
+static const char *proof_path=TEST_PROOF_PATH;
+static DWORD GetTickCount(void){return now;}
+static int open_handles,read_failure,read_chunk,copy_count;static const char *replace_during_copy;
+static HANDLE CreateFileA(const char *path,DWORD access,DWORD share,void *security,DWORD creation,DWORD flags,void *template_file){
+ if(access!=GENERIC_READ||share!=(FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE)||security||creation!=OPEN_EXISTING||flags!=FILE_ATTRIBUTE_NORMAL||template_file){fprintf(stderr,"FAIL shared read-only snapshot flags\n");exit(1);}
+ FILE *f=fopen(path,"rb");if(!f)return INVALID_HANDLE_VALUE;open_handles++;return f;
+}
+static int ReadFile(HANDLE f,void *data,DWORD length,DWORD *got,void *overlapped){
+ if(open_handles!=1||overlapped){fprintf(stderr,"FAIL invalid read handle\n");exit(1);}
+ if(read_failure){*got=0;return 0;}if(read_chunk&&length>(DWORD)read_chunk)length=(DWORD)read_chunk;
+ *got=(DWORD)fread(data,1,length,f);return !ferror(f);
+}
+static int CloseHandle(HANDLE f){if(open_handles!=1){fprintf(stderr,"FAIL handle close\n");exit(1);}open_handles--;return !fclose(f);}
+static FILE *openout(const char*a,const char*b){
+ (void)a;(void)b;copy_count++;if(open_handles){fprintf(stderr,"FAIL proof handle held across evidence I/O\n");exit(1);}
+ if(replace_during_copy){FILE*f=fopen(proof_path,"wb");fputs(replace_during_copy,f);fclose(f);replace_during_copy=NULL;}return NULL;
+}
+static int sleeps,cancel_flag; static const char*replacement;
+static int cancelled(void){return cancel_flag;}
+static void Sleep(DWORD ms){sleeps++;now+=ms;if(replacement){FILE*f=fopen(proof_path,"wb");fputs(replacement,f);fclose(f);replacement=NULL;}}
+/* NATIVE_GUARD */
+static int count;
+static void check_bytes(const char*text,size_t bytes,int want,const char*name){FILE*f=fopen(proof_path,"wb");fwrite(text,1,bytes,f);fclose(f);int got=capture_proof();if(got!=want||open_handles){fprintf(stderr,"FAIL %s: %d expected %d handles %d\n",name,got,want,open_handles);exit(1);}count++;}
+static void check(const char*text,int want,const char*name){check_bytes(text,strlen(text),want,name);}
+int main(void){
+#define BASE "schema=spitfire-passive-v1\nui_ready=1\nwrite_commands=0\nobserved_pairs=1\nupdated_tick=9000\noriginal_pid=42\ninitial_access=0\n"
+check(BASE,1,"valid");
+check(BASE"ui_ready=1\n",0,"duplicate");
+check(BASE"unexpected=value\n",0,"unknown");
+check("schema=spitfire-passive-v1\n",0,"missing");
+check("schema=spitfire-passive-v1\nui_ready=0\nwrite_commands=0\nobserved_pairs=1\nupdated_tick=9000\noriginal_pid=42\ninitial_access=0\n",0,"notready");
+check("schema=spitfire-passive-v1\nui_ready=1\nwrite_commands=1\nobserved_pairs=1\nupdated_tick=9000\noriginal_pid=42\ninitial_access=0\n",0,"write");
+check("schema=spitfire-passive-v1\nui_ready=1\nwrite_commands=0\nobserved_pairs=2\nupdated_tick=9000\noriginal_pid=42\ninitial_access=0\n",0,"ambiguous");
+check("schema=spitfire-passive-v1\nui_ready=1\nwrite_commands=0\nobserved_pairs=1\nupdated_tick=9000\noriginal_pid=43\ninitial_access=0\n",0,"pid");
+check("schema=spitfire-passive-v1\nui_ready=1\nwrite_commands=0\nobserved_pairs=1\nupdated_tick=9000\noriginal_pid=42\ninitial_access=2\n",0,"access");
+now=14000;check(BASE,1,"5sec_boundary");now=14001;check(BASE,0,"stale");now=8999;check(BASE,0,"future");
+now=10;check("schema=spitfire-passive-v1\nui_ready=1\nwrite_commands=0\nobserved_pairs=1\nupdated_tick=4294967290\noriginal_pid=42\ninitial_access=1\n",1,"tickwrap");
+DWORD v;const char*bad[]={"","-1","1x","4294967296","99999999999999999999999999999999999999999999"};for(unsigned i=0;i<sizeof(bad)/sizeof(bad[0]);i++){if(decimal(bad[i],&v)){fprintf(stderr,"FAIL decimal %s\n",bad[i]);return 1;}count++;}
+if(!decimal("4294967295",&v)||v!=4294967295u)return 1;count++;
+sleeps=0;now=10000;replacement=BASE;remove(proof_path);if(!capture_proof()||sleeps!=1)return 1;count++;
+sleeps=0;replacement=BASE;check("schema=spitfire-passive-v1\n",1,"replace_incomplete");if(sleeps!=1)return 1;
+sleeps=0;replacement=NULL;check("schema=WRONG\n",0,"invalid_no_retry");if(sleeps)return 1;
+cancel_flag=1;sleeps=0;check(BASE,0,"cancelled");if(sleeps)return 1;cancel_flag=0;
+now=10000;read_chunk=3;check(BASE,1,"bounded_partial_reads");read_chunk=0;
+sleeps=0;read_failure=1;check(BASE,0,"read_error_closes_and_retries");if(sleeps!=2)return 1;read_failure=0;
+char oversized[4097];memset(oversized,'x',sizeof(oversized));sleeps=0;check_bytes(oversized,sizeof(oversized),0,"oversized_snapshot");if(sleeps)return 1;
+char longline[512];memset(longline,'x',sizeof(longline));sleeps=0;check_bytes(longline,sizeof(longline),0,"overlong_line");if(sleeps)return 1;
+char nulproof[]=BASE; nulproof[8]=0;sleeps=0;check_bytes(nulproof,sizeof(nulproof)-1,0,"embedded_nul");if(sleeps)return 1;
+check("schema=spitfire-passive-v1\r\nui_ready=1\r\nwrite_commands=0\r\nobserved_pairs=1\r\nupdated_tick=9000\r\noriginal_pid=42\r\ninitial_access=0\r\n",1,"CRLF_snapshot");
+sleeps=0;check("schema=spitfire-passive-v1\rhidden\n",0,"embedded_carriage_return");if(sleeps)return 1;
+sleeps=0;check("",0,"empty_snapshot");if(sleeps!=2)return 1;
+check("schema=spitfire-passive-v1\nui_ready=1\nwrite_commands=0\nobserved_pairs=1\nupdated_tick=9000\noriginal_pid=42\ninitial_access=0",1,"no_final_newline");
+replace_during_copy="schema=WRONG\n";check(BASE,1,"released_snapshot_survives_path_replacement");if(capture_proof())return 1;count++;
+if(!copy_count||open_handles)return 1;count++;
+printf("%d guard checks passed\n",count);return 0;}

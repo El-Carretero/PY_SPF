@@ -1,0 +1,4 @@
+Isolated original launch requested; startup writes rejected by fixed-response fixture.
+Original pid=1304 path=C:\Program Files\Spectra-Physics\Spitfire\Spitfire.exe
+Actual START.cmd exit=0
+New session=run-2026-10-31-20-18-5-68232

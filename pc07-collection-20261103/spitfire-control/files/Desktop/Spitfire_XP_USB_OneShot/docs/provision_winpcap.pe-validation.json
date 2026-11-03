@@ -1,0 +1,92 @@
+{
+  "binary": "provision_winpcap.exe",
+  "sha256": "464d23c182521664bb3ff7f3613f2b168fe18f33bd856cfb9e2f5bed1f5c32d0",
+  "bytes": 34304,
+  "machine": "0x14c",
+  "optional_header_magic": "0x10b",
+  "os_version": [
+    5,
+    1
+  ],
+  "subsystem_version": [
+    5,
+    1
+  ],
+  "subsystem": 2,
+  "imports": {
+    "msvcrt.dll": [
+      "fclose",
+      "fflush",
+      "fopen",
+      "fprintf",
+      "fputc",
+      "fputs",
+      "memset"
+    ],
+    "KERNEL32.dll": [
+      "CloseHandle",
+      "CopyFileW",
+      "CreateDirectoryW",
+      "CreateFileW",
+      "CreateProcessW",
+      "ExitProcess",
+      "GetCommandLineW",
+      "GetExitCodeProcess",
+      "GetFileAttributesW",
+      "GetFileSize",
+      "GetLastError",
+      "GetNativeSystemInfo",
+      "GetSystemDirectoryW",
+      "GetSystemTime",
+      "GetTickCount",
+      "GetVersionExA",
+      "LocalFree",
+      "ReadFile",
+      "SetDllDirectoryW",
+      "Sleep",
+      "WaitForSingleObject",
+      "WideCharToMultiByte",
+      "lstrcatW",
+      "lstrcmpA",
+      "lstrcmpW",
+      "lstrcpyW",
+      "lstrlenW"
+    ],
+    "USER32.dll": [
+      "EnumChildWindows",
+      "EnumWindows",
+      "GetClassNameW",
+      "GetDlgCtrlID",
+      "GetParent",
+      "GetWindowThreadProcessId",
+      "IsWindowEnabled",
+      "IsWindowVisible",
+      "PostMessageW",
+      "SendMessageTimeoutW",
+      "SendMessageW",
+      "wsprintfW"
+    ],
+    "SHELL32.dll": [
+      "CommandLineToArgvW"
+    ],
+    "ADVAPI32.dll": [
+      "AllocateAndInitializeSid",
+      "CheckTokenMembership",
+      "CloseServiceHandle",
+      "CryptAcquireContextW",
+      "CryptCreateHash",
+      "CryptDestroyHash",
+      "CryptGetHashParam",
+      "CryptHashData",
+      "CryptReleaseContext",
+      "FreeSid",
+      "OpenSCManagerW",
+      "OpenServiceW",
+      "RegCloseKey",
+      "RegOpenKeyExW"
+    ]
+  },
+  "source_sha256": "9dfd80eb82909d223bb3a11e9a058e5411d2150a1b09b7ab6acc497b943fe8ab",
+  "change": "PE GUI subsystem only; source installer logic unchanged",
+  "log_contract": "Native event records use fopen(argv[3]+winpcap-install.jsonl) and fprintf/fflush to that file; runner polls process Status and ExitCode, never StdOut or StdErr."
+}

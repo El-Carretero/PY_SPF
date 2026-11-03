@@ -1,0 +1,98 @@
+Independent revision review — UI1.1 field menu fix
+
+Disposition: CLEARED for isolated XP VM trial. Live VM layout/memory and input
+observations remain required before the final implementation is described as
+validated. This review neither operates nor validates a physical laser controller.
+
+Reviewed UI binary SHA256:
+801f2fa2f6944d6e0aa810ada1933418d230a0898032eda7f1e574e7c4329d63
+Source SHA256:
+c4094f140a4ca32709da8ff91698864cc2eab0ef25147e7b543ea5dd92481a4b
+
+Scope checked
+- Original EXE/UIR/CVI identity, Opt-out, access mode, focus/dirty-target guards
+  and external-input checks remain in the input path.
+- Menu headings use the original native menubar's actual font and hit-test
+  geometry; File is inspected for identity/order but never selected. Supported
+  initialized cache paths are translated directly. The native GDI path queries
+  the exact original HFONT and measures an exact LOGFONT clone in a helper-owned
+  display-compatible DC, using the same PointA/Point32A native API selector.
+- View/Help selection is tied to public menu IDs, public ownership, exact native
+  submenu handle links, expected labels and enabled state.
+- Dropdown rows are tied to public menu/item IDs, exact callbacks, parents and
+  native menu handle, exact native labels/order and simple enabled leaf rows.
+- GetWindowLong popup handle and native menu have checked HWND/back references.
+- Uniform row geometry follows native CVI hit-testing; scrolled, clipped,
+  ambiguous, mismatched, unknown or unreadable layouts stop before item input.
+- Both heading and dropdown HWND/metadata/bounds/derived target are frozen and
+  checked again immediately before mouse-down. No fallback pixel rectangle,
+  keyboard switching, File/Exit invocation, remote call or memory write is added.
+- Invalid or missing action evidence still blocks subsequent actions. A valid
+  nonzero native exit is now retained as an actionable diagnostic, including
+  native86, instead of becoming generic missing evidence. Report text is escaped.
+
+Findings corrected before this disposition
+1. Nested popup inspection initially overwrote and closed context_guard's process
+   handle. The inspector now saves/restores the caller handle on every path.
+2. The public item callback is at +0x3c; +0xa0 is its public menubar backlink.
+   Correct callback and both owning links are now checked.
+3. Monospaced-property cache flag0x08 must be present before either cached
+   proportional or fixed-width path is selected. The runtime initializes those
+   fields when absent; the read-only
+   translation now rejects that uninitialized state instead of approximating it.
+4. The first c92 candidate's isolated VM trial stopped safely before input:
+   cache flags0x4f select the original's direct GDI path with no width arrays.
+   That supported path was missing from the first helper, not evidence of a
+   corrupt original font. The subsequent XP read-only probe successfully queried
+   and cloned the actual font, matching native ascent/descent/leading10/2/2.
+   The revised helper preserves original font/slot/mode data, validates clone
+   equality, metrics and charset, rejects hosted or alternate-render paths, and
+   measures File/View/Help without calling code or changing DCs in the original.
+   Runtime selector3 is mirrored with GetTextExtentPointA, otherwise Point32A.
+5. With the Tahoma11 menu dimensions reproduced, Temperature succeeded but the
+   next action stopped before font reads: the native menubar's right coordinate
+   had changed from895 to4096. Disassembly proves4096 is a native tracking
+   sentinel:685ceaf0 assigns it,684bed4e..59 stores it, and684d9389..9e explicitly
+   substitutes the final heading's prefix-sum edge during hit-testing. The
+   correction accepts only actual client right or exact4096; every derived
+   heading must remain within the real895-pixel client. The raw native bounds
+   remain in the frozen snapshot, so a change in either direction after freeze
+   still blocks input. This was a geometry issue, not a new font-cache failure.
+
+Static mapping corroboration
+The reviewed DLL's constructor and attribute dispatch prove that an item's
+one-based position in its public owner's +0xb0 list is the native row index.
+The payload minimum is align4(label_length+1), and the runtime removes resource
+mnemonic '__' markers before storing native labels. The native menubar width
+prefix sum uses the root font and global padding. Native item+0x20 render-style
+metadata does not change the actual heading hit-test or dropdown row geometry.
+Exact binary identity, field offsets and disassembly references are recorded in
+validation/cvi-menu-layout-review.md.
+Independent disassembly also confirmed that the ordinary CVI hidden window's
+class style is zero (685d63c0/685d6451 and registration685cf6d4), so GetDC uses
+common defaults rather than a private/class DC. The cvi.dll hosted-window
+override at685d2704 is excluded by the revised read-only module checks.
+
+Checks rerun independently
+- tests/test_menu_guard.py: 79 production-source native memory/font/GDI cases
+  passed on the final source.
+- tests/test_revision_review_menu.py: 19 independently authored production-source
+  popup ownership, ambiguity and final frozen-metadata cases passed.
+- tests/test_revision_review_heading.py: 40 independently authored production-source
+  heading snapshot and final-point cases passed, including frozen LOGFONT, native
+  font handle/cache, mode/API selector, measured width/charset, owner/focus/window
+  changes, both895-to4096 and4096-to895 frozen-bound changes, cancellation,
+  modifiers and arbitrary coordinate rejection.
+- tests/test_runner.js: 39 orchestration cases passed.
+- tests/test_report.js: 11 actual renderer cases passed.
+The preserved35 proof,29 focus and25 context checks were also reported passing
+by the implementation owner. These are not counted as additional independent
+runs here. Native PE remains x86 Windows5.1 GUI, with no network/process-write
+or keyboard-input additions. No original or remote hardware was operated by
+this independent review.
+
+The earlier c92 and b234 clearances were only for isolated trials. The current
+801f candidate requires complete Tahoma and restored Gulim VM runs with its
+exact binary hash; earlier-version success cannot substitute for those runs.
+This file records the independent static/unit review disposition. Full VM
+results belong to the separately preserved validation sessions and report.

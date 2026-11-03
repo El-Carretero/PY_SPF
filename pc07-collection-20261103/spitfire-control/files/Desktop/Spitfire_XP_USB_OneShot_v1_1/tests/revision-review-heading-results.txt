@@ -1,0 +1,41 @@
+PASS unchanged valid heading may be rechecked
+PASS heading recheck requires a prior freeze
+PASS failed native heading inspection blocks selection
+PASS missing heading evidence blocks selection
+PASS replaced main HWND blocks heading input
+PASS changed native font index blocks heading input
+PASS changed original HFONT blocks heading input
+PASS changed cached letter advance blocks heading input
+PASS changed cached first bearing blocks heading input
+PASS changed native heading padding blocks heading input
+PASS switched View public ID to File blocks heading input
+PASS changed native submenu binding blocks heading input
+PASS changed heading label blocks input
+PASS changed actual heading bounds block input
+PASS normal-to-sentinel native bounds change after freeze blocks input
+PASS sentinel-to-normal native bounds change after freeze blocks input
+PASS changed heading hit point blocks input
+PASS changed cached versus GDI measurement path blocks input
+PASS changed exact GDI face bytes block input
+PASS changed native rendering mode blocks input
+PASS changed native extent API selector blocks input
+PASS changed measured View width blocks input
+PASS changed measured font charset blocks input
+PASS final heading guard permits only unchanged bound context
+PASS final guard rejects coordinates different from verified heading
+PASS final guard rejects foreign owner
+PASS final guard rejects focus loss
+PASS final guard rejects hidden main window
+PASS final guard rejects disabled main window
+PASS final guard rejects moved main window
+PASS final guard rejects changed main client size
+PASS final guard rejects changed original title
+PASS final guard rejects changed original class
+PASS final guard rejects unrecognized same-PID auxiliary window under point
+PASS final guard honors cancellation before mouse-down
+PASS final guard rejects held input modifier
+PASS native disabled popup may hit underlying verified main window
+PASS final item guard accepts the bound popup HWND
+PASS final item guard rejects unverified row point
+PASS final item guard rejects changed popup snapshot
+40 independent heading and final-point checks passed

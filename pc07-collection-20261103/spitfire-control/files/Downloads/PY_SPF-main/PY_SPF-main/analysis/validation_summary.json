@@ -1,0 +1,29 @@
+{
+  "automatic_tests": 52,
+  "callback_differential": {
+    "cases": 395,
+    "passed": 395,
+    "callback_names": 85
+  },
+  "decoder_differential": {
+    "cases": 338,
+    "passed": 338,
+    "query_ids": 90
+  },
+  "decoder_extra": {
+    "cases": 23,
+    "passed": 23
+  },
+  "differential_total": 756,
+  "gui": {
+    "application_panels": 9,
+    "application_controls": 230,
+    "server_panels": 1,
+    "server_controls": 14,
+    "qt_initial_panel_pixel_match": 0.99699,
+    "pixel_comparison_scope": "initial main panel; excludes menu bar; not dynamic states"
+  },
+  "physical_instrument_contacted": false,
+  "full_equivalence_verified": false,
+  "native_runtime_environment": "32-bit Windows Python under Wine and QEMU on Linux"
+}

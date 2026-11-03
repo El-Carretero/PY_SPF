@@ -1,0 +1,73 @@
+Offline capture dependency
+==========================
+
+Target: Windows XP SP3, 32 bit. No Internet, Python, PowerShell, VMware Tools,
+or Wireshark GUI is required on the target XP PC.
+
+The capture helper loads Packet.dll and wpcap.dll from Windows System32.
+Existing compatible WinPcap is reused. A partial or incompatible installation
+stops the run; this package never automatically removes or downgrades it.
+
+If all WinPcap files, NPF service, and WinPcap registration are absent, START
+uses the bundled, unchanged official WinPcap 4.1.3 installer. The provisioner
+requires an XP administrator account, checks the exact file size and SHA256,
+locks the checked copy against modifications, and runs it from a new directory.
+No download or online certificate lookup is necessary on the XP machine.
+
+The provisioner invokes only the verified installer process's expected wizard
+controls: Next, I Agree, Install, and Finish. The complete license is retained
+in WinPcap-4.1.3-LICENSE.txt. Running START includes installation of this capture
+dependency if it is absent, under that license. The official installer performs
+all file/service installation; the helper never extracts a driver or invents
+registry/service configuration. No /S or /NCRC switch is used. Unknown dialogs,
+existing versions, admin failures, installation errors, and reboot requests stop
+automatic progression and are recorded in winpcap-install.jsonl.
+
+For a fresh installation, the supported installer checkbox "Automatically
+start the WinPcap driver at boot time" is cleared. NPF remains available for
+on-demand local capture. Existing driver startup preferences are never changed.
+The official installer also includes its normal rpcapd component; this package
+does not enable or start remote capture. A new capture API probe follows the
+installer exit. The presence of DLLs alone is not reported as capture success.
+
+Manual reproduction of the automated dependency step:
+  bin\provision_winpcap.exe --install "C:\absolute\payload\WinPcap_4_1_3.exe" "C:\absolute\new-log-directory"
+
+The provisioner writes winpcap-install.jsonl in the supplied log directory.
+Exit 0 requires all four wizard stages, official installer exit 0, installed
+DLLs, and an NPF service. The caller must still run capture --probe and validate
+actual sent/received packets. Code 11 means administrator access is missing;
+12 means existing or partial WinPcap state; 13 means file/hash verification
+failed; 31-35 mean the wizard did not meet the guarded completion checks.
+An incomplete wizard is left visible for diagnosis; it is not force-killed.
+
+Official source, versions, byte size, historical publisher digest comparison,
+modern-host Authenticode result, and newly recomputed SHA256 are retained in
+capture-dependency-provenance.json. The old publisher SHA1 match is historical
+artifact identification. Authenticode was rechecked read-only on the modern p07
+Windows host and returned Valid; the exact result is retained in
+winpcap-authenticode-current.json. Linux packaging independently matched SHA256.
+The offline XP run checks size and SHA256 without an online certificate lookup.
+
+WinPcap source: https://www.winpcap.org/install/bin/WinPcap_4_1_3.exe
+Published download page: https://www.winpcap.org/install/index.html
+Version: 4.1.3 (installer internal file version 4.1.0.2980)
+Bytes: 915128
+SHA256: fc4623b113a1f603c0d9ad5f83130bd6de1c62b973be9892305132389c8588de
+Historical published SHA1: e2516fcd1573e70334c8f50bee5241cdfdf48a00
+
+The unchanged original installer and the complete copyright/license notices
+are included. The package does not need to install the Wireshark GUI. Existing
+Wireshark installations are left intact, and standard classic .pcap output is
+intended to open in both old and modern Wireshark versions.
+
+Validation: the complete offline START flow successfully installed this exact
+official binary in the isolated p07 VMware XP SP3 x86 guest. The helper passed
+all guarded wizard stages and returned 0. This proves the installation path
+in that XP guest; installation on the physical laser PC remains a field test.
+After capture, actual XP service queries showed NPF = DEMAND_START/RUNNING and
+rpcapd = DEMAND_START/STOPPED (never started). A second provisioner invocation
+detected existing System32 wpcap.dll and returned 12 before opening a wizard,
+confirming that it does not replace an already installed capture dependency.
+The actual netstat output contained no TCP or UDP port 2002 listener. Original
+installer, service, and listener evidence is retained under validation/evidence.

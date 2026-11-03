@@ -1,0 +1,12 @@
+[SC] GetServiceConfig SUCCESS
+
+SERVICE_NAME: npf
+        TYPE               : 1   KERNEL_DRIVER 
+        START_TYPE         : 3   DEMAND_START
+        ERROR_CONTROL      : 1   NORMAL
+        BINARY_PATH_NAME   : system32\drivers\npf.sys  
+        LOAD_ORDER_GROUP   :   
+        TAG                : 0  
+        DISPLAY_NAME       : NetGroup Packet Filter Driver  
+        DEPENDENCIES       :   
+        SERVICE_START_NAME :   

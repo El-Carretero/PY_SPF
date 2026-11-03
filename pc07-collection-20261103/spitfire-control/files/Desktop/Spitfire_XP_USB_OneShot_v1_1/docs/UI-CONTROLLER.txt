@@ -1,0 +1,194 @@
+SPITFIRE XP UI CONTROLLER 1.1 — CURRENT MODE, MOUSE-ONLY
+
+Use the package launcher for the complete capture/test. This executable is the
+native UI component. It attaches to an ALREADY RUNNING original program; it never
+starts, exits or restarts the original, acknowledges connection warnings, or sends
+network traffic. It is a Windows-subsystem executable and creates no console.
+
+Supported internal commands:
+  bin\readonly_ui.exe preflight NEW_OUTPUT_DIRECTORY
+  bin\readonly_ui.exe temperature NEW_OUTPUT_DIRECTORY PROOF_FILE STOP_FILE
+  bin\readonly_ui.exe timing NEW_OUTPUT_DIRECTORY PROOF_FILE STOP_FILE
+  bin\readonly_ui.exe faults NEW_OUTPUT_DIRECTORY PROOF_FILE STOP_FILE
+  bin\readonly_ui.exe setup NEW_OUTPUT_DIRECTORY PROOF_FILE STOP_FILE
+  bin\readonly_ui.exe about NEW_OUTPUT_DIRECTORY PROOF_FILE STOP_FILE
+
+All directories must be new, use the XP active code page and fit MAX_PATH.
+There are no regensvc/user verbs and no keyboard input implementation. The initial
+user/service access level is retained. If the operator already uses service mode,
+the same reviewed menus capture its larger panels. This tool does not switch modes.
+
+In user mode with Empower Opt-out ON, original menu item5 (Empower Setup) is
+explicitly disabled by _check_if_system_healthy. The setup step therefore returns0
+with result.skipped=true and skip_reason="disabledOptoutuser", BEFORE any input.
+
+Identity guard:
+  C:\Program Files\Spectra-Physics\Spitfire\Spitfire.exe
+  SHA256 8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b
+  Same-folder SPITFIRE.UIR SHA256:
+  1c5b82a8cf528934bffffe0989a73312059b07a15fc3056df8fbeb41607bd67b
+  Loaded cvirte.dll SHA256:
+  d4151c53a2ecee4431ba88cd90d88db575f8ad18a6e48484501ff10a83c0db6d
+
+The original module must be based at0x400000. PROCESS_VM_READ reads Opt-out at
+0x4141D0, access level at0x416DEC, HOLD_THREAD at0x414A9C and the main panel handle
+at0x41417C. Opt-out must already be1, HOLD_THREAD0 and access0/1. No remote memory
+writes, injection, runtime calls or original-process termination are used.
+
+BEFORE FOREGROUND OR MOUSE INPUT
+Only the exact main895x550 CVI window may initially be visible. Known offscreen
+CVI framework windows are ignored. Other original panels, popups, text editors,
+carets or held keys/buttons cause capture-only/stop. Nothing is cleared or dismissed.
+The guard reads the validated CVI Window->generic Panel->public wrapper chain,
+including HWND/back-reference/type/runtime/main-global identity checks. It maps
+remembered selector kind3 to nativeID=selection_value+1, then to a unique public
+control through the checked CVI list. Only no active/remembered control or the
+known closed plain Motor Speed ring(public3) permits mouse-only navigation.
+A remembered numeric or unknown control blocks input even if its active flag is0.
+No letters, arrows, Enter, Escape, Space or other keyboard events are sent to a ring.
+Access level must remain the initial value. Input timestamps and held inputs are
+rechecked immediately before foreground changes and mouse-down after other checks.
+
+ALLOWED ACTIONS
+The reviewed View items open Temperature, Timing and High Voltage, Active Faults,
+and (when enabled) Empower Setup. Help > About opens Help. Heading and item points
+are derived from actual original-process CVI metadata, not VM pixel coordinates.
+The public menu/item IDs, ownership, native submenu bindings, labels and original
+show-panel callbacks must match the exact allowlist. File/Exit cannot match it.
+Menu headings use the actual menu-bar rectangle and the original's initialized
+font calculation path. Cached metrics are read directly. The original's native
+GDI path is reproduced with a private font clone in the helper's own display DC;
+GetObject LOGFONT equality, native metrics, charset, rendering mode and standalone
+runtime binding must agree before and after measurement. The exact native
+GetTextExtentPointA/Point32A selector is retained. Unknown paths block input.
+Popup rows use native row height and the
+actual Windows client rectangle. This accommodates supported font differences
+without widening a fixed rectangle or guessing which menu item occupies a point.
+CVI's documented-by-disassembly native right=4096 tracking sentinel is recognized
+explicitly; every derived heading remains inside the actual main client width.
+This internal sentinel never becomes an expanded clickable area.
+
+The complete identity/geometry/state snapshot, main client origin, exact hit-test
+ownership and computed point are checked again immediately before mouse-down.
+Duplicate popups, a replaced HWND, changed labels/callbacks/bounds, disabled target,
+submenus, separators, scrolling and clipped layouts stop the action. The selected
+row is the immutable allowlist ordinal, never the mutable hover/highlight state.
+No parameter-panel control is clicked or edited. Original menu memory is only
+read with PROCESS_VM_READ. Original font objects are queried without selecting
+or modifying them; font clones and measurement DCs belong only to the helper.
+Original CVI functions are never invoked.
+
+A newly opened exact auxiliary HWND is captured and then hidden only if no external
+input occurred since the helper's own menu-item mouse-up. GetLastInputInfo must
+match the recorded timestamp, including a final comparison immediately before
+close. Other panels or input stop the sequence and leave the current screen alone.
+Before any foreground change and again before the menu-item click, the target
+must already be uniquely hidden and bound through its CVI wrapper to the original
+panel global. Its generic-panel fields0x44 and0x48 must both be0, confirming no
+active editing context. A remembered numeric selector alone is allowed for that
+inactive hidden target. The opened HWND must equal the verified hidden HWND.
+Only reviewed auxiliary close_ctrl callbacks are used:
+  Temperature6 -> close_ecu; Timing21 -> close_info; Faults33 -> close_fault;
+  Setup12 -> close_setup; Help9 -> close_help.
+They solely HidePanel. SC_CLOSE is never sent to the main window or a Warning.
+Original show-panel OPEN flags remain set after HidePanel, so original polling may
+stay expanded. The helper never edits those internal flags.
+
+EXCLUDED
+Original startup/exit/restart and connection Warning OK (startup/retry can send
+EMP:LBOBREAK1 automatically), all Laser/RUN/STOP/HV/motor/TEC controls, parameter
+fields/sliders, Opt-out changes, fault reset, interlock/override controls, console,
+access-mode switching, Escape and every unreviewed button. No arbitrary click API.
+
+OUTPUT
+UTC guest-clock timeline.jsonl, before/after BMP screenshots and window inventories,
+process inventory, original-state JSON, skipped.jsonl and context-NNN.json evidence
+for every context guard. Preflight additionally records read-only CVI focus/mapping
+and bounded raw diagnostic data. It does not alter focus or issue input.
+heading-layout-NNN.json and menu-layout-NNN.json record verified/rejected menu
+identity, actual layout, selected item rectangle and screen hit point. A rejection
+includes its bounded reader stage and error. Static offset/hit-test provenance is
+in validation/cvi-menu-layout-review.md. Live VM validation is reported separately.
+result.json contains controller_version:"1.1", exit_code, failure_reason,
+failure_detail, original_pid, emp_optout, gAccessLevel,
+preflight_ready, preflight_reason, context_reason, skipped, skip_reason,
+keyboard_input_implemented:false and original_left_running.
+Stable reason codes include original_missing, identity_mismatch, optout_off,
+connection_warning, initial_auxiliary_open, editable_or_unknown_focus,
+original_popup_open, external_input_detected, menu_identity_unconfirmed,
+menu_geometry_invalid and menu_popup_unconfirmed. The launcher retains the native
+reason and detailed evidence when a capture/action process exits unsuccessfully.
+
+CAPTURE COORDINATION
+The launcher publishes exactly these seven proof lines with decimal values:
+  schema=spitfire-passive-v1
+  ui_ready=1
+  write_commands=0
+  observed_pairs=1
+  updated_tick=123456
+  original_pid=123
+  initial_access=0
+updated_tick must come from live native passive-capture status, not the launcher
+clock. Proof age must remain<=5000ms. PID and initial access must match. Missing or
+incomplete replacement reads get up to3 attempts20ms apart; malformed/stale proofs
+never use a cached success. This is a coordination guard, not an authenticated token.
+The native reader takes a bounded4096-byte snapshot with read/write/delete sharing,
+then closes its input handle before parsing or writing evidence. Atomic publication
+can therefore replace the proof while the prior immutable snapshot is inspected.
+
+Atomic publisher:
+  bin\proof_publish.exe C:\run-folder\proof.tmp C:\run-folder\proof.txt
+Only absolute drive paths, those filenames and the same parent are accepted.
+MoveFileEx(REPLACE_EXISTING|WRITE_THROUGH) never deletes the old proof first.
+Exit0=published; exit1=sharing/lock conflict after up to3 attempts20ms apart;
+exit2=invalid input/source or another failure. XP access-denied errors get the same
+bounded retries, but persistent denial returns2. No ACLs are changed.
+
+Shared status snapshot:
+  bin\proof_publish.exe --snapshot C:\run-folder\capture\status.json C:\run-folder\capture-status.json
+Only these exact filenames under the same absolute run root are accepted.
+The source opens with FILE_SHARE_READ|WRITE|DELETE and is read into a bounded
+524288-byte buffer. The helper rejects directories/reparse points, empty/oversized
+files, premature EOF, or size/write-time changes during the read. It closes the
+source before writing and atomically replacing the private capture-status.json.
+It preserves all source bytes, including updated_tick; it does not create a new
+capture timestamp or parse/alter the capture's status. Exit0 means a new snapshot
+was read and published. Read/replace failures retain the previous private copy,
+which the runner must not read as a new result. Existing proof TTL and two-poll
+fallback limits are unchanged. No deletion of producer status/proof files occurs.
+Snapshot source-open sharing, lock, missing-file and access-denied errors receive
+at most3 attempts20ms apart. Permanent/persistent-denied errors return2; exhausted
+sharing/lock/missing-source retries return1. The private writer uses no shared
+handle, closes and flushes before replacement; it never writes the producer file.
+
+CANCELLATION
+The launcher stop file and held F12 stop subsequent input. A mouse-down already
+sent is followed by its own release; a failed release gets one release-only retry.
+Cancellation never sends Escape, OFF, warning OK or another device command. Original
+stays running. Do not interact with the original during the sequence. A passive
+monitor cannot retract a command independently sent by the original or an operator.
+
+BUILD / VALIDATION
+Requires Zig0.13, Python3 and objdump on Linux:
+  DRIVER_ZIG=/path/to/zig ./build_ui.sh
+  DRIVER_ZIG=/path/to/zig ./build_proof_publish.sh
+Build reports verify PE32/x86 XP5.1, Windows subsystem, legacy XP MSVCRT imports and
+absence of network, process-creation and remote-memory-write APIs. Real XP runtime
+and isolated-simulator validation are reported separately. Simulator responses do
+not establish real-controller behavior.
+
+Offline guard tests (no original DLL/process execution):
+  python3 tests/test_ui_guard.py                    (35 parser/shared-reader cases)
+  python3 tests/test_focus_guard.py                 (29 graph/binding/hidden-target cases)
+  python3 tests/test_context_policy.py              (25 context/input cases)
+  python3 tests/test_menu_guard.py                  (79 menu/font/GDI cases)
+  python3 tests/test_revision_review_menu.py        (19 independent popup snapshot cases)
+  python3 tests/test_revision_review_heading.py     (40 heading/final-point cases)
+  python3 tests/test_proof_publisher.py             (11 publisher +37 status snapshot cases)
+Evidence: tests/ui-guard-test-results.txt, tests/focus-test-results.txt,
+tests/context-policy-test-results.txt, tests/proof-publisher-test-results.txt,
+tests/status-snapshot-test-results.txt,
+tests/menu-guard-test-results.txt, tests/revision-review-popup-results.txt,
+tests/revision-review-heading-results.txt,
+tests/cvi_hidden_edit_review.json. The C functions under test are extracted from
+the actual source, including off-by-one native/public control mapping checks.

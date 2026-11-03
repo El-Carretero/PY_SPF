@@ -1,0 +1,806 @@
+{
+  "SPITFIRE": [
+    {
+      "name": "esc_turnoff",
+      "panel": 2,
+      "control": 17,
+      "resource_id": 19,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN"
+    },
+    {
+      "name": "humoverride",
+      "panel": 2,
+      "control": 13,
+      "resource_id": 15,
+      "kind": "control",
+      "constant": "HUMOVERRIDE"
+    },
+    {
+      "name": "tdg_fault_override",
+      "panel": 2,
+      "control": 12,
+      "resource_id": 14,
+      "kind": "control",
+      "constant": "TDGFLTOVERRIDE"
+    },
+    {
+      "name": "optoutecucall",
+      "panel": 2,
+      "control": 11,
+      "resource_id": 13,
+      "kind": "control",
+      "constant": "ECU_OPTOUT"
+    },
+    {
+      "name": "optoutcompressorcall",
+      "panel": 2,
+      "control": 10,
+      "resource_id": 12,
+      "kind": "control",
+      "constant": "COMP_OPTOUT"
+    },
+    {
+      "name": "empoweroptoutcall",
+      "panel": 2,
+      "control": 9,
+      "resource_id": 11,
+      "kind": "control",
+      "constant": "EMP_OPTOUT"
+    },
+    {
+      "name": "teconoff",
+      "panel": 2,
+      "control": 8,
+      "resource_id": 10,
+      "kind": "control",
+      "constant": "ECU_TECONOFF"
+    },
+    {
+      "name": "ecu_set_temp",
+      "panel": 2,
+      "control": 7,
+      "resource_id": 9,
+      "kind": "control",
+      "constant": "SET_TEMP"
+    },
+    {
+      "name": "close_ecu",
+      "panel": 2,
+      "control": 6,
+      "resource_id": 8,
+      "kind": "control",
+      "constant": "BTN_EXIT"
+    },
+    {
+      "name": "cllbckcmd_reset",
+      "panel": 3,
+      "control": 53,
+      "resource_id": 71,
+      "kind": "control",
+      "constant": "CMD_RES_2"
+    },
+    {
+      "name": "close_fault",
+      "panel": 3,
+      "control": 33,
+      "resource_id": 51,
+      "kind": "control",
+      "constant": "COMMANDBUTTON"
+    },
+    {
+      "name": "close_fault",
+      "panel": 3,
+      "control": 29,
+      "resource_id": 47,
+      "kind": "control",
+      "constant": "COMMANDBUTTON_3"
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 3,
+      "control": 28,
+      "resource_id": 46,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN"
+    },
+    {
+      "name": "close_fault",
+      "panel": 3,
+      "control": 27,
+      "resource_id": 45,
+      "kind": "control",
+      "constant": "COMMANDBUTTON_4"
+    },
+    {
+      "name": "close_fault",
+      "panel": 3,
+      "control": 26,
+      "resource_id": 44,
+      "kind": "control",
+      "constant": "COMMANDBUTTON_2"
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 1,
+      "control": 4,
+      "resource_id": 3,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN"
+    },
+    {
+      "name": "Close_Programmer_Panel_Callback",
+      "panel": 1,
+      "control": 2,
+      "resource_id": 1,
+      "kind": "control",
+      "constant": "BTN_QUIT"
+    },
+    {
+      "name": "close_service",
+      "panel": 7,
+      "control": 2,
+      "resource_id": 199,
+      "kind": "control",
+      "constant": "COMMANDBUTTON"
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 4,
+      "control": 17,
+      "resource_id": 87,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN"
+    },
+    {
+      "name": "close_help",
+      "panel": 4,
+      "control": 9,
+      "resource_id": 79,
+      "kind": "control",
+      "constant": "COMMANDBUTTON"
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 8,
+      "control": 19,
+      "resource_id": 217,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN"
+    },
+    {
+      "name": "LBOstabilitybreak",
+      "panel": 8,
+      "control": 18,
+      "resource_id": 216,
+      "kind": "control",
+      "constant": "BINARYSWITCH"
+    },
+    {
+      "name": "close_secrets_emp",
+      "panel": 8,
+      "control": 17,
+      "resource_id": 215,
+      "kind": "control",
+      "constant": "COMMANDBUTTON"
+    },
+    {
+      "name": "secretcall2",
+      "panel": 8,
+      "control": 13,
+      "resource_id": 211,
+      "kind": "control",
+      "constant": "BOXSETCURR"
+    },
+    {
+      "name": "secretcall1",
+      "panel": 8,
+      "control": 12,
+      "resource_id": 210,
+      "kind": "control",
+      "constant": "BOXSETCURR_2"
+    },
+    {
+      "name": "secretcall3",
+      "panel": 8,
+      "control": 10,
+      "resource_id": 208,
+      "kind": "control",
+      "constant": "BOXSETPOW"
+    },
+    {
+      "name": "secretcall4",
+      "panel": 8,
+      "control": 8,
+      "resource_id": 206,
+      "kind": "control",
+      "constant": "BOXSETINT"
+    },
+    {
+      "name": "secretcall5",
+      "panel": 8,
+      "control": 6,
+      "resource_id": 204,
+      "kind": "control",
+      "constant": "BOXSETSLOPE"
+    },
+    {
+      "name": "secretcall7",
+      "panel": 8,
+      "control": 4,
+      "resource_id": 202,
+      "kind": "control",
+      "constant": "BOXSETUNDERTEMP"
+    },
+    {
+      "name": "secretcall6",
+      "panel": 8,
+      "control": 2,
+      "resource_id": 200,
+      "kind": "control",
+      "constant": "BOXSETOVERTEMP"
+    },
+    {
+      "name": "setopmode",
+      "panel": 5,
+      "control": 48,
+      "resource_id": 134,
+      "kind": "control",
+      "constant": "RINGSLIDE"
+    },
+    {
+      "name": "Ch3_Coarse_Check_Callback",
+      "panel": 5,
+      "control": 46,
+      "resource_id": 132,
+      "kind": "control",
+      "constant": "CH3_COARSE_CHECK"
+    },
+    {
+      "name": "Ch4_Coarse_Check_Callback",
+      "panel": 5,
+      "control": 45,
+      "resource_id": 131,
+      "kind": "control",
+      "constant": "CH4_COARSE_CHECK"
+    },
+    {
+      "name": "DivisorCallback",
+      "panel": 5,
+      "control": 43,
+      "resource_id": 129,
+      "kind": "control",
+      "constant": "DIV_ST"
+    },
+    {
+      "name": "SetCoarseCallback_btn3",
+      "panel": 5,
+      "control": 42,
+      "resource_id": 128,
+      "kind": "control",
+      "constant": "NUMERICKNOB_3"
+    },
+    {
+      "name": "SetCoarseCallback_btn4",
+      "panel": 5,
+      "control": 41,
+      "resource_id": 127,
+      "kind": "control",
+      "constant": "NUMERICKNOB_4"
+    },
+    {
+      "name": "bwdduality",
+      "panel": 5,
+      "control": 39,
+      "resource_id": 125,
+      "kind": "control",
+      "constant": "SW_BWD_NUMDIODES"
+    },
+    {
+      "name": "bwdpolarity",
+      "panel": 5,
+      "control": 37,
+      "resource_id": 123,
+      "kind": "control",
+      "constant": "SW_BWD_POLARITY"
+    },
+    {
+      "name": "SetHVCallback1",
+      "panel": 5,
+      "control": 35,
+      "resource_id": 121,
+      "kind": "control",
+      "constant": "SET_HV_1"
+    },
+    {
+      "name": "HV_switch",
+      "panel": 5,
+      "control": 34,
+      "resource_id": 120,
+      "kind": "control",
+      "constant": "HV_ON"
+    },
+    {
+      "name": "SetHVCallback2",
+      "panel": 5,
+      "control": 33,
+      "resource_id": 119,
+      "kind": "control",
+      "constant": "SET_HV_2"
+    },
+    {
+      "name": "trig_reprate",
+      "panel": 5,
+      "control": 28,
+      "resource_id": 114,
+      "kind": "control",
+      "constant": "REP_RATE"
+    },
+    {
+      "name": "swChannelEnableCallback_btn3",
+      "panel": 5,
+      "control": 25,
+      "resource_id": 111,
+      "kind": "control",
+      "constant": "TOGGLEBUTTON_3"
+    },
+    {
+      "name": "swChannelEnableCallback_btn4",
+      "panel": 5,
+      "control": 23,
+      "resource_id": 109,
+      "kind": "control",
+      "constant": "TOGGLEBUTTON_4"
+    },
+    {
+      "name": "close_info",
+      "panel": 5,
+      "control": 21,
+      "resource_id": 107,
+      "kind": "control",
+      "constant": "COMMANDBUTTON"
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 5,
+      "control": 20,
+      "resource_id": 106,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN"
+    },
+    {
+      "name": "setena4",
+      "panel": 5,
+      "control": 16,
+      "resource_id": 102,
+      "kind": "control",
+      "constant": "NENA_4"
+    },
+    {
+      "name": "setbwd4",
+      "panel": 5,
+      "control": 15,
+      "resource_id": 101,
+      "kind": "control",
+      "constant": "BWD_4"
+    },
+    {
+      "name": "setena3",
+      "panel": 5,
+      "control": 14,
+      "resource_id": 100,
+      "kind": "control",
+      "constant": "NENA_3"
+    },
+    {
+      "name": "setbwd3",
+      "panel": 5,
+      "control": 13,
+      "resource_id": 99,
+      "kind": "control",
+      "constant": "BWD_3"
+    },
+    {
+      "name": "setena5",
+      "panel": 5,
+      "control": 12,
+      "resource_id": 98,
+      "kind": "control",
+      "constant": "NENA_5"
+    },
+    {
+      "name": "setbwd5",
+      "panel": 5,
+      "control": 11,
+      "resource_id": 97,
+      "kind": "control",
+      "constant": "BWD_5"
+    },
+    {
+      "name": "setena2",
+      "panel": 5,
+      "control": 10,
+      "resource_id": 96,
+      "kind": "control",
+      "constant": "NENA_2"
+    },
+    {
+      "name": "setbwd2",
+      "panel": 5,
+      "control": 9,
+      "resource_id": 95,
+      "kind": "control",
+      "constant": "BWD_2"
+    },
+    {
+      "name": "setena1",
+      "panel": 5,
+      "control": 8,
+      "resource_id": 94,
+      "kind": "control",
+      "constant": "NENA_1"
+    },
+    {
+      "name": "setbwd1",
+      "panel": 5,
+      "control": 6,
+      "resource_id": 92,
+      "kind": "control",
+      "constant": "BWD_1"
+    },
+    {
+      "name": "cmd_osc_to_meas",
+      "panel": 5,
+      "control": 5,
+      "resource_id": 91,
+      "kind": "control",
+      "constant": "CMD_OSC_TO_MEAS"
+    },
+    {
+      "name": "SetCoarseCallback_btn0",
+      "panel": 5,
+      "control": 4,
+      "resource_id": 90,
+      "kind": "control",
+      "constant": "ABS_DEL_0"
+    },
+    {
+      "name": "trig_mode",
+      "panel": 5,
+      "control": 3,
+      "resource_id": 89,
+      "kind": "control",
+      "constant": "SW_AMPLIFIER"
+    },
+    {
+      "name": "osc_mode",
+      "panel": 5,
+      "control": 2,
+      "resource_id": 88,
+      "kind": "control",
+      "constant": "SW_OSCILLATOR"
+    },
+    {
+      "name": "tmr_Data_Logger",
+      "panel": 6,
+      "control": 64,
+      "resource_id": 197,
+      "kind": "control",
+      "constant": "TMR_DATA_LOGGER"
+    },
+    {
+      "name": "Ch1_Coarse_Check_Callback",
+      "panel": 6,
+      "control": 63,
+      "resource_id": 196,
+      "kind": "control",
+      "constant": "CH1_COARSE_CHECK"
+    },
+    {
+      "name": "Ch2_Coarse_Check_Callback",
+      "panel": 6,
+      "control": 62,
+      "resource_id": 195,
+      "kind": "control",
+      "constant": "CH2_COARSE_CHECK"
+    },
+    {
+      "name": "SYNC_Coarse_Check_Callback",
+      "panel": 6,
+      "control": 61,
+      "resource_id": 194,
+      "kind": "control",
+      "constant": "SYNC_COARSE_CHECK"
+    },
+    {
+      "name": "strnsendcllback",
+      "panel": 6,
+      "control": 60,
+      "resource_id": 193,
+      "kind": "control",
+      "constant": "COMMANDBUTTON"
+    },
+    {
+      "name": "picture_Callback1",
+      "panel": 6,
+      "control": 52,
+      "resource_id": 185,
+      "kind": "control",
+      "constant": "PICTURE1"
+    },
+    {
+      "name": "picture_Callback2",
+      "panel": 6,
+      "control": 51,
+      "resource_id": 184,
+      "kind": "control",
+      "constant": "PICTURE2"
+    },
+    {
+      "name": "display_faults",
+      "panel": 6,
+      "control": 50,
+      "resource_id": 183,
+      "kind": "control",
+      "constant": "MASTER_ALARM_BTN"
+    },
+    {
+      "name": "Monitor_switch",
+      "panel": 6,
+      "control": 47,
+      "resource_id": 180,
+      "kind": "control",
+      "constant": "MONITOR"
+    },
+    {
+      "name": "cmtRETUSERMODE",
+      "panel": 6,
+      "control": 45,
+      "resource_id": 178,
+      "kind": "control",
+      "constant": "RETUSERMODE"
+    },
+    {
+      "name": "SetCoarseCallback_btn1",
+      "panel": 6,
+      "control": 43,
+      "resource_id": 176,
+      "kind": "control",
+      "constant": "NUMERICKNOB_1"
+    },
+    {
+      "name": "SetCoarseCallback_btn2",
+      "panel": 6,
+      "control": 42,
+      "resource_id": 175,
+      "kind": "control",
+      "constant": "NUMERICKNOB_2"
+    },
+    {
+      "name": "SetCoarseCallback_btn5",
+      "panel": 6,
+      "control": 41,
+      "resource_id": 174,
+      "kind": "control",
+      "constant": "NUMERICKNOB_5"
+    },
+    {
+      "name": "swChannelEnableCallback_btn1",
+      "panel": 6,
+      "control": 23,
+      "resource_id": 156,
+      "kind": "control",
+      "constant": "TOGGLEBUTTON_1"
+    },
+    {
+      "name": "swChannelEnableCallback_btn2",
+      "panel": 6,
+      "control": 21,
+      "resource_id": 154,
+      "kind": "control",
+      "constant": "TOGGLEBUTTON_2"
+    },
+    {
+      "name": "swChannelEnableCallback_btn5",
+      "panel": 6,
+      "control": 20,
+      "resource_id": 153,
+      "kind": "control",
+      "constant": "TOGGLEBUTTON_5"
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 6,
+      "control": 18,
+      "resource_id": 151,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN"
+    },
+    {
+      "name": "parse_command5",
+      "panel": 6,
+      "control": 11,
+      "resource_id": 144,
+      "kind": "control",
+      "constant": "CMD_STOP"
+    },
+    {
+      "name": "cllbck",
+      "panel": 6,
+      "control": 10,
+      "resource_id": 143,
+      "kind": "control",
+      "constant": "CMD_RUN"
+    },
+    {
+      "name": "BW_reset",
+      "panel": 6,
+      "control": 5,
+      "resource_id": 138,
+      "kind": "control",
+      "constant": "CMD_BWD_RESET"
+    },
+    {
+      "name": "tmr_Mouse_Callback1",
+      "panel": 6,
+      "control": 4,
+      "resource_id": 137,
+      "kind": "control",
+      "constant": "TMR_MOUSE1"
+    },
+    {
+      "name": "com_motor_speed",
+      "panel": 6,
+      "control": 3,
+      "resource_id": 136,
+      "kind": "control",
+      "constant": "RING"
+    },
+    {
+      "name": "QuitProgram",
+      "panel": 6,
+      "control": 2,
+      "resource_id": 135,
+      "kind": "control",
+      "constant": "BTN_QUIT"
+    },
+    {
+      "name": "esc_turnoff",
+      "panel": 9,
+      "control": 13,
+      "resource_id": 229,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN"
+    },
+    {
+      "name": "close_setup",
+      "panel": 9,
+      "control": 12,
+      "resource_id": 228,
+      "kind": "control",
+      "constant": "COMMANDBUTTON"
+    },
+    {
+      "name": "slideqswsrc",
+      "panel": 9,
+      "control": 11,
+      "resource_id": 227,
+      "kind": "control",
+      "constant": "SLIDEQSWSCR"
+    },
+    {
+      "name": "slideqswpw",
+      "panel": 9,
+      "control": 10,
+      "resource_id": 226,
+      "kind": "control",
+      "constant": "SLIDEPULSEWIDTH"
+    },
+    {
+      "name": "slideqswprf",
+      "panel": 9,
+      "control": 9,
+      "resource_id": 225,
+      "kind": "control",
+      "constant": "SLIDEQSWPRF"
+    },
+    {
+      "name": "slidesetcurr",
+      "panel": 9,
+      "control": 8,
+      "resource_id": 224,
+      "kind": "control",
+      "constant": "SLIDESETCURR"
+    },
+    {
+      "name": "MainCallBack",
+      "panel": 6,
+      "control": 0,
+      "resource_id": 6,
+      "kind": "panel",
+      "constant": "WdMAIN"
+    },
+    {
+      "name": "show_help",
+      "panel": 0,
+      "control": 0,
+      "resource_id": 239,
+      "kind": "menu",
+      "constant": "ABOUTx"
+    },
+    {
+      "name": "show_ccu",
+      "panel": 0,
+      "control": 0,
+      "resource_id": 237,
+      "kind": "menu",
+      "constant": "ECUx"
+    },
+    {
+      "name": "show_info",
+      "panel": 0,
+      "control": 0,
+      "resource_id": 236,
+      "kind": "menu",
+      "constant": "INFOx"
+    },
+    {
+      "name": "show_faults",
+      "panel": 0,
+      "control": 0,
+      "resource_id": 235,
+      "kind": "menu",
+      "constant": "FAULTSx"
+    },
+    {
+      "name": "show_setup",
+      "panel": 0,
+      "control": 0,
+      "resource_id": 234,
+      "kind": "menu",
+      "constant": "SETUPx"
+    },
+    {
+      "name": "exit_from_menu",
+      "panel": 0,
+      "control": 0,
+      "resource_id": 232,
+      "kind": "menu",
+      "constant": "EXITx"
+    }
+  ],
+  "SERVER": [
+    {
+      "name": "esc_turnoff",
+      "panel": 1,
+      "control": 12,
+      "resource_id": 11,
+      "kind": "control",
+      "constant": "ESC_OFF_BTN"
+    },
+    {
+      "name": "ClearScreenCB",
+      "panel": 1,
+      "control": 7,
+      "resource_id": 6,
+      "kind": "control",
+      "constant": "CLEAR"
+    },
+    {
+      "name": "TransmitCB",
+      "panel": 1,
+      "control": 3,
+      "resource_id": 2,
+      "kind": "control",
+      "constant": "STRING"
+    },
+    {
+      "name": "MainPanelCB",
+      "panel": 1,
+      "control": 0,
+      "resource_id": 1,
+      "kind": "panel",
+      "constant": "MAINPNL"
+    }
+  ]
+}

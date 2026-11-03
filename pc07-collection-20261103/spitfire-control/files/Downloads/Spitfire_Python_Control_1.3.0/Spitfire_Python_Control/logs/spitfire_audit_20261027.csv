@@ -1,0 +1,29 @@
+utc_time,direction,command_id,text,result
+2026-10-27T09:04:21.924052+00:00,TX,1000,[1000]*idn?,initialization
+2026-10-27T09:04:23.923959+00:00,ERROR,1000,[1000]*idn?,Timed out waiting for reply to command 1000
+2026-10-27T09:04:23.924923+00:00,TX,1000,[1000]*idn?,connection heartbeat
+2026-10-27T09:04:25.924234+00:00,ERROR,1000,[1000]*idn?,Timed out waiting for reply to command 1000
+2026-10-27T09:04:25.924946+00:00,TX,1068,[1068]EMPOPTOUT?,external compatibility monitor
+2026-10-27T09:04:27.924423+00:00,ERROR,1068,[1068]EMPOPTOUT?,Timed out waiting for reply to command 1068
+2026-10-27T09:04:27.925236+00:00,TX,1000,[1000]*idn?,connection heartbeat
+2026-10-27T09:04:29.925456+00:00,ERROR,1000,[1000]*idn?,Timed out waiting for reply to command 1000
+2026-10-27T09:04:29.926074+00:00,TX,1019,[1019]TDG:STB?,external compatibility monitor
+2026-10-27T09:04:31.926377+00:00,ERROR,1019,[1019]TDG:STB?,Timed out waiting for reply to command 1019
+2026-10-27T09:04:31.927200+00:00,TX,1000,[1000]*idn?,connection heartbeat
+2026-10-27T09:04:33.927360+00:00,ERROR,1000,[1000]*idn?,Timed out waiting for reply to command 1000
+2026-10-27T09:04:33.928312+00:00,TX,1066,[1066]TDG:STBHFLT?,external compatibility monitor
+2026-10-27T09:04:35.928114+00:00,ERROR,1066,[1066]TDG:STBHFLT?,Timed out waiting for reply to command 1066
+2026-10-27T09:04:35.928971+00:00,TX,1000,[1000]*idn?,connection heartbeat
+2026-10-27T09:04:37.928433+00:00,ERROR,1000,[1000]*idn?,Timed out waiting for reply to command 1000
+2026-10-27T09:04:37.929039+00:00,TX,1021,[1021]TDG:HV:ON?,external compatibility monitor
+2026-10-27T09:04:39.929195+00:00,ERROR,1021,[1021]TDG:HV:ON?,Timed out waiting for reply to command 1021
+2026-10-27T09:04:39.929841+00:00,TX,1000,[1000]*idn?,connection heartbeat
+2026-10-27T09:04:41.929805+00:00,ERROR,1000,[1000]*idn?,Timed out waiting for reply to command 1000
+2026-10-27T09:04:41.930549+00:00,TX,1087,[1087]TDG:FAULTOVERRIDE?,external compatibility monitor
+2026-10-27T09:04:43.930690+00:00,ERROR,1087,[1087]TDG:FAULTOVERRIDE?,Timed out waiting for reply to command 1087
+2026-10-27T09:04:43.931259+00:00,TX,1000,[1000]*idn?,connection heartbeat
+2026-10-27T09:04:45.932106+00:00,ERROR,1000,[1000]*idn?,Timed out waiting for reply to command 1000
+2026-10-27T09:04:45.932688+00:00,TX,1045,[1045]TDG:DEL1?,external compatibility monitor
+2026-10-27T09:04:47.932640+00:00,ERROR,1045,[1045]TDG:DEL1?,Timed out waiting for reply to command 1045
+2026-10-27T09:04:47.933463+00:00,TX,1000,[1000]*idn?,connection heartbeat
+2026-10-27T09:04:49.933388+00:00,ERROR,1000,[1000]*idn?,Timed out waiting for reply to command 1000

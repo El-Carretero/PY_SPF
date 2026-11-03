@@ -1,0 +1,2855 @@
+{
+  "ATTR_DIMMED": {
+    "id": 500,
+    "type": 1,
+    "words": [
+      2,
+      0,
+      0
+    ]
+  },
+  "ATTR_CONSTANT_NAME": {
+    "id": 501,
+    "type": 5,
+    "words": [
+      0,
+      0,
+      0
+    ]
+  },
+  "ATTR_CALLBACK_NAME": {
+    "id": 511,
+    "type": 5,
+    "words": [
+      0,
+      0,
+      0
+    ]
+  },
+  "ATTR_VISIBLE": {
+    "id": 530,
+    "type": 1,
+    "words": [
+      2,
+      3,
+      0
+    ]
+  },
+  "ATTR_LEFT": {
+    "id": 531,
+    "type": 1,
+    "words": [
+      4,
+      3,
+      0
+    ]
+  },
+  "ATTR_TOP": {
+    "id": 532,
+    "type": 1,
+    "words": [
+      4,
+      3,
+      0
+    ]
+  },
+  "ATTR_WIDTH": {
+    "id": 533,
+    "type": 1,
+    "words": [
+      0,
+      3,
+      0
+    ]
+  },
+  "ATTR_ZPLANE_POSITION": {
+    "id": 610,
+    "type": 1,
+    "words": [
+      0,
+      3,
+      0
+    ]
+  },
+  "ATTR_HEIGHT": {
+    "id": 540,
+    "type": 1,
+    "words": [
+      0,
+      3,
+      0
+    ]
+  },
+  "ATTR_FRAME_COLOR": {
+    "id": 550,
+    "type": 1,
+    "words": [
+      8,
+      3,
+      0
+    ]
+  },
+  "ATTR_DISABLE_CHECK_MARK": {
+    "id": 755,
+    "type": 1,
+    "words": [
+      2,
+      22,
+      0
+    ]
+  },
+  "ATTR_SCROLL_BARS": {
+    "id": 551,
+    "type": 1,
+    "words": [
+      35,
+      3,
+      0
+    ]
+  },
+  "ATTR_SCROLL_BAR_COLOR": {
+    "id": 552,
+    "type": 1,
+    "words": [
+      8,
+      3,
+      0
+    ]
+  },
+  "ATTR_SCROLL_BAR_SIZE": {
+    "id": 820,
+    "type": 1,
+    "words": [
+      36,
+      1,
+      0
+    ]
+  },
+  "ATTR_HSCROLL_OFFSET": {
+    "id": 560,
+    "type": 1,
+    "words": [
+      0,
+      3,
+      0
+    ]
+  },
+  "ATTR_BACKCOLOR": {
+    "id": 570,
+    "type": 1,
+    "words": [
+      8,
+      2,
+      0
+    ]
+  },
+  "ATTR_TITLEBAR_VISIBLE": {
+    "id": 571,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_TITLEBAR_THICKNESS": {
+    "id": 572,
+    "type": 1,
+    "words": [
+      0,
+      2,
+      0
+    ]
+  },
+  "ATTR_TITLEBAR_STYLE": {
+    "id": 1991,
+    "type": 1,
+    "words": [
+      59,
+      2,
+      0
+    ]
+  },
+  "ATTR_SCROLL_BAR_STYLE": {
+    "id": 624,
+    "type": 1,
+    "words": [
+      60,
+      2,
+      0
+    ]
+  },
+  "ATTR_TITLE": {
+    "id": 573,
+    "type": 5,
+    "words": [
+      0,
+      2,
+      0
+    ]
+  },
+  "ATTR_TITLE_COLOR": {
+    "id": 575,
+    "type": 1,
+    "words": [
+      8,
+      2,
+      0
+    ]
+  },
+  "ATTR_TITLE_BACKCOLOR": {
+    "id": 576,
+    "type": 1,
+    "words": [
+      8,
+      2,
+      0
+    ]
+  },
+  "ATTR_FRAME_STYLE": {
+    "id": 577,
+    "type": 1,
+    "words": [
+      18,
+      2,
+      0
+    ]
+  },
+  "ATTR_SIZABLE": {
+    "id": 580,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_MOVABLE": {
+    "id": 581,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_TITLE_FONT": {
+    "id": 584,
+    "type": 5,
+    "words": [
+      45,
+      2,
+      0
+    ]
+  },
+  "ATTR_TITLE_ITALIC": {
+    "id": 585,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_TITLE_UNDERLINE": {
+    "id": 586,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_TITLE_STRIKEOUT": {
+    "id": 587,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_TITLE_POINT_SIZE": {
+    "id": 588,
+    "type": 1,
+    "words": [
+      0,
+      2,
+      0
+    ]
+  },
+  "ATTR_TITLE_BOLD": {
+    "id": 589,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_CLOSE_CTRL": {
+    "id": 592,
+    "type": 1,
+    "words": [
+      0,
+      2,
+      0
+    ]
+  },
+  "ATTR_PARENT_SHARES_SHORTCUT_KEYS": {
+    "id": 595,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_ACTIVATE_WHEN_CLICKED_ON": {
+    "id": 596,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_WINDOW_ZOOM": {
+    "id": 597,
+    "type": 1,
+    "words": [
+      19,
+      2,
+      0
+    ]
+  },
+  "ATTR_CAN_MINIMIZE": {
+    "id": 599,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_CAN_MAXIMIZE": {
+    "id": 600,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_SCALE_CONTENTS_ON_RESIZE": {
+    "id": 618,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_MIN_HEIGHT_FOR_SCALING": {
+    "id": 619,
+    "type": 1,
+    "words": [
+      0,
+      2,
+      0
+    ]
+  },
+  "ATTR_MIN_WIDTH_FOR_SCALING": {
+    "id": 621,
+    "type": 1,
+    "words": [
+      0,
+      2,
+      0
+    ]
+  },
+  "ATTR_RESOLUTION_ADJUSTMENT": {
+    "id": 1500,
+    "type": 1,
+    "words": [
+      0,
+      2,
+      0
+    ]
+  },
+  "ATTR_FLOATING": {
+    "id": 615,
+    "type": 1,
+    "words": [
+      50,
+      2,
+      0
+    ]
+  },
+  "ATTR_CONFORM_TO_SYSTEM": {
+    "id": 617,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_CLOSE_ITEM_VISIBLE": {
+    "id": 601,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_SYSTEM_MENU_VISIBLE": {
+    "id": 602,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_PANEL_MENU_BAR_CONSTANT": {
+    "id": 603,
+    "type": 5,
+    "words": [
+      0,
+      2,
+      0
+    ]
+  },
+  "ATTR_TITLE_SIZE_TO_FONT": {
+    "id": 605,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_AUTO_CENTER_H_WHEN_LOADED": {
+    "id": 20460,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_AUTO_CENTER_V_WHEN_LOADED": {
+    "id": 20461,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_HAS_TASKBAR_BUTTON": {
+    "id": 622,
+    "type": 1,
+    "words": [
+      2,
+      2,
+      0
+    ]
+  },
+  "ATTR_VSCROLL_OFFSET": {
+    "id": 593,
+    "type": 1,
+    "words": [
+      0,
+      3,
+      0
+    ]
+  },
+  "ATTR_CTRL_STYLE": {
+    "id": 611,
+    "type": 1,
+    "words": [
+      1,
+      1,
+      0
+    ]
+  },
+  "ATTR_HIDDEN_WHEN_LOADED": {
+    "id": 20479,
+    "type": 1,
+    "words": [
+      2,
+      1,
+      0
+    ]
+  },
+  "ATTR_INDUCE_CLOSE_CTRL": {
+    "id": 20481,
+    "type": 1,
+    "words": [
+      2,
+      1,
+      0
+    ]
+  },
+  "ATTR_CTRL_MODE": {
+    "id": 620,
+    "type": 1,
+    "words": [
+      17,
+      1,
+      0
+    ]
+  },
+  "ATTR_CTRL_TAB_POSITION": {
+    "id": 612,
+    "type": 1,
+    "words": [
+      0,
+      1,
+      0
+    ]
+  },
+  "ATTR_LABEL_COLOR": {
+    "id": 640,
+    "type": 1,
+    "words": [
+      8,
+      32,
+      0
+    ]
+  },
+  "ATTR_LABEL_TEXT": {
+    "id": 641,
+    "type": 5,
+    "words": [
+      0,
+      32,
+      0
+    ]
+  },
+  "ATTR_LABEL_FONT": {
+    "id": 642,
+    "type": 5,
+    "words": [
+      45,
+      32,
+      0
+    ]
+  },
+  "ATTR_LABEL_ITALIC": {
+    "id": 643,
+    "type": 1,
+    "words": [
+      2,
+      32,
+      0
+    ]
+  },
+  "ATTR_LABEL_UNDERLINE": {
+    "id": 644,
+    "type": 1,
+    "words": [
+      2,
+      32,
+      0
+    ]
+  },
+  "ATTR_LABEL_STRIKEOUT": {
+    "id": 645,
+    "type": 1,
+    "words": [
+      2,
+      32,
+      0
+    ]
+  },
+  "ATTR_LABEL_POINT_SIZE": {
+    "id": 646,
+    "type": 1,
+    "words": [
+      0,
+      32,
+      0
+    ]
+  },
+  "ATTR_LABEL_BOLD": {
+    "id": 647,
+    "type": 1,
+    "words": [
+      2,
+      32,
+      0
+    ]
+  },
+  "ATTR_LABEL_VISIBLE": {
+    "id": 660,
+    "type": 1,
+    "words": [
+      2,
+      32,
+      0
+    ]
+  },
+  "ATTR_LABEL_JUSTIFY": {
+    "id": 675,
+    "type": 1,
+    "words": [
+      5,
+      32,
+      0
+    ]
+  },
+  "ATTR_LABEL_LEFT": {
+    "id": 670,
+    "type": 1,
+    "words": [
+      4,
+      1,
+      0
+    ]
+  },
+  "ATTR_LABEL_TOP": {
+    "id": 671,
+    "type": 1,
+    "words": [
+      4,
+      1,
+      0
+    ]
+  },
+  "ATTR_LABEL_WIDTH": {
+    "id": 672,
+    "type": 1,
+    "words": [
+      0,
+      1,
+      0
+    ]
+  },
+  "ATTR_LABEL_HEIGHT": {
+    "id": 673,
+    "type": 1,
+    "words": [
+      0,
+      1,
+      0
+    ]
+  },
+  "ATTR_LABEL_RAISED": {
+    "id": 676,
+    "type": 1,
+    "words": [
+      2,
+      1,
+      0
+    ]
+  },
+  "ATTR_LABEL_SIZE_TO_TEXT": {
+    "id": 649,
+    "type": 1,
+    "words": [
+      2,
+      1,
+      0
+    ]
+  },
+  "ATTR_LABEL_BGCOLOR": {
+    "id": 674,
+    "type": 1,
+    "words": [
+      8,
+      33,
+      0
+    ]
+  },
+  "ATTR_TEXT_COLOR": {
+    "id": 680,
+    "type": 1,
+    "words": [
+      8,
+      31,
+      0
+    ]
+  },
+  "ATTR_TEXT_FONT": {
+    "id": 682,
+    "type": 5,
+    "words": [
+      45,
+      31,
+      0
+    ]
+  },
+  "ATTR_TEXT_ITALIC": {
+    "id": 683,
+    "type": 1,
+    "words": [
+      2,
+      31,
+      0
+    ]
+  },
+  "ATTR_TEXT_UNDERLINE": {
+    "id": 684,
+    "type": 1,
+    "words": [
+      2,
+      31,
+      0
+    ]
+  },
+  "ATTR_TEXT_STRIKEOUT": {
+    "id": 685,
+    "type": 1,
+    "words": [
+      2,
+      31,
+      0
+    ]
+  },
+  "ATTR_TEXT_POINT_SIZE": {
+    "id": 686,
+    "type": 1,
+    "words": [
+      0,
+      31,
+      0
+    ]
+  },
+  "ATTR_TEXT_BOLD": {
+    "id": 687,
+    "type": 1,
+    "words": [
+      2,
+      31,
+      0
+    ]
+  },
+  "ATTR_TEXT_BGCOLOR": {
+    "id": 690,
+    "type": 1,
+    "words": [
+      8,
+      31,
+      0
+    ]
+  },
+  "ATTR_TEXT_JUSTIFY": {
+    "id": 700,
+    "type": 1,
+    "words": [
+      6,
+      1,
+      0
+    ]
+  },
+  "ATTR_DATA_TYPE": {
+    "id": 710,
+    "type": 1,
+    "words": [
+      3,
+      31,
+      0
+    ]
+  },
+  "ATTR_DFLT_INDEX": {
+    "id": 721,
+    "type": 1,
+    "words": [
+      0,
+      1,
+      0
+    ]
+  },
+  "ATTR_MAX_VALUE": {
+    "id": 730,
+    "type": 9,
+    "words": [
+      0,
+      34,
+      0
+    ]
+  },
+  "ATTR_MIN_VALUE": {
+    "id": 731,
+    "type": 9,
+    "words": [
+      0,
+      34,
+      0
+    ]
+  },
+  "ATTR_INCR_VALUE": {
+    "id": 733,
+    "type": 9,
+    "words": [
+      0,
+      34,
+      0
+    ]
+  },
+  "ATTR_FORMAT": {
+    "id": 734,
+    "type": 1,
+    "words": [
+      10,
+      34,
+      0
+    ]
+  },
+  "ATTR_PRECISION": {
+    "id": 735,
+    "type": 1,
+    "words": [
+      0,
+      34,
+      0
+    ]
+  },
+  "ATTR_CHECK_RANGE": {
+    "id": 738,
+    "type": 1,
+    "words": [
+      13,
+      34,
+      0
+    ]
+  },
+  "ATTR_PADDING": {
+    "id": 739,
+    "type": 1,
+    "words": [
+      0,
+      34,
+      0
+    ]
+  },
+  "ATTR_SHOW_RADIX": {
+    "id": 736,
+    "type": 1,
+    "words": [
+      2,
+      17,
+      0
+    ]
+  },
+  "ATTR_DFLT_VALUE": {
+    "id": 732,
+    "type": 9,
+    "words": [
+      0,
+      31,
+      0
+    ]
+  },
+  "ATTR_SHOW_INCDEC_ARROWS": {
+    "id": 737,
+    "type": 1,
+    "words": [
+      2,
+      31,
+      0
+    ]
+  },
+  "ATTR_MAX_ENTRY_LENGTH": {
+    "id": 760,
+    "type": 1,
+    "words": [
+      0,
+      31,
+      0
+    ]
+  },
+  "ATTR_WRAP_MODE": {
+    "id": 791,
+    "type": 1,
+    "words": [
+      9,
+      35,
+      0
+    ]
+  },
+  "ATTR_ENTER_IS_NEWLINE": {
+    "id": 795,
+    "type": 1,
+    "words": [
+      2,
+      35,
+      0
+    ]
+  },
+  "ATTR_FIRST_VISIBLE_LINE": {
+    "id": 790,
+    "type": 1,
+    "words": [
+      0,
+      14,
+      0
+    ]
+  },
+  "ATTR_EXTRA_LINES": {
+    "id": 793,
+    "type": 1,
+    "words": [
+      0,
+      14,
+      0
+    ]
+  },
+  "ATTR_NO_EDIT_TEXT": {
+    "id": 840,
+    "type": 1,
+    "words": [
+      2,
+      31,
+      0
+    ]
+  },
+  "ATTR_TEXT_RAISED": {
+    "id": 860,
+    "type": 1,
+    "words": [
+      2,
+      1,
+      0
+    ]
+  },
+  "ATTR_SIZE_TO_TEXT": {
+    "id": 861,
+    "type": 1,
+    "words": [
+      2,
+      1,
+      0
+    ]
+  },
+  "ATTR_CMD_BUTTON_COLOR": {
+    "id": 880,
+    "type": 1,
+    "words": [
+      8,
+      15,
+      0
+    ]
+  },
+  "ATTR_AUTO_SIZING": {
+    "id": 881,
+    "type": 1,
+    "words": [
+      49,
+      16,
+      0
+    ]
+  },
+  "ATTR_ON_VALUE": {
+    "id": 900,
+    "type": 9,
+    "words": [
+      0,
+      16,
+      0
+    ]
+  },
+  "ATTR_OFF_VALUE": {
+    "id": 901,
+    "type": 9,
+    "words": [
+      0,
+      16,
+      0
+    ]
+  },
+  "ATTR_BINARY_SWITCH_COLOR": {
+    "id": 904,
+    "type": 1,
+    "words": [
+      8,
+      16,
+      0
+    ]
+  },
+  "ATTR_ON_COLOR": {
+    "id": 920,
+    "type": 1,
+    "words": [
+      8,
+      16,
+      0
+    ]
+  },
+  "ATTR_OFF_COLOR": {
+    "id": 921,
+    "type": 1,
+    "words": [
+      8,
+      16,
+      0
+    ]
+  },
+  "ATTR_ON_TEXT": {
+    "id": 940,
+    "type": 5,
+    "words": [
+      0,
+      16,
+      0
+    ]
+  },
+  "ATTR_OFF_TEXT": {
+    "id": 941,
+    "type": 5,
+    "words": [
+      0,
+      16,
+      0
+    ]
+  },
+  "ATTR_DIG_DISP_TOP": {
+    "id": 970,
+    "type": 1,
+    "words": [
+      4,
+      18,
+      0
+    ]
+  },
+  "ATTR_DIG_DISP_LEFT": {
+    "id": 971,
+    "type": 1,
+    "words": [
+      4,
+      18,
+      0
+    ]
+  },
+  "ATTR_DIG_DISP_WIDTH": {
+    "id": 972,
+    "type": 1,
+    "words": [
+      0,
+      18,
+      0
+    ]
+  },
+  "ATTR_DIG_DISP_HEIGHT": {
+    "id": 973,
+    "type": 1,
+    "words": [
+      0,
+      18,
+      0
+    ]
+  },
+  "ATTR_SHOW_DIG_DISP": {
+    "id": 974,
+    "type": 1,
+    "words": [
+      2,
+      18,
+      0
+    ]
+  },
+  "ATTR_NEEDLE_COLOR": {
+    "id": 980,
+    "type": 1,
+    "words": [
+      8,
+      19,
+      0
+    ]
+  },
+  "ATTR_SLIDER_COLOR": {
+    "id": 980,
+    "type": 1,
+    "words": [
+      8,
+      19,
+      0
+    ]
+  },
+  "ATTR_FILL_HOUSING_COLOR": {
+    "id": 981,
+    "type": 1,
+    "words": [
+      8,
+      19,
+      0
+    ]
+  },
+  "ATTR_MARKER_STYLE": {
+    "id": 982,
+    "type": 1,
+    "words": [
+      15,
+      19,
+      0
+    ]
+  },
+  "ATTR_TICK_STYLE": {
+    "id": 983,
+    "type": 1,
+    "words": [
+      16,
+      19,
+      0
+    ]
+  },
+  "ATTR_FILL_COLOR": {
+    "id": 985,
+    "type": 1,
+    "words": [
+      8,
+      19,
+      0
+    ]
+  },
+  "ATTR_FILL_OPTION": {
+    "id": 986,
+    "type": 1,
+    "words": [
+      14,
+      19,
+      0
+    ]
+  },
+  "ATTR_MARKER_START_ANGLE": {
+    "id": 990,
+    "type": 1,
+    "words": [
+      0,
+      19,
+      0
+    ]
+  },
+  "ATTR_MARKER_END_ANGLE": {
+    "id": 991,
+    "type": 1,
+    "words": [
+      0,
+      19,
+      0
+    ]
+  },
+  "ATTR_SLIDER_WIDTH": {
+    "id": 992,
+    "type": 1,
+    "words": [
+      0,
+      19,
+      0
+    ]
+  },
+  "ATTR_SLIDER_HEIGHT": {
+    "id": 993,
+    "type": 1,
+    "words": [
+      0,
+      19,
+      0
+    ]
+  },
+  "ATTR_SLIDER_LEFT": {
+    "id": 997,
+    "type": 1,
+    "words": [
+      0,
+      19,
+      0
+    ]
+  },
+  "ATTR_SLIDER_TOP": {
+    "id": 998,
+    "type": 1,
+    "words": [
+      0,
+      19,
+      0
+    ]
+  },
+  "ATTR_SHOW_MORE_BUTTON": {
+    "id": 995,
+    "type": 1,
+    "words": [
+      2,
+      20,
+      0
+    ]
+  },
+  "ATTR_SHOW_TRANSPARENT": {
+    "id": 996,
+    "type": 1,
+    "words": [
+      2,
+      20,
+      0
+    ]
+  },
+  "ATTR_MENU_ARROW_COLOR": {
+    "id": 1000,
+    "type": 1,
+    "words": [
+      8,
+      21,
+      0
+    ]
+  },
+  "ATTR_SHORTCUT_KEY": {
+    "id": 1020,
+    "type": 1,
+    "words": [
+      12,
+      0,
+      0
+    ]
+  },
+  "ATTR_CHECKED": {
+    "id": 1040,
+    "type": 1,
+    "words": [
+      2,
+      6,
+      0
+    ]
+  },
+  "ATTR_BOLD": {
+    "id": 1046,
+    "type": 1,
+    "words": [
+      2,
+      6,
+      0
+    ]
+  },
+  "ATTR_IS_SEPARATOR": {
+    "id": 1041,
+    "type": 1,
+    "words": [
+      2,
+      6,
+      0
+    ]
+  },
+  "ATTR_ITEM_NAME": {
+    "id": 1042,
+    "type": 5,
+    "words": [
+      0,
+      6,
+      0
+    ]
+  },
+  "ATTR_IMAGE_FILE": {
+    "id": 1050,
+    "type": 5,
+    "words": [
+      0,
+      23,
+      0
+    ]
+  },
+  "ATTR_MENU_NAME": {
+    "id": 1060,
+    "type": 5,
+    "words": [
+      0,
+      5,
+      0
+    ]
+  },
+  "ATTR_GRID_COLOR": {
+    "id": 1080,
+    "type": 1,
+    "words": [
+      8,
+      7,
+      0
+    ]
+  },
+  "ATTR_PLOT_BGCOLOR": {
+    "id": 1081,
+    "type": 1,
+    "words": [
+      8,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYNAME_FONT": {
+    "id": 1082,
+    "type": 5,
+    "words": [
+      45,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYNAME_COLOR": {
+    "id": 1083,
+    "type": 1,
+    "words": [
+      8,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYLABEL_FONT": {
+    "id": 1084,
+    "type": 5,
+    "words": [
+      45,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYLABEL_COLOR": {
+    "id": 1085,
+    "type": 1,
+    "words": [
+      8,
+      7,
+      0
+    ]
+  },
+  "ATTR_XNAME": {
+    "id": 1086,
+    "type": 5,
+    "words": [
+      0,
+      7,
+      2
+    ]
+  },
+  "ATTR_XGRID_VISIBLE": {
+    "id": 1087,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      2
+    ]
+  },
+  "ATTR_XMINORGRID_VISIBLE": {
+    "id": 1136,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      2
+    ]
+  },
+  "ATTR_XLABEL_VISIBLE": {
+    "id": 1088,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      2
+    ]
+  },
+  "ATTR_XFORMAT": {
+    "id": 1089,
+    "type": 1,
+    "words": [
+      10,
+      7,
+      2
+    ]
+  },
+  "ATTR_XDIVISIONS": {
+    "id": 1090,
+    "type": 1,
+    "words": [
+      27,
+      7,
+      2
+    ]
+  },
+  "ATTR_XPRECISION": {
+    "id": 1091,
+    "type": 1,
+    "words": [
+      27,
+      7,
+      2
+    ]
+  },
+  "ATTR_XPADDING": {
+    "id": 1130,
+    "type": 1,
+    "words": [
+      0,
+      7,
+      2
+    ]
+  },
+  "ATTR_XENG_UNITS": {
+    "id": 1092,
+    "type": 1,
+    "words": [
+      0,
+      7,
+      2
+    ]
+  },
+  "ATTR_XUSE_LABEL_STRINGS": {
+    "id": 1122,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      2
+    ]
+  },
+  "ATTR_XAXIS_GAIN": {
+    "id": 1124,
+    "type": 4,
+    "words": [
+      0,
+      7,
+      2
+    ]
+  },
+  "ATTR_XAXIS_OFFSET": {
+    "id": 1126,
+    "type": 4,
+    "words": [
+      0,
+      7,
+      2
+    ]
+  },
+  "ATTR_YNAME": {
+    "id": 1093,
+    "type": 5,
+    "words": [
+      0,
+      7,
+      1
+    ]
+  },
+  "ATTR_YGRID_VISIBLE": {
+    "id": 1094,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      1
+    ]
+  },
+  "ATTR_YMINORGRID_VISIBLE": {
+    "id": 1137,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      1
+    ]
+  },
+  "ATTR_YLABEL_VISIBLE": {
+    "id": 1095,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      1
+    ]
+  },
+  "ATTR_YMAP_MODE": {
+    "id": 1096,
+    "type": 1,
+    "words": [
+      26,
+      7,
+      1
+    ]
+  },
+  "ATTR_YFORMAT": {
+    "id": 1097,
+    "type": 1,
+    "words": [
+      10,
+      7,
+      1
+    ]
+  },
+  "ATTR_YDIVISIONS": {
+    "id": 1098,
+    "type": 1,
+    "words": [
+      27,
+      7,
+      1
+    ]
+  },
+  "ATTR_YPRECISION": {
+    "id": 1099,
+    "type": 1,
+    "words": [
+      27,
+      7,
+      1
+    ]
+  },
+  "ATTR_YPADDING": {
+    "id": 1131,
+    "type": 1,
+    "words": [
+      0,
+      7,
+      1
+    ]
+  },
+  "ATTR_YENG_UNITS": {
+    "id": 1100,
+    "type": 1,
+    "words": [
+      0,
+      7,
+      1
+    ]
+  },
+  "ATTR_YREVERSE": {
+    "id": 1121,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      1
+    ]
+  },
+  "ATTR_YUSE_LABEL_STRINGS": {
+    "id": 1123,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      1
+    ]
+  },
+  "ATTR_YAXIS_GAIN": {
+    "id": 1125,
+    "type": 4,
+    "words": [
+      0,
+      7,
+      1
+    ]
+  },
+  "ATTR_YAXIS_OFFSET": {
+    "id": 1127,
+    "type": 4,
+    "words": [
+      0,
+      7,
+      1
+    ]
+  },
+  "ATTR_EDGE_STYLE": {
+    "id": 1101,
+    "type": 1,
+    "words": [
+      20,
+      7,
+      0
+    ]
+  },
+  "ATTR_BORDER_VISIBLE": {
+    "id": 1102,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYNAME_BOLD": {
+    "id": 1103,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYNAME_ITALIC": {
+    "id": 1104,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYNAME_UNDERLINE": {
+    "id": 1105,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYNAME_STRIKEOUT": {
+    "id": 1106,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYNAME_POINT_SIZE": {
+    "id": 1107,
+    "type": 1,
+    "words": [
+      0,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYLABEL_BOLD": {
+    "id": 1111,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYLABEL_ITALIC": {
+    "id": 1112,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYLABEL_UNDERLINE": {
+    "id": 1113,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYLABEL_STRIKEOUT": {
+    "id": 1114,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      0
+    ]
+  },
+  "ATTR_XYLABEL_POINT_SIZE": {
+    "id": 1115,
+    "type": 1,
+    "words": [
+      0,
+      7,
+      0
+    ]
+  },
+  "ATTR_GRAPH_BGCOLOR": {
+    "id": 1117,
+    "type": 1,
+    "words": [
+      8,
+      7,
+      0
+    ]
+  },
+  "ATTR_ANTI_ALIASED_PLOTS": {
+    "id": 1156,
+    "type": 1,
+    "words": [
+      2,
+      7,
+      0
+    ]
+  },
+  "ATTR_NUM_CURSORS": {
+    "id": 1140,
+    "type": 1,
+    "words": [
+      0,
+      8,
+      0
+    ]
+  },
+  "ATTR_XMAP_MODE": {
+    "id": 1141,
+    "type": 1,
+    "words": [
+      26,
+      8,
+      0
+    ]
+  },
+  "ATTR_XREVERSE": {
+    "id": 1150,
+    "type": 1,
+    "words": [
+      2,
+      8,
+      2
+    ]
+  },
+  "ATTR_DATA_MODE": {
+    "id": 1142,
+    "type": 1,
+    "words": [
+      28,
+      8,
+      0
+    ]
+  },
+  "ATTR_COPY_ORIGINAL_DATA": {
+    "id": 1143,
+    "type": 1,
+    "words": [
+      2,
+      8,
+      0
+    ]
+  },
+  "ATTR_XMARK_ORIGIN": {
+    "id": 1144,
+    "type": 1,
+    "words": [
+      2,
+      8,
+      2
+    ]
+  },
+  "ATTR_YMARK_ORIGIN": {
+    "id": 1145,
+    "type": 1,
+    "words": [
+      2,
+      8,
+      1
+    ]
+  },
+  "ATTR_SMOOTH_UPDATE": {
+    "id": 1146,
+    "type": 1,
+    "words": [
+      2,
+      8,
+      0
+    ]
+  },
+  "ATTR_REFRESH_GRAPH": {
+    "id": 1147,
+    "type": 1,
+    "words": [
+      2,
+      8,
+      0
+    ]
+  },
+  "ATTR_SHIFT_TEXT_PLOTS": {
+    "id": 1148,
+    "type": 1,
+    "words": [
+      2,
+      8,
+      0
+    ]
+  },
+  "ATTR_ENABLE_ZOOM_AND_PAN": {
+    "id": 1151,
+    "type": 1,
+    "words": [
+      2,
+      8,
+      0
+    ]
+  },
+  "ATTR_XLOOSE_FIT_AUTOSCALING": {
+    "id": 1152,
+    "type": 1,
+    "words": [
+      2,
+      8,
+      2
+    ]
+  },
+  "ATTR_YLOOSE_FIT_AUTOSCALING": {
+    "id": 1153,
+    "type": 1,
+    "words": [
+      2,
+      8,
+      1
+    ]
+  },
+  "ATTR_XLOOSE_FIT_AUTOSCALING_UNIT": {
+    "id": 1154,
+    "type": 1,
+    "words": [
+      0,
+      8,
+      2
+    ]
+  },
+  "ATTR_YLOOSE_FIT_AUTOSCALING_UNIT": {
+    "id": 1155,
+    "type": 1,
+    "words": [
+      0,
+      8,
+      1
+    ]
+  },
+  "ATTR_LEGEND_VISIBLE": {
+    "id": 1157,
+    "type": 1,
+    "words": [
+      2,
+      8,
+      0
+    ]
+  },
+  "ATTR_LEGEND_TOP": {
+    "id": 1158,
+    "type": 1,
+    "words": [
+      0,
+      8,
+      0
+    ]
+  },
+  "ATTR_LEGEND_LEFT": {
+    "id": 1159,
+    "type": 1,
+    "words": [
+      0,
+      8,
+      0
+    ]
+  },
+  "ATTR_LEGEND_WIDTH": {
+    "id": 1160,
+    "type": 1,
+    "words": [
+      0,
+      8,
+      0
+    ]
+  },
+  "ATTR_LEGEND_HEIGHT": {
+    "id": 1161,
+    "type": 1,
+    "words": [
+      0,
+      8,
+      0
+    ]
+  },
+  "ATTR_LEGEND_FRAME_COLOR": {
+    "id": 1162,
+    "type": 1,
+    "words": [
+      8,
+      8,
+      0
+    ]
+  },
+  "ATTR_LEGEND_PLOT_BGCOLOR": {
+    "id": 1163,
+    "type": 1,
+    "words": [
+      8,
+      8,
+      0
+    ]
+  },
+  "ATTR_DS_BIND_PLOT_STYLE": {
+    "id": 1770,
+    "type": 1,
+    "words": [
+      24,
+      8,
+      0
+    ]
+  },
+  "ATTR_DS_BIND_POINT_STYLE": {
+    "id": 1771,
+    "type": 1,
+    "words": [
+      23,
+      8,
+      0
+    ]
+  },
+  "ATTR_DS_BIND_LINE_STYLE": {
+    "id": 1772,
+    "type": 1,
+    "words": [
+      25,
+      8,
+      0
+    ]
+  },
+  "ATTR_DS_BIND_PLOT_COLOR": {
+    "id": 1773,
+    "type": 1,
+    "words": [
+      8,
+      8,
+      0
+    ]
+  },
+  "ATTR_NUM_TRACES": {
+    "id": 1170,
+    "type": 1,
+    "words": [
+      0,
+      9,
+      0
+    ]
+  },
+  "ATTR_POINTS_PER_SCREEN": {
+    "id": 1171,
+    "type": 1,
+    "words": [
+      0,
+      9,
+      0
+    ]
+  },
+  "ATTR_SCROLL_MODE": {
+    "id": 1172,
+    "type": 1,
+    "words": [
+      31,
+      9,
+      0
+    ]
+  },
+  "ATTR_CURSOR_MODE": {
+    "id": 1200,
+    "type": 1,
+    "words": [
+      29,
+      10,
+      0
+    ]
+  },
+  "ATTR_CURSOR_POINT_STYLE": {
+    "id": 1201,
+    "type": 1,
+    "words": [
+      23,
+      10,
+      0
+    ]
+  },
+  "ATTR_CROSS_HAIR_STYLE": {
+    "id": 1202,
+    "type": 1,
+    "words": [
+      30,
+      10,
+      0
+    ]
+  },
+  "ATTR_CURSOR_COLOR": {
+    "id": 1203,
+    "type": 1,
+    "words": [
+      8,
+      10,
+      0
+    ]
+  },
+  "ATTR_CURSOR_YAXIS": {
+    "id": 1204,
+    "type": 1,
+    "words": [
+      46,
+      10,
+      0
+    ]
+  },
+  "ATTR_CURSOR_XAXIS": {
+    "id": 1206,
+    "type": 1,
+    "words": [
+      61,
+      10,
+      0
+    ]
+  },
+  "ATTR_CURSOR_ENABLED": {
+    "id": 1205,
+    "type": 1,
+    "words": [
+      2,
+      10,
+      0
+    ]
+  },
+  "ATTR_TRACE_COLOR": {
+    "id": 1230,
+    "type": 1,
+    "words": [
+      8,
+      11,
+      0
+    ]
+  },
+  "ATTR_PLOT_STYLE": {
+    "id": 1231,
+    "type": 1,
+    "words": [
+      24,
+      11,
+      0
+    ]
+  },
+  "ATTR_TRACE_POINT_STYLE": {
+    "id": 1232,
+    "type": 1,
+    "words": [
+      23,
+      11,
+      0
+    ]
+  },
+  "ATTR_LINE_STYLE": {
+    "id": 1233,
+    "type": 1,
+    "words": [
+      25,
+      11,
+      0
+    ]
+  },
+  "ATTR_TRACE_VISIBLE": {
+    "id": 1234,
+    "type": 1,
+    "words": [
+      2,
+      11,
+      0
+    ]
+  },
+  "ATTR_CHECK_MODE": {
+    "id": 1260,
+    "type": 1,
+    "words": [
+      2,
+      12,
+      0
+    ]
+  },
+  "ATTR_CHECK_STYLE": {
+    "id": 1261,
+    "type": 1,
+    "words": [
+      22,
+      12,
+      0
+    ]
+  },
+  "ATTR_TEXT_CLICK_TOGGLES_CHECK": {
+    "id": 1262,
+    "type": 1,
+    "words": [
+      2,
+      12,
+      0
+    ]
+  },
+  "ATTR_DRAGGABLE_MARKS": {
+    "id": 1265,
+    "type": 1,
+    "words": [
+      2,
+      39,
+      0
+    ]
+  },
+  "ATTR_ALLOW_ROOM_FOR_IMAGES": {
+    "id": 1264,
+    "type": 1,
+    "words": [
+      2,
+      12,
+      0
+    ]
+  },
+  "ATTR_INTERVAL": {
+    "id": 1270,
+    "type": 4,
+    "words": [
+      0,
+      13,
+      0
+    ]
+  },
+  "ATTR_ENABLED": {
+    "id": 1271,
+    "type": 1,
+    "words": [
+      2,
+      13,
+      0
+    ]
+  },
+  "ATTR_FRAME_VISIBLE": {
+    "id": 1290,
+    "type": 1,
+    "words": [
+      2,
+      37,
+      0
+    ]
+  },
+  "ATTR_PICT_BGCOLOR": {
+    "id": 1291,
+    "type": 1,
+    "words": [
+      8,
+      23,
+      0
+    ]
+  },
+  "ATTR_FIT_MODE": {
+    "id": 1292,
+    "type": 1,
+    "words": [
+      37,
+      36,
+      0
+    ]
+  },
+  "ATTR_DRAW_POLICY": {
+    "id": 1370,
+    "type": 1,
+    "words": [
+      38,
+      24,
+      0
+    ]
+  },
+  "ATTR_OVERLAPPED_POLICY": {
+    "id": 1373,
+    "type": 1,
+    "words": [
+      39,
+      24,
+      0
+    ]
+  },
+  "ATTR_UPPER_LEFT_CORNER_COLOR": {
+    "id": 1510,
+    "type": 1,
+    "words": [
+      8,
+      25,
+      0
+    ]
+  },
+  "ATTR_TABLE_BGCOLOR": {
+    "id": 1513,
+    "type": 1,
+    "words": [
+      8,
+      25,
+      0
+    ]
+  },
+  "ATTR_ROW_LABELS_COLOR": {
+    "id": 1511,
+    "type": 1,
+    "words": [
+      8,
+      25,
+      0
+    ]
+  },
+  "ATTR_TABLE_MODE": {
+    "id": 1514,
+    "type": 1,
+    "words": [
+      51,
+      25,
+      0
+    ]
+  },
+  "ATTR_ROW_LABELS_VISIBLE": {
+    "id": 1515,
+    "type": 1,
+    "words": [
+      2,
+      25,
+      0
+    ]
+  },
+  "ATTR_ROW_LABELS_WIDTH": {
+    "id": 1517,
+    "type": 1,
+    "words": [
+      0,
+      25,
+      0
+    ]
+  },
+  "ATTR_ENABLE_ROW_SIZING": {
+    "id": 1523,
+    "type": 1,
+    "words": [
+      2,
+      25,
+      0
+    ]
+  },
+  "ATTR_DS_TABLE_RANGE_TOP": {
+    "id": 20484,
+    "type": 1,
+    "words": [
+      0,
+      25,
+      0
+    ]
+  },
+  "ATTR_DS_TABLE_RANGE_LEFT": {
+    "id": 20485,
+    "type": 1,
+    "words": [
+      0,
+      25,
+      0
+    ]
+  },
+  "ATTR_DS_TABLE_RANGE_HEIGHT": {
+    "id": 20486,
+    "type": 1,
+    "words": [
+      0,
+      25,
+      0
+    ]
+  },
+  "ATTR_DS_TABLE_RANGE_WIDTH": {
+    "id": 20487,
+    "type": 1,
+    "words": [
+      0,
+      25,
+      0
+    ]
+  },
+  "ATTR_COLUMN_LABELS_VISIBLE": {
+    "id": 1516,
+    "type": 1,
+    "words": [
+      2,
+      42,
+      0
+    ]
+  },
+  "ATTR_COLUMN_LABELS_COLOR": {
+    "id": 1512,
+    "type": 1,
+    "words": [
+      8,
+      42,
+      0
+    ]
+  },
+  "ATTR_COLUMN_LABELS_HEIGHT": {
+    "id": 1518,
+    "type": 1,
+    "words": [
+      0,
+      42,
+      0
+    ]
+  },
+  "ATTR_ENABLE_COLUMN_SIZING": {
+    "id": 1524,
+    "type": 1,
+    "words": [
+      2,
+      42,
+      0
+    ]
+  },
+  "ATTR_ENABLE_POPUP_MENU": {
+    "id": 1525,
+    "type": 1,
+    "words": [
+      2,
+      42,
+      0
+    ]
+  },
+  "ATTR_AUTO_SIZE_WHEN_LOADED": {
+    "id": 20478,
+    "type": 1,
+    "words": [
+      2,
+      42,
+      0
+    ]
+  },
+  "ATTR_USE_LABEL_TEXT": {
+    "id": 1620,
+    "type": 1,
+    "words": [
+      2,
+      26,
+      0
+    ]
+  },
+  "ATTR_SIZE_MODE": {
+    "id": 1621,
+    "type": 1,
+    "words": [
+      53,
+      27,
+      0
+    ]
+  },
+  "ATTR_LABEL_WRAP_MODE": {
+    "id": 1622,
+    "type": 1,
+    "words": [
+      9,
+      26,
+      0
+    ]
+  },
+  "ATTR_ROW_HEIGHT": {
+    "id": 1650,
+    "type": 1,
+    "words": [
+      0,
+      26,
+      0
+    ]
+  },
+  "ATTR_COLUMN_WIDTH": {
+    "id": 1700,
+    "type": 1,
+    "words": [
+      0,
+      28,
+      0
+    ]
+  },
+  "ATTR_CELL_TYPE": {
+    "id": 1580,
+    "type": 1,
+    "words": [
+      52,
+      29,
+      0
+    ]
+  },
+  "ATTR_CELL_DIMMED": {
+    "id": 1581,
+    "type": 1,
+    "words": [
+      2,
+      29,
+      0
+    ]
+  },
+  "ATTR_CELL_MODE": {
+    "id": 1582,
+    "type": 1,
+    "words": [
+      17,
+      29,
+      0
+    ]
+  },
+  "ATTR_HORIZONTAL_GRID_COLOR": {
+    "id": 1583,
+    "type": 1,
+    "words": [
+      8,
+      29,
+      0
+    ]
+  },
+  "ATTR_HORIZONTAL_GRID_VISIBLE": {
+    "id": 1585,
+    "type": 1,
+    "words": [
+      2,
+      29,
+      0
+    ]
+  },
+  "ATTR_MIN_NUM_LINES_VISIBLE": {
+    "id": 1587,
+    "type": 1,
+    "words": [
+      0,
+      29,
+      0
+    ]
+  },
+  "ATTR_INCDEC_ARROW_COLOR": {
+    "id": 1588,
+    "type": 1,
+    "words": [
+      8,
+      29,
+      0
+    ]
+  },
+  "ATTR_NUM_CELL_DFLT_VALUE": {
+    "id": 1589,
+    "type": 9,
+    "words": [
+      0,
+      29,
+      0
+    ]
+  },
+  "ATTR_STR_CELL_DFLT_VALUE": {
+    "id": 1590,
+    "type": 5,
+    "words": [
+      0,
+      29,
+      0
+    ]
+  },
+  "ATTR_CELL_JUSTIFY": {
+    "id": 1592,
+    "type": 1,
+    "words": [
+      7,
+      29,
+      0
+    ]
+  },
+  "ATTR_VERTICAL_GRID_COLOR": {
+    "id": 1584,
+    "type": 1,
+    "words": [
+      8,
+      30,
+      0
+    ]
+  },
+  "ATTR_VERTICAL_GRID_VISIBLE": {
+    "id": 1586,
+    "type": 1,
+    "words": [
+      2,
+      30,
+      0
+    ]
+  },
+  "ATTR_TREE_BGCOLOR": {
+    "id": 1900,
+    "type": 1,
+    "words": [
+      8,
+      39,
+      0
+    ]
+  },
+  "ATTR_SHOW_CONNECTION_LINES": {
+    "id": 1901,
+    "type": 1,
+    "words": [
+      2,
+      39,
+      0
+    ]
+  },
+  "ATTR_SHOW_PLUS_MINUS": {
+    "id": 1902,
+    "type": 1,
+    "words": [
+      2,
+      39,
+      0
+    ]
+  },
+  "ATTR_SHOW_MARKS": {
+    "id": 1903,
+    "type": 1,
+    "words": [
+      2,
+      39,
+      0
+    ]
+  },
+  "ATTR_SHOW_IMAGES": {
+    "id": 1904,
+    "type": 1,
+    "words": [
+      2,
+      39,
+      0
+    ]
+  },
+  "ATTR_MARK_REFLECT": {
+    "id": 1905,
+    "type": 1,
+    "words": [
+      2,
+      39,
+      0
+    ]
+  },
+  "ATTR_AUTO_EXPAND": {
+    "id": 1906,
+    "type": 1,
+    "words": [
+      2,
+      39,
+      0
+    ]
+  },
+  "ATTR_AUTO_HSCROLL": {
+    "id": 1907,
+    "type": 1,
+    "words": [
+      2,
+      39,
+      0
+    ]
+  },
+  "ATTR_FULL_ROW_SELECT": {
+    "id": 1908,
+    "type": 1,
+    "words": [
+      2,
+      39,
+      0
+    ]
+  },
+  "ATTR_INDENT_OFFSET": {
+    "id": 1909,
+    "type": 1,
+    "words": [
+      0,
+      39,
+      0
+    ]
+  },
+  "ATTR_RADIO_SIBLING_ALWAYS_MARKED": {
+    "id": 1910,
+    "type": 1,
+    "words": [
+      2,
+      39,
+      0
+    ]
+  },
+  "ATTR_TEXT_CLICK_TOGGLES_MARK": {
+    "id": 1911,
+    "type": 1,
+    "words": [
+      2,
+      39,
+      0
+    ]
+  },
+  "ATTR_HIDE_ACTIVE_ITEM": {
+    "id": 1912,
+    "type": 1,
+    "words": [
+      2,
+      39,
+      0
+    ]
+  },
+  "ATTR_SELECTION_MODE": {
+    "id": 1913,
+    "type": 1,
+    "words": [
+      54,
+      39,
+      0
+    ]
+  },
+  "ATTR_ENABLE_DRAG_DROP": {
+    "id": 1915,
+    "type": 1,
+    "words": [
+      2,
+      39,
+      0
+    ]
+  },
+  "ATTR_MARK_TYPE": {
+    "id": 1950,
+    "type": 1,
+    "words": [
+      55,
+      40,
+      0
+    ]
+  },
+  "ATTR_MARK_STATE": {
+    "id": 1951,
+    "type": 1,
+    "words": [
+      56,
+      40,
+      0
+    ]
+  },
+  "ATTR_SELECTED": {
+    "id": 1952,
+    "type": 1,
+    "words": [
+      2,
+      40,
+      0
+    ]
+  },
+  "ATTR_COLLAPSED": {
+    "id": 1953,
+    "type": 1,
+    "words": [
+      2,
+      40,
+      0
+    ]
+  },
+  "ATTR_NO_EDIT_LABEL": {
+    "id": 1954,
+    "type": 1,
+    "words": [
+      2,
+      40,
+      0
+    ]
+  },
+  "ATTR_IMAGE_INDEX": {
+    "id": 1959,
+    "type": 1,
+    "words": [
+      0,
+      40,
+      0
+    ]
+  },
+  "ATTR_COLLAPSED_IMAGE_INDEX": {
+    "id": 1931,
+    "type": 1,
+    "words": [
+      0,
+      40,
+      0
+    ]
+  },
+  "ATTR_ITEM_HEIGHT": {
+    "id": 1955,
+    "type": 1,
+    "words": [
+      0,
+      40,
+      0
+    ]
+  },
+  "ATTR_ENABLE_DRAG": {
+    "id": 1957,
+    "type": 1,
+    "words": [
+      2,
+      40,
+      0
+    ]
+  },
+  "ATTR_ENABLE_DROP": {
+    "id": 1958,
+    "type": 1,
+    "words": [
+      2,
+      40,
+      0
+    ]
+  },
+  "ATTR_DATASOCKET_ENABLED": {
+    "id": 1750,
+    "type": 1,
+    "words": [
+      2,
+      43,
+      0
+    ]
+  },
+  "ATTR_DATASOCKET_SOURCE": {
+    "id": 1791,
+    "type": 5,
+    "words": [
+      0,
+      43,
+      0
+    ]
+  },
+  "ATTR_DATASOCKET_MODE": {
+    "id": 1793,
+    "type": 1,
+    "words": [
+      58,
+      43,
+      0
+    ]
+  },
+  "ATTR_TOP_RANGE": {
+    "id": 2000,
+    "type": 1,
+    "words": [
+      62,
+      44,
+      0
+    ]
+  },
+  "ATTR_BOTTOM_RANGE": {
+    "id": 2001,
+    "type": 1,
+    "words": [
+      62,
+      44,
+      0
+    ]
+  },
+  "ATTR_LEFT_RANGE": {
+    "id": 2002,
+    "type": 1,
+    "words": [
+      62,
+      44,
+      0
+    ]
+  },
+  "ATTR_RIGHT_RANGE": {
+    "id": 2003,
+    "type": 1,
+    "words": [
+      62,
+      44,
+      0
+    ]
+  },
+  "ATTR_SHOW_CONTENTS_WHILE_DRAGGING": {
+    "id": 2004,
+    "type": 1,
+    "words": [
+      2,
+      44,
+      0
+    ]
+  },
+  "ATTR_SPAN_PANEL": {
+    "id": 2005,
+    "type": 1,
+    "words": [
+      2,
+      44,
+      0
+    ]
+  },
+  "ATTR_OPERABLE_AS_INDICATOR": {
+    "id": 2006,
+    "type": 1,
+    "words": [
+      2,
+      44,
+      0
+    ]
+  },
+  "ATTR_MOUSE_CURSOR": {
+    "id": 583,
+    "type": 1,
+    "words": [
+      34,
+      44,
+      0
+    ]
+  },
+  "ATTR_FRAME_THICKNESS": {
+    "id": 578,
+    "type": 1,
+    "words": [
+      0,
+      45,
+      0
+    ]
+  },
+  "ATTR_DIGWAVEFORM_AUTOSIZE": {
+    "id": 2100,
+    "type": 1,
+    "words": [
+      2,
+      46,
+      0
+    ]
+  },
+  "ATTR_DIGWAVEFORM_LINE_LABEL": {
+    "id": 2101,
+    "type": 5,
+    "words": [
+      0,
+      46,
+      0
+    ]
+  },
+  "ATTR_DIGWAVEFORM_BUS_LABEL": {
+    "id": 2103,
+    "type": 5,
+    "words": [
+      0,
+      46,
+      0
+    ]
+  },
+  "ATTR_DIGWAVEFORM_FONT": {
+    "id": 2105,
+    "type": 5,
+    "words": [
+      45,
+      46,
+      0
+    ]
+  },
+  "ATTR_DIGWAVEFORM_SHOW_STATE_LABEL": {
+    "id": 2107,
+    "type": 1,
+    "words": [
+      2,
+      46,
+      0
+    ]
+  },
+  "ATTR_DIGWAVEFORM_EXPAND_BUSES": {
+    "id": 2108,
+    "type": 1,
+    "words": [
+      2,
+      46,
+      0
+    ]
+  },
+  "ATTR_DIGWAVEFORM_PLOT_COLOR": {
+    "id": 2109,
+    "type": 1,
+    "words": [
+      8,
+      46,
+      0
+    ]
+  }
+}

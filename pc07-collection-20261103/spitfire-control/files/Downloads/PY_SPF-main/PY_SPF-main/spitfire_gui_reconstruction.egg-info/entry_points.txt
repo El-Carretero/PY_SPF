@@ -1,0 +1,2 @@
+[console_scripts]
+spitfire = spitfire.__main__:main

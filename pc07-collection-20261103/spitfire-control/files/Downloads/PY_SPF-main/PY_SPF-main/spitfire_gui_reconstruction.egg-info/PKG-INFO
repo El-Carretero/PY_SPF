@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: spitfire-gui-reconstruction
+Version: 1.6.0.post1
+Summary: Evidence-based Python reconstruction of the uploaded Spitfire GUI 1.6.0
+Requires-Python: >=3.10
+Provides-Extra: qt
+Requires-Dist: PySide6<7,>=6.6; extra == "qt"
+Provides-Extra: test
+Requires-Dist: pytest>=8; extra == "test"
+Provides-Extra: analysis
+Requires-Dist: pefile>=2023.2.7; extra == "analysis"
+Requires-Dist: unicorn<3,>=2.1; extra == "analysis"
+Requires-Dist: capstone<6,>=5; extra == "analysis"

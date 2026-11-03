@@ -1,0 +1,22 @@
+[
+    {
+        "Name":  "Bluetooth 네트워크 연결",
+        "DeviceName":  "Bluetooth Device (Personal Area Network)",
+        "SharingEnabled":  false
+    },
+    {
+        "Name":  "VMware Network Adapter VMnet1",
+        "DeviceName":  "VMware Virtual Ethernet Adapter for VMnet1",
+        "SharingEnabled":  false
+    },
+    {
+        "Name":  "VMware Network Adapter VMnet8",
+        "DeviceName":  "VMware Virtual Ethernet Adapter for VMnet8",
+        "SharingEnabled":  false
+    },
+    {
+        "Name":  "이더넷",
+        "DeviceName":  "Realtek PCIe GbE Family Controller",
+        "SharingEnabled":  false
+    }
+]

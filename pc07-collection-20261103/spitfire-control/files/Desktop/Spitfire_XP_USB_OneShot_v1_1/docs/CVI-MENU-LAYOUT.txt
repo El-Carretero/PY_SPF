@@ -1,0 +1,449 @@
+# Read-only CVI 7.1 menu layout review
+
+This document records static reverse engineering for the field popup-layout fix.
+It does not establish behavior of a physical laser controller. No target-process
+functions were called, injected, or patched for this review. Live VM observations
+must separately validate the memory values and resulting input positions.
+
+## Binary identity and notation
+
+- Reviewed DLL: `PY_SPF/spitfire/resources/runtime/cvirte.dll`.
+- SHA-256: `d4151c53a2ecee4431ba88cd90d88db575f8ad18a6e48484501ff10a83c0db6d`.
+- Preferred image base: `0x68420000`.
+- All field offsets in this document are **hexadecimal**. `+0x20` is not decimal 20.
+- Code addresses below are preferred-base virtual addresses (VA). Use the loaded
+  DLL base plus `VA - 0x68420000` when checking a live process.
+- `H` is a 32-bit CVI handle, and `B = DWORD[H]` is its data allocation.
+- Read these values with `ReadProcessMemory`; never call the listed functions.
+- The existing EXE/UIR/DLL identity locks and UI/input/state guards remain required.
+
+The existing `build/review_disasm.py` can reproduce instruction listings with
+`PYTHONPATH=build/review-deps python3 build/review_disasm.py 684bf1fc:e6`, from the
+package directory. The script's DLL path is the reviewed workspace DLL.
+
+## Public ownership and callback identity
+
+`GetPanelMenuBar` at `0x6858476e` reads the validated main panel wrapper's
+`+0xec` field as the public menubar handle. The public menubar data has type
+`0xeb15`, public ID at `+0x28`, native root menu **handle** at `+0x44`, and a
+CVI list of top-level menu handles at `+0x4c`.
+
+The public menubar constructor `0x68586b03` allocates this wrapper, stores type
+`0xeb15` at `0x68586b34`, creates the list with four-byte elements at
+`0x68586b63..0x68586b6f`, and passes the address of wrapper `+0x44` to the native
+menu constructor `0x684bffc1` at `0x68586b88..0x68586b94`.
+
+Top-level menu construction is at `0x68586535`:
+
+| Public menu field | Type / meaning | Instruction evidence |
+|---|---|---|
+| `+0x00` | DWORD type `0xeb16`; submenu uses `0xeb17` | `0x685865b8..0x685865ce` |
+| `+0x28` | DWORD public ID | `0x68586606..0x68586618` |
+| `+0x3c` | DWORD callback pointer | getter `0x685842d5..0x685842d7` |
+| `+0x40` | DWORD callback data | getter `0x685842f3..0x685842f5` |
+| `+0x98` | DWORD native menu handle | `0x68586668..0x68586673` |
+| `+0x9c` | DWORD owning public menubar handle | `0x685865d0..0x685865d5` |
+| `+0xa8` | DWORD owning public menu-item handle for submenus | `0x685866c7..0x685866cc` |
+| `+0xb0` | DWORD list handle of public menu-item handles | `0x685865e6..0x685865f2` |
+
+Top-level menus enter the public menubar `+0x4c` list at
+`0x6858670a..0x68586714`. The corresponding native root item is linked to the
+new menu's native handle at `0x6858675f..0x68586770` through `0x684bd2b1`, which
+sets native item `+0x00` to that submenu handle.
+
+Public menu-item construction is `0x68585e08`:
+
+| Public item field | Type / meaning | Instruction evidence |
+|---|---|---|
+| `+0x00` | DWORD type `0xeb18` | `0x68585ea7..0x68585ea9` |
+| `+0x28` | DWORD public ID | `0x68585ef7..0x68585f0b` |
+| `+0x3c` | DWORD callback pointer | `0x68585ed3..0x68585edb` |
+| `+0x40` | DWORD callback data | `0x68585ede..0x68585ee6` |
+| `+0x98` | DWORD optional public submenu handle | getter `0x68584216..0x68584229` |
+| `+0x9c` | DWORD owning public menu handle | `0x68585ebd..0x68585ec2` |
+| `+0xa0` | DWORD owning public menubar handle, **not a callback** | `0x68585e0f`, `0x68585eb7` |
+
+`InstallMenuCallback` at `0x6856e899` routes attributes `0x201` and `0x1fe` to
+the callback and callback-data fields. Their getters read `+0x3c` at
+`0x6858413a` and `+0x40` at `0x68584161`. This independently confirms the offsets.
+
+The public item-to-native-row mapping is list order, not a separate stored
+ordinal. `0x68583f43` finds a public item in its owner's `+0xb0` list and returns
+the one-based ordinal. Native attribute getters such as
+`0x6858427a..0x6858428e` pass that ordinal and the owner's native handle at
+`+0x98` to `0x684d8b8e`. The constructor inserts the public item into the list
+at `0x68585f48..0x68585f57` and uses the same insertion index for native item
+creation at `0x68585fc7..0x68585ffd`.
+
+Original EXE callbacks from `analysis/symbols.tsv` and decompiled bodies:
+
+| Allowed menu item | Callback VA |
+|---|---|
+| Empower Setup | `0x004072c9` |
+| Active Faults | `0x004072ea` |
+| Timing and High Voltage | `0x0040730b` |
+| Temperature Control | `0x0040734d` |
+| About | `0x0040732c` |
+
+`exit_from_menu` is `0x00407291` and is excluded. Native menu IDs and public
+resource IDs are allocated separately and must not be assumed equal.
+
+## Popup HWND to native menu
+
+The popup WndProc is `0x685d2cba`. Its WM_CREATE branch stores the actual HWND
+at platform window data `+0x58` and calls `SetWindowLongA(hwnd, 0, W)` at
+`0x685d2d10..0x685d2d18`. Subsequent processing obtains `W` with
+`GetWindowLongA(hwnd, 0)` at `0x685d2d55..0x685d2d5a`.
+
+Popup display at `0x684d9205` passes the native menu handler to platform window
+construction at `0x684d9279..0x684d9284`. The platform constructor stores this
+as `WB+0x2c` at `0x685d2fc5..0x685d2fca`. Display then sets `WB+0x50 = M` through
+`0x685d6e58` and `MB+0x28 = W` at `0x684d929f..0x684d92ab`.
+
+Required loopback:
+
+```text
+W = GetWindowLongA(popupHWND, 0)
+WB = DWORD[W]
+DWORD[WB+0x58] == popupHWND
+M = DWORD[WB+0x50]
+MB = DWORD[M]
+DWORD[MB+0x28] == W
+DWORD[WB+0x2c] == DWORD[MB+0x00] == loadedCVIBase + 0x9f664
+M == DWORD[validatedPublicMenuBase+0x98]
+```
+
+The standard native menu constructor `0x684bffc1` sets `MB+0x00` to
+`0x684bf664` at `0x684bffdb..0x684bffdf`. This also applies to the native root
+menubar created by the public menubar constructor.
+
+## Native menu and packed items
+
+| Native menu field | Width / meaning |
+|---|---|
+| `+0x00` | DWORD handler pointer |
+| `+0x0c,+0x0e,+0x10,+0x12` | signed16 top, left, bottom, right |
+| `+0x18` | DWORD signed font index |
+| `+0x1c` | signed32 text-height metric |
+| `+0x20` | signed32 ordinary row height |
+| `+0x24` | signed32 separator height |
+| `+0x28` | DWORD platform popup-window handle while displayed |
+| `+0x2c` | signed32 item count |
+| `+0x30` | signed32 count of additional bar decorations |
+| `+0x38` | signed32 native menu ID |
+| `+0x44` | signed32 whole-menu enabled flag |
+| `+0x4c` | signed32 displayed item count |
+| `+0x50` | signed32 first displayed item, one-based |
+| `+0x5a` | BYTE menubar mode flag, set to 1 when drawn as a bar |
+| `+0x5e` | Pascal menu-title length byte; text begins `+0x5f` |
+
+Constructor `0x684d89c6` stores row/separator heights as DWORD values at
+`0x684d8a1d..0x684d8a32`. These are not 16-bit fields despite being initialized
+from signed16 system metrics. The row-height sum function `0x684be08e` and
+hit-test `0x684bf1fc` use DWORD arithmetic for row heights, counts and scroll
+indices.
+
+The first native item address is computed by `0x684d899a`:
+
+```text
+item = MB + 0x5e + ((BYTE[MB+0x5e] + 4) & ~3)
+```
+
+The address can be unaligned: do not apply a four-byte-aligned-base predicate
+to packed native items. Use bounded byte reads and `memcpy` for scalar fields.
+
+| Item field | Width / meaning |
+|---|---|
+| `+0x00` | DWORD submenu native handle; zero for a leaf |
+| `+0x10` | DWORD mnemonic character position |
+| `+0x1a` | signed16 variable payload length |
+| `+0x1e` | BYTE enabled |
+| `+0x1f` | BYTE checked |
+| `+0x20` | DWORD text-style override |
+| `+0x24` | DWORD separator flag |
+| `+0x28` | BYTE Pascal text length |
+| `+0x29` | text bytes |
+
+`0x684bcfc3` computes the next record as:
+
+```text
+next = item + 0x28 + ((signed16[item+0x1a] + 3) & ~3)
+```
+
+The payload is already rounded for its label portion. Constructor
+`0x684bd04e` computes `label_storage = (label_length+4)&~3` at
+`0x684bd099..0x684bd0a9`, rounds extra data separately, and stores their sum in
+`item+0x1a` at `0x684bd131..0x684bd134`. A guard requiring
+`payload >= ((label_length+4)&~3)` is therefore valid.
+
+Constructor `0x684bd04e` calls `0x684d8ead` to remove the `__` mnemonic marker.
+That helper calls `0x685cc3f2`, which searches for two `0x5f` bytes, then removes
+the two bytes and subtracts two from the Pascal length at
+`0x684d8edf..0x684d8ef6`. Native text is therefore `About`, `Temperature
+Control`, etc.; it does not contain the resource's mnemonic marker.
+
+The item `+0x20` override does not participate in heading hit widths or popup
+row-height calculation. Popup rendering does select an alternate font when
+it is nonzero, at `0x684be26b..0x684be27a`. The current implementation does not
+add a zero-style guard, because this field does not affect the translated
+hit-test. Exact label, root-font, ownership, callback, item-state and geometry
+checks remain required. The mnemonic position at `+0x10` controls underline
+placement and not either hit geometry.
+
+## Dropdown row geometry
+
+`0x684bf1fc` is the actual native hit-test. It reads the packed menu rectangle,
+checks containment, subtracts its top from pointer y, then sums row heights.
+For ordinary rows it uses `MB+0x20`; for separators, `MB+0x24`. The normal,
+non-scrolling branch requires the first visible item to be 1 and the final
+visible item to include the full item count.
+
+For the allowed simple menus require:
+
+- exact public menu/item IDs, callbacks, ownership and native handle binding;
+- exact native labels and order, no submenu, separator, or checked state;
+- whole-menu enabled `MB+0x44 == 1`, and selected item enabled;
+- `first_visible == 1`, `displayed_count == item_count`;
+- native rectangle identical to `GetClientRect(popup)`;
+- positive bounded row height, with `client_height == count * row_height`.
+
+Then row `i` (zero-based) is exactly `[left, top+i*h, right, top+(i+1)*h)` in
+client coordinates. Use its interior center and `ClientToScreen` rather than a
+fixed popup outer rectangle. The observed VM 64-pixel height for four rows and
+field 68-pixel height are consistent with 16- and 17-pixel rows respectively;
+the native values still require live verification.
+
+## Menubar heading geometry from the font cache
+
+There is no confirmed stored per-heading rectangle. `0x684beca1` computes
+cumulative x coordinates from the native labels using `0x684bd8a6` each time.
+`0x684bd91d` stores the bar rectangle at root `+0x0c..+0x12`, sets `+0x5a = 1`,
+then renders headings with the same width calculation at
+`0x684bdb71..0x684bdbb5`. Rectangles use the cumulative x edges and the bar's
+top/bottom. The renderer reserves 1 or 3 pixels for the bottom border; the
+interior vertical center remains in the heading.
+
+Validate the three public root menus and their native root item links and
+labels (`File`, `View`, `Help`) before deriving any position. Root native
+`+0x30 != 0` introduces extra bar decorations and clipping; reject that case
+for this implementation. Verify the root rectangle is compatible with the
+main client rectangle and record the live values. Do not require root native
+`+0x28` to be a permanent main-window ownership link: it is assigned the current
+platform window during menu tracking at `0x684bed64..0x684bed69` and can be zero
+before tracking. Public panel/bar/menu ownership provides the stable binding.
+
+There is one proven virtual-width sentinel after opening a menu. The main menu
+handler `0x685cea8d` obtains the bar rectangle through `0x685cd7cb`, then writes
+`0x1000` to its right edge at `0x685ceaf0` (`WORD[EBP-0x1a]`, with the rectangle
+starting at `EBP-0x20`). It passes the rectangle into `0x684bf2e2`; that routine
+passes the root native menu and rectangle into `0x684bed1f` at
+`0x684bf39f..0x684bf3a4`. The tracking function copies the rectangle into root
+`+0x0c/+0x10` at `0x684bed4e..0x684bed59`, preserving the `4096` right edge
+after the menu closes. Its return restores a local bottom-border adjustment,
+not the cached root rectangle's right edge.
+
+This is explicitly recognized by the native hit-test: at
+`0x684d9389..0x684d9395`, menubar mode (`+0x5a != 0`) and right edge `0x1000`
+cause the test to replace the right edge with the last cumulative heading x
+coordinate at `0x684d9397..0x684d939e`. Therefore an exact `4096` sentinel can
+be accepted independently from a normal client-width right edge. It must never
+be used as permission to click outside the real main client. Keep all computed
+heading rectangles inside the actual client width, retain the native top/left/
+bottom checks, and reject other out-of-client right edges. A live Tahoma-11
+sequence observed root right `895` before the first popup and `4096` afterwards,
+with unchanged actual main client width `895`.
+
+`0x684bd8a6` returns text width plus the signed16 horizontal padding at VA
+`0x6868a03c` (RVA `0x26a03c`). It also adds a special glyph for a heading whose
+submenu is absent/empty, determined by `0x684bd8f8`. For the validated
+File/View/Help menus require populated linked submenus, making that extra
+glyph absent.
+
+The exact text-width routine is `0x684823f6`. Its font argument is a signed32
+index. It falls back for negative/out-of-range/dead indices; the automation
+must reject these rather than reproduce a fallback.
+
+```text
+fontTableHandle = DWORD[loadedCVIBase + 0x20b148]
+fontTableBase = DWORD[fontTableHandle]
+fontCount = DWORD[loadedCVIBase + 0x20b14c]
+fontIndex = DWORD[rootNativeBase+0x18]
+FB = fontTableBase + fontIndex * 0x40
+require 0 <= fontIndex < fontCount and DWORD[FB+0x04] > 0
+```
+
+These addresses correspond to VAs `0x6862b148` and `0x6862b14c`; pointer/index
+validation and 64-byte slot calculation appear at `0x68482401..0x6848243c`.
+
+| Font slot field | Width / meaning in text-width calculation |
+|---|---|
+| `+0x04` | signed32 live/reference count |
+| `+0x12` | WORD style bits; bit 2 triggers extra width-correction branch |
+| `+0x14` | signed16 initial adjustment; positive gives one initial pixel |
+| `+0x1c` | signed16 monospaced advance |
+| `+0x1e` | signed16 final character width for monospaced path |
+| `+0x20` | WORD cached-calculation flags |
+| `+0x24` | DWORD pointer to signed16 character-width array, indexed by byte |
+| `+0x28` | DWORD optional pointer to signed16 first-character bearing/width array |
+
+Cache flag derivation:
+
+- `0x04`: `0x6848238f` initializes the cache and sets this flag at
+  `0x684823df`. Require it already set; do not cause initialization.
+- `0x10`: `0x68482443` selects the direct fallback measurement branch when
+  set. The cached-width translation must reject this branch; the separately
+  reviewed direct GDI route is described below.
+- `0x08`: `0x68482230`/`0x68482255` initialize monospaced metrics if absent.
+  Require it already set before relying on `+0x1c`/`+0x1e`.
+- `0x02`: `0x684820b6` initializes an additional font property if absent.
+  Require it for the proportional cached-width path.
+- `0x01`: `0x684820b6` returns this bit at `0x684820ec..0x684820f2`;
+  `0x684824b9..0x684824c4` takes the direct fallback if nonzero. Reject it in
+  the proportional path.
+- The WORD at `FB+0x12` is distinct from cache flags. Its `0x02` bit enters
+  an additional GDI correction at `0x68482594`; reject that style path rather
+  than approximating it. It is commonly associated with italic overhang, but
+  the proven behavior is the correction branch, not a public font-style name.
+
+For a nonempty validated ASCII label, with the flags above already initialized:
+
+```text
+if signed16[FB+0x1c] > 0:
+    width = (length-1) * signed16[FB+0x1c] + signed16[FB+0x1e]
+else:
+    require flags&0x02 and !(flags&0x01) and DWORD[FB+0x24] != 0
+    width = 1 if signed16[FB+0x14] > 0 else 0
+    if DWORD[FB+0x28] != 0:
+        require primaryWidth[firstByte] != -1
+        width += firstCharacterWidth[firstByte]
+        consume firstByte
+    for each remaining byte:
+        require primaryWidth[byte] != -1
+        width += primaryWidth[byte]
+headingWidth = width + signed16[loadedCVIBase+0x26a03c]
+```
+
+The monospaced path is `0x68482474..0x684824a6`. Proportional initialization and
+the optional first-character array are `0x684824d3..0x68482530`; remaining
+character sums are `0x68482531..0x68482575`. A `-1` primary width causes runtime
+cache filling through `0x68481101`; the read-only translation must reject it.
+Reject unreasonable widths, invalid pointers, integer overflow, unsupported
+style/fallback paths, and rectangles that leave the main client or screen.
+
+The heading x edges begin at the native root rectangle's left edge. Sum the
+three heading widths in order, select the permitted View/Help interior center,
+and bind/recheck the same memory snapshot and screen context immediately before
+input. This reproduces the known cached-font path without using fixed x values
+or calling runtime/GDI code in the target process.
+
+## Direct GDI width route: additional static findings
+
+A live VM inspection reached the first `File` heading with root font index 1
+and zero character-width/bearing pointers. Zero arrays are not inherently a
+corrupt font. The cache-validation function `0x68480f5b` compares its cached
+width with direct GDI measurement; if they differ, it sets cache flag `0x10`
+at `0x68480fc2..0x68480fc5` and frees/zeros the arrays at `+0x24` and `+0x28`.
+This is a deliberate runtime measurement path. The static evidence does not
+establish that Korean/DBCS settings caused the observed choice.
+
+The subsequently collected raw font slot in
+`validation/v1_1/evidence/menu-probe-gulim/menu-raw.json` had flags `0x004f`,
+style `0x2000`, monospaced widths zero, both width pointers zero, and native
+HFONT `0x020a0594`. This selects the same direct route through flag `0x01`,
+not through flag `0x10`: `0x684820b6` returns that low bit, causing the branch
+at `0x684824c4` to call `0x68480a2b` through `0x68482584..0x6848258d`.
+The raw ascent/descent/external-leading values were `10/2/2`.
+
+The source of flag `0x01` is also known. `0x68481177` selects the font and calls
+`GetTextMetricsA`; at `0x684811e0..0x684811e6` it returns whether `tmCharSet`
+equals zero (`ANSI_CHARSET`). `0x684820b6` sets flag `0x01` when that result is
+false, so this live slot identifies the non-ANSI-font direct measurement route.
+The exact character-set value must come from the font query; the flag alone
+does not identify a specific language.
+
+`0x684823f6` uses `0x68480a2b` when cache flag `0x10` is set or a proportional
+font cannot use its arrays. This direct routine has a different formula:
+
+1. Validate font index and live slot as above; the automation rejects any
+   runtime fallback to a different font index.
+2. Obtain a display DC for a CVI hidden window through `0x685d2704` and
+   `GetDC`, select `DWORD[FB+0x08]` into that DC, and measure the supplied text.
+3. At `0x68480ad0`, read platform selector VA `0x68688bfc` (RVA `0x268bfc`).
+   If it equals 3, call `GetTextExtentPointA` through IAT `0x685ee09c`.
+   Otherwise call `GetTextExtentPoint32A` through IAT `0x685ee098`.
+4. Use `SIZE.cx`, narrowed to signed16, as the width. If that width is less
+   than the byte length, runtime returns `0x7fff`; the automation should reject
+   that saturation case. There is no cached initial pixel or first-character
+   bearing adjustment in this direct route.
+5. After returning, the common style correction at `0x68482594` can still run
+   for `FB+0x12 & 0x02`; reject that style in the present supported subset.
+6. `0x684bd8a6` adds the same horizontal heading padding as before.
+
+The GDI call sequence is `0x68480ab8..0x68480aff`. Import resolution confirms:
+
+| IAT VA | API |
+|---|---|
+| `0x685ee6d0` | `GetDC` |
+| `0x685ee180` | `SelectObject` |
+| `0x685ee098` | `GetTextExtentPoint32A` |
+| `0x685ee09c` | `GetTextExtentPointA` |
+| `0x685ee6cc` | `ReleaseDC` |
+
+The ordinary CVI measurement window uses a common DC. Independent static review
+traced hidden-window creation `0x685d26b1` to the class named by global
+`0x68688680`. Registration setup `0x685d63c0` clears EDI and stores class style
+zero at `0x685d6451`; the registration wrapper `0x685cf6d4` copies that style
+unchanged into `WNDCLASSEX` before `RegisterClassExA`. There is no `CS_OWNDC` or
+`CS_CLASSDC` in this branch, consistent with a default display `MM_TEXT` DC and
+default text spacing for the local clone measurement.
+
+`0x685d2704` can instead obtain a hosted-CVI DC when `cvi.dll` is loaded. Its
+literal at `0x68620f2c` is `cvi.dll`, and it queries exports `GetTreeItem` and
+`__GetKludgeState` (`0x68620f34`, `0x68620f40`). The helper's standalone-runtime
+guard excludes a loaded `cvi.dll`, checks the original hash-locked runtime
+module, and repeats that check after measurement. `0x685301f7` merely compares
+the current thread ID against global `0x68683df4` before trying the hosted
+lookup; absence of `cvi.dll` makes that override unavailable.
+
+The direct routine also has an alternate non-GDI route. At
+`0x68480a83..0x68480ab6`, it calls `0x6850073b` if and only if:
+
+```text
+DWORD[loadedCVIBase+0x24197c] != 0
+and DWORD[loadedCVIBase+0x241980] == 0
+and DWORD[loadedCVIBase+0x241984] == 0
+```
+
+The predicates are proven by `0x685006e7` and `0x68500701`. A helper translating
+the ordinary GDI route must read and reject this alternate-mode predicate.
+
+`FB+0x08` is an actual `HFONT`, not another CVI handle: font creation calls
+`CreateFontA` at `0x68481879` and stores its result at `0x684818d8..0x684818db`.
+The runtime's own font-name getter `0x684807e4` calls
+`GetObjectA(DWORD[FB+0x08], 0x3c, &LOGFONTA)` at `0x6848081c..0x68480820`.
+
+A candidate helper-only translation is to obtain that exact `LOGFONTA` using
+read-only `GetObjectA`, create a local font using `CreateFontIndirectA`, select
+it into a helper-owned normal display DC, then use the same A-suffixed extent
+API. This avoids any call or DC mutation in the original process. A successful
+cross-process `GetObjectA` query must be verified on XP; if Windows rejects the
+foreign GDI handle, the helper must stop rather than guess a font alias.
+
+Before accepting such a translation require successful exact-size LOGFONT
+queries, stable original font/index/slot/mode data before and after measurement,
+agreement of the cloned font's LOGFONT, normal `MM_TEXT` coordinates, supported
+zero font angle/style, and live text metrics matching the original slot. The
+runtime populates these slot metrics from `GetTextMetricsA` at
+`0x68481950..0x6848197c`:
+
+| Slot field | TEXTMETRICA member |
+|---|---|
+| signed16 `+0x16` | `tmAscent` |
+| signed16 `+0x18` | `tmDescent` |
+| signed16 `+0x1a` | `tmExternalLeading` |
+
+Do not reconstruct the resolved face by guessing from `FB+0x00`. That is the
+original requested name, which can be a CVI alias resolved through system
+settings by the large font constructor before `CreateFontA` is called.
+Implementation and successful live VM verification of a helper GDI route must
+be recorded separately from these static findings.

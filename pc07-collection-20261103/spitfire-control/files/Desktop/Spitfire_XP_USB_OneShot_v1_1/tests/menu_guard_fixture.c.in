@@ -1,0 +1,174 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <wchar.h>
+typedef uint32_t DWORD;typedef int32_t LONG;typedef unsigned char BYTE;typedef uintptr_t SIZE_T;
+typedef void*HANDLE;typedef void*HWND;typedef const void*LPCVOID;typedef wchar_t WCHAR;
+typedef struct {LONG left,top,right,bottom;} RECT;typedef struct {LONG x,y;} POINT;
+#define FALSE 0
+#define PROCESS_QUERY_INFORMATION 0x400
+#define PROCESS_VM_READ 0x10
+#define ERROR_INVALID_ADDRESS 487
+#define SM_CXSCREEN 0
+#define SM_CYSCREEN 1
+#define ZeroMemory(p,n) memset(p,0,n)
+static HWND main_hwnd=(HWND)0x77;static unsigned char cvi_memory[0x270000];
+static unsigned char memory[0x40000];static DWORD loaded_cvi_base=0x68420000u,original_pid=77;
+static HANDLE focus_process=(HANDLE)0x444;static int original_state_ok=1,resource_ok=1,runtime_ok=1;
+static int process_allowed=1,main_allowed=1,close_count=0,closed_outer=0,passed=0;
+static DWORD unreadable=0;static RECT fake_window,fake_client;static POINT fake_origin;
+static const char *menu_reason="",*menu_detail="";
+static int ReadProcessMemory(HANDLE h,LPCVOID p,void*out,SIZE_T n,SIZE_T*got){uintptr_t a=(uintptr_t)p;if(a>=loaded_cvi_base&&a+n<loaded_cvi_base+sizeof(cvi_memory)){memcpy(out,cvi_memory+a-loaded_cvi_base,n);*got=n;return 1;}if(!h||a+n>sizeof(memory)||(unreadable>=a&&unreadable<a+n)){*got=0;return 0;}memcpy(out,memory+a,n);*got=n;return 1;}
+static DWORD GetLastError(void){return 5;}
+static HANDLE OpenProcess(DWORD a,int b,DWORD c){(void)a;(void)b;(void)c;return process_allowed?(HANDLE)0x999:NULL;}
+static void CloseHandle(HANDLE h){close_count++;if(h==(HANDLE)0x444)closed_outer++;}
+static LONG GetWindowLongA(HWND h,int index){(void)h;(void)index;return 0x21000;}
+static int GetWindowRect(HWND h,RECT*r){(void)h;*r=fake_window;return 1;}
+static int GetClientRect(HWND h,RECT*r){if(h==main_hwnd)*r=(RECT){0,0,895,550};else *r=fake_client;return 1;}
+static int ClientToScreen(HWND h,POINT*p){if(h==main_hwnd)*p=(POINT){236,109};else *p=fake_origin;return 1;}
+static int GetSystemMetrics(int which){return which?900:1400;}
+static int PtInRect(const RECT*r,POINT p){return p.x>=r->left&&p.x<r->right&&p.y>=r->top&&p.y<r->bottom;}
+typedef HANDLE HDC;typedef HANDLE HFONT;typedef HANDLE HGDIOBJ;
+typedef struct {LONG cx,cy;} SIZE;
+typedef struct {LONG lfHeight,lfWidth,lfEscapement,lfOrientation,lfWeight;BYTE lfItalic,lfUnderline,lfStrikeOut,lfCharSet,lfOutPrecision,lfClipPrecision,lfQuality,lfPitchAndFamily;char lfFaceName[32];} LOGFONTA;
+typedef struct {LONG tmHeight,tmAscent,tmDescent,tmExternalLeading;BYTE tmCharSet;} TEXTMETRICA;
+#define MM_TEXT 1
+#define ANSI_CHARSET 0
+#define HGDI_ERROR ((HGDIOBJ)(uintptr_t)0xffffffff)
+static int standalone_allowed=1,gdi_getobject_fail=0,gdi_clone_diff=0,gdi_create_fail=0,gdi_dc_fail=0,gdi_map_mode=1,gdi_metrics_mismatch=0,gdi_charset=129,gdi_measure_fail=0,gdi_measure_short=0,gdi_measure_wide=0,gdi_mode_change=0,gdi_font_change=0,gdi_object_change=0,gdi_angle=0,gdi_api=0,gdi_old_missing=0,gdi_resource_count=0,gdi_object_reads=0;
+static int standalone_cvi_runtime(void){return standalone_allowed;}
+static int GetObjectA(HGDIOBJ h,int size,void*out){LOGFONTA lf;if(gdi_getobject_fail||size!=(int)sizeof(lf))return 0;memset(&lf,0,sizeof(lf));lf.lfHeight=-12;lf.lfWeight=400;lf.lfCharSet=129;lf.lfEscapement=gdi_angle;memcpy(lf.lfFaceName,"FixtureFont",12);if(h==(HGDIOBJ)0xabc&&gdi_clone_diff)lf.lfWeight=700;if(h==(HGDIOBJ)0x777&&++gdi_object_reads>1&&gdi_object_change)lf.lfWeight=900;memcpy(out,&lf,sizeof(lf));return sizeof(lf);}
+static HFONT CreateFontIndirectA(const LOGFONTA*f){(void)f;if(gdi_create_fail)return NULL;gdi_resource_count++;return(HFONT)0xabc;}
+static HDC GetDC(HWND h){(void)h;gdi_resource_count++;return(HDC)0xc00;}
+static HDC CreateCompatibleDC(HDC h){(void)h;if(gdi_dc_fail)return NULL;gdi_resource_count++;return(HDC)0xc01;}
+static int GetMapMode(HDC h){(void)h;return gdi_map_mode;}
+static HGDIOBJ SelectObject(HDC h,HGDIOBJ o){(void)h;(void)o;return gdi_old_missing?NULL:(HGDIOBJ)0xc02;}
+static int GetTextMetricsA(HDC h,TEXTMETRICA*t){(void)h;t->tmAscent=10+gdi_metrics_mismatch;t->tmDescent=2;t->tmExternalLeading=2;t->tmHeight=t->tmAscent+t->tmDescent;t->tmCharSet=gdi_charset;return 1;}
+static int fake_measure(const char*s,SIZE*z){z->cx=!strcmp(s,"File")?20:!strcmp(s,"View")?28:25;z->cy=12;if(gdi_measure_short)z->cx=1;if(gdi_measure_wide)z->cx=40000;if(gdi_mode_change)cvi_memory[0x24197c]=1;if(gdi_font_change)memory[0x25104]=5;return!gdi_measure_fail;}
+static int GetTextExtentPoint32A(HDC h,const char*s,int n,SIZE*z){(void)h;(void)n;gdi_api=32;return fake_measure(s,z);}
+static int GetTextExtentPointA(HDC h,const char*s,int n,SIZE*z){(void)h;(void)n;gdi_api=3;return fake_measure(s,z);}
+static int DeleteDC(HDC h){(void)h;gdi_resource_count--;return 1;}
+static int ReleaseDC(HWND h,HDC d){(void)h;(void)d;gdi_resource_count--;return 1;}
+static int DeleteObject(HGDIOBJ h){(void)h;gdi_resource_count--;return 1;}
+
+@RECORDS@
+static int observe_main_focus(FocusRecord*f){memset(f,0,sizeof(*f));f->wrapper_base=0x11000;f->valid=main_allowed;return main_allowed;}
+@FUNCTIONS@
+static void word(DWORD a,DWORD v){memcpy(memory+a,&v,4);}
+static void shortword(DWORD a,short v){memcpy(memory+a,&v,2);}
+static void list(DWORD handle,DWORD base,const DWORD*entries,unsigned count){unsigned i;word(handle,base);word(base+4,0xb00bdeed);word(base+0x10,4);word(base+0x14,count);for(i=0;i<count;i++)word(base+0x18+i*4,entries[i]);}
+static DWORD native_addresses[4];
+static Panel fixture(int help,int field){
+ Panel p;DWORD top[]={0x14000,0x15000,0x16000},entries[]={0x18000,0x18100,0x18200,0x18300};unsigned i,n=help?1:4;DWORD item;const char*labels[]={"Empower Setup","Active Faults","Timing and High Voltage","Temperature Control"};DWORD callbacks[]={0x4072c9,0x4072ea,0x40730b,0x40734d};
+ memset(memory,0,sizeof(memory));memset(&p,0,sizeof(p));process_allowed=main_allowed=1;unreadable=0;focus_process=(HANDLE)0x444;closed_outer=close_count=0;
+ p.mode=help?"about":"temperature";p.menu_id=help?9:4;p.item_id=help?10:8;p.callback=help?0x40732c:0x40734d;
+ word(0x110ec,0x12000);word(0x12000,0x12100);word(0x12100,0xeb15);word(0x1214c,0x13000);list(0x13000,0x13100,top,3);
+ for(i=0;i<3;i++){DWORD b=top[i]+0x100;word(top[i],b);word(b,0xeb16);word(b+0x28,i==0?2:i==1?4:9);word(b+0x9c,0x12000);word(b+0x98,(help?i==2:i==1)?0x20000:0);word(b+0xb0,0x17000);}
+ list(0x17000,0x17100,entries,n);
+ for(i=0;i<n;i++){DWORD b=entries[i]+0x40;word(entries[i],b);word(b,0xeb18);word(b+0x28,help?10:5+i);word(b+0x9c,help?0x16000:0x15000);word(b+0xa0,0x12000);word(b+0x3c,help?0x40732c:callbacks[i]);}
+ word(0x20000,0x20100);word(0x20100,loaded_cvi_base+0x9f664);word(0x20128,0x21000);word(0x20120,field?17:16);word(0x2012c,n);word(0x20144,1);word(0x2014c,n);word(0x20150,1);
+ word(0x21000,0x21100);word(0x21158,0x55);word(0x2112c,loaded_cvi_base+0x9f664);word(0x21150,0x20000);
+ fake_client=(RECT){0,0,field?164:189,(field?17:16)*(int)n};fake_origin=(POINT){267,131};fake_window=(RECT){264,128,267+fake_client.right+3,131+fake_client.bottom+3};
+ shortword(0x2010c,0);shortword(0x2010e,0);shortword(0x20110,fake_client.bottom);shortword(0x20112,fake_client.right);
+ memory[0x2015e]=4;memcpy(memory+0x2015f,help?"Help":"View",4);item=0x20166;
+ for(i=0;i<n;i++){const char*t=help?"About":labels[i];unsigned len=strlen(t),payload=(len+4)&~3u;native_addresses[i]=item;shortword(item+0x1a,payload);memory[item+0x1e]=(!help&&i==0)?0:1;memory[item+0x28]=len;memcpy(memory+item+0x29,t,len);item+=0x28+payload;}
+ return p;
+}
+static void check(const char*name,int ok){if(!ok){fprintf(stderr,"FAIL %s reason=%s detail=%s\n",name,menu_reason,menu_detail);exit(1);}printf("PASS %s\n",name);passed++;}
+static DWORD heading_addresses[3];
+static Panel header_fixture(int help,int field){
+ Panel p=fixture(help,field);const char*labels[]={"File","View","Help"};unsigned i;DWORD item=0x22162;
+ memset(cvi_memory,0,sizeof(cvi_memory));word(0x12144,0x22000);word(0x22000,0x22100);word(0x22100,loaded_cvi_base+0x9f664);
+ word(0x2212c,3);word(0x22144,1);memory[0x2215a]=1;
+ shortword(0x2210c,0);shortword(0x2210e,0);shortword(0x22110,19);shortword(0x22112,895);
+ word(0x14198,0x23000);word(0x15198,0x20000);word(0x16198,0x24000);word(0x23000,0x23100);word(0x24000,0x24100);word(0x2312c,1);word(0x2012c,4);word(0x2412c,1);
+ {DWORD h=0x25000,n=1;short pad=field?10:12;memcpy(cvi_memory+0x20b148,&h,4);memcpy(cvi_memory+0x20b14c,&n,4);memcpy(cvi_memory+0x26a03c,&pad,2);}
+ word(0x25000,0x25100);word(0x25104,1);shortword(0x25120,14);word(0x25124,0x26000);
+ for(i=0;i<256;i++)shortword(0x26000+i*2,field?5:6);
+ for(i=0;i<3;i++){unsigned len=strlen(labels[i]),payload=(len+4)&~3u;heading_addresses[i]=item;word(item,i==0?0x23000:i==1?0x20000:0x24000);shortword(item+0x1a,payload);memory[item+0x1e]=1;memory[item+0x28]=len;memcpy(memory+item+0x29,labels[i],len);item+=0x28+payload;}
+ return p;
+}
+static Panel gdi_fixture(void){
+ Panel p=header_fixture(0,0);standalone_allowed=1;gdi_getobject_fail=gdi_clone_diff=gdi_create_fail=gdi_dc_fail=gdi_metrics_mismatch=gdi_measure_fail=gdi_measure_short=gdi_measure_wide=gdi_mode_change=gdi_font_change=gdi_object_change=gdi_angle=gdi_api=gdi_old_missing=gdi_resource_count=gdi_object_reads=0;gdi_map_mode=1;gdi_charset=129;
+ shortword(0x25120,0x4f);shortword(0x25116,10);shortword(0x25118,2);shortword(0x2511a,2);word(0x25108,0x777);word(0x25124,0);cvi_memory[0x268bfc]=3;return p;
+}
+int main(void){Panel p;MenuSnapshot m;HeaderSnapshot h;
+ p=fixture(0,0);check("VM View menu validates actual16pixel rows",inspect_popup((HWND)0x55,&p,&m)&&m.stage==100&&m.item_count==4&&m.row_height==16);check("Temperature hit is center of actualfourthrow",m.hit.x==361&&m.hit.y==187&&m.item_rect.top==179&&m.item_rect.bottom==195);check("Caller process handle restored and not closed",focus_process==(HANDLE)0x444&&close_count==1&&!closed_outer);
+ p=fixture(0,1);check("Field View menu validates actual17pixel rows andnarrowerwidth",inspect_popup((HWND)0x55,&p,&m)&&m.row_height==17&&m.client_rect.right==164&&m.hit.x==349&&m.hit.y==190);
+ p=fixture(1,1);check("About requiresHelp menu andshow_help callback",inspect_popup((HWND)0x55,&p,&m)&&m.item_count==1&&m.selected_index==0&&m.callbacks[0]==0x40732c);
+ p=fixture(0,0);p.menu_id=2;p.item_id=3;p.callback=0x407291;check("File Exit neverbelongs toallowlist",!inspect_popup((HWND)0x55,&p,&m));check("Earlyfailurepreserves caller handle",focus_process==(HANDLE)0x444&&!closed_outer&&close_count==0);
+ p=fixture(0,0);word(0x15198,0x20100);check("Wrong publicmenutonativepopup binding blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(0x18040+0x3c,0x407291);check("Unexpected callback blocksentiremenu",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(0x18040+0xa0,0x12004);check("Wrong publicitembarbacklink blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(0x18040+0x98,0x18000);check("Public submenu blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(0x18040+0x9c,0x16000);check("Wrong publicitemparent blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(0x15128,9);check("Duplicate orwrong publictopmenuID blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(0x17114,3);check("Wrong itemcount blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(0x21158,0x56);check("Wrong windowhandlebacklink blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(0x20128,0x21004);check("Wrong nativemenubacklink blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(0x20100,loaded_cvi_base+0x9f665);check("Wrong nativecallback blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(0x20144,0);check("Disabled entiremenu blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);memory[native_addresses[3]+0x1e]=0;check("Disabled target blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(native_addresses[2],0x30000);check("Native submenu blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(native_addresses[2]+0x24,1);check("Separator blocksuniformrow assumption",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);memory[native_addresses[2]+0x1f]=1;check("Unexpected checkeditem blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);memory[native_addresses[2]+0x29]='X';check("Wrong label blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);shortword(native_addresses[2]+0x1a,-1);check("Negative packedrecordlength blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);memory[native_addresses[2]+0x28]=100;check("Oversized native label blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(0x20150,2);check("Scrolled firstrow blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(0x2014c,3);check("Clipped lastrow blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);word(0x20120,0);check("Invalid rowheight blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);fake_client.bottom++;check("Win32 versusnative geometrymismatch blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);fake_window.right=1500;check("Offscreen menu blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);unreadable=native_addresses[1];check("Unreadable packedrecord blocks",!inspect_popup((HWND)0x55,&p,&m));
+ p=fixture(0,0);process_allowed=0;check("Processreadfailure preserves callerhandle",!inspect_popup((HWND)0x55,&p,&m)&&focus_process==(HANDLE)0x444&&!closed_outer&&close_count==0);
+ p=header_fixture(0,0);check("Read-only fontcache derives View header",inspect_heading(&p,&h)&&h.hit.x==290&&h.hit.y==118&&h.heading_rects[1].left==36&&h.heading_rects[1].right==72);check("Header reader preserves caller handle",focus_process==(HANDLE)0x444&&!closed_outer);
+ p=header_fixture(1,1);check("Narrow fieldfont derives Help at actual center",inspect_heading(&p,&h)&&h.hit.x==311&&h.heading_rects[2].left==60&&h.heading_rects[2].right==90);
+ p=header_fixture(0,0);shortword(0x25120,12);shortword(0x2511c,7);shortword(0x2511e,5);check("Initialized fixedwidth fontpath accepted",inspect_heading(&p,&h)&&h.heading_rects[0].right==38);
+ p=header_fixture(0,0);word(0x25128,0x27000);shortword(0x27000+'F'*2,4);shortword(0x27000+'V'*2,4);shortword(0x27000+'H'*2,4);check("Initialized firstglyph bearing path accepted",inspect_heading(&p,&h)&&h.heading_rects[0].right==34);
+ p=header_fixture(0,0);p.menu_id=2;p.item_id=3;p.callback=0x407291;check("Heading File is excluded before any input",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);word(0x12144,0x22004);check("Invalid nativebar binding blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);word(0x15198,0x23000);check("Wrong View nativebinding blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);memory[heading_addresses[1]+0x29]='F';check("Incorrect heading label blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);memory[heading_addresses[1]+0x1e]=0;check("Disabled heading blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);word(heading_addresses[1]+0x24,1);check("Separator header blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);word(0x22130,1);check("Unreviewed rightside accessories block",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);memory[0x2215a]=0;check("Non-menubar native object blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);shortword(0x22110,50);check("Header outside top menu strip blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);shortword(0x22112,4096);check("Exact native tracking sentinel preserves bounded headings",inspect_heading(&p,&h)&&h.bar_rect.right==4096&&h.heading_rects[2].right<=h.client_rect.right);
+ p=header_fixture(0,0);shortword(0x22112,4095);check("Nearby unreviewed native virtualwidth4095 blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);shortword(0x22112,4097);check("Nearby unreviewed native virtualwidth4097 blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);shortword(0x22112,4096);shortword(0x2210e,850);check("Virtual sentinel never permits headings beyond actualclient",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);word(0x22118,0xffffffff);check("Negative fontindex blocks runtimefallback",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);word(0x25104,0);check("Uninitialized fontcache blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);shortword(0x25120,6);check("Uninitialized mono property blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);shortword(0x25120,2);check("Uninitialized metricflag blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);shortword(0x25120,30);check("Complex fontpath blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);shortword(0x25112,2);check("Italic fontpath blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);shortword(0x26000+'F'*2,-1);check("Uninitialized glyphwidth blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);cvi_memory[0x26a03c]=0;check("Unsupported zero padding blocks",!inspect_heading(&p,&h));
+ p=header_fixture(0,0);word(0x2312c,0);check("Empty submenu invalidates heading geometry",!inspect_heading(&p,&h));
+ p=gdi_fixture();check("NonANSI GDI path uses exact legacy nativeAPI and actual width",inspect_heading(&p,&h)&&h.font_measure_kind==2&&h.gdi_widths[1]==28&&h.hit.x==288&&gdi_api==3&&!gdi_resource_count);
+ p=gdi_fixture();cvi_memory[0x268bfc]=4;check("Other native platform selects Point32 API",inspect_heading(&p,&h)&&gdi_api==32&&!gdi_resource_count);
+ p=gdi_fixture();shortword(0x25120,0x14);gdi_charset=0;check("Native metric-correction flag selects exactGDI path",inspect_heading(&p,&h)&&h.font_measure_kind==2&&!gdi_resource_count);
+ p=gdi_fixture();standalone_allowed=0;check("Hosted runtime GDI path blocks",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();cvi_memory[0x24197c]=1;check("Alternate runtime measurement mode blocks",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_getobject_fail=1;check("Unreadable original HFONT blocks",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_angle=900;check("Rotated logical font blocks",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_create_fail=1;check("Local font clone creation failure blocks",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_clone_diff=1;check("Different cloned LOGFONT blocks and cleans",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_dc_fail=1;check("Local DC creation failure blocks and cleans",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_map_mode=2;check("Nondefault DC mapmode blocks and cleans",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_old_missing=1;check("Font selection failure blocks and cleans",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_metrics_mismatch=1;check("Font metrics unequal to native cache block and clean",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_charset=0;check("Charset inconsistent with original native font flag blocks",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_measure_fail=1;check("GDI measurement failure blocks and cleans",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_measure_short=1;check("Native saturated too-short width blocks",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_measure_wide=1;check("Unbounded signed16 width blocks",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_mode_change=1;check("Runtime mode changed during measure blocks",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_font_change=1;check("Native fontcache changed during measure blocks",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ p=gdi_fixture();gdi_object_change=1;check("Native HFONT LOGFONT changed during measure blocks",!inspect_heading(&p,&h)&&!gdi_resource_count);
+ printf("%d native menu checks passed\n",passed);return 0;
+}

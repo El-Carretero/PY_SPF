@@ -1,0 +1,577 @@
+{
+  "method": "Unicorn x86 original callback execution with intercepted CVI I/O",
+  "case_count": 42,
+  "passed": 42,
+  "cases": [
+    {
+      "callback": "slidesetcurr",
+      "value": 0,
+      "connected": 0,
+      "native": [
+        "[2003]EMP:DIODE:CURR  0.00"
+      ],
+      "python": [
+        "[2003]EMP:DIODE:CURR  0.00"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "slidesetcurr",
+      "value": 0,
+      "connected": 1,
+      "native": [
+        "[2003]EMP:DIODE:CURR  0.00",
+        "[1009]EMP:DIODE:CURR?"
+      ],
+      "python": [
+        "[2003]EMP:DIODE:CURR  0.00",
+        "[1009]EMP:DIODE:CURR?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "slidesetcurr",
+      "value": 1,
+      "connected": 0,
+      "native": [
+        "[2003]EMP:DIODE:CURR 10.00"
+      ],
+      "python": [
+        "[2003]EMP:DIODE:CURR 10.00"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "slidesetcurr",
+      "value": 1,
+      "connected": 1,
+      "native": [
+        "[2003]EMP:DIODE:CURR 10.00",
+        "[1009]EMP:DIODE:CURR?"
+      ],
+      "python": [
+        "[2003]EMP:DIODE:CURR 10.00",
+        "[1009]EMP:DIODE:CURR?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "slidesetcurr",
+      "value": 12.345,
+      "connected": 0,
+      "native": [
+        "[2003]EMP:DIODE:CURR 123.45"
+      ],
+      "python": [
+        "[2003]EMP:DIODE:CURR 123.45"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "slidesetcurr",
+      "value": 12.345,
+      "connected": 1,
+      "native": [
+        "[2003]EMP:DIODE:CURR 123.45",
+        "[1009]EMP:DIODE:CURR?"
+      ],
+      "python": [
+        "[2003]EMP:DIODE:CURR 123.45",
+        "[1009]EMP:DIODE:CURR?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "SetHVCallback1",
+      "value": 0,
+      "connected": 0,
+      "native": [
+        "[2025]TDG:HV1:VOLT  0.00"
+      ],
+      "python": [
+        "[2025]TDG:HV1:VOLT  0.00"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "SetHVCallback1",
+      "value": 0,
+      "connected": 1,
+      "native": [
+        "[2025]TDG:HV1:VOLT  0.00",
+        "[1040]TDG:HV1:VOLT?"
+      ],
+      "python": [
+        "[2025]TDG:HV1:VOLT  0.00",
+        "[1040]TDG:HV1:VOLT?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "SetHVCallback1",
+      "value": 1,
+      "connected": 0,
+      "native": [
+        "[2025]TDG:HV1:VOLT  1.00"
+      ],
+      "python": [
+        "[2025]TDG:HV1:VOLT  1.00"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "SetHVCallback1",
+      "value": 1,
+      "connected": 1,
+      "native": [
+        "[2025]TDG:HV1:VOLT  1.00",
+        "[1040]TDG:HV1:VOLT?"
+      ],
+      "python": [
+        "[2025]TDG:HV1:VOLT  1.00",
+        "[1040]TDG:HV1:VOLT?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "SetHVCallback1",
+      "value": 12.345,
+      "connected": 0,
+      "native": [
+        "[2025]TDG:HV1:VOLT 12.35"
+      ],
+      "python": [
+        "[2025]TDG:HV1:VOLT 12.35"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "SetHVCallback1",
+      "value": 12.345,
+      "connected": 1,
+      "native": [
+        "[2025]TDG:HV1:VOLT 12.35",
+        "[1040]TDG:HV1:VOLT?"
+      ],
+      "python": [
+        "[2025]TDG:HV1:VOLT 12.35",
+        "[1040]TDG:HV1:VOLT?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "SetHVCallback2",
+      "value": 0,
+      "connected": 0,
+      "native": [
+        "[2026]TDG:HV2:VOLT  0.00"
+      ],
+      "python": [
+        "[2026]TDG:HV2:VOLT  0.00"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "SetHVCallback2",
+      "value": 0,
+      "connected": 1,
+      "native": [
+        "[2026]TDG:HV2:VOLT  0.00",
+        "[1041]TDG:HV2:VOLT?"
+      ],
+      "python": [
+        "[2026]TDG:HV2:VOLT  0.00",
+        "[1041]TDG:HV2:VOLT?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "SetHVCallback2",
+      "value": 1,
+      "connected": 0,
+      "native": [
+        "[2026]TDG:HV2:VOLT  1.00"
+      ],
+      "python": [
+        "[2026]TDG:HV2:VOLT  1.00"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "SetHVCallback2",
+      "value": 1,
+      "connected": 1,
+      "native": [
+        "[2026]TDG:HV2:VOLT  1.00",
+        "[1041]TDG:HV2:VOLT?"
+      ],
+      "python": [
+        "[2026]TDG:HV2:VOLT  1.00",
+        "[1041]TDG:HV2:VOLT?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "SetHVCallback2",
+      "value": 12.345,
+      "connected": 0,
+      "native": [
+        "[2026]TDG:HV2:VOLT 12.35"
+      ],
+      "python": [
+        "[2026]TDG:HV2:VOLT 12.35"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "SetHVCallback2",
+      "value": 12.345,
+      "connected": 1,
+      "native": [
+        "[2026]TDG:HV2:VOLT 12.35",
+        "[1041]TDG:HV2:VOLT?"
+      ],
+      "python": [
+        "[2026]TDG:HV2:VOLT 12.35",
+        "[1041]TDG:HV2:VOLT?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "HV_switch",
+      "value": 0,
+      "connected": 0,
+      "native": [
+        "[2016]TDG:HV:OFF",
+        "[1061]TDG:HV:ON?"
+      ],
+      "python": [
+        "[2016]TDG:HV:OFF",
+        "[1061]TDG:HV:ON?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "HV_switch",
+      "value": 0,
+      "connected": 1,
+      "native": [
+        "[2016]TDG:HV:OFF",
+        "[1061]TDG:HV:ON?"
+      ],
+      "python": [
+        "[2016]TDG:HV:OFF",
+        "[1061]TDG:HV:ON?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "HV_switch",
+      "value": 1,
+      "connected": 0,
+      "native": [
+        "[2017]TDG:HV:ON",
+        "[1061]TDG:HV:ON?"
+      ],
+      "python": [
+        "[2017]TDG:HV:ON",
+        "[1061]TDG:HV:ON?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "HV_switch",
+      "value": 1,
+      "connected": 1,
+      "native": [
+        "[2017]TDG:HV:ON",
+        "[1061]TDG:HV:ON?"
+      ],
+      "python": [
+        "[2017]TDG:HV:ON",
+        "[1061]TDG:HV:ON?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "HV_switch",
+      "value": 12.345,
+      "connected": 0,
+      "native": [
+        "[2017]TDG:HV:ON",
+        "[1061]TDG:HV:ON?"
+      ],
+      "python": [
+        "[2017]TDG:HV:ON",
+        "[1061]TDG:HV:ON?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "HV_switch",
+      "value": 12.345,
+      "connected": 1,
+      "native": [
+        "[2017]TDG:HV:ON",
+        "[1061]TDG:HV:ON?"
+      ],
+      "python": [
+        "[2017]TDG:HV:ON",
+        "[1061]TDG:HV:ON?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "setbwd1",
+      "value": 0,
+      "connected": 0,
+      "native": [
+        "[2019]TDG:DEL 1 NBWD"
+      ],
+      "python": [
+        "[2019]TDG:DEL 1 NBWD"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "setbwd1",
+      "value": 0,
+      "connected": 1,
+      "native": [
+        "[2019]TDG:DEL 1 NBWD",
+        "[1045]TDG:DEL1?"
+      ],
+      "python": [
+        "[2019]TDG:DEL 1 NBWD",
+        "[1045]TDG:DEL1?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "setbwd1",
+      "value": 1,
+      "connected": 0,
+      "native": [
+        "[2019]TDG:DEL 1 BWD"
+      ],
+      "python": [
+        "[2019]TDG:DEL 1 BWD"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "setbwd1",
+      "value": 1,
+      "connected": 1,
+      "native": [
+        "[2019]TDG:DEL 1 BWD",
+        "[1045]TDG:DEL1?"
+      ],
+      "python": [
+        "[2019]TDG:DEL 1 BWD",
+        "[1045]TDG:DEL1?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "setbwd1",
+      "value": 12.345,
+      "connected": 0,
+      "native": [
+        "[2019]TDG:DEL 1 BWD"
+      ],
+      "python": [
+        "[2019]TDG:DEL 1 BWD"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "setbwd1",
+      "value": 12.345,
+      "connected": 1,
+      "native": [
+        "[2019]TDG:DEL 1 BWD",
+        "[1045]TDG:DEL1?"
+      ],
+      "python": [
+        "[2019]TDG:DEL 1 BWD",
+        "[1045]TDG:DEL1?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "secretcall2",
+      "value": 0,
+      "connected": 0,
+      "native": [
+        "[2038]EMP:SECRETMSG2  0.00",
+        "[2045]EMP:SECRETSCOMT",
+        "[1071]EMP:SECRETMSG2?"
+      ],
+      "python": [
+        "[2038]EMP:SECRETMSG2  0.00",
+        "[2045]EMP:SECRETSCOMT",
+        "[1071]EMP:SECRETMSG2?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "secretcall2",
+      "value": 0,
+      "connected": 1,
+      "native": [
+        "[2038]EMP:SECRETMSG2  0.00",
+        "[2045]EMP:SECRETSCOMT",
+        "[1071]EMP:SECRETMSG2?"
+      ],
+      "python": [
+        "[2038]EMP:SECRETMSG2  0.00",
+        "[2045]EMP:SECRETSCOMT",
+        "[1071]EMP:SECRETMSG2?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "secretcall2",
+      "value": 1,
+      "connected": 0,
+      "native": [
+        "[2038]EMP:SECRETMSG2  1.00",
+        "[2045]EMP:SECRETSCOMT",
+        "[1071]EMP:SECRETMSG2?"
+      ],
+      "python": [
+        "[2038]EMP:SECRETMSG2  1.00",
+        "[2045]EMP:SECRETSCOMT",
+        "[1071]EMP:SECRETMSG2?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "secretcall2",
+      "value": 1,
+      "connected": 1,
+      "native": [
+        "[2038]EMP:SECRETMSG2  1.00",
+        "[2045]EMP:SECRETSCOMT",
+        "[1071]EMP:SECRETMSG2?"
+      ],
+      "python": [
+        "[2038]EMP:SECRETMSG2  1.00",
+        "[2045]EMP:SECRETSCOMT",
+        "[1071]EMP:SECRETMSG2?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "secretcall2",
+      "value": 12.345,
+      "connected": 0,
+      "native": [
+        "[2038]EMP:SECRETMSG2 12.35",
+        "[2045]EMP:SECRETSCOMT",
+        "[1071]EMP:SECRETMSG2?"
+      ],
+      "python": [
+        "[2038]EMP:SECRETMSG2 12.35",
+        "[2045]EMP:SECRETSCOMT",
+        "[1071]EMP:SECRETMSG2?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "secretcall2",
+      "value": 12.345,
+      "connected": 1,
+      "native": [
+        "[2038]EMP:SECRETMSG2 12.35",
+        "[2045]EMP:SECRETSCOMT",
+        "[1071]EMP:SECRETMSG2?"
+      ],
+      "python": [
+        "[2038]EMP:SECRETMSG2 12.35",
+        "[2045]EMP:SECRETSCOMT",
+        "[1071]EMP:SECRETMSG2?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "com_motor_speed",
+      "value": 0,
+      "connected": 0,
+      "native": [
+        "[2014]HED:MOTOR:SPEED  0.00"
+      ],
+      "python": [
+        "[2014]HED:MOTOR:SPEED  0.00"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "com_motor_speed",
+      "value": 0,
+      "connected": 1,
+      "native": [
+        "[2014]HED:MOTOR:SPEED  0.00",
+        "[1060]HED:MOTOR:SPEED?"
+      ],
+      "python": [
+        "[2014]HED:MOTOR:SPEED  0.00",
+        "[1060]HED:MOTOR:SPEED?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "com_motor_speed",
+      "value": 1,
+      "connected": 0,
+      "native": [
+        "[2014]HED:MOTOR:SPEED  1.00"
+      ],
+      "python": [
+        "[2014]HED:MOTOR:SPEED  1.00"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "com_motor_speed",
+      "value": 1,
+      "connected": 1,
+      "native": [
+        "[2014]HED:MOTOR:SPEED  1.00",
+        "[1060]HED:MOTOR:SPEED?"
+      ],
+      "python": [
+        "[2014]HED:MOTOR:SPEED  1.00",
+        "[1060]HED:MOTOR:SPEED?"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "com_motor_speed",
+      "value": 12.345,
+      "connected": 0,
+      "native": [
+        "[2014]HED:MOTOR:SPEED 12.35"
+      ],
+      "python": [
+        "[2014]HED:MOTOR:SPEED 12.35"
+      ],
+      "pass": true
+    },
+    {
+      "callback": "com_motor_speed",
+      "value": 12.345,
+      "connected": 1,
+      "native": [
+        "[2014]HED:MOTOR:SPEED 12.35",
+        "[1060]HED:MOTOR:SPEED?"
+      ],
+      "python": [
+        "[2014]HED:MOTOR:SPEED 12.35",
+        "[1060]HED:MOTOR:SPEED?"
+      ],
+      "pass": true
+    }
+  ]
+}

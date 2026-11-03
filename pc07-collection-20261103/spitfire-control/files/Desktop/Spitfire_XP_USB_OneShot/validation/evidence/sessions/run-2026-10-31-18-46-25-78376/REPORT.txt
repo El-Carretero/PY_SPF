@@ -1,0 +1,15 @@
+Spitfire one-shot read-only UI test / passive capture
+
+Outcome: COMPLETED
+Reason: 
+Completed UTC (XP clock): 2026-10-31T18:49:01.984Z
+Actions attempted: 5 / 5
+
+See result.json, timeline.jsonl, actions/*/timeline.jsonl and capture/summary.json.
+Raw classic PCAP: capture/adapter-*.pcap (UDP port 1024).
+Screenshots and original read-only state: actions/*/.
+Request source and responder identity are observed, not assumed.
+A command detection stops future UI; it cannot block a command already sent.
+No original startup/exit/retry, no parameter, laser/HV/temperature, Opt-out, reset or bypass controls are invoked.
+The initial user/service display mode is preserved; no mode-switching keys are sent.
+The original application remains running.

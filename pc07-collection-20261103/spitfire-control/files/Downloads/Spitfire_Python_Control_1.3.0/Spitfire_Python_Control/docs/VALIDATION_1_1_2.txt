@@ -1,0 +1,141 @@
+Spitfire Python Control 1.1.2 — 개발 환경 검증 기록
+
+환경: Python 3.12.14, Linux. 실제 Windows 및 실제 장비는 이용하지 않았다.
+이 실행 환경에는 GUI 표시 서버가 없어 새 GUI 검증 worker의 성공 경로를 실제 실행하지 못했다.
+이전 1.1.1 GUI 검증 기록은 그 버전의 기록이며 이번 버전의 Windows 실행 증거로 사용하지 않는다.
+
+자동 회귀 검사:
+- 95개 발견: 85개 통과, 실패 0, 오류 0, Tk display가 필요한 10개 skip
+- 추가 validation 테스트 24개 통과
+- Windows exclusive UDP bind 옵션은 mock으로 확인했으며 실제 Windows OS 검증은 아님
+- 회귀 검사 프로세스의 실제 네트워크 접근은 loopback만 허용, serial device open 차단
+
+조회 전용 프로파일 실험:
+- 실제 UDP localhost 가상 컨트롤러에 고정 query 48개 전송, 전부 해석 성공
+- 최소 실제 송신 간격 0.251초 (설정 0.25초)
+- 전송 목록이 고정 허용 query 목록과 ID/문자열 단위로 일치, write 0개
+- 장비 응답은 Simulator 합성 응답이며 실제 Spitfire 응답 캡처가 아님
+- HV ON, 양수 출력, IDN 불일치, 무응답, 연속 실패, 점유 포트, 취소,
+  송신 시한 만료, trace 기록 실패, query ID를 이용한 명령문 삽입 등 검사
+- GUI 점검 실패 상태에서 전체 hardware CLI를 실행했을 때 localhost 대상 수신 패킷 0개
+- headless offline CLI는 의도대로 FAIL 보고서를 생성. 이를 GUI 검사 PASS로 표시하지 않음
+
+배포 검사:
+- wheel 오프라인 빌드 및 포함 pySerial로 설치 성공
+- 설치된 validation CLI import / --help 정상
+- wheel Python 모듈 15개와 src 내용 동일
+- Windows PowerShell 래퍼 및 PyInstaller EXE는 실제 실행하지 않았음
+- 파일명/버전/프로토콜/hash가 일치하지 않는 EXE를 거부하는 로직 검사
+- 기존 146개 command catalogue 변경 없음
+
+wheel SHA-256:
+1f4e4da3de34025c605fc601f2f5b65f1fde66aad559f16cb4d4d8cc29724380
+
+최종 판정 범위:
+로컬 검증 로직과 loopback 통신 검사는 통과했다. 실제 Windows GUI, 빌드된 EXE,
+실제 컨트롤러 응답의 검증은 대상 PC에서 새 검증 도구를 실행하여 확인해야 한다.
+물리적 발진 억제, 잔류 고전압, 인터록, 출력 성능 또는 능동 제어의 안전성은 검증하지 않는다.
+
+테스트 원문:
+
+test_catalogue_contains_recovered_ranges (test_commands.CommandCatalogueTests.test_catalogue_contains_recovered_ranges) ... ok
+test_exact_known_commands (test_commands.CommandCatalogueTests.test_exact_known_commands) ... ok
+test_newline_in_argument_is_rejected (test_commands.CommandCatalogueTests.test_newline_in_argument_is_rejected) ... ok
+test_risk_metadata (test_commands.CommandCatalogueTests.test_risk_metadata) ... ok
+test_async_query_updates_state (test_controller.ControllerTests.test_async_query_updates_state) ... ok
+test_hardware_writes_require_arm (test_controller.ControllerTests.test_hardware_writes_require_arm) ... ok
+test_malformed_argument_is_rejected_before_worker (test_controller.ControllerTests.test_malformed_argument_is_rejected_before_worker) ... ok
+test_safe_off_allowed_while_disarmed (test_controller.ControllerTests.test_safe_off_allowed_while_disarmed) ... ok
+test_bad_packet_is_rejected (test_protocol.ProtocolTests.test_bad_packet_is_rejected) ... ok
+test_command_roundtrip (test_protocol.ProtocolTests.test_command_roundtrip) ... ok
+test_encode_matches_legacy_framing (test_protocol.ProtocolTests.test_encode_matches_legacy_framing) ... ok
+test_receiver_retains_legacy_permissive_vendor_prefix (test_protocol.ProtocolTests.test_receiver_retains_legacy_permissive_vendor_prefix) ... ok
+test_reply_roundtrip (test_protocol.ProtocolTests.test_reply_roundtrip) ... ok
+test_split_respects_maximum (test_protocol.ProtocolTests.test_split_respects_maximum) ... ok
+test_bad_query_does_not_refresh_a_valid_readback (test_regressions.DecodingRegressionTests.test_bad_query_does_not_refresh_a_valid_readback) ... ok
+test_compound_delay_number_and_all_flags (test_regressions.DecodingRegressionTests.test_compound_delay_number_and_all_flags) ... ok
+test_copy_does_not_share_mutable_pending_or_delay_state (test_regressions.DecodingRegressionTests.test_copy_does_not_share_mutable_pending_or_delay_state) ... ok
+test_error_ack_never_changes_hv (test_regressions.DecodingRegressionTests.test_error_ack_never_changes_hv) ... ok
+test_malformed_delay_does_not_leave_old_measurement_valid (test_regressions.DecodingRegressionTests.test_malformed_delay_does_not_leave_old_measurement_valid) ... ok
+test_module_led_requires_that_modules_fresh_reply (test_regressions.DecodingRegressionTests.test_module_led_requires_that_modules_fresh_reply) ... ok
+test_numeric_delay_never_fabricates_modes (test_regressions.DecodingRegressionTests.test_numeric_delay_never_fabricates_modes) ... ok
+test_qsw_hz_wire_roundtrip_matches_original_factor_ten (test_regressions.DecodingRegressionTests.test_qsw_hz_wire_roundtrip_matches_original_factor_ten) ... ok
+test_qsw_resolution_and_nonfinite_values (test_regressions.DecodingRegressionTests.test_qsw_resolution_and_nonfinite_values) ... ok
+test_short_fault_reply_does_not_claim_no_faults (test_regressions.DecodingRegressionTests.test_short_fault_reply_does_not_claim_no_faults) ... ok
+test_stale_values_cannot_show_hv_off_or_green_module (test_regressions.DecodingRegressionTests.test_stale_values_cannot_show_hv_off_or_green_module) ... ok
+test_arm_requires_verified_readback (test_regressions.SchedulerRegressionTests.test_arm_requires_verified_readback) ... ok
+test_bind_does_not_confirm_connection (test_regressions.SchedulerRegressionTests.test_bind_does_not_confirm_connection) ... ok
+test_disarm_then_rearm_never_resurrects_queued_on (test_regressions.SchedulerRegressionTests.test_disarm_then_rearm_never_resurrects_queued_on) ... ok
+test_disarm_wins_between_dequeue_and_actual_send (test_regressions.SchedulerRegressionTests.test_disarm_wins_between_dequeue_and_actual_send) ... ok
+test_failed_service_write_cancels_queued_commit (test_regressions.SchedulerRegressionTests.test_failed_service_write_cancels_queued_commit) ... ok
+test_hv_pending_is_published_before_waiting_for_ack (test_regressions.SchedulerRegressionTests.test_hv_pending_is_published_before_waiting_for_ack) ... ok
+test_hv_unknown_ack_preserves_unknown_until_readback (test_regressions.SchedulerRegressionTests.test_hv_unknown_ack_preserves_unknown_until_readback) ... ok
+test_hv_write_waits_for_query_even_after_ok_ack (test_regressions.SchedulerRegressionTests.test_hv_write_waits_for_query_even_after_ok_ack) ... ok
+test_malformed_input_does_not_reach_worker (test_regressions.SchedulerRegressionTests.test_malformed_input_does_not_reach_worker) ... ok
+test_off_cancels_pending_on_and_precedes_queued_queries (test_regressions.SchedulerRegressionTests.test_off_cancels_pending_on_and_precedes_queued_queries) ... ok
+test_setpoint_queries_are_queued_without_auto_poll (test_regressions.SchedulerRegressionTests.test_setpoint_queries_are_queued_without_auto_poll) ... ok
+test_stop_resets_both_arm_states_and_rejects_more_work (test_regressions.SchedulerRegressionTests.test_stop_resets_both_arm_states_and_rejects_more_work) ... ok
+test_timeout_disarms_cancels_writes_and_marks_link_unknown (test_regressions.SchedulerRegressionTests.test_timeout_disarms_cancels_writes_and_marks_link_unknown) ... ok
+test_real_loopback_foreign_sender_cannot_answer_request (test_regressions.UdpPeerRegressionTests.test_real_loopback_foreign_sender_cannot_answer_request) ... ok
+test_wrong_port_and_ip_and_unrelated_ids_are_ignored (test_regressions.UdpPeerRegressionTests.test_wrong_port_and_ip_and_unrelated_ids_are_ignored) ... ok
+test_connect_send_receive_and_control_lines (test_serial_service.RawSerialSessionTests.test_connect_send_receive_and_control_lines) ... ok
+test_port_provider (test_serial_service.RawSerialSessionTests.test_port_provider) ... ok
+test_settings_validation (test_serial_service.RawSerialSessionTests.test_settings_validation) ... ok
+test_ascii_and_terminators_are_explicit (test_serial_service.SerialCodecTests.test_ascii_and_terminators_are_explicit) ... ok
+test_hex_formats (test_serial_service.SerialCodecTests.test_hex_formats) ... ok
+test_hex_rejects_invalid_or_odd_input (test_serial_service.SerialCodecTests.test_hex_rejects_invalid_or_odd_input) ... ok
+test_delay_and_service_settings (test_simulator.SimulatorTests.test_delay_and_service_settings) ... ok
+test_hv_on_off (test_simulator.SimulatorTests.test_hv_on_off) ... ok
+test_identity (test_simulator.SimulatorTests.test_identity) ... ok
+test_invalid_write_does_not_leak_value_error (test_simulator.SimulatorTests.test_invalid_write_does_not_leak_value_error) ... ok
+test_measured_oscillator_copy (test_simulator.SimulatorTests.test_measured_oscillator_copy) ... ok
+test_output_ramps_after_run (test_simulator.SimulatorTests.test_output_ramps_after_run) ... ok
+test_requires_connection (test_simulator.SimulatorTests.test_requires_connection) ... ok
+test_setpoint_roundtrip (test_simulator.SimulatorTests.test_setpoint_roundtrip) ... ok
+test_duplicate_hv_query_updates_dashboard_alias (test_state.StateTests.test_duplicate_hv_query_updates_dashboard_alias) ... ok
+test_fault_words (test_state.StateTests.test_fault_words) ... ok
+test_numeric_and_text_values (test_state.StateTests.test_numeric_and_text_values) ... ok
+test_write_acknowledgement_does_not_replace_readback (test_state.StateTests.test_write_acknowledgement_does_not_replace_readback) ... ok
+test_exact_hardware_packet_and_reply (test_udp_transport.UdpTransportTests.test_exact_hardware_packet_and_reply) ... ok
+test_timeout_is_reported (test_udp_transport.UdpTransportTests.test_timeout_is_reported) ... ok
+test_windows_exclusive_bind_option (test_udp_transport.UdpTransportTests.test_windows_exclusive_bind_option) ... ok
+test_all_tabs_fit_operator_controls_at_1024 (test_ui.GuiRegressionTests.test_all_tabs_fit_operator_controls_at_1024) ... skipped 'Tk display unavailable: no display name and no $DISPLAY environment variable'
+test_cancelled_arm_cannot_be_shown_enabled (test_ui.GuiRegressionTests.test_cancelled_arm_cannot_be_shown_enabled) ... skipped 'Tk display unavailable: no display name and no $DISPLAY environment variable'
+test_cancelled_delay_mode_restores_confirmed_mode (test_ui.GuiRegressionTests.test_cancelled_delay_mode_restores_confirmed_mode) ... skipped 'Tk display unavailable: no display name and no $DISPLAY environment variable'
+test_cancelled_override_restores_confirmed_value (test_ui.GuiRegressionTests.test_cancelled_override_restores_confirmed_value) ... skipped 'Tk display unavailable: no display name and no $DISPLAY environment variable'
+test_delay_number_and_modes_are_synchronized (test_ui.GuiRegressionTests.test_delay_number_and_modes_are_synchronized) ... skipped 'Tk display unavailable: no display name and no $DISPLAY environment variable'
+test_edit_survives_unrelated_and_changed_readback (test_ui.GuiRegressionTests.test_edit_survives_unrelated_and_changed_readback) ... skipped 'Tk display unavailable: no display name and no $DISPLAY environment variable'
+test_matching_readback_clears_edit (test_ui.GuiRegressionTests.test_matching_readback_clears_edit) ... skipped 'Tk display unavailable: no display name and no $DISPLAY environment variable'
+test_programmer_console_preserves_raw_wire_units (test_ui.GuiRegressionTests.test_programmer_console_preserves_raw_wire_units) ... skipped 'Tk display unavailable: no display name and no $DISPLAY environment variable'
+test_qsw_hz_display_and_wire_conversion (test_ui.GuiRegressionTests.test_qsw_hz_display_and_wire_conversion) ... skipped 'Tk display unavailable: no display name and no $DISPLAY environment variable'
+test_raw_service_window_does_not_open_serial_port (test_ui.GuiRegressionTests.test_raw_service_window_does_not_open_serial_port) ... skipped 'Tk display unavailable: no display name and no $DISPLAY environment variable'
+test_busy_port_fails_without_transmitting (test_validation.HardwareProbeTests.test_busy_port_fails_without_transmitting) ... ok
+test_cancel_closes_socket_and_keeps_incomplete_report (test_validation.HardwareProbeTests.test_cancel_closes_socket_and_keeps_incomplete_report) ... ok
+test_complete_plan_sends_only_allowlisted_reads (test_validation.HardwareProbeTests.test_complete_plan_sends_only_allowlisted_reads) ... ok
+test_deadline_is_checked_at_actual_send (test_validation.HardwareProbeTests.test_deadline_is_checked_at_actual_send) ... ok
+test_hv_on_stops_without_off_or_further_queries (test_validation.HardwareProbeTests.test_hv_on_stops_without_off_or_further_queries) ... ok
+test_identity_mismatch_stops_before_other_queries (test_validation.HardwareProbeTests.test_identity_mismatch_stops_before_other_queries) ... ok
+test_missing_identity_stops_after_one_request (test_validation.HardwareProbeTests.test_missing_identity_stops_after_one_request) ... ok
+test_offline_failure_prevents_hardware_phase (test_validation.HardwareProbeTests.test_offline_failure_prevents_hardware_phase) ... ok
+test_positive_output_stops_without_control_writes (test_validation.HardwareProbeTests.test_positive_output_stops_without_control_writes) ... ok
+test_two_consecutive_timeouts_stop_plan (test_validation.HardwareProbeTests.test_two_consecutive_timeouts_stop_plan) ... ok
+test_delay_flags_must_be_observed (test_validation.ProbeInterpretationTests.test_delay_flags_must_be_observed) ... ok
+test_html_escapes_controller_supplied_text (test_validation.ProbeInterpretationTests.test_html_escapes_controller_supplied_text) ... ok
+test_invalid_gate_response_is_not_zero (test_validation.ProbeInterpretationTests.test_invalid_gate_response_is_not_zero) ... ok
+test_module_fault_and_optout_are_not_healthy_passes (test_validation.ProbeInterpretationTests.test_module_fault_and_optout_are_not_healthy_passes) ... ok
+test_numeric_firmware_version_is_valid_text (test_validation.ProbeInterpretationTests.test_numeric_firmware_version_is_valid_text) ... ok
+test_allowlist_blocks_every_write_and_ambiguous_read (test_validation.ValidationBoundaryTests.test_allowlist_blocks_every_write_and_ambiguous_read) ... ok
+test_catalogue_change_is_fail_closed (test_validation.ValidationBoundaryTests.test_catalogue_change_is_fail_closed) ... ok
+test_exe_selftest_never_loads_saved_config (test_validation.ValidationBoundaryTests.test_exe_selftest_never_loads_saved_config) ... ok
+test_exe_selftest_rejects_udp_before_loading_config (test_validation.ValidationBoundaryTests.test_exe_selftest_rejects_udp_before_loading_config) ... ok
+test_journal_failure_prevents_actual_send (test_validation.ValidationBoundaryTests.test_journal_failure_prevents_actual_send) ... ok
+test_literal_target_and_bounded_options (test_validation.ValidationBoundaryTests.test_literal_target_and_bounded_options) ... ok
+test_query_ids_cannot_smuggle_writes_or_arguments (test_validation.ValidationBoundaryTests.test_query_ids_cannot_smuggle_writes_or_arguments) ... ok
+test_transport_rejects_write_before_send (test_validation.ValidationBoundaryTests.test_transport_rejects_write_before_send) ... ok
+test_unknown_exe_or_changed_exe_is_not_accepted (test_validation.ValidationBoundaryTests.test_unknown_exe_or_changed_exe_is_not_accepted) ... ok
+
+----------------------------------------------------------------------
+Ran 95 tests in 0.752s
+
+OK (skipped=10)
+

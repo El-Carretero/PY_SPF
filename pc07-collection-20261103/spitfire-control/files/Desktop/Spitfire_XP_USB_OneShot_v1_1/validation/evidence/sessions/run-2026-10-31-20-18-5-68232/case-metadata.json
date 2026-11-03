@@ -1,0 +1,406 @@
+{
+  "label": "Isolated XP Gulim -12 menu font",
+  "font": {
+    "face": "Gulim",
+    "height": -12,
+    "scope": "VM OS menu font only"
+  },
+  "menus": {
+    "01-temperature": {
+      "source": "actions/01-temperature/menu-layout-002.json",
+      "ok": true,
+      "public_menu_id": 4,
+      "item_count": 4,
+      "row_height": 16,
+      "outer_size": [
+        195,
+        70
+      ],
+      "client_size": [
+        189,
+        64
+      ],
+      "window_rect": [
+        225,
+        141,
+        420,
+        211
+      ],
+      "item_rect_screen": [
+        228,
+        192,
+        417,
+        208
+      ],
+      "hit_screen": [
+        322,
+        200
+      ]
+    },
+    "02-timing": {
+      "source": "actions/02-timing/menu-layout-002.json",
+      "ok": true,
+      "public_menu_id": 4,
+      "item_count": 4,
+      "row_height": 16,
+      "outer_size": [
+        195,
+        70
+      ],
+      "client_size": [
+        189,
+        64
+      ],
+      "window_rect": [
+        225,
+        141,
+        420,
+        211
+      ],
+      "item_rect_screen": [
+        228,
+        176,
+        417,
+        192
+      ],
+      "hit_screen": [
+        322,
+        184
+      ]
+    },
+    "03-faults": {
+      "source": "actions/03-faults/menu-layout-002.json",
+      "ok": true,
+      "public_menu_id": 4,
+      "item_count": 4,
+      "row_height": 16,
+      "outer_size": [
+        195,
+        70
+      ],
+      "client_size": [
+        189,
+        64
+      ],
+      "window_rect": [
+        225,
+        141,
+        420,
+        211
+      ],
+      "item_rect_screen": [
+        228,
+        160,
+        417,
+        176
+      ],
+      "hit_screen": [
+        322,
+        168
+      ]
+    },
+    "05-about": {
+      "source": "actions/05-about/menu-layout-002.json",
+      "ok": true,
+      "public_menu_id": 9,
+      "item_count": 1,
+      "row_height": 16,
+      "outer_size": [
+        88,
+        22
+      ],
+      "client_size": [
+        82,
+        16
+      ],
+      "window_rect": [
+        265,
+        141,
+        353,
+        163
+      ],
+      "item_rect_screen": [
+        268,
+        144,
+        350,
+        160
+      ],
+      "hit_screen": [
+        309,
+        152
+      ]
+    }
+  },
+  "headings": {
+    "01-temperature": {
+      "source": "actions/01-temperature/heading-layout-001.json",
+      "ok": true,
+      "font_measurement": 2,
+      "gdi_widths": [
+        20,
+        28,
+        25
+      ],
+      "font_metrics": [
+        10,
+        2,
+        2,
+        129
+      ],
+      "runtime_platform": 3,
+      "items": [
+        {
+          "public_handle": 10298820,
+          "public_id": 2,
+          "native_submenu_handle": 10299384,
+          "native_item_address": 13887294,
+          "rect_client": [
+            0,
+            0,
+            32,
+            22
+          ],
+          "label": "File"
+        },
+        {
+          "public_handle": 10299376,
+          "public_id": 4,
+          "native_submenu_handle": 10299404,
+          "native_item_address": 13887342,
+          "rect_client": [
+            32,
+            0,
+            72,
+            22
+          ],
+          "label": "View"
+        },
+        {
+          "public_handle": 10299396,
+          "public_id": 9,
+          "native_submenu_handle": 10299432,
+          "native_item_address": 13887390,
+          "rect_client": [
+            72,
+            0,
+            109,
+            22
+          ],
+          "label": "Help"
+        }
+      ],
+      "hit_screen": [
+        245,
+        133
+      ]
+    },
+    "02-timing": {
+      "source": "actions/02-timing/heading-layout-001.json",
+      "ok": true,
+      "font_measurement": 2,
+      "gdi_widths": [
+        20,
+        28,
+        25
+      ],
+      "font_metrics": [
+        10,
+        2,
+        2,
+        129
+      ],
+      "runtime_platform": 3,
+      "items": [
+        {
+          "public_handle": 10298820,
+          "public_id": 2,
+          "native_submenu_handle": 10299384,
+          "native_item_address": 13887294,
+          "rect_client": [
+            0,
+            0,
+            32,
+            22
+          ],
+          "label": "File"
+        },
+        {
+          "public_handle": 10299376,
+          "public_id": 4,
+          "native_submenu_handle": 10299404,
+          "native_item_address": 13887342,
+          "rect_client": [
+            32,
+            0,
+            72,
+            22
+          ],
+          "label": "View"
+        },
+        {
+          "public_handle": 10299396,
+          "public_id": 9,
+          "native_submenu_handle": 10299432,
+          "native_item_address": 13887390,
+          "rect_client": [
+            72,
+            0,
+            109,
+            22
+          ],
+          "label": "Help"
+        }
+      ],
+      "hit_screen": [
+        245,
+        133
+      ]
+    },
+    "03-faults": {
+      "source": "actions/03-faults/heading-layout-001.json",
+      "ok": true,
+      "font_measurement": 2,
+      "gdi_widths": [
+        20,
+        28,
+        25
+      ],
+      "font_metrics": [
+        10,
+        2,
+        2,
+        129
+      ],
+      "runtime_platform": 3,
+      "items": [
+        {
+          "public_handle": 10298820,
+          "public_id": 2,
+          "native_submenu_handle": 10299384,
+          "native_item_address": 13887294,
+          "rect_client": [
+            0,
+            0,
+            32,
+            22
+          ],
+          "label": "File"
+        },
+        {
+          "public_handle": 10299376,
+          "public_id": 4,
+          "native_submenu_handle": 10299404,
+          "native_item_address": 13887342,
+          "rect_client": [
+            32,
+            0,
+            72,
+            22
+          ],
+          "label": "View"
+        },
+        {
+          "public_handle": 10299396,
+          "public_id": 9,
+          "native_submenu_handle": 10299432,
+          "native_item_address": 13887390,
+          "rect_client": [
+            72,
+            0,
+            109,
+            22
+          ],
+          "label": "Help"
+        }
+      ],
+      "hit_screen": [
+        245,
+        133
+      ]
+    },
+    "05-about": {
+      "source": "actions/05-about/heading-layout-001.json",
+      "ok": true,
+      "font_measurement": 2,
+      "gdi_widths": [
+        20,
+        28,
+        25
+      ],
+      "font_metrics": [
+        10,
+        2,
+        2,
+        129
+      ],
+      "runtime_platform": 3,
+      "items": [
+        {
+          "public_handle": 10298820,
+          "public_id": 2,
+          "native_submenu_handle": 10299384,
+          "native_item_address": 13887294,
+          "rect_client": [
+            0,
+            0,
+            32,
+            22
+          ],
+          "label": "File"
+        },
+        {
+          "public_handle": 10299376,
+          "public_id": 4,
+          "native_submenu_handle": 10299404,
+          "native_item_address": 13887342,
+          "rect_client": [
+            32,
+            0,
+            72,
+            22
+          ],
+          "label": "View"
+        },
+        {
+          "public_handle": 10299396,
+          "public_id": 9,
+          "native_submenu_handle": 10299432,
+          "native_item_address": 13887390,
+          "rect_client": [
+            72,
+            0,
+            109,
+            22
+          ],
+          "label": "Help"
+        }
+      ],
+      "hit_screen": [
+        283,
+        133
+      ]
+    }
+  },
+  "status_read_log_events": [
+    {
+      "utc_guest_clock": "2026-10-31T20:18:29.546Z",
+      "event": "transient-status-read",
+      "detail": {
+        "error": "Native status snapshot failed (exit 1)",
+        "retained_tick": null
+      }
+    },
+    {
+      "utc_guest_clock": "2026-10-31T20:18:32.468Z",
+      "event": "status-read-exhausted",
+      "detail": {
+        "misses": 3,
+        "error": "Native status snapshot failed (exit 1)",
+        "retained_tick": null
+      }
+    }
+  ],
+  "status_read_log_events_after_ready": 0,
+  "status_failed_poll_total": "Not logged per failed poll; events record first and third misses only.",
+  "physical_controller_test": false
+}

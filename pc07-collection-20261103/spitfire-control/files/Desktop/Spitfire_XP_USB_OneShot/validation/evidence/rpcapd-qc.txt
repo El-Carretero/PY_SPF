@@ -1,0 +1,12 @@
+[SC] GetServiceConfig SUCCESS
+
+SERVICE_NAME: rpcapd
+        TYPE               : 10  WIN32_OWN_PROCESS 
+        START_TYPE         : 3   DEMAND_START
+        ERROR_CONTROL      : 1   NORMAL
+        BINARY_PATH_NAME   : "C:\Program Files\WinPcap\rpcapd.exe" -d -f "C:\Program Files\WinPcap\rpcapd.ini"  
+        LOAD_ORDER_GROUP   :   
+        TAG                : 0  
+        DISPLAY_NAME       : Remote Packet Capture Protocol v.0 (experimental)  
+        DEPENDENCIES       :   
+        SERVICE_START_NAME : LocalSystem  

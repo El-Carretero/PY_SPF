@@ -1,0 +1,8 @@
+Isolated p07 validation only. Physical original PC untouched. Warning not clicked. Fixture rejects startup writes.
+Terminate isolated original PID2024 rc=0
+Closed completed logger HTA 2004 rc=0
+Closed completed logger HTA 2016 rc=0
+Closed completed logger HTA 1188 rc=0
+Closed completed logger HTA 368 rc=0
+Relaunch isolated original rc=0
+Settled preflight rc=0

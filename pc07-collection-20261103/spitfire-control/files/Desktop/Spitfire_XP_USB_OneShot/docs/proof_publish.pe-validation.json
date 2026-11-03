@@ -1,0 +1,20 @@
+{
+  "format": "PE32 i386",
+  "minimum_os": [
+    5,
+    1
+  ],
+  "minimum_subsystem": [
+    5,
+    1
+  ],
+  "subsystem": "windows",
+  "imports_dlls": [
+    "KERNEL32.dll",
+    "SHELL32.dll"
+  ],
+  "no_crt": true,
+  "no_delete_file": true,
+  "size": 3584,
+  "sha256": "4bba8e539b6fafbb059b679bf23a33601b9a8f4bcead0fea643320bf099509ab"
+}

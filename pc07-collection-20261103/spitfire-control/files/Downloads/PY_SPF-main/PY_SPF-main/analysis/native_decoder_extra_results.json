@@ -1,0 +1,2463 @@
+{
+  "method": "Original x86 decoder extra divisor/BWD cases; Unicorn with intercepted CRT/CVI; no hardware",
+  "case_count": 23,
+  "passed": 23,
+  "cases": [
+    {
+      "query": 1039,
+      "payload": "100000",
+      "inputs": {
+        "widget_values": [],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          6,
+          5,
+          500,
+          0
+        ],
+        [
+          6,
+          5,
+          641,
+          "RESET BWD"
+        ],
+        [
+          6,
+          5,
+          880,
+          16776960
+        ],
+        [
+          5,
+          47,
+          null,
+          0
+        ],
+        [
+          6,
+          27,
+          null,
+          1
+        ],
+        [
+          6,
+          26,
+          null,
+          1
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          47,
+          null,
+          0
+        ],
+        [
+          6,
+          27,
+          null,
+          1
+        ],
+        [
+          6,
+          26,
+          null,
+          1
+        ],
+        [
+          6,
+          5,
+          500,
+          0
+        ],
+        [
+          6,
+          5,
+          880,
+          16776960
+        ],
+        [
+          6,
+          5,
+          641,
+          "RESET BWD"
+        ]
+      ]
+    },
+    {
+      "query": 1039,
+      "payload": "200000",
+      "inputs": {
+        "widget_values": [],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          6,
+          5,
+          500,
+          0
+        ],
+        [
+          6,
+          5,
+          641,
+          "RESET BWD"
+        ],
+        [
+          6,
+          5,
+          880,
+          16776960
+        ],
+        [
+          5,
+          47,
+          null,
+          0
+        ],
+        [
+          6,
+          27,
+          null,
+          1
+        ],
+        [
+          6,
+          26,
+          null,
+          1
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          47,
+          null,
+          0
+        ],
+        [
+          6,
+          27,
+          null,
+          1
+        ],
+        [
+          6,
+          26,
+          null,
+          1
+        ],
+        [
+          6,
+          5,
+          500,
+          0
+        ],
+        [
+          6,
+          5,
+          880,
+          16776960
+        ],
+        [
+          6,
+          5,
+          641,
+          "RESET BWD"
+        ]
+      ]
+    },
+    {
+      "query": 1039,
+      "payload": "300000",
+      "inputs": {
+        "widget_values": [],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          6,
+          5,
+          500,
+          0
+        ],
+        [
+          6,
+          5,
+          641,
+          "RESET BWD"
+        ],
+        [
+          6,
+          5,
+          880,
+          16776960
+        ],
+        [
+          5,
+          47,
+          null,
+          0
+        ],
+        [
+          6,
+          27,
+          null,
+          1
+        ],
+        [
+          6,
+          26,
+          null,
+          1
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          47,
+          null,
+          0
+        ],
+        [
+          6,
+          27,
+          null,
+          1
+        ],
+        [
+          6,
+          26,
+          null,
+          1
+        ],
+        [
+          6,
+          5,
+          500,
+          0
+        ],
+        [
+          6,
+          5,
+          880,
+          16776960
+        ],
+        [
+          6,
+          5,
+          641,
+          "RESET BWD"
+        ]
+      ]
+    },
+    {
+      "query": 1010,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 0
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          9,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          9,
+          4,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          6,
+          null,
+          1000.0
+        ],
+        [
+          6,
+          7,
+          null,
+          1235.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          9,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          9,
+          4,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          6,
+          null,
+          1000.0
+        ],
+        [
+          6,
+          7,
+          null,
+          1235.0
+        ]
+      ]
+    },
+    {
+      "query": 1010,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 1
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          9,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          9,
+          4,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          6,
+          null,
+          1000.0
+        ],
+        [
+          6,
+          7,
+          null,
+          1235.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          9,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          9,
+          4,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          6,
+          null,
+          1000.0
+        ],
+        [
+          6,
+          7,
+          null,
+          1235.0
+        ]
+      ]
+    },
+    {
+      "query": 1010,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": -4
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          9,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          9,
+          4,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          6,
+          null,
+          -250.0
+        ],
+        [
+          6,
+          7,
+          null,
+          -308.75
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          9,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          9,
+          4,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          6,
+          null,
+          -250.0
+        ],
+        [
+          6,
+          7,
+          null,
+          -308.75
+        ]
+      ]
+    },
+    {
+      "query": 1010,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 2.5
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          9,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          9,
+          4,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          6,
+          null,
+          400.0
+        ],
+        [
+          6,
+          7,
+          null,
+          494.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          9,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          9,
+          4,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          9,
+          null,
+          1235.0
+        ],
+        [
+          6,
+          6,
+          null,
+          400.0
+        ],
+        [
+          6,
+          7,
+          null,
+          494.0
+        ]
+      ]
+    },
+    {
+      "query": 1024,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 0
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          123.5
+        ],
+        [
+          6,
+          7,
+          null,
+          2000.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          123.5
+        ],
+        [
+          6,
+          7,
+          null,
+          2000.0
+        ]
+      ]
+    },
+    {
+      "query": 1024,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 1
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          123.5
+        ],
+        [
+          6,
+          7,
+          null,
+          2000.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          123.5
+        ],
+        [
+          6,
+          7,
+          null,
+          2000.0
+        ]
+      ]
+    },
+    {
+      "query": 1024,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": -4
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          -30.875
+        ],
+        [
+          6,
+          7,
+          null,
+          -500.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          -30.875
+        ],
+        [
+          6,
+          7,
+          null,
+          -500.0
+        ]
+      ]
+    },
+    {
+      "query": 1024,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 2.5
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          49.4
+        ],
+        [
+          6,
+          7,
+          null,
+          800.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          49.4
+        ],
+        [
+          6,
+          7,
+          null,
+          800.0
+        ]
+      ]
+    },
+    {
+      "query": 1025,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 0
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          43,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          8.097165991902834
+        ],
+        [
+          6,
+          7,
+          null,
+          16.194331983805668
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          43,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          8.097165991902834
+        ],
+        [
+          6,
+          7,
+          null,
+          16.194331983805668
+        ]
+      ]
+    },
+    {
+      "query": 1025,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 1
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          43,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          8.097165991902834
+        ],
+        [
+          6,
+          7,
+          null,
+          16.194331983805668
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          43,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          8.097165991902834
+        ],
+        [
+          6,
+          7,
+          null,
+          16.194331983805668
+        ]
+      ]
+    },
+    {
+      "query": 1025,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": -4
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          43,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          8.097165991902834
+        ],
+        [
+          6,
+          7,
+          null,
+          16.194331983805668
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          43,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          8.097165991902834
+        ],
+        [
+          6,
+          7,
+          null,
+          16.194331983805668
+        ]
+      ]
+    },
+    {
+      "query": 1025,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 2.5
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          43,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          8.097165991902834
+        ],
+        [
+          6,
+          7,
+          null,
+          16.194331983805668
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          43,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          8.097165991902834
+        ],
+        [
+          6,
+          7,
+          null,
+          16.194331983805668
+        ]
+      ]
+    },
+    {
+      "query": 1053,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 0
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          8,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          123.5
+        ],
+        [
+          6,
+          7,
+          null,
+          2000.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          8,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          123.5
+        ],
+        [
+          6,
+          7,
+          null,
+          2000.0
+        ]
+      ]
+    },
+    {
+      "query": 1053,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 1
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          8,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          123.5
+        ],
+        [
+          6,
+          7,
+          null,
+          2000.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          8,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          123.5
+        ],
+        [
+          6,
+          7,
+          null,
+          2000.0
+        ]
+      ]
+    },
+    {
+      "query": 1053,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": -4
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          8,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          -30.875
+        ],
+        [
+          6,
+          7,
+          null,
+          -500.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          8,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          -30.875
+        ],
+        [
+          6,
+          7,
+          null,
+          -500.0
+        ]
+      ]
+    },
+    {
+      "query": 1053,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 2.5
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          8,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          49.4
+        ],
+        [
+          6,
+          7,
+          null,
+          800.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          5,
+          28,
+          null,
+          123.5
+        ],
+        [
+          6,
+          8,
+          null,
+          123.5
+        ],
+        [
+          6,
+          6,
+          null,
+          49.4
+        ],
+        [
+          6,
+          7,
+          null,
+          800.0
+        ]
+      ]
+    },
+    {
+      "query": 1062,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 0
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          6,
+          6,
+          null,
+          1000.0
+        ],
+        [
+          6,
+          7,
+          null,
+          2000.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          6,
+          6,
+          null,
+          1000.0
+        ],
+        [
+          6,
+          7,
+          null,
+          2000.0
+        ]
+      ]
+    },
+    {
+      "query": 1062,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 1
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          6,
+          6,
+          null,
+          1000.0
+        ],
+        [
+          6,
+          7,
+          null,
+          2000.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          6,
+          6,
+          null,
+          1000.0
+        ],
+        [
+          6,
+          7,
+          null,
+          2000.0
+        ]
+      ]
+    },
+    {
+      "query": 1062,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": -4
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          6,
+          6,
+          null,
+          -250.0
+        ],
+        [
+          6,
+          7,
+          null,
+          -500.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          6,
+          6,
+          null,
+          -250.0
+        ],
+        [
+          6,
+          7,
+          null,
+          -500.0
+        ]
+      ]
+    },
+    {
+      "query": 1062,
+      "payload": "123.5",
+      "inputs": {
+        "widget_values": [
+          {
+            "panel_id": 5,
+            "control_id": 28,
+            "value": 1000
+          },
+          {
+            "panel_id": 5,
+            "control_id": 43,
+            "value": 2.5
+          },
+          {
+            "panel_id": 9,
+            "control_id": 9,
+            "value": 2000
+          }
+        ],
+        "state_overrides": {},
+        "decoder_initial_state": {
+          "initial_secrets_fill": 1,
+          "initial_secrets_read": 1,
+          "ecu_optout": 0,
+          "hed_optout": 0,
+          "emp_optout": 0,
+          "LBO_STABILITY_STATE": 0,
+          "verify": 0,
+          "hum_blinkval": 0,
+          "tem_blinkval": 0,
+          "old_on_ready": 0,
+          "delay_monitor_status": 1,
+          "needs_initialization": 1,
+          "comm_status_emp": 0,
+          "comm_status_mil": 0,
+          "comm_status_tdg": 0,
+          "comm_status_ecu": 0,
+          "used_comm_status_emp": 0,
+          "used_comm_status_mil": 0,
+          "used_comm_status_tdg": 0,
+          "used_comm_status_ecu": 0
+        }
+      },
+      "pass": true,
+      "differences": [],
+      "native": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          6,
+          6,
+          null,
+          400.0
+        ],
+        [
+          6,
+          7,
+          null,
+          800.0
+        ]
+      ],
+      "python": [
+        [
+          3,
+          31,
+          null,
+          0
+        ],
+        [
+          6,
+          6,
+          null,
+          400.0
+        ],
+        [
+          6,
+          7,
+          null,
+          800.0
+        ]
+      ]
+    }
+  ]
+}

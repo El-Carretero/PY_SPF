@@ -1,0 +1,74 @@
+SPITFIRE LOGGER 1.1 — SAVED LIVE MENU EVIDENCE REVIEW
+
+Final native executable SHA256:
+801f2fa2f6944d6e0aa810ada1933418d230a0898032eda7f1e574e7c4329d63
+Source src/readonly_ui.c SHA256:
+c4094f140a4ca32709da8ff91698864cc2eab0ef25147e7b543ea5dd92481a4b
+
+The saved action result, heading-layout and menu-layout JSON files were read and
+cross-checked. No remote input or device operation was performed for this review.
+The isolated XP VM communicated with synthetic simulator responses. These tests
+do not establish physical-controller behavior or physical-PC field validation.
+
+FINAL TAHOMA -11 CYCLE
+Session: evidence/sessions/run-2026-10-31-20-12-53-12423
+Overall result: COMPLETED. Preflight and all five native steps exit0; Temperature,
+Timing, Active Faults and About displayed; Empower Setup explicitly skipped while
+disabled in user mode. Opt-out1/access0 throughout. Every saved heading and popup
+inspection reports ok:true and stage100.
+
+Actual header rectangles, in main-client coordinates:
+  File ID2: [0,0,28,22]   View ID4: [28,0,62,22]
+  Help ID9: [62,0,95,22]
+The original GDI font widths were reproduced as16/22/21 in this Tahoma profile.
+The final Tahoma run selected the original platform3 GetTextExtentPointA path
+using a validated private font clone.
+File was inspected only for identity/order; it was never clicked.
+
+The initial Temperature native menu-bar right edge was895. Timing and Faults
+retained the original runtime's4096 tracking sentinel; About was895 again. Each
+computed heading rectangle remained inside the actual895x550 main client. The
+exact sentinel has static assignment and hit-test provenance in
+validation/cvi-menu-layout-review.md. Unknown large bounds remain rejected.
+Snapshot changes between observation and input remain rejected, including a
+4096-to895 or895-to4096 transition during one frozen action.
+
+View popup: window170x74, client164x68, ordinary row height17. This reproduces the
+failed field log's actual popup dimensions. Public item/callback pairs were:
+  ID5 Empower Setup        0x4072c9 enabled0
+  ID6 Active Faults        0x4072ea enabled1
+  ID7 Timing and High Voltage 0x40730b enabled1
+  ID8 Temperature Control  0x40734d enabled1
+Temperature, Timing and Faults selected immutable row ordinals3,2,1 respectively.
+Their screen hit points were [306,204], [306,187], [306,170], all strictly inside
+the verified corresponding row rectangles. No parameter control was selected.
+
+About used Help menu ID9 and the sole leaf ID10 / callback0x40732c, enabled1.
+Its client was79x17 with row height17; verified item rectangle[258,145,337,162]
+and screen hit[297,153]. It did not reuse the View layout or accept File/Exit.
+
+FINAL RESTORED GULIM CYCLE
+Session: evidence/sessions/run-2026-10-31-20-18-5-68232
+Overall result: COMPLETED on the same final801f executable. Preflight and all five
+native steps exit0; four screens displayed and disabled Setup skipped. Opt-out1/
+access0 throughout; every saved heading/popup inspection is ok:true/stage100.
+Header rectangles were File[0,0,32,22], View[32,0,72,22], Help[72,0,109,22], with
+GDI widths20/28/25. View client189x64/row16 and About client82x16/row16 were
+confirmed. Public item IDs, callbacks and enabled states match the Tahoma run.
+The final restored profile therefore passes the same complete sequence as the
+field-dimension Tahoma profile, using the exact executable intended for delivery.
+The earlier c92/b234 trials are retained as diagnostic history, not substituted
+for these final-binary success records.
+
+UNCHANGED SAFETY BOUNDARIES
+Initial open auxiliary windows still block before input; the first two field
+preflight stops were not bypassed. Exact original EXE/UIR/runtime identities,
+Opt-out and access, clean editing/focus state, capture proof, external-input and
+hidden-panel guards remain required. No original startup/exit/retry, keyboard,
+parameter/HV/laser/Opt-out/fault-reset or interlock action was added.
+
+Offline checks on final source:35 proof,29 focus,25 context,79 native menu/font/
+GDI,19 independent popup-envelope and40 independent heading/final-point checks
+passed. The native PE remains XP5.1 x86 GUI with no network, process creation or
+remote-memory-write imports. Final packet/capture verification and complete
+runtime file hashes are recorded by the separate v1.1 session validator.

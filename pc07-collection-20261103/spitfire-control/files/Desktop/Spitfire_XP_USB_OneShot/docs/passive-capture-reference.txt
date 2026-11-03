@@ -1,0 +1,99 @@
+PASSIVE CAPTURE COMPONENT — Windows XP x86
+
+This helper observes existing traffic. It never sends a controller packet,
+opens a controller socket, operates original-program controls, starts a service,
+or changes an adapter/network setting. UI automation is a separate component.
+No DLL is shipped beside this helper. It loads only the installed System32
+Packet.dll and wpcap.dll, verifies their actual loaded paths, and removes the
+current directory from DLL search. WinPcap installation is handled separately.
+
+Read-only dependency probe:
+  bin\passive_capture.exe --probe "C:\SpitfireLogs\driver-probe.json"
+The parent directory must exist. Probe does not open a capture handle. It
+reports DLL/API version, NPF service status, and WinPcap adapter enumeration.
+Exit codes: 0=probe passed, 20=System32 wpcap.dll absent,
+21=incomplete/incompatible/inaccessible dependency or enumeration failure,
+23=output-file failure. An installer must check absence of *all* existing
+WinPcap components before interpreting 20 as permission to install.
+
+Capture:
+  bin\passive_capture.exe "C:\SpitfireLogs\new-capture" 120
+  bin\passive_capture.exe "C:\SpitfireLogs\new-capture" 120 "C:\SpitfireLogs\STOPREQUEST"
+Output directory must not already exist; its parent must exist. Duration is
+5–900 seconds (default 120). Create output\STOP or the optional global stop
+file to finish early. This GUI-subsystem helper creates no console window.
+Ctrl+C is handled only if a console is attached externally; STOP files are the
+normal stop mechanism. A global named mutex prevents
+overlapping capture processes; 23 indicates a directory/mutex/IO setup error.
+Capture completion returns 0; 22 indicates capture/IO failure. A return of 0
+alone does not imply UI readiness or observed traffic: inspect summary.json.
+Missing dependency uses 20/21 as in probe. Every raw partial PCAP is retained.
+
+Capture scope:
+- Enumerate up to32 WinPcap adapters and up to32 local IPv4 addresses each.
+- Ignore loopback/no-IPv4 and non-Ethernet interfaces. Physical and VM
+  Ethernet interfaces are both eligible; there is no hard-coded peer IP.
+- Open each eligible adapter with promiscuous=0 and snaplen=65535.
+- BPF filter is exactly "udp port 1024". This is not an all-network capture.
+  Legacy BPF does not select tagged VLAN frames or noninitial IP fragments
+  using this filter. The known Spitfire request/reply exchange is untagged,
+  unfragmented IPv4 UDP. Such other encapsulations require capture adaptation
+  and cannot be claimed as verified coverage from this package.
+- One classic little-endian Ethernet .pcap per adapter; original frame bytes,
+  on-capture seconds/microseconds, caplen and original length are preserved.
+  Truncated frames block UI readiness and remain recorded as truncated PCAPs.
+- No synthesized Ethernet/IP/UDP packets or response values are written.
+
+UI readiness is conservative:
+Exactly one endpoint pair on one adapter must have at least3 actual local-
+source CMD_ECLIPSE packets and3 reversed-endpoint REPLY_ECLIPSE packets. Both
+must be observed within5seconds. Duplicate pairs on multiple adapters, capture
+errors/drops, unavailable statistics, truncated frames, malformed commands,
+command tags below1000, or any command tag>=2000 block UI. A write-command
+observation is permanently latched. This software cannot undo or prevent a
+command already emitted by the original program; the orchestrator stops
+further UI actions after detection. Capture continues to preserve evidence.
+The collector identifies network endpoints, not the sending Windows process.
+The orchestrator must independently verify the original program/process.
+
+Output:
+  adapter-NN.pcap  Original frames per eligible successfully opened adapter.
+  packets.jsonl   Packet sequence, adapter/frame index, observed UTC/tick,
+                  original PCAP sec/usec, endpoints, first tag, write count,
+                  and complete UDP payload_hex for decoded UDP1024 packets.
+  adapters.jsonl  Initial adapter identity, eligibility and capture errors.
+  status.json    Atomic generation every250ms, for live UI safety checks.
+  summary.json   Final status, final WinPcap statistics and PCAP validation.
+Status publication uses temp-file FlushFileBuffers followed by atomic replace;
+a reader should retry transient sharing/file-not-found errors, and reject
+stale status. updated_tick is an alias of tick_ms; observed_pairs aliases
+candidate_pairs. Both use XP GetTickCount, so consumers use unsigned elapsed
+arithmetic. Raw PCAP UTC timestamps and action timestamps share the XP clock.
+
+summary.pcap_validation_ok is true only when all opened PCAP files were
+reopened, their headers/record lengths/timestamps/payloads validated to EOF,
+and record counts matched the capture workers. Each adapter carries its own
+pcap_validation_done/ok/validated_frames. This structural verification does
+not assert physical-controller correctness or interpret returned values.
+
+Statistics:
+command_packets/response_packets count the two recognized direction prefixes
+with local-address/reverse-endpoint proof. Capture statistics are reported as
+WinPcap ps_recv,ps_drop,ps_ifdrop plus stats_supported; driver counter semantics
+can vary and zero loss is evidence from that driver only.
+Tag statistics count the first message tag in each UDP payload. Original raw
+payloads preserve any additional messages. Fields include kind,count, first/
+last sec/usec and min/max/mean interval_us. periods_valid=false when capture
+clock timestamps move backwards; then mean_interval_us is0 and intervals
+must not be interpreted as valid periodicity. These timings describe this
+capture, not guaranteed protocol deadlines.
+
+Build and validation (Linux build workstation):
+  src/build_passive_capture.sh
+  python3 src/test_capture_protocol.py PATH_TO_PREVIOUS_ORIGINAL_PCAP
+The build uses Zig0.13 to target32-bit Windows and legacy system msvcrt.dll.
+verify_passive_capture.py validates imports and applies XP5.1 minimum headers
+only to this newly built executable. No vendor executable is modified.
+The exact C decoder is replayed against previous original-XP/simulator PCAP
+and boundary cases. See build/capture/parser-replay-test.json and
+build/capture/pe-validation.json. These checks are not field hardware tests.

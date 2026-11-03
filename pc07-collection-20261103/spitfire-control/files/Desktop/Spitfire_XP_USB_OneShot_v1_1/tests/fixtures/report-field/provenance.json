@@ -1,0 +1,20 @@
+{
+  "scope": "Exact copied read-only field-log records; tests add the new diagnostic envelope in memory only. No original file is changed.",
+  "files": [
+    {
+      "file": "first-result.json",
+      "original_relative_path": "run-2010-10-9-19-28-56-83941/result.json",
+      "sha256": "94d7d86428eb3f479dcd502418ba8260e671b624cc640e86dd6ba13d05051c53"
+    },
+    {
+      "file": "first-windows.jsonl",
+      "original_relative_path": "run-2010-10-9-19-28-56-83941/actions/00-preflight/windows-before.jsonl",
+      "sha256": "4c2c9b1bd6ed75140e7db1227899011973a338ab303c78838123424e5d94efa7"
+    },
+    {
+      "file": "third-result.json",
+      "original_relative_path": "run-2010-10-9-19-30-49-69471/result.json",
+      "sha256": "b7ba20e54b033ea5514702be3e875874fd874ce51ee73e2b4e30449f8adf6e02"
+    }
+  ]
+}

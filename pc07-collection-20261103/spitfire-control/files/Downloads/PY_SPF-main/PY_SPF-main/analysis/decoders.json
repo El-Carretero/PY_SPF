@@ -1,0 +1,1996 @@
+{
+  "1000": {
+    "query": "*idn?",
+    "case_address": "0x40ca5d",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_chars_read"
+    ]
+  },
+  "1001": {
+    "query": "MIL:DIODE1:CURR?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1002": {
+    "query": "MIL:DIODE2:CURR?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1003": {
+    "query": "MIL:POW?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1004": {
+    "query": "MIL:READ:DIODE1:CURR?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1005": {
+    "query": "MIL:READ:DIODE2:CURR?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1006": {
+    "query": "MIL:READ:POW?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1007": {
+    "query": "EMP:READ:DIODE:CURR?",
+    "case_address": "0x40d83a",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 9,
+        "control_id": 2,
+        "callsite": "0040d863",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1008": {
+    "query": "EMP:READ:POW?",
+    "case_address": "0x40d870",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 9,
+        "control_id": 5,
+        "callsite": "0040d891",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1009": {
+    "query": "EMP:DIODE:CURR?",
+    "case_address": "0x40d89e",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 9,
+        "control_id": 8,
+        "callsite": "0040d8da",
+        "kind": "value"
+      },
+      {
+        "panel_id": 9,
+        "control_id": 3,
+        "callsite": "0040d90b",
+        "kind": "value"
+      },
+      {
+        "panel_id": 9,
+        "control_id": 3,
+        "callsite": "0040d941",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_initial_secrets_fill",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1010": {
+    "query": "EMP:QSW:PRF?",
+    "case_address": "0x40d94e",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 9,
+        "control_id": 9,
+        "callsite": "0040d9a2",
+        "kind": "value"
+      },
+      {
+        "panel_id": 9,
+        "control_id": 4,
+        "callsite": "0040d9cb",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 9,
+        "callsite": "0040d9f4",
+        "kind": "value"
+      },
+      {
+        "panel_id": 9,
+        "control_id": 9,
+        "callsite": "0040da2a",
+        "kind": "value"
+      },
+      {
+        "panel_id": 9,
+        "control_id": 4,
+        "callsite": "0040da5b",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 9,
+        "callsite": "0040da8c",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 6,
+        "callsite": "0040db1b",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 6,
+        "callsite": "0040db42",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 7,
+        "callsite": "0040db73",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 7,
+        "callsite": "0040db9a",
+        "kind": "value"
+      },
+      {
+        "panel_id": 9,
+        "control_id": 4,
+        "callsite": "0040dbd0",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 9,
+        "callsite": "0040dc01",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_initial_secrets_fill",
+      "_sbuf",
+      "_atof",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_GetCtrlVal@12",
+      "_GetCtrlVal@12",
+      "_GetCtrlVal@12",
+      "_SetCtrlVal",
+      "_SetCtrlVal",
+      "_SetCtrlVal",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1011": {
+    "query": "EMP:QSW:PWID?",
+    "case_address": "0x40dc0e",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 9,
+        "control_id": 10,
+        "callsite": "0040dc42",
+        "kind": "value"
+      },
+      {
+        "panel_id": 9,
+        "control_id": 6,
+        "callsite": "0040dc6b",
+        "kind": "value"
+      },
+      {
+        "panel_id": 9,
+        "control_id": 6,
+        "callsite": "0040dc99",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_initial_secrets_fill",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1012": {
+    "query": "EMP:QSW:SOURCE?",
+    "case_address": "0x40dca6",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 9,
+        "control_id": 11,
+        "callsite": "0040dcda",
+        "kind": "value"
+      },
+      {
+        "panel_id": 9,
+        "control_id": 7,
+        "callsite": "0040dd03",
+        "kind": "value"
+      },
+      {
+        "panel_id": 9,
+        "control_id": 7,
+        "callsite": "0040dd3e",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_initial_secrets_fill",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_initial_secrets_fill",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1013": {
+    "query": "EMP:STB?",
+    "case_address": "0x40dd4b",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_empower_stb_decode"
+    ]
+  },
+  "1014": {
+    "query": "EMP:FAULT?",
+    "case_address": "0x40ddbd",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_sbuf",
+      "_emp_fault_str",
+      "_strcpy",
+      "_decode_faults"
+    ]
+  },
+  "1015": {
+    "query": "HED:STB?",
+    "case_address": "0x40ca6f",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_mil_stb_decode",
+      "_initial_secrets_fill_mil"
+    ]
+  },
+  "1016": {
+    "query": "EMP:VERSION?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1017": {
+    "query": "HED:MOTOR:*IDN?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1018": {
+    "query": "HED:MOTOR:SPEED?",
+    "case_address": "0x40dddd",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 6,
+        "control_id": 3,
+        "callsite": "0040ddfe",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1019": {
+    "query": "TDG:STB?",
+    "case_address": "0x40d7eb",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 6,
+        "control_id": 58,
+        "callsite": "0040d82d",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_tdg_stb_decode",
+      "_initial_secrets_fill_tdg",
+      "_sbuf",
+      "_SetCtrlVal"
+    ]
+  },
+  "1020": {
+    "query": "TDG:VOLT?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1021": {
+    "query": "TDG:HV:ON?",
+    "case_address": "0x40c952",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 34,
+        "callsite": "0040c96e",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atoi",
+      "_SetCtrlVal"
+    ]
+  },
+  "1022": {
+    "query": "TDG:STAT:BWD?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1023": {
+    "query": "TDG:STBH?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1024": {
+    "query": "TDG:OSC:FREQ?",
+    "case_address": "0x40c207",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 28,
+        "callsite": "0040c228",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 6,
+        "callsite": "0040c2b7",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 6,
+        "callsite": "0040c2de",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 7,
+        "callsite": "0040c30f",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 7,
+        "callsite": "0040c336",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_GetCtrlVal@12",
+      "_GetCtrlVal@12",
+      "_GetCtrlVal@12",
+      "_SetCtrlVal",
+      "_SetCtrlVal",
+      "_SetCtrlVal",
+      "_SetCtrlVal"
+    ]
+  },
+  "1025": {
+    "query": "TDG:DIV?",
+    "case_address": "0x40c4a4",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 43,
+        "callsite": "0040c4c5",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 6,
+        "callsite": "0040c554",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 6,
+        "callsite": "0040c57b",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 7,
+        "callsite": "0040c5ac",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 7,
+        "callsite": "0040c5d3",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_GetCtrlVal@12",
+      "_GetCtrlVal@12",
+      "_GetCtrlVal@12",
+      "_SetCtrlVal",
+      "_SetCtrlVal",
+      "_SetCtrlVal",
+      "_SetCtrlVal"
+    ]
+  },
+  "1026": {
+    "query": "TDG:DEL",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1027": {
+    "query": "TDG:BWD?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1028": {
+    "query": "ECU:STB?",
+    "case_address": "0x40d6e4",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_ecu_stb_decode",
+      "_initial_secrets_fill_ecu"
+    ]
+  },
+  "1029": {
+    "query": "ECU:STBH?",
+    "case_address": "0x40d735",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_ecu_stbh_decode"
+    ]
+  },
+  "1030": {
+    "query": "ECU:READTEMP?",
+    "case_address": "0x40d7a7",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_ecu_xtal_temp_decode"
+    ]
+  },
+  "1031": {
+    "query": "ECU:HUM?",
+    "case_address": "0x40d757",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_ecu_hum_decode"
+    ]
+  },
+  "1032": {
+    "query": "ECU:TEMP?",
+    "case_address": "0x40d779",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 2,
+        "control_id": 7,
+        "callsite": "0040d79a",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1033": {
+    "query": "ECUOPTOUT?",
+    "case_address": "0x40cac7",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 2,
+        "control_id": 11,
+        "callsite": "0040caf1",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atoi",
+      "_ecu_optout",
+      "_ecu_optout",
+      "_SetCtrlVal",
+      "_ecu_optout",
+      "_hide_ecu_controls",
+      "_show_ecu_controls"
+    ]
+  },
+  "1034": {
+    "query": "HED:VERS?",
+    "case_address": "0x40c9c9",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 4,
+        "control_id": 4,
+        "callsite": "0040c9e1",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_decode_cop",
+      "_sbuf_cop",
+      "_SetCtrlVal"
+    ]
+  },
+  "1035": {
+    "query": "EMP:VERS?",
+    "case_address": "0x40c9ee",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 4,
+        "control_id": 7,
+        "callsite": "0040ca06",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_decode_emp",
+      "_sbuf_emp",
+      "_SetCtrlVal"
+    ]
+  },
+  "1036": {
+    "query": "TDG:VERS?",
+    "case_address": "0x40ca13",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 4,
+        "control_id": 5,
+        "callsite": "0040ca2b",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_decode_tdg",
+      "_sbuf_tdg",
+      "_SetCtrlVal"
+    ]
+  },
+  "1037": {
+    "query": "ECU:VERS?",
+    "case_address": "0x40ca38",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 4,
+        "control_id": 3,
+        "callsite": "0040ca50",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_decode_ecu",
+      "_sbuf_ecu",
+      "_SetCtrlVal"
+    ]
+  },
+  "1038": {
+    "query": "*IDN?",
+    "case_address": "0x40c9a4",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 4,
+        "control_id": 6,
+        "callsite": "0040c9bc",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_decode_asc",
+      "_sbuf_asc",
+      "_SetCtrlVal"
+    ]
+  },
+  "1039": {
+    "query": "TDG:STBH?",
+    "case_address": "0x40cb20",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_sbuf",
+      "_sscanf",
+      "_decode_tdg_stbh"
+    ]
+  },
+  "1040": {
+    "query": "TDG:HV1:VOLT?",
+    "case_address": "0x40cb76",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 35,
+        "callsite": "0040cb97",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1041": {
+    "query": "TDG:HV2:VOLT?",
+    "case_address": "0x40cba4",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 33,
+        "callsite": "0040cbc5",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1042": {
+    "query": "TDG:READ:HV1VOLT?",
+    "case_address": "0x40cbd2",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 32,
+        "callsite": "0040cbf3",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1043": {
+    "query": "TDG:READ:HV2VOLT?",
+    "case_address": "0x40cc00",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 31,
+        "callsite": "0040cc21",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1044": {
+    "query": "ECU:HUMOVERRIDE?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1045": {
+    "query": "TDG:DEL1?",
+    "case_address": "0x40ce42",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 6,
+        "callsite": "0040ceba",
+        "kind": "value"
+      },
+      {
+        "panel_id": 5,
+        "control_id": 8,
+        "callsite": "0040cf11",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 43,
+        "callsite": "0040cf3a",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 23,
+        "callsite": "0040cf9a",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_GetCtrlVal@12",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_decodenum",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal"
+    ]
+  },
+  "1046": {
+    "query": "TDG:DEL2?",
+    "case_address": "0x40d183",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 9,
+        "callsite": "0040d204",
+        "kind": "value"
+      },
+      {
+        "panel_id": 5,
+        "control_id": 10,
+        "callsite": "0040d264",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 42,
+        "callsite": "0040d28d",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 21,
+        "callsite": "0040d2ed",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_GetCtrlVal@12",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_decodenum",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal"
+    ]
+  },
+  "1047": {
+    "query": "TDG:DEL3?",
+    "case_address": "0x40d2fa",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 13,
+        "callsite": "0040d352",
+        "kind": "value"
+      },
+      {
+        "panel_id": 5,
+        "control_id": 14,
+        "callsite": "0040d3b2",
+        "kind": "value"
+      },
+      {
+        "panel_id": 5,
+        "control_id": 25,
+        "callsite": "0040d412",
+        "kind": "value"
+      },
+      {
+        "panel_id": 5,
+        "control_id": 42,
+        "callsite": "0040d43b",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_decodenum",
+      "_SetCtrlVal"
+    ]
+  },
+  "1048": {
+    "query": "TDG:DEL4?",
+    "case_address": "0x40d448",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 15,
+        "callsite": "0040d4a0",
+        "kind": "value"
+      },
+      {
+        "panel_id": 5,
+        "control_id": 16,
+        "callsite": "0040d500",
+        "kind": "value"
+      },
+      {
+        "panel_id": 5,
+        "control_id": 23,
+        "callsite": "0040d560",
+        "kind": "value"
+      },
+      {
+        "panel_id": 5,
+        "control_id": 41,
+        "callsite": "0040d589",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_decodenum",
+      "_SetCtrlVal"
+    ]
+  },
+  "1049": {
+    "query": "TDG:DEL5?",
+    "case_address": "0x40d596",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 11,
+        "callsite": "0040d5ee",
+        "kind": "value"
+      },
+      {
+        "panel_id": 5,
+        "control_id": 12,
+        "callsite": "0040d64e",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 20,
+        "callsite": "0040d6ae",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 41,
+        "callsite": "0040d6d7",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_decodenum",
+      "_SetCtrlVal"
+    ]
+  },
+  "1050": {
+    "query": "TDG:OSC:MODE?",
+    "case_address": "0x40c5e0",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 2,
+        "callsite": "0040c62f",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal"
+    ]
+  },
+  "1051": {
+    "query": "TDG:TRIG:MODE?",
+    "case_address": "0x40c701",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 3,
+        "callsite": "0040c750",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 6,
+        "callsite": "0040c7ac",
+        "kind": "attribute"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 7,
+        "callsite": "0040c808",
+        "kind": "attribute"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 8,
+        "callsite": "0040c864",
+        "kind": "attribute"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 9,
+        "callsite": "0040c8c0",
+        "kind": "attribute"
+      },
+      {
+        "panel_id": 5,
+        "control_id": 3,
+        "callsite": "0040c917",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlAttribute",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlAttribute",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlAttribute",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlAttribute",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal"
+    ]
+  },
+  "1052": {
+    "query": "TDG:DEL0?",
+    "case_address": "0x40c924",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 4,
+        "callsite": "0040c945",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_decodenum_del",
+      "_SetCtrlVal"
+    ]
+  },
+  "1053": {
+    "query": "TDG:TRIG:FREQ?",
+    "case_address": "0x40c0ae",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 28,
+        "callsite": "0040c0cf",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 8,
+        "callsite": "0040c12b",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 6,
+        "callsite": "0040c17b",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 6,
+        "callsite": "0040c1a2",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 7,
+        "callsite": "0040c1d3",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 7,
+        "callsite": "0040c1fa",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_GetCtrlVal@12",
+      "_GetCtrlVal@12",
+      "_GetCtrlVal@12",
+      "_SetCtrlVal",
+      "_SetCtrlVal",
+      "_SetCtrlVal",
+      "_SetCtrlVal",
+      "_SetCtrlVal"
+    ]
+  },
+  "1054": {
+    "query": "TDG:BWD?",
+    "case_address": "0x40bfa6",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 39,
+        "callsite": "0040bff5",
+        "kind": "value"
+      },
+      {
+        "panel_id": 5,
+        "control_id": 37,
+        "callsite": "0040c04c",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal"
+    ]
+  },
+  "1055": {
+    "query": "TDG:READ:HV1CURR?",
+    "case_address": "0x40cc2e",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 30,
+        "callsite": "0040cc4f",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1056": {
+    "query": "TDG:READ:HV2CURR?",
+    "case_address": "0x40cc5c",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 29,
+        "callsite": "0040cc7d",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1057": {
+    "query": "ECU:STBH?",
+    "case_address": "0x40d713",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_ecu_stbh_decode_ini"
+    ]
+  },
+  "1058": {
+    "query": "TDG:DEL1?",
+    "case_address": "0x40cc8a",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 6,
+        "callsite": "0040cd02",
+        "kind": "value"
+      },
+      {
+        "panel_id": 5,
+        "control_id": 8,
+        "callsite": "0040cd59",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 43,
+        "callsite": "0040cd82",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 23,
+        "callsite": "0040cdd9",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_GetCtrlVal@12",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_decodenum",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal"
+    ]
+  },
+  "1059": {
+    "query": "TDG:DEL2?",
+    "case_address": "0x40cfa7",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 9,
+        "callsite": "0040d028",
+        "kind": "value"
+      },
+      {
+        "panel_id": 5,
+        "control_id": 10,
+        "callsite": "0040d088",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 42,
+        "callsite": "0040d0b1",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 21,
+        "callsite": "0040d111",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_GetCtrlVal@12",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_decodenum",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal"
+    ]
+  },
+  "1060": {
+    "query": "HED:MOTOR:SPEED?",
+    "case_address": "0x40de0b",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 6,
+        "control_id": 3,
+        "callsite": "0040de2c",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1061": {
+    "query": "TDG:HV:ON?",
+    "case_address": "0x40c97b",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 34,
+        "callsite": "0040c997",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atoi",
+      "_SetCtrlVal"
+    ]
+  },
+  "1062": {
+    "query": "*IDN?",
+    "case_address": "0x40df69",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 6,
+        "control_id": 6,
+        "callsite": "0040dff0",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 6,
+        "callsite": "0040e017",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 7,
+        "callsite": "0040e048",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 7,
+        "callsite": "0040e06f",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_GetCtrlVal@12",
+      "_GetCtrlVal@12",
+      "_GetCtrlVal@12",
+      "_SetCtrlVal",
+      "_SetCtrlVal",
+      "_SetCtrlVal",
+      "_SetCtrlVal"
+    ]
+  },
+  "1063": {
+    "query": "TDG:DEL1?",
+    "case_address": "0x40cde6",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 6,
+        "control_id": 23,
+        "callsite": "0040ce35",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal"
+    ]
+  },
+  "1064": {
+    "query": "TDG:DEL2?",
+    "case_address": "0x40d11e",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 6,
+        "control_id": 21,
+        "callsite": "0040d176",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal"
+    ]
+  },
+  "1065": {
+    "query": "TDG:READ:OSCQUEST?",
+    "case_address": "0x40dd8f",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 7,
+        "callsite": "0040ddb0",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1066": {
+    "query": "TDG:STBHFLT?",
+    "case_address": "0x40cb4b",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_sbuf",
+      "_sscanf",
+      "_decode_tdg_stbh_nom"
+    ]
+  },
+  "1067": {
+    "query": "TDG:OSC:MODE?",
+    "case_address": "0x40c63c",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 2,
+        "callsite": "0040c68b",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_strstr",
+      "_g_par_str",
+      "_sprintf",
+      "_push_inside_stack",
+      "_g_par_str",
+      "_sprintf",
+      "_push_inside_stack"
+    ]
+  },
+  "1068": {
+    "query": "EMPOPTOUT?",
+    "case_address": "0x40de79",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 2,
+        "control_id": 9,
+        "callsite": "0040deac",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atoi",
+      "_emp_optout",
+      "_sbuf",
+      "_atoi",
+      "_SetCtrlVal",
+      "_emp_optout",
+      "_hide_emp_controls",
+      "_show_emp_controls"
+    ]
+  },
+  "1069": {
+    "query": "HEDOPTOUT?",
+    "case_address": "0x40de39",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 2,
+        "control_id": 10,
+        "callsite": "0040de6c",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atoi",
+      "_hed_optout",
+      "_sbuf",
+      "_atoi",
+      "_SetCtrlVal"
+    ]
+  },
+  "1070": {
+    "query": "EMP:SECRETMSG1?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1071": {
+    "query": "EMP:SECRETMSG2?",
+    "case_address": "0x40e07c",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 8,
+        "control_id": 13,
+        "callsite": "0040e0b0",
+        "kind": "value"
+      },
+      {
+        "panel_id": 8,
+        "control_id": 16,
+        "callsite": "0040e0d9",
+        "kind": "value"
+      },
+      {
+        "panel_id": 9,
+        "control_id": 2,
+        "callsite": "0040e107",
+        "kind": "attribute"
+      },
+      {
+        "panel_id": 9,
+        "control_id": 8,
+        "callsite": "0040e135",
+        "kind": "attribute"
+      }
+    ],
+    "calls": [
+      "_initial_secrets_read",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlAttribute",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlAttribute"
+    ]
+  },
+  "1072": {
+    "query": "EMP:SECRETMSG3?",
+    "case_address": "0x40e142",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 8,
+        "control_id": 10,
+        "callsite": "0040e176",
+        "kind": "value"
+      },
+      {
+        "panel_id": 8,
+        "control_id": 11,
+        "callsite": "0040e19f",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_initial_secrets_read",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1073": {
+    "query": "EMP:SECRETMSG4?",
+    "case_address": "0x40e1ac",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 8,
+        "control_id": 8,
+        "callsite": "0040e1e0",
+        "kind": "value"
+      },
+      {
+        "panel_id": 8,
+        "control_id": 9,
+        "callsite": "0040e209",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_initial_secrets_read",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1074": {
+    "query": "EMP:SECRETMSG5?",
+    "case_address": "0x40e216",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 8,
+        "control_id": 6,
+        "callsite": "0040e24a",
+        "kind": "value"
+      },
+      {
+        "panel_id": 8,
+        "control_id": 7,
+        "callsite": "0040e273",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_initial_secrets_read",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1075": {
+    "query": "EMP:SECRETMSG6?",
+    "case_address": "0x40e280",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 8,
+        "control_id": 2,
+        "callsite": "0040e2b4",
+        "kind": "value"
+      },
+      {
+        "panel_id": 8,
+        "control_id": 3,
+        "callsite": "0040e2dd",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_initial_secrets_read",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1076": {
+    "query": "EMP:SECRETMSG7?",
+    "case_address": "0x40e2ea",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 8,
+        "control_id": 4,
+        "callsite": "0040e31e",
+        "kind": "value"
+      },
+      {
+        "panel_id": 8,
+        "control_id": 5,
+        "callsite": "0040e347",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_initial_secrets_read",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal",
+      "_initial_secrets_read"
+    ]
+  },
+  "1077": {
+    "query": "EMP:LBOTEMP?",
+    "case_address": "0x40e361",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 8,
+        "control_id": 15,
+        "callsite": "0040e382",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_SetCtrlVal"
+    ]
+  },
+  "1078": {
+    "query": "EMP:LBOBREAK?",
+    "case_address": "0x40dedb",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 8,
+        "control_id": 18,
+        "callsite": "0040def7",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atoi",
+      "_SetCtrlVal"
+    ]
+  },
+  "1079": {
+    "query": "TDG:TRIG?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1080": {
+    "query": "TDG:OSC:SETMODE?",
+    "case_address": "0x40df04",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 5,
+        "control_id": 48,
+        "callsite": "0040df5c",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_strstr",
+      "_SetCtrlVal"
+    ]
+  },
+  "1081": {
+    "query": "*IDN?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1082": {
+    "query": "*IdN?",
+    "case_address": "0x40bf8c",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_verify",
+      "_verify"
+    ]
+  },
+  "1083": {
+    "query": "TDG:DELMON?",
+    "case_address": "0x40e38a",
+    "original_ignored": true,
+    "direct_bindings": [],
+    "calls": []
+  },
+  "1084": {
+    "query": "ECU:TECTEMP?",
+    "case_address": "0x40d7c9",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_ecu_tec_temp_decode"
+    ]
+  },
+  "1085": {
+    "query": "STATUS?",
+    "case_address": "0x40be99",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 6,
+        "control_id": 23,
+        "callsite": "0040bf34",
+        "kind": "value"
+      },
+      {
+        "panel_id": 6,
+        "control_id": 21,
+        "callsite": "0040bf4d",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_pardon_first_time_user",
+      "_sbuf",
+      "_atoi",
+      "_sbuf",
+      "_atoi",
+      "_delay_monitor_status",
+      "_SetCtrlVal",
+      "_SetCtrlVal",
+      "_call_for_reset_c1n2",
+      "_curtain_not_open",
+      "_open_curtain",
+      "_curtain_not_open"
+    ]
+  },
+  "1086": {
+    "query": "MONITOR?",
+    "case_address": "0x40ca9e",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 6,
+        "control_id": 47,
+        "callsite": "0040caba",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atoi",
+      "_SetCtrlVal"
+    ]
+  },
+  "1087": {
+    "query": "TDG:FAULTOVERRIDE?",
+    "case_address": "0x40c059",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 2,
+        "control_id": 12,
+        "callsite": "0040c0a1",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atoi",
+      "_SetCtrlVal"
+    ]
+  },
+  "1088": {
+    "query": "ECU:STBH?",
+    "case_address": "0x40dd6d",
+    "original_ignored": false,
+    "direct_bindings": [],
+    "calls": [
+      "_sbuf",
+      "_atof",
+      "_ecu_stbh_decode_fault"
+    ]
+  },
+  "1089": {
+    "query": "COMSTATUS?",
+    "case_address": "0x40c343",
+    "original_ignored": false,
+    "direct_bindings": [
+      {
+        "panel_id": 3,
+        "control_id": 20,
+        "callsite": "0040c392",
+        "kind": "value"
+      },
+      {
+        "panel_id": 3,
+        "control_id": 5,
+        "callsite": "0040c3e9",
+        "kind": "value"
+      },
+      {
+        "panel_id": 3,
+        "control_id": 9,
+        "callsite": "0040c440",
+        "kind": "value"
+      },
+      {
+        "panel_id": 3,
+        "control_id": 4,
+        "callsite": "0040c497",
+        "kind": "value"
+      }
+    ],
+    "calls": [
+      "_sbuf",
+      "_atoi",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atoi",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atoi",
+      "_SetCtrlVal",
+      "_sbuf",
+      "_atoi",
+      "_SetCtrlVal"
+    ]
+  }
+}

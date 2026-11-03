@@ -1,0 +1,28 @@
+#include <wchar.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef unsigned long DWORD;typedef wchar_t WCHAR;
+#define MAX_PATH 260
+#define INVALID_FILE_ATTRIBUTES 0xfffffffful
+#define FILE_ATTRIBUTE_DIRECTORY 16
+#define MOVEFILE_REPLACE_EXISTING 1
+#define MOVEFILE_WRITE_THROUGH 8
+#define ERROR_SHARING_VIOLATION 32
+#define ERROR_LOCK_VIOLATION 33
+#define ERROR_ACCESS_DENIED 5
+static int exists=1,calls,sleeps;static DWORD errors[3];
+static int lstrcmpiW(const WCHAR*a,const WCHAR*b){return wcscmp(a,b);}
+static WCHAR*lstrcpynW(WCHAR*a,const WCHAR*b,int n){wcsncpy(a,b,n);a[n-1]=0;return a;}
+static DWORD GetFullPathNameW(const WCHAR*a,DWORD n,WCHAR*b,WCHAR**leaf){if(wcslen(a)>=n)return n;wcscpy(b,a);*leaf=wcsrchr(b,L'\\')+1;return wcslen(a);}
+static DWORD GetFileAttributesW(const WCHAR*p){(void)p;return exists?0:INVALID_FILE_ATTRIBUTES;}
+static int MoveFileExW(const WCHAR*a,const WCHAR*b,DWORD flags){(void)a;(void)b;if(flags!=9)abort();return errors[calls++]==0;}
+static DWORD GetLastError(void){return errors[calls-1];}
+static void Sleep(DWORD ms){if(ms!=20)abort();sleeps++;}
+
+@NATIVE_FUNCTIONS@
+static void check(DWORD e0,DWORD e1,DWORD e2,int expected,int moves,int waits){WCHAR*argv[]={L"proof_publish.exe",L"C:\\capture\\proof.tmp",L"C:\\capture\\proof.txt"};errors[0]=e0;errors[1]=e1;errors[2]=e2;calls=sleeps=0;int rc=publish(3,argv);if(rc!=expected||calls!=moves||sleeps!=waits){fprintf(stderr,"FAIL rc=%d calls=%d sleeps=%d\n",rc,calls,sleeps);exit(1);}}
+int main(void){
+check(0,0,0,0,1,0);check(32,32,32,1,3,2);check(33,33,33,1,3,2);check(32,0,0,0,2,1);check(5,5,5,2,3,2);check(5,0,0,0,2,1);check(32,5,5,2,3,2);check(87,0,0,2,1,0);exists=0;check(0,0,0,2,0,0);exists=1;
+WCHAR*bad[]={L"x",L"C:\\one\\proof.tmp",L"C:\\two\\proof.txt"};if(publish(3,bad)!=2||publish(1,bad)!=2)return 1;
+printf("11 publisher contract checks passed\n");return 0;}

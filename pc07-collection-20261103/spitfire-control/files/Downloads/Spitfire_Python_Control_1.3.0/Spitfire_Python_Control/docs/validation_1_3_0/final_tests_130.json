@@ -1,0 +1,50 @@
+{
+  "tests_run": 260,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 10,
+  "passed": 250,
+  "skip_details": [
+    [
+      "test_polling.HeartbeatUdpTests.test_missing_heartbeat_disarms_and_recovery_stays_disarmed",
+      "Sandbox loopback UDP packets do not return; rerun unmodified suite on Windows host"
+    ],
+    [
+      "test_polling.HeartbeatUdpTests.test_ordinary_query_backlog_does_not_starve_connection_check",
+      "Sandbox loopback UDP packets do not return; rerun unmodified suite on Windows host"
+    ],
+    [
+      "test_polling.HeartbeatUdpTests.test_polling_off_keeps_real_udp_link_armed_past_stale_limit",
+      "Sandbox loopback UDP packets do not return; rerun unmodified suite on Windows host"
+    ],
+    [
+      "test_regressions.UdpPeerRegressionTests.test_real_loopback_foreign_sender_cannot_answer_request",
+      "Sandbox loopback UDP packets do not return; rerun unmodified suite on Windows host"
+    ],
+    [
+      "test_validation.HardwareProbeTests.test_complete_plan_sends_only_allowlisted_reads",
+      "Sandbox loopback UDP packets do not return; rerun unmodified suite on Windows host"
+    ],
+    [
+      "test_validation.HardwareProbeTests.test_hv_on_stops_without_off_or_further_queries",
+      "Sandbox loopback UDP packets do not return; rerun unmodified suite on Windows host"
+    ],
+    [
+      "test_validation.HardwareProbeTests.test_identity_mismatch_stops_before_other_queries",
+      "Sandbox loopback UDP packets do not return; rerun unmodified suite on Windows host"
+    ],
+    [
+      "test_validation.HardwareProbeTests.test_missing_identity_stops_after_one_request",
+      "Sandbox loopback UDP packets do not return; rerun unmodified suite on Windows host"
+    ],
+    [
+      "test_validation.HardwareProbeTests.test_positive_output_stops_without_control_writes",
+      "Sandbox loopback UDP packets do not return; rerun unmodified suite on Windows host"
+    ],
+    [
+      "test_validation.HardwareProbeTests.test_two_consecutive_timeouts_stop_plan",
+      "Sandbox loopback UDP packets do not return; rerun unmodified suite on Windows host"
+    ]
+  ],
+  "offline": true
+}

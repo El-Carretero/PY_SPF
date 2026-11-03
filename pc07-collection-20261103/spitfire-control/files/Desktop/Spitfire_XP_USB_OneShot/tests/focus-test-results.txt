@@ -1,0 +1,30 @@
+PASS closed main motor ring permits mouse-only navigation
+PASS selector1 maps native2 then public3, not direct selector
+PASS inactive remembered closed main ring remains classifiable
+PASS inactive remembered editable knob remains blocked
+PASS no selection is allowed only with inactive context
+PASS active context without selection fails closed
+PASS reviewed no-control node is accepted
+PASS unimplemented selector kind fails closed
+PASS wrong window backreference blocks
+PASS wrong window callback blocks
+PASS wrong generic-panel backreference blocks
+PASS wrong generic callback blocks
+PASS wrong wrapper type blocks
+PASS wrong wrapper-to-panel binding blocks
+PASS wrong application main panel ID blocks
+PASS invalid native control-list header blocks
+PASS duplicate matching controls block
+PASS unmatched native selector blocks
+PASS unbounded selector blocks
+PASS unbounded control count blocks
+PASS unreadable pointer blocks
+PASS hidden target requires bound identity and both clean context fields
+PASS hidden target active44 alone blocks opening
+PASS hidden target editor48 alone blocks opening
+PASS hidden target wrong application global ID blocks
+PASS hidden target HWND replacement blocks
+PASS missing or ambiguous hidden target blocks
+PASS unreadable original process blocks hidden target
+PASS missing hidden-context evidence blocks opening
+{"tests":29,"passed":29,"failed":0}

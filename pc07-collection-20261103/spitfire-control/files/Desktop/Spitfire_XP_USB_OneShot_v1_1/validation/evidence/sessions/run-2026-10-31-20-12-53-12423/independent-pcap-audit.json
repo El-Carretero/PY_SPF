@@ -1,0 +1,77 @@
+{
+  "scope": "Independent offline PCAP structure, byte-level JSONL agreement, tag counts and both-direction validation. No physical-controller behavior inferred.",
+  "result_outcome": "COMPLETED",
+  "counts": {
+    "frames": 3932,
+    "write_commands": 0,
+    "command": 1966,
+    "response": 1966
+  },
+  "files": [
+    {
+      "file": "adapter-01.pcap",
+      "frames": 3932,
+      "bytes": 393147,
+      "sha256": "ac29d989d127d588c8e0490b5b728fc250bc71170cdc2e50d704650094e5130a"
+    }
+  ],
+  "bidirectional": true,
+  "tag_counts": {
+    "command": {
+      "1039": 1017,
+      "1030": 68,
+      "1065": 68,
+      "1031": 68,
+      "1021": 68,
+      "1077": 68,
+      "1084": 68,
+      "1085": 68,
+      "1015": 68,
+      "1019": 68,
+      "1013": 68,
+      "1028": 68,
+      "1007": 67,
+      "1008": 67,
+      "1029": 67
+    },
+    "response": {
+      "1039": 1017,
+      "1030": 68,
+      "1065": 68,
+      "1031": 68,
+      "1021": 68,
+      "1077": 68,
+      "1084": 68,
+      "1085": 68,
+      "1015": 68,
+      "1019": 68,
+      "1013": 68,
+      "1028": 68,
+      "1007": 67,
+      "1008": 67,
+      "1029": 67
+    }
+  },
+  "actions": [
+    {
+      "mode": "temperature",
+      "exit_code": 0
+    },
+    {
+      "mode": "timing",
+      "exit_code": 0
+    },
+    {
+      "mode": "faults",
+      "exit_code": 0
+    },
+    {
+      "mode": "setup",
+      "exit_code": 0
+    },
+    {
+      "mode": "about",
+      "exit_code": 0
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+Independent package review, 2026-10-31 UTC
+
+Scope
+Reviewed runner.js and native UI/capture sources. No physical PC access or laser
+operation was performed by this review. Mock tests do not substitute for XP
+execution or physical-controller field validation.
+
+Corrected findings during review
+1. Completion originally depended only on absence of a runner error. The root
+   implementation now also rejects a missing final capture summary, nonzero
+   capture exit, capture errors, missing directions and incomplete action plan.
+2. A menu-item click originally verified a popup before an 80 ms cursor delay.
+   The UI implementation now rechecks main identity/geometry/origin and the exact
+   visible popup immediately before input, rejecting other same-process panels.
+3. Known CVI runtime identity was originally required only for auxiliary close.
+   It is now required before all automatic UI input.
+4. The production plan now checks five screens in the current access mode only;
+   it never types regensvc/user. User-mode Opt-out Setup is recorded as skipped
+   before input; existing service mode can show it without switching access.
+5. UI stop path and capture stop path are now coordinated explicitly.
+6. Report-generation failures now change the saved result to partial/blocked.
+7. A successful UI process exit alone no longer proves a completed action:
+   missing action evidence, changed original PID or Opt-out OFF stops the run.
+8. Collector death is checked before the still-running UI child branch. The
+   runner writes UI_STOP and removes the proof on that poll, even when the last
+   capture status file still says ready and is less than five seconds old.
+9. Proof publication uses an atomic native file replacement. Transient capture
+   status read failures retain the last real timestamp for at most two polls;
+   a third failure stops UI. This does not refresh or relax the native expiry.
+   The publisher returns 1 only for sharing/lock contention; invalid paths or
+   other failures return 2 and block renewal. No destination deletion is used.
+10. Action timeout first requests UI_STOP and allows 1500 ms for the helper to
+    release its own injected mouse buttons before forced helper termination.
+11. The native proof reader now opens with READ/WRITE/DELETE sharing so an
+    atomic publisher can replace the file while the reader holds a stable old
+    snapshot. It reads at most 4096 bytes plus a one-byte oversize probe and
+    closes the handle before evidence output or parsing. Strict seven-key,
+    duplicate, DWORD, PID/access and five-second freshness checks remain.
+
+Automated checks
+node tests/test_runner.js: 29 mocked orchestration tests passed after these fixes.
+Cases include preserving normal-user mode, initial service mode, missing/failed/existing
+incompatible driver, Opt-out OFF, absent app, missing bidirectional traffic,
+observed setting command, UI guard failure, early/final capture failure, missing
+summary, capture IO error, missing reply count, PCAP validation failure, report
+write failure, missing action evidence, changed PID, changed Opt-out, collector
+death while a UI child is running, explicit cancellation, bounded status-read
+transients, atomic proof publication failure/sharing, generic failure stop
+signals, action-timeout grace, and stopping on a changed access mode. The report
+renderer is stubbed in these
+control-flow tests.
+
+Later focus-context review
+The standard Win32 focus check alone was found insufficient for CVI virtual
+controls. See the final addendum in focus_context_review.txt and the exact static
+dirty-edit chain in cvi_hidden_edit_review.json. All keyboard routes were removed.
+The final main-context guard and hidden-target clean-context gate were reviewed
+against source and XP read-only bridge evidence. The orchestration mocks above
+still verify control flow, not ActiveX/WinPcap/GUI execution on Windows XP.
+tests/test_focus_guard.py separately extracts actual C functions verbatim and
+passes 29 synthetic-memory cases; tests/context-policy-test-results.txt records
+25 UI policy/context checks from the implementation team's separate harness.
+tests/test_ui_guard.py passes 35 source-derived proof-reader checks, including
+sharing flags, closing the handle before evidence I/O, replacement snapshots,
+oversize records and malformed/embedded-NUL/CR rejection. These suites overlap;
+their counts are not presented as independent hardware coverage.
+
+Source review observations
+- UI has no networking, process launch, process-memory-write or arbitrary-input
+  interface. Only fixed reviewed display/navigation operations are exposed.
+- Original launch/exit/restart and connection-warning acknowledgement are absent.
+- Opt-out, access level and connection hold state are read from the identified
+  original image; Opt-out OFF blocks automated UI rather than changing it.
+- Main executable, UIR resource and loaded CVI runtime file identities are gated.
+- Only recognized auxiliary panels have close dispatch; original main is not
+  closed. Initially visible auxiliary panels block automatic UI and are preserved.
+- Mouse input checks cancellation, capture proof freshness and target state.
+  Keyboard generation is absent. Original access mode is preserved.
+- Capture uses WinPcap receive APIs, nonpromiscuous mode, and classic Ethernet
+  PCAP output. Its x86 cdecl ABI declarations match WinPcap structures.
+- The packet observer latches setting-tag/malformed/ambiguity/drop errors before
+  further automatic input. It is not a firewall and cannot prevent a command
+  already transmitted by the original application or another actor.
+- UDP port 1024 is the configured capture scope. Readiness decoding requires
+  complete unfragmented IPv4 Ethernet frames and a unique recent reverse pair.
+  This is not a claim to capture arbitrary protocols on the PC.
+- Native screenshot and packet timestamps use the XP clock; clock accuracy is
+  not synchronized or guaranteed by the package.
+- Capture reopens completed PCAP files, checks headers and record lengths/counts,
+  and exposes final validation to the runner. This structural check alone is not
+  a substitute for opening the resulting VM capture in an independent reader.
+
+Remaining validation boundary
+The installed driver, actual XP GUI timing and packet-file reopening must be
+validated in the isolated p07 VM. Physical controller response semantics and the
+physical original PC's hardware/driver compatibility remain field-test matters.
+
+Final reviewer disposition
+Reviewed readonly_ui.exe SHA256:
+3286d8e3256d8abb23f39acff32adaa9ebef26476e36756b031bb9d8fe25c56c
+Disposition: cleared for the isolated full START validation; no remaining
+blocking source-level finding within this fixed, mouse-only current-mode scope.
+This clearance covers exact identities/bindings, no keyboard or launch/exit
+routes, remembered numeric/unknown main focus rejection, pre-existing popup/
+auxiliary rejection, both hidden target context fields zero before opening,
+same-HWND verification after opening, input-tick rechecks and guarded auxiliary
+hide. It is not a claim that every original control was tested, that an arbitrary
+CVI widget is safe, or that the physical controller has been field-validated.
+The separate own-process CVI oracle attempt is not claimed as a successful test.
+The final proof-reader-only revision retains the same focus policy. PE32 x86,
+Windows GUI subsystem 5.1 and legacy XP imports were rechecked; CreateFileA and
+ReadFile introduce no new OS-version requirement or network/input surface.

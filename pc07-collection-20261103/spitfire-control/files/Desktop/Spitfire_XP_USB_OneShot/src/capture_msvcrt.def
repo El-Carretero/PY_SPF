@@ -1,0 +1,13 @@
+LIBRARY msvcrt.dll
+EXPORTS
+_snprintf
+memset
+memcpy
+memcmp
+strlen
+strcmp
+strncmp
+wcslen
+wcscpy
+wcscmp
+_wcsicmp

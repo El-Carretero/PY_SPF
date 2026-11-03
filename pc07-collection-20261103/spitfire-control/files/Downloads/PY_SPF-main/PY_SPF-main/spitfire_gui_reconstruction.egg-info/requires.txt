@@ -1,0 +1,11 @@
+
+[analysis]
+pefile>=2023.2.7
+unicorn<3,>=2.1
+capstone<6,>=5
+
+[qt]
+PySide6<7,>=6.6
+
+[test]
+pytest>=8

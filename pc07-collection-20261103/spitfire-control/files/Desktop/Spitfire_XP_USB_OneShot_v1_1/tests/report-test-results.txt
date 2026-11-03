@@ -1,0 +1,12 @@
+PASS field fixtures preserve the exact collected bytes
+PASS field native86 retains its code, detailed reason and evidence links
+PASS field preflight stop identifies each already open original window
+PASS unconfirmed native data is not presented as a confirmed reason
+PASS native text and blocking window titles cannot inject HTML
+PASS diagnostic evidence links cannot point outside the known result tree
+PASS access-mode mismatch is never displayed as completed
+PASS missing preflight or false evidence flag cannot produce a completed row
+PASS a partial report without a reason never uses the completed fallback
+PASS successful disabled setup remains a skip and keeps its file links
+PASS unknown action names are escaped and do not create arbitrary file links
+{"tests":11,"passed":11,"failed":0}

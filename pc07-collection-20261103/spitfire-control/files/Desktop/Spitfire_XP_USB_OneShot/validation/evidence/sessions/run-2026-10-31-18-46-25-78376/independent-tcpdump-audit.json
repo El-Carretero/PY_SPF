@@ -1,0 +1,9 @@
+{
+  "reader": "tcpdump 4.99.5/libpcap 1.10.5",
+  "exit_code": 0,
+  "frames_read_to_eof": 3499,
+  "stderr": "reading from file /workspace/spitfire-usb/validation/evidence/sessions/run-2026-10-31-18-46-25-78376/capture/adapter-01.pcap, link-type EN10MB (Ethernet), snapshot length 65535",
+  "pcap_sha256": "5f84a114c29521b9d1dec46405e996be55a7b17163c4efb96bf1be1abc97b0f6",
+  "first_frame": "1793472421.784045 IP 10.19.70.2.1024 > 10.19.70.13.1024: UDP, length 48",
+  "last_frame": "1793472539.983366 IP 10.19.70.2.1024 > 10.19.70.13.1024: UDP, length 44"
+}

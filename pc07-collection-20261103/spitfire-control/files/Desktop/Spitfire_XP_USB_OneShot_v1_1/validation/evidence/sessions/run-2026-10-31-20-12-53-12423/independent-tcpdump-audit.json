@@ -1,0 +1,10 @@
+{
+  "tool": "tcpdump 4.99.5 / libpcap",
+  "operation": "offline read all classic PCAP records to EOF",
+  "capture": "capture/adapter-01.pcap",
+  "pcap_sha256": "ac29d989d127d588c8e0490b5b728fc250bc71170cdc2e50d704650094e5130a",
+  "exit_code": 0,
+  "frames_read_to_eof": 3932,
+  "stderr": "reading from file validation/v1_1/evidence/sessions/run-2026-10-31-20-12-53-12423/capture/adapter-01.pcap, link-type EN10MB (Ethernet), snapshot length 65535\n",
+  "original_file_modified": false
+}

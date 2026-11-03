@@ -1,0 +1,2 @@
+{"utc":"2026-10-31T17:54:20.484Z","phase":"existing_file","detail":"C:\\WINDOWS\\system32\\wpcap.dll","code":1}
+{"utc":"2026-10-31T17:54:20.484Z","phase":"blocked","detail":"Existing or partial WinPcap installation; no automatic replacement","code":12}

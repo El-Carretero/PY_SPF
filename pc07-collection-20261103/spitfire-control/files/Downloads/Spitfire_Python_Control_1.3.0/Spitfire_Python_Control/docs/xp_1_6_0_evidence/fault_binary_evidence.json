@@ -1,0 +1,185 @@
+{
+  "exe_sha256": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b",
+  "uir_sha256": "1c5b82a8cf528934bffffe0989a73312059b07a15fc3056df8fbeb41607bd67b",
+  "runtime_control_offset": 1,
+  "control_crosschecks": [
+    {
+      "tag": "HV_ON",
+      "runtime_id": 34,
+      "reply_id": 1021
+    },
+    {
+      "tag": "DIV_ST",
+      "runtime_id": 43,
+      "reply_id": 1025
+    },
+    {
+      "tag": "OSC_ST",
+      "runtime_id": 7,
+      "reply_id": 1065
+    },
+    {
+      "tag": "CMD_BWD_RESET",
+      "runtime_id": 5,
+      "reply_id": 1039
+    }
+  ],
+  "catalogue_matches": 146,
+  "emp_fault_1014": [
+    {
+      "va": "0x40a881",
+      "word": 0,
+      "mask": "0x40",
+      "runtime_control": 18,
+      "uir_tag": "LEDVSWR"
+    },
+    {
+      "va": "0x40a8a0",
+      "word": 0,
+      "mask": "0x20",
+      "runtime_control": 11,
+      "uir_tag": "LEDQSWUTEMP"
+    },
+    {
+      "va": "0x40a8bf",
+      "word": 0,
+      "mask": "0x10",
+      "runtime_control": 16,
+      "uir_tag": "LEDPROT"
+    },
+    {
+      "va": "0x40a8de",
+      "word": 0,
+      "mask": "0x8",
+      "runtime_control": 24,
+      "uir_tag": "LEDOVERPWR"
+    },
+    {
+      "va": "0x40a8fd",
+      "word": 0,
+      "mask": "0x2",
+      "runtime_control": 25,
+      "uir_tag": "LEDDROVERTEMP"
+    },
+    {
+      "va": "0x40a91c",
+      "word": 0,
+      "mask": "0x1",
+      "runtime_control": 32,
+      "uir_tag": "LEDARRAYOT"
+    },
+    {
+      "va": "0x40a93b",
+      "word": 1,
+      "mask": "0x80",
+      "runtime_control": 6,
+      "uir_tag": "LEDH2O"
+    },
+    {
+      "va": "0x40a95a",
+      "word": 1,
+      "mask": "0x40",
+      "runtime_control": 7,
+      "uir_tag": "LEDDOOR"
+    },
+    {
+      "va": "0x40a979",
+      "word": 1,
+      "mask": "0x20",
+      "runtime_control": 13,
+      "uir_tag": "LEDKEYSW"
+    },
+    {
+      "va": "0x40a998",
+      "word": 1,
+      "mask": "0x10",
+      "runtime_control": 34,
+      "uir_tag": "LEDKILLSW"
+    },
+    {
+      "va": "0x40a9b7",
+      "word": 1,
+      "mask": "0x8",
+      "runtime_control": 30,
+      "uir_tag": "LEDOVERVOLT"
+    },
+    {
+      "va": "0x40a9d6",
+      "word": 1,
+      "mask": "0x4",
+      "runtime_control": 12,
+      "uir_tag": "LEDOVERCURR"
+    },
+    {
+      "va": "0x40a9f5",
+      "word": 1,
+      "mask": "0x2",
+      "runtime_control": 17,
+      "uir_tag": "LEDUNDERFREQ"
+    },
+    {
+      "va": "0x40aa14",
+      "word": 2,
+      "mask": "0x10",
+      "runtime_control": 15,
+      "uir_tag": "LEDCOMM"
+    },
+    {
+      "va": "0x40aa33",
+      "word": 2,
+      "mask": "0x2",
+      "runtime_control": 3,
+      "uir_tag": "LEDLBOUNDTEMP"
+    },
+    {
+      "va": "0x40aa52",
+      "word": 2,
+      "mask": "0x1",
+      "runtime_control": 35,
+      "uir_tag": "LEDARRAYOP"
+    },
+    {
+      "va": "0x40aa71",
+      "word": 3,
+      "mask": "whole scalar: nonzero",
+      "runtime_control": 2,
+      "uir_tag": "LEDLBOSTABILITY"
+    }
+  ],
+  "hex_query_ids": [
+    1039,
+    1066
+  ],
+  "decimal_status_ids": [
+    1013,
+    1015,
+    1019,
+    1028,
+    1029,
+    1057,
+    1088,
+    1089
+  ],
+  "tdg_fault_1066": {
+    "0x0800": "TDG_SYS",
+    "0x1000": "TDG_HEAD",
+    "0x2000": "TDG_USER",
+    "0x4000": "TDG_KEY",
+    "0x8000": "TDG_RELAY"
+  },
+  "tcu_fault_1088": {
+    "0x04": "TECOVERTEMP",
+    "0x10": "HUMIDITY_LATCH"
+  },
+  "comm_fault_1089": {
+    "0x01": "MAIN_COM",
+    "0x02": "TDG_COM",
+    "0x04": "EMP_COM",
+    "0x08": "TCU_COM"
+  },
+  "tdg_status_1039": {
+    "0x00300000": "nonzero means RESET BWD; zero means BWD OK",
+    "0x00010000": "PD1 indicator inverse: zero means lit",
+    "0x00020000": "PD2 indicator inverse: zero means lit"
+  }
+}

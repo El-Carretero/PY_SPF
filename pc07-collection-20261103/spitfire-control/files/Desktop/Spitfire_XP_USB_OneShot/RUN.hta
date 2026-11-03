@@ -1,0 +1,10 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Spitfire 1회 로그 수집</title><hta:application id="runner" scroll="yes" border="dialog" maximizebutton="no" />
+<script language="JScript" src="runner.js"></script><script language="JScript" src="report.js"></script></head>
+<body onload="begin()" onbeforeunload="requestStop()" style="font-family:Arial,sans-serif;font-size:14px;background:#f5f8fb;color:#162637">
+<h3>Spitfire 1회 로그 수집</h3><p>원본 Spitfire가 실행 중이어야 합니다. 시험 중에는 마우스와 키보드 조작을 잠시 멈춰 주세요.</p>
+<p id="status">준비 중</p><p id="counts"></p><p id="where"></p>
+<button id="stop" onclick="requestStop()">수집 / 자동시험 중지</button>
+<button onclick="openResults()">결과 폴더 열기</button>
+<p id="outcome"></p><p style="color:#53657a">중지 버튼은 로거만 중지합니다. 레이저나 원본 프로그램을 정지시키지 않습니다.</p>
+</body></html>
