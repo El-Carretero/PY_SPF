@@ -1,0 +1,1 @@
+{"schema":1,"mode":"read_only_probe","exit_code":20,"winpcap_version":"","wpcap_path":"C:\\WINDOWS\\system32\\wpcap.dll","packet_path":"C:\\WINDOWS\\system32\\Packet.dll","error":"System32 wpcap.dll missing","npf_service":{"exists":false,"readable":false,"state":0,"windows_error":1060},"enumeration_overflow":false,"adapters":[]}

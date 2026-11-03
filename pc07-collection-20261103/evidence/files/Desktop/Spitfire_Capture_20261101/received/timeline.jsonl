@@ -1,0 +1,7 @@
+{"utc_guest_clock":"2026-10-31T16:09:02.718Z","action":"inventory","phase":"begin","detail":"Read-only XP guest evidence; timestamps use guest UTC clock","code":0}
+{"utc_guest_clock":"2026-10-31T16:09:03.046Z","action":"screenshot","phase":"end","detail":"desktop.bmp saved; no mouse/keyboard actions","code":0}
+{"utc_guest_clock":"2026-10-31T16:09:03.062Z","action":"local_network_check","phase":"end","detail":"Exactly expected active IPv4 interface; no gateway/default route; direct simulator route","code":0}
+{"utc_guest_clock":"2026-10-31T16:09:03.062Z","action":"inventory","phase":"end","detail":"No SPITFIRE.EXE process observed","code":0}
+{"utc_guest_clock":"2026-10-31T16:09:03.062Z","action":"diagnostic_optout_query","phase":"begin","detail":"DIAGNOSTIC-GENERATED; not original SPITFIRE.EXE traffic","code":0}
+{"utc_guest_clock":"2026-10-31T16:09:03.109Z","action":"diagnostic_optout_query","phase":"sent","detail":"10.19.70.2:1024 -> 10.19.70.13:1024; query1068 only","code":45}
+{"utc_guest_clock":"2026-10-31T16:09:03.125Z","action":"diagnostic_optout_query","phase":"blocked","detail":"Opt-out readback0; requested Opt-out-on suite blocked; no changes made","code":20}

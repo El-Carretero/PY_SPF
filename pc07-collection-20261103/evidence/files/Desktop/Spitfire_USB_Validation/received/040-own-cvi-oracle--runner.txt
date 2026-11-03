@@ -1,0 +1,2 @@
+Original process count 0; launching inert own-process test only.
+Own helper timed out; terminated only helper.

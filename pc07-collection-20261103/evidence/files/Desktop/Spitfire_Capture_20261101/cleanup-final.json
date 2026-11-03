@@ -1,0 +1,8 @@
+﻿{
+    "utc":  "2026-10-31T16:15:26.4038744Z",
+    "udp1024_listeners":  0,
+    "http18978_listeners":  0,
+    "temporary_firewall_rules":  0,
+    "pktmon_idle":  true,
+    "pktmon_filters_empty":  true
+}

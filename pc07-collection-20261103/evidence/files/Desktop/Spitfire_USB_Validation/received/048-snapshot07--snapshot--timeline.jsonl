@@ -1,0 +1,2 @@
+{"utc_guest_clock":"2026-10-31T18:46:26.968Z","event":"session-start","detail":{"version":"1.0","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2026-10-31T18:46:26.984Z","event":"process-start","detail":{"kind":"probe","pid":520}}

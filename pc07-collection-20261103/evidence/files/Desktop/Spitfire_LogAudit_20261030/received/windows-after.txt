@@ -1,0 +1,29 @@
+Original PID=1944 mode=list
+HWND=00350110 visible=1 enabled=1 iconic=0 rect=(483,327)-(797,444) class=CVIRTLVDChild4194304 title=Warning
+HWND=00050112 visible=0 enabled=1 iconic=0 rect=(-10000,-10000)-(-9873,-9900) class=CVIRTLVFrame4194304 title=
+HWND=0002016e visible=1 enabled=1 iconic=0 rect=(10,-300)-(911,722) class=CVIRTLVDChild4194304 title=Spitfire
+HWND=0001017a visible=1 enabled=1 iconic=0 rect=(920,30)-(1303,339) class=CVIRTLVDChild4194304 title=Programmer
+HWND=000d0168 visible=0 enabled=1 iconic=0 rect=(397,246)-(883,758) class=CVIRTLVDChild4194304 title=Temperature Control
+HWND=00020174 visible=0 enabled=1 iconic=0 rect=(387,233)-(893,542) class=CVIRTLVDChild4194304 title=Help
+HWND=00020172 visible=0 enabled=1 iconic=0 rect=(277,81)-(1003,693) class=CVIRTLVDChild4194304 title=Active Faults
+HWND=00020170 visible=0 enabled=1 iconic=0 rect=(365,260)-(915,1142) class=CVIRTLVDChild4194304 title=Empower Setup
+HWND=0002016c visible=0 enabled=1 iconic=0 rect=(442,148)-(1198,726) class=CVIRTLVDChild4194304 title=Timing and High Voltage
+HWND=0001016a visible=0 enabled=1 iconic=0 rect=(507,237)-(774,538) class=CVIRTLVDChild4194304 title=Compressor
+HWND=00010160 visible=0 enabled=1 iconic=0 rect=(357,363)-(930,768) class=CVIRTLVDChild4194304 title=Standard Input/Output
+HWND=0001015e visible=0 enabled=1 iconic=0 rect=(-3,-29)-(4,4) class=CVIRTLVDChild4194304 title=
+HWND=0001015c visible=0 enabled=1 iconic=0 rect=(-3,-29)-(13,13) class=CVIRTLVDChild4194304 title=
+HWND=0001015a visible=0 enabled=1 iconic=0 rect=(-3,-29)-(13,13) class=CVIRTLVDChild4194304 title=
+HWND=00010158 visible=0 enabled=1 iconic=0 rect=(-1003,-1029)-(-987,-987) class=CVIRTLVDChild4194304 title=Focus Finder
+HWND=0002017c visible=1 enabled=1 iconic=1 rect=(0,739)-(160,770) class=CVIRTLVDChild4194304 title=TCP Server Console
+HWND=00020178 visible=1 enabled=1 iconic=1 rect=(160,739)-(320,770) class=CVIRTLVDChild4194304 title=Empower Service
+HWND=00090132 visible=1 enabled=1 iconic=0 rect=(-10000,-10000)-(-9873,-9900) class=CVIRTLVFrame4194304 title=Spitfire
+HWND=00100102 visible=0 enabled=1 iconic=0 rect=(-10000,-10000)-(-9873,-9900) class=CVIRTLVFrame4194304 title=
+HWND=000500fe visible=0 enabled=1 iconic=0 rect=(-10000,-10000)-(-9873,-9900) class=CVIRTLVFrame4194304 title=
+HWND=00010162 visible=1 enabled=1 iconic=1 rect=(-32000,-32000)-(-31840,-31969) class=LWTCPJSOCKWNDYCLASS title=LWTCPJSOCKWNDYCLASS
+HWND=00070138 visible=0 enabled=0 iconic=0 rect=(0,0)-(0,0) class=IMEKR2002_MAIN title=IMEKR2002_MAIN
+HWND=00070126 visible=0 enabled=0 iconic=0 rect=(0,0)-(0,0) class=IME title=Default IME
+HWND=00010166 visible=0 enabled=0 iconic=0 rect=(0,0)-(0,0) class=IMEKR2002_MAIN title=IMEKR2002_MAIN
+HWND=00010156 visible=0 enabled=0 iconic=0 rect=(0,0)-(0,0) class=IME title=Default IME
+HWND=0005011e visible=0 enabled=0 iconic=0 rect=(0,0)-(0,0) class=IME title=Default IME
+HWND=0005018e visible=0 enabled=0 iconic=0 rect=(0,0)-(0,0) class=IME title=Default IME
+WINDOW_COUNT=27

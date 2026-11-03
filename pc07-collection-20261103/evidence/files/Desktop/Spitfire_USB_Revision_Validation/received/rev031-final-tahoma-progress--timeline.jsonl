@@ -1,0 +1,11 @@
+{"utc_guest_clock":"2026-10-31T20:12:57.281Z","event":"session-start","detail":{"version":"1.1","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2026-10-31T20:12:57.281Z","event":"process-start","detail":{"kind":"probe","pid":424}}
+{"utc_guest_clock":"2026-10-31T20:13:12.937Z","event":"process-end","detail":{"kind":"probe","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T20:13:12.937Z","event":"capture-start","detail":{"pid":548,"max_seconds":300}}
+{"utc_guest_clock":"2026-10-31T20:13:12.937Z","event":"process-start","detail":{"kind":"preflight","pid":856}}
+{"utc_guest_clock":"2026-10-31T20:13:13.890Z","event":"transient-status-read","detail":{"error":"Native status snapshot failed (exit 1)","retained_tick":null}}
+{"utc_guest_clock":"2026-10-31T20:13:15.625Z","event":"status-read-exhausted","detail":{"misses":3,"error":"Native status snapshot failed (exit 1)","retained_tick":null}}
+{"utc_guest_clock":"2026-10-31T20:13:21.046Z","event":"process-end","detail":{"kind":"preflight","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T20:13:30.000Z","event":"allowlist","detail":{"modes":["temperature","timing","faults","setup","about"],"excludes":["start","exit","restart","warning retry","service/user mode typing","laser run/on/off","HV","temperature or parameter edits","optout changes","fault reset","interlock bypass","unknown controls"]}}
+{"utc_guest_clock":"2026-10-31T20:13:39.421Z","event":"action-start","detail":{"mode":"temperature","directory":"C:\u005cSpitfireLogs\u005crun-2026-10-31-20-12-53-12423\u005cactions\u005c01-temperature"}}
+{"utc_guest_clock":"2026-10-31T20:13:39.421Z","event":"process-start","detail":{"kind":"action","pid":1600}}

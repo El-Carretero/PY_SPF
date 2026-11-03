@@ -1,0 +1,54 @@
+Spitfire XP 검증 준비 — 2026-10-27 작업 기록
+
+완료 및 증거
+- 07번 PC의 관리자 권한 RDC 연결 확인.
+- 사용자 승인 범위에서 netsh만 임시 허용. 이후 원래 33개 차단 목록으로 정확히 복구하고 재확인.
+- VMware VMnet1에 10.19.70.13/24, SkipAsSource=True 주소 추가.
+  ActiveStore 및 PersistentStore 양쪽에서 주소 확인.
+- DHCP 기존 주소 192.168.37.1/24 보존, DHCP Enabled 및 IPv4 forwarding Disabled 확인.
+- 초기 상태 대비 기존 모든 IPv4 주소/경로/인터페이스 설정/DNS 비교 통과.
+- 방화벽: VMnet1, 수신 UDP1024, 로컬 10.19.70.13, 원격 10.19.70.2만 허용하는 전용 규칙 추가.
+  전역 방화벽 비활성화 또는 물리 LAN 변경 없음.
+- XP VM 정상 종료 상태에서 최신 VMX를 백업하고 Host-only 및 원본 설치 ISO 연결 적용.
+  현재 스냅샷 디스크 Windows XP Professional-000001.vmdk 연결 보존.
+- 원본 설치 ISO 해시 검증 통과. 원본 설치 프로그램 6개는 이전 검증과 동일.
+- Verifier 0.3.1의 실제 호스트 주소 10.19.70.13:1024 수신 대기 성공.
+  5초 점검 종료, 오류 없음, XP 패킷 0개, 비교 판정 INCOMPLETE.
+- 캡처 도구 로컬 통합 테스트 7/7 통과.
+- XP VM 부팅 완료: vmrun 실행 목록 1개, XP 바탕화면을 직접 확인.
+  부팅 중 VMware 안내창이 잠시 표시됐으나 이후 부팅이 완료됨.
+  내부 화면은 검사용으로만 사용하며 배포 파일에 포함하지 않음.
+
+실패와 복구 이력 (숨기지 않음)
+1. 최초 공존 설정을 persistent에만 적용한 상태에서 주소를 추가하자 VMnet1 DHCP가 해제됨.
+   자동 점검이 발견했고 XP는 당시 꺼져 있었음. 초기 롤백은 active 주소를 완전히 제거하지 못함.
+   active 테스트 주소 제거 및 DHCP 복구 후 192.168.37.1/24 복귀를 확인.
+   active/persistent 공존 설정을 각각 확인한 뒤 주소를 다시 구성하여 최종 비교 통과.
+   실패 원본 증거는 PC의 host_network_20261027_153642_798 폴더에 보존됨.
+2. 최초 VMX File.Replace의 null 백업 인자가 Windows PowerShell에서 경로 오류를 발생시킴.
+   원본 VMX는 그대로였음. 명시적 백업 경로로 수정 후 적용·읽기 검증 성공.
+3. active에 이미 주소가 있을 때 persistent 추가는 AlreadyExists로 거부됨.
+   active 주소만 제거하고 persistent 추가 후 두 저장소를 검증함.
+
+수정된 Configure-HostOnly-Alias.ps1 revision 2
+- 양쪽 공존 설정 검증, 기존 주소/DHCP 유지 검사, 두 저장소 롤백 및 상태 비교 보강.
+- P07 PowerShell 구문 검사 PASS, SHA256:
+  933010c67ead7f1e55dc81f074f7f61b206508c401eade753526b7ed4414d22f
+- 수정본 전체를 처음부터 실행한 검증은 아직 하지 않았음.
+- 이미 준비된 현재 PC에서는 재실행하지 말 것. 기존 설정/VM 실행을 감지하면 중단하도록 설계됨.
+
+아직 완료하지 않은 것
+- XP 내부 원본 설치, 원본 프로세스/화면 확인, 실제 XP-가상장비 통신.
+- 동일 시나리오의 원본/Python 실행 비교.
+- 실제 하드웨어, 외부 트리거/펌프 레이저의 물리 동작 검증.
+- XP 내부 입력 자동화는 이전 원격 입력 실패 및 VMware Tools 부재로 미확보.
+
+다음 XP 내부 설정 (원본 실행 전)
+- XP의 로컬 영역 연결 IPv4: 10.19.70.2, 마스크 255.255.255.0.
+- 기본 게이트웨이와 DNS는 비워 둘 것. Host-only를 NAT/브리지로 변경하지 말 것.
+- 연결된 CD에서 setup.exe로 원본 설치. 설치 완료 후 원본을 바로 실행하지 말고 캡처 준비 후 실행.
+- 기존 before 폴더의 VMX는 스냅샷 이전 자료이므로 현재 VMX에 덮어쓰지 말 것.
+
+첨부 증거
+HOST_NETWORK_FINAL.json, FIREWALL_SCOPE.json, HOST_BIND_PROBE.json, VMX_CHANGE_REPORT.json.
+기존 PREPARATION_STATUS_KO.txt와 OFFLINE_SETUP_PENDING_KO.txt는 과거 체크포인트이며 현재 상태는 이 문서와 후속 기록을 우선할 것.

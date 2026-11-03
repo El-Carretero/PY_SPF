@@ -1,0 +1,2 @@
+C:\SPF_USB_REVISION\collect-compact.vbs(11, 1) Microsoft VBScript 런타임 오류: 경로를 찾을 수 없습니다.
+

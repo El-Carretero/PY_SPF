@@ -1,0 +1,8 @@
+mshta.exe pid=1892 exe=C:\WINDOWS\system32\mshta.exe cmd="C:\WINDOWS\system32\mshta.exe" "C:\SPFCAP_BOOT_20261101\bootstrap-local.hta"
+mshta.exe pid=400 exe=C:\WINDOWS\system32\mshta.exe cmd="C:\WINDOWS\system32\mshta.exe" http;//10.19.70.13;18979/bootstrap.hta
+mshta.exe pid=428 exe=C:\WINDOWS\system32\mshta.exe cmd="C:\WINDOWS\system32\mshta.exe" http;//10.19.70.13;18979/bootstrap.hta
+mshta.exe pid=1416 exe=C:\WINDOWS\system32\mshta.exe cmd="C:\WINDOWS\system32\mshta.exe" http;//10.19.70.13;18979/bootstrap.hta
+mshta.exe pid=1396 exe=C:\WINDOWS\system32\mshta.exe cmd="C:\WINDOWS\system32\mshta.exe" http;//10.19.70.13;18979/bootstrap.hta
+mshta.exe pid=1444 exe=C:\WINDOWS\system32\mshta.exe cmd="C:\WINDOWS\system32\mshta.exe" http;//10.19.70.13;18979/bootstrap.hta
+mshta.exe pid=1176 exe=C:\WINDOWS\system32\mshta.exe cmd=mshta http;//10.19.70.13;18979/bootstrap.hta
+mshta.exe pid=224 exe=C:\WINDOWS\system32\mshta.exe cmd="C:\WINDOWS\system32\mshta.exe" "C:\SPF_USB_VALIDATION\controller.hta"

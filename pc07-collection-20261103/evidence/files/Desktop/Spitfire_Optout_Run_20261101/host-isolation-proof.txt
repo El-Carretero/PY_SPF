@@ -1,0 +1,13 @@
+schema=spitfire-isolation-v1
+vm_host=20255566-p07
+vm_network=hostonly
+host_ip_forwarding=disabled
+host_ics_on_vmnet1=disabled
+host_bridge_on_vmnet1=absent
+physical_passthrough=absent
+simulator_bind=10.19.70.13:1024
+simulator_peer=10.19.70.2
+simulator_policy=queries-and-empower-optout-on-only
+guest_ip=10.19.70.2
+authorization=xp-optout-on-and-readonly-navigation
+verified_utc=2026-10-31T16:23:12.0578054Z

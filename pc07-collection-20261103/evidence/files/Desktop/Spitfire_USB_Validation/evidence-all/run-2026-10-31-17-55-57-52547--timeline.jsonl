@@ -1,0 +1,13 @@
+{"utc_guest_clock":"2026-10-31T17:56:00.265Z","event":"session-start","detail":{"version":"1.0","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2026-10-31T17:56:00.281Z","event":"process-start","detail":{"kind":"probe","pid":1844}}
+{"utc_guest_clock":"2026-10-31T17:56:12.750Z","event":"process-end","detail":{"kind":"probe","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T17:56:12.781Z","event":"capture-start","detail":{"pid":384,"max_seconds":180}}
+{"utc_guest_clock":"2026-10-31T17:56:12.781Z","event":"process-start","detail":{"kind":"preflight","pid":992}}
+{"utc_guest_clock":"2026-10-31T17:56:19.265Z","event":"process-end","detail":{"kind":"preflight","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T17:56:25.625Z","event":"allowlist","detail":{"modes":["temperature","timing","faults","setup","about","regensvc","temperature","timing","faults","setup","about","user"],"excludes":["start","exit","restart","warning retry","laser run/on/off","HV","temperature or parameter edits","optout changes","fault reset","interlock bypass","unknown controls"]}}
+{"utc_guest_clock":"2026-10-31T17:56:33.906Z","event":"action-start","detail":{"mode":"temperature","directory":"C:\u005cSpitfireLogs\u005crun-2026-10-31-17-55-57-52547\u005cactions\u005c01-temperature"}}
+{"utc_guest_clock":"2026-10-31T17:56:33.906Z","event":"process-start","detail":{"kind":"action","pid":952}}
+{"utc_guest_clock":"2026-10-31T17:56:39.140Z","event":"process-end","detail":{"kind":"action","exit_code":84}}
+{"utc_guest_clock":"2026-10-31T17:56:39.140Z","event":"action-end","detail":{"mode":"temperature","start":"2026-10-31T17:56:33.906Z","end":"2026-10-31T17:56:39.140Z","exit_code":84,"result":{"utc_guest_clock":"2026-10-31T17:56:38.875Z","mode":"temperature","exit_code":84,"original_pid":2024,"original_exact_count":1,"foreign_original_name":false,"preflight_ready":true,"emp_optout":1,"gAccessLevel":0,"main_hwnd":983412,"blocking_warning_count":0,"capture_proof_tick":7039484,"helper_udp_generated":false,"original_left_running":true}}}
+{"utc_guest_clock":"2026-10-31T17:56:39.140Z","event":"ui-stopped","detail":{"reason":"CAPTURE_NOT_READY","capture_reason":"","updated_tick":7043281}}
+{"utc_guest_clock":"2026-10-31T17:56:50.015Z","event":"session-end","detail":{"outcome":"PARTIAL_OR_BLOCKED","reason":"CAPTURE_NOT_READY"}}

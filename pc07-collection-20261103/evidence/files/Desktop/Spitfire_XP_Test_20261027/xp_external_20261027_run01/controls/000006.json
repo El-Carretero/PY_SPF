@@ -1,0 +1,9 @@
+{
+    "overrides":  {
+                      "1068":  "1",
+                      "1089":  "4"
+                  },
+    "note":  "Synthetic status only; no physical hardware; external opt-out readback remains 1",
+    "stage":  "tcu_module_recovery",
+    "seq":  6
+}

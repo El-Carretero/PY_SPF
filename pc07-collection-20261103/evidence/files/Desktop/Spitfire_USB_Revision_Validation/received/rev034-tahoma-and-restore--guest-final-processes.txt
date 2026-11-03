@@ -1,0 +1,13 @@
+terminated_completed_test_logger=1692 rc=0
+terminated_completed_test_logger=1020 rc=0
+terminated_completed_test_logger=1976 rc=0
+terminated_completed_test_logger=2024 rc=0
+remaining_mshta=1352 "C:\WINDOWS\system32\mshta.exe" "C:\SPF_USB_REVISION\controller.hta"
+spitfire.exe=0
+passive_capture.exe=0
+readonly_ui.exe=0
+proof_publish.exe=0
+provision_winpcap.exe=0
+readonly_menu_probe.exe=0
+readonly_font_probe.exe=0
+readonly_font_probe2.exe=0

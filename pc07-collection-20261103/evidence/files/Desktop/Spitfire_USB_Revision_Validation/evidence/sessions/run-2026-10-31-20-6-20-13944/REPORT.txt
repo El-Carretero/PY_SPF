@@ -1,0 +1,18 @@
+Spitfire one-shot read-only UI test / passive capture
+
+Outcome: PARTIAL_OR_BLOCKED
+Reason: ACTION_GUARD_85
+Native failure: menu_geometry_invalid (exit 85)
+Native detail: The actual menu-bar bounds or initialized font metrics are not supported.
+Native timeline: actions/02-timing/timeline.jsonl
+Completed UTC (XP clock): 2026-10-31T20:07:48.421Z
+Actions attempted: 2 / 5
+
+See result.json, timeline.jsonl, actions/*/timeline.jsonl and capture/summary.json.
+Raw classic PCAP: capture/adapter-*.pcap (UDP port 1024).
+Screenshots and original read-only state: actions/*/.
+Request source and responder identity are observed, not assumed.
+A command detection stops future UI; it cannot block a command already sent.
+No original startup/exit/retry, no parameter, laser/HV/temperature, Opt-out, reset or bypass controls are invoked.
+The initial user/service display mode is preserved; no mode-switching keys are sent.
+The original application remains running.

@@ -1,0 +1,7 @@
+{"utc_guest_clock":"2026-10-31T17:56:00.265Z","event":"session-start","detail":{"version":"1.0","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2026-10-31T17:56:00.281Z","event":"process-start","detail":{"kind":"probe","pid":1844}}
+{"utc_guest_clock":"2026-10-31T17:56:12.750Z","event":"process-end","detail":{"kind":"probe","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T17:56:12.781Z","event":"capture-start","detail":{"pid":384,"max_seconds":180}}
+{"utc_guest_clock":"2026-10-31T17:56:12.781Z","event":"process-start","detail":{"kind":"preflight","pid":992}}
+{"utc_guest_clock":"2026-10-31T17:56:19.265Z","event":"process-end","detail":{"kind":"preflight","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T17:56:25.625Z","event":"allowlist","detail":{"modes":["temperature","timing","faults","setup","about","regensvc","temperature","timing","faults","setup","about","user"],"excludes":["start","exit","restart","warning retry","laser run/on/off","HV","temperature or parameter edits","optout changes","fault reset","interlock bypass","unknown controls"]}}

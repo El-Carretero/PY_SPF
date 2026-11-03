@@ -1,0 +1,3 @@
+{"utc_guest_clock":"2026-10-31T20:20:05.531Z","action":"setup","phase":"begin","detail":"Attach-only original UI test; helper has no network interface","code":0}
+{"utc_guest_clock":"2026-10-31T20:20:10.125Z","action":"setup","phase":"skipped","detail":"Empower Setup is disabled by the original in user mode with Empower Opt-out ON; no input sent","code":0}
+{"utc_guest_clock":"2026-10-31T20:20:12.828Z","action":"setup","phase":"end","detail":"Before/after screenshots and inventories retained; original not closed","code":0}

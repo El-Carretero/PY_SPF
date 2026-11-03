@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-31T20:32:02.885479+00:00",
+  "original_process_count": 0,
+  "capture_and_ui_helpers_remaining": 0,
+  "only_guest_transport_remaining": true,
+  "menu_font_registry_exact_match": true,
+  "menu_font_registry_bytes": 92,
+  "nonclientmetrics_backup_bytes": 500,
+  "nonclientmetrics_backup_sha256": "afdd93d33aaf90c8fadcf4f32d375551c426ebd71adf61a9efb8ba6581ba2841",
+  "restored_font": {
+    "fixture_only": true,
+    "mode": "read",
+    "code": 0,
+    "error": 0,
+    "menu_height": 19,
+    "menu_width": 18,
+    "font_height": -12,
+    "font_weight": 400,
+    "font_charset": 1,
+    "font_face": "굴림",
+    "ncm_size": 500,
+    "screen_width": 1280,
+    "screen_height": 800,
+    "original_absent": true
+  },
+  "guest_ip": "10.19.70.2",
+  "guest_default_route_present": false,
+  "physical_original_accessed": false,
+  "all_checks_passed": true
+}

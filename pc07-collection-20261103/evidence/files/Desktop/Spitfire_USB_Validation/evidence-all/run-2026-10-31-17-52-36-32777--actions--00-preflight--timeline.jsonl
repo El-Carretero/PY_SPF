@@ -1,0 +1,2 @@
+{"utc_guest_clock":"2026-10-31T17:53:09.812Z","action":"preflight","phase":"begin","detail":"Attach-only original UI test; helper has no network interface","code":0}
+{"utc_guest_clock":"2026-10-31T17:53:12.328Z","action":"preflight","phase":"end","detail":"Before/after screenshots and inventories retained; original not closed","code":0}

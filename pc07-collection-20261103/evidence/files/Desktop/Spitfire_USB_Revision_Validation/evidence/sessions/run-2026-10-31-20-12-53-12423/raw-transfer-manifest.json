@@ -1,0 +1,787 @@
+[
+  {
+    "path": "actions\\00-preflight\\context-001.json",
+    "bytes": 504,
+    "sha256": "49c0978fbabab9efbcf53103077a1822e72a254ea3a3d321329c3ff1abc0c494"
+  },
+  {
+    "path": "actions\\00-preflight\\cvi-focus-map.jsonl",
+    "bytes": 54315,
+    "sha256": "268cf176aa22d922d444e65bc36ab6b2bfa0efae1e825049dbd9017ae772dd89"
+  },
+  {
+    "path": "actions\\00-preflight\\cvi-focus-raw.jsonl",
+    "bytes": 89646,
+    "sha256": "0d217ce65b321e88bc773587059d661389eac3d8ef664e3083a1de3413fa2fea"
+  },
+  {
+    "path": "actions\\00-preflight\\cvi-focus.jsonl",
+    "bytes": 9459,
+    "sha256": "8a013083433f433b460cf5545cb701f02efddddc5a766bd167f25f70124b77e7"
+  },
+  {
+    "path": "actions\\00-preflight\\desktop-after.bmp",
+    "bytes": 3072054,
+    "sha256": "6d7710382e724c4c765128dee7437153121fa1a17c0fc23302b58fc9d80a898e"
+  },
+  {
+    "path": "actions\\00-preflight\\desktop-before.bmp",
+    "bytes": 3072054,
+    "sha256": "6d7710382e724c4c765128dee7437153121fa1a17c0fc23302b58fc9d80a898e"
+  },
+  {
+    "path": "actions\\00-preflight\\original-state-before.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\00-preflight\\original-state.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\00-preflight\\processes.jsonl",
+    "bytes": 2903,
+    "sha256": "291b2eaec0d404cd60a4d2bd2016c7836c01d85a4bcb06086be33ad12f1ebd41"
+  },
+  {
+    "path": "actions\\00-preflight\\result.json",
+    "bytes": 514,
+    "sha256": "73f2173ff675933dc36826af5a4f84c8c2f486a2a9d627850b01c8a173ba7a98"
+  },
+  {
+    "path": "actions\\00-preflight\\skipped.jsonl",
+    "bytes": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "actions\\00-preflight\\timeline.jsonl",
+    "bytes": 339,
+    "sha256": "4c9251845a7ccc8fb7bb22e63b38bde6fe3387da2716ff3bd9cc14f94b52847c"
+  },
+  {
+    "path": "actions\\00-preflight\\windows-after.jsonl",
+    "bytes": 6454,
+    "sha256": "33583e99501dba48d48e12fa77382a4b7833cb828679c6d09e7a2ca04ab2ad7c"
+  },
+  {
+    "path": "actions\\00-preflight\\windows-before.jsonl",
+    "bytes": 6454,
+    "sha256": "33583e99501dba48d48e12fa77382a4b7833cb828679c6d09e7a2ca04ab2ad7c"
+  },
+  {
+    "path": "actions\\01-temperature\\capture-proof.txt",
+    "bytes": 135,
+    "sha256": "95676b8b8762754de308439bd62bcb28370e2994cbf128258748691f8805251d"
+  },
+  {
+    "path": "actions\\01-temperature\\context-001.json",
+    "bytes": 504,
+    "sha256": "a07e9ed76fec24d23db198b6eff0bf22de1da8fa1086365769f5d1284fac814b"
+  },
+  {
+    "path": "actions\\01-temperature\\context-002.json",
+    "bytes": 511,
+    "sha256": "1ea7c0f158ba94035fd9cfb10a5b654e89e7429904b726b6dd6eea9bc6f74ec1"
+  },
+  {
+    "path": "actions\\01-temperature\\context-004.json",
+    "bytes": 513,
+    "sha256": "ac659e504ff9b92c8ac65613e314a8dc9fd4cdb13a007c34a21a1ed3f3b88e49"
+  },
+  {
+    "path": "actions\\01-temperature\\context-005.json",
+    "bytes": 516,
+    "sha256": "e63ac6859bd2c28199663300f69bffbcc36eaa8c1e1b21c2cd4fb94dcbbe2484"
+  },
+  {
+    "path": "actions\\01-temperature\\context-007.json",
+    "bytes": 528,
+    "sha256": "40a21a9eac95b001a2b4c1710370cb021a8e98a773615610954dbcd693c2bfe8"
+  },
+  {
+    "path": "actions\\01-temperature\\context-008.json",
+    "bytes": 528,
+    "sha256": "71ae3ffb54ecc91aa0048e857ff1b2d90b4712662a3e077f1acc577ade01a237"
+  },
+  {
+    "path": "actions\\01-temperature\\desktop-after.bmp",
+    "bytes": 3072054,
+    "sha256": "fece690c5bb180727f8a1a2fbf53ad34d50526638fa7b8b03839d8c3c835423a"
+  },
+  {
+    "path": "actions\\01-temperature\\desktop-before.bmp",
+    "bytes": 3072054,
+    "sha256": "ab598ae1fa4230f1526ee6c3a919932bd3967ce4c77b63124b8eea1a952082d6"
+  },
+  {
+    "path": "actions\\01-temperature\\desktop-menu-open.bmp",
+    "bytes": 3072054,
+    "sha256": "0f05053ba9381779e93dd3f59072cdd10a0f7f6ec5d06ca533f4b4f1886bb531"
+  },
+  {
+    "path": "actions\\01-temperature\\desktop-panel-open.bmp",
+    "bytes": 3072054,
+    "sha256": "781ad236c96dab1e5448fb953a44b75c579288a4fe6a5e9270783dd1a9be8dcd"
+  },
+  {
+    "path": "actions\\01-temperature\\heading-layout-001.json",
+    "bytes": 1102,
+    "sha256": "4fd3fbc1c86bd23dbfd44bf23e054b1573f0846e007693cb64b80b786198fedd"
+  },
+  {
+    "path": "actions\\01-temperature\\menu-layout-002.json",
+    "bytes": 1228,
+    "sha256": "3d82ae3e69b266bfd250373837fb03a0f3524ba6def576331267458caa4bf8bd"
+  },
+  {
+    "path": "actions\\01-temperature\\original-state-before.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\01-temperature\\original-state-immediate.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\01-temperature\\original-state-open.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\01-temperature\\original-state.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\01-temperature\\processes.jsonl",
+    "bytes": 2904,
+    "sha256": "6dac26b6cc411210fb221c8b131d13ee11879ae25ef06e3970b1b0e42d331868"
+  },
+  {
+    "path": "actions\\01-temperature\\result.json",
+    "bytes": 522,
+    "sha256": "d7936615c32a905a200b1683e64179f5127cb2759da77dfe27e7bb8e89ef558b"
+  },
+  {
+    "path": "actions\\01-temperature\\skipped.jsonl",
+    "bytes": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "actions\\01-temperature\\target-context-003.json",
+    "bytes": 220,
+    "sha256": "517c4c3e7cb324abdd84c11d7b39b39530aae60a3be8148125f1b7a434971354"
+  },
+  {
+    "path": "actions\\01-temperature\\target-context-006.json",
+    "bytes": 220,
+    "sha256": "517c4c3e7cb324abdd84c11d7b39b39530aae60a3be8148125f1b7a434971354"
+  },
+  {
+    "path": "actions\\01-temperature\\timeline.jsonl",
+    "bytes": 677,
+    "sha256": "1f578122a7a9626f83b4d52b288d25aa93cf6d8103d4888fb93e5e27ba9da3c2"
+  },
+  {
+    "path": "actions\\01-temperature\\windows-after.jsonl",
+    "bytes": 6390,
+    "sha256": "4aaeec157e6bacec69c88daa0e1123ce8e7b8c803283f41ce63b27e76ef5902e"
+  },
+  {
+    "path": "actions\\01-temperature\\windows-before.jsonl",
+    "bytes": 6454,
+    "sha256": "33583e99501dba48d48e12fa77382a4b7833cb828679c6d09e7a2ca04ab2ad7c"
+  },
+  {
+    "path": "actions\\01-temperature\\windows-menu-open.jsonl",
+    "bytes": 6647,
+    "sha256": "9969fe8bd60b588fd1f624a9483452eb557ee2751471458eece77dc956054d3c"
+  },
+  {
+    "path": "actions\\01-temperature\\windows-panel-open.jsonl",
+    "bytes": 6390,
+    "sha256": "3d735ac3f2364bcbb934426fbb5f94c910e292b893e4354b9aca5590c548122d"
+  },
+  {
+    "path": "actions\\02-timing\\capture-proof.txt",
+    "bytes": 135,
+    "sha256": "d4358f52e834714aaaab588b252b731365fd185d43f85465ebe2f790c62cbe93"
+  },
+  {
+    "path": "actions\\02-timing\\context-001.json",
+    "bytes": 509,
+    "sha256": "1ff25c4ebfd154762cfbff9919863a1b6d49d768701f5de413d7e2c259e91173"
+  },
+  {
+    "path": "actions\\02-timing\\context-002.json",
+    "bytes": 516,
+    "sha256": "1bbdde767ca3f67314248ee4c891d37c9a682cdc4bf5d4fbe11dd7272281591c"
+  },
+  {
+    "path": "actions\\02-timing\\context-004.json",
+    "bytes": 513,
+    "sha256": "1e54de24b8e20ac05ccb0b910143e59e5e5bb81c17a6fb64bbe185cd39b271d6"
+  },
+  {
+    "path": "actions\\02-timing\\context-005.json",
+    "bytes": 516,
+    "sha256": "bbee48dcb2db4fcc852d0c0bf38da85e0a191847babad7566defb877f067cc2a"
+  },
+  {
+    "path": "actions\\02-timing\\context-007.json",
+    "bytes": 526,
+    "sha256": "1e63ca7a1a0cd245139c7bf228a24e2394b9746b1aba0284a7e23050b30ca592"
+  },
+  {
+    "path": "actions\\02-timing\\context-008.json",
+    "bytes": 526,
+    "sha256": "75b63138547dd0d72080e9fe66d2f846b81aafa4fd745432b1565be51c8bbed7"
+  },
+  {
+    "path": "actions\\02-timing\\desktop-after.bmp",
+    "bytes": 3072054,
+    "sha256": "99dd1fea84eb5972f70bbfda3012cfab1e2bd56244ebbf12f90ef0b6d434862e"
+  },
+  {
+    "path": "actions\\02-timing\\desktop-before.bmp",
+    "bytes": 3072054,
+    "sha256": "99dd1fea84eb5972f70bbfda3012cfab1e2bd56244ebbf12f90ef0b6d434862e"
+  },
+  {
+    "path": "actions\\02-timing\\desktop-menu-open.bmp",
+    "bytes": 3072054,
+    "sha256": "b13e882e73bc1b69337d18c20b3962d0f091b1192c68e455a046faaf26f63b93"
+  },
+  {
+    "path": "actions\\02-timing\\desktop-panel-open.bmp",
+    "bytes": 3072054,
+    "sha256": "2fe5772ee62e8a5ea496053611e0b258cf4af4b8c416de5d5e4379a56e19e53a"
+  },
+  {
+    "path": "actions\\02-timing\\heading-layout-001.json",
+    "bytes": 1103,
+    "sha256": "17060fd1521eda9d37e5bc7bb4ab16b5b346a9c94d833b39c82d54d50d547940"
+  },
+  {
+    "path": "actions\\02-timing\\menu-layout-002.json",
+    "bytes": 1228,
+    "sha256": "c7a9023e1a9c7eb7ee1e07da5649fe317562ba95d6b3d5f26db9d755bf7b1d3c"
+  },
+  {
+    "path": "actions\\02-timing\\original-state-before.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\02-timing\\original-state-immediate.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\02-timing\\original-state-open.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\02-timing\\original-state.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\02-timing\\processes.jsonl",
+    "bytes": 2828,
+    "sha256": "939a03c6b0468c44070d893ea486b0d0498893fd7ecc745080ff34be1ba76d87"
+  },
+  {
+    "path": "actions\\02-timing\\result.json",
+    "bytes": 517,
+    "sha256": "946b1f598c7364bbb37a9b2667f2de4ae79de39424748e1119fe1b35831e484a"
+  },
+  {
+    "path": "actions\\02-timing\\skipped.jsonl",
+    "bytes": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "actions\\02-timing\\target-context-003.json",
+    "bytes": 214,
+    "sha256": "af656ed7adffca6313089870d5b971715dfee4a556c94c4fccd20fbf797798f9"
+  },
+  {
+    "path": "actions\\02-timing\\target-context-006.json",
+    "bytes": 214,
+    "sha256": "af656ed7adffca6313089870d5b971715dfee4a556c94c4fccd20fbf797798f9"
+  },
+  {
+    "path": "actions\\02-timing\\timeline.jsonl",
+    "bytes": 658,
+    "sha256": "0fe83a001d7444f960d325812604ad77dff2e3552ff3c79822f80ec76ba011b4"
+  },
+  {
+    "path": "actions\\02-timing\\windows-after.jsonl",
+    "bytes": 6390,
+    "sha256": "9175548c16ef2d25a5c4c96ea68716cf5b518cf7185aad5e5c27b381a9022c2f"
+  },
+  {
+    "path": "actions\\02-timing\\windows-before.jsonl",
+    "bytes": 6390,
+    "sha256": "4aaeec157e6bacec69c88daa0e1123ce8e7b8c803283f41ce63b27e76ef5902e"
+  },
+  {
+    "path": "actions\\02-timing\\windows-menu-open.jsonl",
+    "bytes": 6647,
+    "sha256": "a0654fb1ea13e60a5719f7e99876ddf79b9adc5576835fa6a458513566bb7604"
+  },
+  {
+    "path": "actions\\02-timing\\windows-panel-open.jsonl",
+    "bytes": 6389,
+    "sha256": "39977381ee8a7f29539dc2ce8be03dc88c68e121aa87ef2d5d7f696aed199de1"
+  },
+  {
+    "path": "actions\\03-faults\\capture-proof.txt",
+    "bytes": 135,
+    "sha256": "300196f56a175eec5205372b8c54991e065f422248044f1919dd62cdb4eb0194"
+  },
+  {
+    "path": "actions\\03-faults\\context-001.json",
+    "bytes": 509,
+    "sha256": "270724c538644130af29366651c34b28d737bc4e2b0ad6c6c9a8b266b9dedaa9"
+  },
+  {
+    "path": "actions\\03-faults\\context-002.json",
+    "bytes": 516,
+    "sha256": "35a8d4fd4f95735be7d8bc027a3ba72affa6fc2fb4c4080652bda1f5b7d80917"
+  },
+  {
+    "path": "actions\\03-faults\\context-004.json",
+    "bytes": 513,
+    "sha256": "d6f4a544b4fd14e304f995a5d6352eaca82e0300603eace17694e7af0a797b0d"
+  },
+  {
+    "path": "actions\\03-faults\\context-005.json",
+    "bytes": 516,
+    "sha256": "ea47a39c3ddcce7d626ba7f76ce21913785c92284c6f968267a6549f39d912e2"
+  },
+  {
+    "path": "actions\\03-faults\\context-007.json",
+    "bytes": 528,
+    "sha256": "1fdd120aaf84cbe5dd94ca0cd4fb8c99708aa4e88bc3cbf3839664e1d9dca909"
+  },
+  {
+    "path": "actions\\03-faults\\context-008.json",
+    "bytes": 528,
+    "sha256": "aea994a8010b54a7457c75ad85198e3cb5641edf29646529b692a06f18821f04"
+  },
+  {
+    "path": "actions\\03-faults\\desktop-after.bmp",
+    "bytes": 3072054,
+    "sha256": "c9e9c9f79ad7f642c26c06e683d7154f37aa4f0ba262160adce1c75c5ab3f7d0"
+  },
+  {
+    "path": "actions\\03-faults\\desktop-before.bmp",
+    "bytes": 3072054,
+    "sha256": "99dd1fea84eb5972f70bbfda3012cfab1e2bd56244ebbf12f90ef0b6d434862e"
+  },
+  {
+    "path": "actions\\03-faults\\desktop-menu-open.bmp",
+    "bytes": 3072054,
+    "sha256": "b13e882e73bc1b69337d18c20b3962d0f091b1192c68e455a046faaf26f63b93"
+  },
+  {
+    "path": "actions\\03-faults\\desktop-panel-open.bmp",
+    "bytes": 3072054,
+    "sha256": "a1e371c13b0255c1e342de431fcafd1c7eaefcfcd1ce12627825525dd725d7d5"
+  },
+  {
+    "path": "actions\\03-faults\\heading-layout-001.json",
+    "bytes": 1103,
+    "sha256": "17060fd1521eda9d37e5bc7bb4ab16b5b346a9c94d833b39c82d54d50d547940"
+  },
+  {
+    "path": "actions\\03-faults\\menu-layout-002.json",
+    "bytes": 1228,
+    "sha256": "a856c8dcddc37a58494e43352772759f850f44b274c9d4bee811941a77500f06"
+  },
+  {
+    "path": "actions\\03-faults\\original-state-before.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\03-faults\\original-state-immediate.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\03-faults\\original-state-open.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\03-faults\\original-state.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\03-faults\\processes.jsonl",
+    "bytes": 2827,
+    "sha256": "594eb61114bfada9415b2e111645fa5212d3e3d2e83896f5af0047c3251e402c"
+  },
+  {
+    "path": "actions\\03-faults\\result.json",
+    "bytes": 517,
+    "sha256": "cec8e3da49cb0779d624aa9bd86258a828ac1da7768ed44befc74876b5fa93d0"
+  },
+  {
+    "path": "actions\\03-faults\\skipped.jsonl",
+    "bytes": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "actions\\03-faults\\target-context-003.json",
+    "bytes": 215,
+    "sha256": "b6251fffd7f3e8deb9041f4857d0fd39e2aa86125245488757a705a290d99e38"
+  },
+  {
+    "path": "actions\\03-faults\\target-context-006.json",
+    "bytes": 215,
+    "sha256": "b6251fffd7f3e8deb9041f4857d0fd39e2aa86125245488757a705a290d99e38"
+  },
+  {
+    "path": "actions\\03-faults\\timeline.jsonl",
+    "bytes": 658,
+    "sha256": "5c83ace4621a9fbad157b14741a0cfb8ca2e5bd1e089c0c20f4b1edea8792f2f"
+  },
+  {
+    "path": "actions\\03-faults\\windows-after.jsonl",
+    "bytes": 6390,
+    "sha256": "0e367f382823244fdcc8705d7a1dc9f758bb00fc47a77e683fd1399ee4186d1b"
+  },
+  {
+    "path": "actions\\03-faults\\windows-before.jsonl",
+    "bytes": 6390,
+    "sha256": "9175548c16ef2d25a5c4c96ea68716cf5b518cf7185aad5e5c27b381a9022c2f"
+  },
+  {
+    "path": "actions\\03-faults\\windows-menu-open.jsonl",
+    "bytes": 6647,
+    "sha256": "a9984e59710ee2e81d62661813fc6ba32f0c64c64f2c8158fc267f593ddb7f31"
+  },
+  {
+    "path": "actions\\03-faults\\windows-panel-open.jsonl",
+    "bytes": 6390,
+    "sha256": "ca05cfe7807e1add4d10f7ec924b10c540506d1097021d45dd51e586828fc455"
+  },
+  {
+    "path": "actions\\04-setup\\desktop-after.bmp",
+    "bytes": 3072054,
+    "sha256": "99dd1fea84eb5972f70bbfda3012cfab1e2bd56244ebbf12f90ef0b6d434862e"
+  },
+  {
+    "path": "actions\\04-setup\\desktop-before.bmp",
+    "bytes": 3072054,
+    "sha256": "99dd1fea84eb5972f70bbfda3012cfab1e2bd56244ebbf12f90ef0b6d434862e"
+  },
+  {
+    "path": "actions\\04-setup\\original-state-before.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\04-setup\\original-state.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\04-setup\\processes.jsonl",
+    "bytes": 2827,
+    "sha256": "392a265138f49e61ba927a0955917aa938dd04dfcad69ec882ea7f893cbda270"
+  },
+  {
+    "path": "actions\\04-setup\\result.json",
+    "bytes": 527,
+    "sha256": "c5af941ca13be17a5326c1b0d56dfbb1a4d491f8ceecb5002bcb7bb540622ff1"
+  },
+  {
+    "path": "actions\\04-setup\\skipped.jsonl",
+    "bytes": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "actions\\04-setup\\timeline.jsonl",
+    "bytes": 527,
+    "sha256": "d615b09be4b98937b36ebda1a1b993602f22dc7bdbb1c4dded17c8ec9f9283a6"
+  },
+  {
+    "path": "actions\\04-setup\\windows-after.jsonl",
+    "bytes": 6390,
+    "sha256": "0e367f382823244fdcc8705d7a1dc9f758bb00fc47a77e683fd1399ee4186d1b"
+  },
+  {
+    "path": "actions\\04-setup\\windows-before.jsonl",
+    "bytes": 6390,
+    "sha256": "0e367f382823244fdcc8705d7a1dc9f758bb00fc47a77e683fd1399ee4186d1b"
+  },
+  {
+    "path": "actions\\05-about\\capture-proof.txt",
+    "bytes": 135,
+    "sha256": "03cc8a0ae0e2c8842dd946aa488af43ab507d86e68ee9556bcbcdbedbb06a774"
+  },
+  {
+    "path": "actions\\05-about\\context-001.json",
+    "bytes": 509,
+    "sha256": "f72aa449ecae2223727253864145e106a5422c4b22b4a94de2746bf42e441079"
+  },
+  {
+    "path": "actions\\05-about\\context-002.json",
+    "bytes": 516,
+    "sha256": "e27b84f12e995b3c0ed9c8c3523fea979906a81aa0308956e428fef041b966f2"
+  },
+  {
+    "path": "actions\\05-about\\context-004.json",
+    "bytes": 513,
+    "sha256": "ca8b211854115af84b3962cca952c0473bf4948393005fce6cce9ba35cf0769c"
+  },
+  {
+    "path": "actions\\05-about\\context-005.json",
+    "bytes": 516,
+    "sha256": "e6b706298aa94792cea43bf6125bc1cb601b0fa6d7116404f2a9c996ebcc5cc8"
+  },
+  {
+    "path": "actions\\05-about\\context-007.json",
+    "bytes": 528,
+    "sha256": "f2c452a8d7b3b3fa10aa1ec472c7a2f4301ec18091a0c45e4fe9dc9e6c1e6f54"
+  },
+  {
+    "path": "actions\\05-about\\context-008.json",
+    "bytes": 528,
+    "sha256": "d31c9a4840d51058eaaf8d4449288eb1c4bc4aca881eda2edb3e22b46f2d46cb"
+  },
+  {
+    "path": "actions\\05-about\\desktop-after.bmp",
+    "bytes": 3072054,
+    "sha256": "ced4d4a41f1da20ac51ff62f556f81fcd5ef63aeacffb674edb7956e01bac8e9"
+  },
+  {
+    "path": "actions\\05-about\\desktop-before.bmp",
+    "bytes": 3072054,
+    "sha256": "99dd1fea84eb5972f70bbfda3012cfab1e2bd56244ebbf12f90ef0b6d434862e"
+  },
+  {
+    "path": "actions\\05-about\\desktop-menu-open.bmp",
+    "bytes": 3072054,
+    "sha256": "ae5bc124f3e59613f7fd57b6ba8fdb85f18cc7977b287a899f4d15beb62025c2"
+  },
+  {
+    "path": "actions\\05-about\\desktop-panel-open.bmp",
+    "bytes": 3072054,
+    "sha256": "d045f34f93a836859e7734d32d9da4750bdedddcc9680e733006ae7acc23ae59"
+  },
+  {
+    "path": "actions\\05-about\\heading-layout-001.json",
+    "bytes": 1102,
+    "sha256": "d242cea5e085191ac2cb9fff047523b6b4c6d30981a8861cf9fec39515798a0b"
+  },
+  {
+    "path": "actions\\05-about\\menu-layout-002.json",
+    "bytes": 723,
+    "sha256": "f0d885eb8bd4ba039197e607744e175dffaafb622c2e340220bc055039d84d62"
+  },
+  {
+    "path": "actions\\05-about\\original-state-before.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\05-about\\original-state-immediate.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\05-about\\original-state-open.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\05-about\\original-state.json",
+    "bytes": 684,
+    "sha256": "9cd18ac5b86c756c14684eee03efae7d9d020cc3b3b33dbd848d6df5610ddfb5"
+  },
+  {
+    "path": "actions\\05-about\\processes.jsonl",
+    "bytes": 2828,
+    "sha256": "dbce6fb975ddcac75479e68cfef864601db175af984a56b91e5ded264545234a"
+  },
+  {
+    "path": "actions\\05-about\\result.json",
+    "bytes": 516,
+    "sha256": "dc03e5e1e791b2b0b30ff42f5e90896cff63ac8f77deb602fbcb5d114cdc835d"
+  },
+  {
+    "path": "actions\\05-about\\skipped.jsonl",
+    "bytes": 720,
+    "sha256": "c592ba00c5a9e8a3313de145621ce3a26433352317c6755228af0f925cc29dd9"
+  },
+  {
+    "path": "actions\\05-about\\target-context-003.json",
+    "bytes": 214,
+    "sha256": "a35f8a8fe2c69e1e7622eb3ca4d19cd3d52673e7d994abd031c3d0196a7665c2"
+  },
+  {
+    "path": "actions\\05-about\\target-context-006.json",
+    "bytes": 214,
+    "sha256": "a35f8a8fe2c69e1e7622eb3ca4d19cd3d52673e7d994abd031c3d0196a7665c2"
+  },
+  {
+    "path": "actions\\05-about\\timeline.jsonl",
+    "bytes": 653,
+    "sha256": "6eed45e1a90fd86df63c4ddee6e7bb6d969bdaad3e2745eae7b0981404e5b3fb"
+  },
+  {
+    "path": "actions\\05-about\\windows-after.jsonl",
+    "bytes": 6390,
+    "sha256": "48add95bf57412f36ac05491094b866c0a7d220459a831960f9ee995ee81fb7e"
+  },
+  {
+    "path": "actions\\05-about\\windows-before.jsonl",
+    "bytes": 6390,
+    "sha256": "0e367f382823244fdcc8705d7a1dc9f758bb00fc47a77e683fd1399ee4186d1b"
+  },
+  {
+    "path": "actions\\05-about\\windows-menu-open.jsonl",
+    "bytes": 6646,
+    "sha256": "c1145eab5eeeec2772a25e1e92d70b09d8b2ac083146a73c51cb8e0bf9873a01"
+  },
+  {
+    "path": "actions\\05-about\\windows-panel-open.jsonl",
+    "bytes": 6390,
+    "sha256": "40fd4d0c445eb47f492edd47f2ea4f82181102a136734eb62066478bcccfee57"
+  },
+  {
+    "path": "capture\\adapter-01.pcap",
+    "bytes": 393147,
+    "sha256": "ac29d989d127d588c8e0490b5b728fc250bc71170cdc2e50d704650094e5130a"
+  },
+  {
+    "path": "capture\\adapters.jsonl",
+    "bytes": 493,
+    "sha256": "9a696fc6ed24863d874a5d24483bb0af05d75fe62471508bbb171452ba9a07d7"
+  },
+  {
+    "path": "capture\\packets.jsonl",
+    "bytes": 1859002,
+    "sha256": "7d68d0ae794c7dc8ac9e65da682ff8af824ed784700c63407c3803634ac43554"
+  },
+  {
+    "path": "capture\\status.json",
+    "bytes": 9536,
+    "sha256": "06e07bf3d21f786c815b8204a57a307d4955bfe4a651a423eb0d6c3e1e25e1d3"
+  },
+  {
+    "path": "capture\\summary.json",
+    "bytes": 9538,
+    "sha256": "788f7ef052b7d3a7e4e51f56ab6ae9614b71e78cd67f914d0c2c14688e1ee832"
+  },
+  {
+    "path": "capture-status.json",
+    "bytes": 9536,
+    "sha256": "06e07bf3d21f786c815b8204a57a307d4955bfe4a651a423eb0d6c3e1e25e1d3"
+  },
+  {
+    "path": "driver-before.json",
+    "bytes": 903,
+    "sha256": "ca41df0fd840c02ba8de872f17ce2a81d90324af7c6c13a5cbcb72d4fb44eff2"
+  },
+  {
+    "path": "proof.txt",
+    "bytes": 135,
+    "sha256": "dc851a4f5d3e5faf721bb7dd3fd6477a6e4a9df3b41d7a7d50bd32669067ce80"
+  },
+  {
+    "path": "REPORT.html",
+    "bytes": 8114,
+    "sha256": "336df1b63214482b117c06e42bb75296dcb632848ebd0f4db571524471e4f5f5"
+  },
+  {
+    "path": "REPORT.txt",
+    "bytes": 809,
+    "sha256": "b4d2ce3624d7ed229f8cebf67dfe5df4b807a5c14d7366515478d2dfd8cc4e3c"
+  },
+  {
+    "path": "result.json",
+    "bytes": 13764,
+    "sha256": "7e2205977932c237959da3b975a39cda0e72b0c11f234876b652a0ebb9841b48"
+  },
+  {
+    "path": "runtime\\passive_capture.exe",
+    "bytes": 28672,
+    "sha256": "3f24a7a4bbdae4e5fdfb60ef056cd636f4c2b620ebf47c834f2e0c52169bd66b"
+  },
+  {
+    "path": "runtime\\proof_publish.exe",
+    "bytes": 5632,
+    "sha256": "6847345f7c105166b0074e38ba94c26b835eb911e57b2b5f25d5d8839bae29aa"
+  },
+  {
+    "path": "runtime\\provision_winpcap.exe",
+    "bytes": 34304,
+    "sha256": "464d23c182521664bb3ff7f3613f2b168fe18f33bd856cfb9e2f5bed1f5c32d0"
+  },
+  {
+    "path": "runtime\\readonly_ui.exe",
+    "bytes": 77312,
+    "sha256": "801f2fa2f6944d6e0aa810ada1933418d230a0898032eda7f1e574e7c4329d63"
+  },
+  {
+    "path": "runtime\\report.js",
+    "bytes": 9011,
+    "sha256": "5a8787095343c9aeeef235975da5095e1fba959221a2453f3c4f6707b0dfac93"
+  },
+  {
+    "path": "runtime\\RUN.hta",
+    "bytes": 1006,
+    "sha256": "36da82e68757b4229ff618638abd1c545f677af6ace6e5741d885738b0b42ae6"
+  },
+  {
+    "path": "runtime\\runner.js",
+    "bytes": 21891,
+    "sha256": "68b9dcea98851f51b46fbd639cad92492a6f21ca1ff1a33aa6eee2775e46203f"
+  },
+  {
+    "path": "runtime\\START.cmd",
+    "bytes": 78,
+    "sha256": "8d4a68c48be69835085e27e816f29356e0e8fe650d36aa721518dff1dbd8580d"
+  },
+  {
+    "path": "runtime\\START.hta",
+    "bytes": 2055,
+    "sha256": "a299fdd76b4d20b4f7d213c9ad27f9bf32190a01ed0058a5c6c2acb2e56c3a75"
+  },
+  {
+    "path": "session-name.txt",
+    "bytes": 29,
+    "sha256": "1c3dfa933eee7d2f83f2ed0fe27524b5698aabaa41087e2dc36a42408e24c7f0"
+  },
+  {
+    "path": "start-log.txt",
+    "bytes": 235,
+    "sha256": "cff0f96678e06fd0f8ab1e6c0b4005b6cb72c51b866985932caac25abbd00a60"
+  },
+  {
+    "path": "STOP",
+    "bytes": 39,
+    "sha256": "c2b91650decb2db9c93f1455613347bdb16c754633b0e2ab5acbec34bbc85428"
+  },
+  {
+    "path": "timeline.jsonl",
+    "bytes": 7349,
+    "sha256": "2c28e6ae6911320c9bcad61b9f9345a01fefdcf88ce03e659242f7f91a5fd64f"
+  },
+  {
+    "path": "transfer-manifest.json",
+    "bytes": 15093,
+    "sha256": "62edf9ce61fce4d6beefa4d2d658b790c825a93a8bd856320c2b716e7a1def19"
+  }
+]

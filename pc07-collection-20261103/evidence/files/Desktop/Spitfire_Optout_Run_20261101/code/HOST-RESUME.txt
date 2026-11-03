@@ -1,0 +1,37 @@
+Host fixture v2 resume (original evidence is retained)
+
+1. Stop the previous host fixture and confirm that its process has exited.
+2. Use the existing run directory and the exact original fixture input file:
+
+   python host_server.py --root "EXISTING_RUN_DIRECTORY" --values "ORIGINAL_VALUES_FILE" --resume --seconds 1200
+
+The existing STOP marker is archived automatically as STOP.before-resume-UTC.
+Do not use --resume while a previous fixture process is still running.
+
+Resume checks every preserved UDP JSONL record against the unchanged fixture
+policy, restores sequence/counts/Opt-out from those records, and refuses corrupt
+or inconsistent evidence. It does not infer packets missing from the log.
+The original fixture source metadata and input values are not overwritten.
+The previous status snapshot is archived. A fixture-segment-UTC.json records
+the old log hash, reconstructed checkpoint, and new server code hash.
+
+Only EMPOPTOUT 1 is applied in simulator RAM. Other mutations remain rejected
+with a matching synthetic transport ACK; this does not demonstrate real
+controller behavior. Replies that fail sendto are recorded as intended bytes
+plus an error, never counted as successful sent responses, and not retried.
+
+Windows UDP_CONNRESET is disabled where supported; recoverable receive errors
+are logged without inventing a packet. A temporary state-snapshot write failure
+does not terminate UDP handling. Packet-log failure or a failed UDP worker stops
+the service with an explicit error. HTTP remains limited to the expected guest.
+
+The observed initial communication cessation and original application warning
+do not prove that any of these failure modes occurred. This revision hardens
+known code paths; it is not a diagnosis of the earlier interruption.
+
+Local verification without real sockets or remote actions:
+   python verify_host_fixture.py
+
+The saved result is host-fixture-v2-verification.json. Tests cover injected
+receive reset, failed send accounting, temporary snapshot PermissionError,
+RAM Opt-out preservation, resume reconstruction, and invalid-response refusal.

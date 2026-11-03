@@ -1,0 +1,8 @@
+﻿{
+    "utc":  "2026-10-31T17:17:00.7341646Z",
+    "original_exited":  true,
+    "guest_controller_stopped":  true,
+    "capture_stopped":  true,
+    "temporary_firewall_rules_removed":  true,
+    "original_physical_pc_accessed":  false
+}

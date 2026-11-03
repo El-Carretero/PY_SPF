@@ -1,0 +1,9 @@
+{"utc_guest_clock":"2010-10-09T19:28:56.984Z","event":"session-start","detail":{"version":"1.0","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2010-10-09T19:28:57.000Z","event":"process-start","detail":{"kind":"probe","pid":2364}}
+{"utc_guest_clock":"2010-10-09T19:28:57.343Z","event":"process-end","detail":{"kind":"probe","exit_code":0}}
+{"utc_guest_clock":"2010-10-09T19:28:57.343Z","event":"capture-start","detail":{"pid":744,"max_seconds":300}}
+{"utc_guest_clock":"2010-10-09T19:28:57.343Z","event":"process-start","detail":{"kind":"preflight","pid":2176}}
+{"utc_guest_clock":"2010-10-09T19:28:58.343Z","event":"process-end","detail":{"kind":"preflight","exit_code":20}}
+{"utc_guest_clock":"2010-10-09T19:28:58.343Z","event":"ui-stopped","detail":{"reason":"PREFLIGHT_BLOCKED_20","capture_reason":"","updated_tick":16011000}}
+{"utc_guest_clock":"2010-10-09T19:29:04.906Z","event":"transient-status-read","detail":{"error":"Permission denied","retained_tick":16017265}}
+{"utc_guest_clock":"2010-10-09T19:29:07.140Z","event":"session-end","detail":{"outcome":"PARTIAL_OR_BLOCKED","reason":"PREFLIGHT_BLOCKED_20"}}

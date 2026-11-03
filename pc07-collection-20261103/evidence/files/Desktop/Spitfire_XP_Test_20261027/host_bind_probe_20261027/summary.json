@@ -1,0 +1,42 @@
+{
+  "status": "NO_XP_TRANSACTIONS",
+  "exit_code": 3,
+  "verifier_version": "0.3.1",
+  "stop_reason": "DURATION_LIMIT",
+  "elapsed_seconds": 5.038496099999975,
+  "acquisition_seconds": 5.036114200000156,
+  "endpoint": [
+    "10.19.70.13",
+    1024
+  ],
+  "allowed_source_ips": [
+    "10.19.70.2"
+  ],
+  "xp_runtime_validation": "CAPTURE_ONLY_NOT_PROOF_OF_GUI_STARTUP",
+  "physical_validation": "UNVERIFIED",
+  "comparison_verdict": "INCOMPLETE",
+  "gui_verdict": "NOT_CHECKED",
+  "xp_transactions": 0,
+  "python_transactions": 0,
+  "xp_command_ids": [],
+  "xp_write_commands": [],
+  "transaction_status_counts": {},
+  "validation_counts": {},
+  "message_level_counts": {
+    "INFO": 2,
+    "SCENARIO": 1
+  },
+  "pending": [],
+  "errors": [],
+  "checkpoints": [
+    "C:\\Users\\Fluke\\Desktop\\Spitfire_XP_Test_20261027\\host_bind_probe_20261027\\checkpoints\\capture_000000.jsonl",
+    "C:\\Users\\Fluke\\Desktop\\Spitfire_XP_Test_20261027\\host_bind_probe_20261027\\checkpoints\\capture_000001.jsonl",
+    "C:\\Users\\Fluke\\Desktop\\Spitfire_XP_Test_20261027\\host_bind_probe_20261027\\checkpoints\\capture_000002.jsonl"
+  ],
+  "report_directory": "C:\\Users\\Fluke\\Desktop\\Spitfire_XP_Test_20261027\\host_bind_probe_20261027\\reports\\comparison_20261027_064242_510696",
+  "notes": [
+    "Exit 0 means capture was saved, not XP startup or equivalence PASS.",
+    "Original process/version/GUI must be observed independently.",
+    "Source IP is not process authentication."
+  ]
+}

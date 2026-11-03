@@ -1,0 +1,14 @@
+{
+  "source_type": "explicit user confirmation relayed by supervising agent",
+  "source_provenance": "The supervising agent reported the user's asynchronous answer in this task's conversation. This artifact records that report; it is not a guest-generated event log or a packet-derived inference.",
+  "user_response_verbatim": "직접 눌렀음",
+  "confirmed_context": "The user directly clicked the original XP Empower Opt-out switch several times during the described 01:51:44–01:51:47 KST interval.",
+  "context_interval_start_kst": "2026-11-01T01:51:44+09:00",
+  "context_interval_end_kst": "2026-11-01T01:51:47+09:00",
+  "context_interval_precision": "Seconds as described in the confirmation prompt; these are not exact individual click timestamps.",
+  "request_attribution": "User-operated original XP UI input explains the observed alternating EMPOPTOUT 1/0 requests in that interval.",
+  "automation_scope": "Automated action 11 was reported to find Opt-out already ON and send no input. The observed first OFF-to-ON transition must not be credited to that automated action, and this run does not demonstrate its OFF-to-ON click path.",
+  "simulator_scope": "The fixture applied EMPOPTOUT 1 only in RAM and rejected EMPOPTOUT 0. Original outbound OFF requests are preserved as captured bytes; they do not establish simulator OFF state or physical controller behavior.",
+  "exact_packet_times_source": "udp-original.jsonl and packet capture, analyzed separately",
+  "physical_controller_tested": false
+}

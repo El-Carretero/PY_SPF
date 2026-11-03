@@ -1,0 +1,11 @@
+﻿{
+    "utc":  "2026-10-31T17:17:49.3327888Z",
+    "temporary_vnc_keys_removed":  true,
+    "temporary_password_file_removed":  true,
+    "running_vms":  [
+                        "Total running VMs: 1",
+                        "C:\\Users\\Fluke\\Documents\\Virtual Machines\\Windows XP Professional\\Windows XP Professional.vmx"
+                    ],
+    "vnc_5905_listeners":  0,
+    "vm_network_hostonly":  true
+}

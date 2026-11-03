@@ -1,0 +1,33 @@
+
+이미지 이름                  PID 세션 이름           세션#  메모리 사용
+========================= ====== ================ ======== ============
+System Idle Process            0 Console                 0         28 K
+System                         4 Console                 0        296 K
+smss.exe                     356 Console                 0        404 K
+csrss.exe                    604 Console                 0      6,268 K
+winlogon.exe                 628 Console                 0      5,868 K
+services.exe                 672 Console                 0      3,308 K
+lsass.exe                    684 Console                 0      1,436 K
+svchost.exe                  840 Console                 0      4,880 K
+svchost.exe                  908 Console                 0      4,244 K
+svchost.exe                 1028 Console                 0     18,684 K
+svchost.exe                 1072 Console                 0      3,024 K
+svchost.exe                 1120 Console                 0      4,460 K
+explorer.exe                1436 Console                 0     14,588 K
+spoolsv.exe                 1528 Console                 0      4,728 K
+alg.exe                     1152 Console                 0      3,636 K
+ctfmon.exe                  1332 Console                 0      3,452 K
+wscntfy.exe                 1732 Console                 0      2,560 K
+mshta.exe                   1892 Console                 0     20,708 K
+conime.exe                  1952 Console                 0      3,256 K
+mshta.exe                    400 Console                 0      5,356 K
+mshta.exe                    428 Console                 0      5,356 K
+mshta.exe                   1416 Console                 0      5,356 K
+mshta.exe                   1396 Console                 0      5,352 K
+mshta.exe                   1444 Console                 0      5,356 K
+cmd.exe                     1424 Console                 0      2,772 K
+mshta.exe                   1176 Console                 0      5,356 K
+mshta.exe                    224 Console                 0     11,656 K
+cmd.exe                      992 Console                 0      2,768 K
+tasklist.exe                 324 Console                 0      4,560 K
+wmiprvse.exe                1180 Console                 0      5,780 K

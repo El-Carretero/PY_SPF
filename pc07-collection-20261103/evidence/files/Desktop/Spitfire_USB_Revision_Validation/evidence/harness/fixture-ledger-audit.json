@@ -1,0 +1,143 @@
+{
+  "responses_are_synthetic": true,
+  "physical_controller": false,
+  "applied_state_changes": 0,
+  "fixture_policy": "queries only; all mutations record-and-reject with synthetic ACK; fixed initial Optout ON",
+  "last_sequence": 21381,
+  "record_count": 21381,
+  "replayed_state": {
+    "requests": 21381,
+    "responses": 21381,
+    "applied_optout_on": 0,
+    "rejected_commands": 7,
+    "optout": "1"
+  },
+  "startup_writes_rejected": [
+    {
+      "seq": 48,
+      "epoch": 1793476179.6829233,
+      "utc": "2026-10-31T19:49:39.682923+00:00",
+      "source": [
+        "10.19.70.2",
+        1024
+      ],
+      "tag": 2047,
+      "command": "EMP:LBOBREAK 1",
+      "action": "rejected no state change; matching synthetic ACK to keep original scheduler responsive",
+      "inside_any_product_capture": false
+    },
+    {
+      "seq": 3621,
+      "epoch": 1793476499.5287502,
+      "utc": "2026-10-31T19:54:59.528750+00:00",
+      "source": [
+        "10.19.70.2",
+        1024
+      ],
+      "tag": 2047,
+      "command": "EMP:LBOBREAK 1",
+      "action": "rejected no state change; matching synthetic ACK to keep original scheduler responsive",
+      "inside_any_product_capture": false
+    },
+    {
+      "seq": 3807,
+      "epoch": 1793476549.160864,
+      "utc": "2026-10-31T19:55:49.160864+00:00",
+      "source": [
+        "10.19.70.2",
+        1024
+      ],
+      "tag": 2047,
+      "command": "EMP:LBOBREAK 1",
+      "action": "rejected no state change; matching synthetic ACK to keep original scheduler responsive",
+      "inside_any_product_capture": false
+    },
+    {
+      "seq": 4716,
+      "epoch": 1793476710.1609123,
+      "utc": "2026-10-31T19:58:30.160912+00:00",
+      "source": [
+        "10.19.70.2",
+        1024
+      ],
+      "tag": 2047,
+      "command": "EMP:LBOBREAK 1",
+      "action": "rejected no state change; matching synthetic ACK to keep original scheduler responsive",
+      "inside_any_product_capture": false
+    },
+    {
+      "seq": 9455,
+      "epoch": 1793477172.2225146,
+      "utc": "2026-10-31T20:06:12.222515+00:00",
+      "source": [
+        "10.19.70.2",
+        1024
+      ],
+      "tag": 2047,
+      "command": "EMP:LBOBREAK 1",
+      "action": "rejected no state change; matching synthetic ACK to keep original scheduler responsive",
+      "inside_any_product_capture": false
+    },
+    {
+      "seq": 14139,
+      "epoch": 1793477567.834908,
+      "utc": "2026-10-31T20:12:47.834908+00:00",
+      "source": [
+        "10.19.70.2",
+        1024
+      ],
+      "tag": 2047,
+      "command": "EMP:LBOBREAK 1",
+      "action": "rejected no state change; matching synthetic ACK to keep original scheduler responsive",
+      "inside_any_product_capture": false
+    },
+    {
+      "seq": 17748,
+      "epoch": 1793477877.1454601,
+      "utc": "2026-10-31T20:17:57.145460+00:00",
+      "source": [
+        "10.19.70.2",
+        1024
+      ],
+      "tag": 2047,
+      "command": "EMP:LBOBREAK 1",
+      "action": "rejected no state change; matching synthetic ACK to keep original scheduler responsive",
+      "inside_any_product_capture": false
+    }
+  ],
+  "rejected_envelopes": [],
+  "capture_ranges": [
+    {
+      "session": "run-2026-10-31-19-49-45-14743",
+      "first_epoch": 1793476225.734785,
+      "last_epoch": 1793476257.01686,
+      "frames": 1119
+    },
+    {
+      "session": "run-2026-10-31-20-0-27-62380",
+      "first_epoch": 1793476865.040484,
+      "last_epoch": 1793476990.061356,
+      "frames": 4001
+    },
+    {
+      "session": "run-2026-10-31-20-12-53-12423",
+      "first_epoch": 1793477608.202658,
+      "last_epoch": 1793477731.34501,
+      "frames": 3932
+    },
+    {
+      "session": "run-2026-10-31-20-18-5-68232",
+      "first_epoch": 1793477925.964687,
+      "last_epoch": 1793478048.647931,
+      "frames": 3702
+    },
+    {
+      "session": "run-2026-10-31-20-6-20-13944",
+      "first_epoch": 1793477214.7691,
+      "last_epoch": 1793477265.896661,
+      "frames": 1383
+    }
+  ],
+  "ledger_sha256": "cc1a98dd5df4d9c86d3e98c6aa8d2ce04f7892e3f83f065c816f32f99ccd91fb",
+  "source_sha256": "3ffbfc69870edab5415c8859042242fd135b074d0376a3ae280341beb45ae2a3"
+}

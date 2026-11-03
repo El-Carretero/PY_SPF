@@ -1,0 +1,36 @@
+﻿{
+    "bridge_bindings":  [
+
+                        ],
+    "final_vm_power":  "off",
+    "remaining_vnc_keys":  [
+
+                           ],
+    "physical_original_accessed":  false,
+    "forwarding_enabled":  [
+
+                           ],
+    "remaining_tcp_listeners":  [
+
+                                ],
+    "vmx_sha256":  "ea84f8b7d6382cbc21434f2f12a92eefe90a22ee65c4d397ce52c05c8c7c39af",
+    "utc":  "2026-10-31T20:28:48.6133512Z",
+    "remaining_udp_1024":  [
+
+                           ],
+    "ics_sharing_flags":  [
+                              false,
+                              false,
+                              false,
+                              false
+                          ],
+    "remaining_rules":  [
+
+                        ],
+    "only_vnc_keys_removed":  true,
+    "baseline_vm_power":  "off",
+    "running_vms":  [
+                        "Total running VMs: 0"
+                    ],
+    "secret_removed":  true
+}

@@ -1,0 +1,4 @@
+{"utc_guest_clock":"2026-10-31T18:01:41.609Z","event":"session-start","detail":{"version":"1.0","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2026-10-31T18:01:41.625Z","event":"process-start","detail":{"kind":"probe","pid":1056}}
+{"utc_guest_clock":"2026-10-31T18:01:57.203Z","event":"error","detail":"PROCESS_TIMEOUT_probe"}
+{"utc_guest_clock":"2026-10-31T18:01:57.234Z","event":"session-end","detail":{"outcome":"PARTIAL_OR_BLOCKED","reason":"PROCESS_TIMEOUT_probe"}}

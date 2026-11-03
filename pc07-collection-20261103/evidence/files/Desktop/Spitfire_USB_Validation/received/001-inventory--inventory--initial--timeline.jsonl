@@ -1,0 +1,3 @@
+{"utc_guest_clock":"2026-10-31T17:44:30.656Z","action":"inventory","phase":"begin","detail":"Guest native UI driver; no helper UDP generation","code":0}
+{"utc_guest_clock":"2026-10-31T17:44:30.937Z","action":"local_network_check","phase":"end","detail":"One expected IPv4 adapter; no gateway/default route; direct simulator route","code":0}
+{"utc_guest_clock":"2026-10-31T17:44:31.187Z","action":"inventory","phase":"end","detail":"Action finished; before/after screenshot and inventory retained","code":0}

@@ -1,0 +1,7 @@
+{
+  "source": "C:\\Users\\Fluke\\Desktop\\Spitfire_USB_Validation\\reply-values-optout1.json",
+  "sha256": "8f08e8505dffd85c4b2028b27aa3c07e724f630809927b145447a0af12a2b45c",
+  "initial_optout": "1",
+  "policy": "queries only; all mutations record-and-reject with synthetic ACK; fixed initial Optout ON",
+  "physical_controller": false
+}

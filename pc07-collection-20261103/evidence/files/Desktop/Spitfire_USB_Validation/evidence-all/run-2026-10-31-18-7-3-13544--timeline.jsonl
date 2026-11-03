@@ -1,0 +1,8 @@
+{"utc_guest_clock":"2026-10-31T18:07:07.546Z","event":"session-start","detail":{"version":"1.0","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2026-10-31T18:07:07.562Z","event":"process-start","detail":{"kind":"probe","pid":1660}}
+{"utc_guest_clock":"2026-10-31T18:07:28.953Z","event":"process-end","detail":{"kind":"probe","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T18:07:28.953Z","event":"capture-start","detail":{"pid":2040,"max_seconds":300}}
+{"utc_guest_clock":"2026-10-31T18:07:28.953Z","event":"process-start","detail":{"kind":"preflight","pid":1780}}
+{"utc_guest_clock":"2026-10-31T18:07:40.937Z","event":"process-end","detail":{"kind":"preflight","exit_code":20}}
+{"utc_guest_clock":"2026-10-31T18:07:40.937Z","event":"ui-stopped","detail":{"reason":"PREFLIGHT_BLOCKED_20","capture_reason":"status_unreadable","updated_tick":null}}
+{"utc_guest_clock":"2026-10-31T18:07:53.453Z","event":"session-end","detail":{"outcome":"PARTIAL_OR_BLOCKED","reason":"PREFLIGHT_BLOCKED_20"}}

@@ -1,0 +1,92 @@
+Spitfire XP 통신 수집 사전 점검 보고서
+실행일: 2026-11-01 (Asia/Seoul). 원시 로그는 UTC이며 timeline.csv에 KST 병기.
+
+결과: 사전 점검 및 실제 양방향 패킷 캡처 검증 완료. 요청한 원본 프로그램의 Opt-out ON 화면 자동시험은 미실행.
+현재 사용할 수 있는 기존 시뮬레이터 응답 파일과 실제 UDP 조회 응답이 모두 EMPOPTOUT?=0이었다. 사용자가 Opt-out 변경을 금지했으므로 값을 바꾸거나 과거 Opt-out=1 시험 상태를 선택해 조건을 만들지 않았다. 원본 Spitfire.exe는 실행하지 않았다. 따라서 이 결과에 원본 프로그램의 실제 패킷, 원본 화면 탐색 성공, Opt-out ON 주기 통신 관찰이 포함되었다고 주장하지 않는다.
+
+1. 대상 및 격리
+- 조작한 원격 장치는 20255566-p07 한 대. 원본 실물 제어 PC 및 p04에는 접속하지 않았다.
+- 시작 시 XP VM과 시뮬레이터 모두 꺼져 있었다. XP VM만 부팅했다.
+- VMX: ethernet0=hostonly, 추가 NIC/serial/parallel 장치 없음. USB는 hub/HID만 관찰. 실행 중 VM은 이 XP 하나였다.
+- 호스트 VMnet1: 10.19.70.13/24 및 기존 192.168.37.1/24. VMware 브리지 disabled, MAC Bridge 없음, 모든 IPv4 forwarding disabled, 모든 연결의 ICS sharing disabled.
+- 게스트 XLAPPLAS, Windows XP 5.1.2600. 게스트 내부 코드가 단일 활성 어댑터 10.19.70.2/24, gateway 없음, default route 없음, .13으로 향하는 직접 경로를 확인했다.
+- 원본 SPITFIRE.EXE 실행 프로세스가 없음을 확인했다. 시스템 프로세스 일부의 실행 경로 조회는 XP 권한 때문에 실패했으나 프로세스 열거는 완료되었다.
+- 시뮬레이터는 .13:1024에만 bind, .2:1024의 정확한 진단 조회만 응답. 외부 연결·프록시·실물 전달 기능이 없다. 다른 요청과 모든 변경 명령은 거부한다.
+- 임시 HTTP 전송은 .13:18978에 bind하고 .2만 허용했다. 임시 방화벽 규칙도 VMnet1, .2/.13, 해당 포트로 제한했다.
+- 현재 설정과 경로 증빙: evidence/p07-raw-evidence.zip 안 host-isolation.json, vmx-observed.txt, received/network.jsonl.
+
+2. Opt-out 확인과 실제 실행
+기존 응답 출처:
+C:\Users\Fluke\Desktop\Spitfire_LogAudit_20261030\reply-values.json
+이 파일의 1068 값은 "0"이었다. 사용자가 알려 준 PY_SPF의 기본 simulator.py 역시 EMPOPTOUT?="0"이다. 기존 파일을 변경하지 않고 별도 불변 진단 응답기로 읽었다. 원본 프로그램의 체크박스나 실물 제어기의 현재 상태를 직접 읽은 것은 아니다.
+
+XP 내부에서 guest_probe.exe가 실행되어 창·메뉴·자식 컨트롤·프로세스·어댑터·라우트·BMP 화면·타임라인을 저장했다. 네트워크 조건을 통과한 뒤 EMPOPTOUT? 한 번만 조회했다.
+2026-11-01 01:09:02.718 KST (게스트 시계): inventory 시작
+2026-11-01 01:09:03.062 KST (게스트 시계): 네트워크 점검 통과, 원본 프로세스 없음
+2026-11-01 01:09:03.136777 KST (호스트 캡처): 게스트 -> 시뮬레이터
+2026-11-01 01:09:03.142954 KST (호스트 캡처): 시뮬레이터 -> 게스트
+게스트 종료 코드 20: Opt-out OFF, 후속 원본 시험 차단. 설정 변경 없음.
+게스트/호스트 시계는 동기화 보정하지 않았다. 지연 6.177ms는 같은 호스트 캡처 시계만으로 계산했다. 서로 다른 시계의 로그를 이용한 세밀한 순서·지연 추정은 하지 않는다.
+
+초기 부트스트랩은 VMware Tools 부재와 호스트 입력 미전달로 사용자에게 실행을 요청했다. 원격 HTA의 바이너리 저장 제한 및 래퍼 코드의 닫는 태그 오류를 수정한 후 세 번째 수동 호출에서 성공했다. 실제 점검은 XP 내부에서 자동 실행되었다. OS 보안 설정은 바꾸지 않았다. 실행한 HTA의 원본과 SHA-256은 원시 증빙에 보존했다.
+
+3. 패킷과 검증
+- 캡처 도구: p07 Windows 내장 Pktmon / PktMon.sys, 둘 다 10.0.26100.9949. Microsoft Windows Authenticode Valid.
+- 인터페이스: Pktmon component 12, VMware Virtual Ethernet Adapter for VMnet1.
+- 필터: UDP, IP 10.19.70.2, port 1024. --pkt-size 0 사용.
+- 실행 전에 다른 Pktmon 세션과 필터가 없음을 확인. 종료 후 이번 필터를 제거했다.
+- 원시 ETL 두 파일 보존: preflight1.etl에 패킷 2개, preflight2.etl에 0개. 두 번째 파일의 별도 변환 결과도 보존.
+- classic pcap 2.4 / Ethernet: evidence/preflight.pcap, 223 bytes.
+- 첫 프레임 87 bytes, UDP payload 45 bytes:
+  Spectra-Physics:CMD_ECLIPSE,[1068]EMPOPTOUT?\n
+- 두 번째 프레임 80 bytes, UDP payload 38 bytes:
+  Spectra-Physics:REPLY_ECLIPSE:<1068>0\n
+- guest->simulator 1개, simulator->guest 1개. 잘림 없음, 보고된 drop 0.
+- pcapng SHA-256: eb2530174073be19a97a53bc1d6e71a5a5ec9f2fe32bf8af9979cb8e2a10e459
+- pcap SHA-256: 36a8faa08aa78a8e649acfd009167c80b28235767d4d422f3473c6780aa6a99f
+- 변환기는 패킷을 생성하거나 중복 제거하지 않았다. 원시 Ethernet 바이트와 타임스탬프를 보존했다.
+- 독립 dpkt 판독기로 pcapng와 pcap을 다시 열어 모든 프레임 바이트/시간 일치를 검증했다. 변환기 테스트 14개 통과. Pktmon의 마지막 옵션 종료 마커 생략은 명세에 맞게 처리하도록 수정했고 회귀 테스트를 추가했다.
+- 이번 실제 결과는 한 쌍의 진단 UDP를 VMnet1에서 양방향 수집할 수 있다는 증거다. 원본 프로그램 전체 통신량에 대한 무손실 캡처 검증은 아니다. 구형 Wireshark GUI에서 직접 열지는 않았으며, 호환성이 높은 classic pcap 파일 형식과 독립 판독을 확인했다.
+
+4. 캡처 도구 출처·다운로드·설치
+선택한 방식은 이미 설치된 Microsoft Windows Pktmon을 사용한다. XP에 Wireshark/WinPcap을 설치하지 않아도 된다. 원본 PC의 Wireshark와 무관하다.
+공식 XP 대안은 Wireshark 1.10.14 win32 + WinPcap 4.1.3이다. p07의 official-downloads에 실제 다운로드하고 공식 SHA-1 및 Authenticode를 검증했다. 두 파일 모두 일치, 서명 Valid, 설치하지 않음.
+
+Wireshark:
+https://www.wireshark.org/download/win32/all-versions/Wireshark-win32-1.10.14.exe
+22,205,680 bytes
+SHA-1 37f74c6f3e73550904e621ae2f5ad342be5762f6
+SHA-256 4055eeef5173a016cf64e2eef509dcafbcf9cc050a9d6f68f2aad2e70619d0ec
+공식 서명 digest 문서:
+https://www.wireshark.org/download/src/all-versions/SIGNATURES-1.10.14.txt
+이 문서의 PGP 서명에 대한 별도 신뢰 체인 검증은 하지 않았다. 실행파일의 Authenticode Valid는 별도로 확인했다.
+
+WinPcap:
+https://www.winpcap.org/install/bin/WinPcap_4_1_3.exe
+915,128 bytes
+SHA-1 e2516fcd1573e70334c8f50bee5241cdfdf48a00
+SHA-256 fc4623b113a1f603c0d9ad5f83130bd6de1c62b973be9892305132389c8588de
+
+Fetch-CaptureTools.ps1이 다운로드·해시·서명 기록을 자동 수행한다. Wireshark의 /S는 WinPcap을 설치하지 않는다. WinPcap 공식 설치기를 무인 설치했다고 주장하지 않으며, 검증되지 않은 /S 옵션을 사용하지 않았다. 이번에 필요한 캡처 준비는 Run-Preflight.ps1의 내장 Pktmon 실행으로 수행한다.
+
+5. 조사한 컨트롤과 건너뛴 동작
+control_review.json 및 reviewed-controls.csv는 기존 원본 바이너리 분석 자료에서 검토한 메뉴 6개와 콜백 컨트롤 89개의 정적 허용/제외 목록이다. 현 게스트 원본 UI를 실행해 확인한 목록과 구별해야 한다. 현재 원본 UI 실측과 클릭 실행은 모두 미실행이다.
+
+정적 검토상 후보: About, Temperature Control, Timing and High Voltage, Active Faults 표시, Empower Setup 표시, 확인된 CLOSE/HIDE, UI Exit. regensvc는 표시 전환 후보이며 미실행.
+건너뜀: 원본 시작/안정화/메뉴 탐색/조회/도움말/종료/재시작 전체(Opt-out ON 조건 미충족).
+항상 제외: RUN/ON/OFF/STOP, HV, 모든 파라미터·모드·Opt-out 변경, fault reset, interlock/humidity override, motor, calibration, manual SEND, 용도 불명 컨트롤.
+Escape도 단순 창 닫기가 아니라 OFF 명령 경로로 분석되어 사용하지 않았다.
+정적 분석상 원본 시작은 EMP:LBOBREAK 1을 자동으로 큐에 넣고, 특정 응답은 모드 변경/RES12를 자동 유발한다. 이는 이번 캡처에서 관찰한 패킷이 아니다. 후속 원본 시험은 자동 명령도 기록하면서 적용하지 않는 별도 시뮬레이터와 현재 UI 컨트롤 검증이 필요하다.
+
+6. 확인 범위와 미확인 사항
+확인됨: XP 내부 실행파일 동작, 게스트/호스트 격리 조건, 기존 시뮬레이터 Opt-out=0의 실제 조회, 양방향 진단 패킷 수집·변환·재열기, 타임라인·화면 보존, 임시 호스트 규칙/리스너 정리.
+미확인: Opt-out ON 원본 프로그램의 실제 시작 패킷/폴링 주기/화면별 조회/재시작 동작, 원본 UI의 현재 Opt-out 표시, 원본 프로그램 전체 화면 자동화의 실행 성능, 실물 컨트롤러의 응답 의미/상태 전이/타이밍, 레이저의 실제 상태.
+시뮬레이터 응답을 실물 제어기의 동작으로 해석할 수 없다. 주기 통신 요약은 이번 실행에 해당하지 않는다(단발 조회 1회).
+
+7. 결과물과 재실행
+README.ko.txt에 실행 절차. guest_probe.exe는 XP 호환 native x86이며 Python 설치가 필요 없다.
+Run-Preflight.ps1은 재실행용 호스트 통합 스크립트로 구문 검증했고, 본 실행에서는 구성 모듈을 단계별로 실행했다. 통합 스크립트 전체를 두 번째로 실행하지 않았다.
+전체 원본 화면 순회 자동화는 구현/실행 완료 상태가 아니다. 현재 허용 조건에서 완료된 결과는 안전한 사전 점검·캡처 인프라와 차단 증빙이다.
+원본 Opt-out 조건을 임의로 변경하지 않은 채 이 상태를 보고한다.
+
+최종 상태: XP VM은 켜진 상태로 두었고 진단 결과 창이 남아 있다. 원본 프로그램은 시작하지 않았다. p07의 UDP1024/HTTP18978 리스너0, 이번 임시 방화벽 규칙0, Pktmon 비활성 및 필터 없음으로 최종 재확인했다. 게스트/실물 레이저 설정을 변경하지 않았다.

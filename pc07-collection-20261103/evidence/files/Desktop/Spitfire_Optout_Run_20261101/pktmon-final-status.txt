@@ -1,0 +1,29 @@
+﻿
+수집된 데이터:
+    패킷 카운터, 패킷 캡처
+
+캡처 형식:
+    모든 패킷
+
+모니터링되는 구성 요소:
+    ID 드라이버             이름                                         
+    -- ----             --                                         
+    12 vmnetadapter.sys VMware Virtual Ethernet Adapter for VMnet1 
+
+패킷 필터:
+     # 이름                    프로토콜    IP 주소        포트 
+     - --                    ----    -----        -- 
+     1 SPF_ORIGINAL_20261101 UDP     10.19.70.2 1024 
+
+로거 매개 변수:
+    로거 이름:        PktMon
+    로깅 모드:       다중 파일
+    로그 파일:           C:\Users\Fluke\Desktop\Spitfire_Optout_Run_20261101\original1.etl
+    최대 파일 크기:      128MB
+    사용된 메모리:        384MB
+    손실된 이벤트:        0
+
+이벤트 공급자:
+    ID                          수준  키워드 
+    --                          --  --- 
+    Microsoft-Windows-PktMon     4 0x32 

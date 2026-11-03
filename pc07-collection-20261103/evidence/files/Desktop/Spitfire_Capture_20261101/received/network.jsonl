@@ -1,0 +1,11 @@
+{"kind":"adapter","index":2,"type":6,"admin_status":1,"oper_status":5,"if_error":0,"active":true,"name":"{F34E7AAE-D969-4323-8805-13201FF0CF7D}","description":"AMD PCNET Family PCI Ethernet Adapter - 패킷 스케줄러 미니 포트","ips":[{"ip":"10.19.70.2","mask":"255.255.255.0"}],"gateways":[""]}
+{"kind":"ip","index":2,"ip":"10.19.70.2","mask":"255.255.255.0"}
+{"kind":"ip","index":1,"ip":"127.0.0.1","mask":"255.0.0.0"}
+{"kind":"route","index":2,"destination":"10.19.70.0","mask":"255.255.255.0","next_hop":"10.19.70.2","type":3,"metric":30}
+{"kind":"route","index":1,"destination":"10.19.70.2","mask":"255.255.255.255","next_hop":"127.0.0.1","type":3,"metric":30}
+{"kind":"route","index":2,"destination":"10.255.255.255","mask":"255.255.255.255","next_hop":"10.19.70.2","type":3,"metric":30}
+{"kind":"route","index":1,"destination":"127.0.0.0","mask":"255.0.0.0","next_hop":"127.0.0.1","type":3,"metric":1}
+{"kind":"route","index":2,"destination":"224.0.0.0","mask":"240.0.0.0","next_hop":"10.19.70.2","type":3,"metric":30}
+{"kind":"route","index":2,"destination":"255.255.255.255","mask":"255.255.255.255","next_hop":"10.19.70.2","type":3,"metric":1}
+{"kind":"best_route_check","error":0,"index":2}
+{"kind":"local_isolation_check","ok":true,"active_interfaces":1,"matching_interfaces":1}

@@ -1,0 +1,18 @@
+﻿Fri, 30 Oct 2026 11:57:46 UTC | Bootstrap starting; local directory=C:\SPF_AUDIT_20261030
+Fri, 30 Oct 2026 11:57:46 UTC | Downloaded filetrace.exe
+Fri, 30 Oct 2026 11:57:47 UTC | Downloaded trace-selftest.exe
+Fri, 30 Oct 2026 11:57:47 UTC | Downloaded udp-feed.exe
+Fri, 30 Oct 2026 11:57:47 UTC | Original found via shortcut C:\Documents and Settings\All Users\바탕 화면\Spitfire.lnk
+Fri, 30 Oct 2026 11:57:47 UTC | Uploaded metadata.txt
+Fri, 30 Oct 2026 11:57:47 UTC | Uploaded original-SPITFIRE.EXE
+Fri, 30 Oct 2026 11:57:48 UTC | Uploaded selftest.jsonl
+Fri, 30 Oct 2026 11:57:48 UTC | READY: tracer selftest passed; awaiting seq|start from host
+Fri, 30 Oct 2026 11:58:13 UTC | Original C:\config.sp was absent
+Fri, 30 Oct 2026 11:58:13 UTC | Temporary Programmer config installed
+Fri, 30 Oct 2026 11:58:13 UTC | Started hidden loopback-only UDP feed for600 seconds
+Fri, 30 Oct 2026 11:58:13 UTC | Uploaded feed-process.txt
+Fri, 30 Oct 2026 11:58:13 UTC | Original launched under tracer; CWD=C:\Program Files\Spectra-Physics\Spitfire\
+Fri, 30 Oct 2026 11:58:13 UTC | Use original UI manually; original process is never force-closed by this HTA
+Fri, 30 Oct 2026 11:58:58 UTC | ACTION ERROR collect: 파일을 열 수 없습니다.
+Fri, 30 Oct 2026 12:20:13 UTC | Restored config absence
+Fri, 30 Oct 2026 12:20:14 UTC | ACTION ERROR restore: 파일을 열 수 없습니다.

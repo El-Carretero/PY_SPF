@@ -1,0 +1,23 @@
+{"utc_guest_clock":"2026-10-31T18:40:10.109Z","event":"session-start","detail":{"version":"1.0","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2026-10-31T18:40:10.187Z","event":"process-start","detail":{"kind":"probe","pid":1052}}
+{"utc_guest_clock":"2026-10-31T18:40:27.375Z","event":"process-end","detail":{"kind":"probe","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T18:40:27.375Z","event":"capture-start","detail":{"pid":1580,"max_seconds":300}}
+{"utc_guest_clock":"2026-10-31T18:40:27.375Z","event":"process-start","detail":{"kind":"preflight","pid":188}}
+{"utc_guest_clock":"2026-10-31T18:40:36.656Z","event":"process-end","detail":{"kind":"preflight","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T18:40:46.671Z","event":"allowlist","detail":{"modes":["temperature","timing","faults","setup","about"],"excludes":["start","exit","restart","warning retry","service/user mode typing","laser run/on/off","HV","temperature or parameter edits","optout changes","fault reset","interlock bypass","unknown controls"]}}
+{"utc_guest_clock":"2026-10-31T18:40:47.312Z","event":"transient-status-read","detail":{"error":"\uc0ac\uc6a9 \uad8c\ud55c\uc774 \uc5c6\uc2b5\ub2c8\ub2e4.","retained_tick":9612406}}
+{"utc_guest_clock":"2026-10-31T18:40:54.218Z","event":"transient-status-read","detail":{"error":"\uc0ac\uc6a9 \uad8c\ud55c\uc774 \uc5c6\uc2b5\ub2c8\ub2e4.","retained_tick":9619390}}
+{"utc_guest_clock":"2026-10-31T18:40:54.859Z","event":"transient-status-read","detail":{"error":"\uc0ac\uc6a9 \uad8c\ud55c\uc774 \uc5c6\uc2b5\ub2c8\ub2e4.","retained_tick":9620000}}
+{"utc_guest_clock":"2026-10-31T18:40:55.609Z","event":"action-start","detail":{"mode":"temperature","directory":"C:\u005cSpitfireLogs\u005crun-2026-10-31-18-40-7-8660\u005cactions\u005c01-temperature"}}
+{"utc_guest_clock":"2026-10-31T18:40:55.609Z","event":"process-start","detail":{"kind":"action","pid":1088}}
+{"utc_guest_clock":"2026-10-31T18:41:03.421Z","event":"transient-status-read","detail":{"error":"\uc0ac\uc6a9 \uad8c\ud55c\uc774 \uc5c6\uc2b5\ub2c8\ub2e4.","retained_tick":9628640}}
+{"utc_guest_clock":"2026-10-31T18:41:10.265Z","event":"transient-status-read","detail":{"error":"\uc0ac\uc6a9 \uad8c\ud55c\uc774 \uc5c6\uc2b5\ub2c8\ub2e4.","retained_tick":9635734}}
+{"utc_guest_clock":"2026-10-31T18:41:14.875Z","event":"process-end","detail":{"kind":"action","exit_code":80}}
+{"utc_guest_clock":"2026-10-31T18:41:14.875Z","event":"action-end","detail":{"mode":"temperature","start":"2026-10-31T18:40:54.859Z","end":"2026-10-31T18:41:14.875Z","exit_code":80,"result":{"utc_guest_clock":"2026-10-31T18:41:14.281Z","mode":"temperature","preflight_reason":"","context_reason":"","skip_reason":"","skipped":false,"keyboard_input_implemented":false,"exit_code":80,"original_pid":656,"original_exact_count":1,"foreign_original_name":false,"preflight_ready":true,"emp_optout":1,"gAccessLevel":0,"main_hwnd":393542,"blocking_warning_count":0,"capture_proof_tick":9631343,"helper_udp_generated":false,"original_left_running":true}}}
+{"utc_guest_clock":"2026-10-31T18:41:14.875Z","event":"ui-stopped","detail":{"reason":"CAPTURE_NOT_READY","capture_reason":"","updated_tick":9640328}}
+{"utc_guest_clock":"2026-10-31T18:41:15.500Z","event":"transient-status-read","detail":{"error":"\uc0ac\uc6a9 \uad8c\ud55c\uc774 \uc5c6\uc2b5\ub2c8\ub2e4.","retained_tick":9640984}}
+{"utc_guest_clock":"2026-10-31T18:41:16.500Z","event":"transient-status-read","detail":{"error":"\uc0ac\uc6a9 \uad8c\ud55c\uc774 \uc5c6\uc2b5\ub2c8\ub2e4.","retained_tick":9642046}}
+{"utc_guest_clock":"2026-10-31T18:41:19.718Z","event":"transient-status-read","detail":{"error":"\uc0ac\uc6a9 \uad8c\ud55c\uc774 \uc5c6\uc2b5\ub2c8\ub2e4.","retained_tick":9645171}}
+{"utc_guest_clock":"2026-10-31T18:41:21.453Z","event":"transient-status-read","detail":{"error":"\uc0ac\uc6a9 \uad8c\ud55c\uc774 \uc5c6\uc2b5\ub2c8\ub2e4.","retained_tick":9646921}}
+{"utc_guest_clock":"2026-10-31T18:41:22.421Z","event":"transient-status-read","detail":{"error":"\uc0ac\uc6a9 \uad8c\ud55c\uc774 \uc5c6\uc2b5\ub2c8\ub2e4.","retained_tick":9648046}}
+{"utc_guest_clock":"2026-10-31T18:41:24.671Z","event":"session-end","detail":{"outcome":"PARTIAL_OR_BLOCKED","reason":"CAPTURE_NOT_READY"}}

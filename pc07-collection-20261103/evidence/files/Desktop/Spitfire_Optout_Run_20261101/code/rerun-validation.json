@@ -1,0 +1,24 @@
+{
+  "validation_scope": "New wrapper static review only; no remote execution performed by this subtask",
+  "generated_hta_syntax": "Both scripts passed Node --check after unique path replacement",
+  "embedded_controller": "Generated bootstrap localText exactly matched generated controller-local.hta",
+  "fresh_paths": "UTC timestamp plus random suffix replaces host and guest run directories",
+  "independent_review": "Completed; pending-launch attribution, native argument quoting and manifest self-hash fixes applied",
+  "powershell_ast": {
+    "host": "20255566-p07",
+    "result": "both files parsed with zero errors",
+    "verified_by": "parent agent on p07",
+    "files": [
+      "Start-NewRun.ps1",
+      "Run-ReadOnlyScenario.ps1"
+    ],
+    "execution": "syntax parse only; wrappers not run"
+  },
+  "end_to_end_run": false,
+  "positive_automatic_optout_previously_demonstrated": false,
+  "sha256": {
+    "Start-NewRun.ps1": "19515715496ac34bda9a03e2fed4cbd273cf8e4da623f3ccc532266266074643",
+    "Run-ReadOnlyScenario.ps1": "a6542f85a673b894469995ae578354d55f0e569fdf353dd24f39e0a3de547df5",
+    "RERUN-README.txt": "e42e1483488fe3836aa2647d6a7552c61c61cba43a06229f8ab8209a0c0ad0d8"
+  }
+}

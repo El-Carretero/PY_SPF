@@ -1,0 +1,13 @@
+{"utc_guest_clock":"2026-10-31T17:52:40.078Z","event":"session-start","detail":{"version":"1.0","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2026-10-31T17:52:40.093Z","event":"process-start","detail":{"kind":"probe","pid":816}}
+{"utc_guest_clock":"2026-10-31T17:52:40.578Z","event":"process-end","detail":{"kind":"probe","exit_code":20}}
+{"utc_guest_clock":"2026-10-31T17:52:40.578Z","event":"process-start","detail":{"kind":"install","pid":936}}
+{"utc_guest_clock":"2026-10-31T17:52:56.250Z","event":"process-end","detail":{"kind":"install","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T17:52:56.281Z","event":"process-start","detail":{"kind":"reprobe","pid":1644}}
+{"utc_guest_clock":"2026-10-31T17:53:09.265Z","event":"process-end","detail":{"kind":"reprobe","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T17:53:09.265Z","event":"capture-start","detail":{"pid":1996,"max_seconds":180}}
+{"utc_guest_clock":"2026-10-31T17:53:09.359Z","event":"process-start","detail":{"kind":"preflight","pid":1360}}
+{"utc_guest_clock":"2026-10-31T17:53:12.625Z","event":"process-end","detail":{"kind":"preflight","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T17:53:23.328Z","event":"allowlist","detail":{"modes":["temperature","timing","faults","setup","about","regensvc","temperature","timing","faults","setup","about","user"],"excludes":["start","exit","restart","warning retry","laser run/on/off","HV","temperature or parameter edits","optout changes","fault reset","interlock bypass","unknown controls"]}}
+{"utc_guest_clock":"2026-10-31T17:53:23.687Z","event":"ui-stopped","detail":"CAPTURE_NOT_READY"}
+{"utc_guest_clock":"2026-10-31T17:53:32.796Z","event":"session-end","detail":{"outcome":"PARTIAL_OR_BLOCKED","reason":"CAPTURE_NOT_READY"}}

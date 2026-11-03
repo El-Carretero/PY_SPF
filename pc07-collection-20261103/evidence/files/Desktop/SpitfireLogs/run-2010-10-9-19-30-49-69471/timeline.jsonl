@@ -1,0 +1,15 @@
+{"utc_guest_clock":"2010-10-09T19:30:49.812Z","event":"session-start","detail":{"version":"1.0","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2010-10-09T19:30:49.812Z","event":"process-start","detail":{"kind":"probe","pid":2368}}
+{"utc_guest_clock":"2010-10-09T19:30:50.125Z","event":"process-end","detail":{"kind":"probe","exit_code":0}}
+{"utc_guest_clock":"2010-10-09T19:30:50.125Z","event":"capture-start","detail":{"pid":644,"max_seconds":300}}
+{"utc_guest_clock":"2010-10-09T19:30:50.125Z","event":"process-start","detail":{"kind":"preflight","pid":3096}}
+{"utc_guest_clock":"2010-10-09T19:30:51.140Z","event":"process-end","detail":{"kind":"preflight","exit_code":0}}
+{"utc_guest_clock":"2010-10-09T19:30:51.453Z","event":"allowlist","detail":{"modes":["temperature","timing","faults","setup","about"],"excludes":["start","exit","restart","warning retry","service/user mode typing","laser run/on/off","HV","temperature or parameter edits","optout changes","fault reset","interlock bypass","unknown controls"]}}
+{"utc_guest_clock":"2010-10-09T19:30:56.453Z","event":"transient-status-read","detail":{"error":"Permission denied","retained_tick":16128906}}
+{"utc_guest_clock":"2010-10-09T19:30:59.640Z","event":"action-start","detail":{"mode":"temperature","directory":"C:\u005cSpitfireLogs\u005crun-2010-10-9-19-30-49-69471\u005cactions\u005c01-temperature"}}
+{"utc_guest_clock":"2010-10-09T19:30:59.640Z","event":"process-start","detail":{"kind":"action","pid":2272}}
+{"utc_guest_clock":"2010-10-09T19:31:02.000Z","event":"process-end","detail":{"kind":"action","exit_code":86}}
+{"utc_guest_clock":"2010-10-09T19:31:02.000Z","event":"action-end","detail":{"mode":"temperature","start":"2010-10-09T19:30:59.609Z","end":"2010-10-09T19:31:02.000Z","exit_code":86,"result":{"utc_guest_clock":"2010-10-09T19:31:01.859Z","mode":"temperature","preflight_reason":"","context_reason":"","skip_reason":"","skipped":false,"keyboard_input_implemented":false,"exit_code":86,"original_pid":1524,"original_exact_count":1,"foreign_original_name":false,"preflight_ready":true,"emp_optout":1,"gAccessLevel":0,"main_hwnd":328270,"blocking_warning_count":0,"capture_proof_tick":16133734,"helper_udp_generated":false,"original_left_running":true}}}
+{"utc_guest_clock":"2010-10-09T19:31:02.000Z","event":"ui-stopped","detail":{"reason":"ACTION_EVIDENCE_UNCONFIRMED","capture_reason":"","updated_tick":16134859}}
+{"utc_guest_clock":"2010-10-09T19:31:08.562Z","event":"transient-status-read","detail":{"error":"Permission denied","retained_tick":16140890}}
+{"utc_guest_clock":"2010-10-09T19:31:10.765Z","event":"session-end","detail":{"outcome":"PARTIAL_OR_BLOCKED","reason":"ACTION_EVIDENCE_UNCONFIRMED"}}

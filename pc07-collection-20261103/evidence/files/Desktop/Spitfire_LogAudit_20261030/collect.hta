@@ -1,0 +1,3 @@
+<html><head><title>SPF trace collection</title><HTA:APPLICATION APPLICATIONNAME="SPF trace collector" SINGLEINSTANCE="yes" /><script language="JScript">
+window.onload=function(){try{var fs=new ActiveXObject("Scripting.FileSystemObject");var f=fs.OpenTextFile("C:\\SPF_AUDIT_20261030\\spitfire.jsonl",1,false);var text=f.ReadAll();f.Close();var x=new ActiveXObject("MSXML2.XMLHTTP");x.open("POST","http://10.19.70.13:18977/upload/spitfire-live.jsonl",false);x.send(text);document.getElementById("out").innerText="Uploaded "+text.length+" characters; HTTP "+x.status+"\r\n"+text.substr(Math.max(0,text.length-5000));}catch(e){document.getElementById("out").innerText=e.description||e.message;}}
+</script></head><body><pre id="out">Collecting trace...</pre></body></html>

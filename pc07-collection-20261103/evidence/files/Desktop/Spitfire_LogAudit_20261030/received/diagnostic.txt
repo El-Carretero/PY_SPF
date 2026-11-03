@@ -1,0 +1,27 @@
+udp-feed.exe PID=1928 parent=1908 threads=1 kernel=312500 user=156250 command="C:\SPF_AUDIT_20261030\udp-feed.exe" 600 
+filetrace.exe PID=1936 parent=1464 threads=1 kernel=17500000 user=1093750 command="C:\SPF_AUDIT_20261030\filetrace.exe"  "C:\SPF_AUDIT_20261030\spitfire.jsonl" "C:\Program Files\Spectra-Physics\Spitfire\Spitfire.exe"
+Spitfire.exe PID=1944 parent=1936 threads=5 kernel=2854687500 user=643906250 command="C:\Program Files\Spectra-Physics\Spitfire\Spitfire.exe"
+
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State           PID
+  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       908
+  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:1001           0.0.0.0:0              LISTENING       1944
+  TCP    10.19.70.2:139         0.0.0.0:0              LISTENING       4
+  TCP    127.0.0.1:1025         0.0.0.0:0              LISTENING       1096
+  UDP    0.0.0.0:445            *:*                                    4
+  UDP    0.0.0.0:500            *:*                                    684
+  UDP    0.0.0.0:1024           *:*                                    1944
+  UDP    0.0.0.0:1077           *:*                                    1928
+  UDP    0.0.0.0:4500           *:*                                    684
+  UDP    10.19.70.2:123         *:*                                    1028
+  UDP    10.19.70.2:137         *:*                                    4
+  UDP    10.19.70.2:138         *:*                                    4
+  UDP    10.19.70.2:1900        *:*                                    1112
+  UDP    127.0.0.1:123          *:*                                    1028
+  UDP    127.0.0.1:1036         *:*                                    1464
+  UDP    127.0.0.1:1214         *:*                                    556
+  UDP    127.0.0.1:1296         *:*                                    496
+  UDP    127.0.0.1:1900         *:*                                    1112

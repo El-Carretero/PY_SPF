@@ -1,0 +1,4 @@
+{"utc_guest_clock":"2026-10-31T17:12:51.718Z","action":"regensvc","phase":"begin","detail":"Guest native UI driver; no helper UDP generation","code":0}
+{"utc_guest_clock":"2026-10-31T17:12:56.218Z","action":"local_network_check","phase":"end","detail":"One expected IPv4 adapter; no gateway/default route; direct simulator route","code":0}
+{"utc_guest_clock":"2026-10-31T17:12:57.000Z","action":"regensvc","phase":"sent","detail":"Typed fixed service display sequence into focused main panel","code":0}
+{"utc_guest_clock":"2026-10-31T17:13:02.484Z","action":"regensvc","phase":"end","detail":"Action finished; before/after screenshot and inventory retained","code":0}

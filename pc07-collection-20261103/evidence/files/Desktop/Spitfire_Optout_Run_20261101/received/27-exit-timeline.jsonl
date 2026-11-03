@@ -1,0 +1,7 @@
+{"utc_guest_clock":"2026-10-31T17:16:16.984Z","action":"exit","phase":"begin","detail":"Guest native UI driver; no helper UDP generation","code":0}
+{"utc_guest_clock":"2026-10-31T17:16:23.031Z","action":"local_network_check","phase":"end","detail":"One expected IPv4 adapter; no gateway/default route; direct simulator route","code":0}
+{"utc_guest_clock":"2026-10-31T17:16:28.546Z","action":"menu","phase":"blocked","detail":"Expected original-process popup geometry not observed; no item click","code":43}
+{"utc_guest_clock":"2026-10-31T17:16:28.578Z","action":"exit","phase":"menu_unavailable","detail":"File popup guard failed43 before any item click; trying reviewed main close-control path","code":43}
+{"utc_guest_clock":"2026-10-31T17:16:32.093Z","action":"exit","phase":"titlebar_fallback_begin","detail":"One WM_SYSCOMMAND SC_CLOSE to reviewed main; CVI close_ctrl2 invokes QuitProgram/QuitUserInterface; no ESC or termination","code":0}
+{"utc_guest_clock":"2026-10-31T17:16:32.500Z","action":"exit","phase":"titlebar_fallback_confirmed","detail":"Identified original process exited through reviewed GUI close-control path","code":0}
+{"utc_guest_clock":"2026-10-31T17:16:32.812Z","action":"exit","phase":"end","detail":"Action finished; before/after screenshot and inventory retained","code":0}

@@ -1,0 +1,289 @@
+{
+  "dll": "/workspace/PY_SPF/spitfire/resources/runtime/cvirte.dll",
+  "sha256": "d4151c53a2ecee4431ba88cd90d88db575f8ad18a6e48484501ff10a83c0db6d",
+  "preferred_image_base": "0x68420000",
+  "method": "Read-only PE export, switch-table, x86 Capstone disassembly; no DLL execution. Artifact write only.",
+  "conclusion": "The native WM_SYSCOMMAND/SC_CLOSE path dispatches a CVI panel close event; absent consumption/gating, the runtime resolves ATTR_CLOSE_CTRL and dispatches event 1 (EVENT_COMMIT) for that control. With ATTR_CLOSE_CTRL=2, this targets control 2.",
+  "chain": [
+    {
+      "at": "0x685d5581",
+      "finding": "WM_SYSCOMMAND (0x112) branches to 0x685d562c; wParam masked with 0xfff0 and compared with SC_CLOSE 0xf060."
+    },
+    {
+      "at": "0x685d569b",
+      "finding": "SC_CLOSE path checks native panel flag byte +0x4c bit 0x08; if set sends internal event 0x0f through 0x684799e4. Alternate native-window branch 0x685d50b4 performs same SC_CLOSE check and helper 0x68479ab1 constructs event 0x0f."
+    },
+    {
+      "at": "0x68570c07",
+      "finding": "Internal event 0x0f branches to 0x68570e11, which posts internal event 0x13a0 through 0x6843e803."
+    },
+    {
+      "at": "0x68571029",
+      "finding": "Internal event 0x13a0 maps to public panel event 0x0b at 0x6857104b."
+    },
+    {
+      "at": "0x68578e64",
+      "finding": "GetPanelAttribute implementation case 0x250 (592 ATTR_CLOSE_CTRL) calls 0x68588d5a; returned associated control object ID is read at +0x28 in 0x68578f76. Setter case 0x250 resolves provided control ID then uses 0x68588ce2."
+    },
+    {
+      "at": "0x68571144",
+      "finding": "For unconsumed panel event 0x0b, valid panel, close-control object present, and dispatch enabled, calls 0x68588d5a and sends internal event 0x271c with control native handle +0xac and event argument 1 at 0x68571187."
+    }
+  ],
+  "limits": [
+    "Static analysis supports normal titlebar/system-menu Close (WM_SYSCOMMAND/SC_CLOSE). It does not establish arbitrary externally posted WM_CLOSE as equivalent; direct WM_CLOSE was not fully traced.",
+    "Runtime gating exists: panel/native flags, valid panel/control handles, event loop state, event-consumption callback return, and dispatch mode can suppress handling. Runtime state was not inspected here.",
+    "ATTR_CLOSE_CTRL=2 and control 2 callback QuitProgram -> QuitUserInterface(0) are facts supplied by parent, not independently re-derived in this DLL review.",
+    "No process was closed, no remote action occurred, and no source or binary was modified."
+  ],
+  "disassembly": [
+    {
+      "start_va": "0x68578e64",
+      "rva": "0x158e64",
+      "bytes": "51e8f0fe000085c0590f8503010000832600",
+      "instructions": [
+        "68578e64: push ecx",
+        "68578e65: call 0x68588d5a",
+        "68578e6a: test eax, eax",
+        "68578e6c: pop ecx",
+        "68578e6d: jne 0x68578f76",
+        "68578e73: and dword ptr [esi], 0"
+      ]
+    },
+    {
+      "start_va": "0x68578f76",
+      "rva": "0x158f76",
+      "bytes": "8b008b4028e9e5020000",
+      "instructions": [
+        "68578f76: mov eax, dword ptr [eax]",
+        "68578f78: mov eax, dword ptr [eax + 0x28]",
+        "68578f7b: jmp 0x68579265"
+      ]
+    },
+    {
+      "start_va": "0x685a9a1d",
+      "rva": "0x189a1d",
+      "bytes": "3bc3895d0c741d8d4d0c51508b06ff7028e8f9d2faff83c40c3bc38945f80f8c78060000ff750c56e898f2fdffe927ffff",
+      "instructions": [
+        "685a9a1d: cmp eax, ebx",
+        "685a9a1f: mov dword ptr [ebp + 0xc], ebx",
+        "685a9a22: je 0x685a9a41",
+        "685a9a24: lea ecx, [ebp + 0xc]",
+        "685a9a27: push ecx",
+        "685a9a28: push eax",
+        "685a9a29: mov eax, dword ptr [esi]",
+        "685a9a2b: push dword ptr [eax + 0x28]",
+        "685a9a2e: call 0x68556d2c",
+        "685a9a33: add esp, 0xc",
+        "685a9a36: cmp eax, ebx",
+        "685a9a38: mov dword ptr [ebp - 8], eax",
+        "685a9a3b: jl 0x685aa0b9",
+        "685a9a41: push dword ptr [ebp + 0xc]",
+        "685a9a44: push esi",
+        "685a9a45: call 0x68588ce2"
+      ]
+    },
+    {
+      "start_va": "0x685d555a",
+      "rva": "0x1b555a",
+      "bytes": "b8020200003bc80f87790200000f841a0400008bc12d050100000f845d020000480f841e02000083e80c0f84a2000000",
+      "instructions": [
+        "685d555a: mov eax, 0x202",
+        "685d555f: cmp ecx, eax",
+        "685d5561: ja 0x685d57e0",
+        "685d5567: je 0x685d5987",
+        "685d556d: mov eax, ecx",
+        "685d556f: sub eax, 0x105",
+        "685d5574: je 0x685d57d7",
+        "685d557a: dec eax",
+        "685d557b: je 0x685d579f",
+        "685d5581: sub eax, 0xc",
+        "685d5584: je 0x685d562c"
+      ]
+    },
+    {
+      "start_va": "0x685d562c",
+      "rva": "0x1b562c",
+      "bytes": "8b451025f0ff0000b960f000003bc10f87c100000074442d10f000",
+      "instructions": [
+        "685d562c: mov eax, dword ptr [ebp + 0x10]",
+        "685d562f: and eax, 0xfff0",
+        "685d5634: mov ecx, 0xf060",
+        "685d5639: cmp eax, ecx",
+        "685d563b: ja 0x685d5702",
+        "685d5641: je 0x685d5687"
+      ]
+    },
+    {
+      "start_va": "0x685d569b",
+      "rva": "0x1b569b",
+      "bytes": "8b03f6404c0874118d45dc50c745dc0f000000e83143eaff59",
+      "instructions": [
+        "685d569b: mov eax, dword ptr [ebx]",
+        "685d569d: test byte ptr [eax + 0x4c], 8",
+        "685d56a1: je 0x685d56b4",
+        "685d56a3: lea eax, [ebp - 0x24]",
+        "685d56a6: push eax",
+        "685d56a7: mov dword ptr [ebp - 0x24], 0xf",
+        "685d56ae: call 0x684799e4",
+        "685d56b3: pop ecx"
+      ]
+    },
+    {
+      "start_va": "0x685d50b4",
+      "rva": "0x1b50b4",
+      "bytes": "8b451025f0ff00003d60f0000075178b03f6404c080f84ef09000053e8dc49eaff",
+      "instructions": [
+        "685d50b4: mov eax, dword ptr [ebp + 0x10]",
+        "685d50b7: and eax, 0xfff0",
+        "685d50bc: cmp eax, 0xf060",
+        "685d50c1: jne 0x685d50da",
+        "685d50c3: mov eax, dword ptr [ebx]",
+        "685d50c5: test byte ptr [eax + 0x4c], 8",
+        "685d50c9: je 0x685d5abe",
+        "685d50cf: push ebx",
+        "685d50d0: call 0x68479ab1"
+      ]
+    },
+    {
+      "start_va": "0x68479ab1",
+      "rva": "0x59ab1",
+      "bytes": "558bec83ec208b45088945e48d45e050c745e00f000000e817ffffff59c9c3",
+      "instructions": [
+        "68479ab1: push ebp",
+        "68479ab2: mov ebp, esp",
+        "68479ab4: sub esp, 0x20",
+        "68479ab7: mov eax, dword ptr [ebp + 8]",
+        "68479aba: mov dword ptr [ebp - 0x1c], eax",
+        "68479abd: lea eax, [ebp - 0x20]",
+        "68479ac0: push eax",
+        "68479ac1: mov dword ptr [ebp - 0x20], 0xf",
+        "68479ac8: call 0x684799e4",
+        "68479acd: pop ecx",
+        "68479ace: leave",
+        "68479acf: ret"
+      ]
+    },
+    {
+      "start_va": "0x68570c07",
+      "rva": "0x150c07",
+      "bytes": "83fa0f0f8401020000",
+      "instructions": [
+        "68570c07: cmp edx, 0xf",
+        "68570c0a: je 0x68570e11"
+      ]
+    },
+    {
+      "start_va": "0x68570e11",
+      "rva": "0x150e11",
+      "bytes": "e826dfffff85c00f85b90e0000575757575757575768a0130000e90dfeffff",
+      "instructions": [
+        "68570e11: call 0x6856ed3c",
+        "68570e16: test eax, eax",
+        "68570e18: jne 0x68571cd7",
+        "68570e1e: push edi",
+        "68570e1f: push edi",
+        "68570e20: push edi",
+        "68570e21: push edi",
+        "68570e22: push edi",
+        "68570e23: push edi",
+        "68570e24: push edi",
+        "68570e25: push edi",
+        "68570e26: push 0x13a0",
+        "68570e2b: jmp 0x68570c3d"
+      ]
+    },
+    {
+      "start_va": "0x68571029",
+      "rva": "0x151029",
+      "bytes": "81e9931300000f84ad000000490f849d00000083e90a7432497413490f859e000000c745680b000000e992000000",
+      "instructions": [
+        "68571029: sub ecx, 0x1393",
+        "6857102f: je 0x685710e2",
+        "68571035: dec ecx",
+        "68571036: je 0x685710d9",
+        "6857103c: sub ecx, 0xa",
+        "6857103f: je 0x68571073",
+        "68571041: dec ecx",
+        "68571042: je 0x68571057",
+        "68571044: dec ecx",
+        "68571045: jne 0x685710e9",
+        "6857104b: mov dword ptr [ebp + 0x68], 0xb",
+        "68571052: jmp 0x685710e9"
+      ]
+    },
+    {
+      "start_va": "0x68571144",
+      "rva": "0x151144",
+      "bytes": "e883c6ebff85c07552397d58754d837d680b754757ff7550e81f1f040085c05959743856e8ed7b01008bf03bf759742b397d707426ff754ce85563edff8b06575757576a01ffb0ac000000681c270000ff754ce820d6ecff83c424",
+      "instructions": [
+        "68571144: call 0x6842d7cc",
+        "68571149: test eax, eax",
+        "6857114b: jne 0x6857119f",
+        "6857114d: cmp dword ptr [ebp + 0x58], edi",
+        "68571150: jne 0x6857119f",
+        "68571152: cmp dword ptr [ebp + 0x68], 0xb",
+        "68571156: jne 0x6857119f",
+        "68571158: push edi",
+        "68571159: push dword ptr [ebp + 0x50]",
+        "6857115c: call 0x685b3080",
+        "68571161: test eax, eax",
+        "68571163: pop ecx",
+        "68571164: pop ecx",
+        "68571165: je 0x6857119f",
+        "68571167: push esi",
+        "68571168: call 0x68588d5a",
+        "6857116d: mov esi, eax",
+        "6857116f: cmp esi, edi",
+        "68571171: pop ecx",
+        "68571172: je 0x6857119f",
+        "68571174: cmp dword ptr [ebp + 0x70], edi",
+        "68571177: je 0x6857119f",
+        "68571179: push dword ptr [ebp + 0x4c]",
+        "6857117c: call 0x684474d6",
+        "68571181: mov eax, dword ptr [esi]",
+        "68571183: push edi",
+        "68571184: push edi",
+        "68571185: push edi",
+        "68571186: push edi",
+        "68571187: push 1",
+        "68571189: push dword ptr [eax + 0xac]",
+        "6857118f: push 0x271c",
+        "68571194: push dword ptr [ebp + 0x4c]",
+        "68571197: call 0x6843e7bc",
+        "6857119c: add esp, 0x24"
+      ]
+    },
+    {
+      "start_va": "0x68588dc3",
+      "rva": "0x168dc3",
+      "bytes": "8bb07401000033db85f6741e56ff7028e8a8a2020085c05959740f8b0756ff7028e8e967020059598bd88bc35f5e5bc9c3",
+      "instructions": [
+        "68588dc3: mov esi, dword ptr [eax + 0x174]",
+        "68588dc9: xor ebx, ebx",
+        "68588dcb: test esi, esi",
+        "68588dcd: je 0x68588ded",
+        "68588dcf: push esi",
+        "68588dd0: push dword ptr [eax + 0x28]",
+        "68588dd3: call 0x685b3080",
+        "68588dd8: test eax, eax",
+        "68588dda: pop ecx",
+        "68588ddb: pop ecx",
+        "68588ddc: je 0x68588ded",
+        "68588dde: mov eax, dword ptr [edi]",
+        "68588de0: push esi",
+        "68588de1: push dword ptr [eax + 0x28]",
+        "68588de4: call 0x685af5d2",
+        "68588de9: pop ecx",
+        "68588dea: pop ecx",
+        "68588deb: mov ebx, eax",
+        "68588ded: mov eax, ebx",
+        "68588def: pop edi",
+        "68588df0: pop esi",
+        "68588df1: pop ebx",
+        "68588df2: leave",
+        "68588df3: ret"
+      ]
+    }
+  ]
+}

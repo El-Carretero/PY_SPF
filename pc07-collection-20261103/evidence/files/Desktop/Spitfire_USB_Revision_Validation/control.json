@@ -1,0 +1,1 @@
+{"id":"rev-final-quit","ops":[{"op":"run","command":"shutdown.exe -s -t 15","wait":false,"style":0},{"op":"quit"}]}

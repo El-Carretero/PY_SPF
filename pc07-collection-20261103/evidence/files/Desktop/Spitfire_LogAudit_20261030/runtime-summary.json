@@ -1,0 +1,85 @@
+{
+  "original_sha256": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b",
+  "environment": "time=Fri, 30 Oct 2026 11:57:47 UTC\noriginal=C:\\Program Files\\Spectra-Physics\\Spitfire\\Spitfire.exe\nworking_directory=C:\\Program Files\\Spectra-Physics\\Spitfire\\\nuser=You\ncomputer=XLAPPLAS\nOS=Microsoft Windows XP Professional | 5.1.2600 | Service Pack 3\n",
+  "method": "Original XP process under native file API debugger; captured actual UDP queries/replies against VMware host-only virtual responder",
+  "original_pid": 1944,
+  "trace_started_utc": "2026-10-30T11:58:13.906Z",
+  "trace_finished": {
+    "event": "trace_finished",
+    "utc": "2026-10-30T12:31:09.734Z",
+    "elapsed_ms": 1975828,
+    "pid": 1944,
+    "tid": 1948,
+    "exit_code": 0,
+    "all_hooks_installed": true,
+    "tracing_error": true
+  },
+  "event_count": 8242,
+  "file_writes": [
+    {
+      "path": "\\??\\PIPE\\lsarpc",
+      "category": "named_pipe_ipc",
+      "calls": 1,
+      "requested_bytes": 72,
+      "successful_calls": 1,
+      "first_utc": "2026-10-30T11:58:18.812Z",
+      "last_utc": "2026-10-30T11:58:18.812Z"
+    },
+    {
+      "path": "\\??\\C:\\Program Files\\Spectra-Physics\\Spitfire\\\\datalog.csv",
+      "category": "disk_file",
+      "calls": 134,
+      "requested_bytes": 871,
+      "successful_calls": 134,
+      "first_utc": "2026-10-30T12:16:03.500Z",
+      "last_utc": "2026-10-30T12:17:09.531Z"
+    }
+  ],
+  "csv": {
+    "path": "C:\\Program Files\\Spectra-Physics\\Spitfire\\datalog.csv",
+    "bytes": 871,
+    "rows": 67,
+    "unique_lines": [
+      "0.55, 36.78"
+    ]
+  },
+  "comparison_errors": 0,
+  "shutdown_tracer_error_count": 100,
+  "first_shutdown_error_preceding_event": {
+    "event": "file_api_enter",
+    "utc": "2026-10-30T12:31:09.296Z",
+    "elapsed_ms": 1975391,
+    "pid": 1944,
+    "tid": 1948,
+    "id": 4057,
+    "api": "NtClose",
+    "path": "\\Device\\Tcp",
+    "handle": "0x00000100"
+  },
+  "selftest_finished": {
+    "event": "trace_finished",
+    "utc": "2026-10-30T11:57:48.015Z",
+    "elapsed_ms": 250,
+    "pid": 1896,
+    "tid": 1900,
+    "exit_code": 0,
+    "all_hooks_installed": true,
+    "tracing_error": false
+  },
+  "ui_actions_utc": [
+    "2026-10-30T12:15:26.4641923Z ShowMessagesOn DataLoggingOff",
+    "2026-10-30T12:16:07.4274034Z DataLoggingOn ShowMessagesOn",
+    "2026-10-30T12:17:14.8352946Z DataLoggingOff ShowMessagesOn",
+    "2026-10-30T12:19:37.6552245Z NormalFileExitRequested"
+  ],
+  "conclusion": "No communication-log disk file written in tested XP run; Show Messages is an in-memory UI display. Only datalog.csv received disk writes when Data Logging was enabled.",
+  "limits": [
+    "Virtual replies, not physical laser hardware",
+    "Only original process native file APIs tracked; child-process and memory-mapped writes not directly traced",
+    "At normal exit, the tracer reported SuspendThread failures on terminating threads; shutdown capture is incomplete. The communication/CSV comparison snapshots contain no tracer errors.",
+    "The debugger temporarily used process-memory breakpoints; original EXE file hash matched attachment"
+  ],
+  "unused_helper": "A read-only memory diagnostic helper was blocked by host antivirus and not used; protection settings were not disabled.",
+  "virtual_udp_exchanges": 7001,
+  "ui_action_timestamp_note": "UI action log timestamps were recorded after the clicks; native file API timestamps are authoritative for writes."
+}

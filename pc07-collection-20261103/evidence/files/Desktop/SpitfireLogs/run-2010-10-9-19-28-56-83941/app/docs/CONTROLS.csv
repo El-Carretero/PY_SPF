@@ -1,0 +1,283 @@
+﻿id,screen,panel_id,control_id,label,callback,policy,reason
+MENU_temperature,Temperature Control,2,,__Temperature Control,show_ccu,ALLOW_SHOW_PANEL,해시/원본 창/캡처/Opt-out 확인 후 고정된 화면 표시 메뉴만 선택.
+MENU_timing,Timing and High Voltage,5,,__Timing and High Voltage,show_info,ALLOW_SHOW_PANEL,해시/원본 창/캡처/Opt-out 확인 후 고정된 화면 표시 메뉴만 선택.
+MENU_faults,Active Faults,3,,__Active Faults,show_faults,ALLOW_SHOW_PANEL,해시/원본 창/캡처/Opt-out 확인 후 고정된 화면 표시 메뉴만 선택.
+MENU_setup,Empower Setup,9,,__Empower Setup,show_setup,ALLOW_SHOW_PANEL,해시/원본 창/캡처/Opt-out 확인 후 고정된 화면 표시 메뉴만 선택. Opt-out ON 사용자 모드에서는 원본이 메뉴를 비활성화하므로 생략.
+MENU_about,Help / About,4,,__About,show_help,ALLOW_SHOW_PANEL,해시/원본 창/캡처/Opt-out 확인 후 고정된 화면 표시 메뉴만 선택.
+MENU_exit,File / Exit,6,,E__xit,exit_from_menu,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+ACTION_inventory,Spitfire,6,,inventory,,SKIP_ACTIVATION,관찰만 수행. 개별 컨트롤 조작은 허용 목록에 없음.
+ACTION_launch,Spitfire,6,,launch,,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+ACTION_regensvc,Spitfire,6,,regensvc,,EXCLUDED_AUTOMATIC_TEXT_INPUT,CVI 활성 설정 컨트롤에 문자가 전달되는 경로를 배제할 수 없어 자동 서비스/사용자 모드 전환은 실행하지 않음.
+ACTION_optout_on,Spitfire,6,,optout_on,,SKIP_ACTIVATION,관찰만 수행. 개별 컨트롤 조작은 허용 목록에 없음.
+ACTION_restart,Spitfire,6,,restart,,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+ACTION_idle_stabilization,Spitfire,6,,idle_stabilization,,SKIP_ACTIVATION,관찰만 수행. 개별 컨트롤 조작은 허용 목록에 없음.
+USER_OPTOUT_TRANSITION,Temperature Control,2,9,EMPOWER OPT-OUT,empoweroptoutcall,SKIP_ACTIVATION,관찰만 수행. 개별 컨트롤 조작은 허용 목록에 없음.
+P2_C2,Temperature Control,2,2,HUMIDITY,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P2_C3,Temperature Control,2,3,TEC TEMPERATURE,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P2_C4,Temperature Control,2,4,XTAL TEMPERATURE,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P2_C5,Temperature Control,2,5,SIZE_SERVICE,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P2_C6,Temperature Control,2,6,HIDE ME,close_ecu,ALLOW_EXACT_AUXILIARY_HIDE_ONLY,새로 연 보조 창만 검증된 SC_CLOSE를 통해 해당 HidePanel 콜백으로 숨김. 일반 버튼 클릭이나 원본 창 종료는 아님.
+P2_C7,Temperature Control,2,7,SET TEMPERATURE,ecu_set_temp,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P2_C8,Temperature Control,2,8,TEC,teconoff,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P2_C9,Temperature Control,2,9,EMPOWER OPT-OUT,empoweroptoutcall,SKIP_ACTIVATION,관찰만 수행. 개별 컨트롤 조작은 허용 목록에 없음.
+P2_C10,Temperature Control,2,10,COMPRESSOR OPT-OUT,optoutcompressorcall,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P2_C11,Temperature Control,2,11,TCU OPT-OUT,optoutecucall,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P2_C12,Temperature Control,2,12,"TDG ERROR
+OVERRIDE",tdg_fault_override,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P2_C13,Temperature Control,2,13,"HUMIDITY ERROR
+OVERRIDE",humoverride,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P2_C14,Temperature Control,2,14,TEC ON,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P2_C15,Temperature Control,2,15,HUMIDITY,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P2_C16,Temperature Control,2,16,TEMP IN RANGE,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P2_C17,Temperature Control,2,17,ESC_TURNOFF,esc_turnoff,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P3_C2,Active Faults,3,2,LBO STABILITY,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C3,Active Faults,3,3,LBO TEMP,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C4,Active Faults,3,4,TCU,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C5,Active Faults,3,5,TDG,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C6,Active Faults,3,6,WATERFLOW,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C7,Active Faults,3,7,COVER,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C8,Active Faults,3,8,TEC OVERTEMP,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C9,Active Faults,3,9,EMP,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C10,Active Faults,3,10,HUMIDITY,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C11,Active Faults,3,11,OVERTEMP,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C12,Active Faults,3,12,OVERCURR,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C13,Active Faults,3,13,KEYSWITCH,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C14,Active Faults,3,14,HEAD,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C15,Active Faults,3,15,COM,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C16,Active Faults,3,16,PROTECTION,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C17,Active Faults,3,17,UNDERFREQ,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C18,Active Faults,3,18,VSWR,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C19,Active Faults,3,19,USER,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C20,Active Faults,3,20,MAIN,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C21,Active Faults,3,21,SYS,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C22,Active Faults,3,22,RELAY,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C23,Active Faults,3,23,KEYSWITCH,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C24,Active Faults,3,24,OVERPOWER,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C25,Active Faults,3,25,OVERTEMP,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C26,Active Faults,3,26,__CLOSE,close_fault,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P3_C27,Active Faults,3,27,__CLOSE,close_fault,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P3_C28,Active Faults,3,28,ESC_TURNOFF,esc_turnoff,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P3_C29,Active Faults,3,29,__CLOSE,close_fault,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P3_C30,Active Faults,3,30,OVERVOLT,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C31,Active Faults,3,31,CK SUM,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C32,Active Faults,3,32,OVERTEMP,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C33,Active Faults,3,33,__CLOSE,close_fault,ALLOW_EXACT_AUXILIARY_HIDE_ONLY,새로 연 보조 창만 검증된 SC_CLOSE를 통해 해당 HidePanel 콜백으로 숨김. 일반 버튼 클릭이나 원본 창 종료는 아님.
+P3_C34,Active Faults,3,34,KILLSW,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C35,Active Faults,3,35,OVERPOWER,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C36,Active Faults,3,36,DECORATION_5,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C37,Active Faults,3,37,TEXTMSG_6,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C38,Active Faults,3,38,TEXTMSG_8,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C39,Active Faults,3,39,TEXTMSG_7,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C40,Active Faults,3,40,DECORATION_13,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C41,Active Faults,3,41,DECORATION_12,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C42,Active Faults,3,42,DECORATION_16,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C43,Active Faults,3,43,DECORATION_15,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C44,Active Faults,3,44,DECORATION_14,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C45,Active Faults,3,45,DECORATION_11,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C46,Active Faults,3,46,DECORATION_10,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C47,Active Faults,3,47,DECORATION_3,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C48,Active Faults,3,48,TEXTMSG_5,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C49,Active Faults,3,49,TEXTMSG,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C50,Active Faults,3,50,TEXTMSG_2,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C51,Active Faults,3,51,TEXTMSG_3,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C52,Active Faults,3,52,TEXTMSG_4,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P3_C53,Active Faults,3,53,CLEAR FAULTS,cllbckcmd_reset,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P1_C2,Programmer,1,2,__OK,Close_Programmer_Panel_Callback,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P1_C3,Programmer,1,3,Data Logging,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P1_C4,Programmer,1,4,ESC_TURNOFF,esc_turnoff,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P7_C2,Compressor,7,2,__CLOSE,close_service,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P4_C2,Help,4,2,TEXTMSG_3,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C3,Help,4,3,TEXTMSG_ECU,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C4,Help,4,4,TEXTMSG_COMP,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C5,Help,4,5,TEXTMSG_TDG,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C6,Help,4,6,TEXTMSG_ASC,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C7,Help,4,7,TEXTMSG_EMP,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C8,Help,4,8,TEXTMSG,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C9,Help,4,9,__CLOSE,close_help,ALLOW_EXACT_AUXILIARY_HIDE_ONLY,새로 연 보조 창만 검증된 SC_CLOSE를 통해 해당 HidePanel 콜백으로 숨김. 일반 버튼 클릭이나 원본 창 종료는 아님.
+P4_C10,Help,4,10,TEXTMSG_4,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C11,Help,4,11,TEXTMSG_5,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C12,Help,4,12,TEXTMSG_6,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C13,Help,4,13,TEXTMSG_7,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C14,Help,4,14,TEXTMSG_8,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C15,Help,4,15,TEXTMSG_9,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C16,Help,4,16,TEXTMSG_10,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P4_C17,Help,4,17,ESC_TURNOFF,esc_turnoff,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P8_C2,Empower Service,8,2,SET OVERTEMP (C),secretcall6,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P8_C3,Empower Service,8,3,READ OVERTEMP (C),,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P8_C4,Empower Service,8,4,SET UNDERTEMP (C),secretcall7,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P8_C5,Empower Service,8,5,READ UNDERTEMP (C),,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P8_C6,Empower Service,8,6,SET MAX POWER (mW),secretcall5,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P8_C7,Empower Service,8,7,READ MAX POWER (mW),,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P8_C8,Empower Service,8,8,SET INTERCEPT (mW),secretcall4,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P8_C9,Empower Service,8,9,READ INTERCEPT (mW),,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P8_C10,Empower Service,8,10,SET SLOPE (mW/V),secretcall3,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P8_C11,Empower Service,8,11,READ SLOPE (mW/V),,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P8_C12,Empower Service,8,12,BOXSETCURR_2,secretcall1,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P8_C13,Empower Service,8,13,SET MAX CURR (A),secretcall2,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P8_C14,Empower Service,8,14,TEXTMSG,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P8_C15,Empower Service,8,15,LBO TEMP (C),,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P8_C16,Empower Service,8,16,READ MAX CURR (A),,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P8_C17,Empower Service,8,17,__CLOSE,close_secrets_emp,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P8_C18,Empower Service,8,18,LBO STABILITY FAULT,LBOstabilitybreak,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P8_C19,Empower Service,8,19,ESC_TURNOFF,esc_turnoff,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C2,Timing and High Voltage,5,2,OSCILLATOR SYNC,osc_mode,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C3,Timing and High Voltage,5,3,AMPLIFIER TRIGGER,trig_mode,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C4,Timing and High Voltage,5,4,ZERO DELAY,SetCoarseCallback_btn0,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C5,Timing and High Voltage,5,5,SET OSC FREQ TO MEASURED,cmd_osc_to_meas,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C6,Timing and High Voltage,5,6,BWD_1,setbwd1,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C7,Timing and High Voltage,5,7,"MEASURED OSC
+FREQUENCY (MHz)",,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C8,Timing and High Voltage,5,8,NENA_1,setena1,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C9,Timing and High Voltage,5,9,BWD_2,setbwd2,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C10,Timing and High Voltage,5,10,NENA_2,setena2,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C11,Timing and High Voltage,5,11,BWD_5,setbwd5,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C12,Timing and High Voltage,5,12,NENA_5,setena5,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C13,Timing and High Voltage,5,13,BWD_3,setbwd3,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C14,Timing and High Voltage,5,14,NENA_3,setena3,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C15,Timing and High Voltage,5,15,BWD_4,setbwd4,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C16,Timing and High Voltage,5,16,NENA_4,setena4,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C17,Timing and High Voltage,5,17,TEXTMSG_14,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C18,Timing and High Voltage,5,18,TEXTMSG_5,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C19,Timing and High Voltage,5,19,TEXTMSG_10,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C20,Timing and High Voltage,5,20,ESC_TURNOFF,esc_turnoff,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C21,Timing and High Voltage,5,21,__CLOSE,close_info,ALLOW_EXACT_AUXILIARY_HIDE_ONLY,새로 연 보조 창만 검증된 SC_CLOSE를 통해 해당 HidePanel 콜백으로 숨김. 일반 버튼 클릭이나 원본 창 종료는 아님.
+P5_C22,Timing and High Voltage,5,22,TEXTMSG_7,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C23,Timing and High Voltage,5,23,TOGGLEBUTTON_4,swChannelEnableCallback_btn4,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C24,Timing and High Voltage,5,24,TEXTMSG_11,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C25,Timing and High Voltage,5,25,TOGGLEBUTTON_3,swChannelEnableCallback_btn3,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C26,Timing and High Voltage,5,26,TEXTMSG_12,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C27,Timing and High Voltage,5,27,TEXTMSG_13,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C28,Timing and High Voltage,5,28,"INTERNAL AMP
+REP RATE",trig_reprate,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C29,Timing and High Voltage,5,29,HV CURR 2,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C30,Timing and High Voltage,5,30,HV CURR 1,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C31,Timing and High Voltage,5,31,HIGH VOLTAGE 2,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C32,Timing and High Voltage,5,32,HIGH VOLTAGE 1,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C33,Timing and High Voltage,5,33,HIGH VOLTAGE 2,SetHVCallback2,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C34,Timing and High Voltage,5,34,HV_ON,HV_switch,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C35,Timing and High Voltage,5,35,HIGH VOLTAGE 1,SetHVCallback1,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C36,Timing and High Voltage,5,36,ENABLE_ENABLE,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C37,Timing and High Voltage,5,37,Polarity,bwdpolarity,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C38,Timing and High Voltage,5,38,DECORATION_6,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C39,Timing and High Voltage,5,39,BWD Diodes,bwdduality,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C40,Timing and High Voltage,5,40,TEXTMSG_8,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C41,Timing and High Voltage,5,41,CH4,SetCoarseCallback_btn4,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C42,Timing and High Voltage,5,42,CH3,SetCoarseCallback_btn3,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C43,Timing and High Voltage,5,43,DIVISOR,DivisorCallback,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C44,Timing and High Voltage,5,44,OSC,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C45,Timing and High Voltage,5,45,10ns,Ch4_Coarse_Check_Callback,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C46,Timing and High Voltage,5,46,10ns,Ch3_Coarse_Check_Callback,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P5_C47,Timing and High Voltage,5,47,HV_LED,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P5_C48,Timing and High Voltage,5,48,MODE,setopmode,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C2,Spitfire,6,2,__Quit,QuitProgram,SKIP_ACTIVATION,관찰만 수행. 개별 컨트롤 조작은 허용 목록에 없음.
+P6_C3,Spitfire,6,3,MOTOR SPEED,com_motor_speed,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C4,Spitfire,6,4,Mouse Timer,tmr_Mouse_Callback1,SKIP_ACTIVATION,관찰만 수행. 개별 컨트롤 조작은 허용 목록에 없음.
+P6_C5,Spitfire,6,5,RESET BOTH,BW_reset,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C6,Spitfire,6,6,"(INT) AMP REP
+RATE (Hz)",,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C7,Spitfire,6,7,"(EXT) AMP REP
+RATE (Hz)",,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C8,Spitfire,6,8,"(INT) PUMP REP
+RATE (Hz)",,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C9,Spitfire,6,9,"(EXT) PUMP REP
+RATE (Hz)",,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C10,Spitfire,6,10,RUN,cllbck,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C11,Spitfire,6,11,STOP,parse_command5,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C12,Spitfire,6,12,PICTURE,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C13,Spitfire,6,13,TDG,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C14,Spitfire,6,14,TCU FAULT,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C15,Spitfire,6,15,TDG FAULT,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C16,Spitfire,6,16,TCU,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C17,Spitfire,6,17,AMP,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C18,Spitfire,6,18,ESC_TURNOFF,esc_turnoff,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C19,Spitfire,6,19,EMP,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C20,Spitfire,6,20,TOGGLEBUTTON_5,swChannelEnableCallback_btn5,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C21,Spitfire,6,21,TOGGLEBUTTON_2,swChannelEnableCallback_btn2,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C22,Spitfire,6,22,RUN,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C23,Spitfire,6,23,TOGGLEBUTTON_1,swChannelEnableCallback_btn1,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C24,Spitfire,6,24,COUNT,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C25,Spitfire,6,25,RAMP,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C26,Spitfire,6,26,PD2,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C27,Spitfire,6,27,PD1,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C28,Spitfire,6,28,TEXTMSG_2,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C29,Spitfire,6,29,FAULT,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C30,Spitfire,6,30,MAIN,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C31,Spitfire,6,31,STOP,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C32,Spitfire,6,32,MSG_EMISSION,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C33,Spitfire,6,33,TEXTBOX_DBG_WR,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C34,Spitfire,6,34,TEXTBOX_DBG_READ,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C35,Spitfire,6,35,DECORATION_2,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C36,Spitfire,6,36,DECORATION_3,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C37,Spitfire,6,37,DECORATION_7,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C38,Spitfire,6,38,DECORATION_6,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C39,Spitfire,6,39,DECORATION_4,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C40,Spitfire,6,40,DECORATION_5,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C41,Spitfire,6,41,SYNC,SetCoarseCallback_btn5,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C42,Spitfire,6,42,PC2,SetCoarseCallback_btn2,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C43,Spitfire,6,43,PC1,SetCoarseCallback_btn1,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C44,Spitfire,6,44,TEXTMESSAGE,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C45,Spitfire,6,45,STEP DOWN 1 LEVEL,cmtRETUSERMODE,SKIP_ACTIVATION,관찰만 수행. 개별 컨트롤 조작은 허용 목록에 없음.
+P6_C46,Spitfire,6,46,Show Messages,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C47,Spitfire,6,47,Monitor,Monitor_switch,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C48,Spitfire,6,48,Closed Loop Mode,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C49,Spitfire,6,49,DARKSCREEN,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C50,Spitfire,6,50,FAULT (click here),display_faults,SKIP_ACTIVATION,관찰만 수행. 개별 컨트롤 조작은 허용 목록에 없음.
+P6_C51,Spitfire,6,51,"LEFT CLICK - JOGR
+RIGHT CLICK - JOGF",picture_Callback2,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C52,Spitfire,6,52,"LEFT CLICK - REV
+RIGHT CLICK - FWD",picture_Callback1,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C53,Spitfire,6,53,PICTURE_2,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C54,Spitfire,6,54,TEXTMESSAGE_MAIN,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C55,Spitfire,6,55,SEC:,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C56,Spitfire,6,56,PRIO:,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C57,Spitfire,6,57,MSG/10 second:,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C58,Spitfire,6,58,FREE,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C59,Spitfire,6,59,FREESTRING,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P6_C60,Spitfire,6,60,SEND,strnsendcllback,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C61,Spitfire,6,61,10ns,SYNC_Coarse_Check_Callback,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C62,Spitfire,6,62,10ns,Ch2_Coarse_Check_Callback,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C63,Spitfire,6,63,10ns,Ch1_Coarse_Check_Callback,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P6_C64,Spitfire,6,64,DataLogger,tmr_Data_Logger,SKIP_ACTIVATION,관찰만 수행. 개별 컨트롤 조작은 허용 목록에 없음.
+P6_C65,Spitfire,6,65,EMP_PANEL,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P9_C2,Empower Setup,9,2,SENSED CURRENT (A),,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P9_C3,Empower Setup,9,3,SET CURRENT (A),,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P9_C4,Empower Setup,9,4,QSW FREQ (Hz),,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P9_C5,Empower Setup,9,5,OUTPUT POWER (W),,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P9_C6,Empower Setup,9,6,PULSEWIDTH (ns),,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P9_C7,Empower Setup,9,7,QSW SOURCE,,OBSERVE_ONLY,화면에 표시된 값을 촬영. 활성화 또는 편집하지 않음.
+P9_C8,Empower Setup,9,8,SET CURRENT (A),slidesetcurr,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P9_C9,Empower Setup,9,9,QSW FREQ (Hz),slideqswprf,EXCLUDED,장비/설정/안전 상태 또는 연결을 변경할 수 있어 실행하지 않음.
+P9_C10,Empower Setup,9,10,PULSEWIDTH (ns),slidVv�ڥN]Jr*�Ϲl��
+q��v�"�ܜ�0�"�j�y�hO��]N2^�ڃ����A�f�蝡('������R	E}�"�-���Hi�]S�`�$+(X8�&�z��)�휎���Nݢ �'
+�#��W{/�b��;1	c>O���+
+[�����IB� j�~��;�[��9�����2�g�7}Ǥ�&�Y��iR�
+_��/�"��.tFP|y�����E��F�p�*��i��1��y�׽��᫙��I�F	�v.���M�t�^:
+uZ��c�CHҞ���d�t�Y�� ��G��Y(�c\)�+�T���P�0ESYG�*���O�	���/� ���1�e�;�_���a�;W��:��j������<\�g2�!"�o�TK�,2�dd����X����b�1���*�	���򆳦�������'[Hx�������#�v]����R��gg���� #��#N:���y^�-T��w3�z�r3_���ģ��XC�T�ABk��>�O������~L�+�������B2�I
+�Q9bjU���l5�7FE=��k+h|��g/}m��Ȕ���p_�F������:�A�����{v"m%�:���湎@��}�jj3�� +5�t�؁4~��x�]���&O��%�xBM�7���y<�		�1��ap���P�24/�%��}�`�d_My�P�1�����鯿��Z���Vr�љϟ/_nDaG��\a���Vor��8	���Ǔ�����l�4k�f��۹��G;���J�4Ta��o����
+
+�W��m`� �ѢM9� E�PڴO���������D���b�Yƃ�ʖ�h�D�O���bU�;�@���w�8I�����{ԯ�E���
+1]μ0#W���4>����(\xl�3(�5?�(�����e�������-&��v&-Q�/9j꽛2� �S;[�w��tW?(�3�</�!*��~?�m˨^XV����3�|[�Vv�ڥN]Jr*�Ϲl��
+q��v�"�ܜ�0�"�j�y�hO��]N2^�ڃ����A�f�蝡('������R	E}�"�-���Hi�]S�`�$+(X8�&�z��)�휎���Nݢ �'
+�#��W{/�b��;1	c>O���+
+[�����IB� j�~��;�[��9�����2�g�7}Ǥ�&�Y��iR�
+_��/�"��.tFP|y�����E��F�p�*��i��1��y�׽��᫙��I�F	�v.���M�t�^:
+uZ��c�CHҞ���d�t�Y�� ��G��Y(�c\)�+�T���P�0ESYG�*���O�	���/� ���1�e�;�_���a�;W��:��j������<\�g2�!"�o�TK�,2�dd����X����b�1���*�	���򆳦�������'[Hx�������#�v]����R��gg���� #��#N:���y^�-T��w3�z�r3_���ģ��XC�T�ABk��>�O������~L�+�������B2�I
+�Q9bjU���l5�7FE=��k+h|��g/}m��Ȕ���p_�F������:�A�����{v"m%�:���湎@��}�jj3�� +5�t�؁4~��x�]���&O��%�xBM�7���y<�		�1��ap���P�24/�%��}�`�d_My�P�1�����鯿��Z���Vr�љϟ/_nDaG��\a���Vor��8	���Ǔ�����l�4k�f��۹��G;���J�4Ta��o����
+
+�W��m`� �ѢM9� E�PڴO���������D���b�Yƃ�ʖ�h�D�O���bU�;�@���w�8I�����{ԯ�E���
+1]μ0#W���4>����(\xl�3(�5?�(�����e�������-&��v&-Q�/9j꽛2� �S;[�w��tW?(�3�</�!*��~?�m˨^XV����3�|[�Vv�ڥN]Jr*�Ϲl��
+q��v�"�ܜ�0�"�j�y�hO��]N2^�ڃ����A�f�蝡('������R	E}�"�-���Hi�]S�`�$+(X8�&�z��)�휎���Nݢ �'
+�#��W{/�b��;1	c>O���+
+[�����IB� j�~��;�[��9�����2�g�7}Ǥ�&�Y��iR�
+_��/�"��.tFP|y�����E��F�p�*��i��1��y�׽��᫙��I�F	�v.���M�t�^:
+uZ��c�CHҞ���d�t�Y�� ��G��Y(�c\)�+�T���P�0ESYG�*���O�	���/� ���1�e�;�_���a�;W��:��j������<\�g2�!"�o�TK�,2�dd����X����b�1���*�	���򆳦�������'[Hx�������#�v]����R��gg���� #��#N:���y^�-T��w3�z�r3_���ģ��XC�T�ABk��>�O������~L�+�������B2�I
+�Q9bjU���l5�7FE=��k+h|��g/}m��Ȕ���p_�F������:�A�����{v"m%�:���湎@��}�jj3�� +5�t�؁4~��x�]���&O��%�xBM�7���y<�		�1��ap���P�24/�%��}�`�d_My�P�1�����鯿��Z���Vr�љϟ/_nDaG��\a���Vor��8	���Ǔ�����l�4k�f��۹��G;���J�4Ta��o����
+
+�W��m`� �ѢM9� E�PڴO���������D���b�Yƃ�ʖ�h�D�O���bU�;�@���w�8I�����{ԯ�E���
+1]μ0#W���4>����(\xl�3(�5?�(�����e�������-&��v&-Q�/9j꽛2� �S;[�w��tW?(�3�</�!*��~?�m˨^XV����3�|[�Vv�ڥN]Jr*�Ϲl��
+q��v�"�ܜ�0�"�j�y�hO��]N2^�ڃ����A�f�蝡('������R	E}�"�-���Hi�]S�`�$+(X8�&�z��)�휎���Nݢ �'
+�#��W{/�b��;1	c>O���+
+[�����IB� j�~��;�[��9�����2�g�7}Ǥ�&�Y��iR�
+_��/�"��.tFP|y�����E��F�p�*��i��1��y�׽��᫙��I�F	�v.���M�t�^:
+uZ��c�CHҞ���d�t�Y�� ��G��Y(�c\)�+�T���P�0ESYG�*���O�	���/� ���1�e�;�_���a�;W��:��j������<\�g2�!"�o�TK�,2�dd����X����b�1���*�	���򆳦�������'[Hx�������#�v]����R��gg���� #��#N:���y^�-T��w3�z�r3_���ģ��XC�T�ABk��>�O������~L�+�������B2�I
+�Q9bjU���l5�7FE=��k+h|��g/}m��Ȕ���p_�F������:�A�����{v"m%�:���湎@��}�jj3�� +5�t�؁4~��x�]���&O��%�xBM�

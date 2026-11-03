@@ -1,0 +1,56 @@
+{
+  "documentation_date": "2026-11-01",
+  "timezone": "Asia/Seoul",
+  "selected_capture_method": {
+    "tool": "Windows Packet Monitor",
+    "host": "20255566-p07",
+    "version": "10.0.26100.9949",
+    "component_id_at_inspection": 12,
+    "adapter": "VMware Network Adapter VMnet1",
+    "snapshot_bytes": 0,
+    "installation_needed": false,
+    "capture_verification_status": "See final run report; this metadata does not assert original-program capture success"
+  },
+  "optional_xp_installers": [
+    {
+      "file": "Wireshark-win32-1.10.14.exe",
+      "source": "https://www.wireshark.org/download/win32/all-versions/Wireshark-win32-1.10.14.exe",
+      "bytes": 22205680,
+      "official_sha1": "37f74c6f3e73550904e621ae2f5ad342be5762f6",
+      "actual_sha1": "37f74c6f3e73550904e621ae2f5ad342be5762f6",
+      "sha1_matches": true,
+      "sha256": "4055eeef5173a016cf64e2eef509dcafbcf9cc050a9d6f68f2aad2e70619d0ec",
+      "authenticode_status": "Valid",
+      "signer": "CN=Wireshark Foundation, O=Wireshark Foundation, STREET=199 Fremont, L=San Francisco, S=CA, PostalCode=94105, C=US",
+      "download_utc": "2026-10-31T16:05:21.0368558Z",
+      "installed": false
+    },
+    {
+      "file": "WinPcap_4_1_3.exe",
+      "source": "https://www.winpcap.org/install/bin/WinPcap_4_1_3.exe",
+      "bytes": 915128,
+      "official_sha1": "e2516fcd1573e70334c8f50bee5241cdfdf48a00",
+      "actual_sha1": "e2516fcd1573e70334c8f50bee5241cdfdf48a00",
+      "sha1_matches": true,
+      "sha256": "fc4623b113a1f603c0d9ad5f83130bd6de1c62b973be9892305132389c8588de",
+      "authenticode_status": "Valid",
+      "signer": "CN=\"Riverbed Technology, Inc.\", OU=Product Marketing, OU=Digital ID Class 3 - Microsoft Software Validation v2, O=\"Riverbed Technology, Inc.\", L=San Francisco, S=California, C=US",
+      "download_utc": "2026-10-31T16:05:23.9450066Z",
+      "installed": false
+    }
+  ],
+  "verification_scope": {
+    "download_hashes": "Historical official SHA1 matched; SHA256 records file identity",
+    "authenticode": "Prior host verification reported Valid for both optional installers",
+    "pgp_signature_verified": false,
+    "xp_installation_performed": false,
+    "winpcap_gui_installation_automation_tested": false
+  },
+  "sources": {
+    "platform_support": "https://www.wireshark.org/docs/wsug_html_chunked/ChIntroPlatforms.html",
+    "wireshark_signed_digests": "https://www.wireshark.org/download/src/all-versions/SIGNATURES-1.10.14.txt",
+    "winpcap_download": "https://www.winpcap.org/install/index.html",
+    "version_specific_installer_documentation": "https://github.com/wireshark/wireshark/blob/wireshark-1.10.14/docbook/wsug_src/WSUG_chapter_build_install.xml",
+    "pktmon": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/pktmon-start"
+  }
+}

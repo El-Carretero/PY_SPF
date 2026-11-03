@@ -1,0 +1,1 @@
+Copied previous VM-only standalone package into separate V1_1 candidate directory. New UI will be installed before execution.

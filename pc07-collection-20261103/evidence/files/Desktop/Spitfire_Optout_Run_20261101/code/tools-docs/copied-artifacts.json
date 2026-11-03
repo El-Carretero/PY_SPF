@@ -1,0 +1,59 @@
+{
+  "copy_scope": "capture-tool documentation, official download verification, earlier diagnostic preflight only; not current original-program capture verification",
+  "artifacts": [
+    {
+      "file": "Fetch-CaptureTools.ps1",
+      "source_local": "/workspace/spitfire-capture/Fetch-CaptureTools.ps1",
+      "bytes": 1975,
+      "sha256": "7c12322c09e342387466bd7fea4b1bf005dae69e90574eb07aad309a922610b4"
+    },
+    {
+      "file": "sources/capture-tools-research.md",
+      "source_local": "/workspace/spitfire-capture/research/capture-tools-research.md",
+      "bytes": 5980,
+      "sha256": "6f2cea44fbf3360732291fa51bad03463c14e6cdb706dda4b80113ed343c8e0a"
+    },
+    {
+      "file": "sources/WSUG_chapter_build_install-1.10.14.xml",
+      "source_local": "/workspace/spitfire-capture/research/WSUG_chapter_build_install.xml",
+      "bytes": 28156,
+      "sha256": "41f10a3ca69afe8cfcf6acb18cbf6a4c7a2fd66760f660df4ba19ddc4331263c"
+    },
+    {
+      "file": "sources/dumpcap-1.10.14.pod",
+      "source_local": "/workspace/spitfire-capture/research/dumpcap-1.10.14.pod",
+      "bytes": 13934,
+      "sha256": "90a01ccb0a9e3a9fd334c63d7b7dec6ce96cc2039a23d8b8f7ca03825cbc1262"
+    },
+    {
+      "file": "sources/pktmon-option-boundary.md",
+      "source_local": "/workspace/spitfire-capture/research/pktmon-option-boundary.md",
+      "bytes": 1553,
+      "sha256": "9a293fec30b94cd4ebb4d3a32a9d182d7149b97aea9ade94534773f82a67bf13"
+    },
+    {
+      "file": "evidence/prior-p07-pktmon-integrity.json",
+      "source_local": "/workspace/spitfire-capture/evidence/capture-tool-integrity.json",
+      "bytes": 644,
+      "sha256": "278b4db0339243db18e1f55e9d2e007b0084811a9e7d5519d42a2cc396666496"
+    },
+    {
+      "file": "evidence/prior-official-download-integrity.json",
+      "source_local": "/workspace/spitfire-capture/evidence/p07/official-downloads/integrity.json",
+      "bytes": 1486,
+      "sha256": "896a603c68e8b0fdbbbf1a2d9ae52516ed6eb9299fe5ce35a18bbb75b49cb33f"
+    },
+    {
+      "file": "evidence/SIGNATURES-1.10.14.txt",
+      "source_local": "/workspace/spitfire-capture/evidence/p07/official-downloads/SIGNATURES-1.10.14.txt",
+      "bytes": 2413,
+      "sha256": "4595ae6b7b228a7d231065176144d366bfbd76dfc35123a5806a9a3d7d974403"
+    },
+    {
+      "file": "evidence/prior-diagnostic-independent-dpkt.json",
+      "source_local": "/workspace/spitfire-capture/evidence/preflight.independent-dpkt.json",
+      "bytes": 918,
+      "sha256": "98a66d0af9c154feeddb4174672924e353266912c6a05159a404a14b46411ed7"
+    }
+  ]
+}

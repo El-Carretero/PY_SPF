@@ -1,0 +1,19 @@
+{"utc": "2026-10-31T16:03:36.991089+00:00", "kind": "fixture_started", "optout": "0", "udp": ["10.19.70.13", 1024], "http": ["10.19.70.13", 18978]}
+{"utc": "2026-10-31T16:05:44.775972+00:00", "kind": "download", "file": "bootstrap.hta", "sha256": "fa5a85c89b16b262a6bef263f9f1b7762a5a9441e52136c079393f97633988dc"}
+{"utc": "2026-10-31T16:05:45.061811+00:00", "kind": "download", "file": "guest_probe.exe", "sha256": "6e8d9f61195f9073b2159450a268debba9ab432dbf47b5bf630027b4faeec7a3"}
+{"utc": "2026-10-31T16:07:43.859295+00:00", "kind": "download", "file": "bootstrap.hta", "sha256": "f6a0fbd696ab6967d97d0ec70116438154df78c4eb12714b8c2041a53a375a60"}
+{"utc": "2026-10-31T16:09:01.829615+00:00", "kind": "download", "file": "bootstrap.hta", "sha256": "3f45189e68c436039bf56c57de1d82a196ce80d3435fd13d436e82bea9522512"}
+{"utc": "2026-10-31T16:09:02.576567+00:00", "kind": "download", "file": "guest_probe.exe", "sha256": "6e8d9f61195f9073b2159450a268debba9ab432dbf47b5bf630027b4faeec7a3"}
+{"utc": "2026-10-31T16:09:02.604345+00:00", "kind": "download", "file": "host-isolation-proof.txt", "sha256": "6cdae8d8940abff714d2e846c2e79d766fe25be693fccf679c0a52fba64b8e22"}
+{"utc": "2026-10-31T16:09:06.255355+00:00", "kind": "upload", "file": "desktop.bmp", "bytes": 3072054, "sha256": "74113877fbef517735f38d0ef88501d1702e2b6811911f39c01ba13657dee7df"}
+{"utc": "2026-10-31T16:09:06.268920+00:00", "kind": "upload", "file": "diagnostic-rx-payload.bin", "bytes": 38, "sha256": "89fd657c973e7fe5039e6ab361fa89fba8d2cd40b086c607abe7929bb9417264"}
+{"utc": "2026-10-31T16:09:06.280438+00:00", "kind": "upload", "file": "diagnostic-tx-payload.bin", "bytes": 45, "sha256": "b78322a621343bcf150e33e93cc2459a58fb4b9fc5c23bec0c7467e302526da4"}
+{"utc": "2026-10-31T16:09:06.298371+00:00", "kind": "upload", "file": "eligibility.json", "bytes": 217, "sha256": "e20f24555b5496c788fa9111ff7404955e114b3b803b3d708591d7cdb3f0e8a7"}
+{"utc": "2026-10-31T16:09:06.310026+00:00", "kind": "upload", "file": "host-isolation-proof.txt", "bytes": 370, "sha256": "6cdae8d8940abff714d2e846c2e79d766fe25be693fccf679c0a52fba64b8e22"}
+{"utc": "2026-10-31T16:09:06.322080+00:00", "kind": "upload", "file": "identity.json", "bytes": 201, "sha256": "7225b29bcb3373e8cdbbeb2cc91f2834c3f4988ee0af44f11cdeed9ce7fe2f94"}
+{"utc": "2026-10-31T16:09:06.331154+00:00", "kind": "upload", "file": "network.jsonl", "bytes": 1288, "sha256": "2939cb7819ac86cb026dfa63dc0d177724e2c683c0dea301c5c8d9343260284a"}
+{"utc": "2026-10-31T16:09:06.340171+00:00", "kind": "upload", "file": "processes.jsonl", "bytes": 2129, "sha256": "7689d957274bfbc4e56ecfedf80158f2da1c74762c3a228cce1b8be8c7e564ea"}
+{"utc": "2026-10-31T16:09:06.349723+00:00", "kind": "upload", "file": "timeline.jsonl", "bytes": 1184, "sha256": "a4a38a8a151b4cb9bb035aee925e738b7f8084dc1ffb1f202c0bead41acecc7c"}
+{"utc": "2026-10-31T16:09:06.364726+00:00", "kind": "upload", "file": "windows.jsonl", "bytes": 17491, "sha256": "6d40362003be8130419b03db29ff4fdf22dbcdd02c8167a569a65a0b1b7641fc"}
+{"utc": "2026-10-31T16:09:06.373766+00:00", "kind": "upload", "file": "bootstrap-status.txt", "bytes": 281, "sha256": "bb473b55eda7e5324b131095e643b20db60099958b4ec56dbe29ed523183bdc7"}
+{"utc": "2026-10-31T16:09:39.174866+00:00", "kind": "fixture_stopped"}

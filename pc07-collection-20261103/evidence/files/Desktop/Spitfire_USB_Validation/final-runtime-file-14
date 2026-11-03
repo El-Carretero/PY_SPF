@@ -1,0 +1,22 @@
+{
+  "purpose": "Optional viewer reference only. Not installed or bundled; this USB package records classic PCAP directly through WinPcap.",
+  "artifact": {
+    "file": "Wireshark-win32-1.10.14.exe",
+    "source": "https://www.wireshark.org/download/win32/all-versions/Wireshark-win32-1.10.14.exe",
+    "bytes": 22205680,
+    "official_sha1": "37f74c6f3e73550904e621ae2f5ad342be5762f6",
+    "actual_sha1": "37f74c6f3e73550904e621ae2f5ad342be5762f6",
+    "sha1_matches": true,
+    "sha256": "4055eeef5173a016cf64e2eef509dcafbcf9cc050a9d6f68f2aad2e70619d0ec",
+    "authenticode_status": "Valid",
+    "signer": "CN=Wireshark Foundation, O=Wireshark Foundation, STREET=199 Fremont, L=San Francisco, S=CA, PostalCode=94105, C=US",
+    "download_utc": "2026-10-31T16:05:21.0368558Z",
+    "installed": false
+  },
+  "sources": {
+    "platform_support": "https://www.wireshark.org/docs/wsug_html_chunked/ChIntroPlatforms.html",
+    "wireshark_signed_digests": "https://www.wireshark.org/download/src/all-versions/SIGNATURES-1.10.14.txt",
+    "version_specific_installer_documentation": "https://github.com/wireshark/wireshark/blob/wireshark-1.10.14/docbook/wsug_src/WSUG_chapter_build_install.xml"
+  },
+  "verification": "Prior official publisher SHA1 match, SHA256 identity and modern-host Valid Authenticode; not a new XP installation test."
+}

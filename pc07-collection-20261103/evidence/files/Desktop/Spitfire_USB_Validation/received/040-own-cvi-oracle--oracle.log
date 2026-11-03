@@ -1,0 +1,14 @@
+9401937 phase=startup TEST ONLY own process; all callbacks local inert; no networking
+symbol InitCVIRTDll=6850D8AD
+symbol LoadPanelEx=6858A4B0
+symbol DisplayPanel=6858A268
+symbol HidePanel=68587895
+symbol DiscardPanel=6858A2B4
+symbol SetActiveCtrl=6855C3B9
+symbol GetActiveCtrl=6855BFF1
+symbol GetCtrlVal=6855999B
+symbol ProcessSystemEvents=685708C9
+symbol SetCtrlVal=685598E5
+symbol SetPanelAttribute=685AA274
+9402000 phase=InitCVIRTDll calling standalone init with empty metadata
+init_result=1

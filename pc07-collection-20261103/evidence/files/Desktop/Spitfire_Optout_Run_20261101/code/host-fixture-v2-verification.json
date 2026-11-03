@@ -1,0 +1,22 @@
+{
+  "test": "fixture v2 fault injection, no sockets or remote execution",
+  "passed": true,
+  "assertions": [
+    "unsupported Windows ioctl ValueError logged and continued",
+    "receive reset logged and continued",
+    "send failure not counted as sent response",
+    "RAM ON retained despite failed send",
+    "snapshot PermissionError did not kill UDP worker",
+    "snapshot recovered",
+    "resume counts and seq reconstructed from log",
+    "tampered response refused"
+  ],
+  "recovered_state": {
+    "requests": 2,
+    "responses": 1,
+    "applied_optout_on": 1,
+    "rejected_commands": 0,
+    "optout": "1"
+  },
+  "last_sequence": 2
+}

@@ -1,0 +1,14 @@
+{
+  "status": "LISTENING",
+  "version": "0.3.1",
+  "endpoint": [
+    "10.19.70.13",
+    1024
+  ],
+  "allowed_source_ips": [
+    "10.19.70.2"
+  ],
+  "stop_file": "C:\\Users\\Fluke\\Desktop\\Spitfire_XP_Test_20261027\\host_bind_probe_20261027\\STOP",
+  "xp_runtime_validation": "CAPTURE_ONLY_NOT_PROOF_OF_GUI_STARTUP",
+  "created_utc": "2026-10-27T06:42:37.482922+00:00"
+}

@@ -1,0 +1,33 @@
+{
+  "parser": "dpkt",
+  "version": "1.9.8",
+  "files_reopened": [
+    "preflight.pcapng",
+    "preflight.pcap"
+  ],
+  "frame_count": 2,
+  "exact_packet_bytes_and_timestamps_match": true,
+  "packets": [
+    {
+      "timestamp_epoch": 1793462943.136777,
+      "ethernet_bytes": 87,
+      "udp_payload_bytes": 45,
+      "payload_ascii": "Spectra-Physics:CMD_ECLIPSE,[1068]EMPOPTOUT?\n",
+      "src_ip": "10.19.70.2",
+      "dst_ip": "10.19.70.13",
+      "src_port": 1024,
+      "dst_port": 1024
+    },
+    {
+      "timestamp_epoch": 1793462943.142954,
+      "ethernet_bytes": 80,
+      "udp_payload_bytes": 38,
+      "payload_ascii": "Spectra-Physics:REPLY_ECLIPSE:<1068>0\n",
+      "src_ip": "10.19.70.13",
+      "dst_ip": "10.19.70.2",
+      "src_port": 1024,
+      "dst_port": 1024
+    }
+  ],
+  "provenance": "diagnostic query from guest code; simulator-generated response; not original Spitfire executable traffic"
+}

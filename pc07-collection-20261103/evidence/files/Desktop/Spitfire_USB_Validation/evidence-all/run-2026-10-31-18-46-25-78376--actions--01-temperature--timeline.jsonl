@@ -1,0 +1,4 @@
+{"utc_guest_clock":"2026-10-31T18:47:12.593Z","action":"temperature","phase":"begin","detail":"Attach-only original UI test; helper has no network interface","code":0}
+{"utc_guest_clock":"2026-10-31T18:47:21.453Z","action":"temperature","phase":"opened","detail":"Selected fixed reviewed show-panel menu item","code":0}
+{"utc_guest_clock":"2026-10-31T18:47:28.031Z","action":"temperature","phase":"auxiliary_close","detail":"Exact auxiliary close_ctrl dispatches its HidePanel-only callback","code":6}
+{"utc_guest_clock":"2026-10-31T18:47:31.843Z","action":"temperature","phase":"end","detail":"Before/after screenshots and inventories retained; original not closed","code":0}

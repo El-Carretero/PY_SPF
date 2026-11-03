@@ -1,0 +1,101 @@
+source,panel,control_or_resource_id,label,callback,decision,runtime_status
+static menu,,239,__About,show_help,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static menu,,237,__Temperature Control,show_ccu,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static menu,,236,__Timing and High Voltage,show_info,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static menu,,235,__Active Faults,show_faults,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static menu,,234,__Empower Setup,show_setup,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static menu,,232,E__xit,exit_from_menu,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,2,6,HIDE ME,close_ecu,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,2,7,SET TEMPERATURE,ecu_set_temp,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,2,8,TEC,teconoff,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,2,9,EMPOWER OPT-OUT,empoweroptoutcall,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,2,10,COMPRESSOR OPT-OUT,optoutcompressorcall,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,2,11,TCU OPT-OUT,optoutecucall,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,2,12,"TDG ERROR
+OVERRIDE",tdg_fault_override,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,2,13,"HUMIDITY ERROR
+OVERRIDE",humoverride,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,2,17,ESC_TURNOFF,esc_turnoff,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,3,26,__CLOSE,close_fault,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,3,27,__CLOSE,close_fault,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,3,28,ESC_TURNOFF,esc_turnoff,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,3,29,__CLOSE,close_fault,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,3,33,__CLOSE,close_fault,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,3,53,CLEAR FAULTS,cllbckcmd_reset,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,1,2,__OK,Close_Programmer_Panel_Callback,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,1,4,ESC_TURNOFF,esc_turnoff,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,7,2,__CLOSE,close_service,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,4,9,__CLOSE,close_help,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,4,17,ESC_TURNOFF,esc_turnoff,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,8,2,SET OVERTEMP (C),secretcall6,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,8,4,SET UNDERTEMP (C),secretcall7,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,8,6,SET MAX POWER (mW),secretcall5,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,8,8,SET INTERCEPT (mW),secretcall4,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,8,10,SET SLOPE (mW/V),secretcall3,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,8,12,,secretcall1,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,8,13,SET MAX CURR (A),secretcall2,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,8,17,__CLOSE,close_secrets_emp,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,8,18,LBO STABILITY FAULT,LBOstabilitybreak,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,8,19,ESC_TURNOFF,esc_turnoff,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,2,OSCILLATOR SYNC,osc_mode,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,3,AMPLIFIER TRIGGER,trig_mode,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,4,ZERO DELAY,SetCoarseCallback_btn0,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,5,SET OSC FREQ TO MEASURED,cmd_osc_to_meas,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,6,,setbwd1,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,8,,setena1,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,9,,setbwd2,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,10,,setena2,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,11,,setbwd5,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,12,,setena5,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,13,,setbwd3,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,14,,setena3,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,15,,setbwd4,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,16,,setena4,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,20,ESC_TURNOFF,esc_turnoff,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,21,__CLOSE,close_info,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,23,,swChannelEnableCallback_btn4,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,25,,swChannelEnableCallback_btn3,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,28,"INTERNAL AMP
+REP RATE",trig_reprate,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,33,HIGH VOLTAGE 2,SetHVCallback2,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,34,,HV_switch,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,35,HIGH VOLTAGE 1,SetHVCallback1,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,37,Polarity,bwdpolarity,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,39,BWD Diodes,bwdduality,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,41,CH4,SetCoarseCallback_btn4,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,42,CH3,SetCoarseCallback_btn3,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,43,DIVISOR,DivisorCallback,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,45,10ns,Ch4_Coarse_Check_Callback,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,46,10ns,Ch3_Coarse_Check_Callback,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,5,48,MODE,setopmode,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,2,__Quit,QuitProgram,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,3,MOTOR SPEED,com_motor_speed,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,4,Mouse Timer,tmr_Mouse_Callback1,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,5,RESET BOTH,BW_reset,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,10,RUN,cllbck,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,11,STOP,parse_command5,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,18,ESC_TURNOFF,esc_turnoff,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,20,,swChannelEnableCallback_btn5,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,21,,swChannelEnableCallback_btn2,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,23,,swChannelEnableCallback_btn1,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,41,SYNC,SetCoarseCallback_btn5,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,42,PC2,SetCoarseCallback_btn2,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,43,PC1,SetCoarseCallback_btn1,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,45,STEP DOWN 1 LEVEL,cmtRETUSERMODE,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,47,Monitor,Monitor_switch,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,50,FAULT (click here),display_faults,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,51,"LEFT CLICK - JOGR
+RIGHT CLICK - JOGF",picture_Callback2,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,52,"LEFT CLICK - REV
+RIGHT CLICK - FWD",picture_Callback1,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,60,SEND,strnsendcllback,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,61,10ns,SYNC_Coarse_Check_Callback,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,62,10ns,Ch2_Coarse_Check_Callback,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,63,10ns,Ch1_Coarse_Check_Callback,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,6,64,DataLogger,tmr_Data_Logger,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,9,8,SET CURRENT (A),slidesetcurr,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,9,9,QSW FREQ (Hz),slideqswprf,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,9,10,PULSEWIDTH (ns),slideqswpw,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,9,11,QSW SOURCE,slideqswsrc,skip,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,9,12,__CLOSE,close_setup,allow,NOT_EXECUTED: Opt-out-on eligibility not established
+static control,9,13,ESC_TURNOFF,esc_turnoff,skip,NOT_EXECUTED: Opt-out-on eligibility not established

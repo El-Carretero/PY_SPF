@@ -1,0 +1,27 @@
+﻿[
+    {
+        "InterfaceAlias":  "VMware Network Adapter VMnet8",
+        "IPAddress":  "192.168.215.1",
+        "PrefixLength":  24
+    },
+    {
+        "InterfaceAlias":  "VMware Network Adapter VMnet1",
+        "IPAddress":  "192.168.37.1",
+        "PrefixLength":  24
+    },
+    {
+        "InterfaceAlias":  "Bluetooth 네트워크 연결",
+        "IPAddress":  "169.254.102.47",
+        "PrefixLength":  16
+    },
+    {
+        "InterfaceAlias":  "이더넷",
+        "IPAddress":  "10.70.14.128",
+        "PrefixLength":  23
+    },
+    {
+        "InterfaceAlias":  "Loopback Pseudo-Interface 1",
+        "IPAddress":  "127.0.0.1",
+        "PrefixLength":  8
+    }
+]

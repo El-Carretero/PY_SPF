@@ -1,0 +1,9 @@
+﻿{
+    "vm_suspended":  true,
+    "firewall_rule_removed":  true,
+    "physical_original_accessed":  false,
+    "secret_removed":  true,
+    "only_remoteDisplay_vnc_keys_removed":  true,
+    "utc":  "2026-10-31T18:56:45.8528698Z",
+    "vmx_sha256":  "25353363144bd1dfa4b9df751cfef039d901ddebf79ab3a1fe97115f2df5eab9"
+}

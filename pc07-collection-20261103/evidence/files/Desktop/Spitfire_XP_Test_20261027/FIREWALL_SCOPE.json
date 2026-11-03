@@ -1,0 +1,21 @@
+{
+    "Rule":  {
+                 "Name":  "SpitfireVerifier_XP_20261027_UDP",
+                 "Enabled":  1,
+                 "Direction":  1,
+                 "Action":  2,
+                 "Profile":  0
+             },
+    "Port":  {
+                 "Protocol":  "UDP",
+                 "LocalPort":  "1024",
+                 "RemotePort":  "Any"
+             },
+    "Address":  {
+                    "LocalAddress":  "10.19.70.13",
+                    "RemoteAddress":  "10.19.70.2"
+                },
+    "Interface":  {
+                      "InterfaceAlias":  "VMware Network Adapter VMnet1"
+                  }
+}

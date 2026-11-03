@@ -1,0 +1,6 @@
+﻿처리하는 중...
+
+총 패킷:       0
+패킷 삭제 수:   0
+형식화된 패킷:   0
+서식 있는 파일:      C:\Users\Fluke\Desktop\Spitfire_Optout_Run_20261101\original2.etl.pcapng

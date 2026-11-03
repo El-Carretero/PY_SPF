@@ -1,0 +1,6 @@
+time=Fri, 30 Oct 2026 11:57:47 UTC
+original=C:\Program Files\Spectra-Physics\Spitfire\Spitfire.exe
+working_directory=C:\Program Files\Spectra-Physics\Spitfire\
+user=You
+computer=XLAPPLAS
+OS=Microsoft Windows XP Professional | 5.1.2600 | Service Pack 3

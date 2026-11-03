@@ -1,0 +1,2 @@
+Fixture-only terminated original PID=1740 rc=0
+remaining_originals=0

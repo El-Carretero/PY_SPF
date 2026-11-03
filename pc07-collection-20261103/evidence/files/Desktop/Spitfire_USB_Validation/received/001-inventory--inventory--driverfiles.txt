@@ -1,0 +1,13 @@
+ C 드라이브의 볼륨에는 이름이 없습니다.
+ 볼륨 일련 번호: 08B4-6CD7
+
+ C:\WINDOWS\system32 디렉터리
+
+
+ C:\WINDOWS\system32 디렉터리
+
+파일을 찾을 수 없습니다.
+
+ C:\WINDOWS\system32\drivers 디렉터리
+
+파일을 찾을 수 없습니다.

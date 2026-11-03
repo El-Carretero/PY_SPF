@@ -1,0 +1,5 @@
+Isolated p07 final validation reset only; physical original PC/controller untouched.
+Terminate isolated original PID1204 rc=0
+Closed completed logger PID440 rc=0
+Relaunch isolated original rc=0
+Settled preflight rc=0

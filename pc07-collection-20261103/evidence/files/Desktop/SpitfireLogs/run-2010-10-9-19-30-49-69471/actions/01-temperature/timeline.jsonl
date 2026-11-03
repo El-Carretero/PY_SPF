@@ -1,0 +1,3 @@
+{"utc_guest_clock":"2010-10-09T19:30:59.656Z","action":"temperature","phase":"begin","detail":"Attach-only original UI test; helper has no network interface","code":0}
+{"utc_guest_clock":"2010-10-09T19:31:01.687Z","action":"temperature","phase":"blocked","detail":"Expected CVI popup absent or capture stopped; no item click, no recovery key","code":86}
+{"utc_guest_clock":"2010-10-09T19:31:01.859Z","action":"temperature","phase":"blocked_or_incomplete","detail":"Before/after screenshots and inventories retained; original not closed","code":86}

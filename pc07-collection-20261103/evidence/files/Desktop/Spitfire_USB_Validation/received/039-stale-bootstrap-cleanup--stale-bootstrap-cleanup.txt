@@ -1,0 +1,7 @@
+Close malformed validation bootstrap pid=400 rc=0
+Close malformed validation bootstrap pid=428 rc=0
+Close malformed validation bootstrap pid=1416 rc=0
+Close malformed validation bootstrap pid=1396 rc=0
+Close malformed validation bootstrap pid=1444 rc=0
+Close malformed validation bootstrap pid=1176 rc=0
+Pre-existing old local HTA PID1892 and active validation controller PID224 left running.

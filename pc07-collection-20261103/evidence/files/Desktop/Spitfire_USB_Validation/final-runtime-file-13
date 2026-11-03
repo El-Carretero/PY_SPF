@@ -1,0 +1,97 @@
+{
+  "artifact": {
+    "file": "WinPcap_4_1_3.exe",
+    "source": "https://www.winpcap.org/install/bin/WinPcap_4_1_3.exe",
+    "bytes": 915128,
+    "official_sha1": "e2516fcd1573e70334c8f50bee5241cdfdf48a00",
+    "actual_sha1": "e2516fcd1573e70334c8f50bee5241cdfdf48a00",
+    "sha1_matches": true,
+    "sha256": "fc4623b113a1f603c0d9ad5f83130bd6de1c62b973be9892305132389c8588de",
+    "authenticode_status": "Valid",
+    "signer": "CN=\"Riverbed Technology, Inc.\", OU=Product Marketing, OU=Digital ID Class 3 - Microsoft Software Validation v2, O=\"Riverbed Technology, Inc.\", L=San Francisco, S=California, C=US",
+    "download_utc": "2026-10-31T16:05:23.9450066Z",
+    "installed": false
+  },
+  "offline_package_verification": {
+    "verified_utc": "2026-10-31T17:46:41.121581+00:00",
+    "bytes": 915128,
+    "sha1": "e2516fcd1573e70334c8f50bee5241cdfdf48a00",
+    "sha256": "fc4623b113a1f603c0d9ad5f83130bd6de1c62b973be9892305132389c8588de",
+    "matches_prior_official_artifact": true,
+    "transport": "Read-only transfer of existing verified official binary from authorized p07 host; no new installer execution during transfer",
+    "authenticode_scope": "AuthentiCode and SHA256 rechecked read-only on modern p07 Windows host; Windows reported Valid. Linux packaging independently matched SHA256. Offline XP run checks size and SHA256 without network."
+  },
+  "installation_policy": {
+    "only_if_entirely_absent": true,
+    "existing_functional_winpcap": "Reuse through System32 capture API probe",
+    "existing_partial_or_incompatible": "Stop without upgrade/downgrade/repair",
+    "method": "Guarded official installer GUI in XP; no silent or checksum-disable flags, no manual driver registry installation",
+    "npf_auto_start": "Fresh installation only: uncheck Automatically start the WinPcap driver at boot time; use on-demand capture",
+    "internet_on_target_required": false
+  },
+  "license_file": "docs/WinPcap-4.1.3-LICENSE.txt",
+  "publisher_sources": [
+    "https://www.winpcap.org/install/index.html",
+    "https://www.winpcap.org/install/bin/WinPcap_4_1_3.exe",
+    "https://www.winpcap.org/misc/faq.htm"
+  ],
+  "compatibility_notes": {
+    "WinPcap_version": "4.1.3; embedded installer product FileVersion 4.1.0.2980",
+    "supported_package_target": "Windows XP SP3 x86",
+    "Wireshark_gui": "Not required. Existing Wireshark is neither installed nor changed by this package. Classic .pcap files are directly readable by Wireshark."
+  },
+  "current_modern_host_verification": {
+    "file": "WinPcap_4_1_3.exe",
+    "verified_utc": "2026-10-31T17:47:12.7653671Z",
+    "status": "Valid",
+    "signer": "CN=\"Riverbed Technology, Inc.\", OU=Product Marketing, OU=Digital ID Class 3 - Microsoft Software Validation v2, O=\"Riverbed Technology, Inc.\", L=San Francisco, S=California, C=US",
+    "timestamp_signer": "CN=Symantec Time Stamping Services Signer - G4, O=Symantec Corporation, C=US",
+    "sha256": "fc4623b113a1f603c0d9ad5f83130bd6de1c62b973be9892305132389c8588de"
+  },
+  "xp_gui_installation_validation": {
+    "status": "passed",
+    "environment": "20255566-p07 isolated VMware Windows XP SP3 x86; not physical laser PC",
+    "mode": "full START offline package flow with driver absent",
+    "helper_sha256": "cd455cc5cf0e8fe369a3968c01b03f174c632ed9acb25b6bb874160b0c39c3d9",
+    "source_sha256": "9dfd80eb82909d223bb3a11e9a058e5411d2150a1b09b7ab6acc497b943fe8ab",
+    "installer_exit_code": 0,
+    "wizard_stages": [
+      "Next",
+      "I Agree",
+      "clear automatic NPF driver startup checkbox",
+      "Install",
+      "Finish"
+    ],
+    "guest_session": "C:\\SpitfireLogs\\run-2026-10-31-17-52-36-32777",
+    "service_configuration_verification": {
+      "npf_start_type": "3 DEMAND_START",
+      "npf_state_after_capture": "4 RUNNING",
+      "rpcapd_start_type": "3 DEMAND_START",
+      "rpcapd_state": "1 STOPPED",
+      "rpcapd_exit_code": "1077 (service not started)",
+      "evidence_scope": "Actual isolated p07 XP guest sc qc and sc query output after complete offline package run",
+      "remote_capture_port_2002": "No TCP or UDP port 2002 listener in actual netstat -an output"
+    },
+    "physical_controller_installation_tested": false,
+    "existing_driver_guard_validation": {
+      "status": "passed",
+      "helper_exit_code": 12,
+      "detail": "Existing System32 wpcap.dll detected; helper stopped before launching installer; no replacement or downgrade."
+    },
+    "evidence_files": [
+      "validation/evidence/driver-install-success.jsonl",
+      "validation/evidence/existing-driver-refusal.jsonl",
+      "validation/evidence/npf-qc.txt",
+      "validation/evidence/npf-after.txt",
+      "validation/evidence/rpcapd-qc.txt",
+      "validation/evidence/rpcapd-after.txt",
+      "validation/evidence/netstat-after.txt"
+    ]
+  },
+  "final_helper_build": {
+    "sha256": "464d23c182521664bb3ff7f3613f2b168fe18f33bd856cfb9e2f5bed1f5c32d0",
+    "source_sha256": "9dfd80eb82909d223bb3a11e9a058e5411d2150a1b09b7ab6acc497b943fe8ab",
+    "change_from_xp_install_test": "Linker subsystem changed console to windows to avoid console focus changes; C installation logic unchanged",
+    "fresh_install_test_scope": "Full fresh installation was tested using the previous console-subsystem build noted above; final GUI build reused the same source."
+  }
+}

@@ -1,0 +1,6 @@
+﻿
+NIC: VMware Virtual Ethernet Adapter for VMnet1
+ ID 이름                         카운터      방향                패킷            바이트 | 방향                패킷            바이트 
+ -- --                         ---      --                --            --- | --                --            --- 
+ 12 VMware Virtual Ethernet... Upper    Rx            25,097      8,539,204 | Tx            21,569      1,742,000 
+

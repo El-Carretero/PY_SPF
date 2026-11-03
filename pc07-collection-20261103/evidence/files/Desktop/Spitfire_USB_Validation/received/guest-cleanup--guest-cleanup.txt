@@ -1,0 +1,4 @@
+Terminate only isolated harness original PID288 after completed capture, rc=0
+Close completed test logger pid=1728 rc=0
+Remaining original process count=1
+WinPcap installation retained; no physical original PC/controller accessed; original startup preferences unchanged.

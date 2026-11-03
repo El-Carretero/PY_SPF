@@ -1,0 +1,12 @@
+{
+  "status": "LISTENING",
+  "endpoint": [
+    "10.19.70.13",
+    1024
+  ],
+  "allowed_source_ip": "10.19.70.2",
+  "controls_directory": "C:\\Users\\Fluke\\Desktop\\Spitfire_XP_Test_20261027\\xp_external_20261027_run03\\controls",
+  "stop_file": "C:\\Users\\Fluke\\Desktop\\Spitfire_XP_Test_20261027\\xp_external_20261027_run03\\STOP",
+  "scope": "XP_VIRTUAL_FIXTURE_CAPTURE_NOT_FIRMWARE_OR_OPTICAL_VALIDATION",
+  "created_utc": "2026-10-27T08:44:45.510160+00:00"
+}

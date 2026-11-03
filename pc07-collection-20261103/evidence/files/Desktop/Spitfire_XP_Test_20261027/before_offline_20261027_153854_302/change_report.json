@@ -1,0 +1,19 @@
+{
+    "CreatedUtc":  "2026-10-27T06:38:54.6985261Z",
+    "Status":  "PASS",
+    "VmPath":  "C:\\Users\\Fluke\\Documents\\Virtual Machines\\Windows XP Professional\\Windows XP Professional.vmx",
+    "Backup":  "C:\\Users\\Fluke\\Desktop\\Spitfire_XP_Test_20261027\\before_offline_20261027_153854_302\\Windows_XP_Professional.vmx",
+    "Changes":  {
+                    "ethernet0.connectionType":  "hostonly",
+                    "ethernet0.startConnected":  "TRUE",
+                    "ide1:0.deviceType":  "cdrom-image",
+                    "ide1:0.fileName":  "C:\\Users\\Fluke\\Desktop\\Spitfire_XP_Test_20261027\\Spitfire_160_Installer.iso",
+                    "ide1:0.present":  "TRUE",
+                    "ide1:0.startConnected":  "TRUE"
+                },
+    "ActiveDiskLinePreserved":  "ide1:1.fileName = \"Windows XP Professional-000001.vmdk\"",
+    "GuestStarted":  false,
+    "PhysicalNetworkChanged":  false,
+    "FirewallChanged":  false,
+    "AfterSha256":  "1e3c959341965e05f1be83029878d5afe7613441a043e1e6187fed18e15ec8c5"
+}

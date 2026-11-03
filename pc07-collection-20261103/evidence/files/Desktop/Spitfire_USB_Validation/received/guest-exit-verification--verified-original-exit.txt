@@ -1,0 +1,2 @@
+Read-only delayed WMI verification: original_process_count=0
+No original launch, termination, key or mouse input in this verification.

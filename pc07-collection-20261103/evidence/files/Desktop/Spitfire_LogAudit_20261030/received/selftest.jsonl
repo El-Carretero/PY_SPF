@@ -1,0 +1,16 @@
+{"event":"trace_started","utc":"2026-10-30T11:57:47.781Z","elapsed_ms":16,"pid":1896,"tid":0,"image":"C:\\SPF_AUDIT_20261030\\trace-selftest.exe","apis":["NtCreateFile","NtOpenFile","NtWriteFile","NtSetInformationFile","NtDeleteFile","NtClose"],"scope":"this process only; native user-mode file APIs; no kernel driver"}
+{"event":"hook_installed","api":"NtCreateFile","address":"0x7c93d090"}
+{"event":"hook_installed","api":"NtOpenFile","address":"0x7c93d580"}
+{"event":"hook_installed","api":"NtWriteFile","address":"0x7c93df60"}
+{"event":"hook_installed","api":"NtSetInformationFile","address":"0x7c93dc40"}
+{"event":"hook_installed","api":"NtDeleteFile","address":"0x7c93d220"}
+{"event":"hook_installed","api":"NtClose","address":"0x7c93cfd0"}
+{"event":"file_api_enter","utc":"2026-10-30T11:57:47.859Z","elapsed_ms":94,"pid":1896,"tid":1900,"id":1,"api":"NtOpenFile","path":"\\??\\C:\\SPF_AUDIT_20261030\\","desired_access":"0x00100020","create_disposition":0,"create_options":"0x00000021"}
+{"event":"file_api_return","utc":"2026-10-30T11:57:48.000Z","elapsed_ms":235,"pid":1896,"tid":1900,"id":1,"api":"NtOpenFile","status":"0x00000000","path":"\\??\\C:\\SPF_AUDIT_20261030\\","handle":"0x0000000c"}
+{"event":"file_api_enter","utc":"2026-10-30T11:57:48.015Z","elapsed_ms":250,"pid":1896,"tid":1900,"id":2,"api":"NtCreateFile","path":"\\??\\C:\\SPF_AUDIT_20261030\\\\trace-positive.txt","desired_access":"0x40100080","create_disposition":5,"create_options":"0x00000060"}
+{"event":"file_api_return","utc":"2026-10-30T11:57:48.015Z","elapsed_ms":250,"pid":1896,"tid":1900,"id":2,"api":"NtCreateFile","status":"0x00000000","path":"\\??\\C:\\SPF_AUDIT_20261030\\\\trace-positive.txt","handle":"0x0000001c"}
+{"event":"file_api_enter","utc":"2026-10-30T11:57:48.015Z","elapsed_ms":250,"pid":1896,"tid":1900,"id":3,"api":"NtWriteFile","path":"\\??\\C:\\SPF_AUDIT_20261030\\\\trace-positive.txt","handle":"0x0000001c","requested_bytes":29}
+{"event":"file_api_return","utc":"2026-10-30T11:57:48.015Z","elapsed_ms":250,"pid":1896,"tid":1900,"id":3,"api":"NtWriteFile","status":"0x00000000","path":"\\??\\C:\\SPF_AUDIT_20261030\\\\trace-positive.txt","io_status":"0x00000000","reported_bytes":29}
+{"event":"file_api_enter","utc":"2026-10-30T11:57:48.015Z","elapsed_ms":250,"pid":1896,"tid":1900,"id":4,"api":"NtClose","path":"\\??\\C:\\SPF_AUDIT_20261030\\\\trace-positive.txt","handle":"0x0000001c"}
+{"event":"file_api_return","utc":"2026-10-30T11:57:48.015Z","elapsed_ms":250,"pid":1896,"tid":1900,"id":4,"api":"NtClose","status":"0x00000000","path":"\\??\\C:\\SPF_AUDIT_20261030\\\\trace-positive.txt"}
+{"event":"trace_finished","utc":"2026-10-30T11:57:48.015Z","elapsed_ms":250,"pid":1896,"tid":1900,"exit_code":0,"all_hooks_installed":true,"tracing_error":false}

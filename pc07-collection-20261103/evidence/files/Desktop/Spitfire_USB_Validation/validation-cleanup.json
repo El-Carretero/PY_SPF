@@ -1,0 +1,90 @@
+﻿{
+    "utc":  "2026-10-31T18:57:20.3948195Z",
+    "physical_original_accessed":  false,
+    "physical_controller_accessed":  false,
+    "guest_original_exit_verification":  "Read-only delayed WMI verification: original_process_count=0\r\nNo original launch, termination, key or mouse input in this verification.\r\n",
+    "guest_transport_exit":  "quit",
+    "vm_running":  true,
+    "vmx_ethernet_lines":  [
+                               "ethernet0.connectionType = \"hostonly\"",
+                               "ethernet0.addressType = \"generated\"",
+                               "ethernet0.present = \"TRUE\"",
+                               "ethernet0.pciSlotNumber = \"33\"",
+                               "ethernet0.generatedAddress = \"00:0c:29:d1:03:99\"",
+                               "ethernet0.generatedAddressOffset = \"0\"",
+                               "ethernet0.startConnected = \"TRUE\""
+                           ],
+    "vmx_vnc_keys_count":  0,
+    "vnc_secret_exists":  false,
+    "temporary_tcp_listeners":  [
+
+                                ],
+    "simulator_udp_listeners":  [
+
+                                ],
+    "temporary_firewall_rules":  [
+
+                                 ],
+    "forwarding":  [
+                       {
+                           "InterfaceAlias":  "VMware Network Adapter VMnet8",
+                           "Forwarding":  0
+                       },
+                       {
+                           "InterfaceAlias":  "VMware Network Adapter VMnet1",
+                           "Forwarding":  0
+                       },
+                       {
+                           "InterfaceAlias":  "Bluetooth 네트워크 연결",
+                           "Forwarding":  0
+                       },
+                       {
+                           "InterfaceAlias":  "이더넷",
+                           "Forwarding":  0
+                       },
+                       {
+                           "InterfaceAlias":  "Loopback Pseudo-Interface 1",
+                           "Forwarding":  0
+                       }
+                   ],
+    "ip_enable_router":  0,
+    "ics":  [
+                {
+                    "name":  "Bluetooth 네트워크 연결",
+                    "sharing_enabled":  false
+                },
+                {
+                    "name":  "VMware Network Adapter VMnet1",
+                    "sharing_enabled":  false
+                },
+                {
+                    "name":  "VMware Network Adapter VMnet8",
+                    "sharing_enabled":  false
+                },
+                {
+                    "name":  "이더넷",
+                    "sharing_enabled":  false
+                }
+            ],
+    "bridge_bindings":  [
+
+                        ],
+    "vmnet1_ipv4":  [
+                        {
+                            "IPAddress":  "192.168.37.1",
+                            "PrefixLength":  24
+                        },
+                        {
+                            "IPAddress":  "10.19.70.13",
+                            "PrefixLength":  24
+                        }
+                    ],
+    "fixture_final":  {
+                          "requests":  42920,
+                          "responses":  42920,
+                          "applied_optout_on":  0,
+                          "rejected_commands":  5,
+                          "optout":  "1"
+                      },
+    "winpcap_installation_retained":  true
+}

@@ -1,0 +1,2 @@
+files=42
+makecab_exit=0

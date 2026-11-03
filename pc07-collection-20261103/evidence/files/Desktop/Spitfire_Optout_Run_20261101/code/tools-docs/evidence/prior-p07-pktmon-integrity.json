@@ -1,0 +1,16 @@
+[
+  {
+    "path": "C:\\Windows\\System32\\pktmon.exe",
+    "version": "10.0.26100.9949 (WinBuild.160101.0800)",
+    "sha256": "F444C0ABEF0F154460ED004444CBCD1C91235FDF398D678126744BAEF9A12EF5",
+    "signature": "Valid",
+    "signer": "CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+  },
+  {
+    "path": "C:\\Windows\\System32\\drivers\\PktMon.sys",
+    "version": "10.0.26100.9949 (WinBuild.160101.0800)",
+    "sha256": "456FA9A1C58A70FBCBB5E7EC37E17E87BB0A2A203E9D59B4FB11719C4DABF4C4",
+    "signature": "Valid",
+    "signer": "CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+  }
+]

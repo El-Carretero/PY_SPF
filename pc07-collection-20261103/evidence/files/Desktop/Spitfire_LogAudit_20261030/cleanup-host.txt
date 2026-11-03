@@ -1,0 +1,1 @@
+﻿Temporary audit firewall rules removed; audit HTTP server stopped; UDP stopped; guest original/helpers exited and config restored.

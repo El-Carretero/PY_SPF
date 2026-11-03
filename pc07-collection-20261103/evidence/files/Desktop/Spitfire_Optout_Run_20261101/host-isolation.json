@@ -1,0 +1,244 @@
+﻿{
+    "verified_utc":  "2026-10-31T16:23:12.0578054Z",
+    "host":  "20255566-P07",
+    "vmx":  "C:\\Users\\Fluke\\Documents\\Virtual Machines\\Windows XP Professional\\Windows XP Professional.vmx",
+    "vmx_sha256":  "C80C9BDEFF7C7A86A087AB723914EA50A2C226AB8A3277BFE748969C617B7A75",
+    "running_vms":  [
+                        "Total running VMs: 1",
+                        "C:\\Users\\Fluke\\Documents\\Virtual Machines\\Windows XP Professional\\Windows XP Professional.vmx"
+                    ],
+    "ipv4_interfaces":  [
+                            {
+                                "InterfaceAlias":  "VMware Network Adapter VMnet8",
+                                "InterfaceIndex":  13,
+                                "Forwarding":  0
+                            },
+                            {
+                                "InterfaceAlias":  "VMware Network Adapter VMnet1",
+                                "InterfaceIndex":  11,
+                                "Forwarding":  0
+                            },
+                            {
+                                "InterfaceAlias":  "Bluetooth 네트워크 연결",
+                                "InterfaceIndex":  20,
+                                "Forwarding":  0
+                            },
+                            {
+                                "InterfaceAlias":  "이더넷",
+                                "InterfaceIndex":  10,
+                                "Forwarding":  0
+                            },
+                            {
+                                "InterfaceAlias":  "Loopback Pseudo-Interface 1",
+                                "InterfaceIndex":  1,
+                                "Forwarding":  0
+                            }
+                        ],
+    "vmnet1_ips":  [
+                       {
+                           "IPAddress":  "192.168.37.1",
+                           "PrefixLength":  24
+                       },
+                       {
+                           "IPAddress":  "10.19.70.13",
+                           "PrefixLength":  24
+                       }
+                   ],
+    "vmnet1_bindings":  [
+                            {
+                                "ComponentID":  "ms_server",
+                                "Enabled":  true
+                            },
+                            {
+                                "ComponentID":  "ms_lldp",
+                                "Enabled":  true
+                            },
+                            {
+                                "ComponentID":  "vmware_bridge",
+                                "Enabled":  false
+                            },
+                            {
+                                "ComponentID":  "ms_implat",
+                                "Enabled":  false
+                            },
+                            {
+                                "ComponentID":  "ms_tcpip",
+                                "Enabled":  true
+                            },
+                            {
+                                "ComponentID":  "ms_msclient",
+                                "Enabled":  true
+                            },
+                            {
+                                "ComponentID":  "vms_pp",
+                                "Enabled":  false
+                            },
+                            {
+                                "ComponentID":  "ms_lltdio",
+                                "Enabled":  true
+                            },
+                            {
+                                "ComponentID":  "ms_tcpip6",
+                                "Enabled":  true
+                            },
+                            {
+                                "ComponentID":  "ms_rspndr",
+                                "Enabled":  true
+                            }
+                        ],
+    "sharing":  [
+                    {
+                        "Name":  "Bluetooth 네트워크 연결",
+                        "SharingEnabled":  false
+                    },
+                    {
+                        "Name":  "VMware Network Adapter VMnet1",
+                        "SharingEnabled":  false
+                    },
+                    {
+                        "Name":  "VMware Network Adapter VMnet8",
+                        "SharingEnabled":  false
+                    },
+                    {
+                        "Name":  "이더넷",
+                        "SharingEnabled":  false
+                    }
+                ],
+    "routes":  [
+                   {
+                       "DestinationPrefix":  "255.255.255.255/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  20
+                   },
+                   {
+                       "DestinationPrefix":  "255.255.255.255/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  10
+                   },
+                   {
+                       "DestinationPrefix":  "255.255.255.255/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  13
+                   },
+                   {
+                       "DestinationPrefix":  "255.255.255.255/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  11
+                   },
+                   {
+                       "DestinationPrefix":  "255.255.255.255/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  1
+                   },
+                   {
+                       "DestinationPrefix":  "224.0.0.0/4",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  20
+                   },
+                   {
+                       "DestinationPrefix":  "224.0.0.0/4",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  10
+                   },
+                   {
+                       "DestinationPrefix":  "224.0.0.0/4",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  13
+                   },
+                   {
+                       "DestinationPrefix":  "224.0.0.0/4",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  11
+                   },
+                   {
+                       "DestinationPrefix":  "224.0.0.0/4",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  1
+                   },
+                   {
+                       "DestinationPrefix":  "192.168.215.255/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  13
+                   },
+                   {
+                       "DestinationPrefix":  "192.168.215.1/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  13
+                   },
+                   {
+                       "DestinationPrefix":  "192.168.215.0/24",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  13
+                   },
+                   {
+                       "DestinationPrefix":  "192.168.37.255/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  11
+                   },
+                   {
+                       "DestinationPrefix":  "192.168.37.1/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  11
+                   },
+                   {
+                       "DestinationPrefix":  "192.168.37.0/24",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  11
+                   },
+                   {
+                       "DestinationPrefix":  "127.255.255.255/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  1
+                   },
+                   {
+                       "DestinationPrefix":  "127.0.0.1/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  1
+                   },
+                   {
+                       "DestinationPrefix":  "127.0.0.0/8",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  1
+                   },
+                   {
+                       "DestinationPrefix":  "10.70.15.255/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  10
+                   },
+                   {
+                       "DestinationPrefix":  "10.70.14.128/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  10
+                   },
+                   {
+                       "DestinationPrefix":  "10.70.14.0/23",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  10
+                   },
+                   {
+                       "DestinationPrefix":  "10.19.70.255/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  11
+                   },
+                   {
+                       "DestinationPrefix":  "10.19.70.13/32",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  11
+                   },
+                   {
+                       "DestinationPrefix":  "10.19.70.0/24",
+                       "NextHop":  "0.0.0.0",
+                       "InterfaceIndex":  11
+                   },
+                   {
+                       "DestinationPrefix":  "0.0.0.0/0",
+                       "NextHop":  "10.70.14.1",
+                       "InterfaceIndex":  10
+                   }
+               ],
+    "simulator_source":  "C:\\Users\\Fluke\\Desktop\\Spitfire_LogAudit_20261030\\reply-values.json",
+    "simulator_sha256":  "65988DA24DEDE0D20FF215712FA413A0BF7349D2CE457B16DF62687101FF0940",
+    "unchanged_optout":  "0",
+    "pktmon_version":  "10.0.26100.3624 (WinBuild.160101.0800)",
+    "scope":  "p07 only; original physical PC not accessed"
+}

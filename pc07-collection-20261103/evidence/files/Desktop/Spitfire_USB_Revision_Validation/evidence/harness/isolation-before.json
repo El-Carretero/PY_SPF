@@ -1,0 +1,36 @@
+﻿{
+    "utc":  "2026-10-31T19:38:35.0261060Z",
+    "vm_was_running":  false,
+    "vmx_ethernet":  [
+                         "ethernet0.connectionType = \"hostonly\"",
+                         "ethernet0.addressType = \"generated\"",
+                         "ethernet0.present = \"TRUE\"",
+                         "ethernet0.pciSlotNumber = \"33\"",
+                         "ethernet0.generatedAddress = \"00:0c:29:d1:03:99\"",
+                         "ethernet0.generatedAddressOffset = \"0\"",
+                         "ethernet0.startConnected = \"TRUE\""
+                     ],
+    "ics":  [
+                {
+                    "name":  "Bluetooth 네트워크 연결",
+                    "enabled":  false
+                },
+                {
+                    "name":  "VMware Network Adapter VMnet1",
+                    "enabled":  false
+                },
+                {
+                    "name":  "VMware Network Adapter VMnet8",
+                    "enabled":  false
+                },
+                {
+                    "name":  "이더넷",
+                    "enabled":  false
+                }
+            ],
+    "forwarding_enabled":  false,
+    "router_enabled":  false,
+    "bridge_present":  false,
+    "original_controller_accessed":  false,
+    "vmx_sha256":  "fd3c4b2f540dd5eee34dd79353b3c04224ba07356e646ab61d5a3f7f9ae5cb2e"
+}

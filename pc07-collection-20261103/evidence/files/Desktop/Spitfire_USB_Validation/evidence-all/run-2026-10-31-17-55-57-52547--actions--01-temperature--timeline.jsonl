@@ -1,0 +1,3 @@
+{"utc_guest_clock":"2026-10-31T17:56:34.125Z","action":"temperature","phase":"begin","detail":"Attach-only original UI test; helper has no network interface","code":0}
+{"utc_guest_clock":"2026-10-31T17:56:35.984Z","action":"temperature","phase":"blocked","detail":"Exact main panel cannot be foregrounded","code":84}
+{"utc_guest_clock":"2026-10-31T17:56:38.890Z","action":"temperature","phase":"blocked_or_incomplete","detail":"Before/after screenshots and inventories retained; original not closed","code":84}

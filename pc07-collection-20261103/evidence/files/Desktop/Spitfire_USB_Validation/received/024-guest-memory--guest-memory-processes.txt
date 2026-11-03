@@ -1,0 +1,14 @@
+FreePhysicalMemoryKB=1774792 TotalVisibleMemoryKB=2096560 FreeVirtualMemoryKB=2052416
+PID=1892 WS=21204992 EXE=C:\WINDOWS\system32\mshta.exe CMD="C:\WINDOWS\system32\mshta.exe" "C:\SPFCAP_BOOT_20261101\bootstrap-local.hta"
+PID=400 WS=5484544 EXE=C:\WINDOWS\system32\mshta.exe CMD="C:\WINDOWS\system32\mshta.exe" http;//10.19.70.13;18979/bootstrap.hta
+PID=428 WS=5484544 EXE=C:\WINDOWS\system32\mshta.exe CMD="C:\WINDOWS\system32\mshta.exe" http;//10.19.70.13;18979/bootstrap.hta
+PID=1416 WS=5484544 EXE=C:\WINDOWS\system32\mshta.exe CMD="C:\WINDOWS\system32\mshta.exe" http;//10.19.70.13;18979/bootstrap.hta
+PID=1396 WS=5480448 EXE=C:\WINDOWS\system32\mshta.exe CMD="C:\WINDOWS\system32\mshta.exe" http;//10.19.70.13;18979/bootstrap.hta
+PID=1444 WS=5484544 EXE=C:\WINDOWS\system32\mshta.exe CMD="C:\WINDOWS\system32\mshta.exe" http;//10.19.70.13;18979/bootstrap.hta
+PID=1176 WS=5484544 EXE=C:\WINDOWS\system32\mshta.exe CMD=mshta http;//10.19.70.13;18979/bootstrap.hta
+PID=224 WS=13250560 EXE=C:\WINDOWS\system32\mshta.exe CMD="C:\WINDOWS\system32\mshta.exe" "C:\SPF_USB_VALIDATION\controller.hta"
+PID=2024 WS=9895936 EXE=C:\Program Files\Spectra-Physics\Spitfire\Spitfire.exe CMD="Spitfire.exe" 
+PID=2004 WS=11288576 EXE=C:\WINDOWS\system32\mshta.exe CMD="C:\WINDOWS\system32\mshta.exe"  "C:\SpitfireLogs\run-2026-10-31-17-52-36-32777\app\RUN.hta"
+PID=2016 WS=11370496 EXE=C:\WINDOWS\system32\mshta.exe CMD="C:\WINDOWS\system32\mshta.exe"  "C:\SpitfireLogs\run-2026-10-31-17-55-57-52547\app\RUN.hta"
+PID=1188 WS=10846208 EXE=C:\WINDOWS\system32\mshta.exe CMD="C:\WINDOWS\system32\mshta.exe"  "C:\SpitfireLogs\run-2026-10-31-18-1-33-25927\app\RUN.hta"
+PID=368 WS=10907648 EXE=C:\WINDOWS\system32\mshta.exe CMD="C:\WINDOWS\system32\mshta.exe"  "C:\SpitfireLogs\run-2026-10-31-18-7-3-13544\app\RUN.hta"

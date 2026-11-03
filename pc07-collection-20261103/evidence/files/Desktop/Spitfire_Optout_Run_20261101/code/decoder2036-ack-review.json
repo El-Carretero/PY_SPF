@@ -1,0 +1,83 @@
+{
+  "method": "Offline original x86 response decoder in Unicorn; CVI/CRT calls intercepted; no OS process or network/hardware execution",
+  "binary_sha256": "8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b",
+  "cases": [
+    {
+      "tag": 2036,
+      "payload": "0",
+      "initial_emp_optout": 0,
+      "initial_message_balance": 1,
+      "after": {
+        "emp_optout": 0,
+        "g_message_balance_count": 0
+      },
+      "queued_commands": [],
+      "widget_updates": [
+        [
+          3,
+          31,
+          null,
+          0
+        ]
+      ]
+    },
+    {
+      "tag": 2036,
+      "payload": "1",
+      "initial_emp_optout": 0,
+      "initial_message_balance": 1,
+      "after": {
+        "emp_optout": 0,
+        "g_message_balance_count": 0
+      },
+      "queued_commands": [],
+      "widget_updates": [
+        [
+          3,
+          31,
+          null,
+          0
+        ]
+      ]
+    },
+    {
+      "tag": 2036,
+      "payload": "0",
+      "initial_emp_optout": 1,
+      "initial_message_balance": 1,
+      "after": {
+        "emp_optout": 1,
+        "g_message_balance_count": 0
+      },
+      "queued_commands": [],
+      "widget_updates": [
+        [
+          3,
+          31,
+          null,
+          0
+        ]
+      ]
+    },
+    {
+      "tag": 2036,
+      "payload": "1",
+      "initial_emp_optout": 1,
+      "initial_message_balance": 1,
+      "after": {
+        "emp_optout": 1,
+        "g_message_balance_count": 0
+      },
+      "queued_commands": [],
+      "widget_updates": [
+        [
+          3,
+          31,
+          null,
+          0
+        ]
+      ]
+    }
+  ],
+  "conclusion": "2036 reply payload0 or1 neither toggles optout nor queues commands; only reduces balance and refreshes generic UI connectivity. Actual alternating2036 request initiation remains unattributed."
+}

@@ -1,0 +1,2 @@
+Isolated harness original PID752 termination rc=0
+Leave original closed while synthetic fixture resumes; no original physical PC/controller accessed.

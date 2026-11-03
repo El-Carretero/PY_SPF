@@ -1,0 +1,79 @@
+{
+    "CreatedUtc":  "2026-10-27T05:21:44.6143026Z",
+    "Status":  "PASS",
+    "Scope":  "Data-only ISO creation and mounted filesystem read-back SHA256 verification",
+    "SourceDirectory":  "C:\\Users\\Fluke\\Downloads\\Spitfire_GUI_v_1_6_0",
+    "ImagePath":  "C:\\Users\\Fluke\\Desktop\\Spitfire_XP_Test_20261027\\Spitfire_160_Installer.iso",
+    "ImageBytes":  14194688,
+    "ImageSha256":  "b4d6b59775448b7f1e6cc18bc7a01ad4607b7ded117df0ef28ec2d5091c6ef8a",
+    "FileSystems":  [
+                        "ISO9660",
+                        "Joliet"
+                    ],
+    "InputFiles":  [
+                       {
+                           "Name":  "setup.exe",
+                           "Length":  69632,
+                           "Sha256":  "7cab04e301994c56d3f44e6f3cf0f8660327b85cdace6ffb6c3a28c5beb765c4"
+                       },
+                       {
+                           "Name":  "setup.ini",
+                           "Length":  123,
+                           "Sha256":  "507a0f6b4672579b22f1dee8db0e0772c7694ba11585f1a333d0ccb76fdf25d6"
+                       },
+                       {
+                           "Name":  "Spitfire.msi",
+                           "Length":  1845248,
+                           "Sha256":  "a426077a2ced6d735fbcae9bcc47a69d44230c68433ef66be4b08337d7fc7324"
+                       },
+                       {
+                           "Name":  "DistFile.cab",
+                           "Length":  9224817,
+                           "Sha256":  "dd831a4d9cc6980ee98270b1318dcc641eb315083432962bea7de3d7b0170698"
+                       },
+                       {
+                           "Name":  "instmsi.exe",
+                           "Length":  1494280,
+                           "Sha256":  "781effbc345bc4a731ff5279103f51ad098e84d995a9d64216956cf2267bd712"
+                       },
+                       {
+                           "Name":  "instmsiw.exe",
+                           "Length":  1505032,
+                           "Sha256":  "69e647aa1f9303461b51b127e55992b160625307ba3d77d1b64985bd4b245ae5"
+                       }
+                   ],
+    "VerifiedFiles":  [
+                          {
+                              "Name":  "setup.exe",
+                              "Length":  69632,
+                              "Sha256":  "7cab04e301994c56d3f44e6f3cf0f8660327b85cdace6ffb6c3a28c5beb765c4"
+                          },
+                          {
+                              "Name":  "setup.ini",
+                              "Length":  123,
+                              "Sha256":  "507a0f6b4672579b22f1dee8db0e0772c7694ba11585f1a333d0ccb76fdf25d6"
+                          },
+                          {
+                              "Name":  "Spitfire.msi",
+                              "Length":  1845248,
+                              "Sha256":  "a426077a2ced6d735fbcae9bcc47a69d44230c68433ef66be4b08337d7fc7324"
+                          },
+                          {
+                              "Name":  "DistFile.cab",
+                              "Length":  9224817,
+                              "Sha256":  "dd831a4d9cc6980ee98270b1318dcc641eb315083432962bea7de3d7b0170698"
+                          },
+                          {
+                              "Name":  "instmsi.exe",
+                              "Length":  1494280,
+                              "Sha256":  "781effbc345bc4a731ff5279103f51ad098e84d995a9d64216956cf2267bd712"
+                          },
+                          {
+                              "Name":  "instmsiw.exe",
+                              "Length":  1505032,
+                              "Sha256":  "69e647aa1f9303461b51b127e55992b160625307ba3d77d1b64985bd4b245ae5"
+                          }
+                      ],
+    "InstallerExecuted":  false,
+    "VirtualMachineChanged":  false
+}

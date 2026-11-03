@@ -1,0 +1,10 @@
+{
+  "status": "LISTENING",
+  "endpoint": [
+    "127.0.0.1",
+    59376
+  ],
+  "scope": "HEADLESS_REAL_CONTROLLER_LOOPBACK_BASELINE_NOT_GUI_OR_EQUIVALENCE",
+  "duration_limit_seconds": 45.0,
+  "created_utc": "2026-10-27T07:31:31.956646+00:00"
+}

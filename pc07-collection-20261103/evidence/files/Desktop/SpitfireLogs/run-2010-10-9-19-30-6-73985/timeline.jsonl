@@ -1,0 +1,8 @@
+{"utc_guest_clock":"2010-10-09T19:30:06.531Z","event":"session-start","detail":{"version":"1.0","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2010-10-09T19:30:06.546Z","event":"process-start","detail":{"kind":"probe","pid":772}}
+{"utc_guest_clock":"2010-10-09T19:30:06.859Z","event":"process-end","detail":{"kind":"probe","exit_code":0}}
+{"utc_guest_clock":"2010-10-09T19:30:06.859Z","event":"capture-start","detail":{"pid":2320,"max_seconds":300}}
+{"utc_guest_clock":"2010-10-09T19:30:06.859Z","event":"process-start","detail":{"kind":"preflight","pid":2072}}
+{"utc_guest_clock":"2010-10-09T19:30:07.484Z","event":"process-end","detail":{"kind":"preflight","exit_code":20}}
+{"utc_guest_clock":"2010-10-09T19:30:07.484Z","event":"ui-stopped","detail":{"reason":"PREFLIGHT_BLOCKED_20","capture_reason":"","updated_tick":16080109}}
+{"utc_guest_clock":"2010-10-09T19:30:15.953Z","event":"session-end","detail":{"outcome":"PARTIAL_OR_BLOCKED","reason":"PREFLIGHT_BLOCKED_20"}}

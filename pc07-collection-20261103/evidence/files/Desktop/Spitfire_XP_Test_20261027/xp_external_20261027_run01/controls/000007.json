@@ -1,0 +1,10 @@
+{
+    "overrides":  {
+                      "1089":  "4",
+                      "1068":  "1",
+                      "1015":  "2048"
+                  },
+    "note":  "Synthetic status only; no physical hardware; external opt-out readback remains 1",
+    "stage":  "head_module_comm_fault",
+    "seq":  7
+}

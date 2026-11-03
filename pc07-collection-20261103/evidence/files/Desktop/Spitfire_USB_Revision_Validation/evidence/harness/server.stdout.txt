@@ -1,0 +1,2 @@
+READY: original-XP fixture v2 bound .13:1024 / HTTP18979; next seq=1
+{"state": {"requests": 21381, "responses": 21381, "applied_optout_on": 0, "rejected_commands": 7, "optout": "1"}, "last_sequence": 21381, "errors": []}

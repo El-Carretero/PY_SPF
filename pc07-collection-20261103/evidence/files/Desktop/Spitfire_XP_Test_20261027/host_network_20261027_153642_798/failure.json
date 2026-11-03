@@ -1,0 +1,245 @@
+{
+    "Status":  "FAIL",
+    "Error":  "DHCP/forwarding unexpectedly changed",
+    "RollbackErrors":  [
+
+                       ],
+    "State":  {
+                  "Addresses":  [
+                                    {
+                                        "InterfaceIndex":  1,
+                                        "IPAddress":  "127.0.0.1",
+                                        "PrefixLength":  8,
+                                        "PrefixOrigin":  2,
+                                        "SkipAsSource":  false
+                                    },
+                                    {
+                                        "InterfaceIndex":  9,
+                                        "IPAddress":  "10.70.14.128",
+                                        "PrefixLength":  23,
+                                        "PrefixOrigin":  1,
+                                        "SkipAsSource":  false
+                                    },
+                                    {
+                                        "InterfaceIndex":  16,
+                                        "IPAddress":  "169.254.102.47",
+                                        "PrefixLength":  16,
+                                        "PrefixOrigin":  2,
+                                        "SkipAsSource":  false
+                                    },
+                                    {
+                                        "InterfaceIndex":  31,
+                                        "IPAddress":  "10.19.70.13",
+                                        "PrefixLength":  24,
+                                        "PrefixOrigin":  1,
+                                        "SkipAsSource":  true
+                                    },
+                                    {
+                                        "InterfaceIndex":  32,
+                                        "IPAddress":  "192.168.215.1",
+                                        "PrefixLength":  24,
+                                        "PrefixOrigin":  3,
+                                        "SkipAsSource":  false
+                                    }
+                                ],
+                  "Interfaces":  [
+                                     {
+                                         "InterfaceIndex":  1,
+                                         "Dhcp":  0,
+                                         "Forwarding":  0
+                                     },
+                                     {
+                                         "InterfaceIndex":  9,
+                                         "Dhcp":  0,
+                                         "Forwarding":  0
+                                     },
+                                     {
+                                         "InterfaceIndex":  16,
+                                         "Dhcp":  1,
+                                         "Forwarding":  0
+                                     },
+                                     {
+                                         "InterfaceIndex":  31,
+                                         "Dhcp":  0,
+                                         "Forwarding":  0
+                                     },
+                                     {
+                                         "InterfaceIndex":  32,
+                                         "Dhcp":  1,
+                                         "Forwarding":  0
+                                     }
+                                 ],
+                  "Routes":  [
+                                 {
+                                     "InterfaceIndex":  1,
+                                     "DestinationPrefix":  "127.0.0.0/8",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  1,
+                                     "DestinationPrefix":  "127.0.0.1/32",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  1,
+                                     "DestinationPrefix":  "127.255.255.255/32",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  1,
+                                     "DestinationPrefix":  "224.0.0.0/4",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  1,
+                                     "DestinationPrefix":  "255.255.255.255/32",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  9,
+                                     "DestinationPrefix":  "0.0.0.0/0",
+                                     "NextHop":  "10.70.14.1",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  9,
+                                     "DestinationPrefix":  "10.70.14.0/23",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  9,
+                                     "DestinationPrefix":  "10.70.14.128/32",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  9,
+                                     "DestinationPrefix":  "10.70.15.255/32",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  9,
+                                     "DestinationPrefix":  "224.0.0.0/4",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  9,
+                                     "DestinationPrefix":  "255.255.255.255/32",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  16,
+                                     "DestinationPrefix":  "224.0.0.0/4",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  16,
+                                     "DestinationPrefix":  "255.255.255.255/32",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  31,
+                                     "DestinationPrefix":  "10.19.70.0/24",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  31,
+                                     "DestinationPrefix":  "10.19.70.13/32",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  31,
+                                     "DestinationPrefix":  "10.19.70.255/32",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  31,
+                                     "DestinationPrefix":  "224.0.0.0/4",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  31,
+                                     "DestinationPrefix":  "255.255.255.255/32",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  32,
+                                     "DestinationPrefix":  "192.168.215.0/24",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  32,
+                                     "DestinationPrefix":  "192.168.215.1/32",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  32,
+                                     "DestinationPrefix":  "192.168.215.255/32",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  32,
+                                     "DestinationPrefix":  "224.0.0.0/4",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 },
+                                 {
+                                     "InterfaceIndex":  32,
+                                     "DestinationPrefix":  "255.255.255.255/32",
+                                     "NextHop":  "0.0.0.0",
+                                     "RouteMetric":  256
+                                 }
+                             ],
+                  "Dns":  [
+                              {
+                                  "InterfaceIndex":  1,
+                                  "ServerAddresses":  [
+
+                                                      ]
+                              },
+                              {
+                                  "InterfaceIndex":  9,
+                                  "ServerAddresses":  [
+                                                          "10.4.1.151"
+                                                      ]
+                              },
+                              {
+                                  "InterfaceIndex":  16,
+                                  "ServerAddresses":  [
+
+                                                      ]
+                              },
+                              {
+                                  "InterfaceIndex":  31,
+                                  "ServerAddresses":  [
+
+                                                      ]
+                              },
+                              {
+                                  "InterfaceIndex":  32,
+                                  "ServerAddresses":  [
+
+                                                      ]
+                              }
+                          ]
+              }
+}

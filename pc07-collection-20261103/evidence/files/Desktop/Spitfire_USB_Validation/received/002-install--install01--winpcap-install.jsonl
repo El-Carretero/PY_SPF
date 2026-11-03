@@ -1,0 +1,5 @@
+{"utc":"2026-10-31T17:45:18.281Z","phase":"start","detail":"SHA256 and size verified. Running unchanged official installer; no silent/integrity-bypass switches","code":0}
+{"utc":"2026-10-31T17:45:18.718Z","phase":"dialog","detail":"&Next >\u000aCancel\u000aWelcome to the WinPcap 4.1.3 Setup Wizard\u000aThis Wizard will guide you through the entire WinPcap installation.\u000d\u000aFor more information or support, please visit the WinPcap home page.\u000d\u000a\u000d\u000ahttp://www.winpcap.org\u000a","code":0}
+{"utc":"2026-10-31T17:45:18.718Z","phase":"installer_button","detail":"&Next >","code":0}
+{"utc":"2026-10-31T17:45:25.734Z","phase":"blocked","detail":"No unique expected installer dialog; no additional clicks","code":33}
+{"utc":"2026-10-31T17:45:25.734Z","phase":"incomplete","detail":"Installer did not meet all guarded completion checks; inspect log and screen. No force termination or reboot.","code":33}

@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "utc": "2026-10-31T17:08:43.136690+00:00",
+  "resume": true,
+  "server_sha256": "a82bed0dad0dd334d561a186db7d4a9e8d2c9a1a8288f7a580ca3934d7715578",
+  "resumed_last_seq": 15300,
+  "recovered_state": {
+    "requests": 15300,
+    "responses": 15300,
+    "applied_optout_on": 6,
+    "rejected_commands": 7,
+    "optout": "1"
+  },
+  "prior_udp_log_sha256": "7d332d059f2316286865f6bac9217e8fd11494282efd1ab0c402a9b58b890ff4",
+  "recovery_basis": "complete logged records only; no missing packet inference",
+  "prior_state_snapshot_file": "fixture-state.before-resume-20261031T170843136660Z.json",
+  "prior_state_snapshot_sha256": "47b967fd1f3de491e54d216fce000de48d624af167b110ae1f846bb1ae6d8be4",
+  "initial_state": {
+    "requests": 15300,
+    "responses": 15300,
+    "applied_optout_on": 6,
+    "rejected_commands": 7,
+    "optout": "1"
+  }
+}

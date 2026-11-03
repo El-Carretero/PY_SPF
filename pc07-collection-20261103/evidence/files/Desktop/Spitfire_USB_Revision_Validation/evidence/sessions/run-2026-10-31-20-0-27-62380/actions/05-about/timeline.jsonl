@@ -1,0 +1,4 @@
+{"utc_guest_clock":"2026-10-31T20:02:37.609Z","action":"about","phase":"begin","detail":"Attach-only original UI test; helper has no network interface","code":0}
+{"utc_guest_clock":"2026-10-31T20:02:45.546Z","action":"about","phase":"opened","detail":"Selected fixed reviewed show-panel menu item","code":0}
+{"utc_guest_clock":"2026-10-31T20:02:52.578Z","action":"about","phase":"auxiliary_close","detail":"Exact auxiliary close_ctrl dispatches its HidePanel-only callback","code":9}
+{"utc_guest_clock":"2026-10-31T20:02:56.640Z","action":"about","phase":"end","detail":"Before/after screenshots and inventories retained; original not closed","code":0}

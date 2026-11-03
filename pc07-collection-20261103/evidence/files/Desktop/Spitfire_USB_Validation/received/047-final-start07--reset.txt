@@ -1,0 +1,3 @@
+Terminate only isolated harness original656 rc=0
+Close completed logger pid=976 rc=0
+No physical original PC/controller accessed; no panel close or warning button clicked.

@@ -1,0 +1,27 @@
+﻿utc,kst,clock,event,phase,detail
+2026-10-31T16:03:36.991089+00:00,2026-11-01T01:03:36.991089+09:00,host,fixture_started,,0
+2026-10-31T16:05:44.775972+00:00,2026-11-01T01:05:44.775972+09:00,host,download,,bootstrap.hta
+2026-10-31T16:05:45.061811+00:00,2026-11-01T01:05:45.061811+09:00,host,download,,guest_probe.exe
+2026-10-31T16:07:43.859295+00:00,2026-11-01T01:07:43.859295+09:00,host,download,,bootstrap.hta
+2026-10-31T16:09:01.829615+00:00,2026-11-01T01:09:01.829615+09:00,host,download,,bootstrap.hta
+2026-10-31T16:09:02.576567+00:00,2026-11-01T01:09:02.576567+09:00,host,download,,guest_probe.exe
+2026-10-31T16:09:02.604345+00:00,2026-11-01T01:09:02.604345+09:00,host,download,,host-isolation-proof.txt
+2026-10-31T16:09:02.718Z,2026-11-01T01:09:02.718000+09:00,guest,inventory,begin,Read-only XP guest evidence; timestamps use guest UTC clock
+2026-10-31T16:09:03.046Z,2026-11-01T01:09:03.046000+09:00,guest,screenshot,end,desktop.bmp saved; no mouse/keyboard actions
+2026-10-31T16:09:03.062Z,2026-11-01T01:09:03.062000+09:00,guest,local_network_check,end,Exactly expected active IPv4 interface; no gateway/default route; direct simulator route
+2026-10-31T16:09:03.062Z,2026-11-01T01:09:03.062000+09:00,guest,inventory,end,No SPITFIRE.EXE process observed
+2026-10-31T16:09:03.062Z,2026-11-01T01:09:03.062000+09:00,guest,diagnostic_optout_query,begin,DIAGNOSTIC-GENERATED; not original SPITFIRE.EXE traffic
+2026-10-31T16:09:03.109Z,2026-11-01T01:09:03.109000+09:00,guest,diagnostic_optout_query,sent,10.19.70.2:1024 -> 10.19.70.13:1024; query1068 only
+2026-10-31T16:09:03.125Z,2026-11-01T01:09:03.125000+09:00,guest,diagnostic_optout_query,blocked,Opt-out readback0; requested Opt-out-on suite blocked; no changes made
+2026-10-31T16:09:06.255355+00:00,2026-11-01T01:09:06.255355+09:00,host,upload,,desktop.bmp
+2026-10-31T16:09:06.268920+00:00,2026-11-01T01:09:06.268920+09:00,host,upload,,diagnostic-rx-payload.bin
+2026-10-31T16:09:06.280438+00:00,2026-11-01T01:09:06.280438+09:00,host,upload,,diagnostic-tx-payload.bin
+2026-10-31T16:09:06.298371+00:00,2026-11-01T01:09:06.298371+09:00,host,upload,,eligibility.json
+2026-10-31T16:09:06.310026+00:00,2026-11-01T01:09:06.310026+09:00,host,upload,,host-isolation-proof.txt
+2026-10-31T16:09:06.322080+00:00,2026-11-01T01:09:06.322080+09:00,host,upload,,identity.json
+2026-10-31T16:09:06.331154+00:00,2026-11-01T01:09:06.331154+09:00,host,upload,,network.jsonl
+2026-10-31T16:09:06.340171+00:00,2026-11-01T01:09:06.340171+09:00,host,upload,,processes.jsonl
+2026-10-31T16:09:06.349723+00:00,2026-11-01T01:09:06.349723+09:00,host,upload,,timeline.jsonl
+2026-10-31T16:09:06.364726+00:00,2026-11-01T01:09:06.364726+09:00,host,upload,,windows.jsonl
+2026-10-31T16:09:06.373766+00:00,2026-11-01T01:09:06.373766+09:00,host,upload,,bootstrap-status.txt
+2026-10-31T16:09:39.174866+00:00,2026-11-01T01:09:39.174866+09:00,host,fixture_stopped,,

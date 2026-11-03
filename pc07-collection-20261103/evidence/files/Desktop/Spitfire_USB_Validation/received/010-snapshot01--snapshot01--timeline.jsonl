@@ -1,0 +1,6 @@
+{"utc_guest_clock":"2026-10-31T17:52:40.078Z","event":"session-start","detail":{"version":"1.0","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2026-10-31T17:52:40.093Z","event":"process-start","detail":{"kind":"probe","pid":816}}
+{"utc_guest_clock":"2026-10-31T17:52:40.578Z","event":"process-end","detail":{"kind":"probe","exit_code":20}}
+{"utc_guest_clock":"2026-10-31T17:52:40.578Z","event":"process-start","detail":{"kind":"install","pid":936}}
+{"utc_guest_clock":"2026-10-31T17:52:56.250Z","event":"process-end","detail":{"kind":"install","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T17:52:56.281Z","event":"process-start","detail":{"kind":"reprobe","pid":1644}}

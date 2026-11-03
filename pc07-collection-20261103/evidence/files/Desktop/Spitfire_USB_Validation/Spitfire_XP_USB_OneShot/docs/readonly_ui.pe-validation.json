@@ -1,0 +1,26 @@
+{
+  "format": "PE32 i386",
+  "minimum_os": [
+    5,
+    1
+  ],
+  "minimum_subsystem": [
+    5,
+    1
+  ],
+  "crt": "XP msvcrt.dll with custom entrypoint; no UCRT startup",
+  "imports_dlls": [
+    "msvcrt.dll",
+    "KERNEL32.dll",
+    "PSAPI.DLL",
+    "GDI32.dll",
+    "USER32.dll",
+    "SHELL32.dll",
+    "ADVAPI32.dll"
+  ],
+  "size": 26624,
+  "sha256": "704d1baec4d2ab97543073e849ca117086a2dc132691e72540c45dba7854b511",
+  "no_network_imports": true,
+  "no_process_creation_or_remote_write_imports": true,
+  "validation": "Static PE/import inspection. XP runtime validation reported separately."
+}

@@ -1,0 +1,4 @@
+{"utc_guest_clock":"2026-10-31T16:51:44.890Z","action":"temperature","phase":"begin","detail":"Guest native UI driver; no helper UDP generation","code":0}
+{"utc_guest_clock":"2026-10-31T16:51:48.765Z","action":"local_network_check","phase":"end","detail":"One expected IPv4 adapter; no gateway/default route; direct simulator route","code":0}
+{"utc_guest_clock":"2026-10-31T16:51:51.703Z","action":"menu","phase":"sent","detail":"Observed CVI popup item clicked; allowed menu action","code":76}
+{"utc_guest_clock":"2026-10-31T16:51:56.453Z","action":"temperature","phase":"end","detail":"Action finished; before/after screenshot and inventory retained","code":0}

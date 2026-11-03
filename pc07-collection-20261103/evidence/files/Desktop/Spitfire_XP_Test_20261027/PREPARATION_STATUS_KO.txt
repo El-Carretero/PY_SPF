@@ -1,0 +1,66 @@
+Spitfire XP 원본 시험 준비 기록 — 2026-10-27
+===========================================
+
+확인/완료
+---------
+P07(20255566-p07) RDC 원격 PowerShell에서 관리자 권한 Elevated=true 확인.
+VMware Workstation 26.0.0, Windows XP Professional VM 실행 중.
+콘솔 화면에서 한국어 XP 바탕화면 및 로그인 완료 상태를 관찰함.
+VMware Tools는 동작하지 않음. 원본 프로그램은 사용자 확인상 미설치.
+실제 레이저 장비는 연결되어 있지 않다는 사용자 확인을 받음.
+
+복구 준비
+---------
+작업 폴더: C:\Users\Fluke\Desktop\Spitfire_XP_Test_20261027
+before 폴더에 변경 전 VMX 및 호스트 IPv4 목록 저장.
+VMware 스냅샷 Before_Spitfire_Verifier_20261027 생성 성공 및 목록 재확인.
+실행 중인 VM의 메모리를 포함하는 스냅샷이며 VMware Tools quiesce는 확인하지 않음.
+스냅샷은 독립된 전체 VM 백업이 아님. 원본 VMDK 체인 파일은 삭제하지 말 것.
+스냅샷 생성으로 활성 VMDK가 -000001 체인으로 변경됨은 정상적인 VMware 동작.
+before의 VMX를 단순 복사하여 복원하지 말고 필요 시 VMware 스냅샷 복원을 사용.
+
+원본 설치 CD
+------------
+C:\Users\Fluke\Desktop\Spitfire_XP_Test_20261027\Spitfire_160_Installer.iso
+크기: 14,194,688 bytes
+SHA256: b4d6b59775448b7f1e6cc18bc7a01ad4607b7ded117df0ef28ec2d5091c6ef8a
+Windows 내장 IMAPI로 ISO9660/Joliet 데이터 CD를 생성함.
+setup.exe, setup.ini, Spitfire.msi, DistFile.cab, instmsi.exe, instmsiw.exe의
+모든 원본 해시를 확인했고, ISO를 읽기 전용으로 마운트하여 6개 파일 해시를 다시 검증함.
+검증 후 호스트에서 마운트를 해제함. 아직 VM에 CD를 장착하지 않았음.
+설치 파일을 실행하거나, 신규 VMware Tools를 다운로드/설치하지 않았음.
+
+시험 도우미
+-----------
+xp_startup_capture.py: 기존 Verifier0.3.1을 사용하는 제한 시간 UDP 캡처 도우미.
+기본10.19.70.13:1024 수신, XP10.19.70.2 이외 발신자는 응답하지 않음.
+캡처 주기 저장/finally 보고서 생성/STOP 파일에 의한 정상 종료.
+로컬 통합시험7개 PASS. P07 실제 XP 캡처는 아직 미실행.
+XP 단독 캡처는 비교 INCOMPLETE이며 GUI/물리적 안전성 PASS로 표시하지 않음.
+VM-Console.ps1은 실험적 내부 화면 진단 도구이며 배포용 자동화가 아님.
+화면 캡처는 일부 성공했지만 키보드/마우스 입력 전달은 확인하지 못함.
+스크린샷은 내부 점검에만 사용했으며 이 보존 묶음에 포함하지 않았음.
+
+중단 사유
+---------
+호스트 관리자 권한은 적용됐으나 Win32 SetCursorPos가 false를 반환하여
+마우스 입력 위치 지정이 거절됨. 검사 이후 추가 클릭은 전송하지 않았음.
+vmrun captureScreen도 Anonymous guest operations are not allowed / LoginInGuest 필요
+오류를 반환함. 자격증명을 추측하거나 인증 제한을 변경하지 않았음.
+게스트 입력/인증 문제의 정확한 원인은 확정하지 않음.
+
+현재 상태
+---------
+XP VM은 계속 실행 상태. 기존 NAT 구성 유지.
+호스트 VMnet1:192.168.37.1/24, VMnet8:192.168.215.1/24 유지.
+호스트 물리 LAN, 가상 어댑터 IP, 방화벽 변경 없음.
+XP 원본 설치: NOT_PERFORMED.
+XP 원본 실행/통신 검증: NOT_PERFORMED.
+실제 장비 시험: NOT_PERFORMED.
+
+다음 최소 사용자 조작
+-------------------
+XP 내부에서 시작 > 컴퓨터 끄기 > 끄기로 정상 종료.
+VMware의 강제 Power Off나 호스트 컴퓨터 종료는 필요하지 않음.
+종료를 확인한 다음 VMX/가상 CD/Host-only 구성을 안전하게 준비할 수 있음.
+게스트 로그인/설치 화면은 추가 사용자 조작이 필요할 수 있으며 완전 무인을 보장하지 않음.

@@ -1,0 +1,18 @@
+
+Windows IP Configuration
+
+        Host Name . . . . . . . . . . . . : xlapplas
+        Primary Dns Suffix  . . . . . . . : 
+        Node Type . . . . . . . . . . . . : Unknown
+        IP Routing Enabled. . . . . . . . : No
+        WINS Proxy Enabled. . . . . . . . : No
+
+Ethernet adapter 로컬 영역 연결:
+
+        Connection-specific DNS Suffix  . : 
+        Description . . . . . . . . . . . : AMD PCNET Family PCI Ethernet Adapter
+        Physical Address. . . . . . . . . : 00-0C-29-D1-03-99
+        Dhcp Enabled. . . . . . . . . . . : No
+        IP Address. . . . . . . . . . . . : 10.19.70.2
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . : 

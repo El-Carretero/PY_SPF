@@ -1,0 +1,1 @@
+{"version":"1.0","completed_utc":"2026-10-31T18:01:57.203Z","outcome":"PARTIAL_OR_BLOCKED","reason":"PROCESS_TIMEOUT_probe","preflight":null,"actions":[],"capture":null,"scope":"Passively observed original application requests and the connected peer responses; physical controller semantics not inferred.","original_not_closed_by_runner":true,"app_observed_running":false}

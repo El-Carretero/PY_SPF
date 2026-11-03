@@ -1,0 +1,10 @@
+{
+    "overrides":  {
+                      "1089":  "2",
+                      "1068":  "1",
+                      "1019":  "2048"
+                  },
+    "note":  "Synthetic status only; no physical hardware; external opt-out readback remains 1",
+    "stage":  "tdg_module_comm_fault",
+    "seq":  3
+}

@@ -1,0 +1,104 @@
+{
+  "provenance": "diagnostic",
+  "request_provenance": "diagnostic_code_generated; not original Spitfire GUI packets",
+  "response_provenance": "simulator_generated; no real controller behavior established",
+  "frame_count": 2,
+  "direction_counts": {
+    "guest_to_simulator": 1,
+    "simulator_to_guest": 1
+  },
+  "both_directions_present": true,
+  "udp_endpoints": [
+    {
+      "src_ip": "10.19.70.13",
+      "src_port": "1024",
+      "dst_ip": "10.19.70.2",
+      "dst_port": "1024",
+      "frames": 1
+    },
+    {
+      "src_ip": "10.19.70.2",
+      "src_port": "1024",
+      "dst_ip": "10.19.70.13",
+      "dst_port": "1024",
+      "frames": 1
+    }
+  ],
+  "first_timestamp_utc": "2026-10-31T16:09:03.136777Z",
+  "last_timestamp_utc": "2026-10-31T16:09:03.142954Z",
+  "request_tag_counts": {
+    "1068": 1
+  },
+  "response_tag_counts": {
+    "1068": 1
+  },
+  "optout_1068_response_values": [
+    {
+      "frame": 2,
+      "timestamp_utc": "2026-10-31T16:09:03.142954Z",
+      "value": "0",
+      "provenance": "simulator_generated_response"
+    }
+  ],
+  "paired_messages": [
+    {
+      "tag": 1068,
+      "request_frame": 1,
+      "response_frame": 2,
+      "command": "EMPOPTOUT?",
+      "response": "0",
+      "delay_us": 6177,
+      "request_payload_hex": "537065637472612d506879736963733a434d445f45434c495053452c5b313036385d454d504f50544f55543f0a",
+      "response_payload_hex": "537065637472612d506879736963733a5245504c595f45434c495053453a3c313036383e300a"
+    }
+  ],
+  "pairing_method": "FIFO by tag and reversed UDP ports; heuristic, no transaction sequence ID; duplicates retained",
+  "unmatched_requests": [],
+  "unmatched_responses": [],
+  "duplicate_timestamp_and_frame_count": 0,
+  "timestamp_order_regressions": 0,
+  "pcapng": {
+    "sections": 1,
+    "interfaces": [
+      {
+        "section": 0,
+        "interface_id": 0,
+        "linktype": 1,
+        "snaplen": 0,
+        "name": "",
+        "timestamp_divisor": 1000000,
+        "timestamp_offset_seconds": 0
+      }
+    ],
+    "interface_statistics": [
+      {
+        "section": 0,
+        "interface_id": 0,
+        "interface_dropped": 0
+      }
+    ],
+    "blocks": {
+      "0x0a0d0d0a": 1,
+      "0x00000001": 1,
+      "0x00000006": 2,
+      "0x00000005": 1
+    },
+    "submicrosecond_timestamps_floored": 0
+  },
+  "input_path": "C:\\Users\\Fluke\\Desktop\\Spitfire_Capture_20261101\\preflight.pcapng",
+  "output_path": "C:\\Users\\Fluke\\Desktop\\Spitfire_Capture_20261101\\preflight.pcap",
+  "input_sha256": "eb2530174073be19a97a53bc1d6e71a5a5ec9f2fe32bf8af9979cb8e2a10e459",
+  "output_sha256": "36a8faa08aa78a8e649acfd009167c80b28235767d4d422f3473c6780aa6a99f",
+  "input_bytes": 408,
+  "output_bytes": 223,
+  "conversion": "classic pcap 2.4 little-endian Ethernet; all frames retained in original order",
+  "timestamp_conversion": "integer floor to microseconds; exact original ticks/divisor/offset retained in frame CSV",
+  "validation": {
+    "valid_blocks": true,
+    "no_truncated_packets": true,
+    "original_ethernet_bytes_preserved": true,
+    "output_reparsed": true,
+    "no_deduplication": true,
+    "no_packet_generation": true
+  }
+}

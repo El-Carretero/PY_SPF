@@ -1,0 +1,4 @@
+{"utc_guest_clock":"2026-10-31T18:13:01.171Z","action":"setup","phase":"begin","detail":"Attach-only original UI test; helper has no network interface","code":0}
+{"utc_guest_clock":"2026-10-31T18:13:11.203Z","action":"setup","phase":"opened","detail":"Selected fixed reviewed show-panel menu item","code":0}
+{"utc_guest_clock":"2026-10-31T18:13:13.296Z","action":"setup","phase":"unconfirmed","detail":"Expected auxiliary title/class/geometry not observed; no close attempted","code":88}
+{"utc_guest_clock":"2026-10-31T18:13:15.375Z","action":"setup","phase":"blocked_or_incomplete","detail":"Before/after screenshots and inventories retained; original not closed","code":88}

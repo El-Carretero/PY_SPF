@@ -1,0 +1,4 @@
+{"item":"Original start, exit, restart, connection Warning OK","reason":"Attach only; startup/reconnect can automatically send EMP:LBOBREAK 1"}
+{"item":"RUN, STOP, Laser ON/OFF, HV, motor, parameter editors, temperature, sliders, mode selectors","reason":"Device-changing controls excluded"}
+{"item":"Empower/TCU Opt-out, fault reset, interlock/humidity/TDG overrides","reason":"Changes device or safety state"}
+{"item":"Escape, arbitrary shortcuts, factory/programmer modes, console, unknown buttons","reason":"Not in reviewed display-only allowlist"}

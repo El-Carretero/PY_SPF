@@ -1,0 +1,5 @@
+{"utc_guest_clock":"2026-10-31T18:40:10.109Z","event":"session-start","detail":{"version":"1.0","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2026-10-31T18:40:10.187Z","event":"process-start","detail":{"kind":"probe","pid":1052}}
+{"utc_guest_clock":"2026-10-31T18:40:27.375Z","event":"process-end","detail":{"kind":"probe","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T18:40:27.375Z","event":"capture-start","detail":{"pid":1580,"max_seconds":300}}
+{"utc_guest_clock":"2026-10-31T18:40:27.375Z","event":"process-start","detail":{"kind":"preflight","pid":188}}

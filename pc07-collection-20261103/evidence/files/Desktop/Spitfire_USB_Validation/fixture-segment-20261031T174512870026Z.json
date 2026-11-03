@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "utc": "2026-10-31T17:45:12.870067+00:00",
+  "resume": false,
+  "server_sha256": "3ffbfc69870edab5415c8859042242fd135b074d0376a3ae280341beb45ae2a3",
+  "initial_state": {
+    "requests": 0,
+    "responses": 0,
+    "applied_optout_on": 0,
+    "rejected_commands": 0,
+    "optout": "1"
+  }
+}

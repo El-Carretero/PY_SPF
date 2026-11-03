@@ -1,0 +1,4 @@
+Isolated simulator only; launch original before USB capture; startup2047 rejected by fixture.
+Original launch command exit=0
+Original pid=288 path=C:\Program Files\Spectra-Physics\Spitfire\Spitfire.exe
+Actual USB START.cmd exit=0

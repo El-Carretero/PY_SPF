@@ -1,0 +1,15 @@
+Spitfire one-shot read-only UI test / passive capture
+
+Outcome: PARTIAL_OR_BLOCKED
+Reason: CAPTURE_NOT_READY
+Completed UTC (XP clock): 2026-10-31T17:53:32.750Z
+Actions attempted: 0 / 12
+
+See result.json, timeline.jsonl, actions/*/timeline.jsonl and capture/summary.json.
+Raw classic PCAP: capture/adapter-*.pcap (UDP port 1024).
+Screenshots and original read-only state: actions/*/.
+Request source and responder identity are observed, not assumed.
+A command detection stops future UI; it cannot block a command already sent.
+No original startup/exit/retry, no parameter, laser/HV/temperature, Opt-out, reset or bypass controls are invoked.
+If interrupted while in service display, automatic restore may be skipped and documented in actions.
+The original application remains running.

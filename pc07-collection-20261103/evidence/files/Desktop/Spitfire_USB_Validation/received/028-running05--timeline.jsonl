@@ -1,0 +1,16 @@
+{"utc_guest_clock":"2026-10-31T18:11:20.390Z","event":"session-start","detail":{"version":"1.0","mode":"attach-only","network":"passive UDP port 1024","original_started_by_runner":false}}
+{"utc_guest_clock":"2026-10-31T18:11:20.406Z","event":"process-start","detail":{"kind":"probe","pid":676}}
+{"utc_guest_clock":"2026-10-31T18:11:32.984Z","event":"process-end","detail":{"kind":"probe","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T18:11:32.984Z","event":"capture-start","detail":{"pid":1140,"max_seconds":300}}
+{"utc_guest_clock":"2026-10-31T18:11:33.000Z","event":"process-start","detail":{"kind":"preflight","pid":1276}}
+{"utc_guest_clock":"2026-10-31T18:11:39.953Z","event":"process-end","detail":{"kind":"preflight","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T18:11:46.546Z","event":"allowlist","detail":{"modes":["temperature","timing","faults","setup","about","regensvc","temperature","timing","faults","setup","about","user"],"excludes":["start","exit","restart","warning retry","laser run/on/off","HV","temperature or parameter edits","optout changes","fault reset","interlock bypass","unknown controls"]}}
+{"utc_guest_clock":"2026-10-31T18:11:55.968Z","event":"action-start","detail":{"mode":"temperature","directory":"C:\u005cSpitfireLogs\u005crun-2026-10-31-18-11-16-95053\u005cactions\u005c01-temperature"}}
+{"utc_guest_clock":"2026-10-31T18:11:55.968Z","event":"process-start","detail":{"kind":"action","pid":1756}}
+{"utc_guest_clock":"2026-10-31T18:12:09.921Z","event":"transient-status-read","detail":{"error":"\uc0ac\uc6a9 \uad8c\ud55c\uc774 \uc5c6\uc2b5\ub2c8\ub2e4.","retained_tick":7894875}}
+{"utc_guest_clock":"2026-10-31T18:12:11.109Z","event":"process-end","detail":{"kind":"action","exit_code":0}}
+{"utc_guest_clock":"2026-10-31T18:12:11.109Z","event":"action-end","detail":{"mode":"temperature","start":"2026-10-31T18:11:54.671Z","end":"2026-10-31T18:12:11.109Z","exit_code":0,"result":{"utc_guest_clock":"2026-10-31T18:12:10.906Z","mode":"temperature","exit_code":0,"original_pid":1204,"original_exact_count":1,"foreign_original_name":false,"preflight_ready":true,"emp_optout":1,"gAccessLevel":0,"main_hwnd":1179956,"blocking_warning_count":0,"capture_proof_tick":7894250,"helper_udp_generated":false,"original_left_running":true}}}
+{"utc_guest_clock":"2026-10-31T18:12:13.078Z","event":"action-start","detail":{"mode":"timing","directory":"C:\u005cSpitfireLogs\u005crun-2026-10-31-18-11-16-95053\u005cactions\u005c02-timing"}}
+{"utc_guest_clock":"2026-10-31T18:12:13.078Z","event":"process-start","detail":{"kind":"action","pid":1812}}
+{"utc_guest_clock":"2026-10-31T18:12:14.140Z","event":"transient-status-read","detail":{"error":"\uc0ac\uc6a9 \uad8c\ud55c\uc774 \uc5c6\uc2b5\ub2c8\ub2e4.","retained_tick":7899203}}
+{"utc_guest_clock":"2026-10-31T18:12:19.125Z","event":"transient-status-read","detail":{"error":"\uc0ac\uc6a9 \uad8c\ud55c\uc774 \uc5c6\uc2b5\ub2c8\ub2e4.","retained_tick":7903546}}

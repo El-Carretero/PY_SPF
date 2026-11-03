@@ -1,0 +1,118 @@
+SPITFIRE XP READ-ONLY UI CONTROLLER
+
+This helper attaches to an already running, reviewed original Spitfire.exe.
+The USB package orchestrator starts passive capture first and invokes the helper.
+No Python, .NET, PowerShell, VMware Tools or Internet connection is needed in XP.
+Build target: Windows XP SP3 x86. SHA-256 uses the XP SP3 CryptoAPI provider;
+an unavailable SHA-256 provider fails closed rather than accepting an image.
+
+Developer command line (the launcher supplies these arguments automatically):
+  bin\readonly_ui.exe preflight NEW_OUTPUT_DIRECTORY
+  bin\readonly_ui.exe temperature NEW_OUTPUT_DIRECTORY PROOF_FILE STOP_FILE
+  bin\readonly_ui.exe timing NEW_OUTPUT_DIRECTORY PROOF_FILE STOP_FILE
+  bin\readonly_ui.exe faults NEW_OUTPUT_DIRECTORY PROOF_FILE STOP_FILE
+  bin\readonly_ui.exe setup NEW_OUTPUT_DIRECTORY PROOF_FILE STOP_FILE
+  bin\readonly_ui.exe about NEW_OUTPUT_DIRECTORY PROOF_FILE STOP_FILE
+  bin\readonly_ui.exe regensvc NEW_OUTPUT_DIRECTORY PROOF_FILE STOP_FILE
+  bin\readonly_ui.exe user NEW_OUTPUT_DIRECTORY PROOF_FILE STOP_FILE
+
+Every output directory must be new. All paths use the XP active code page and
+must fit MAX_PATH. The USB launcher should run from its own short local folder.
+preflight performs no UI input; failure returns20 and permits passive capture only.
+Other errors return nonzero and must stop subsequent UI actions.
+
+Preflight files: original-state-before.json, original-state.json, result.json,
+desktop-before.bmp, desktop-after.bmp, windows-before.jsonl, windows-after.jsonl,
+processes.jsonl, skipped.jsonl, timeline.jsonl. Times use GetSystemTime UTC on XP.
+They are not claimed to be externally synchronized. original-state.json includes
+pid, emp_optout, gAccessLevel, state_valid, hash_matches, resource_matches,
+runtime_matches, hold_thread, main_hwnd, main_matches, blocking_warning_count.
+result.json includes preflight_ready, original_pid, emp_optout, gAccessLevel,
+exit_code, original_left_running and helper_udp_generated:false.
+
+The orchestrator proof has exactly these seven lines, with decimal values:
+  schema=spitfire-passive-v1
+  ui_ready=1
+  write_commands=0
+  observed_pairs=1
+  updated_tick=123456
+  original_pid=123
+  initial_access=0
+
+updated_tick is the passive capture status GetTickCount, not a timestamp invented
+by the launcher. Proof must remain <=5000ms old before every click/key sequence
+and auxiliary close. PID must match the observed original process. initial_access
+is the preflight access level, 0 or1. The parent should refresh proof while a child
+is active, after validating the latest capture status. This is a coordination
+guard and is not a cryptographically authenticated artifact. A missing/incomplete
+file during replacement is retried up to3 reads,20ms apart. Malformed/stale proofs
+are rejected; no previous proof is reused.
+
+IDENTITY AND UI GUARDS
+The original must already be running at:
+  C:\Program Files\Spectra-Physics\Spitfire\Spitfire.exe
+SHA256 8a87bcad1709f93358cba5f5588647999524ba8b481c2f38cc6cc82a96623e9b
+The same folder SPITFIRE.UIR must have SHA256:
+  1c5b82a8cf528934bffffe0989a73312059b07a15fc3056df8fbeb41607bd67b
+The loaded cvirte.dll must have SHA256:
+  d4151c53a2ecee4431ba88cd90d88db575f8ad18a6e48484501ff10a83c0db6d
+Opt-out is read with PROCESS_VM_READ at0x4141D0; access level at0x416DEC;
+HOLD_THREAD at0x414A9C. The known original module must be based at0x400000.
+No memory writes, injection, original launches or original process termination.
+Opt-out must already be1. Unknown identity, OFF state, factory/programmer access,
+missing/disabled/obscured main panel or blocking Warning suppresses UI actions.
+Main title/class/client must match Spitfire/CVIRTLVDChild4194304/895x550.
+The original top-level client must fit fully on the primary screen.
+
+ALLOWLIST
+View > Temperature Control, Timing and High Voltage, Active Faults, Empower Setup;
+Help > About. Only fixed known menu headings/items are clicked, with original-PID
+ownership, foreground and popup geometry rechecked between the two clicks.
+The auxiliary title/class and user/service dimensions must subsequently match.
+After cursor placement, main geometry/origin and exact popup geometry are checked
+again immediately before input. Other same-process auxiliary windows cannot
+substitute for the popup. No parameter-panel controls are clicked or edited.
+
+regensvc/user type only those fixed lowercase sequences while the exact main
+window itself has keyboard focus. Caps Lock/modifiers block the sequence. The
+reviewed original MainCallBack event7 invokes SetAccessLevel0/1, which changes
+GUI attributes and panel visibility only. It does not push network commands.
+user is allowed only to restore a session initially in user mode. Initial service
+mode remains service. User-to-service display is explicit, recorded, and temporary
+in the orchestrated normal completion. On cancellation no more keys are sent;
+service display may therefore remain visible and the final access state is logged.
+
+A newly opened auxiliary panel is hidden after its screenshot only when the
+loaded cvirte.dll matches SHA256:
+  d4151c53a2ecee4431ba88cd90d88db575f8ad18a6e48484501ff10a83c0db6d
+The measured UIR close_ctrl mappings are:
+  Temperature6 -> close_ecu; Timing21 -> close_info; Faults33 -> close_fault;
+  Setup12 -> close_setup; Help9 -> close_help.
+Those callbacks solely HidePanel. The reviewed CVI SC_CLOSE path dispatches the
+panel's close_ctrl commit. SC_CLOSE is sent only to this exact just-opened auxiliary
+HWND, never the main window or a Warning, and never retried. Previously visible
+panels remain open. An unreviewed runtime blocks all automatic UI input.
+Original show-panel functions set OPEN flags, and HidePanel does not clear those
+flags; original query polling may consequently remain expanded after navigation.
+
+EXCLUDED
+Original start/exit/restart and connection Warning OK (startup/retry can send
+EMP:LBOBREAK1 automatically), all RUN/STOP/Laser/HV/motor/TEC controls, parameter
+fields/sliders, Opt-out changes, fault reset, interlock/override controls, console,
+Escape, factory/programmer modes and all unreviewed buttons. No arbitrary click
+or key interface exists. The helper has no network API imports.
+
+CANCELLATION AND LIMITS
+The launcher STOP file and held F12 are checked between actions and menu clicks.
+A mouse/key down already sent is always followed by its own up event; a failed
+up call gets one additional release-only attempt. Cancellation
+never sends Escape, STOP/OFF or a warning acknowledgement. Original remains running.
+Do not interact with the original UI during the automated sequence: physical user
+input and an independently running original program cannot be suppressed by a
+passive logger. A packet monitor can stop later UI actions; it cannot retract a
+packet already sent by the original, controller or operator.
+
+Build on Linux: DRIVER_ZIG=/path/to/zig ./build_ui.sh
+Requires Zig0.13, Python3 and objdump. Build emits bin/readonly_ui.exe and static
+PE/import validation, including XP5.1 minimum and absence of networking, process
+creation and remote-memory-write imports. Field operation is a separate test.
