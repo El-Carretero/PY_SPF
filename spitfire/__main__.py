@@ -1,4 +1,4 @@
-"""Run PY_SPF 1.0 with the original NI GUI or the portable Qt view."""
+"""Run PY_SPF 1.2 with the original NI GUI or the portable Qt view."""
 from __future__ import annotations
 import argparse
 import json
@@ -11,8 +11,8 @@ import time
 
 def arguments(argv=None):
     from . import __version__
-    p = argparse.ArgumentParser(description="PY_SPF 1.0 — original Spitfire GUI 1.6.0 reconstruction")
-    p.add_argument("--version", action="version", version=f"PY_SPF 1.0 (package {__version__}; NI GUI 1.6.0)")
+    p = argparse.ArgumentParser(description="PY_SPF 1.2 — original Spitfire GUI 1.6.0 reconstruction")
+    p.add_argument("--version", action="version", version=f"PY_SPF 1.2 (package {__version__}; NI GUI 1.6.0)")
     p.add_argument("--demo", action="store_true", help="use the development simulator; no instrument connection")
     p.add_argument("--read-only", action="store_true", help="query only; block all instrument writes including automatic opt-out and reset requests")
     p.add_argument("--diagnostics-dir", type=Path,
@@ -128,6 +128,7 @@ def main(argv=None):
     app.setApplicationName("Spitfire")
     window = SpitfireWindow()
     controller = make_controller(window, opts)
+    window.attach(controller)
     diagnostics = make_diagnostics(controller, opts)
     window.callback.connect(controller.handle_callback)
     window.key_pressed.connect(controller.key_pressed)

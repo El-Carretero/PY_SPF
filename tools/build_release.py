@@ -1,4 +1,4 @@
-"""Build developer source distributions under dist/source/PY_SPF_1.0.
+"""Build developer source distributions under dist/source/PY_SPF_1.2.
 
 No application, diagnostic session or instrument connection is started. Runtime
 logs, developer environments and private device-capture evidence are excluded.
@@ -15,13 +15,14 @@ import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-RELEASE_NAME = 'PY_SPF_1.0'
-PACKAGE_VERSION = '1.0.1'
+RELEASE_NAME = 'PY_SPF_1.2'
+PACKAGE_VERSION = '1.2.0'
 SOURCE_OUTPUT = PurePosixPath('dist/source') / RELEASE_NAME
 DEVELOPMENT_GUIDE = 'docs/source-development.md'
 ROOT_FILES = {
     '.gitattributes', '.gitignore', 'README.md', 'README.ko.md',
     'RELEASE.ko.md', 'THIRD_PARTY_NOTICES.md', 'docs/internal-trigger-10hz.md',
+    'docs/hv-switch-1-2.md',
     'pyproject.toml', 'requirements.txt', 'requirements-build.txt', 'run_spitfire.py',
     'install.bat', 'run_native.bat', 'run_readonly.bat', 'run_demo.bat',
 }
@@ -62,7 +63,8 @@ def public_source_path(name: str) -> bool:
     if name.startswith('analysis/reference/'):
         return path.name in {'SPITFIRE.EXE', 'SPITFIRE.UIR', 'SERVER.UIR'}
     if name.startswith('analysis/'):
-        return path.suffix in {'.py', '.java', '.c', '.md'} or path.name in ANALYSIS_DATA or path.name.startswith('release_1_0_') and path.suffix == '.json'
+        return (path.suffix in {'.py', '.java', '.c', '.md'} or path.name in ANALYSIS_DATA
+                or path.name.startswith(('release_1_0_', 'release_1_2_')) and path.suffix == '.json')
     return name == 'previews/native-cli.png' or name.startswith('previews/release-1.0-') and path.suffix == '.png'
 
 

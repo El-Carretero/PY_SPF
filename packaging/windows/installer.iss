@@ -1,4 +1,4 @@
-; Native PY_SPF 1.0 private, per-user installer.
+; Native PY_SPF 1.2 private, per-user installer.
 ; Compile-time inputs are supplied by build.ps1; payload must be a complete
 ; PyInstaller onedir, not just its executable.
 #ifndef PayloadDir
@@ -32,7 +32,7 @@
   #error PayloadDir does not contain the EXE-adjacent private CVI fonts.
 #endif
 #ifndef AppVersion
-  #define AppVersion "1.0.1"
+  #define AppVersion "1.2.0"
 #endif
 #ifndef InstallerOutputDir
   #define InstallerOutputDir "dist\installer"
@@ -41,27 +41,28 @@
 [Setup]
 ; This identity belongs only to this installer family. Keep it stable for updates.
 AppId={{A772B846-AB4E-487B-A1DD-03E19D5880E9}
-AppName=Native PY_SPF 1.0
+AppName=Native PY_SPF 1.2
 AppVersion={#AppVersion}
-AppVerName=Native PY_SPF 1.0
+AppVerName=Native PY_SPF 1.2
 AppPublisher=PY_SPF
 AppMutex=Local\PY_SPF.Native1_0.A772B846AB4E487BA1DD03E19D5880E9
 DefaultDirName={localappdata}\Programs\Native_PY_SPF_1.0
-DefaultGroupName=Native PY_SPF 1.0
+DefaultGroupName=Native PY_SPF 1.2
 PrivilegesRequired=lowest
 ArchitecturesAllowed=x86compatible
 MinVersion=10.0.18362
 UsePreviousAppDir=yes
+UsePreviousGroup=no
 DisableDirPage=no
 DisableProgramGroupPage=yes
 DisableWelcomePage=no
 WizardStyle=modern
 OutputDir={#InstallerOutputDir}
-OutputBaseFilename=PY_SPF_1.0_Setup_x86
+OutputBaseFilename=PY_SPF_1.2_Setup_x86
 Compression=lzma2
 SolidCompression=yes
 UninstallDisplayIcon={app}\PY_SPF.exe
-UninstallDisplayName=Native PY_SPF 1.0
+UninstallDisplayName=Native PY_SPF 1.2
 ChangesEnvironment=no
 ChangesAssociations=no
 ; Never stop or restart a running instrument-control process automatically.
@@ -82,16 +83,25 @@ Source: "README.md"; DestDir: "{app}\docs"; DestName: "INSTALL.en.md"; Flags: ig
 Source: "README.ko.md"; DestDir: "{app}\docs"; DestName: "INSTALL.ko.md"; Flags: ignoreversion
 
 [Icons]
-Name: "{group}\Native PY_SPF 1.0"; Filename: "{app}\PY_SPF.exe"; Parameters: "--backend native"; WorkingDir: "{app}"
-Name: "{group}\Native PY_SPF 1.0 Demo (no equipment)"; Filename: "{app}\PY_SPF.exe"; Parameters: "--demo --tcp-port 0 --local-port 0"; WorkingDir: "{app}"
-Name: "{autodesktop}\Native PY_SPF 1.0"; Filename: "{app}\PY_SPF.exe"; Parameters: "--backend native"; WorkingDir: "{app}"; Tasks: desktopicon
+Name: "{group}\Native PY_SPF 1.2"; Filename: "{app}\PY_SPF.exe"; Parameters: "--backend native"; WorkingDir: "{app}"
+Name: "{group}\Native PY_SPF 1.2 Demo (no equipment)"; Filename: "{app}\PY_SPF.exe"; Parameters: "--demo --tcp-port 0 --local-port 0"; WorkingDir: "{app}"
+Name: "{autodesktop}\Native PY_SPF 1.2"; Filename: "{app}\PY_SPF.exe"; Parameters: "--backend native"; WorkingDir: "{app}"; Tasks: desktopicon
+
+[InstallDelete]
+; Only exact legacy app shortcut names, and only for a verified previous AppId.
+; Keep any other files in the old group; dirifempty never removes their folder.
+Type: files; Name: "{userprograms}\Native PY_SPF 1.0\Native PY_SPF 1.0.lnk"; Check: RemoveLegacyShortcuts
+Type: files; Name: "{userprograms}\Native PY_SPF 1.0\Native PY_SPF 1.0 Demo (no equipment).lnk"; Check: RemoveLegacyShortcuts
+Type: files; Name: "{autodesktop}\Native PY_SPF 1.0.lnk"; Check: RemoveLegacyShortcuts
+Type: dirifempty; Name: "{userprograms}\Native PY_SPF 1.0"; Check: RemoveLegacyShortcuts
 
 [Run]
 ; Native startup may contact configured equipment. Only an explicit checked box
 ; launches it; silent installations never launch anything.
 Filename: "{app}\PY_SPF.exe"; Parameters: "--backend native"; WorkingDir: "{app}"; Description: "Start Native PY_SPF (uses the configured equipment connection)"; Flags: nowait postinstall skipifsilent unchecked
 
-; No [Registry], [InstallDelete], [UninstallDelete] or [UninstallRun] entries.
+; No [Registry], [UninstallDelete] or [UninstallRun] entries. [InstallDelete]
+; above is restricted to known shortcuts from a verified earlier installation.
 ; Inno Setup owns only its private uninstall record, copied files and shortcuts.
 ; User settings, data and logs are created by the application outside {app} and
 ; are deliberately never part of the installer's removal list.
@@ -99,6 +109,30 @@ Filename: "{app}\PY_SPF.exe"; Parameters: "--backend native"; WorkingDir: "{app}
 [Code]
 const
   PrivateUninstallKey = 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{A772B846-AB4E-487B-A1DD-03E19D5880E9}_is1';
+
+var
+  PreviousOwnedInstallation: Boolean;
+
+function InitializeSetup(): Boolean;
+var
+  PreviousDirectory: String;
+begin
+  PreviousOwnedInstallation := False;
+  PreviousDirectory := '';
+  if not RegQueryStringValue(HKCU, PrivateUninstallKey,
+    'InstallLocation', PreviousDirectory) then
+    RegQueryStringValue(HKCU, PrivateUninstallKey,
+      'Inno Setup: App Path', PreviousDirectory);
+  if PreviousDirectory <> '' then
+    PreviousOwnedInstallation := FileExists(
+      AddBackslash(ExpandFileName(PreviousDirectory)) + 'PY_SPF.exe');
+  Result := True;
+end;
+
+function RemoveLegacyShortcuts(): Boolean;
+begin
+  Result := PreviousOwnedInstallation;
+end;
 
 function DirectoryHasContent(const Directory: String): Boolean;
 var

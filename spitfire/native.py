@@ -16,6 +16,7 @@ import time
 import uuid
 
 from .limits import INTERNAL_TRIGGER_MIN_HZ, INTERNAL_TRIGGER_MAX_HZ
+from .layout import TIMING_PANEL_ID, TIMING_HV_NATIVE_ATTRIBUTES
 
 RESOURCES = Path(__file__).with_name('resources')
 
@@ -205,6 +206,7 @@ class NativeGui:
         self._check(server, 'load original server panel')
         self.panels['server'] = server
         self._configure_internal_trigger_range()
+        self._configure_timing_hv_layout()
         for key in self.panels:
             self._bind_panel(key)
         self._initialize_connection_layout()
@@ -215,6 +217,12 @@ class NativeGui:
         # UIR bytes or changing the loaded value/default (5000 Hz).
         self.set_attribute(5, 28, 731, INTERNAL_TRIGGER_MIN_HZ)
         self.set_attribute(5, 28, 730, INTERNAL_TRIGGER_MAX_HZ)
+
+    def _configure_timing_hv_layout(self):
+        # Expose the existing HV control in a clear space without changing its
+        # loaded value or producing a control event/device command.
+        for control, attribute, value in TIMING_HV_NATIVE_ATTRIBUTES:
+            self.set_attribute(TIMING_PANEL_ID, control, attribute, value)
 
     @staticmethod
     def _bytes(value):

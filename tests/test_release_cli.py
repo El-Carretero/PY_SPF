@@ -14,13 +14,13 @@ from spitfire.__main__ import MemoryView, arguments, main, make_controller
 class ReleaseCLITests(unittest.TestCase):
     def test_package_and_public_release_identity(self):
         root = Path(__file__).resolve().parents[1]
-        self.assertEqual(__version__, '1.0.1')
-        self.assertIn('version = "1.0.1"', (root/'pyproject.toml').read_text())
+        self.assertEqual(__version__, '1.2.0')
+        self.assertIn('version = "1.2.0"', (root/'pyproject.toml').read_text())
         output = io.StringIO()
         with contextlib.redirect_stdout(output), self.assertRaises(SystemExit) as finished:
             arguments(['--version'])
         self.assertEqual(finished.exception.code, 0)
-        self.assertIn('PY_SPF 1.0', output.getvalue())
+        self.assertIn('PY_SPF 1.2', output.getvalue())
         self.assertIn('NI GUI 1.6.0', output.getvalue())
 
     def test_read_only_flag_reaches_actual_controller(self):

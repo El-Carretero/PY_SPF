@@ -45,6 +45,8 @@ class PanelWidget(QWidget):
    b=self.bounds(c);value=c['value'];initial=c['initial'];dynamic=value!=initial
    p.save()
    if a.get('dimmed'):p.setOpacity(.45)
+   if style==289 and c['spec'].get('callback')=='HV_switch':
+    self.paint_hv_switch(p,c);p.restore();continue
    pm=c['states'].get(int(bool(value)),c['pixmap']) if 200<=style<290 else c['pixmap']
    if style==160 and dynamic:self.paint_text(p,c)
    else:
@@ -78,6 +80,18 @@ class PanelWidget(QWidget):
    p.setPen(color(0x555555));p.setBrush(color(a.get('on_color',0x00ff00) if c['value'] else a.get('off_color',0x303030)));p.drawEllipse(r.adjusted(2,2,-2,-2))
   elif style==226 and c['value']:
    p.setPen(color(0));p.drawLine(r.topLeft()+QPoint(2,6),r.topLeft()+QPoint(5,10));p.drawLine(r.topLeft()+QPoint(5,10),r.topLeft()+QPoint(11,2))
+ def paint_hv_switch(self,p,c):
+  # Original snapshots of this hidden control contain only panel background.
+  # Draw the exposed switch explicitly while retaining its value/event routing.
+  a=c['attrs'];r=rect(a)
+  p.setPen(color(0x666666));p.setBrush(color(0x999999));p.drawRoundedRect(r,5,5)
+  thumb=QRectF(r.left()-3,r.top()+2 if c['value'] else r.bottom()-10,r.width()+6,8)
+  shade=QLinearGradient(thumb.topLeft(),thumb.bottomLeft());shade.setColorAt(0,color(0xffffff));shade.setColorAt(1,color(0x999999))
+  p.setBrush(shade);p.drawRoundedRect(thumb,2,2)
+  p.setFont(font(a));p.setPen(color(a.get('text_color',0)))
+  for text,offset in ((a.get('on_text','On'),1),(a.get('off_text','Off'),21)):
+   p.drawText(QRectF(r.right()+3,r.top()+offset,24,18),int(Qt.AlignLeft|Qt.AlignVCenter),str(text))
+  self.paint_label(p,c,False)
  def label_rect(self,c):
   a=c['attrs']
   if 'label_left' in a:return rect(a,'label_')
@@ -105,6 +119,7 @@ class PanelWidget(QWidget):
   except (ValueError,IndexError):text=str(c['value'])
   p.fillRect(r,color(0xffffff));p.setFont(font(a));p.setPen(color(0));p.drawText(r,int(Qt.AlignVCenter|Qt.AlignLeft),text)
  def hit(self,pos):
+  if self.panel_id==5:self.owner._sync_hv_access()
   pos=pos-QPoint(0,self.offset_y)
   for cid,c in sorted(self.controls.items(),key=lambda x:x[1]['attrs'].get('zplane_position',0)):
    a=c['attrs']
@@ -129,6 +144,9 @@ class PanelWidget(QWidget):
   self.owner.mouse_released.emit()
   if cid is None:return
   c=self.controls[cid];style=c['attrs'].get('ctrl_style',0)
+  if self.panel_id==5 and cid==34:
+   self.owner._sync_hv_access()
+   if c['attrs'].get('dimmed',0):self.update();return
   if e.button()==Qt.LeftButton:
    if 220<=style<260 or 280<=style<290:c['value']=int(not c['value'])
    elif style in range(300,340):self.choose_ring(cid,e.globalPosition().toPoint());self.update();return
@@ -165,6 +183,7 @@ class SpitfireWindow(QMainWindow):
  mouse_released=Signal()
  def __init__(self,spec=None):
   super().__init__();self.spec=json.loads((RESOURCE/'gui_spec.json').read_text()) if spec is None else spec
+  self.controller=None;self._hv_requested_dimmed=0
   if spec is None and (RESOURCE/'server_gui_spec.json').exists():self.spec['panels'].extend(json.loads((RESOURCE/'server_gui_spec.json').read_text())['panels'])
   self.panels={};self.dialogs={};self.menu_actions={}
   for item in self.spec['panels']:
@@ -174,7 +193,17 @@ class SpitfireWindow(QMainWindow):
    else:
     dialog=QDialog(self);dialog.setWindowTitle(item['title']);panel=PanelWidget(self,item,dialog);dialog.setFixedSize(panel.size());self.dialogs[pid]=dialog
    self.panels[pid]=panel
+  if 5 in self.panels and 34 in self.panels[5].controls:self._hv_requested_dimmed=self.panels[5].controls[34]['attrs'].get('dimmed',0)
   self.make_menus();mh=self.menuBar().sizeHint().height();self.centralWidget().offset_y=-mh;self.centralWidget().setFixedHeight(self.centralWidget().height()-mh);self.setFixedSize(self.centralWidget().width(),self.centralWidget().height()+mh)
+ def attach(self,controller):
+  self.controller=controller;self._sync_hv_access()
+ def _sync_hv_access(self):
+  # The source Qt preview exposes this switch too. Keep its local click state
+  # aligned with the controller's read-only/readiness guard before accepting it.
+  if self.controller is None or 5 not in self.panels or 34 not in self.panels[5].controls:return
+  panel=self.panels[5];control=panel.controls[34]
+  dimmed=int(bool(self._hv_requested_dimmed or self.controller.read_only or not self.controller.state.get('gui_ready')))
+  if control['attrs'].get('dimmed',0)!=dimmed:control['attrs']['dimmed']=dimmed;panel.update()
  def make_menus(self):
   structure=[('File',[(3,'E&xit','exit_from_menu')]),('View',[(5,'Timing and High Voltage','show_info'),(6,'Active Faults','show_faults'),(7,'Empower Setup','show_setup'),(8,'Temperature Control','show_ccu')]),('Help',[(10,'About','show_help')])]
   for name,items in structure:
@@ -184,15 +213,18 @@ class SpitfireWindow(QMainWindow):
  def read(self,panel,control):return self.panels[panel].controls[control]['value']
  def set_value(self,panel,control,value):
   if panel in self.panels and control in self.panels[panel].controls:self.panels[panel].controls[control]['value']=value;self.panels[panel].update()
+  self._sync_hv_access()
  def set_attribute(self,panel,control,attr,value):
   if panel not in self.panels or control not in self.panels[panel].controls:return
   c=self.panels[panel].controls[control];name=attr_name(attr);c['attrs'][name]=value;c['dirty'].add(name)
+  if (panel,control,name)==(5,34,'dimmed'):self._hv_requested_dimmed=value
   if name in ['left','top','width','height']:
    a=c['attrs'];old=c['spec']['attributes'];b=list(a.get('bounding_rect',[old.get('top',0),old.get('left',0),old.get('height',1),old.get('width',1)]))
    if name=='left':b[1]+=value-old.get('left',0)
    if name=='top':b[0]+=value-old.get('top',0)
    a['bounding_rect']=b
   self.panels[panel].update()
+  self._sync_hv_access()
  def set_panel_attribute(self,panel,attr,value):
   if panel not in self.panels:return
   canvas=self.panels[panel];name=attr_name(attr);canvas.attributes[name]=value
