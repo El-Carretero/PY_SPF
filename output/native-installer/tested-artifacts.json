@@ -1,47 +1,57 @@
 {
-  "schema": 1,
-  "source_commit": "c2a3f6605e32f2b528f5f9dd17dda6a34f878c0e",
-  "run_id": "41835919359",
+  "source_commit": "630c3ddf794d0f89b3806c770128fa7dd372256f",
+  "run_id": "41881966179",
   "files": [
     {
-      "sha256": "424e13a65eaf3ef023a22cb15a9c85d72a4abe5c31842836ba985e3d051c9f27",
-      "bytes": 9410796,
-      "path": "installer/PY_SPF_1.0_Setup_x86.exe"
+      "path": "installer/PY_SPF_1.2_Setup_x86.exe",
+      "sha256": "a5daf703c40169468ca550534ae1a574821c6d04e094562c09e6f76512c96871",
+      "bytes": 9415097
     },
     {
-      "sha256": "fd72f805dee70e3b45f302bb114129ca41897d60aca0f00d7a7cb866b5e8eac6",
-      "bytes": 9852639,
-      "path": "PY_SPF_1.0_win32_portable.zip"
+      "path": "PY_SPF_1.2_win32_portable.zip",
+      "sha256": "f3aa249ff69e72698ae5ad22adce804813993989bc2f78d631d92f78f3119a55",
+      "bytes": 9860022
     },
     {
-      "sha256": "4af26fd324facab07fa85c3f5432b45aadeaa6559b60eab3e4c0d6281d9ccd22",
-      "bytes": 23896,
-      "path": "PY_SPF/bundle-manifest.json"
+      "path": "PY_SPF/bundle-manifest.json",
+      "sha256": "48f8920adbcfef070b300bcd0d9049c42b69b66c7dc74bdb81211e3398d17134",
+      "bytes": 23991
     },
     {
-      "sha256": "5d6714c26104354ebc18792e114ad389f75fba2f7efa716949089d0153a072c1",
-      "bytes": 9640,
-      "path": "native-self-test.json"
+      "path": "native-self-test.json",
+      "sha256": "3a29d1edda993694e3f35cbc04ffd808e3b68f0ffa21bf3e99f92fdf79063e7b",
+      "bytes": 35110
     },
     {
-      "sha256": "c8c4f5039e71d16bf3d8bc53cc31317dedf38dab06ad2c8e0d47c0bc1ce55db2",
-      "bytes": 2061542,
-      "path": "native-self-test.bmp"
+      "path": "native-self-test.bmp",
+      "sha256": "d3bf46734f73c4b780796e067163688487924621e7b630f8a4341f45e639cecc",
+      "bytes": 2061542
     },
     {
-      "sha256": "77a7f809f060d7be48074ba5f7805860565d13df2f77fb52335a03c52c35f49c",
-      "bytes": 24274,
-      "path": "install-validation/install-validation.json"
+      "path": "install-validation/install-validation.json",
+      "sha256": "8cbbc40cb9971412a79aefaf0839b29c19658b176bfddc5c53f7129a1f650b8c",
+      "bytes": 24836
     },
     {
-      "sha256": "d67024588e2fcd76af5571267757d3094788ad83eca12fe3cb2c27db96cdf52e",
-      "bytes": 9469,
-      "path": "install-validation/native-self-test.json"
+      "path": "install-validation/native-self-test.json",
+      "sha256": "258f101cee121ea1a73eba85fb399a78302a261b487e5252889c463d27a804d4",
+      "bytes": 34979
     },
     {
-      "sha256": "c8c4f5039e71d16bf3d8bc53cc31317dedf38dab06ad2c8e0d47c0bc1ce55db2",
-      "bytes": 2061542,
-      "path": "install-validation/native-self-test.bmp"
+      "path": "install-validation/native-self-test.bmp",
+      "sha256": "d3bf46734f73c4b780796e067163688487924621e7b630f8a4341f45e639cecc",
+      "bytes": 2061542
+    },
+    {
+      "path": "install-validation/native-self-test_timing_user.bmp",
+      "sha256": "4d6c7eb01d335d7b01a637d9f59e7a13cb43faf4bc47335aaebf1bce031622ec",
+      "bytes": 741366
+    },
+    {
+      "path": "install-validation/native-self-test_timing_service.bmp",
+      "sha256": "206a658a5c26ec11568838f7558bc3c59db255f5da3bb52715f5c325e51bd5e6",
+      "bytes": 1415286
     }
-  ]
+  ],
+  "schema": 1
 }
