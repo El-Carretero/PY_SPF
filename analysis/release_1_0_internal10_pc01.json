@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "package_version": "1.0.1",
+  "task": "Internal amplifier trigger entry down to 10 Hz; PC01 upgrade and bounded verification",
+  "source_commit": "c2a3f6605e32f2b528f5f9dd17dda6a34f878c0e",
+  "published_binary_commit": "e004cbed84067eeeb1cc318723b47d0b76c8aaf4",
+  "pull_request": "https://github.com/El-Carretero/PY_SPF/pull/8",
+  "windows_workflow": "https://github.com/El-Carretero/PY_SPF/actions/runs/41835919359",
+  "setup_sha256": "424e13a65eaf3ef023a22cb15a9c85d72a4abe5c31842836ba985e3d051c9f27",
+  "bundle_manifest_sha256": "4af26fd324facab07fa85c3f5432b45aadeaa6559b60eab3e4c0d6281d9ccd22",
+  "local_tests": {
+    "passed": 294,
+    "subtests_passed": 7
+  },
+  "windows_ci": {
+    "passed": true,
+    "install_run_uninstall_isolation_checks": 60
+  },
+  "pc01_upgrade": {
+    "passed": true,
+    "version_before": "1.0.0",
+    "version_after": "1.0.1",
+    "setup_exit_code": 0,
+    "payload_files_verified": 57,
+    "x86_pe_files": 27,
+    "installation_path_unchanged": true,
+    "settings_unchanged": true,
+    "user_path_unchanged": true,
+    "machine_path_unchanged": true,
+    "settings_unchanged_after_tests": true
+  },
+  "pc01_installed_native_self_test": {
+    "passed": true,
+    "exit_code": 0,
+    "simulator_only": true,
+    "physical_device_io": false,
+    "panel_count": 10,
+    "native_minimum_hz": 10.0,
+    "native_maximum_hz": 10000.0,
+    "native_entered_hz": 10.0,
+    "amplifier_trigger_mode": "INT",
+    "divisor": 1,
+    "int_pump_hz": 10.0,
+    "int_amp_hz": 10.0,
+    "matched_frequency_readback_hz": 10.0,
+    "restored_before_snapshot": true,
+    "forbidden_writes": 0,
+    "windows_mouse_input_validated": false,
+    "ni_event_delivery_validated": false
+  },
+  "physical_verification_limits": {
+    "internal_mode_transition_tested": false,
+    "run_issued": false,
+    "hv_command_issued": false,
+    "optical_emission_tested": false,
+    "ttl_polarity_voltage_pulse_width_measured": false,
+    "reason": "The final read-only equipment query reported HV ON, Internal mode and 1000 Hz. No live 10 Hz write or output test was performed under the existing no-HV-actuation test constraint."
+  },
+  "privacy": "Raw device captures, user paths and device identifiers remain local; this report contains only selected results.",
+  "verified_utc_date": "2026-11-04",
+  "pc01_final_applications_running": 0,
+  "pc01_hardware_after_read_only": {
+    "package_version": "1.0.1",
+    "elapsed_seconds": 40.02121779997833,
+    "connected": true,
+    "gui_ready": true,
+    "closed": true,
+    "physical_writes": 0,
+    "tx_packets": 155,
+    "matched_replies": 155,
+    "query_retries": 0,
+    "query_timeouts": 0,
+    "ignored_replies": 1,
+    "empty_replies": 1,
+    "internal_frequency_readback_hz": 1000.0,
+    "trigger_mode_readback": "INT CONT 10.0",
+    "divisor": 1,
+    "oscillator_mode": "EXT",
+    "empower_optout": 0,
+    "hv_on_readback": 1
+  },
+  "pre_upgrade_running_session_observations": {
+    "version": "1.0.0",
+    "ordered_commands_seen": [
+      "EMPOPTOUT 0",
+      "TDG:TRIG:MODE INT",
+      "TDG:TRIG:FREQ 1000.00",
+      "ON"
+    ],
+    "scope": "Observed in the already-running application before upgrade. Command operator is not established by the log; these were not commands issued by this deployment or its simulator/read-only tests."
+  }
+}
