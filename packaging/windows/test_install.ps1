@@ -543,6 +543,13 @@ try {
     Add-Check 'native-visible-controls' ($proof.visibility.curtain_visible -eq 0 -and $proof.visibility.loading_visible -eq 0 -and $proof.visibility.run_visible -eq 1 -and $proof.visibility.stop_visible -eq 1) 'Actual Native visibility attributes must match the ready simulator screen.'
     $bmp = [IO.File]::ReadAllBytes($BitmapPath)
     Add-Check 'native-bmp-written' ($bmp.Length -gt 54 -and $bmp[0] -eq 66 -and $bmp[1] -eq 77) 'Native bitmap capture must exist and carry a BMP header.'
+    $timing = $proof.timing_hv_layout
+    Add-Check 'native-hv-visible-layout' ($timing.simulator_only -eq $true -and $timing.physical_device_io -eq $false -and $timing.restored -eq $true -and @($timing.hv_commands_sent).Count -eq 0 -and (@($timing.access_levels | ForEach-Object { $_.level }) -join ',') -eq '0,1,2,3' -and @($timing.access_levels | Where-Object { $_.hv_visible -ne 1 -or $_.hv_dimmed -ne 0 }).Count -eq 0) 'Require actual NI full-bound validation at every access level and no HV command during layout verification.'
+    foreach ($mode in @('user', 'service')) {
+        $timingPath = Join-Path ([IO.Path]::GetDirectoryName($BitmapPath)) ([IO.Path]::GetFileNameWithoutExtension($BitmapPath) + '_timing_' + $mode + '.bmp')
+        $timingBitmap = [IO.File]::ReadAllBytes($timingPath)
+        Add-Check ('native-timing-' + $mode + '-bmp-written') ($timingBitmap.Length -gt 54 -and $timingBitmap[0] -eq 66 -and $timingBitmap[1] -eq 77) 'Installed Timing panel screenshot must exist and carry a BMP header.'
+    }
     $NativeVerified = $true
 
     $Stage = 'regular-demo'

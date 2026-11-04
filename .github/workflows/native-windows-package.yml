@@ -61,7 +61,7 @@ jobs:
       - name: Install, test in Unicode path, uninstall and compare isolation state
         shell: pwsh
         run: |
-          $setup = Join-Path $PWD "packaging/windows/dist/installer/PY_SPF_1.0_Setup_x86.exe"
+          $setup = Join-Path $PWD "packaging/windows/dist/installer/PY_SPF_1.2_Setup_x86.exe"
           $reports = Join-Path $PWD "packaging/windows/dist/install-validation"
           $nonLatin = [string]::Concat([char]0xAC80, [char]0xC99D)
           $microscope = [char]::ConvertFromUtf32(0x1F52C)
@@ -76,20 +76,22 @@ jobs:
       - name: Archive app-local bundle
         shell: pwsh
         run: |
-          Compress-Archive -LiteralPath packaging/windows/dist/PY_SPF -DestinationPath packaging/windows/dist/PY_SPF_1.0_win32_portable.zip
+          Compress-Archive -LiteralPath packaging/windows/dist/PY_SPF -DestinationPath packaging/windows/dist/PY_SPF_1.2_win32_portable.zip
       - name: Record exact tested artifact hashes
         shell: pwsh
         run: |
           $dist = Join-Path $PWD "packaging/windows/dist"
           $paths = @(
-            "installer/PY_SPF_1.0_Setup_x86.exe",
-            "PY_SPF_1.0_win32_portable.zip",
+            "installer/PY_SPF_1.2_Setup_x86.exe",
+            "PY_SPF_1.2_win32_portable.zip",
             "PY_SPF/bundle-manifest.json",
             "native-self-test.json",
             "native-self-test.bmp",
             "install-validation/install-validation.json",
             "install-validation/native-self-test.json",
-            "install-validation/native-self-test.bmp"
+            "install-validation/native-self-test.bmp",
+            "install-validation/native-self-test_timing_user.bmp",
+            "install-validation/native-self-test_timing_service.bmp"
           )
           $records = foreach ($relative in $paths) {
             $file = Join-Path $dist $relative
@@ -101,16 +103,18 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: PY_SPF-1.0-native-win32
+          name: PY_SPF-1.2-native-win32
           path: |
-            packaging/windows/dist/PY_SPF_1.0_win32_portable.zip
+            packaging/windows/dist/PY_SPF_1.2_win32_portable.zip
             packaging/windows/dist/PY_SPF/bundle-manifest.json
-            packaging/windows/dist/installer/PY_SPF_1.0_Setup_x86.exe
+            packaging/windows/dist/installer/PY_SPF_1.2_Setup_x86.exe
             packaging/windows/dist/native-self-test.json
             packaging/windows/dist/native-self-test.bmp
             packaging/windows/dist/install-validation/install-validation.json
             packaging/windows/dist/install-validation/native-self-test.json
             packaging/windows/dist/install-validation/native-self-test.bmp
+            packaging/windows/dist/install-validation/native-self-test_timing_user.bmp
+            packaging/windows/dist/install-validation/native-self-test_timing_service.bmp
             packaging/windows/dist/tested-artifacts.json
           if-no-files-found: error
 
@@ -131,7 +135,7 @@ jobs:
           ref: ${{ github.sha }}
       - uses: actions/download-artifact@v4
         with:
-          name: PY_SPF-1.0-native-win32
+          name: PY_SPF-1.2-native-win32
           path: tested-native-artifact
       - name: Verify tested payload and publish only to the unchanged source branch
         shell: bash
@@ -154,14 +158,16 @@ jobs:
           if manifest.get("source_commit") != os.environ["TESTED_SHA"] or str(manifest.get("run_id")) != os.environ["TESTED_RUN_ID"]:
               raise SystemExit("Artifact source/run identity does not match this successful workflow")
           names = {
-              "installer/PY_SPF_1.0_Setup_x86.exe": "PY_SPF_1.0_Setup_x86.exe",
-              "PY_SPF_1.0_win32_portable.zip": "PY_SPF_1.0_win32_portable.zip",
+              "installer/PY_SPF_1.2_Setup_x86.exe": "PY_SPF_1.2_Setup_x86.exe",
+              "PY_SPF_1.2_win32_portable.zip": "PY_SPF_1.2_win32_portable.zip",
               "PY_SPF/bundle-manifest.json": "bundle-manifest.json",
               "native-self-test.json": "native-self-test.json",
               "native-self-test.bmp": "native-self-test.bmp",
               "install-validation/install-validation.json": "install-validation.json",
               "install-validation/native-self-test.json": "installed-native-self-test.json",
               "install-validation/native-self-test.bmp": "installed-native-self-test.bmp",
+              "install-validation/native-self-test_timing_user.bmp": "installed-timing-user.bmp",
+              "install-validation/native-self-test_timing_service.bmp": "installed-timing-service.bmp",
           }
           entries = manifest.get("files", [])
           if len(entries) != len(names) or {row["path"] for row in entries} != set(names):
@@ -179,7 +185,7 @@ jobs:
           if proof.get("passed") is not True:
               raise SystemExit("Install/run/uninstall proof is not a passing result")
           checks = {row.get("name"): row.get("passed") for row in proof.get("checks", [])}
-          for required in ("regular-native-demo-graceful-exit", "uninstalled-payload-files-removed"):
+          for required in ("regular-native-demo-graceful-exit", "uninstalled-payload-files-removed", "native-hv-visible-layout", "native-timing-user-bmp-written", "native-timing-service-bmp-written"):
               if checks.get(required) is not True:
                   raise SystemExit(f"Required installation proof is missing or failed: {required}")
           destination = Path("output/native-installer")
@@ -193,15 +199,17 @@ jobs:
           sha = os.environ["TESTED_SHA"]
           run_url = repo_url + "/actions/runs/" + os.environ["TESTED_RUN_ID"]
           (destination / "README.md").write_text(
-              "# Tested Native PY_SPF 1.0 Windows x86 package\n\n"
+              "# Tested Native PY_SPF 1.2 Windows x86 package\n\n"
               + f"Source: [{sha}]({repo_url}/tree/{sha}).\n\n"
               + f"Build and validation: [workflow run]({run_url}).\n\n"
-              + "- [Installer](PY_SPF_1.0_Setup_x86.exe)\n"
-              + "- [Portable onedir ZIP](PY_SPF_1.0_win32_portable.zip)\n"
+              + "- [Installer](PY_SPF_1.2_Setup_x86.exe)\n"
+              + "- [Portable onedir ZIP](PY_SPF_1.2_win32_portable.zip)\n"
               + "- [Bundle file/dependency manifest](bundle-manifest.json)\n"
               + "- [Install/run/uninstall and isolation report](install-validation.json)\n"
               + "- [Installed NI simulator report](installed-native-self-test.json)\n"
               + "- [Installed NI snapshot](installed-native-self-test.bmp)\n"
+              + "- [Timing panel: User](installed-timing-user.bmp)\n"
+              + "- [Timing panel: Service](installed-timing-service.bmp)\n"
               + "- [SHA256 checksums](SHA256SUMS)\n\n"
               + "Validation uses the simulator, including an installation path with Korean characters and an emoji. "
               + "It does not establish equipment actuation, optical output or human engineering approval. "
@@ -224,7 +232,7 @@ jobs:
             echo "The tested outputs are already recorded."
             exit 0
           fi
-          git commit -m "build: publish tested Native 1.0 installer ($TESTED_SHA)"
+          git commit -m "build: publish tested Native 1.2 installer ($TESTED_SHA)"
           # Validate the old object advertised by receive-pack as well as the
           # earlier reads. Normal server old-object checks then close the race
           # without force-pushing, including a concurrent branch rewind.

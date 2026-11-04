@@ -2,7 +2,7 @@
 
 다음은 저장소 소스를 직접 실행하는 개발 절차입니다. 현재 Windows 설치형 EXE 사용법은 [설치·실행 안내](../README.ko.md)와 [Windows 설치 문서](../packaging/windows/README.ko.md)에 있습니다.
 
-아래 명령은 저장소 **루트 디렉터리**에서 실행합니다. 프로젝트 패키지 버전은 **1.0.1**, 원본 NI GUI 리소스는 **1.6.0**이며 장치 펌웨어 버전과 별개입니다.
+아래 명령은 저장소 **루트 디렉터리**에서 실행합니다. 프로젝트 패키지 버전은 **1.2.0**, 원본 NI GUI 리소스는 **1.6.0**이며 장치 펌웨어 버전과 별개입니다.
 
 ## Windows Native 소스 실행
 
@@ -104,7 +104,7 @@ python -m pytest -q
 ## 배포 제작
 
 개발용 소스 ZIP과 wheel은 `python tools/build_release.py`로 생성합니다.
-출력은 Git에서 제외한 `dist/source/PY_SPF_1.0/`이며, Git 이력에 보존된 과거 배포물과
+출력은 Git에서 제외한 `dist/source/PY_SPF_1.2/`이며, Git 이력에 보존된 과거 배포물과
 `output/native-installer/`의 검증된 설치 파일은 덮어쓰지 않습니다.
 
 현재 Windows EXE·설치 파일의 제작과 검증 계약은 [packaging/windows/README.md](../packaging/windows/README.md)에 있습니다. 현재 설치형 앱은 전용 런타임을 포함하고, 위 소스 실행 절차는 개발 PC의 Python·venv를 사용합니다. 이전 소스 ZIP·wheel의 고정 커밋과 다운로드 링크는 [Legacy 안내](../Legacy/README.md)에 있습니다.
