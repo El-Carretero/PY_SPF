@@ -15,6 +15,8 @@ import sys
 import time
 import uuid
 
+from .limits import INTERNAL_TRIGGER_MIN_HZ, INTERNAL_TRIGGER_MAX_HZ
+
 RESOURCES = Path(__file__).with_name('resources')
 
 # Focus, redraw and value-change notifications are not user commits. In
@@ -202,10 +204,17 @@ class NativeGui:
         server = self.dll.LoadPanel(0, self._bytes(RESOURCES / 'SERVER.UIR'), 1)
         self._check(server, 'load original server panel')
         self.panels['server'] = server
+        self._configure_internal_trigger_range()
         for key in self.panels:
             self._bind_panel(key)
         self._initialize_connection_layout()
         self.show_panel(6)
+
+    def _configure_internal_trigger_range(self):
+        # Override the original 1000 Hz input minimum without editing vendor
+        # UIR bytes or changing the loaded value/default (5000 Hz).
+        self.set_attribute(5, 28, 731, INTERNAL_TRIGGER_MIN_HZ)
+        self.set_attribute(5, 28, 730, INTERNAL_TRIGGER_MAX_HZ)
 
     @staticmethod
     def _bytes(value):

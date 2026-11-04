@@ -104,7 +104,7 @@ packaging/windows/dist/PY_SPF/
 `PayloadDir`에는 EXE 하나가 아닌 전체 onedir 폴더의 경로를 반드시 지정한다.
 컴파일할 때 전용 Python 라이브러리, Native UIR, NI 런타임·리소스와 GUI
 원본 글꼴을 확인하며, EXE 옆의 bin 리소스 3개와 글꼴 자리표시자 2개도 확인한다. EXE만 있거나 파일이 부족하면 설치 파일 생성을 거부한다.
-`AppVersion` 기본값은 `1.0.0`이다. `InstallerOutputDir` 기본값은
+`AppVersion` 기본값은 `1.0.1`이다. `InstallerOutputDir` 기본값은
 `installer.iss` 기준 `dist\installer`, 즉 저장소의
 `packaging/windows/dist/installer`이다.
 
@@ -112,7 +112,7 @@ packaging/windows/dist/PY_SPF/
 & $InnoCompilerPath `
   "/DPayloadDir=$PayloadDir" `
   "/DInstallerOutputDir=$InstallerOutputDir" `
-  "/DAppVersion=1.0.0" `
+  "/DAppVersion=1.0.1" `
   "packaging\windows\installer.iss"
 ```
 

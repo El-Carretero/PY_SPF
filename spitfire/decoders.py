@@ -6,12 +6,25 @@ expose actions requested by the original callbacks for the application host.
 """
 from __future__ import annotations
 from dataclasses import dataclass
+import math
 import re
 import struct
 
 _NUMBER = re.compile(r'^[\t\n\r\v\f ]*([+-]?(?:(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?|inf(?:inity)?|nan))', re.I)
 _INTEGER = re.compile(r'^\s*([+-]?\d+)')
 _HEX_INTEGER = re.compile(r'^\s*([+-]?(?:0[xX])?[0-9a-fA-F]+)')
+_FREQUENCY_REPLY = re.compile(r'\s*([+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?)\s*')
+
+
+def parse_internal_trigger_reply(payload: str) -> float:
+    """A frequency readback must be a complete finite number, not an ACK."""
+    match = _FREQUENCY_REPLY.fullmatch(payload)
+    if match is None:
+        raise ValueError('Internal trigger frequency readback is not numeric')
+    value = float(match[1])
+    if not math.isfinite(value):
+        raise ValueError('Internal trigger frequency readback is not finite')
+    return value
 
 
 def c_atof(text: str) -> float:
@@ -190,6 +203,7 @@ class ResponseDecoder:
             if query_id==1024:self._set(5,28,number)
             if query_id==1025:self._set(5,43,number)
             if query_id==1053:
+                number=parse_internal_trigger_reply(payload)
                 self._set(5,28,number)
                 self._set(6,8,self._read(5,28))
             self._refresh_rates()

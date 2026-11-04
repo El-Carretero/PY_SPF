@@ -1,6 +1,6 @@
 # Native PY_SPF 1.0 설치와 실행
 
-현재 배포는 원본 NI GUI **1.6.0**을 사용하는 **Native PY_SPF 1.0** Windows 앱입니다. 프로젝트 패키지 버전은 **1.0.0**이며, 장치의 IDN 응답에 표시되는 펌웨어 버전과 별개입니다.
+현재 배포는 원본 NI GUI **1.6.0**을 사용하는 **Native PY_SPF 1.0** Windows 앱입니다. 프로젝트 패키지 버전은 **1.0.1**이며, 장치의 IDN 응답에 표시되는 펌웨어 버전과 별개입니다.
 
 ## 설치
 
@@ -15,6 +15,10 @@
 ```bat
 PY_SPF.exe --demo --tcp-port 0 --local-port 0
 ```
+
+## Internal 10 Hz 설정
+
+1.0.1부터 Timing의 **INTERNAL AMP REP RATE** 입력 범위는 **10–10000 Hz**입니다. Amplifier Trigger를 Internal로 선택하고 `10`을 입력합니다. Divisor가 `1`일 때 내부 Pump/Amp 표시가 모두 `10 Hz`가 됩니다. 입력한 값의 적용 여부는 장비의 주파수 조회 응답으로 확인합니다. 상세한 검증 범위는 [Internal 10 Hz 변경 기록](docs/internal-trigger-10hz.md)에 있습니다.
 
 ## 설정·로그·제거
 

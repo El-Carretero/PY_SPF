@@ -1,6 +1,6 @@
 # Native PY_SPF 1.0
 
-현재 `main`의 기준은 **Native PY_SPF 1.0 설치형 Windows 앱**입니다. 원본 Spectra-Physics Spitfire GUI **1.6.0**의 NI 화면과 통신 규칙을 사용하며, 프로젝트 버전 **1.0.0**과 장치 펌웨어 버전은 별개입니다.
+현재 `main`의 기준은 **Native PY_SPF 1.0 설치형 Windows 앱**입니다. 원본 Spectra-Physics Spitfire GUI **1.6.0**의 NI 화면과 통신 규칙을 사용하며, 프로젝트 버전 **1.0.1**과 장치 펌웨어 버전은 별개입니다.
 
 ## 다운로드와 실행
 

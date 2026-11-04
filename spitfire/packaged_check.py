@@ -4,11 +4,218 @@ import argparse
 import ctypes
 import hashlib
 import json
+import math
 from pathlib import Path
+import re
 import struct
 import sys
 import time
 import traceback
+
+
+_STARTUP_WRITES = frozenset(('[2036]EMPOPTOUT 1', '[2047]EMP:LBOBREAK 1'))
+_TEN_HZ_WRITES = frozenset(('[2031]TDG:TRIG:MODE INT',
+                            '[2032]TDG:TRIG:FREQ 10.00',
+                            '[2020]TDG:DIV  1.00'))
+
+
+def _packet_messages(packets):
+    from .protocol import PACKET_PREFIX
+    result = []
+    for packet in packets:
+        assert packet.startswith(PACKET_PREFIX), 'Unexpected simulator packet header'
+        result.extend(packet[len(PACKET_PREFIX):].decode('ascii').splitlines())
+    return result
+
+
+class _SimulatorWriteGuard:
+    """Final send gate for this simulator check, never a device-control policy."""
+    def __init__(self):
+        super().__init__()
+        self.allowed_write_messages = _STARTUP_WRITES
+        self.validation_phase = 'startup'
+        self.write_audit = []
+        self.forbidden_write_attempts = []
+
+    def send_packet(self, packet):
+        for message in _packet_messages((packet,)):
+            match = re.fullmatch(r'\[(\d+)\].*', message)
+            assert match, f'Malformed simulator request: {message!r}'
+            if int(match[1]) >= 2000:
+                if message not in self.allowed_write_messages:
+                    self.forbidden_write_attempts.append(message)
+                    raise AssertionError(f'Unexpected self-test write: {message}')
+                self.write_audit.append({'phase': self.validation_phase, 'message': message})
+        return super().send_packet(packet)
+
+
+def _trigger_observation(view, controller):
+    return {
+        'mode_control': view.read(5, 3),
+        'frequency_control_hz': view.read(5, 28),
+        'divisor_control': view.read(5, 43),
+        'int_pump_hz': view.read(6, 8),
+        'int_amp_hz': view.read(6, 6),
+        'ext_pump_hz': view.read(6, 9),
+        'ext_amp_hz': view.read(6, 7),
+        'confirmation': {key: controller.state.get(key) for key in (
+            'internal_trigger_requested_hz', 'internal_trigger_actual_hz',
+            'internal_trigger_pending', 'internal_trigger_confirmed',
+            'internal_trigger_result')},
+    }
+
+
+def _exercise_internal_10hz(view, controller, ticker, report, *, timeout=5.0):
+    """Exercise real Native set/read + commit adapter, using in-memory UDP only.
+
+    Calling the shared Native adapter is not a Windows mouse or CVI event-delivery
+    test. Fixture restoration is explicit and completed before the main bitmap.
+    """
+    from .simulator import SimulatedTransport
+    board = controller.transport
+    assert controller.demo and isinstance(board, SimulatedTransport)
+    assert isinstance(board, _SimulatorWriteGuard) and controller.tcp is None
+    baseline = _trigger_observation(view, controller)
+    original_values = dict(board.values)
+    preference = view.read(6, 48)
+    record = report['internal_trigger_10hz'] = {
+        'target_hz': 10.0, 'simulator_only': True,
+        'event_path': 'NativeGui._control_event; EVENT_COMMIT=1',
+        'windows_mouse_input_validated': False,
+        'ni_event_delivery_validated': False,
+        'baseline': baseline, 'restored_before_snapshot': False,
+        'matched_readbacks': [],
+    }
+    callbacks = {'trig_mode': (5, 3), 'trig_reprate': (5, 28),
+                 'DivisorCallback': (5, 43)}
+    for name, (panel, control) in callbacks.items():
+        bindings = [entry for entry in view.bindings['SPITFIRE']
+                    if entry['kind'] == 'control' and entry['name'] == name]
+        assert len(bindings) == 1 and (bindings[0]['panel'], bindings[0]['control']) == (panel, control)
+    record['native_minimum_hz'] = view.read_attribute(5, 28, 731)
+    record['native_maximum_hz'] = view.read_attribute(5, 28, 730)
+    assert record['native_minimum_hz'] == 10.0 and record['native_maximum_hz'] == 10000.0, record
+
+    original_receive = controller._receive
+    packet_start = len(board.sent_packets)
+    matched = record['matched_readbacks']
+
+    def receive(line):
+        before = controller.diagnostics['matched_replies']
+        pending = controller.scheduler.last_sent
+        pending_tag = pending.tag if pending and controller.scheduler.balance else None
+        original_receive(line)
+        match = re.search(r'<(\d+)>(.*)', line)
+        if match and controller.diagnostics['matched_replies'] > before:
+            tag = int(match[1])
+            if tag in (1051, 1053, 1025):
+                assert pending_tag == tag
+                matched.append({'phase': board.validation_phase, 'tag': tag,
+                                'payload': match[2], 'decorated': line})
+
+    def wait_for(predicate, label):
+        deadline = time.monotonic() + timeout
+        while controller.running and time.monotonic() < deadline:
+            view.process_events()
+            ticker.tick()
+            ticker.raise_if_failed()
+            if predicate():
+                return
+            time.sleep(.005)
+        raise AssertionError(f'Timed out waiting for {label}: {_trigger_observation(view, controller)}')
+
+    def commit(name, value):
+        panel, control = callbacks[name]
+        view.set_value(panel, control, value)
+        actual = view.read(panel, control)
+        assert math.isclose(float(actual), float(value), rel_tol=0, abs_tol=1e-6), (name, value, actual)
+        if name == 'trig_reprate' and value == 10.0 and board.validation_phase == 'internal-10hz':
+            record['native_entered_hz'] = actual
+        view._control_event(name, panel, control, 1)
+
+    def target_verified():
+        samples = [entry for entry in matched if entry['phase'] == 'internal-10hz']
+        if not ({entry['tag'] for entry in samples} >= {1051, 1053, 1025}):
+            return False
+        state = controller.state
+        return (state.get('internal_trigger_requested_hz') == 10.0
+                and state.get('internal_trigger_actual_hz') == 10.0
+                and state.get('internal_trigger_pending') is False
+                and state.get('internal_trigger_confirmed') is True
+                and state.get('internal_trigger_result') == 'confirmed'
+                and float(view.read(5, 3)) == 0.0
+                and float(view.read(5, 43)) == 1.0
+                and float(view.read(6, 8)) == 10.0
+                and float(view.read(6, 6)) == 10.0)
+
+    controller._receive = receive
+    changed = False
+    try:
+        board.validation_phase = 'internal-10hz'
+        board.allowed_write_messages = _TEN_HZ_WRITES
+        # The original mode/divisor callbacks use this local readback preference.
+        # Its original value is restored; no device command changes it.
+        view.set_value(6, 48, 1)
+        changed = True
+        commit('trig_mode', 0)
+        commit('trig_reprate', 10.0)
+        commit('DivisorCallback', 1.0)
+        wait_for(target_verified, 'matched INT/10Hz/divisor1 readbacks and Native10Hz displays')
+        record['confirmed'] = _trigger_observation(view, controller)
+        target_packets = board.sent_packets[packet_start:]
+        messages = _packet_messages(target_packets)
+        writes = [message for message in messages if int(message[1:message.index(']')]) >= 2000]
+        assert writes == ['[2031]TDG:TRIG:MODE INT', '[2032]TDG:TRIG:FREQ 10.00', '[2020]TDG:DIV  1.00'], writes
+        samples = [entry for entry in matched if entry['phase'] == 'internal-10hz']
+        assert any(entry['tag'] == 1051 and entry['payload'].strip() == 'INT' for entry in samples)
+        assert any(entry['tag'] == 1053 and float(entry['payload']) == 10.0 for entry in samples)
+        assert any(entry['tag'] == 1025 and float(entry['payload']) == 1.0 for entry in samples)
+        record['messages'] = messages
+        record['packets_hex'] = [packet.hex() for packet in target_packets]
+    finally:
+        try:
+            if changed:
+                board.validation_phase = 'restore-original'
+                board.allowed_write_messages = frozenset((
+                    '[2020]TDG:DIV %5.2f' % float(baseline['divisor_control']),
+                    '[2032]TDG:TRIG:FREQ %5.2f' % float(baseline['frequency_control_hz']),
+                    '[2031]TDG:TRIG:MODE ' + ('EXT' if baseline['mode_control'] else 'INT')))
+                start = len(matched)
+                commit('DivisorCallback', baseline['divisor_control'])
+                commit('trig_reprate', baseline['frequency_control_hz'])
+                commit('trig_mode', baseline['mode_control'])
+                wait_for(lambda: {entry['tag'] for entry in matched[start:]} >= {1025, 1053, 1051},
+                         'original Native setting readbacks')
+                # Restore the exact fixture strings too. Native range handling can
+                # make its divisor differ from the simulator's original raw value.
+                # Refresh through matching queries rather than fabricating displays.
+                board.values.clear()
+                board.values.update(original_values)
+                board.validation_phase = 'restore-fixture-readback'
+                board.allowed_write_messages = frozenset()
+                start = len(matched)
+                # Match startup ordering: refresh frequency last so its rate
+                # calculation reads the actual (possibly clamped) Native divisor.
+                for tag in (1025, 1051, 1053):
+                    controller.scheduler.push(tag)
+                wait_for(lambda: {entry['tag'] for entry in matched[start:]} >= {1051, 1053, 1025},
+                         'restored in-memory fixture readbacks')
+                restored = _trigger_observation(view, controller)
+                for field, expected in baseline.items():
+                    if field != 'confirmation':
+                        assert math.isclose(float(restored[field]), float(expected), rel_tol=0, abs_tol=1e-6), (field, expected, restored[field])
+                assert board.values == original_values
+                record['restored'] = restored
+                record['restoration_method'] = 'Native commits; exact in-memory fixture reset; matching query/decoder refresh'
+                record['restored_before_snapshot'] = True
+        except BaseException:
+            record['restore_error'] = traceback.format_exc()
+            raise
+        finally:
+            view.set_value(6, 48, preference)
+            controller._receive = original_receive
+            board.allowed_write_messages = frozenset()
+            record['all_phase_messages'] = _packet_messages(board.sent_packets[packet_start:])
 
 
 def _module_path(handle):
@@ -65,7 +272,7 @@ def main(argv=None, *, default_output=None):
             def __init__(self, *args, **kwargs):
                 raise AssertionError('Self-test must not open a real UDP transport')
         module.UDPTransport = ForbiddenTransport
-        class TestTransport(SimulatedTransport):
+        class TestTransport(_SimulatorWriteGuard, SimulatedTransport):
             def receive(self):
                 replies = super().receive()
                 if options.offline:
@@ -139,6 +346,9 @@ def main(argv=None, *, default_output=None):
         else:
             assert report['connected'] and report['gui_ready'], report
             assert report['optout'] == report['displayed_optout'] == 1, report
+        if not options.offline and not options.drop_optout_ack:
+            _exercise_internal_10hz(view, controller, ticker, report)
+            report['phases'].append('internal_trigger_10hz_verified_and_restored')
         # Read/show every normal View panel using NI APIs, with no button callbacks.
         report['view_panels'] = []
         for panel in (2, 3, 4, 5, 8, 9):
@@ -153,8 +363,7 @@ def main(argv=None, *, default_output=None):
         if options.snapshot:
             _snapshot(view, options.snapshot.resolve())
             report['snapshot'] = str(options.snapshot.resolve())
-        packets = [line for packet in controller.transport.sent_packets
-                   for line in packet[len(PACKET_PREFIX):].decode('ascii').splitlines()]
+        packets = _packet_messages(controller.transport.sent_packets)
         report['simulator_packets'] = len(controller.transport.sent_packets)
         report['identity_queries'] = packets.count('[1000]*idn?')
         if options.offline:
@@ -165,6 +374,10 @@ def main(argv=None, *, default_output=None):
         report['error'] = traceback.format_exc()
         traceback.print_exc()
     finally:
+        if controller is not None and isinstance(getattr(controller, 'transport', None), _SimulatorWriteGuard):
+            transport = controller.transport
+            report['simulator_write_audit'] = transport.write_audit
+            report['forbidden_write_attempts'] = transport.forbidden_write_attempts
         try:
             if ticker is not None:
                 ticker.close()
