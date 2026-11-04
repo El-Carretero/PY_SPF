@@ -168,6 +168,13 @@ class Controller:
         self.state['internal_trigger_actual_hz'] = actual
         self._internal_trigger_fallback = actual
         if not confirms_request:
+            if (not self.state['internal_trigger_pending']
+                    and self.state['internal_trigger_confirmed']
+                    and actual != self.state['internal_trigger_requested_hz']):
+                self.state['internal_trigger_confirmed'] = False
+                self.state['internal_trigger_result'] = 'readback_changed'
+                self.log('frequency', f'Internal trigger readback changed to {actual:g} Hz; '
+                         'previous request is no longer confirmed')
             return
         requested = self.state['internal_trigger_requested_hz']
         confirmed = actual == requested

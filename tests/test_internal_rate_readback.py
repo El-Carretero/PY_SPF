@@ -109,6 +109,31 @@ def test_negative_write_receipt_and_old_readback_do_not_confirm_ten(application)
     assert any(kind == 'frequency' and 'NOT confirmed' in text for _, kind, text in controller.events)
 
 
+def test_later_ordinary_readback_invalidates_confirmation_without_new_actuator_writes(application):
+    controller, board, _ = application()
+    commit(controller)
+    settle(controller)
+    assert controller.state['internal_trigger_confirmed']
+    board.values['TDG:TRIG:FREQ?'] = '1000'
+    controller.scheduler.push(1053)
+    settle(controller)
+    assert controller.state['internal_trigger_requested_hz'] == 10
+    assert controller.state['internal_trigger_actual_hz'] == controller.view.read(5, 28) == 1000
+    assert not controller.state['internal_trigger_pending']
+    assert not controller.state['internal_trigger_confirmed']
+    assert controller.state['internal_trigger_result'] == 'readback_changed'
+    assert packets(board).count('[2032]TDG:TRIG:FREQ 10.00') == 1
+    # A later ordinary query cannot turn a revoked confirmation back on.
+    board.values['TDG:TRIG:FREQ?'] = '10'
+    controller.scheduler.push(1053)
+    settle(controller)
+    assert controller.state['internal_trigger_actual_hz'] == 10
+    assert not controller.state['internal_trigger_confirmed']
+    assert controller.state['internal_trigger_result'] == 'readback_changed'
+    assert packets(board) == ['[2032]TDG:TRIG:FREQ 10.00', '[1053]TDG:TRIG:FREQ?',
+                              '[1053]TDG:TRIG:FREQ?', '[1053]TDG:TRIG:FREQ?']
+
+
 @pytest.mark.parametrize('payload', ['ERROR', 'nan', 'inf', '-inf', '10junk', '10 Hz',
                                     '1e999', '0', '-99', '9.99', '10000.01', ''])
 def test_invalid_readback_preserves_last_actual_and_never_confirms(application, payload):

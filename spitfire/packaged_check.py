@@ -194,7 +194,9 @@ def _exercise_internal_10hz(view, controller, ticker, report, *, timeout=5.0):
                 board.validation_phase = 'restore-fixture-readback'
                 board.allowed_write_messages = frozenset()
                 start = len(matched)
-                for tag in (1051, 1053, 1025):
+                # Match startup ordering: refresh frequency last so its rate
+                # calculation reads the actual (possibly clamped) Native divisor.
+                for tag in (1025, 1051, 1053):
                     controller.scheduler.push(tag)
                 wait_for(lambda: {entry['tag'] for entry in matched[start:]} >= {1051, 1053, 1025},
                          'restored in-memory fixture readbacks')
