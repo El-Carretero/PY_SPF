@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "package_version": "1.2.0",
+  "display_version": "Native PY_SPF 1.2",
+  "task": "Expose the original Timing HV ON/OFF control without overlap; PC01 upgrade and installed Native verification",
+  "source_commit": "630c3ddf794d0f89b3806c770128fa7dd372256f",
+  "published_binary_commit": "2714660e8b821b4723519e0038a86bb51e8ebf7f",
+  "pull_request": "https://github.com/El-Carretero/PY_SPF/pull/9",
+  "windows_workflow": "https://github.com/El-Carretero/PY_SPF/actions/runs/41881966179",
+  "setup_sha256": "a5daf703c40169468ca550534ae1a574821c6d04e094562c09e6f76512c96871",
+  "bundle_manifest_sha256": "48f8920adbcfef070b300bcd0d9049c42b69b66c7dc74bdb81211e3398d17134",
+  "local_tests": {
+    "passed": 309,
+    "subtests_passed": 7
+  },
+  "windows_ci": {
+    "passed": true,
+    "install_run_uninstall_isolation_checks": 63,
+    "artifact_hashes_verified": 10,
+    "actual_ni_bounds_checked_at_access_levels": [
+      "user",
+      "service",
+      "factory",
+      "programmer"
+    ],
+    "installed_user_service_captures_visually_reviewed": true
+  },
+  "pc01_upgrade": {
+    "new_start_menu_shortcuts_verified": 2,
+    "legacy_shortcuts_removed": true,
+    "passed": true,
+    "version_before": "1.0.1",
+    "version_after": "1.2.0",
+    "payload_files_verified": 57,
+    "x86_pe_files": 27,
+    "installation_path_unchanged": true,
+    "settings_unchanged": true,
+    "user_path_unchanged": true,
+    "machine_path_unchanged": true,
+    "applications_running": 0,
+    "setup_exit_code": 0
+  },
+  "pc01_installed_native_self_test": {
+    "passed": true,
+    "exit_code": 0,
+    "version": "1.2.0",
+    "frozen": true,
+    "python_bits": 32,
+    "acp": 65001,
+    "gui_ready": true,
+    "connected_to_simulator": true,
+    "optout": 1,
+    "physical_device_io": false,
+    "transport_class": "TestTransport",
+    "tcp_server_enabled": false,
+    "forbidden_write_attempts": [],
+    "private_runtime_verified": true,
+    "hv_layout_restored": true,
+    "hv_commands_sent": [],
+    "levels": [
+      {
+        "name": "user",
+        "width": 390,
+        "height": 446,
+        "hv_visible": 1,
+        "hv_dimmed": 0,
+        "hv_display": 0,
+        "hv_bounds": {
+          "top": 299,
+          "left": 170,
+          "height": 71,
+          "width": 90
+        }
+      },
+      {
+        "name": "service",
+        "width": 750,
+        "height": 446,
+        "hv_visible": 1,
+        "hv_dimmed": 0,
+        "hv_display": 1,
+        "hv_bounds": {
+          "top": 299,
+          "left": 170,
+          "height": 71,
+          "width": 90
+        }
+      },
+      {
+        "name": "factory",
+        "width": 750,
+        "height": 446,
+        "hv_visible": 1,
+        "hv_dimmed": 0,
+        "hv_display": 1,
+        "hv_bounds": {
+          "top": 299,
+          "left": 170,
+          "height": 71,
+          "width": 90
+        }
+      },
+      {
+        "name": "programmer",
+        "width": 750,
+        "height": 546,
+        "hv_visible": 1,
+        "hv_dimmed": 0,
+        "hv_display": 1,
+        "hv_bounds": {
+          "top": 299,
+          "left": 170,
+          "height": 71,
+          "width": 90
+        }
+      }
+    ],
+    "images": [
+      {
+        "mode": "user",
+        "width": 396,
+        "height": 468,
+        "sha256": "bebd7be14cc49520d88aa8ed3e287674eb139cd2dc7e437ac467ce9a6f38b00e"
+      },
+      {
+        "mode": "service",
+        "width": 756,
+        "height": 468,
+        "sha256": "457c8a604ba4a202094cb61c466c091656fbdda1b3b5d9a05b52c4df96ddf2ef"
+      }
+    ],
+    "settings_unchanged": true,
+    "user_path_unchanged": true,
+    "machine_path_unchanged": true,
+    "applications_running": 0
+  },
+  "pc01_visual_review": {
+    "user_capture_reviewed": true,
+    "service_capture_reviewed": true,
+    "changed_control_labels_legible": true,
+    "no_changed_element_overlap_or_clipping": true,
+    "original_vendor_uir_unchanged": true
+  },
+  "physical_verification_limits": {
+    "agent_operated_hv_switch": false,
+    "agent_issued_run": false,
+    "optical_emission_tested": false,
+    "layout_verification": "Installed Native self-test uses only an in-memory simulator and forbids physical device I/O.",
+    "normal_native_window_restored": true,
+    "normal_window_status_before_upgrade": "OFFLINE - no live data",
+    "normal_window_status_after_upgrade": "OFFLINE - no live data",
+    "equipment_communication_verified": false
+  },
+  "privacy": "Raw session logs, captures, user paths and device identifiers remain on PC01. The published report contains selected validation results.",
+  "verified_seoul_date": "2026-11-05"
+}

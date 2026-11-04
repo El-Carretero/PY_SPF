@@ -20,6 +20,14 @@ Timing and High Voltage 패널의 숨겨진 `HV_switch`(패널 5, 컨트롤 34)�
 
 Windows 배포 검증은 설치·실행·제거 및 환경 격리 시험을 포함한다. 01번에서는 검증된 설치 파일의 해시와 설치 파일들을 대조하고, 설치된 EXE로 Native 자체 검사를 수행한다. 구체적인 결과와 해당 소스 커밋은 배포 검증 기록에 남긴다.
 
+2026-11-05(한국 시간) 검증 결과: 로컬 시험 309개와 하위 시험 7개, Windows 설치·실행·제거·격리 검사 63개가 통과했다. 실제 NI 경계를 네 접근 등급에서 검사했고, Windows 설치본과 01번 PC 설치본의 User·Service 캡처를 각각 눈으로 검토했다. 변경한 스위치·라벨·숫자 표시의 겹침이나 잘림은 발견되지 않았다. 01번은 1.0.1에서 1.2.0으로 업그레이드했으며, 배포 파일 57개의 해시와 설정·PATH 보존을 확인했다. HV 스위치의 실장비 조작은 하지 않았다.
+
+- [01번 설치·검증 기록](../analysis/release_1_2_pc01.json)
+- [Windows 빌드·설치 검증](https://github.com/El-Carretero/PY_SPF/actions/runs/41881966179)
+- [설치본 User 화면](../output/native-installer/installed-timing-user.bmp) / [Service 화면](../output/native-installer/installed-timing-service.bmp)
+
+검증 후 일반 Native 창을 다시 띄웠다. 실장비 연결은 업그레이드 전후 모두 `OFFLINE - no live data` 상태여서, 이번 결과에는 실장비 통신 또는 HV 출력 검증을 포함하지 않는다.
+
 ## 업데이트 호환성
 
 제품 표시명과 배포 파일명은 1.2로 바뀐다. 기존 AppId·뮤텍스와 사용자 데이터 위치 `%LOCALAPPDATA%\PY_SPF_1.0`은 유지한다. 기존 설치는 등록된 경로를 사용해 업데이트하며 기본 설치 경로도 `%LOCALAPPDATA%\Programs\Native_PY_SPF_1.0`을 유지한다. 기존 설정·데이터·로그와 다른 Python·NI 환경을 변경하지 않는다. 이전 앱의 정해진 바로가기와 비어 있는 이전 시작 메뉴 폴더만 정리한다.
