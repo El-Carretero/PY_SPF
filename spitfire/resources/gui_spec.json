@@ -13736,7 +13736,7 @@
           "value_hex": "459c4000461c4000447a000043fa0000",
           "value": 5000.0,
           "maximum": 10000.0,
-          "minimum": 1000.0,
+          "minimum": 10.0,
           "increment": 500.0,
           "attributes": {
             "dimmed": 0,
@@ -13775,7 +13775,7 @@
             "text_justify": 16,
             "data_type": 3,
             "max_value": 10000.0,
-            "min_value": 1000.0,
+            "min_value": 10.0,
             "incr_value": 500.0,
             "format": 65520,
             "precision": 2,

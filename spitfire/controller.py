@@ -8,7 +8,8 @@ import select
 import time
 
 from .callbacks import SHOW_PANELS, HIDE_PANELS, dispatch, access_level_actions, fault_update_actions
-from .decoders import ResponseDecoder
+from .decoders import ResponseDecoder, parse_internal_trigger_reply
+from .limits import validate_internal_trigger_hz
 from .protocol import QUERIES, PacketBuffer, UDPTransport
 from .scheduling import Scheduler, StartupAttempts
 from .settings import AccessKeySequence, read_max_level
@@ -51,6 +52,14 @@ class Controller:
         self.decoder = ResponseDecoder(read=self.read)
         self.state = self.decoder.state
         self.state.update(gAccessLevel=0, evnt_cmt=0, curtain_not_open=1, gui_ready=False)
+        self.state.update(internal_trigger_requested_hz=None, internal_trigger_actual_hz=None,
+                          internal_trigger_pending=False, internal_trigger_confirmed=False,
+                          internal_trigger_result='not_requested')
+        self._internal_trigger_readback_request = None
+        try:
+            self._internal_trigger_fallback = self.view.read(5, 28)
+        except (KeyError, AttributeError, TypeError):
+            self._internal_trigger_fallback = None
         presentation = getattr(view, "connection_presentation", None)
         self._connection_presentation = presentation() if presentation else None
         self._desired_device_dimming = dict(self._connection_presentation["controls"]) if self._connection_presentation else {}
@@ -140,6 +149,35 @@ class Controller:
         if hasattr(self.view, "log"):
             self.view.log(f"{kind}: {payload}")
 
+    def _restore_internal_trigger_display(self):
+        actual = self.state['internal_trigger_actual_hz']
+        previous = self._internal_trigger_fallback if actual is None else actual
+        if previous is not None:
+            self.set_value(5, 28, previous)
+
+    def _internal_trigger_unconfirmed(self, result, message):
+        self.state['internal_trigger_pending'] = False
+        self.state['internal_trigger_confirmed'] = False
+        self.state['internal_trigger_result'] = result
+        self._internal_trigger_readback_request = None
+        self._restore_internal_trigger_display()
+        self.diagnostics['internal_trigger_unconfirmed'] += 1
+        self.log('frequency', message)
+
+    def _internal_trigger_readback(self, actual, *, confirms_request):
+        self.state['internal_trigger_actual_hz'] = actual
+        self._internal_trigger_fallback = actual
+        if not confirms_request:
+            return
+        requested = self.state['internal_trigger_requested_hz']
+        confirmed = actual == requested
+        self.state['internal_trigger_pending'] = False
+        self.state['internal_trigger_confirmed'] = confirmed
+        self.state['internal_trigger_result'] = 'confirmed' if confirmed else 'mismatch'
+        self._internal_trigger_readback_request = None
+        self.log('frequency', f'Internal trigger requested {requested:g} Hz; '
+                 f'readback {actual:g} Hz; {"confirmed" if confirmed else "NOT confirmed"}')
+
     def start(self):
         self.apply(access_level_actions(0))
         self.apply(dispatch("close_curtain"))
@@ -172,6 +210,10 @@ class Controller:
         self.connect()
 
     def connect(self):
+        if self.state['internal_trigger_pending']:
+            self._internal_trigger_unconfirmed('reconnected', 'Frequency request unconfirmed before reconnect')
+        self.state['internal_trigger_actual_hz'] = None
+        self.state['internal_trigger_confirmed'] = False
         self.diagnostics['connect_attempts'] += 1
         if self.diagnostics['connect_attempts'] > 1:
             self.diagnostics['reconnects'] += 1
@@ -308,6 +350,8 @@ class Controller:
         key = 'query_timeouts' if request.tag < 2000 else 'write_ack_timeouts'
         self.diagnostics[key] += 1
         self.log("timeout", f"{request.tag}; {'skipped query' if request.tag < 2000 else 'write NOT replayed'}")
+        if request is self._internal_trigger_readback_request:
+            self._internal_trigger_unconfirmed('readback_timeout', 'Internal trigger frequency readback timed out; setting NOT confirmed')
 
     def cancel_pending_run(self, reason="RUN cancelled"):
         armed = bool(self.state.get('evnt_cmt') or self._button_started is not None)
@@ -332,6 +376,8 @@ class Controller:
 
     def cancel_pending_actuation(self, reason="Pending writes cancelled"):
         self.cancel_pending_run(reason)
+        if self.state['internal_trigger_pending']:
+            self._internal_trigger_unconfirmed('cancelled', 'Frequency request unconfirmed: ' + reason)
         removed = self._remove_queued_writes(lambda request: request.tag >= 2000 and not self._shutdown_request(request))
         if removed:
             self.diagnostics['cancelled_write_requests'] += removed
@@ -559,6 +605,8 @@ class Controller:
             return
         tag = int(match[1])
         payload = line[match.end():]
+        confirms_frequency = (tag == 1053 and self.state['internal_trigger_pending']
+                              and self.scheduler.last_sent is self._internal_trigger_readback_request)
         if self._pause_recovery_since is not None and not self._pause_probe_sent:
             # Arrival at our event loop after a pause is not proof that the
             # device answered *after* the pause. Drain pre-pause buffered replies
@@ -597,6 +645,19 @@ class Controller:
             self._default_optout_ack_deadline = None
         self.diagnostics['matched_replies'] += 1
         self._last_matched_at = self.clock()
+        frequency_readback = None
+        if tag == 1053:
+            try:
+                frequency_readback = validate_internal_trigger_hz(parse_internal_trigger_reply(payload))
+            except ValueError as exc:
+                self.diagnostics['malformed_replies'] += 1
+                if not payload.strip():
+                    self.diagnostics['empty_replies'] += 1
+                if confirms_frequency:
+                    self._internal_trigger_unconfirmed('invalid_readback', f'{exc}; setting NOT confirmed')
+                else:
+                    self.log('frequency', str(exc))
+                return
         if not payload.strip():
             self.diagnostics['empty_replies'] += 1
             # Never let the original empty-payload fallback reuse another tag's
@@ -612,6 +673,8 @@ class Controller:
             # read-only mode RES12 is suppressed, so keep actual DEL? indicators.
             updates = [u for u in updates if u.attribute is not None or (u.panel_id, u.control_id) not in ((6, 23), (6, 21))]
         self._apply_updates(updates)
+        if frequency_readback is not None:
+            self._internal_trigger_readback(frequency_readback, confirms_request=confirms_frequency)
         self._decoder_effects()
         if self.state.pop("call_for_reset_c1n2", 0):
             self.scheduler.reset_channels_pending = not self.read_only
@@ -690,6 +753,7 @@ class Controller:
         self.decoder.effects = []
 
     def handle_callback(self, name, value=0, event=1, panel=6, control=0):
+        frequency_commit = name.lstrip('_') == 'trig_reprate' and event == 1
         readonly_local = (set(SHOW_PANELS) | set(HIDE_PANELS) | {
             'QuitProgram', 'Shutdown', 'exit_from_menu', 'display_faults',
             'cmtRETUSERMODE', 'SetAccessLevel', 'ClearScreenCB', 'MainCallBack',
@@ -699,9 +763,21 @@ class Controller:
             'Ch4_Coarse_Check_Callback',
         })
         if self.read_only and name.lstrip('_') not in readonly_local:
+            if frequency_commit:
+                self._restore_internal_trigger_display()
             self.diagnostics['blocked_callbacks'] += 1
             self.log("read only", f"Blocked callback {name}")
             return
+        if frequency_commit:
+            if self.state['internal_trigger_pending']:
+                self._restore_internal_trigger_display()
+                self.log('frequency', 'Frequency edit ignored while its readback is pending')
+                return
+            if (self.state['internal_trigger_actual_hz'] is None
+                    or (self._connection_presentation and not self.state['gui_ready'])):
+                self._restore_internal_trigger_display()
+                self.log('frequency', 'Frequency edit blocked until a valid device frequency readback is available')
+                return
         if self._connection_presentation and not self.state["gui_ready"] and name == "tmr_Data_Logger":
             return  # An offline display must not be logged as instrument data.
         if self._connection_presentation and not self.state["gui_ready"] and name.lstrip('_') == 'cllbck':
@@ -713,8 +789,20 @@ class Controller:
         try:
             actions = dispatch(name, value, read=self.read, event=event,
                                panel=panel, control=control, state=self.state)
+            if frequency_commit:
+                requested = next(a for a in actions if a.kind == 'command' and a.target == 2032)
+                self.state['internal_trigger_requested_hz'] = float(requested.value)
+                self.state['internal_trigger_pending'] = True
+                self.state['internal_trigger_confirmed'] = False
+                self.state['internal_trigger_result'] = 'pending'
+                self._restore_internal_trigger_display()
             self.apply(actions)
+            if frequency_commit:
+                self._internal_trigger_readback_request = next(
+                    request for request in reversed(self.scheduler.inside) if request.tag == 1053)
         except (KeyError, ValueError) as exc:
+            if frequency_commit:
+                self._restore_internal_trigger_display()
             self.log("callback", str(exc))
 
     def key_pressed(self, text):
@@ -807,6 +895,8 @@ class Controller:
         self._view_optional("show_warning", "Warning", text, self.connect)
 
     def stop(self):
+        if self.state['internal_trigger_pending']:
+            self._internal_trigger_unconfirmed('stopped', 'Frequency request unconfirmed when application stopped')
         self.running = False
         self.state["gui_ready"] = False
         self.state["evnt_cmt"] = 0

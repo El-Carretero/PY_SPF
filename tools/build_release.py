@@ -16,12 +16,12 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 RELEASE_NAME = 'PY_SPF_1.0'
-PACKAGE_VERSION = '1.0.0'
+PACKAGE_VERSION = '1.0.1'
 SOURCE_OUTPUT = PurePosixPath('dist/source') / RELEASE_NAME
 DEVELOPMENT_GUIDE = 'docs/source-development.md'
 ROOT_FILES = {
     '.gitattributes', '.gitignore', 'README.md', 'README.ko.md',
-    'RELEASE.ko.md', 'THIRD_PARTY_NOTICES.md',
+    'RELEASE.ko.md', 'THIRD_PARTY_NOTICES.md', 'docs/internal-trigger-10hz.md',
     'pyproject.toml', 'requirements.txt', 'requirements-build.txt', 'run_spitfire.py',
     'install.bat', 'run_native.bat', 'run_readonly.bat', 'run_demo.bat',
 }

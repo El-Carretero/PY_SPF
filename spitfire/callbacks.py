@@ -9,6 +9,8 @@ from dataclasses import dataclass
 from typing import Any, Callable
 import struct
 
+from .limits import validate_internal_trigger_hz
+
 EVENT_COMMIT = 1
 EVENT_LEFT_CLICK = 3
 EVENT_LEFT_DOUBLE_CLICK = 4
@@ -206,15 +208,19 @@ def dispatch(callback_name: str, value: Any = 0, *, read: Callable | None = None
     connected = bool(read(6, 48))
     if name in NUMERIC_CALLBACKS:
         cmd, followup, factor, src = NUMERIC_CALLBACKS[name]
-        val = _f32(source_value(src))
+        source = source_value(src)
+        if name == "trig_reprate":
+            source = validate_internal_trigger_hz(source)
+        val = _f32(source)
         # Float multiplication/division occurs on the x87 stack before sprintf.
         number = val / 10.0 if name == "slideqswprf" else val * factor
         actions = [command(cmd, " %5.2f" % number)]
-        if connected:
+        # A trigger-rate edit needs an actual readback even when the legacy
+        # closed-loop preference is off; do not publish an optimistic rate.
+        if connected or name == "trig_reprate":
             actions.append(query(followup))
-        elif name in ("slideqswprf", "DivisorCallback", "trig_reprate"):
-            actions += _rate_updates(read, copy_emp=name == "slideqswprf",
-                                    copy_trigger=name == "trig_reprate")
+        elif name in ("slideqswprf", "DivisorCallback"):
+            actions += _rate_updates(read, copy_emp=name == "slideqswprf")
         return actions
     if name in INTEGER_CALLBACKS:
         cmd, followup, src = INTEGER_CALLBACKS[name]
