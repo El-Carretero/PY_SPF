@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "package_version": "1.2.1",
+  "display_family": "Native PY_SPF 1.2",
+  "task": "Share the confirmed TDG frequency input with EXT Pump/AMP displays",
+  "source_commit": "21ac767030376b0ed31752fce8f2e393fccac8cb",
+  "published_binary_commit": "2ef3e1683f9d91da958cd8316dcdfb1f7a3f428b",
+  "pull_request": "https://github.com/El-Carretero/PY_SPF/pull/10",
+  "windows_workflow": "https://github.com/El-Carretero/PY_SPF/actions/runs/42010587751",
+  "setup_sha256": "cc4ff45f9fe04b8070cee9030efba798c12e2678ce11105213b172a627e11cc1",
+  "bundle_manifest_sha256": "776c35aebb8a981f489abbd868c9eb161639610685da57323f94f0ec8c895aee",
+  "local_tests": {
+    "passed": 331,
+    "subtests_passed": 7
+  },
+  "windows_ci": {
+    "passed": true,
+    "install_run_uninstall_isolation_checks": 65,
+    "tested_artifact_hashes_verified": 11,
+    "installed_external_capture_visually_reviewed": true
+  },
+  "pc01_upgrade": {
+    "new_start_menu_shortcuts_verified": 2,
+    "legacy_shortcuts_removed": true,
+    "passed": true,
+    "version_before": "1.2.0",
+    "version_after": "1.2.1",
+    "payload_files_verified": 57,
+    "x86_pe_files": 27,
+    "installation_path_unchanged": true,
+    "settings_unchanged": true,
+    "user_path_unchanged": true,
+    "machine_path_unchanged": true,
+    "applications_running": 0,
+    "setup_exit_code": 0
+  },
+  "pc01_installed_native_self_test": {
+    "passed": true,
+    "exit_code": 0,
+    "version": "1.2.1",
+    "external_shared_rate": {
+      "restored": true,
+      "source": "matched TDG:TRIG:FREQ? setting readback; not measured external TTL",
+      "divisor_one": {
+        "mode_control": 1,
+        "frequency_control_hz": 10,
+        "divisor_control": 1,
+        "int_pump_hz": 10,
+        "int_amp_hz": 10,
+        "ext_pump_hz": 10,
+        "ext_amp_hz": 10,
+        "confirmation": {
+          "internal_trigger_requested_hz": 10,
+          "internal_trigger_actual_hz": 10,
+          "internal_trigger_pending": false,
+          "internal_trigger_confirmed": true,
+          "internal_trigger_result": "confirmed"
+        }
+      },
+      "divisor_two": {
+        "mode_control": 1,
+        "frequency_control_hz": 10,
+        "divisor_control": 2,
+        "int_pump_hz": 10,
+        "int_amp_hz": 5,
+        "ext_pump_hz": 10,
+        "ext_amp_hz": 5,
+        "confirmation": {
+          "internal_trigger_requested_hz": 10,
+          "internal_trigger_actual_hz": 10,
+          "internal_trigger_pending": false,
+          "internal_trigger_confirmed": true,
+          "internal_trigger_result": "confirmed"
+        }
+      },
+      "empower_reply_ignored": true,
+      "oscillator_reply_ignored": true,
+      "mode_write_commands": [],
+      "target_write_messages": [
+        "[2032]TDG:TRIG:FREQ 10.00",
+        "[2020]TDG:DIV  1.00",
+        "[2020]TDG:DIV  2.00"
+      ]
+    },
+    "frozen": true,
+    "python_bits": 32,
+    "acp": 65001,
+    "gui_ready": true,
+    "connected_to_simulator": true,
+    "optout": 1,
+    "physical_device_io": false,
+    "transport_class": "TestTransport",
+    "tcp_server_enabled": false,
+    "forbidden_write_attempts": [],
+    "private_runtime_verified": true,
+    "hv_layout_restored": true,
+    "hv_commands_sent": [],
+    "levels": [
+      {
+        "name": "user",
+        "width": 390,
+        "height": 446,
+        "hv_visible": 1,
+        "hv_dimmed": 0,
+        "hv_display": 0,
+        "hv_bounds": {
+          "top": 299,
+          "left": 170,
+          "height": 71,
+          "width": 90
+        }
+      },
+      {
+        "name": "service",
+        "width": 750,
+        "height": 446,
+        "hv_visible": 1,
+        "hv_dimmed": 0,
+        "hv_display": 1,
+        "hv_bounds": {
+          "top": 299,
+          "left": 170,
+          "height": 71,
+          "width": 90
+        }
+      },
+      {
+        "name": "factory",
+        "width": 750,
+        "height": 446,
+        "hv_visible": 1,
+        "hv_dimmed": 0,
+        "hv_display": 1,
+        "hv_bounds": {
+          "top": 299,
+          "left": 170,
+          "height": 71,
+          "width": 90
+        }
+      },
+      {
+        "name": "programmer",
+        "width": 750,
+        "height": 546,
+        "hv_visible": 1,
+        "hv_dimmed": 0,
+        "hv_display": 1,
+        "hv_bounds": {
+          "top": 299,
+          "left": 170,
+          "height": 71,
+          "width": 90
+        }
+      }
+    ],
+    "images": [
+      {
+        "mode": "user",
+        "width": 396,
+        "height": 468,
+        "sha256": "bebd7be14cc49520d88aa8ed3e287674eb139cd2dc7e437ac467ce9a6f38b00e"
+      },
+      {
+        "mode": "service",
+        "width": 756,
+        "height": 468,
+        "sha256": "457c8a604ba4a202094cb61c466c091656fbdda1b3b5d9a05b52c4df96ddf2ef"
+      },
+      {
+        "mode": "external-rate",
+        "width": 901,
+        "height": 572,
+        "sha256": "fd7e9dc760ca36f0c989e536d9cb2201f726831d7f669ca543db40005f74a60d"
+      }
+    ],
+    "settings_unchanged": true,
+    "user_path_unchanged": true,
+    "machine_path_unchanged": true,
+    "applications_running": 0
+  },
+  "pc01_installed_readonly_equipment_check": {
+    "passed": true,
+    "package_version": "1.2.1",
+    "physical_device_queries": true,
+    "native_gui_ready": true,
+    "connected": true,
+    "read_only": true,
+    "elapsed_seconds": 28.757105,
+    "stable_ready_seconds": 5.025638500000003,
+    "communication": {
+      "controller": {
+        "connect_attempts": 1,
+        "open_attempts": 1,
+        "startup_attempts": 3,
+        "tx_packets": 105,
+        "matched_replies": 105,
+        "empty_replies": 1,
+        "ignored_replies": 1
+      },
+      "transport": {
+        "tx_packets": 105,
+        "rx_packets": 105
+      },
+      "pending_tag": null,
+      "read_only": true,
+      "min_request_interval": 0.25,
+      "last_match_monotonic": 328546.0319975,
+      "last_match_age_seconds": 0.15763530001277104,
+      "last_status_monotonic": 328540.5867591,
+      "last_status_age_seconds": 5.602873699972406
+    },
+    "source_sha256": {
+      "native.py": "d6295b1614848bc1da1377a07343aba0c608c991a0b59e3b4a493c3abedf3446",
+      "native_ticker.py": "03415f09a81f325f088ec28baeadfaa765214a025be4da1fb68754c9c7a668bf",
+      "controller.py": "c86d24fe03a2840f7c7620dd9c21ab78da117c9fd4dec789884f85335401a576",
+      "protocol.py": "f3817917c66fb5a29e0f2bcac59f2f550e67fe73b64645dab6d7029b5cb5118f"
+    },
+    "physical_device_writes": 0,
+    "tx_count": 110,
+    "frequency_replies": [
+      "(26,1)<1053> 1000.0",
+      "(30,1)<1053> 1000.0",
+      "(37,1)<1053> 1000.0"
+    ],
+    "mode_replies": [
+      "(29,1)<1051> EXT CONT 1000.0"
+    ],
+    "exit_code": 0,
+    "closed": true,
+    "source_hashes_match_tested_manifest": true
+  },
+  "pc01_final_preservation": {
+    "version": "1.2.1",
+    "settings_unchanged": true,
+    "user_path_unchanged": true,
+    "machine_path_unchanged": true,
+    "applications_running": 0,
+    "final_communication": {
+      "controller": {
+        "connect_attempts": 1,
+        "open_attempts": 1,
+        "startup_attempts": 3,
+        "tx_packets": 109,
+        "matched_replies": 109,
+        "empty_replies": 1,
+        "ignored_replies": 1
+      },
+      "transport": {
+        "tx_packets": 109,
+        "rx_packets": 109
+      },
+      "pending_tag": null,
+      "read_only": true,
+      "min_request_interval": 0.25,
+      "last_match_monotonic": 328547.0640394,
+      "last_match_age_seconds": 0.15718039998319,
+      "last_status_monotonic": 328540.5867591,
+      "last_status_age_seconds": 6.634460699977353
+    },
+    "native_closed": true,
+    "tx_count": 110,
+    "rx_count": 111
+  },
+  "pc01_visual_review": {
+    "external_capture_reviewed": true,
+    "ext_pump_hz": 10,
+    "ext_amp_hz": 10,
+    "no_label_or_value_clipping_or_overlap": true,
+    "scope": "Installed EXE, simulator-only Native adapter validation; not physical mouse input."
+  },
+  "pre_patch_controller_rate_test": {
+    "date_seoul": "2026-11-05",
+    "baseline_hz": 1000,
+    "requested_hz": 10,
+    "frequency_query": 1053,
+    "returned_hz": [
+      10,
+      10,
+      10
+    ],
+    "amplifier_mode_unchanged": "EXT CONT 1000.0",
+    "divisor": 1,
+    "hv_on_before_after": 0,
+    "empower_optout_before_after": 1,
+    "restored_hz": 1000,
+    "tx_packets": 29,
+    "rx_packets": 29,
+    "timeouts": 0,
+    "retries": 0,
+    "physical_write_ids": [
+      2032,
+      2032
+    ],
+    "all_nine_before_after_query_replies_identical": true,
+    "scope": "Direct application-equivalent UDP commands before the software patch; no Windows mouse or optical waveform verification."
+  },
+  "physical_verification_limits": {
+    "agent_operated_run_hv_reset_or_mode": false,
+    "post_install_physical_device_writes": 0,
+    "external_ttl_frequency_measured": false,
+    "optical_emission_tested": false,
+    "physical_frequency_preserved_hz": 1000,
+    "applications_left_running": 0
+  },
+  "privacy": "Raw equipment/session logs, user paths, device identifiers and PC01 captures remain local. The published report contains selected results only.",
+  "verified_seoul_date": "2026-11-05"
+}
