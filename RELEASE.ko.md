@@ -1,7 +1,11 @@
 # PY_SPF_1.2 릴리스
 
-배포 이름은 `PY_SPF_1.2`, 현재 Python 패키지 버전은 `1.2.0`, 배포 브랜치는 `main`입니다.
+배포 이름은 `PY_SPF_1.2`, 현재 Python 패키지 버전은 `1.2.1`, 배포 브랜치는 `main`입니다.
 원본 Spitfire NI GUI 1.6.0과 장치가 보고하는 펌웨어 버전은 이 프로젝트 버전과 별개입니다.
+
+## 1.2.1 — EXT 반복률의 공용 입력
+
+Timing의 기존 `INTERNAL AMP REP RATE` 입력값을 `2032` 설정과 `1053` 조회로 확인한 뒤 EXT 표시의 기준으로도 사용합니다. `EXT Pump = 확인된 주파수`, `EXT Amp = 확인된 주파수 ÷ DIVISOR`이며 Empower PRF 응답은 EXT 표시를 덮어쓰지 않습니다. 모드 전환·RUN·HV·BWD·채널 지연 제어는 변경하지 않습니다. 표시값은 사용자가 지정한 기준이며 외부 TTL 실측값이 아닙니다. [변경과 검증 범위](docs/shared-ext-rate.md)를 참조하세요.
 
 ## 1.2 — HV ON/OFF 표시와 배치
 

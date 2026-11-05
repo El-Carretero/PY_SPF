@@ -14,8 +14,8 @@ from spitfire.__main__ import MemoryView, arguments, main, make_controller
 class ReleaseCLITests(unittest.TestCase):
     def test_package_and_public_release_identity(self):
         root = Path(__file__).resolve().parents[1]
-        self.assertEqual(__version__, '1.2.0')
-        self.assertIn('version = "1.2.0"', (root/'pyproject.toml').read_text())
+        self.assertEqual(__version__, '1.2.1')
+        self.assertIn('version = "1.2.1"', (root/'pyproject.toml').read_text())
         output = io.StringIO()
         with contextlib.redirect_stdout(output), self.assertRaises(SystemExit) as finished:
             arguments(['--version'])

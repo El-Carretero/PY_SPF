@@ -171,7 +171,7 @@ except (OSError, subprocess.CalledProcessError):
     commit = None
 source_paths = sorted((root / "spitfire").glob("*.py")) + [root / "packaging/windows/native_app.py", root / "packaging/windows/native.manifest", root / "packaging/windows/PY_SPF.spec", root / "packaging/windows/build.ps1", root / "requirements-build.txt"]
 files = [dict(path=p.relative_to(bundle).as_posix(), bytes=p.stat().st_size, sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in sorted(bundle.rglob("*")) if p.is_file() and p.name != "bundle-manifest.json"]
-manifest = dict(schema=1, application="PY_SPF", package_version="1.2.0", original_ni_gui_version="1.6.0", layout="onedir", architecture="x86", font_strategy="original vendor TTFs retained internally for process-private memory loading; EXE-adjacent .ttf names are non-font ASCII compatibility placeholders", python=sys.version, build_tools={name:metadata.version(name) for name in ("PyInstaller", "pyinstaller-hooks-contrib", "altgraph", "packaging", "pefile", "pywin32-ctypes", "setuptools")}, source_commit=commit, source_sha256={p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths}, files=files, pe_files=pe_records, unresolved_optional_dependencies=missing, validation_scope="static build audit only; execution/install/uninstall verification is separate")
+manifest = dict(schema=1, application="PY_SPF", package_version="1.2.1", original_ni_gui_version="1.6.0", layout="onedir", architecture="x86", font_strategy="original vendor TTFs retained internally for process-private memory loading; EXE-adjacent .ttf names are non-font ASCII compatibility placeholders", python=sys.version, build_tools={name:metadata.version(name) for name in ("PyInstaller", "pyinstaller-hooks-contrib", "altgraph", "packaging", "pefile", "pywin32-ctypes", "setuptools")}, source_commit=commit, source_sha256={p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths}, files=files, pe_files=pe_records, unresolved_optional_dependencies=missing, validation_scope="static build audit only; execution/install/uninstall verification is separate")
 (bundle / "bundle-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 print(f"Audited {len(files)} files and {len(pe_records)} x86 PE images; manifest: bundle-manifest.json")
 '@ | Set-Content -LiteralPath $AuditScript -Encoding UTF8
@@ -190,7 +190,7 @@ try {
         $InstallerScript = Join-Path $PSScriptRoot "installer.iss"
         $InstallerDirectory = Join-Path $OutputDirectory "installer"
         New-Item -ItemType Directory -Force -Path $InstallerDirectory | Out-Null
-        Invoke-Checked -File $Compiler -Arguments @("/DPayloadDir=$BundlePath", "/DAppVersion=1.2.0", "/DInstallerOutputDir=$InstallerDirectory", $InstallerScript)
+        Invoke-Checked -File $Compiler -Arguments @("/DPayloadDir=$BundlePath", "/DAppVersion=1.2.1", "/DInstallerOutputDir=$InstallerDirectory", $InstallerScript)
     }
     Write-Host "Native x86 bundle: $BundlePath"
     Write-Host "No application was launched; execution and installer tests are separate."

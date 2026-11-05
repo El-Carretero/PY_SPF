@@ -1,6 +1,6 @@
 # Native PY_SPF 1.2
 
-현재 `main`의 기준은 **Native PY_SPF 1.2 설치형 Windows 앱**입니다. 원본 Spectra-Physics Spitfire GUI **1.6.0**의 NI 화면과 통신 규칙을 사용하며, 프로젝트 버전 **1.2.0**과 장치 펌웨어 버전은 별개입니다.
+현재 `main`의 기준은 **Native PY_SPF 1.2 설치형 Windows 앱**입니다. 원본 Spectra-Physics Spitfire GUI **1.6.0**의 NI 화면과 통신 규칙을 사용하며, 프로젝트 버전 **1.2.1**과 장치 펌웨어 버전은 별개입니다.
 
 ## 다운로드와 실행
 
@@ -18,6 +18,8 @@ Windows 10 **1903 이상** 또는 Windows 11에서 실행합니다. Python·pip�
 현재 설치 파일의 자동 검증은 **시뮬레이터를 사용한 Native GUI, 설치·실행·제거 및 환경 격리 시험**입니다. 실장비 제어와 광학적 Emission을 검증한 결과는 아닙니다. [배포 파일과 검증 출처](output/native-installer/README.md)에 정확한 소스와 시험 기록이 있습니다.
 
 1.2는 Timing 창의 **HV ON/OFF** 스위치를 표시하고 주변 배치를 조정합니다. [레이아웃 변경과 검증 범위](docs/hv-switch-1-2.md)를 확인하세요.
+
+1.2.1에서는 기존 반복률 입력을 EXT Pump/AMP 표시와 공유합니다. Empower PRF 대신 확인된 입력 주파수와 DIVISOR로 계산하며, 외부 TTL 주파수 측정값을 뜻하지 않습니다. [공용 입력과 검증 범위](docs/shared-ext-rate.md)를 확인하세요.
 
 ## 문서와 이전 버전
 

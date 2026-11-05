@@ -108,14 +108,14 @@ required and must point to the whole onedir folder. Compilation checks the
 private Python library, Native UIR files, NI runtime/resource files and GUI fonts,
 including the three EXE-adjacent bin resources and both font placeholders;
 an EXE-only or incomplete payload is rejected. `AppVersion` defaults to
-`1.2.0`. `InstallerOutputDir` defaults to `dist\installer` relative to
+`1.2.1`. `InstallerOutputDir` defaults to `dist\installer` relative to
 `installer.iss`, which is `packaging/windows/dist/installer` in the repository.
 
 ```powershell
 & $InnoCompilerPath `
   "/DPayloadDir=$PayloadDir" `
   "/DInstallerOutputDir=$InstallerOutputDir" `
-  "/DAppVersion=1.2.0" `
+  "/DAppVersion=1.2.1" `
   "packaging\windows\installer.iss"
 ```
 

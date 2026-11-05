@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "spitfire-gui-reconstruction"
-version = "1.2.0"
+version = "1.2.1"
 description = "PY_SPF 1.2 controller using the original Spitfire GUI 1.6.0 resources"
 requires-python = ">=3.10"
 license-files = ["THIRD_PARTY_NOTICES.md"]
