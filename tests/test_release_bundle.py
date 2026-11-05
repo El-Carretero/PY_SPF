@@ -16,7 +16,7 @@ spec.loader.exec_module(build)
 class ReleaseBundleTests(unittest.TestCase):
     def test_exact_public_name_and_all_native_resources_selected(self):
         self.assertEqual(build.RELEASE_NAME, 'PY_SPF_1.2')
-        self.assertEqual(build.PACKAGE_VERSION, '1.2.0')
+        self.assertEqual(build.PACKAGE_VERSION, '1.2.1')
         for path in (ROOT/'spitfire/resources').rglob('*'):
             if path.is_file() and '__pycache__' not in path.parts:
                 self.assertTrue(build.public_source_path(path.relative_to(ROOT).as_posix()), path)
@@ -81,7 +81,7 @@ class ReleaseBundleTests(unittest.TestCase):
                 'output/native-installer/setup.exe': b'current installer bytes',
             }
             fixtures = {
-                **historical, 'pyproject.toml': b'version = "1.2.0"\n',
+                **historical, 'pyproject.toml': b'version = "1.2.1"\n',
                 'spitfire/resources/SPITFIRE.UIR': b'fixture native resource',
                 'docs/source-development.md': b'# Current source development\nUse the source tools.\n',
             }
@@ -89,12 +89,12 @@ class ReleaseBundleTests(unittest.TestCase):
                 path = root / name
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes(data)
-            wheel_name = 'spitfire_gui_reconstruction-1.2.0-py3-none-any.whl'
+            wheel_name = 'spitfire_gui_reconstruction-1.2.1-py3-none-any.whl'
             source_archive = mock.MagicMock()
             installed_wheel = mock.MagicMock()
             installed_wheel.read.side_effect = lambda name: {
                 'spitfire/resources/SPITFIRE.UIR': b'fixture native resource',
-                'spitfire_gui_reconstruction-1.2.0.dist-info/METADATA': b'Version: 1.2.0\n',
+                'spitfire_gui_reconstruction-1.2.1.dist-info/METADATA': b'Version: 1.2.1\n',
             }[name]
             installed_wheel.namelist.return_value = ['licenses/THIRD_PARTY_NOTICES.md']
 

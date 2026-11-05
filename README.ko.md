@@ -1,6 +1,6 @@
 # Native PY_SPF 1.2 설치와 실행
 
-현재 배포는 원본 NI GUI **1.6.0**을 사용하는 **Native PY_SPF 1.2** Windows 앱입니다. 프로젝트 패키지 버전은 **1.2.0**이며, 장치의 IDN 응답에 표시되는 펌웨어 버전과 별개입니다.
+현재 배포는 원본 NI GUI **1.6.0**을 사용하는 **Native PY_SPF 1.2** Windows 앱입니다. 프로젝트 패키지 버전은 **1.2.1**이며, 장치의 IDN 응답에 표시되는 펌웨어 버전과 별개입니다.
 
 ## 설치
 
@@ -15,6 +15,12 @@
 ```bat
 PY_SPF.exe --demo --tcp-port 0 --local-port 0
 ```
+
+## EXT Pump / AMP 반복률
+
+1.2.1에서는 **Timing and High Voltage → INTERNAL AMP REP RATE**의 기존 입력칸을 공용으로 사용합니다. 장비 설정·조회로 확인된 주파수를 `(EXT) PUMP REP RATE`에 표시하고, 이를 DIVISOR로 나눈 값을 `(EXT) AMP REP RATE`에 표시합니다. Empower PRF 조회값을 이 두 표시의 계산원으로 사용하지 않습니다. 예를 들어 입력 10 Hz가 확인되고 DIVISOR가 1이면 EXT Pump/AMP는 모두 10 Hz, DIVISOR가 2이면 EXT Amp는 5 Hz입니다.
+
+EXT 표시는 사용자가 설정한 기준값이며 실제 BNC 펄스의 주파수를 측정한 값이 아닙니다. 기존 입력은 TDG 내부 주파수 설정도 변경하므로, 모드는 별도 Amplifier Trigger 설정으로 선택합니다. [변경과 검증 범위](docs/shared-ext-rate.md)를 확인하세요.
 
 ## HV ON/OFF
 

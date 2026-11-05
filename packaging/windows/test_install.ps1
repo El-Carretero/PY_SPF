@@ -509,7 +509,7 @@ try {
     $Stage = 'bundle-manifest'
     $manifestPath = Join-Path $InstallDirectory 'bundle-manifest.json'
     $manifest = Get-Content -LiteralPath $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
-    Add-Check 'manifest-identity' ($manifest.application -eq 'PY_SPF' -and $manifest.layout -eq 'onedir' -and $manifest.architecture -eq 'x86' -and @($manifest.files).Count -gt 0) 'Require a complete Native x86 onedir payload manifest.'
+    Add-Check 'manifest-identity' ($manifest.application -eq 'PY_SPF' -and $manifest.package_version -eq '1.2.1' -and $manifest.layout -eq 'onedir' -and $manifest.architecture -eq 'x86' -and @($manifest.files).Count -gt 0) 'Require a complete Native x86 onedir payload manifest.'
     $seen = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::OrdinalIgnoreCase)
     $verified = 0
     foreach ($entry in $manifest.files) {
@@ -550,6 +550,12 @@ try {
         $timingBitmap = [IO.File]::ReadAllBytes($timingPath)
         Add-Check ('native-timing-' + $mode + '-bmp-written') ($timingBitmap.Length -gt 54 -and $timingBitmap[0] -eq 66 -and $timingBitmap[1] -eq 77) 'Installed Timing panel screenshot must exist and carry a BMP header.'
     }
+    $shared = $proof.external_shared_rate
+    $expectedSharedWrites = @('[2032]TDG:TRIG:FREQ 10.00', '[2020]TDG:DIV  1.00', '[2020]TDG:DIV  2.00')
+    Add-Check 'native-external-shared-rate' ($shared.simulator_only -eq $true -and $shared.physical_device_io -eq $false -and $shared.restored -eq $true -and $shared.target_hz -eq 10 -and $shared.divisor_one.frequency_control_hz -eq 10 -and $shared.divisor_one.ext_pump_hz -eq 10 -and $shared.divisor_one.ext_amp_hz -eq 10 -and $shared.divisor_one.divisor_control -eq 1 -and $shared.divisor_one.mode_control -eq 1 -and $shared.divisor_two.frequency_control_hz -eq 10 -and $shared.divisor_two.ext_pump_hz -eq 10 -and $shared.divisor_two.ext_amp_hz -eq 5 -and $shared.divisor_two.divisor_control -eq 2 -and $shared.divisor_two.mode_control -eq 1 -and $shared.empower_reply_ignored -eq $true -and $shared.oscillator_reply_ignored -eq $true -and @($shared.mode_write_commands).Count -eq 0 -and (@($shared.target_write_messages | Sort-Object) -join '|') -eq (@($expectedSharedWrites | Sort-Object) -join '|')) 'Require confirmed Native EXT 10 Hz shared reference, divisor 1/2, source isolation, restored state, and only frequency/divisor writes in the simulator.'
+    $externalPath = Join-Path ([IO.Path]::GetDirectoryName($BitmapPath)) ([IO.Path]::GetFileNameWithoutExtension($BitmapPath) + '_external_rate.bmp')
+    $externalBitmap = [IO.File]::ReadAllBytes($externalPath)
+    Add-Check 'native-external-rate-bmp-written' ($externalBitmap.Length -gt 54 -and $externalBitmap[0] -eq 66 -and $externalBitmap[1] -eq 77) 'Installed EXT rate screenshot must exist and carry a BMP header.'
     $NativeVerified = $true
 
     $Stage = 'regular-demo'

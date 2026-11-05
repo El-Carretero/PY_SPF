@@ -112,12 +112,33 @@ class Controller:
         return value
 
     def set_value(self, panel, control, value):
+        if panel == 6 and control in (7, 9):
+            # Product override: EXT rates share the confirmed TDG frequency
+            # input. Keep the recovered XP decoder/callback behavior isolated
+            # here so EMP PRF replies and local callbacks cannot replace it.
+            actual = self.state['internal_trigger_actual_hz']
+            value = 0.0 if actual is None else actual
+            if control == 7 and actual is not None:
+                divisor = float(self.read(5, 43)) or 1.0
+                value = actual / divisor
         self.values[panel, control] = value
         self.decoder.values[panel, control] = value
         self.view.set_value(panel, control, value)
+        if (panel, control) == (5, 43):
+            self._refresh_external_rates()
         if self._connection_presentation and (panel, control) == (6, 54):
             self._connection_message = str(value)
             self._view_optional("set_connection_status", self.state["gui_ready"], str(value))
+
+    def _refresh_external_rates(self):
+        """Show a user-set reference after valid 1053, never measured BNC Hz."""
+        unavailable = int(self.state['internal_trigger_actual_hz'] is None)
+        for control in (7, 9):
+            self.set_value(6, control, 0.0)
+            # The ordinary offline presentation still takes precedence. Its
+            # desired dimming also keeps an unavailable source disabled when
+            # STATUS becomes ready before any valid frequency readback.
+            self.set_attribute(6, control, 500, unavailable)
 
     def set_attribute(self, panel, control, attribute, value):
         if self._connection_presentation:
@@ -167,6 +188,7 @@ class Controller:
     def _internal_trigger_readback(self, actual, *, confirms_request):
         self.state['internal_trigger_actual_hz'] = actual
         self._internal_trigger_fallback = actual
+        self._refresh_external_rates()
         if not confirms_request:
             if (not self.state['internal_trigger_pending']
                     and self.state['internal_trigger_confirmed']
@@ -246,6 +268,7 @@ class Controller:
         self.state["evnt_cmt"] = 0
         self._button_started = None
         self._set_gui_ready(False)
+        self._refresh_external_rates()
         self.set_value(6, 30, 0)
         self.apply(dispatch("close_curtain"))
         self.set_value(6, 54, "Loading simulator data, please wait" if self.demo else

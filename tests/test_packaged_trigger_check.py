@@ -12,6 +12,7 @@ from spitfire.controller import Controller
 from spitfire.native import NativeGui, RESOURCES
 from spitfire.packaged_check import (
     _SimulatorWriteGuard,
+    _exercise_external_shared_rate,
     _exercise_internal_10hz,
     _packet_messages,
     _trigger_observation,
@@ -51,7 +52,7 @@ class GuardedBoard(_SimulatorWriteGuard, SimulatedTransport):
 
     def receive(self):
         replies = super().receive()
-        if self.validation_phase != "internal-10hz" or not self.faulty_frequency:
+        if self.validation_phase not in ("internal-10hz", "external-shared-rate") or not self.faulty_frequency:
             return replies
         result = []
         for reply in replies:
@@ -245,3 +246,79 @@ def test_missing_invalid_or_mismatched_frequency_response_cannot_pass_10hz_check
                    for _, kind, message in controller.events)
     else:
         assert controller.diagnostics["internal_trigger_unconfirmed"] >= 1
+
+
+@pytest.mark.parametrize("options", [{}, {"alternate_baseline": True, "preference": 1}])
+def test_external_shared_rate_uses_confirmed_frequency_not_empower_or_oscillator(simulation, options):
+    view, controller, ticker = simulation(**options)
+    board = controller.transport
+    baseline_ui = _trigger_observation(view, controller)
+    baseline_board = dict(board.values)
+    original_receive = controller._receive
+    original_preference = view.read(6, 48)
+    report = {}
+
+    _exercise_external_shared_rate(view, controller, ticker, report)
+
+    result = report["external_shared_rate"]
+    assert result["simulator_only"] is True
+    assert result["physical_device_io"] is False
+    assert result["divisor_one"]["mode_control"] == 1
+    assert result["divisor_one"]["frequency_control_hz"] == 10
+    assert result["divisor_one"]["ext_pump_hz"] == result["divisor_one"]["ext_amp_hz"] == 10
+    assert result["divisor_two"]["ext_pump_hz"] == 10
+    assert result["divisor_two"]["ext_amp_hz"] == 5
+    assert result["empower_reply_ignored"] is True
+    assert result["oscillator_reply_ignored"] is True
+    assert result["restored"] is True
+    assert result["mode_write_commands"] == []
+    assert result["target_write_messages"] == [
+        "[2032]TDG:TRIG:FREQ 10.00", "[2020]TDG:DIV  1.00", "[2020]TDG:DIV  2.00"]
+    assert result["windows_mouse_input_validated"] is False
+    assert result["ni_event_delivery_validated"] is False
+    assert board.values == baseline_board
+    assert {key: value for key, value in _trigger_observation(view, controller).items()
+            if key != "confirmation"} == {
+        key: value for key, value in baseline_ui.items() if key != "confirmation"}
+    assert view.read(6, 48) == original_preference
+    assert controller._receive == original_receive
+    assert board.allowed_write_messages == frozenset()
+    assert board.forbidden_write_attempts == []
+
+
+def test_external_rate_snapshot_is_taken_at_ten_hz_before_fixture_restoration(simulation, monkeypatch, tmp_path):
+    view, controller, ticker = simulation()
+    captured = []
+
+    def capture(actual_view, path, *, panel=6):
+        captured.append((panel, _trigger_observation(actual_view, controller)))
+        path.write_bytes(b"BM simulator snapshot boundary")
+
+    monkeypatch.setattr("spitfire.packaged_check._snapshot", capture)
+    report = {}
+    _exercise_external_shared_rate(view, controller, ticker, report,
+                                   snapshot=tmp_path / "native-self-test.bmp")
+    result = report["external_shared_rate"]
+    assert result["snapshot"] == str(tmp_path / "native-self-test_external_rate.bmp")
+    assert len(captured) == 1 and captured[0][0] == 6
+    assert captured[0][1]["mode_control"] == 1
+    assert captured[0][1]["ext_pump_hz"] == captured[0][1]["ext_amp_hz"] == 10
+    assert result["restored"] is True
+
+
+@pytest.mark.parametrize("fault", ["drop", "payload:invalid", "payload:", "payload:11.00"])
+def test_external_phase_rejects_unconfirmed_frequency_without_mode_or_hv_writes(simulation, fault):
+    view, controller, ticker = simulation()
+    board = controller.transport
+    original_board = dict(board.values)
+    controller.query_timeout = 0.02
+    board.faulty_frequency = fault
+    report = {}
+    with pytest.raises(AssertionError, match="Timed out waiting for matched EXT/10Hz"):
+        _exercise_external_shared_rate(view, controller, ticker, report, timeout=0.3)
+    result = report["external_shared_rate"]
+    assert "divisor_one" not in result
+    assert result["restored"] is True
+    assert board.values == original_board
+    assert result["mode_write_commands"] == []
+    assert board.forbidden_write_attempts == []

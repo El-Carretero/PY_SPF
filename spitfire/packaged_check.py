@@ -218,6 +218,174 @@ def _exercise_internal_10hz(view, controller, ticker, report, *, timeout=5.0):
             record['all_phase_messages'] = _packet_messages(board.sent_packets[packet_start:])
 
 
+def _exercise_external_shared_rate(view, controller, ticker, report, *,
+                                   snapshot=None, timeout=5.0):
+    """Verify the shared rate display with a preset EXT simulator fixture.
+
+    Mode changes are fixture/query operations only. Native commits may write
+    only the frequency and divisor; the check never creates a device socket.
+    """
+    from .simulator import SimulatedTransport
+    board = controller.transport
+    assert controller.demo and isinstance(board, SimulatedTransport)
+    assert isinstance(board, _SimulatorWriteGuard) and controller.tcp is None
+    baseline = _trigger_observation(view, controller)
+    original_values = dict(board.values)
+    original_preference = view.read(6, 48)
+    original_receive = controller._receive
+    packet_start = len(board.sent_packets)
+    record = report['external_shared_rate'] = {
+        'target_hz': 10.0, 'simulator_only': True, 'physical_device_io': False,
+        'source': 'matched TDG:TRIG:FREQ? setting readback; not measured external TTL',
+        'event_path': 'NativeGui._control_event; EVENT_COMMIT=1',
+        'windows_mouse_input_validated': False,
+        'ni_event_delivery_validated': False,
+        'baseline': baseline, 'restored': False, 'matched_readbacks': [],
+    }
+    matched = record['matched_readbacks']
+    callbacks = {'trig_reprate': (5, 28), 'DivisorCallback': (5, 43)}
+    for name, expected in callbacks.items():
+        bindings = [entry for entry in view.bindings['SPITFIRE']
+                    if entry['kind'] == 'control' and entry['name'] == name]
+        assert len(bindings) == 1
+        assert (bindings[0]['panel'], bindings[0]['control']) == expected
+
+    def receive(line):
+        before = controller.diagnostics['matched_replies']
+        pending = controller.scheduler.last_sent
+        pending_tag = pending.tag if pending and controller.scheduler.balance else None
+        original_receive(line)
+        match = re.search(r'<(\d+)>(.*)', line)
+        if match and controller.diagnostics['matched_replies'] > before:
+            tag = int(match[1])
+            if tag in (1010, 1024, 1025, 1051, 1053):
+                assert pending_tag == tag
+                matched.append({'phase': board.validation_phase, 'tag': tag,
+                                'payload': match[2], 'decorated': line})
+
+    def wait_for(predicate, label):
+        deadline = time.monotonic() + timeout
+        while controller.running and time.monotonic() < deadline:
+            view.process_events()
+            ticker.tick()
+            ticker.raise_if_failed()
+            if predicate():
+                return
+            time.sleep(.005)
+        raise AssertionError(f'Timed out waiting for {label}: {_trigger_observation(view, controller)}')
+
+    def query(tag, label):
+        start = len(matched)
+        controller.scheduler.push(tag)
+        wait_for(lambda: any(x['tag'] == tag for x in matched[start:]), label)
+
+    def commit(name, value):
+        panel, control = callbacks[name]
+        view.set_value(panel, control, value)
+        actual = view.read(panel, control)
+        assert math.isclose(float(actual), float(value), rel_tol=0, abs_tol=1e-6), (name, value, actual)
+        view._control_event(name, panel, control, 1)
+
+    def target_verified(divisor):
+        state = controller.state
+        return (state.get('internal_trigger_actual_hz') == 10.0
+                and state.get('internal_trigger_requested_hz') == 10.0
+                and state.get('internal_trigger_pending') is False
+                and state.get('internal_trigger_confirmed') is True
+                and float(view.read(5, 28)) == 10.0
+                and float(view.read(5, 3)) == 1.0
+                and float(view.read(5, 43)) == divisor
+                and float(view.read(6, 9)) == 10.0
+                and float(view.read(6, 7)) == 10.0 / divisor)
+
+    controller._receive = receive
+    changed = False
+    try:
+        changed = True
+        board.validation_phase = 'external-shared-rate'
+        board.allowed_write_messages = frozenset((
+            '[2032]TDG:TRIG:FREQ 10.00',
+            '[2020]TDG:DIV  1.00', '[2020]TDG:DIV  2.00'))
+        # Set only the in-memory fixture; no TDG:TRIG:MODE command is sent.
+        board.values['TDG:TRIG:MODE?'] = 'EXT CONT 1000.0'
+        query(1051, 'preset EXT mode readback')
+        assert view.read(5, 3) == 1
+        view.set_value(6, 48, 1)
+        commit('trig_reprate', 10.0)
+        commit('DivisorCallback', 1.0)
+        wait_for(lambda: target_verified(1), 'matched EXT/10Hz/divisor1 displays')
+        record['divisor_one'] = _trigger_observation(view, controller)
+        assert view.read_attribute(6, 7, 530) == view.read_attribute(6, 9, 530) == 1
+        if snapshot is not None:
+            path = snapshot.with_name(snapshot.stem + '_external_rate.bmp')
+            view.process_events()
+            _snapshot(view, path)
+            assert path.is_file()
+            record['snapshot'] = str(path)
+
+        start = len(matched)
+        commit('DivisorCallback', 2.0)
+        wait_for(lambda: (any(x['tag'] == 1025 for x in matched[start:])
+                          and target_verified(2)), 'matched EXT/10Hz/divisor2 displays')
+        record['divisor_two'] = _trigger_observation(view, controller)
+        # Neither the initialization nor steady PRF decoder may reclaim EXT.
+        board.values['EMP:QSW:PRF?'] = '987.6'
+        query(1010, 'unrelated Empower PRF response')
+        assert view.read(9, 4) == 9876.0
+        assert target_verified(2)
+        record['empower_reply_ignored'] = True
+        # The original 1024 decoder writes a different frequency into 5/28.
+        # A valid 1053 remains the source of the external reference displays.
+        query(1024, 'unrelated oscillator frequency response')
+        assert view.read(6, 9) == 10.0 and view.read(6, 7) == 5.0
+        assert controller.state['internal_trigger_actual_hz'] == 10.0
+        record['oscillator_reply_ignored'] = True
+        query(1053, 'shared frequency after oscillator response')
+        assert target_verified(2)
+        record['target_write_messages'] = [
+            message for message in _packet_messages(board.sent_packets[packet_start:])
+            if int(message[1:message.index(']')]) >= 2000]
+        assert record['target_write_messages'] == [
+            '[2032]TDG:TRIG:FREQ 10.00', '[2020]TDG:DIV  1.00', '[2020]TDG:DIV  2.00']
+    finally:
+        try:
+            if changed:
+                board.validation_phase = 'external-shared-rate-restore'
+                board.allowed_write_messages = frozenset((
+                    '[2020]TDG:DIV %5.2f' % float(baseline['divisor_control']),
+                    '[2032]TDG:TRIG:FREQ %5.2f' % float(baseline['frequency_control_hz'])))
+                start = len(matched)
+                commit('DivisorCallback', baseline['divisor_control'])
+                commit('trig_reprate', baseline['frequency_control_hz'])
+                wait_for(lambda: {x['tag'] for x in matched[start:]} >= {1025, 1053},
+                         'original shared frequency and divisor readbacks')
+                board.values.clear()
+                board.values.update(original_values)
+                board.validation_phase = 'external-shared-rate-fixture-restore'
+                board.allowed_write_messages = frozenset()
+                for tag in (1010, 1025, 1051, 1053):
+                    query(tag, 'restored original simulator fixture')
+                restored = _trigger_observation(view, controller)
+                for field, expected in baseline.items():
+                    if field != 'confirmation':
+                        assert math.isclose(float(restored[field]), float(expected), rel_tol=0, abs_tol=1e-6), (field, expected, restored[field])
+                assert board.values == original_values
+                record['restored_observation'] = restored
+                record['restored'] = True
+        except BaseException:
+            record['restore_error'] = traceback.format_exc()
+            raise
+        finally:
+            view.set_value(6, 48, original_preference)
+            controller._receive = original_receive
+            board.allowed_write_messages = frozenset()
+            messages = record['all_phase_messages'] = _packet_messages(board.sent_packets[packet_start:])
+            writes = [message for message in messages if int(message[1:message.index(']')]) >= 2000]
+            record['mode_write_commands'] = [message for message in writes if message.startswith('[2031]')]
+            assert record['mode_write_commands'] == []
+            assert all(message.startswith(('[2020]', '[2032]')) for message in writes), writes
+
+
 def _module_path(handle):
     call = ctypes.WinDLL('kernel32').GetModuleFileNameW
     call.argtypes = [ctypes.c_void_p, ctypes.c_wchar_p, ctypes.c_uint32]
@@ -491,6 +659,9 @@ def main(argv=None, *, default_output=None):
         if not options.offline and not options.drop_optout_ack:
             _exercise_internal_10hz(view, controller, ticker, report)
             report['phases'].append('internal_trigger_10hz_verified_and_restored')
+            _exercise_external_shared_rate(view, controller, ticker, report,
+                                           snapshot=options.snapshot.resolve() if options.snapshot else None)
+            report['phases'].append('external_shared_rate_verified_and_restored')
         _exercise_timing_hv_layout(view, controller, ticker, report,
                                    snapshot=options.snapshot.resolve() if options.snapshot else None)
         report['phases'].append('visible_hv_layout_verified_and_restored')

@@ -91,7 +91,8 @@ jobs:
             "install-validation/native-self-test.json",
             "install-validation/native-self-test.bmp",
             "install-validation/native-self-test_timing_user.bmp",
-            "install-validation/native-self-test_timing_service.bmp"
+            "install-validation/native-self-test_timing_service.bmp",
+            "install-validation/native-self-test_external_rate.bmp"
           )
           $records = foreach ($relative in $paths) {
             $file = Join-Path $dist $relative
@@ -115,6 +116,7 @@ jobs:
             packaging/windows/dist/install-validation/native-self-test.bmp
             packaging/windows/dist/install-validation/native-self-test_timing_user.bmp
             packaging/windows/dist/install-validation/native-self-test_timing_service.bmp
+            packaging/windows/dist/install-validation/native-self-test_external_rate.bmp
             packaging/windows/dist/tested-artifacts.json
           if-no-files-found: error
 
@@ -168,6 +170,7 @@ jobs:
               "install-validation/native-self-test.bmp": "installed-native-self-test.bmp",
               "install-validation/native-self-test_timing_user.bmp": "installed-timing-user.bmp",
               "install-validation/native-self-test_timing_service.bmp": "installed-timing-service.bmp",
+              "install-validation/native-self-test_external_rate.bmp": "installed-external-rate.bmp",
           }
           entries = manifest.get("files", [])
           if len(entries) != len(names) or {row["path"] for row in entries} != set(names):
@@ -185,7 +188,7 @@ jobs:
           if proof.get("passed") is not True:
               raise SystemExit("Install/run/uninstall proof is not a passing result")
           checks = {row.get("name"): row.get("passed") for row in proof.get("checks", [])}
-          for required in ("regular-native-demo-graceful-exit", "uninstalled-payload-files-removed", "native-hv-visible-layout", "native-timing-user-bmp-written", "native-timing-service-bmp-written"):
+          for required in ("regular-native-demo-graceful-exit", "uninstalled-payload-files-removed", "native-hv-visible-layout", "native-timing-user-bmp-written", "native-timing-service-bmp-written", "native-external-shared-rate", "native-external-rate-bmp-written"):
               if checks.get(required) is not True:
                   raise SystemExit(f"Required installation proof is missing or failed: {required}")
           destination = Path("output/native-installer")
@@ -210,6 +213,7 @@ jobs:
               + "- [Installed NI snapshot](installed-native-self-test.bmp)\n"
               + "- [Timing panel: User](installed-timing-user.bmp)\n"
               + "- [Timing panel: Service](installed-timing-service.bmp)\n"
+              + "- [EXT shared rate: 10 Hz](installed-external-rate.bmp)\n"
               + "- [SHA256 checksums](SHA256SUMS)\n\n"
               + "Validation uses the simulator, including an installation path with Korean characters and an emoji. "
               + "It does not establish equipment actuation, optical output or human engineering approval. "
