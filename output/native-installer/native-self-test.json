@@ -11,6 +11,7 @@
   "phases": [
     "ten_native_panels_loaded",
     "internal_trigger_10hz_verified_and_restored",
+    "external_shared_rate_verified_and_restored",
     "visible_hv_layout_verified_and_restored",
     "native_simulator_validation_passed",
     "native_closed"
@@ -32,16 +33,16 @@
   "expected_cvirte": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\PY_SPF\\_internal\\spitfire\\resources\\runtime\\cvirte.dll",
   "resource_directory": "d:\\a\\py_spf\\py_spf\\packaging\\windows\\dist\\py_spf\\cvirte\\bin",
   "expected_resource_directory": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\PY_SPF\\cvirte\\bin",
-  "elapsed_seconds": 2.012,
+  "elapsed_seconds": 2.016,
   "controls_updated": 230,
   "timer": {
-    "timer_ticks": 89,
-    "outer_ticks": 58,
+    "timer_ticks": 103,
+    "outer_ticks": 73,
     "reentrant_skips": 0,
     "wrong_thread_skips": 0,
     "menu_ticks": 0,
     "cancelled_run": 0,
-    "owner_thread": 140,
+    "owner_thread": 1560,
     "last_gui_flags": 0,
     "outer_event_cycles": 0,
     "tick_errors": 0
@@ -83,8 +84,8 @@
       "divisor_control": 100.0,
       "int_pump_hz": 1000.0,
       "int_amp_hz": 10.0,
-      "ext_pump_hz": 10000.0,
-      "ext_amp_hz": 100.0,
+      "ext_pump_hz": 1000.0,
+      "ext_amp_hz": 10.0,
       "confirmation": {
         "internal_trigger_requested_hz": null,
         "internal_trigger_actual_hz": 1000.0,
@@ -159,8 +160,8 @@
       "divisor_control": 1.0,
       "int_pump_hz": 10.0,
       "int_amp_hz": 10.0,
-      "ext_pump_hz": 10000.0,
-      "ext_amp_hz": 10000.0,
+      "ext_pump_hz": 10.0,
+      "ext_amp_hz": 10.0,
       "confirmation": {
         "internal_trigger_requested_hz": 10.0,
         "internal_trigger_actual_hz": 10.0,
@@ -203,8 +204,8 @@
       "divisor_control": 100.0,
       "int_pump_hz": 1000.0,
       "int_amp_hz": 10.0,
-      "ext_pump_hz": 10000.0,
-      "ext_amp_hz": 100.0,
+      "ext_pump_hz": 1000.0,
+      "ext_amp_hz": 10.0,
       "confirmation": {
         "internal_trigger_requested_hz": 1000.0,
         "internal_trigger_actual_hz": 1000.0,
@@ -240,6 +241,201 @@
       "[1053]TDG:TRIG:FREQ?",
       "[1019]TDG:STB?"
     ]
+  },
+  "external_shared_rate": {
+    "target_hz": 10.0,
+    "simulator_only": true,
+    "physical_device_io": false,
+    "source": "matched TDG:TRIG:FREQ? setting readback; not measured external TTL",
+    "event_path": "NativeGui._control_event; EVENT_COMMIT=1",
+    "windows_mouse_input_validated": false,
+    "ni_event_delivery_validated": false,
+    "baseline": {
+      "mode_control": 0,
+      "frequency_control_hz": 1000.0,
+      "divisor_control": 100.0,
+      "int_pump_hz": 1000.0,
+      "int_amp_hz": 10.0,
+      "ext_pump_hz": 1000.0,
+      "ext_amp_hz": 10.0,
+      "confirmation": {
+        "internal_trigger_requested_hz": 1000.0,
+        "internal_trigger_actual_hz": 1000.0,
+        "internal_trigger_pending": false,
+        "internal_trigger_confirmed": true,
+        "internal_trigger_result": "confirmed"
+      }
+    },
+    "restored": true,
+    "matched_readbacks": [
+      {
+        "phase": "external-shared-rate",
+        "tag": 1051,
+        "payload": "EXT CONT 1000.0",
+        "decorated": "(117,1)<1051>EXT CONT 1000.0"
+      },
+      {
+        "phase": "external-shared-rate",
+        "tag": 1053,
+        "payload": "10.00",
+        "decorated": "(120,1)<1053>10.00"
+      },
+      {
+        "phase": "external-shared-rate",
+        "tag": 1025,
+        "payload": "1.00",
+        "decorated": "(122,1)<1025>1.00"
+      },
+      {
+        "phase": "external-shared-rate",
+        "tag": 1025,
+        "payload": "2.00",
+        "decorated": "(125,1)<1025>2.00"
+      },
+      {
+        "phase": "external-shared-rate",
+        "tag": 1010,
+        "payload": "987.6",
+        "decorated": "(127,1)<1010>987.6"
+      },
+      {
+        "phase": "external-shared-rate",
+        "tag": 1024,
+        "payload": "80000000",
+        "decorated": "(129,1)<1024>80000000"
+      },
+      {
+        "phase": "external-shared-rate",
+        "tag": 1053,
+        "payload": "10.00",
+        "decorated": "(131,1)<1053>10.00"
+      },
+      {
+        "phase": "external-shared-rate-restore",
+        "tag": 1025,
+        "payload": "100.00",
+        "decorated": "(134,1)<1025>100.00"
+      },
+      {
+        "phase": "external-shared-rate-restore",
+        "tag": 1053,
+        "payload": "1000.00",
+        "decorated": "(136,1)<1053>1000.00"
+      },
+      {
+        "phase": "external-shared-rate-fixture-restore",
+        "tag": 1010,
+        "payload": "1000",
+        "decorated": "(139,1)<1010>1000"
+      },
+      {
+        "phase": "external-shared-rate-fixture-restore",
+        "tag": 1025,
+        "payload": "1000",
+        "decorated": "(141,1)<1025>1000"
+      },
+      {
+        "phase": "external-shared-rate-fixture-restore",
+        "tag": 1051,
+        "payload": "INT",
+        "decorated": "(143,1)<1051>INT"
+      },
+      {
+        "phase": "external-shared-rate-fixture-restore",
+        "tag": 1053,
+        "payload": "1000",
+        "decorated": "(145,1)<1053>1000"
+      }
+    ],
+    "divisor_one": {
+      "mode_control": 1,
+      "frequency_control_hz": 10.0,
+      "divisor_control": 1.0,
+      "int_pump_hz": 10.0,
+      "int_amp_hz": 10.0,
+      "ext_pump_hz": 10.0,
+      "ext_amp_hz": 10.0,
+      "confirmation": {
+        "internal_trigger_requested_hz": 10.0,
+        "internal_trigger_actual_hz": 10.0,
+        "internal_trigger_pending": false,
+        "internal_trigger_confirmed": true,
+        "internal_trigger_result": "confirmed"
+      }
+    },
+    "snapshot": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\native-self-test_external_rate.bmp",
+    "divisor_two": {
+      "mode_control": 1,
+      "frequency_control_hz": 10.0,
+      "divisor_control": 2.0,
+      "int_pump_hz": 10.0,
+      "int_amp_hz": 5.0,
+      "ext_pump_hz": 10.0,
+      "ext_amp_hz": 5.0,
+      "confirmation": {
+        "internal_trigger_requested_hz": 10.0,
+        "internal_trigger_actual_hz": 10.0,
+        "internal_trigger_pending": false,
+        "internal_trigger_confirmed": true,
+        "internal_trigger_result": "confirmed"
+      }
+    },
+    "empower_reply_ignored": true,
+    "oscillator_reply_ignored": true,
+    "target_write_messages": [
+      "[2032]TDG:TRIG:FREQ 10.00",
+      "[2020]TDG:DIV  1.00",
+      "[2020]TDG:DIV  2.00"
+    ],
+    "restored_observation": {
+      "mode_control": 0,
+      "frequency_control_hz": 1000.0,
+      "divisor_control": 100.0,
+      "int_pump_hz": 1000.0,
+      "int_amp_hz": 10.0,
+      "ext_pump_hz": 1000.0,
+      "ext_amp_hz": 10.0,
+      "confirmation": {
+        "internal_trigger_requested_hz": 1000.0,
+        "internal_trigger_actual_hz": 1000.0,
+        "internal_trigger_pending": false,
+        "internal_trigger_confirmed": true,
+        "internal_trigger_result": "confirmed"
+      }
+    },
+    "all_phase_messages": [
+      "[1051]TDG:TRIG:MODE?",
+      "[1039]TDG:STBH?",
+      "[2032]TDG:TRIG:FREQ 10.00",
+      "[1053]TDG:TRIG:FREQ?",
+      "[2020]TDG:DIV  1.00",
+      "[1025]TDG:DIV?",
+      "[1013]EMP:STB?",
+      "[2020]TDG:DIV  2.00",
+      "[1025]TDG:DIV?",
+      "[1039]TDG:STBH?",
+      "[1010]EMP:QSW:PRF?",
+      "[1028]ECU:STB?",
+      "[1024]TDG:OSC:FREQ?",
+      "[1039]TDG:STBH?",
+      "[1053]TDG:TRIG:FREQ?",
+      "[1007]EMP:READ:DIODE:CURR?",
+      "[2020]TDG:DIV 100.00",
+      "[1025]TDG:DIV?",
+      "[2032]TDG:TRIG:FREQ 1000.00",
+      "[1053]TDG:TRIG:FREQ?",
+      "[1039]TDG:STBH?",
+      "[1008]EMP:READ:POW?",
+      "[1010]EMP:QSW:PRF?",
+      "[1039]TDG:STBH?",
+      "[1025]TDG:DIV?",
+      "[1029]ECU:STBH?",
+      "[1051]TDG:TRIG:MODE?",
+      "[1039]TDG:STBH?",
+      "[1053]TDG:TRIG:FREQ?",
+      "[1030]ECU:READTEMP?"
+    ],
+    "mode_write_commands": []
   },
   "timing_hv_layout": {
     "simulator_only": true,
@@ -1332,27 +1528,26 @@
     "restored": true,
     "messages": [
       "[1039]TDG:STBH?",
-      "[1013]EMP:STB?",
-      "[1039]TDG:STBH?",
-      "[1028]ECU:STB?",
-      "[1061]TDG:HV:ON?",
-      "[1039]TDG:STBH?",
-      "[1007]EMP:READ:DIODE:CURR?",
-      "[1039]TDG:STBH?",
-      "[1008]EMP:READ:POW?",
-      "[1039]TDG:STBH?",
-      "[1029]ECU:STBH?",
-      "[1039]TDG:STBH?",
-      "[1030]ECU:READTEMP?",
-      "[1039]TDG:STBH?",
       "[1065]TDG:READ:OSCQUEST?",
       "[1039]TDG:STBH?",
       "[1031]ECU:HUM?",
+      "[1061]TDG:HV:ON?",
       "[1039]TDG:STBH?",
       "[1021]TDG:HV:ON?",
       "[1039]TDG:STBH?",
+      "[1077]EMP:LBOTEMP?",
+      "[1039]TDG:STBH?",
+      "[1084]ECU:TECTEMP?",
+      "[1039]TDG:STBH?",
+      "[1085]STATUS?",
+      "[1039]TDG:STBH?",
+      "[1039]TDG:STBH?",
+      "[1056]TDG:READ:HV2CURR?",
+      "[1039]TDG:STBH?",
+      "[1055]TDG:READ:HV1CURR?",
+      "[1039]TDG:STBH?",
       "[1061]TDG:HV:ON?",
-      "[1077]EMP:LBOTEMP?"
+      "[1042]TDG:READ:HV1VOLT?"
     ]
   },
   "view_panels": [
@@ -1364,7 +1559,7 @@
     9
   ],
   "snapshot": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\native-self-test.bmp",
-  "simulator_packets": 147,
+  "simulator_packets": 176,
   "identity_queries": 3,
   "simulator_write_audit": [
     {
@@ -1398,6 +1593,26 @@
     {
       "phase": "restore-original",
       "message": "[2031]TDG:TRIG:MODE INT"
+    },
+    {
+      "phase": "external-shared-rate",
+      "message": "[2032]TDG:TRIG:FREQ 10.00"
+    },
+    {
+      "phase": "external-shared-rate",
+      "message": "[2020]TDG:DIV  1.00"
+    },
+    {
+      "phase": "external-shared-rate",
+      "message": "[2020]TDG:DIV  2.00"
+    },
+    {
+      "phase": "external-shared-rate-restore",
+      "message": "[2020]TDG:DIV 100.00"
+    },
+    {
+      "phase": "external-shared-rate-restore",
+      "message": "[2032]TDG:TRIG:FREQ 1000.00"
     }
   ],
   "forbidden_write_attempts": [],

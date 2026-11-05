@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "application": "PY_SPF",
-  "package_version": "1.2.0",
+  "package_version": "1.2.1",
   "original_ni_gui_version": "1.6.0",
   "layout": "onedir",
   "architecture": "x86",
@@ -16,12 +16,12 @@
     "pywin32-ctypes": "0.2.3",
     "setuptools": "80.9.0"
   },
-  "source_commit": "630c3ddf794d0f89b3806c770128fa7dd372256f",
+  "source_commit": "21ac767030376b0ed31752fce8f2e393fccac8cb",
   "source_sha256": {
-    "spitfire/__init__.py": "c0693d36d21496cbaac3f7c6d8eb72cdc3fa85a1e6b4daeffd05add056addc81",
+    "spitfire/__init__.py": "3dacf92e0341abb7c4db0264c216563b355964bdbec4490c9c5b54eed79a9687",
     "spitfire/__main__.py": "5edb9e011b2b119ae76cb2897af885e56551053e5a3ed174646f232d19e7a2e5",
     "spitfire/callbacks.py": "9b23e791c9a372de7812a5bf2e88d62bd375d401fb00cb71698194e61de8c5c4",
-    "spitfire/controller.py": "06646fcac8a69bfd04b3a6832cdf30fb90acd4b6038d46770ef6447e064a6380",
+    "spitfire/controller.py": "c86d24fe03a2840f7c7620dd9c21ab78da117c9fd4dec789884f85335401a576",
     "spitfire/decoders.py": "f4049025184cf231e656f0efa3d37c089eada85bb869c23050b4561c32f7e4b6",
     "spitfire/diagnostics.py": "a7b6f741ff6f20ec89d5e924eea9ce953e5c789acf2debfa2a2c775daf854b25",
     "spitfire/frozen.py": "da369a4d969857f0ccd3dae4f75984903cabc5fccac91daa287f41433b7549be",
@@ -30,7 +30,7 @@
     "spitfire/limits.py": "a750c6476efeac43285ddfc6886b38ca381b1c63a724ae3866c4cd7739fb0205",
     "spitfire/native.py": "d6295b1614848bc1da1377a07343aba0c608c991a0b59e3b4a493c3abedf3446",
     "spitfire/native_ticker.py": "03415f09a81f325f088ec28baeadfaa765214a025be4da1fb68754c9c7a668bf",
-    "spitfire/packaged_check.py": "1a478634977a5bdf016613e9bab0126a058ab041be697e06da377371ce19620e",
+    "spitfire/packaged_check.py": "2f0f50cd1d4a3073991347f77459b3e71951713c89426fc921b51cede14d6b14",
     "spitfire/private_fonts.py": "225780ceda5d398e29cbd4f39aa382bcda350387379b9945ca80fcbd1e9df07a",
     "spitfire/protocol.py": "f3817917c66fb5a29e0f2bcac59f2f550e67fe73b64645dab6d7029b5cb5118f",
     "spitfire/scheduling.py": "6555f0eea9b0b77ea0fca80638ba891647a2c0e1edd8f71d128641a6c4567bf4",
@@ -38,9 +38,9 @@
     "spitfire/simulator.py": "70aed8602e9debb5ee018a647a50fb9f06b3eb7d6971db720c6b40f752cf32af",
     "spitfire/tcp.py": "1f2909d3b4d80b7451878c95b88ced9a181783deb795ba9200c206e76f9bbe5a",
     "packaging/windows/native_app.py": "585aaa2ff62fc636090a91ac4a54b5f043e11598e8c14b90855961c53f858a6a",
-    "packaging/windows/native.manifest": "17e3763d17a657a78355efeab1b1cc8a06f05401b7bbf8e743f4dd643f7fb386",
+    "packaging/windows/native.manifest": "02e492e4cb79f5e5b74b16a47dcd6a27e8ba68c83f6e4430026c8b70b7ecf5ee",
     "packaging/windows/PY_SPF.spec": "0817f3092fc9f467c3f20d4eb42255bf0720e850bc8fd28e469ca260b5908ebf",
-    "packaging/windows/build.ps1": "dadb1a54782e7009dc1e2ed15d9a0a61ffd8af9303c0613a4b58af836ed9463c",
+    "packaging/windows/build.ps1": "875bed689be1628b666762508bf6bb4d19bd63113eee3264d08ccf9497d82253",
     "requirements-build.txt": "4cad729cf9ddf009e783da87d9914757cbe5ba6807d04c4e89de3294858cab27"
   },
   "files": [
@@ -102,7 +102,7 @@
     {
       "path": "_internal/base_library.zip",
       "bytes": 1403000,
-      "sha256": "95331a63e6668c9282a668d97a812c4a86e915d52527aa95f2e8f0c3731419c2"
+      "sha256": "d90b50a1db5bcb948d977f18b4a4dada651a82119316646d7c09bf9b29e76cd1"
     },
     {
       "path": "_internal/libcrypto-3.dll",
@@ -136,8 +136,8 @@
     },
     {
       "path": "_internal/spitfire/controller.py",
-      "bytes": 46855,
-      "sha256": "06646fcac8a69bfd04b3a6832cdf30fb90acd4b6038d46770ef6447e064a6380"
+      "bytes": 48139,
+      "sha256": "c86d24fe03a2840f7c7620dd9c21ab78da117c9fd4dec789884f85335401a576"
     },
     {
       "path": "_internal/spitfire/native.py",
@@ -311,8 +311,8 @@
     },
     {
       "path": "PY_SPF.exe",
-      "bytes": 2400390,
-      "sha256": "21ecfc16ca6c2665333d5dcab73c500987a7c8093fe793a53e17094176cea324"
+      "bytes": 2405091,
+      "sha256": "908ddbd77db8545f7f5c780b5a1547b47eb176fcf2313ebceea8228dceefb852"
     },
     {
       "path": "THIRD_PARTY_NOTICES/PyInstaller-0-COPYING.txt",

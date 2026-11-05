@@ -1,8 +1,8 @@
 # Tested Native PY_SPF 1.2 Windows x86 package
 
-Source: [630c3ddf794d0f89b3806c770128fa7dd372256f](https://github.com/El-Carretero/PY_SPF/tree/630c3ddf794d0f89b3806c770128fa7dd372256f).
+Source: [21ac767030376b0ed31752fce8f2e393fccac8cb](https://github.com/El-Carretero/PY_SPF/tree/21ac767030376b0ed31752fce8f2e393fccac8cb).
 
-Build and validation: [workflow run](https://github.com/El-Carretero/PY_SPF/actions/runs/41881966179).
+Build and validation: [workflow run](https://github.com/El-Carretero/PY_SPF/actions/runs/42010587751).
 
 - [Installer](PY_SPF_1.2_Setup_x86.exe)
 - [Portable onedir ZIP](PY_SPF_1.2_win32_portable.zip)
@@ -12,6 +12,7 @@ Build and validation: [workflow run](https://github.com/El-Carretero/PY_SPF/acti
 - [Installed NI snapshot](installed-native-self-test.bmp)
 - [Timing panel: User](installed-timing-user.bmp)
 - [Timing panel: Service](installed-timing-service.bmp)
+- [EXT shared rate: 10 Hz](installed-external-rate.bmp)
 - [SHA256 checksums](SHA256SUMS)
 
 Validation uses the simulator, including an installation path with Korean characters and an emoji. It does not establish equipment actuation, optical output or human engineering approval. See the source installation notes and retained JSON for the exact scope.
