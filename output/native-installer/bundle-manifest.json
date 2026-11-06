@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "application": "PY_SPF",
-  "package_version": "1.2.1",
+  "package_version": "1.3.0",
   "original_ni_gui_version": "1.6.0",
   "layout": "onedir",
   "architecture": "x86",
@@ -16,31 +16,35 @@
     "pywin32-ctypes": "0.2.3",
     "setuptools": "80.9.0"
   },
-  "source_commit": "21ac767030376b0ed31752fce8f2e393fccac8cb",
+  "source_commit": "9375397184d5940f48323c0ed336fd1d12625806",
   "source_sha256": {
-    "spitfire/__init__.py": "3dacf92e0341abb7c4db0264c216563b355964bdbec4490c9c5b54eed79a9687",
-    "spitfire/__main__.py": "5edb9e011b2b119ae76cb2897af885e56551053e5a3ed174646f232d19e7a2e5",
+    "spitfire/__init__.py": "4d34c10e5d4a121c95f46a66211491abc01a811bfb225a5e6774404fdcd114d7",
+    "spitfire/__main__.py": "55a9370e6e8352b154543a339d9a1dabc3d8e0a5fd16cabc013258881f74fb77",
     "spitfire/callbacks.py": "9b23e791c9a372de7812a5bf2e88d62bd375d401fb00cb71698194e61de8c5c4",
-    "spitfire/controller.py": "c86d24fe03a2840f7c7620dd9c21ab78da117c9fd4dec789884f85335401a576",
+    "spitfire/communication_monitor.py": "596073fe0b4bd5cabeafd90acbfd4943a5edf51b46ea6f3f611b62d2b6de40aa",
+    "spitfire/controller.py": "b0ad277bf74789f443fffed623fd2665a10c00e37fa45f7680e026943bc376f0",
     "spitfire/decoders.py": "f4049025184cf231e656f0efa3d37c089eada85bb869c23050b4561c32f7e4b6",
-    "spitfire/diagnostics.py": "a7b6f741ff6f20ec89d5e924eea9ce953e5c789acf2debfa2a2c775daf854b25",
-    "spitfire/frozen.py": "da369a4d969857f0ccd3dae4f75984903cabc5fccac91daa287f41433b7549be",
-    "spitfire/gui.py": "910ff65a9e5f4d804a2cdbe652ecd9e1f439a07912c30b9d83f544f3061bbce0",
+    "spitfire/diagnostics.py": "886797d19e8e641b95ac4ea8812d18205867841052e2672a2630227073a78c3e",
+    "spitfire/frozen.py": "56abe37e4943df3de9499f94050f9ffb7a568c733cbcdab005bc2254df71e36d",
+    "spitfire/gui.py": "3cb2d1bee58cdedf3165d330bf86a5d10199a5b738a154e1f79b50ce6603f0d8",
     "spitfire/layout.py": "bd763fb90981797654dac473cd05af5681a43a542332a27ec7c8293269f0f64b",
     "spitfire/limits.py": "a750c6476efeac43285ddfc6886b38ca381b1c63a724ae3866c4cd7739fb0205",
-    "spitfire/native.py": "d6295b1614848bc1da1377a07343aba0c608c991a0b59e3b4a493c3abedf3446",
-    "spitfire/native_ticker.py": "03415f09a81f325f088ec28baeadfaa765214a025be4da1fb68754c9c7a668bf",
-    "spitfire/packaged_check.py": "2f0f50cd1d4a3073991347f77459b3e71951713c89426fc921b51cede14d6b14",
+    "spitfire/monitor_presentation.py": "32d6fccb6b0b38e149e405419fa4acb29da4a21c871542ee335041f33149df1e",
+    "spitfire/native.py": "4ff95142960450d8a9f1f4d377c04e225e594731292f2e3741879bf4c8eb3b99",
+    "spitfire/native_monitor.py": "c5829b1759dc5e7bd446c1c27fcd95e3c78878e3fd86343577c568e1db6e6f15",
+    "spitfire/native_ticker.py": "0a9d1baf11cf14e54c0206d2e4c783dc1d484b91d68f027f8c913260be8048d0",
+    "spitfire/packaged_check.py": "2c2e63e7657947eae176202a78bc318b7ef08ecbca4e0b9c3439a3fd5ef68f5e",
     "spitfire/private_fonts.py": "225780ceda5d398e29cbd4f39aa382bcda350387379b9945ca80fcbd1e9df07a",
     "spitfire/protocol.py": "f3817917c66fb5a29e0f2bcac59f2f550e67fe73b64645dab6d7029b5cb5118f",
-    "spitfire/scheduling.py": "6555f0eea9b0b77ea0fca80638ba891647a2c0e1edd8f71d128641a6c4567bf4",
+    "spitfire/qt_monitor.py": "87e32423e038edb64a00107e3b6306f61ac062f50d0327a8caca38d05deddd63",
+    "spitfire/scheduling.py": "e22f342daf6f4f776e10d3ee1227361ffd8a7e3d33f303d333ac80fe277e65ef",
     "spitfire/settings.py": "22fd3ba0327225ce1535f7473f7884646864c624f009db30245a8c2315aa5712",
     "spitfire/simulator.py": "70aed8602e9debb5ee018a647a50fb9f06b3eb7d6971db720c6b40f752cf32af",
     "spitfire/tcp.py": "1f2909d3b4d80b7451878c95b88ced9a181783deb795ba9200c206e76f9bbe5a",
     "packaging/windows/native_app.py": "585aaa2ff62fc636090a91ac4a54b5f043e11598e8c14b90855961c53f858a6a",
-    "packaging/windows/native.manifest": "02e492e4cb79f5e5b74b16a47dcd6a27e8ba68c83f6e4430026c8b70b7ecf5ee",
+    "packaging/windows/native.manifest": "32dd843db28c6a69640dc3ea48b7ac73eaa756b0fb3a326ddc19877493b113bb",
     "packaging/windows/PY_SPF.spec": "0817f3092fc9f467c3f20d4eb42255bf0720e850bc8fd28e469ca260b5908ebf",
-    "packaging/windows/build.ps1": "875bed689be1628b666762508bf6bb4d19bd63113eee3264d08ccf9497d82253",
+    "packaging/windows/build.ps1": "0d3dc2b6321e2fc51f33427a6e8c1d1f14224459e01749cec5654a76201e7de0",
     "requirements-build.txt": "4cad729cf9ddf009e783da87d9914757cbe5ba6807d04c4e89de3294858cab27"
   },
   "files": [
@@ -102,7 +106,7 @@
     {
       "path": "_internal/base_library.zip",
       "bytes": 1403000,
-      "sha256": "d90b50a1db5bcb948d977f18b4a4dada651a82119316646d7c09bf9b29e76cd1"
+      "sha256": "78be837ef5b5f9796939e8349ccc9dad028148baa1f6ccc1a5453f4f11c3c21a"
     },
     {
       "path": "_internal/libcrypto-3.dll",
@@ -136,18 +140,18 @@
     },
     {
       "path": "_internal/spitfire/controller.py",
-      "bytes": 48139,
-      "sha256": "c86d24fe03a2840f7c7620dd9c21ab78da117c9fd4dec789884f85335401a576"
+      "bytes": 51197,
+      "sha256": "b0ad277bf74789f443fffed623fd2665a10c00e37fa45f7680e026943bc376f0"
     },
     {
       "path": "_internal/spitfire/native.py",
-      "bytes": 26881,
-      "sha256": "d6295b1614848bc1da1377a07343aba0c608c991a0b59e3b4a493c3abedf3446"
+      "bytes": 31060,
+      "sha256": "4ff95142960450d8a9f1f4d377c04e225e594731292f2e3741879bf4c8eb3b99"
     },
     {
       "path": "_internal/spitfire/native_ticker.py",
-      "bytes": 6467,
-      "sha256": "03415f09a81f325f088ec28baeadfaa765214a025be4da1fb68754c9c7a668bf"
+      "bytes": 7041,
+      "sha256": "0a9d1baf11cf14e54c0206d2e4c783dc1d484b91d68f027f8c913260be8048d0"
     },
     {
       "path": "_internal/spitfire/protocol.py",
@@ -311,8 +315,8 @@
     },
     {
       "path": "PY_SPF.exe",
-      "bytes": 2405091,
-      "sha256": "908ddbd77db8545f7f5c780b5a1547b47eb176fcf2313ebceea8228dceefb852"
+      "bytes": 2447804,
+      "sha256": "d4b8567d6f7c309eac53ce3883de82e4b198d9371a566af4766b9b642c663924"
     },
     {
       "path": "THIRD_PARTY_NOTICES/PyInstaller-0-COPYING.txt",

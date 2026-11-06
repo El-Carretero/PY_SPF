@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "package_version": "1.3.0",
   "mode": "in-memory simulator only",
   "physical_device_io": false,
   "frozen": true,
@@ -13,6 +14,7 @@
     "internal_trigger_10hz_verified_and_restored",
     "external_shared_rate_verified_and_restored",
     "visible_hv_layout_verified_and_restored",
+    "file_backed_communication_monitor_verified",
     "native_simulator_validation_passed",
     "native_closed"
   ],
@@ -33,16 +35,16 @@
   "expected_cvirte": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\PY_SPF\\_internal\\spitfire\\resources\\runtime\\cvirte.dll",
   "resource_directory": "d:\\a\\py_spf\\py_spf\\packaging\\windows\\dist\\py_spf\\cvirte\\bin",
   "expected_resource_directory": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\PY_SPF\\cvirte\\bin",
-  "elapsed_seconds": 2.016,
+  "elapsed_seconds": 2.025,
   "controls_updated": 230,
   "timer": {
-    "timer_ticks": 103,
-    "outer_ticks": 73,
+    "timer_ticks": 110,
+    "outer_ticks": 74,
     "reentrant_skips": 0,
     "wrong_thread_skips": 0,
     "menu_ticks": 0,
     "cancelled_run": 0,
-    "owner_thread": 1560,
+    "owner_thread": 2804,
     "last_gui_flags": 0,
     "outer_event_cycles": 0,
     "tick_errors": 0
@@ -290,7 +292,7 @@
         "phase": "external-shared-rate",
         "tag": 1025,
         "payload": "2.00",
-        "decorated": "(125,1)<1025>2.00"
+        "decorated": "(124,1)<1025>2.00"
       },
       {
         "phase": "external-shared-rate",
@@ -410,9 +412,9 @@
       "[1053]TDG:TRIG:FREQ?",
       "[2020]TDG:DIV  1.00",
       "[1025]TDG:DIV?",
-      "[1013]EMP:STB?",
       "[2020]TDG:DIV  2.00",
       "[1025]TDG:DIV?",
+      "[1013]EMP:STB?",
       "[1039]TDG:STBH?",
       "[1010]EMP:QSW:PRF?",
       "[1028]ECU:STB?",
@@ -1531,8 +1533,8 @@
       "[1065]TDG:READ:OSCQUEST?",
       "[1039]TDG:STBH?",
       "[1031]ECU:HUM?",
-      "[1061]TDG:HV:ON?",
       "[1039]TDG:STBH?",
+      "[1061]TDG:HV:ON?",
       "[1021]TDG:HV:ON?",
       "[1039]TDG:STBH?",
       "[1077]EMP:LBOTEMP?",
@@ -1546,8 +1548,40 @@
       "[1039]TDG:STBH?",
       "[1055]TDG:READ:HV1CURR?",
       "[1039]TDG:STBH?",
+      "[1042]TDG:READ:HV1VOLT?",
+      "[1039]TDG:STBH?",
+      "[1043]TDG:READ:HV2VOLT?",
       "[1061]TDG:HV:ON?",
-      "[1042]TDG:READ:HV1VOLT?"
+      "[1039]TDG:STBH?"
+    ]
+  },
+  "communication_monitor": {
+    "visible": true,
+    "reader_live": true,
+    "file_only": true,
+    "device_status": "ready",
+    "original_panel_count": 10,
+    "event_rows_read": 538,
+    "event_text_read_only": true,
+    "log_status": "live",
+    "menu": {
+      "bar_dimmed": 0,
+      "view_dimmed": 0,
+      "monitor_dimmed": 0,
+      "accessible": true
+    },
+    "session_path": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\native-self-test-logs",
+    "scope": "CVI panel + file reader + direct local action adapter; simulator only",
+    "windows_mouse_input_validated": false,
+    "snapshot": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\native-self-test_communication.bmp",
+    "local_actions_send_no_packets": true,
+    "local_actions": [
+      "pause",
+      "resume",
+      "filter",
+      "clear",
+      "hide",
+      "show"
     ]
   },
   "view_panels": [
@@ -1559,7 +1593,7 @@
     9
   ],
   "snapshot": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\native-self-test.bmp",
-  "simulator_packets": 176,
+  "simulator_packets": 184,
   "identity_queries": 3,
   "simulator_write_audit": [
     {

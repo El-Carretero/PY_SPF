@@ -1,62 +1,72 @@
 {
-  "schema": 1,
-  "run_id": "42010587751",
+  "source_commit": "9375397184d5940f48323c0ed336fd1d12625806",
   "files": [
     {
-      "bytes": 9420485,
-      "sha256": "cc4ff45f9fe04b8070cee9030efba798c12e2678ce11105213b172a627e11cc1",
-      "path": "installer/PY_SPF_1.2_Setup_x86.exe"
+      "path": "installer/PY_SPF_1.3_Setup_x86.exe",
+      "sha256": "3b39836d4feec77d83559b3d562f0ebcf28f6ea5481a113b76fa0b9164670fad",
+      "bytes": 9467549
     },
     {
-      "bytes": 9864717,
-      "sha256": "5555e9df557e9a286d29a334672254fbac469c64d1d537e33cec44539e4a5de1",
-      "path": "PY_SPF_1.2_win32_portable.zip"
+      "path": "PY_SPF_1.3_win32_portable.zip",
+      "sha256": "38e7f73fa79e528a282903193ebe156fc233e0a8458a6f00691c84b205d7fb19",
+      "bytes": 9909745
     },
     {
-      "bytes": 23991,
-      "sha256": "776c35aebb8a981f489abbd868c9eb161639610685da57323f94f0ec8c895aee",
-      "path": "PY_SPF/bundle-manifest.json"
+      "path": "PY_SPF/bundle-manifest.json",
+      "sha256": "53a23e41a04d40184da40b846b498c2946bb5a45a00821d7387e8819519268f6",
+      "bytes": 24412
     },
     {
-      "bytes": 41439,
-      "sha256": "3a9caec9b8acb9ea9d7f8aca86016f3e36b2ebb6e8b1f1ad94209df9c2709283",
-      "path": "native-self-test.json"
+      "path": "native-self-test.json",
+      "sha256": "52aaa6fe7749dce6ca37362300d7422e40fd432e17615cacc91e5bd4e8505b62",
+      "bytes": 42497
     },
     {
-      "bytes": 2061542,
-      "sha256": "d3bf46734f73c4b780796e067163688487924621e7b630f8a4341f45e639cecc",
-      "path": "native-self-test.bmp"
+      "path": "native-self-test.bmp",
+      "sha256": "c8c4f5039e71d16bf3d8bc53cc31317dedf38dab06ad2c8e0d47c0bc1ce55db2",
+      "bytes": 2061542
     },
     {
-      "bytes": 25266,
-      "sha256": "f83f3b5a30dc857603d6ef30b167d12fd4c2640e957fba5802daadb4318d1da1",
-      "path": "install-validation/install-validation.json"
+      "path": "native-self-test_communication.bmp",
+      "sha256": "84f489caf70f32cd94d98719b2b47f2da354cfd83934a44910bd553b282ad01e",
+      "bytes": 2865142
     },
     {
-      "bytes": 41361,
-      "sha256": "2d9596b02982a5d319389b75987792342234c5fba5ec277161c1f360d0d6df6a",
-      "path": "install-validation/native-self-test.json"
+      "path": "install-validation/install-validation.json",
+      "sha256": "46699af071039096237a331e6881e36513136d03129cb0b812ebc2d83decfb0c",
+      "bytes": 25747
     },
     {
-      "bytes": 2061542,
-      "sha256": "d3bf46734f73c4b780796e067163688487924621e7b630f8a4341f45e639cecc",
-      "path": "install-validation/native-self-test.bmp"
+      "path": "install-validation/native-self-test.json",
+      "sha256": "77847f2fda44b61de2005c43bb7deeb570edf7d6038f2855a3d83c47a2edaa76",
+      "bytes": 42374
     },
     {
-      "bytes": 741366,
+      "path": "install-validation/native-self-test.bmp",
+      "sha256": "c8c4f5039e71d16bf3d8bc53cc31317dedf38dab06ad2c8e0d47c0bc1ce55db2",
+      "bytes": 2061542
+    },
+    {
+      "path": "install-validation/native-self-test_timing_user.bmp",
       "sha256": "4d6c7eb01d335d7b01a637d9f59e7a13cb43faf4bc47335aaebf1bce031622ec",
-      "path": "install-validation/native-self-test_timing_user.bmp"
+      "bytes": 741366
     },
     {
-      "bytes": 1415286,
+      "path": "install-validation/native-self-test_timing_service.bmp",
       "sha256": "206a658a5c26ec11568838f7558bc3c59db255f5da3bb52715f5c325e51bd5e6",
-      "path": "install-validation/native-self-test_timing_service.bmp"
+      "bytes": 1415286
     },
     {
-      "bytes": 2061542,
+      "path": "install-validation/native-self-test_external_rate.bmp",
       "sha256": "b42ea04fffd7181b0528fec6667e8df58d7b4290422bffbafb871b2cc63d6f4d",
-      "path": "install-validation/native-self-test_external_rate.bmp"
+      "bytes": 2061542
+    },
+    {
+      "path": "install-validation/native-self-test_communication.bmp",
+      "sha256": "6bbd8f9dcad5c5acb0e9dc5583d99d5bfa311c9a7b82f7377457c0c5737c4028",
+      "bytes": 2865142
     }
   ],
-  "source_commit": "21ac767030376b0ed31752fce8f2e393fccac8cb"
+  "run_id": "42188451983",
+  "schema": 1
 }

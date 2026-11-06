@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "package_version": "1.3.0",
   "mode": "in-memory simulator only",
   "physical_device_io": false,
   "frozen": true,
@@ -13,6 +14,7 @@
     "internal_trigger_10hz_verified_and_restored",
     "external_shared_rate_verified_and_restored",
     "visible_hv_layout_verified_and_restored",
+    "file_backed_communication_monitor_verified",
     "native_simulator_validation_passed",
     "native_closed"
   ],
@@ -33,16 +35,16 @@
   "expected_cvirte": "D:\\a\\_temp\\PY_SPF_검증_🔬\\_internal\\spitfire\\resources\\runtime\\cvirte.dll",
   "resource_directory": "d:\\a\\_temp\\py_spf_검증_🔬\\cvirte\\bin",
   "expected_resource_directory": "D:\\a\\_temp\\PY_SPF_검증_🔬\\cvirte\\bin",
-  "elapsed_seconds": 1.779,
+  "elapsed_seconds": 1.794,
   "controls_updated": 230,
   "timer": {
     "timer_ticks": 105,
-    "outer_ticks": 73,
+    "outer_ticks": 75,
     "reentrant_skips": 0,
     "wrong_thread_skips": 0,
     "menu_ticks": 0,
     "cancelled_run": 0,
-    "owner_thread": 4056,
+    "owner_thread": 8000,
     "last_gui_flags": 0,
     "outer_event_cycles": 0,
     "tick_errors": 0
@@ -118,37 +120,37 @@
         "phase": "restore-original",
         "tag": 1025,
         "payload": "100.00",
-        "decorated": "(106,1)<1025>100.00"
+        "decorated": "(107,1)<1025>100.00"
       },
       {
         "phase": "restore-original",
         "tag": 1053,
         "payload": "1000.00",
-        "decorated": "(108,1)<1053>1000.00"
+        "decorated": "(109,1)<1053>1000.00"
       },
       {
         "phase": "restore-original",
         "tag": 1051,
         "payload": "INT",
-        "decorated": "(110,1)<1051>INT"
+        "decorated": "(111,1)<1051>INT"
       },
       {
         "phase": "restore-fixture-readback",
         "tag": 1025,
         "payload": "1000",
-        "decorated": "(113,1)<1025>1000"
+        "decorated": "(114,1)<1025>1000"
       },
       {
         "phase": "restore-fixture-readback",
         "tag": 1051,
         "payload": "INT",
-        "decorated": "(114,1)<1051>INT"
+        "decorated": "(115,1)<1051>INT"
       },
       {
         "phase": "restore-fixture-readback",
         "tag": 1053,
         "payload": "1000",
-        "decorated": "(115,1)<1053>1000"
+        "decorated": "(116,1)<1053>1000"
       }
     ],
     "native_minimum_hz": 10.0,
@@ -171,7 +173,6 @@
       }
     },
     "messages": [
-      "[1089]COMSTATUS?",
       "[1088]ECU:STBH?",
       "[1014]EMP:FAULT?",
       "[1066]TDG:STBHFLT?",
@@ -182,10 +183,10 @@
       "[1053]TDG:TRIG:FREQ?",
       "[2020]TDG:DIV  1.00",
       "[1025]TDG:DIV?",
-      "[1039]TDG:STBH?"
+      "[1039]TDG:STBH?",
+      "[1015]HED:STB?"
     ],
     "packets_hex": [
-      "537065637472612d506879736963733a434d445f45434c495053452c5b313038395d434f4d5354415455533f0a",
       "537065637472612d506879736963733a434d445f45434c495053452c5b313038385d4543553a535442483f0a",
       "537065637472612d506879736963733a434d445f45434c495053452c5b313031345d454d503a4641554c543f0a",
       "537065637472612d506879736963733a434d445f45434c495053452c5b313036365d5444473a53544248464c543f0a",
@@ -196,7 +197,8 @@
       "537065637472612d506879736963733a434d445f45434c495053452c5b313035335d5444473a545249473a465245513f0a",
       "537065637472612d506879736963733a434d445f45434c495053452c5b323032305d5444473a4449562020312e30300a",
       "537065637472612d506879736963733a434d445f45434c495053452c5b313032355d5444473a4449563f0a",
-      "537065637472612d506879736963733a434d445f45434c495053452c5b313033395d5444473a535442483f0a"
+      "537065637472612d506879736963733a434d445f45434c495053452c5b313033395d5444473a535442483f0a",
+      "537065637472612d506879736963733a434d445f45434c495053452c5b313031355d4845443a5354423f0a"
     ],
     "restored": {
       "mode_control": 0,
@@ -216,7 +218,6 @@
     },
     "restoration_method": "Native commits; exact in-memory fixture reset; matching query/decoder refresh",
     "all_phase_messages": [
-      "[1089]COMSTATUS?",
       "[1088]ECU:STBH?",
       "[1014]EMP:FAULT?",
       "[1066]TDG:STBHFLT?",
@@ -228,18 +229,19 @@
       "[2020]TDG:DIV  1.00",
       "[1025]TDG:DIV?",
       "[1039]TDG:STBH?",
+      "[1015]HED:STB?",
       "[2020]TDG:DIV 100.00",
       "[1025]TDG:DIV?",
       "[2032]TDG:TRIG:FREQ 1000.00",
       "[1053]TDG:TRIG:FREQ?",
       "[2031]TDG:TRIG:MODE INT",
       "[1051]TDG:TRIG:MODE?",
-      "[1015]HED:STB?",
       "[1039]TDG:STBH?",
+      "[1019]TDG:STB?",
       "[1025]TDG:DIV?",
       "[1051]TDG:TRIG:MODE?",
       "[1053]TDG:TRIG:FREQ?",
-      "[1019]TDG:STB?"
+      "[1039]TDG:STBH?"
     ]
   },
   "external_shared_rate": {
@@ -272,19 +274,19 @@
         "phase": "external-shared-rate",
         "tag": 1051,
         "payload": "EXT CONT 1000.0",
-        "decorated": "(117,1)<1051>EXT CONT 1000.0"
+        "decorated": "(118,1)<1051>EXT CONT 1000.0"
       },
       {
         "phase": "external-shared-rate",
         "tag": 1053,
         "payload": "10.00",
-        "decorated": "(120,1)<1053>10.00"
+        "decorated": "(121,1)<1053>10.00"
       },
       {
         "phase": "external-shared-rate",
         "tag": 1025,
         "payload": "1.00",
-        "decorated": "(122,1)<1025>1.00"
+        "decorated": "(123,1)<1025>1.00"
       },
       {
         "phase": "external-shared-rate",
@@ -296,55 +298,55 @@
         "phase": "external-shared-rate",
         "tag": 1010,
         "payload": "987.6",
-        "decorated": "(127,1)<1010>987.6"
+        "decorated": "(128,1)<1010>987.6"
       },
       {
         "phase": "external-shared-rate",
         "tag": 1024,
         "payload": "80000000",
-        "decorated": "(129,1)<1024>80000000"
+        "decorated": "(130,1)<1024>80000000"
       },
       {
         "phase": "external-shared-rate",
         "tag": 1053,
         "payload": "10.00",
-        "decorated": "(131,1)<1053>10.00"
+        "decorated": "(132,1)<1053>10.00"
       },
       {
         "phase": "external-shared-rate-restore",
         "tag": 1025,
         "payload": "100.00",
-        "decorated": "(134,1)<1025>100.00"
+        "decorated": "(135,1)<1025>100.00"
       },
       {
         "phase": "external-shared-rate-restore",
         "tag": 1053,
         "payload": "1000.00",
-        "decorated": "(136,1)<1053>1000.00"
+        "decorated": "(137,1)<1053>1000.00"
       },
       {
         "phase": "external-shared-rate-fixture-restore",
         "tag": 1010,
         "payload": "1000",
-        "decorated": "(139,1)<1010>1000"
+        "decorated": "(140,1)<1010>1000"
       },
       {
         "phase": "external-shared-rate-fixture-restore",
         "tag": 1025,
         "payload": "1000",
-        "decorated": "(141,1)<1025>1000"
+        "decorated": "(142,1)<1025>1000"
       },
       {
         "phase": "external-shared-rate-fixture-restore",
         "tag": 1051,
         "payload": "INT",
-        "decorated": "(143,1)<1051>INT"
+        "decorated": "(144,1)<1051>INT"
       },
       {
         "phase": "external-shared-rate-fixture-restore",
         "tag": 1053,
         "payload": "1000",
-        "decorated": "(145,1)<1053>1000"
+        "decorated": "(146,1)<1053>1000"
       }
     ],
     "divisor_one": {
@@ -405,35 +407,35 @@
     },
     "all_phase_messages": [
       "[1051]TDG:TRIG:MODE?",
-      "[1039]TDG:STBH?",
+      "[1013]EMP:STB?",
       "[2032]TDG:TRIG:FREQ 10.00",
       "[1053]TDG:TRIG:FREQ?",
       "[2020]TDG:DIV  1.00",
       "[1025]TDG:DIV?",
-      "[1013]EMP:STB?",
       "[2020]TDG:DIV  2.00",
       "[1025]TDG:DIV?",
       "[1039]TDG:STBH?",
-      "[1010]EMP:QSW:PRF?",
       "[1028]ECU:STB?",
-      "[1024]TDG:OSC:FREQ?",
+      "[1010]EMP:QSW:PRF?",
       "[1039]TDG:STBH?",
-      "[1053]TDG:TRIG:FREQ?",
+      "[1024]TDG:OSC:FREQ?",
       "[1007]EMP:READ:DIODE:CURR?",
+      "[1053]TDG:TRIG:FREQ?",
+      "[1039]TDG:STBH?",
       "[2020]TDG:DIV 100.00",
       "[1025]TDG:DIV?",
       "[2032]TDG:TRIG:FREQ 1000.00",
       "[1053]TDG:TRIG:FREQ?",
-      "[1039]TDG:STBH?",
       "[1008]EMP:READ:POW?",
+      "[1039]TDG:STBH?",
       "[1010]EMP:QSW:PRF?",
-      "[1039]TDG:STBH?",
-      "[1025]TDG:DIV?",
       "[1029]ECU:STBH?",
-      "[1051]TDG:TRIG:MODE?",
+      "[1025]TDG:DIV?",
       "[1039]TDG:STBH?",
+      "[1051]TDG:TRIG:MODE?",
+      "[1030]ECU:READTEMP?",
       "[1053]TDG:TRIG:FREQ?",
-      "[1030]ECU:READTEMP?"
+      "[1039]TDG:STBH?"
     ],
     "mode_write_commands": []
   },
@@ -1527,13 +1529,12 @@
     "hv_commands_sent": [],
     "restored": true,
     "messages": [
-      "[1039]TDG:STBH?",
       "[1065]TDG:READ:OSCQUEST?",
       "[1039]TDG:STBH?",
       "[1031]ECU:HUM?",
       "[1039]TDG:STBH?",
-      "[1061]TDG:HV:ON?",
       "[1021]TDG:HV:ON?",
+      "[1061]TDG:HV:ON?",
       "[1039]TDG:STBH?",
       "[1077]EMP:LBOTEMP?",
       "[1039]TDG:STBH?",
@@ -1547,8 +1548,38 @@
       "[1055]TDG:READ:HV1CURR?",
       "[1039]TDG:STBH?",
       "[1042]TDG:READ:HV1VOLT?",
+      "[1039]TDG:STBH?",
       "[1061]TDG:HV:ON?",
-      "[1039]TDG:STBH?"
+      "[1043]TDG:READ:HV2VOLT?"
+    ]
+  },
+  "communication_monitor": {
+    "visible": true,
+    "reader_live": true,
+    "file_only": true,
+    "device_status": "ready",
+    "original_panel_count": 10,
+    "event_rows_read": 538,
+    "event_text_read_only": true,
+    "log_status": "live",
+    "menu": {
+      "bar_dimmed": 0,
+      "view_dimmed": 0,
+      "monitor_dimmed": 0,
+      "accessible": true
+    },
+    "session_path": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\install-validation\\native-self-test-logs",
+    "scope": "CVI panel + file reader + direct local action adapter; simulator only",
+    "windows_mouse_input_validated": false,
+    "snapshot": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\install-validation\\native-self-test_communication.bmp",
+    "local_actions_send_no_packets": true,
+    "local_actions": [
+      "pause",
+      "resume",
+      "filter",
+      "clear",
+      "hide",
+      "show"
     ]
   },
   "view_panels": [
@@ -1560,7 +1591,7 @@
     9
   ],
   "snapshot": "D:\\a\\PY_SPF\\PY_SPF\\packaging\\windows\\dist\\install-validation\\native-self-test.bmp",
-  "simulator_packets": 178,
+  "simulator_packets": 180,
   "identity_queries": 3,
   "simulator_write_audit": [
     {
