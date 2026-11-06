@@ -1,4 +1,4 @@
-"""Run PY_SPF 1.2 with the original NI GUI or the portable Qt view."""
+"""Run PY_SPF 1.3 with the original NI GUI or the portable Qt view."""
 from __future__ import annotations
 import argparse
 import json
@@ -11,8 +11,8 @@ import time
 
 def arguments(argv=None):
     from . import __version__
-    p = argparse.ArgumentParser(description="PY_SPF 1.2 — original Spitfire GUI 1.6.0 reconstruction")
-    p.add_argument("--version", action="version", version=f"PY_SPF 1.2 (package {__version__}; NI GUI 1.6.0)")
+    p = argparse.ArgumentParser(description="PY_SPF 1.3 — original Spitfire GUI 1.6.0 reconstruction")
+    p.add_argument("--version", action="version", version=f"PY_SPF 1.3 (package {__version__}; NI GUI 1.6.0)")
     p.add_argument("--demo", action="store_true", help="use the development simulator; no instrument connection")
     p.add_argument("--read-only", action="store_true", help="query only; block all instrument writes including automatic opt-out and reset requests")
     p.add_argument("--diagnostics-dir", type=Path,
@@ -42,7 +42,11 @@ def make_controller(view, opts):
 
 def make_diagnostics(controller, opts):
     from .diagnostics import SessionDiagnostics
-    return SessionDiagnostics(controller, getattr(opts, "diagnostics_dir", None))
+    diagnostics = SessionDiagnostics(controller, getattr(opts, "diagnostics_dir", None))
+    configure = getattr(controller.view, 'configure_communication_monitor', None)
+    if configure is not None:
+        configure(getattr(diagnostics, 'path', None))
+    return diagnostics
 
 
 class MemoryView:
@@ -162,6 +166,9 @@ def main(argv=None):
         try:
             controller.stop()
         finally:
+            close_monitor = getattr(window, 'close_communication_monitor', None)
+            if close_monitor is not None:
+                close_monitor()
             diagnostics.close()
 
 

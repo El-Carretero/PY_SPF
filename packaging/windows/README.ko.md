@@ -1,6 +1,6 @@
-# Native PY_SPF 1.2 Windows 설치 프로그램
+# Native PY_SPF 1.3 Windows 설치 프로그램
 
-`PY_SPF_1.2_Setup_x86.exe`는 현재 Windows 사용자 계정에 Native 프로그램을
+`PY_SPF_1.3_Setup_x86.exe`는 현재 Windows 사용자 계정에 Native 프로그램을
 설치한다. Python, Python 패키지, 원본 Native GUI 리소스와 전용 런타임이
 프로그램 묶음에 포함된다. 설치할 PC에 별도로 Python을 설치하거나 venv를
 만들거나 `pip`를 실행할 필요가 없고, 관리자 권한도 필요하지 않다.
@@ -12,7 +12,7 @@
 바이트 수 제한이다. 배포본은 Native 초기화 전에 이를 확인하며, 경로를 줄여야
 하면 명확한 오류를 표시하고 중단한다. 임의로 긴 경로는 지원하지 않는다.
 
-이 설치 파일은 Native PY_SPF 1.2을 묶어 배포한다. 설치 프로그램이 RUN,
+이 설치 파일은 Native PY_SPF 1.3을 묶어 배포한다. 설치 프로그램이 RUN,
 리셋, 폴링 또는 opt-out 제어 로직을 바꾸지는 않는다.
 
 ## 설치와 실행
@@ -24,8 +24,8 @@
 3. 설치를 마친다. 마지막 화면의 **Start Native PY_SPF** 실행 항목은
    기본적으로 선택되지 않는다.
 4. 장비에 접속하지 않고 Native 화면을 확인하려면 시작 메뉴에서
-   **Native PY_SPF 1.2 Demo (no equipment)**를 연다. 설정된 실장비에
-   접속하려면 **Native PY_SPF 1.2**을 연다.
+   **Native PY_SPF 1.3 Demo (no equipment)**를 연다. 설정된 실장비에
+   접속하려면 **Native PY_SPF 1.3**을 연다.
 
 바탕 화면 바로가기는 선택 사항이며 기본적으로 만들지 않는다. 설치 화면은
 영어이고, 설치 안내서는 영어와 한국어를 함께 제공한다.
@@ -76,7 +76,7 @@ NI 초기화 전에 `AddFontMemResourceEx`로 현재 프로세스에만 적재�
 제거를 차단한다. 설치 프로그램은 장비 제어 프로그램을 자동으로 종료하거나
 재시작하지 않는다.
 
-1.2 업데이트는 이전 앱의 정해진 시작 메뉴 바로가기 2개와 바탕 화면 바로가기 1개를 정리하고, 비어 있는 이전 시작 메뉴 폴더만 제거한다. 제품 표시명은 1.2로 바뀌지만 기존 설치·설정 경로의 `1.0` 이름은 호환성을 위해 유지한다.
+1.3 업데이트는 이전 AppId 등록을 확인한 뒤 1.0·1.2 계열 각각의 정해진 시작 메뉴 바로가기 2개와 바탕 화면 바로가기 1개를 정리한다. 이전 시작 메뉴 폴더는 비어 있을 때만 제거하며 다른 파일은 남긴다. 제품 표시명은 1.3으로 바뀌지만 기존 설치·설정 경로의 `1.0` 이름은 호환성을 위해 유지한다. [최신순 패치노트](https://github.com/El-Carretero/PY_SPF/blob/main/CHANGELOG.ko.md)에 버전별 변경을, [통신 확인 안내](https://github.com/El-Carretero/PY_SPF/blob/main/docs/communication-monitor.md)에 새 로그 기반 패널 사용법을 기록한다.
 
 Windows의 **설치된 앱** 또는 **앱 및 기능**에서 제거한다. 설치 프로그램이
 관리하는 프로그램 파일, 바로가기와 전용 제거 등록 정보가 삭제된다. 전용
@@ -106,7 +106,7 @@ packaging/windows/dist/PY_SPF/
 `PayloadDir`에는 EXE 하나가 아닌 전체 onedir 폴더의 경로를 반드시 지정한다.
 컴파일할 때 전용 Python 라이브러리, Native UIR, NI 런타임·리소스와 GUI
 원본 글꼴을 확인하며, EXE 옆의 bin 리소스 3개와 글꼴 자리표시자 2개도 확인한다. EXE만 있거나 파일이 부족하면 설치 파일 생성을 거부한다.
-`AppVersion` 기본값은 `1.2.1`이다. `InstallerOutputDir` 기본값은
+`AppVersion` 기본값은 `1.3.0`이다. `InstallerOutputDir` 기본값은
 `installer.iss` 기준 `dist\installer`, 즉 저장소의
 `packaging/windows/dist/installer`이다.
 
@@ -114,11 +114,11 @@ packaging/windows/dist/PY_SPF/
 & $InnoCompilerPath `
   "/DPayloadDir=$PayloadDir" `
   "/DInstallerOutputDir=$InstallerOutputDir" `
-  "/DAppVersion=1.2.1" `
+  "/DAppVersion=1.3.0" `
   "packaging\windows\installer.iss"
 ```
 
-생성 파일은 `PY_SPF_1.2_Setup_x86.exe`이다. 바로가기 인수는 다음과 같다.
+생성 파일은 `PY_SPF_1.3_Setup_x86.exe`이다. 바로가기 인수는 다음과 같다.
 
 - Native: `--backend native`
 - Demo: `--demo --tcp-port 0 --local-port 0`

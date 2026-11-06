@@ -1,20 +1,26 @@
-# Native PY_SPF 1.2 설치와 실행
+# Native PY_SPF 1.3 설치와 실행
 
-현재 배포는 원본 NI GUI **1.6.0**을 사용하는 **Native PY_SPF 1.2** Windows 앱입니다. 프로젝트 패키지 버전은 **1.2.1**이며, 장치의 IDN 응답에 표시되는 펌웨어 버전과 별개입니다.
+현재 배포는 원본 NI GUI **1.6.0**을 사용하는 **Native PY_SPF 1.3** Windows 앱입니다. 프로젝트 패키지 버전은 **1.3.0**이며, 장치의 IDN 응답에 표시되는 펌웨어 버전과 별개입니다. [최신순 패치노트](CHANGELOG.ko.md)에서 이전 패치와 현재 변경을 확인할 수 있습니다.
 
 ## 설치
 
-1. Windows 10 **1903(빌드 18362) 이상** 또는 Windows 11에서 [설치 파일](output/native-installer/PY_SPF_1.2_Setup_x86.exe)을 실행합니다. 이 EXE는 코드 서명이 없으며, [SHA256 체크섬](output/native-installer/SHA256SUMS)으로 파일을 대조할 수 있습니다.
+1. Windows 10 **1903(빌드 18362) 이상** 또는 Windows 11에서 [설치 파일](output/native-installer/PY_SPF_1.3_Setup_x86.exe)을 실행합니다. 이 EXE는 코드 서명이 없으며, [SHA256 체크섬](output/native-installer/SHA256SUMS)으로 파일을 대조할 수 있습니다.
 2. 기본 설치 폴더 `%LOCALAPPDATA%\Programs\Native_PY_SPF_1.0`을 유지하거나 비어 있는 새 폴더를 선택합니다. 설치는 현재 사용자 계정에 적용되고 관리자 권한을 요구하지 않습니다.
-3. 시작 메뉴에서 **Native PY_SPF 1.2 Demo (no equipment)**를 열면 장비 없는 시뮬레이터로 Native 화면을 확인합니다. **Native PY_SPF 1.2**은 설정된 장비에 접속하는 일반 실행입니다.
+3. 시작 메뉴에서 **Native PY_SPF 1.3 Demo (no equipment)**를 열면 장비 없는 시뮬레이터로 Native 화면을 확인합니다. **Native PY_SPF 1.3**은 설정된 장비에 접속하는 일반 실행입니다.
 
 필요한 Python·패키지·NI DLL·GUI 리소스가 앱에 포함돼 있습니다. 별도 Python 설치, `install.bat`, pip 또는 venv 준비는 필요하지 않습니다. 설치 완료 화면의 앱 실행 항목과 바탕 화면 바로가기는 기본적으로 선택되지 않습니다.
 
-[Portable ZIP](output/native-installer/PY_SPF_1.2_win32_portable.zip)을 사용하는 경우 압축을 전부 풀고 폴더 안의 `PY_SPF.exe`를 실행합니다. `_internal`과 `cvirte`를 포함한 폴더 전체가 필요합니다. 장비 없는 데모 실행은 다음과 같습니다.
+[Portable ZIP](output/native-installer/PY_SPF_1.3_win32_portable.zip)을 사용하는 경우 압축을 전부 풀고 폴더 안의 `PY_SPF.exe`를 실행합니다. `_internal`과 `cvirte`를 포함한 폴더 전체가 필요합니다. 장비 없는 데모 실행은 다음과 같습니다.
 
 ```bat
 PY_SPF.exe --demo --tcp-port 0 --local-port 0
 ```
+
+## 통신 확인과 Reset/Fault 중복 제한
+
+1.3의 **View → Communication Monitor**는 현재 앱 세션의 진단 로그를 읽어 통신 진행과 오류를 보여줍니다. 장치 명령과 분리된 확인 기능이며 패널 자체는 통신을 수신하거나 새 조회를 보내지 않습니다. 로그 기록·읽기 실패도 장비의 통신 단절과 구분해 표시합니다. **Problems only / Show all**로 최근 기록을 거르고, **Pause display**로 표시만 일시정지합니다. [사용법·파일 형식·보관 범위](docs/communication-monitor.md)를 확인하세요.
+
+Reset/Fault 작업이 대기하거나 진행 중일 때 같은 작업을 반복 요청해도 큐에 동일 묶음을 계속 쌓지 않습니다. 한 묶음의 원래 장치 명령과 확인 조회 순서는 유지합니다. [현재 패치의 변경·검증 범위](CHANGELOG.ko.md#130--resetfault-중복-제한과-통신-확인-패널)를 확인하세요.
 
 ## EXT Pump / AMP 반복률
 
@@ -51,6 +57,7 @@ EXT 표시는 사용자가 설정한 기준값이며 실제 BNC 펄스의 주파
 [현재 배포의 검증 기록](output/native-installer/install-validation.json)은 시뮬레이터를 사용한 Native GUI, 한글·이모지 경로, 설치·실행·제거와 환경 격리 시험입니다. 실장비 구동이나 광학적 Emission을 검증한 것은 아닙니다. [배포 출처](output/native-installer/README.md)에서 해당 소스 커밋과 자동 시험 기록을 확인할 수 있습니다.
 
 - [통합 제어 흐름 문서와 영·한 PDF](docs/README.md)
+- [최신순 패치노트](CHANGELOG.ko.md)
 - [Native 1.0 제어 변경과 과거 관측 범위](RELEASE.ko.md)
 - [소스 실행·개발·시험](docs/source-development.md)
 - [이전 버전과 역사적 분석](Legacy/README.md)

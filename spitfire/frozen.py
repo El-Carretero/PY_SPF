@@ -112,12 +112,12 @@ def _acquire_mutex():
         close.argtypes = [ctypes.c_void_p]
         close(_mutex_handle)
         _mutex_handle = None
-        raise RuntimeError('PY_SPF 1.2 is already running. Close that instance before starting another.')
+        raise RuntimeError('PY_SPF 1.3 is already running. Close that instance before starting another.')
 
 
 def _error_dialog(message):
     if sys.platform == 'win32':
-        ctypes.WinDLL('user32').MessageBoxW(None, str(message), 'PY_SPF 1.2', 0x10)
+        ctypes.WinDLL('user32').MessageBoxW(None, str(message), 'PY_SPF 1.3', 0x10)
 
 
 def main(argv=None):
@@ -149,7 +149,7 @@ def main(argv=None):
             os.environ.pop(name, None)
         os.chdir(data)
         (session / 'launcher.json').write_text(json.dumps({
-            'application': 'PY_SPF 1.2 Native', 'pid': os.getpid(),
+            'application': 'PY_SPF 1.3 Native', 'pid': os.getpid(),
             'frozen': bool(getattr(sys, 'frozen', False)), 'executable': sys.executable,
             'user_data': str(data), 'session': str(session), 'mutex': APP_MUTEX,
             'self_test': self_test}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

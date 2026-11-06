@@ -509,7 +509,7 @@ try {
     $Stage = 'bundle-manifest'
     $manifestPath = Join-Path $InstallDirectory 'bundle-manifest.json'
     $manifest = Get-Content -LiteralPath $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
-    Add-Check 'manifest-identity' ($manifest.application -eq 'PY_SPF' -and $manifest.package_version -eq '1.2.1' -and $manifest.layout -eq 'onedir' -and $manifest.architecture -eq 'x86' -and @($manifest.files).Count -gt 0) 'Require a complete Native x86 onedir payload manifest.'
+    Add-Check 'manifest-identity' ($manifest.application -eq 'PY_SPF' -and $manifest.package_version -eq '1.3.0' -and $manifest.layout -eq 'onedir' -and $manifest.architecture -eq 'x86' -and @($manifest.files).Count -gt 0) 'Require a complete Native x86 onedir payload manifest.'
     $seen = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::OrdinalIgnoreCase)
     $verified = 0
     foreach ($entry in $manifest.files) {
@@ -556,6 +556,11 @@ try {
     $externalPath = Join-Path ([IO.Path]::GetDirectoryName($BitmapPath)) ([IO.Path]::GetFileNameWithoutExtension($BitmapPath) + '_external_rate.bmp')
     $externalBitmap = [IO.File]::ReadAllBytes($externalPath)
     Add-Check 'native-external-rate-bmp-written' ($externalBitmap.Length -gt 54 -and $externalBitmap[0] -eq 66 -and $externalBitmap[1] -eq 77) 'Installed EXT rate screenshot must exist and carry a BMP header.'
+    $monitor = $proof.communication_monitor
+    Add-Check 'native-communication-file-viewer' ($monitor.visible -eq $true -and $monitor.reader_live -eq $true -and $monitor.file_only -eq $true -and $monitor.log_status -eq 'live' -and -not [string]::IsNullOrWhiteSpace([string]$monitor.device_status) -and $monitor.original_panel_count -eq 10 -and $monitor.event_rows_read -gt 0 -and $monitor.event_text_read_only -eq $true -and $monitor.local_actions_send_no_packets -eq $true -and (@($monitor.local_actions) -join ',') -eq 'pause,resume,filter,clear,hide,show' -and $proof.phases -contains 'file_backed_communication_monitor_verified') 'Require the actual NI read-only monitor to read its saved simulator session and execute local display actions without sending instrument packets; no mouse input or physical I/O is claimed.'
+    $monitorPath = Join-Path ([IO.Path]::GetDirectoryName($BitmapPath)) ([IO.Path]::GetFileNameWithoutExtension($BitmapPath) + '_communication.bmp')
+    $monitorBitmap = [IO.File]::ReadAllBytes($monitorPath)
+    Add-Check 'native-communication-bmp-written' ($monitorBitmap.Length -gt 54 -and $monitorBitmap[0] -eq 66 -and $monitorBitmap[1] -eq 77) 'Installed Communication Monitor screenshot must exist and carry a BMP header.'
     $NativeVerified = $true
 
     $Stage = 'regular-demo'

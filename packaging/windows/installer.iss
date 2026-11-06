@@ -1,4 +1,4 @@
-; Native PY_SPF 1.2 private, per-user installer.
+; Native PY_SPF 1.3 private, per-user installer.
 ; Compile-time inputs are supplied by build.ps1; payload must be a complete
 ; PyInstaller onedir, not just its executable.
 #ifndef PayloadDir
@@ -32,7 +32,7 @@
   #error PayloadDir does not contain the EXE-adjacent private CVI fonts.
 #endif
 #ifndef AppVersion
-  #define AppVersion "1.2.1"
+  #define AppVersion "1.3.0"
 #endif
 #ifndef InstallerOutputDir
   #define InstallerOutputDir "dist\installer"
@@ -41,13 +41,13 @@
 [Setup]
 ; This identity belongs only to this installer family. Keep it stable for updates.
 AppId={{A772B846-AB4E-487B-A1DD-03E19D5880E9}
-AppName=Native PY_SPF 1.2
+AppName=Native PY_SPF 1.3
 AppVersion={#AppVersion}
-AppVerName=Native PY_SPF 1.2
+AppVerName=Native PY_SPF 1.3
 AppPublisher=PY_SPF
 AppMutex=Local\PY_SPF.Native1_0.A772B846AB4E487BA1DD03E19D5880E9
 DefaultDirName={localappdata}\Programs\Native_PY_SPF_1.0
-DefaultGroupName=Native PY_SPF 1.2
+DefaultGroupName=Native PY_SPF 1.3
 PrivilegesRequired=lowest
 ArchitecturesAllowed=x86compatible
 MinVersion=10.0.18362
@@ -58,11 +58,11 @@ DisableProgramGroupPage=yes
 DisableWelcomePage=no
 WizardStyle=modern
 OutputDir={#InstallerOutputDir}
-OutputBaseFilename=PY_SPF_1.2_Setup_x86
+OutputBaseFilename=PY_SPF_1.3_Setup_x86
 Compression=lzma2
 SolidCompression=yes
 UninstallDisplayIcon={app}\PY_SPF.exe
-UninstallDisplayName=Native PY_SPF 1.2
+UninstallDisplayName=Native PY_SPF 1.3
 ChangesEnvironment=no
 ChangesAssociations=no
 ; Never stop or restart a running instrument-control process automatically.
@@ -83,9 +83,9 @@ Source: "README.md"; DestDir: "{app}\docs"; DestName: "INSTALL.en.md"; Flags: ig
 Source: "README.ko.md"; DestDir: "{app}\docs"; DestName: "INSTALL.ko.md"; Flags: ignoreversion
 
 [Icons]
-Name: "{group}\Native PY_SPF 1.2"; Filename: "{app}\PY_SPF.exe"; Parameters: "--backend native"; WorkingDir: "{app}"
-Name: "{group}\Native PY_SPF 1.2 Demo (no equipment)"; Filename: "{app}\PY_SPF.exe"; Parameters: "--demo --tcp-port 0 --local-port 0"; WorkingDir: "{app}"
-Name: "{autodesktop}\Native PY_SPF 1.2"; Filename: "{app}\PY_SPF.exe"; Parameters: "--backend native"; WorkingDir: "{app}"; Tasks: desktopicon
+Name: "{group}\Native PY_SPF 1.3"; Filename: "{app}\PY_SPF.exe"; Parameters: "--backend native"; WorkingDir: "{app}"
+Name: "{group}\Native PY_SPF 1.3 Demo (no equipment)"; Filename: "{app}\PY_SPF.exe"; Parameters: "--demo --tcp-port 0 --local-port 0"; WorkingDir: "{app}"
+Name: "{autodesktop}\Native PY_SPF 1.3"; Filename: "{app}\PY_SPF.exe"; Parameters: "--backend native"; WorkingDir: "{app}"; Tasks: desktopicon
 
 [InstallDelete]
 ; Only exact legacy app shortcut names, and only for a verified previous AppId.
@@ -94,6 +94,10 @@ Type: files; Name: "{userprograms}\Native PY_SPF 1.0\Native PY_SPF 1.0.lnk"; Che
 Type: files; Name: "{userprograms}\Native PY_SPF 1.0\Native PY_SPF 1.0 Demo (no equipment).lnk"; Check: RemoveLegacyShortcuts
 Type: files; Name: "{autodesktop}\Native PY_SPF 1.0.lnk"; Check: RemoveLegacyShortcuts
 Type: dirifempty; Name: "{userprograms}\Native PY_SPF 1.0"; Check: RemoveLegacyShortcuts
+Type: files; Name: "{userprograms}\Native PY_SPF 1.2\Native PY_SPF 1.2.lnk"; Check: RemoveLegacyShortcuts
+Type: files; Name: "{userprograms}\Native PY_SPF 1.2\Native PY_SPF 1.2 Demo (no equipment).lnk"; Check: RemoveLegacyShortcuts
+Type: files; Name: "{autodesktop}\Native PY_SPF 1.2.lnk"; Check: RemoveLegacyShortcuts
+Type: dirifempty; Name: "{userprograms}\Native PY_SPF 1.2"; Check: RemoveLegacyShortcuts
 
 [Run]
 ; Native startup may contact configured equipment. Only an explicit checked box

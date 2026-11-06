@@ -143,6 +143,8 @@ class NativeGui:
                                   'get_ctrl_val_errors': 0, 'last_control': None}
         self.panels = {}
         self.menu_ids = {}
+        self._communication_monitor = None
+        self._communication_log_path = None
         self.spec = json.loads((RESOURCES / 'gui_spec.json').read_text(encoding='utf-8'))
         self.attributes = json.loads((RESOURCES / 'cvi_attributes.json').read_text())
         self.bindings = json.loads((RESOURCES / 'callback_bindings.json').read_text())
@@ -210,6 +212,7 @@ class NativeGui:
         for key in self.panels:
             self._bind_panel(key)
         self._initialize_connection_layout()
+        self._install_communication_menu()
         self.show_panel(6)
 
     def _configure_internal_trigger_range(self):
@@ -485,6 +488,80 @@ class NativeGui:
             self._callbacks.append(cb)
             self.dll.InstallMenuCallback(menubar, item, cb, None)
 
+    def _install_communication_menu(self):
+        """Local navigation, kept outside command callbacks and hardware panels."""
+        menubar = self.dll.GetPanelMenuBar(self.panels[6])
+        if menubar <= 0:
+            return
+        self.dll.NewMenu.argtypes = [C.c_int, C.c_char_p, C.c_int]
+        self.dll.NewMenu.restype = C.c_int
+        self.dll.NewPanel.argtypes = [C.c_int, C.c_char_p, C.c_int, C.c_int, C.c_int, C.c_int]
+        self.dll.NewPanel.restype = C.c_int
+        self.dll.NewCtrl.argtypes = [C.c_int, C.c_int, C.c_char_p, C.c_int, C.c_int]
+        self.dll.NewCtrl.restype = C.c_int
+        self.dll.ClipboardPutText.argtypes = [C.c_char_p]
+        self.dll.ClipboardPutText.restype = C.c_int
+        menu_type = C.CFUNCTYPE(None, C.c_int, C.c_int, C.c_void_p, C.c_int)
+        self.dll.NewMenuItem.argtypes = [C.c_int, C.c_int, C.c_char_p, C.c_int,
+                                        C.c_int, menu_type, C.c_void_p]
+        self.dll.NewMenuItem.restype = C.c_int
+        # Original UIR calls its View menu CONTROLx. Resolve its runtime ID
+        # instead of creating a second top-level View menu or assuming UIR IDs.
+        menu = None
+        for candidate in range(1, 65):
+            constant = C.create_string_buffer(512)
+            if self.dll.GetMenuBarAttribute(menubar, candidate, 501, constant) >= 0:
+                if constant.value == b'CONTROLx':
+                    menu = candidate
+                    break
+        if menu is None:
+            menu = self._check(self.dll.NewMenu(menubar, self._bytes('View'), 0), 'new local View menu')
+        self._communication_view_menu = menu
+        def open_monitor(bar, item, data, panel):
+            try:
+                self.show_communication_monitor()
+            except Exception as error:
+                self.log(f'Communication monitor: {error}')
+        callback = menu_type(open_monitor)
+        self._callbacks.append(callback)
+        self.communication_menu_item = self._check(self.dll.NewMenuItem(
+            menubar, menu, self._bytes('Communication Monitor'), 0, 0, callback, None),
+            'new communication monitor menu item')
+
+    def configure_communication_monitor(self, session_path):
+        """Select the exact active diagnostics directory; no directory scanning."""
+        monitor = getattr(self, '_communication_monitor', None)
+        if monitor is not None:
+            monitor.close()
+        self._communication_monitor = None
+        self._communication_log_path = None if session_path is None else Path(session_path)
+
+    def communication_menu_state(self):
+        """Read actual native access, including parent menu state, for checks."""
+        menubar = self.dll.GetPanelMenuBar(self.panels[6])
+        result = {}
+        for name, item in (('bar_dimmed', 0),
+                           ('view_dimmed', self._communication_view_menu),
+                           ('monitor_dimmed', self.communication_menu_item)):
+            value = C.c_int()
+            code = self.dll.GetMenuBarAttribute(menubar, item, 500, C.byref(value))
+            self._check(code, 'read communication menu access')
+            result[name] = value.value
+        result['accessible'] = not any(result.values())
+        return result
+
+    def show_communication_monitor(self):
+        from .native_monitor import NativeCommunicationMonitor
+        if self._communication_monitor is None:
+            self._communication_monitor = NativeCommunicationMonitor(self, self._communication_log_path)
+        self._communication_monitor.show()
+        return self._communication_monitor
+
+    def refresh_communication_monitor(self):
+        monitor = getattr(self, '_communication_monitor', None)
+        if monitor is not None:
+            monitor.refresh()
+
     def process_events(self):
         self.dll.ProcessSystemEvents()
 
@@ -493,6 +570,9 @@ class NativeGui:
             return
         self._closed = True
         self.controller = None
+        monitor = getattr(self, '_communication_monitor', None)
+        if monitor is not None:
+            monitor.close()
         self.dll.SuspendTimerCallbacks()
         for handle in reversed(list(self.panels.values())):
             self.dll.DiscardPanel(handle)
@@ -532,6 +612,7 @@ def run(opts):
         controller = make_controller(view, opts)
         view.attach(controller)
         diagnostics = SessionDiagnostics(controller, getattr(opts, 'diagnostics_dir', None))
+        view.configure_communication_monitor(getattr(diagnostics, 'path', None))
         controller.start()
         ticker = NativeEventTicker(controller, diagnostics)
         view._ticker_diagnostics = ticker.stats

@@ -1,6 +1,6 @@
-# Native PY_SPF 1.2 Windows installer
+# Native PY_SPF 1.3 Windows installer
 
-`PY_SPF_1.2_Setup_x86.exe` installs the Native application for the current Windows
+`PY_SPF_1.3_Setup_x86.exe` installs the Native application for the current Windows
 user. Python, the Python packages, the original Native GUI resources and its
 private runtime are carried in the application bundle. Running the installer does
 not require a Python installation, a venv, `pip`, or administrator permission.
@@ -13,7 +13,7 @@ this is a byte limit rather than a character count. The packaged entrypoint
 checks it before Native initialization and stops with a clear error if a shorter
 installation path is needed. Arbitrarily long paths are not supported.
 
-This is the Native PY_SPF 1.2 packaging. The installer does not change the
+This is the Native PY_SPF 1.3 packaging. The installer does not change the
 controller's RUN, reset, polling or opt-out logic.
 
 ## Install and open
@@ -23,8 +23,8 @@ controller's RUN, reset, polling or opt-out logic.
 2. Keep the default application folder, or choose a new empty folder. The default
    is `%LOCALAPPDATA%\Programs\Native_PY_SPF_1.0`.
 3. Finish installation. **Start Native PY_SPF** is unchecked by default.
-4. Open **Native PY_SPF 1.2 Demo (no equipment)** from the Start menu to inspect
-   the Native interface without contacting equipment. Open **Native PY_SPF 1.2**
+4. Open **Native PY_SPF 1.3 Demo (no equipment)** from the Start menu to inspect
+   the Native interface without contacting equipment. Open **Native PY_SPF 1.3**
    for the configured equipment connection.
 
 The desktop shortcut is optional and unchecked by default. The installer uses an
@@ -83,7 +83,7 @@ Private settings, application data and session logs remain by default. Other
 Python installations, venvs and software remain in place. The uninstaller has no
 command that removes the separate user-data directory.
 
-The 1.2 upgrade removes only the three fixed legacy application shortcut names and an empty legacy Start menu group. Installation and user-data paths retain their `1.0` directory names for update compatibility.
+The 1.3 upgrade removes only the three fixed application shortcut names from each previous 1.0 and 1.2 family and their empty Start menu groups, after verifying the previous AppId registration. Other group contents remain. Installation and user-data paths retain their `1.0` directory names for update compatibility. See the [newest-first patch notes](https://github.com/El-Carretero/PY_SPF/blob/main/CHANGELOG.ko.md) for the release history and the [communication monitor guide](https://github.com/El-Carretero/PY_SPF/blob/main/docs/communication-monitor.md) for the new log-based viewer.
 
 ## Build contract
 
@@ -108,18 +108,18 @@ required and must point to the whole onedir folder. Compilation checks the
 private Python library, Native UIR files, NI runtime/resource files and GUI fonts,
 including the three EXE-adjacent bin resources and both font placeholders;
 an EXE-only or incomplete payload is rejected. `AppVersion` defaults to
-`1.2.1`. `InstallerOutputDir` defaults to `dist\installer` relative to
+`1.3.0`. `InstallerOutputDir` defaults to `dist\installer` relative to
 `installer.iss`, which is `packaging/windows/dist/installer` in the repository.
 
 ```powershell
 & $InnoCompilerPath `
   "/DPayloadDir=$PayloadDir" `
   "/DInstallerOutputDir=$InstallerOutputDir" `
-  "/DAppVersion=1.2.1" `
+  "/DAppVersion=1.3.0" `
   "packaging\windows\installer.iss"
 ```
 
-Output: `PY_SPF_1.2_Setup_x86.exe`.
+Output: `PY_SPF_1.3_Setup_x86.exe`.
 
 Shortcut arguments are fixed:
 

@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 import struct
 import sys
+import tempfile
 import time
 import traceback
 
@@ -396,14 +397,15 @@ def _module_path(handle):
     return str(Path(text.value).resolve())
 
 
-def _snapshot(view, path, *, panel=6):
+def _snapshot(view, path, *, panel=6, panel_handle=None):
     class Rect(ctypes.Structure):
         _fields_ = [(n, ctypes.c_int) for n in ('top', 'left', 'height', 'width')]
     bitmap = ctypes.c_int()
     capture = view.dll.GetPanelDisplayBitmap
     capture.argtypes = [ctypes.c_int, ctypes.c_int, Rect, ctypes.POINTER(ctypes.c_int)]
     capture.restype = ctypes.c_int
-    view._check(capture(view.panels[panel], 1, Rect(0, 0, -1, -1), ctypes.byref(bitmap)),
+    handle = view.panels[panel] if panel_handle is None else panel_handle
+    view._check(capture(handle, 1, Rect(0, 0, -1, -1), ctypes.byref(bitmap)),
                 f'capture panel {panel}')
     path.parent.mkdir(parents=True, exist_ok=True)
     try:
@@ -553,7 +555,69 @@ def _exercise_timing_hv_layout(view, controller, ticker, report, *, snapshot=Non
         record['restored'] = True
 
 
+def _exercise_communication_monitor(view, controller, diagnostics, ticker, report, *, snapshot=None):
+    """Read the check's real saved files and exercise local UI actions only."""
+    monitor = view.show_communication_monitor()
+    deadline = time.monotonic() + 5.
+    while time.monotonic() < deadline:
+        view.process_events()
+        ticker.tick()
+        ticker.raise_if_failed()
+        monitor.refresh(force=True)
+        saved = monitor.last_snapshot
+        if saved.get('log_status') == 'live' and saved.get('events'):
+            break
+        time.sleep(.01)
+    saved = monitor.last_snapshot
+    assert saved.get('log_status') == 'live', saved
+    assert saved.get('events'), saved
+    assert monitor.visible and len(view.panels) == 10
+    menu_state = view.communication_menu_state()
+    assert menu_state['accessible'], menu_state
+    assert monitor.reader.path.resolve() == diagnostics.path.resolve()
+    readonly = ctypes.c_int()
+    view._check(view.dll.GetCtrlAttribute(monitor.panel, monitor.controls['events'],
+                                         840, ctypes.byref(readonly)), 'monitor read-only text')
+    assert readonly.value == 1
+    proof = report['communication_monitor'] = {
+        'visible': True, 'reader_live': True, 'file_only': True,
+        'device_status': saved.get('device_status'), 'original_panel_count': len(view.panels),
+        'event_rows_read': saved['counters']['reader']['events_read'],
+        'event_text_read_only': True, 'log_status': saved['log_status'],
+        'menu': menu_state,
+        'session_path': str(diagnostics.path),
+        'scope': 'CVI panel + file reader + direct local action adapter; simulator only',
+        'windows_mouse_input_validated': False,
+    }
+    if snapshot:
+        target = snapshot.with_name(snapshot.stem + '_communication.bmp')
+        _snapshot(view, target, panel_handle=monitor.panel)
+        proof['snapshot'] = str(target)
+    # Do not pump controller/timer events during this comparison. Periodic polls
+    # otherwise make a packet count difference unrelated to a local UI action.
+    packet_count = len(controller.transport.sent_packets)
+    monitor.local_action('pause')
+    assert monitor.paused
+    monitor.local_action('filter')
+    assert monitor.problems_only
+    monitor.local_action('filter')
+    monitor.local_action('pause')
+    assert not monitor.paused and not monitor.problems_only
+    monitor.local_action('clear')
+    assert monitor.rendered_text == ''
+    monitor.local_action('close')
+    assert not monitor.visible
+    monitor.show()
+    assert monitor.visible
+    proof['local_actions_send_no_packets'] = len(controller.transport.sent_packets) == packet_count
+    assert proof['local_actions_send_no_packets']
+    proof['local_actions'] = ['pause', 'resume', 'filter', 'clear', 'hide', 'show']
+    monitor.hide()
+    report['phases'].append('file_backed_communication_monitor_verified')
+
+
 def main(argv=None, *, default_output=None):
+    from . import __version__
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, default=default_output)
     parser.add_argument('--snapshot', type=Path)
@@ -562,13 +626,14 @@ def main(argv=None, *, default_output=None):
     scenario.add_argument('--offline', action='store_true')
     scenario.add_argument('--drop-optout-ack', action='store_true')
     options = parser.parse_args(argv)
-    report = {'schema_version': 1, 'mode': 'in-memory simulator only',
+    report = {'schema_version': 1, 'package_version': __version__, 'mode': 'in-memory simulator only',
               'physical_device_io': False, 'frozen': bool(getattr(sys, 'frozen', False)),
               'python_bits': struct.calcsize('P') * 8, 'executable': sys.executable,
               'ignore_python_environment': bool(sys.flags.ignore_environment),
               'ignore_user_site': bool(sys.flags.no_user_site),
               'acp': ctypes.WinDLL('kernel32').GetACP(), 'phases': []}
     view = controller = diagnostics = ticker = None
+    temporary_logs = None
     code = 1
     try:
         from .__main__ import arguments, make_controller
@@ -599,7 +664,13 @@ def main(argv=None, *, default_output=None):
         opts = arguments(['--demo', '--backend', 'native', '--tcp-port', '0', '--local-port', '0', '--host', '127.0.0.1'])
         controller = make_controller(view, opts)
         view.attach(controller)
-        diagnostics = SessionDiagnostics(controller)
+        if options.output:
+            log_path = options.output.resolve().with_name(options.output.stem + '-logs')
+        else:
+            temporary_logs = tempfile.TemporaryDirectory(prefix='py-spf-native-check-')
+            log_path = Path(temporary_logs.name)
+        diagnostics = SessionDiagnostics(controller, log_path)
+        view.configure_communication_monitor(diagnostics.path)
         ticker = NativeEventTicker(controller, diagnostics)
         controller.start()
         assert isinstance(controller.transport, SimulatedTransport), 'Unexpected transport in simulator test'
@@ -665,6 +736,8 @@ def main(argv=None, *, default_output=None):
         _exercise_timing_hv_layout(view, controller, ticker, report,
                                    snapshot=options.snapshot.resolve() if options.snapshot else None)
         report['phases'].append('visible_hv_layout_verified_and_restored')
+        _exercise_communication_monitor(view, controller, diagnostics, ticker, report,
+                                        snapshot=options.snapshot.resolve() if options.snapshot else None)
         # Read/show every normal View panel using NI APIs, with no button callbacks.
         report['view_panels'] = []
         for panel in (2, 3, 4, 5, 8, 9):
@@ -701,6 +774,10 @@ def main(argv=None, *, default_output=None):
                 controller.stop()
             if view is not None:
                 view.close()
+            if diagnostics is not None:
+                diagnostics.close()
+            if temporary_logs is not None:
+                temporary_logs.cleanup()
             report['phases'].append('native_closed')
         except BaseException:
             report['close_error'] = traceback.format_exc()

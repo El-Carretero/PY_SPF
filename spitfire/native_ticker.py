@@ -102,6 +102,15 @@ class NativeEventTicker:
                 self.stats['cancelled_run'] += int(bool(pending))
             self.controller.tick()
             self.diagnostics.tick()
+            # This optional file-backed display is observational. A view/render
+            # failure must never stop the controller or change its request queue.
+            refresh = getattr(getattr(self.controller, 'view', None), 'refresh_communication_monitor', None)
+            if refresh is not None:
+                try:
+                    refresh()
+                except Exception as error:
+                    self.stats['monitor_errors'] = self.stats.get('monitor_errors', 0) + 1
+                    self.stats['last_monitor_error'] = repr(error)[:500]
             self.stats['timer_ticks' if from_timer else 'outer_ticks'] += 1
         except BaseException as exc:
             self.stats['tick_errors'] += 1

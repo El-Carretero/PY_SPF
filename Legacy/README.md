@@ -1,6 +1,6 @@
 # Legacy — 이전 버전 인덱스
 
-현재 전체 버전은 **[main의 Native PY_SPF 1.0](../README.ko.md)**입니다.
+현재 전체 버전은 **[main의 Native PY_SPF 1.3](../README.ko.md)**입니다. Native 1.0.0부터 현재 버전까지의 변경은 [최신순 패치노트](../CHANGELOG.ko.md)에 기록합니다.
 현재 소스·설치 파일·원본 리소스·시험·검증 기록·영문 및 한글 문서는 main에 유지합니다.
 
 중복 ZIP·wheel·스냅샷과 과거 설명의 사본은 main 작업 트리에서 삭제했습니다.

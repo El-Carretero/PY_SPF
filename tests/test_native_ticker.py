@@ -150,6 +150,18 @@ def test_timer_exception_is_reported_to_outer_run_as_failure(ticker):
     assert isinstance(error.value.__cause__, ValueError)
 
 
+def test_monitor_refresh_runs_on_ui_tick_and_failures_cannot_stop_controller(ticker):
+    timer, controller, diagnostics, *_ = ticker
+    controller.view = SimpleNamespace(refresh_communication_monitor=Mock(side_effect=ValueError('bad display')))
+    timer.tick()
+    controller.view.refresh_communication_monitor.assert_called_once_with()
+    controller.tick.assert_called_once_with()
+    diagnostics.tick.assert_called_once_with()
+    assert controller.running and timer.error is None
+    assert timer.stats['monitor_errors'] == 1
+    assert timer.stats['tick_errors'] == 0
+
+
 def test_killtimer_is_idempotent_and_already_queued_callbacks_are_safe(ticker):
     timer, controller, diagnostics, user, *_ = ticker
     callback = timer.callback

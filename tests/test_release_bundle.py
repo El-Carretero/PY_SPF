@@ -15,13 +15,13 @@ spec.loader.exec_module(build)
 
 class ReleaseBundleTests(unittest.TestCase):
     def test_exact_public_name_and_all_native_resources_selected(self):
-        self.assertEqual(build.RELEASE_NAME, 'PY_SPF_1.2')
-        self.assertEqual(build.PACKAGE_VERSION, '1.2.1')
+        self.assertEqual(build.RELEASE_NAME, 'PY_SPF_1.3')
+        self.assertEqual(build.PACKAGE_VERSION, '1.3.0')
         for path in (ROOT/'spitfire/resources').rglob('*'):
             if path.is_file() and '__pycache__' not in path.parts:
                 self.assertTrue(build.public_source_path(path.relative_to(ROOT).as_posix()), path)
         self.assertTrue(build.public_source_path('run_readonly.bat'))
-        for path in ('docs/source-development.md', 'requirements-build.txt',
+        for path in ('docs/source-development.md', 'CHANGELOG.ko.md', 'docs/communication-monitor.md', 'requirements-build.txt',
                      'packaging/windows/build.ps1', 'packaging/windows/test_install.ps1',
                      'packaging/windows/PY_SPF.spec', 'packaging/windows/installer.iss',
                      'packaging/windows/native.manifest', 'packaging/windows/native_app.py'):
@@ -81,7 +81,7 @@ class ReleaseBundleTests(unittest.TestCase):
                 'output/native-installer/setup.exe': b'current installer bytes',
             }
             fixtures = {
-                **historical, 'pyproject.toml': b'version = "1.2.1"\n',
+                **historical, 'pyproject.toml': b'version = "1.3.0"\n',
                 'spitfire/resources/SPITFIRE.UIR': b'fixture native resource',
                 'docs/source-development.md': b'# Current source development\nUse the source tools.\n',
             }
@@ -89,19 +89,19 @@ class ReleaseBundleTests(unittest.TestCase):
                 path = root / name
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes(data)
-            wheel_name = 'spitfire_gui_reconstruction-1.2.1-py3-none-any.whl'
+            wheel_name = 'spitfire_gui_reconstruction-1.3.0-py3-none-any.whl'
             source_archive = mock.MagicMock()
             installed_wheel = mock.MagicMock()
             installed_wheel.read.side_effect = lambda name: {
                 'spitfire/resources/SPITFIRE.UIR': b'fixture native resource',
-                'spitfire_gui_reconstruction-1.2.1.dist-info/METADATA': b'Version: 1.2.1\n',
+                'spitfire_gui_reconstruction-1.3.0.dist-info/METADATA': b'Version: 1.3.0\n',
             }[name]
             installed_wheel.namelist.return_value = ['licenses/THIRD_PARTY_NOTICES.md']
 
             def fake_wheel(command, *, check):
                 self.assertTrue(check)
                 destination = Path(command[command.index('--wheel-dir') + 1])
-                self.assertEqual(destination, root / 'dist/source/PY_SPF_1.2')
+                self.assertEqual(destination, root / 'dist/source/PY_SPF_1.3')
                 (destination / wheel_name).write_bytes(b'mocked new wheel')
 
             def fake_archive(path, mode='r', **kwargs):
@@ -121,16 +121,16 @@ class ReleaseBundleTests(unittest.TestCase):
             self.assertEqual(subprocess_run.call_count, 1)
             for name, data in historical.items():
                 self.assertEqual((root / name).read_bytes(), data, name)
-            output = root / 'dist/source/PY_SPF_1.2'
+            output = root / 'dist/source/PY_SPF_1.3'
             self.assertTrue((output / 'SHA256.json').is_file())
             readme = (output / 'README.md').read_bytes()
             self.assertIn(fixtures['docs/source-development.md'], readme)
             self.assertNotIn(b'historical instructions', readme)
             source_archive.write.assert_called_once_with(
-                output / wheel_name, 'PY_SPF_1.2/dist/source/PY_SPF_1.2/' + wheel_name)
+                output / wheel_name, 'PY_SPF_1.3/dist/source/PY_SPF_1.3/' + wheel_name)
             written = dict((call.args[0], call.args[1]) for call in source_archive.writestr.call_args_list)
-            self.assertEqual(written['PY_SPF_1.2/dist/source/PY_SPF_1.2/README.md'], readme)
-            self.assertIn('PY_SPF_1.2/docs/source-development.md', written)
+            self.assertEqual(written['PY_SPF_1.3/dist/source/PY_SPF_1.3/README.md'], readme)
+            self.assertIn('PY_SPF_1.3/docs/source-development.md', written)
             self.assertFalse(any('/Legacy/' in name or '/output/' in name for name in written))
 
 

@@ -1,9 +1,9 @@
-# Current Native PY_SPF 1.2 downloads
+# Current Native PY_SPF 1.3 downloads
 
 The current Windows application is in [native-installer/](native-installer/README.md):
 
-- [Windows x86 installer](native-installer/PY_SPF_1.2_Setup_x86.exe)
-- [Portable ZIP](native-installer/PY_SPF_1.2_win32_portable.zip)
+- [Windows x86 installer](native-installer/PY_SPF_1.3_Setup_x86.exe)
+- [Portable ZIP](native-installer/PY_SPF_1.3_win32_portable.zip)
 - [SHA256 checksums](native-installer/SHA256SUMS)
 - [Install, run, uninstall and isolation report](native-installer/install-validation.json)
 

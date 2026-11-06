@@ -21,6 +21,8 @@
 
 ## 릴리스와 보관 자료
 
+- [최신순 패치노트: Native 1.0.0부터 현재 버전까지](../CHANGELOG.ko.md)
+- [통신 확인 패널·로그 저장 형식과 보관 범위](communication-monitor.md)
 - [Native 1.0 제어 변경과 과거 실장비 관측 범위](../RELEASE.ko.md)
 - [이전 배포·원본 복구 분석 안내](../Legacy/README.md)
 - [원본 분석 및 검증 근거](../analysis/)

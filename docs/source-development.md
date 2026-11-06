@@ -2,7 +2,7 @@
 
 다음은 저장소 소스를 직접 실행하는 개발 절차입니다. 현재 Windows 설치형 EXE 사용법은 [설치·실행 안내](../README.ko.md)와 [Windows 설치 문서](../packaging/windows/README.ko.md)에 있습니다.
 
-아래 명령은 저장소 **루트 디렉터리**에서 실행합니다. 프로젝트 패키지 버전은 **1.2.1**, 원본 NI GUI 리소스는 **1.6.0**이며 장치 펌웨어 버전과 별개입니다.
+아래 명령은 저장소 **루트 디렉터리**에서 실행합니다. 프로젝트 패키지 버전은 **1.3.0**, 원본 NI GUI 리소스는 **1.6.0**이며 장치 펌웨어 버전과 별개입니다.
 
 ## Windows Native 소스 실행
 
@@ -75,6 +75,8 @@ Windows에서는 UDP 수신 포트를 독점 사용합니다. 다른 앱이나 �
 그 자체를 NI Runtime HALT·네트워크 어댑터 고장의 확정 증거로 읽지 않습니다.
 진단 파일은 로컬 기록이며 배포 ZIP에 포함하지 않습니다.
 
+Native의 **View → Communication Monitor**는 위 진단 파일을 읽는 별도 확인 창입니다. 직접 장치 조회를 보내지 않습니다. 1.3에서는 진단 대기열·파일 보관량·한 번의 읽기와 쓰기 작업량을 제한하고, 누락·파일 오류를 표시합니다. EXE의 세션 경로와 로그 형식, 표시·보관의 한계는 [통신 확인·로그 안내](communication-monitor.md)에 있습니다.
+
 ## Qt와 GUI 없는 실행
 
 Qt는 64비트 Python에서 별도로 설치합니다.
@@ -95,7 +97,7 @@ python -m pytest -q
 
 원본 기계어 대조에는 `.[analysis]` 의존성과 [analysis/reference/](../analysis/reference/)의 검증 사본을 사용합니다.
 원본 EXE는 일반 앱 실행에 사용하지 않습니다. 공개 프로토콜 fixture는 합성 예제이며 실장비 로그가 아닙니다.
-새 버전의 변경·관측 범위와 남은 제한은 [RELEASE.ko.md](../RELEASE.ko.md)에 있습니다.
+새 버전의 변경·검증 범위는 [최신순 패치노트](../CHANGELOG.ko.md)에, 최초 Native 릴리스의 상세 관측 근거는 [RELEASE.ko.md](../RELEASE.ko.md)에 있습니다.
 
 이전 Native 1.0 소스의 실장비 읽기 전용 30분 관측과 메뉴를 약 45초 열어 두는 검증을 마쳤습니다.
 관측 중 재연결·재시도 한도 초과 조회 timeout·새 Fault 변화는 0회였습니다.
@@ -104,7 +106,7 @@ python -m pytest -q
 ## 배포 제작
 
 개발용 소스 ZIP과 wheel은 `python tools/build_release.py`로 생성합니다.
-출력은 Git에서 제외한 `dist/source/PY_SPF_1.2/`이며, Git 이력에 보존된 과거 배포물과
+출력은 Git에서 제외한 `dist/source/PY_SPF_1.3/`이며, Git 이력에 보존된 과거 배포물과
 `output/native-installer/`의 검증된 설치 파일은 덮어쓰지 않습니다.
 
 현재 Windows EXE·설치 파일의 제작과 검증 계약은 [packaging/windows/README.md](../packaging/windows/README.md)에 있습니다. 현재 설치형 앱은 전용 런타임을 포함하고, 위 소스 실행 절차는 개발 PC의 Python·venv를 사용합니다. 이전 소스 ZIP·wheel의 고정 커밋과 다운로드 링크는 [Legacy 안내](../Legacy/README.md)에 있습니다.

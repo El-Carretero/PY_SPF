@@ -184,6 +184,8 @@ class SpitfireWindow(QMainWindow):
  def __init__(self,spec=None):
   super().__init__();self.spec=json.loads((RESOURCE/'gui_spec.json').read_text()) if spec is None else spec
   self.controller=None;self._hv_requested_dimmed=0
+  self._communication_monitor=None;self._communication_session_path=None
+  self._menu_global_disabled=False;self._menu_disabled={}
   if spec is None and (RESOURCE/'server_gui_spec.json').exists():self.spec['panels'].extend(json.loads((RESOURCE/'server_gui_spec.json').read_text())['panels'])
   self.panels={};self.dialogs={};self.menu_actions={}
   for item in self.spec['panels']:
@@ -210,6 +212,22 @@ class SpitfireWindow(QMainWindow):
    menu=self.menuBar().addMenu(name)
    for mid,label,callback in items:
     a=menu.addAction(label);a.triggered.connect(lambda checked=False,n=callback,i=mid:self.callback.emit(n,0,1,0,i));self.menu_actions[mid]=a
+   if name=='View':
+    menu.addSeparator();self.communication_monitor_action=menu.addAction('Communication Monitor')
+    self.communication_monitor_action.triggered.connect(self.show_communication_monitor)
+ def configure_communication_monitor(self,session_path):
+  self.close_communication_monitor();self._communication_session_path=session_path
+ def show_communication_monitor(self):
+  if self._communication_monitor is None:
+   from .qt_monitor import QtCommunicationMonitor
+   self._communication_monitor=QtCommunicationMonitor(self._communication_session_path,self)
+  self._communication_monitor.show();self._communication_monitor.raise_()
+  return self._communication_monitor
+ def refresh_communication_monitor(self):
+  if self._communication_monitor is not None and self._communication_monitor.isVisible():self._communication_monitor.refresh()
+ def close_communication_monitor(self):
+  if self._communication_monitor is not None:
+   self._communication_monitor.dispose();self._communication_monitor.deleteLater();self._communication_monitor=None
  def read(self,panel,control):return self.panels[panel].controls[control]['value']
  def set_value(self,panel,control,value):
   if panel in self.panels and control in self.panels[panel].controls:self.panels[panel].controls[control]['value']=value;self.panels[panel].update()
@@ -235,10 +253,13 @@ class SpitfireWindow(QMainWindow):
   if name=='visible':self.show_panel(panel,bool(value))
   canvas.update()
  def set_menu_attribute(self,panel,item,attr,value):
-  if item==0:self.menuBar().setEnabled(not value if attr_name(attr)=='dimmed' else bool(value));return
+  if item==0:
+   self._menu_global_disabled=bool(value) if attr_name(attr)=='dimmed' else not bool(value)
+   for mid,action in self.menu_actions.items():action.setEnabled(not(self._menu_global_disabled or self._menu_disabled.get(mid,False)))
+   return
   if item in self.menu_actions:
    a=self.menu_actions[item]
-   if attr_name(attr)=='dimmed':a.setEnabled(not value)
+   if attr_name(attr)=='dimmed':self._menu_disabled[item]=bool(value);a.setEnabled(not(self._menu_global_disabled or bool(value)))
    elif attr_name(attr)=='visible':a.setVisible(bool(value))
  def show_panel(self,panel,visible=True):
   target=self if panel==6 else self.dialogs.get(panel)
@@ -252,4 +273,4 @@ class SpitfireWindow(QMainWindow):
   callback()
  def show_server(self,visible=True):self.show_panel('server',visible)
  def log(self,message):pass
- def closeEvent(self,e):self.closing.emit();super().closeEvent(e)
+ def closeEvent(self,e):self.close_communication_monitor();self.closing.emit();super().closeEvent(e)

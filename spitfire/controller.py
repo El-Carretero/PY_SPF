@@ -11,7 +11,8 @@ from .callbacks import SHOW_PANELS, HIDE_PANELS, dispatch, access_level_actions,
 from .decoders import ResponseDecoder, parse_internal_trigger_reply
 from .limits import validate_internal_trigger_hz
 from .protocol import QUERIES, PacketBuffer, UDPTransport
-from .scheduling import Scheduler, StartupAttempts
+from .scheduling import (BWD_RESET_TAGS, FAULT_QUERY_TAGS, FAULT_RESET_TAGS,
+                         Scheduler, StartupAttempts)
 from .settings import AccessKeySequence, read_max_level
 from .simulator import SimulatedTransport
 
@@ -65,7 +66,8 @@ class Controller:
         self._desired_device_dimming = dict(self._connection_presentation["controls"]) if self._connection_presentation else {}
         self._desired_alarm_attributes = dict(self._connection_presentation["alarm"]) if self._connection_presentation else {}
         self._connection_message = "Waiting for instrument"
-        self.scheduler = Scheduler(clock=clock, read_only=self.read_only)
+        self.scheduler = Scheduler(clock=clock, read_only=self.read_only,
+                                   on_event=lambda payload: self.log("QUEUE", payload))
         self.keys = AccessKeySequence()
         self.transport = None
         self.startup = None
@@ -94,9 +96,26 @@ class Controller:
         transport = self._closed_transport_diagnostics.copy()
         transport.update(getattr(self.transport, "diagnostics", {}))
         now = self.clock()
+        pending = self.scheduler.last_sent if self.scheduler.balance else None
+        waiting = [request for queue in (self.scheduler.inside, self.scheduler.outside)
+                   for request in queue]
+        oldest = min((request.queued_monotonic for request in waiting
+                      if request.queued_monotonic is not None), default=None)
         return {"controller": dict(self.diagnostics),
                 "transport": dict(transport),
                 "pending_tag": self.scheduler.last_sent.tag if self.scheduler.balance and self.scheduler.last_sent else None,
+                "pending_request_id": pending.request_id if pending else None,
+                "pending_origin": pending.origin if pending else None,
+                "pending_batch_id": pending.batch_id if pending else None,
+                "pending_wait_seconds": (None if pending is None or pending.queued_monotonic is None
+                                         else max(0, now-pending.queued_monotonic)),
+                "queue_inside": len(self.scheduler.inside),
+                "queue_outside": len(self.scheduler.outside),
+                "queue_total": len(waiting),
+                "oldest_queued_age_seconds": None if oldest is None else max(0, now-oldest),
+                "suppressed_reset_batches": self.scheduler.suppressed_reset_batches,
+                "suppressed_fault_batches": self.scheduler.suppressed_fault_batches,
+                "suppressed_bwd_reset_batches": self.scheduler.suppressed_bwd_reset_batches,
                 "read_only": self.read_only, "min_request_interval": self.min_request_interval,
                 "last_match_monotonic": self._last_matched_at,
                 "last_match_age_seconds": None if self._last_matched_at is None else max(0, now-self._last_matched_at),
@@ -249,7 +268,7 @@ class Controller:
         if self.transport:
             self._closed_transport_diagnostics.update(getattr(self.transport, "diagnostics", {}))
             self.transport.close()
-        self.scheduler.clear()
+        self.scheduler.clear(reason="reconnect")
         self._default_optout_ack_deadline = None
         self._default_optout_ack_timed_out = False
         self._startup_retry_deadline = None
@@ -317,7 +336,7 @@ class Controller:
             self.diagnostics['blocked_writes'] += 1
             self.log("read only", f"Blocked {request.tag}")
             if self.scheduler.last_sent is request:
-                self.scheduler.balance = 0
+                self.scheduler.finish_current("canceled")
                 self._inflight_deadline = None
             return False
         # Set deadlines for every attempt, including a failed sendto. Otherwise
@@ -337,6 +356,7 @@ class Controller:
             self.transport.send_packet(data)
             self.diagnostics['tx_packets'] += 1
         self.log("TX", request.message)
+        self.scheduler.record_sent(request, retry=retry, sent_at=now)
         if request.tag == 1085:
             self._status_requested = True
         if request is self.scheduler.default_optout_write:
@@ -375,7 +395,7 @@ class Controller:
             self.log("retry", f"query {request.tag}, attempt {self._inflight_retries + 1}")
             self._send(request, retry=True)
             return
-        self.scheduler.balance = 0
+        self.scheduler.finish_current("timeout")
         self._inflight_deadline = None
         key = 'query_timeouts' if request.tag < 2000 else 'write_ack_timeouts'
         self.diagnostics[key] += 1
@@ -396,13 +416,7 @@ class Controller:
             self.log('connection', reason)
 
     def _remove_queued_writes(self, predicate):
-        removed = 0
-        for queue in (self.scheduler.inside, self.scheduler.outside):
-            retained = [request for request in queue if not predicate(request)]
-            removed += len(queue)-len(retained)
-            queue.clear()
-            queue.extend(retained)
-        return removed
+        return self.scheduler.remove_queued(predicate)
 
     def cancel_pending_actuation(self, reason="Pending writes cancelled"):
         self.cancel_pending_run(reason)
@@ -486,14 +500,14 @@ class Controller:
                 return True
             shutdowns = [request for queue in (self.scheduler.inside, self.scheduler.outside)
                          for request in queue if self._shutdown_request(request)]
-            self.scheduler.clear()
+            self.scheduler.clear(reason="gui_pause")
             self._inflight_deadline = None
             self._default_optout_ack_deadline = None
             self._status_requested = False
             self.log('connection', 'GUI resumed: probing STATUS before any reconnect')
             for request in shutdowns:
-                self.scheduler.push(request.tag)
-            self.scheduler.push(1085)
+                self.scheduler.push(request.tag, origin="preserved_shutdown")
+            self.scheduler.push(1085, origin="pause_recovery")
             self._pause_probe_sent = True
         try:
             self._expire_request(now)
@@ -569,7 +583,7 @@ class Controller:
                 self._default_optout_ack_deadline = None
                 if (self.scheduler.balance
                         and self.scheduler.last_sent is self.scheduler.default_optout_write):
-                    self.scheduler.balance = 0
+                    self.scheduler.finish_current("timeout")
                     self._inflight_deadline = None
                     self._default_optout_ack_timed_out = True
                     self.diagnostics['write_ack_timeouts'] += 1
@@ -757,7 +771,7 @@ class Controller:
                 self.diagnostics['blocked_writes'] += 1
                 self.log("read only", f"Blocked automatic {tag}")
             else:
-                self.scheduler.push(tag, parameter)
+                self.scheduler.push(tag, parameter, origin="decoder")
         for kind, value in self.decoder.effects:
             if kind == "initial_updates":
                 self.scheduler.queue_subsystem_initial(value)
@@ -776,7 +790,7 @@ class Controller:
                 item, disabled = value
                 self._view_optional("set_menu_attribute", 6, item, 500, int(disabled))
             elif kind == "fault_update":
-                self.apply(fault_update_actions(), automatic=True)
+                self.apply(fault_update_actions(), automatic=True, origin="health")
             else:
                 self.state[kind] = value
         self.decoder.next_queries = []
@@ -826,7 +840,7 @@ class Controller:
                 self.state['internal_trigger_confirmed'] = False
                 self.state['internal_trigger_result'] = 'pending'
                 self._restore_internal_trigger_display()
-            self.apply(actions)
+            self.apply(actions, origin=name.lstrip('_'))
             if frequency_commit:
                 self._internal_trigger_readback_request = next(
                     request for request in reversed(self.scheduler.inside) if request.tag == 1053)
@@ -861,12 +875,27 @@ class Controller:
         # Worker 0x406953 compares time(NULL): strictly more than 3 whole
         # seconds, then sends ON, reflects TEC-enable and clears the hold flag.
         if self._button_started is not None and int(now) - int(self._button_started) > 3:
-            self.scheduler.push(2027, "")
+            self.scheduler.push(2027, "", origin="held_run")
             self.set_value(2, 8, 1)
             self.state["evnt_cmt"] = 0
             self._button_started = None
 
-    def apply(self, actions, *, automatic=False):
+    def apply(self, actions, *, automatic=False, origin=None):
+        actions = list(actions)
+        origin = origin or ("automatic" if automatic else "action")
+        # Recognize whole recovered operations, never individual repeated tags.
+        # In particular the intentional second fault-query pass is preserved.
+        signature = tuple((action.kind, action.target, action.value or "")
+                          for action in actions if action.kind in ("command", "query"))
+        batch_kind = None
+        for candidate, tags in (("fault_reset", FAULT_RESET_TAGS),
+                                ("fault_update", FAULT_QUERY_TAGS),
+                                ("bwd_reset", BWD_RESET_TAGS)):
+            expected = tuple(("command" if tag >= 2000 else "query", tag, "") for tag in tags)
+            if signature == expected:
+                batch_kind = candidate
+                break
+        batch_entries = []
         for action in actions:
             kind, target, value = action.kind, action.target, action.value
             if kind in ("command", "query"):
@@ -877,7 +906,10 @@ class Controller:
                 if self._connection_presentation and not self.state["gui_ready"] and not automatic:
                     self.log("connection", f"Control request {target} blocked while waiting for instrument status")
                     continue
-                self.scheduler.push(target, value or "")
+                if batch_kind:
+                    batch_entries.append((target, value or ""))
+                else:
+                    self.scheduler.push(target, value or "", origin=origin)
             elif kind == "set":
                 self.set_value(*target, value)
             elif kind == "attribute":
@@ -914,6 +946,14 @@ class Controller:
             elif kind == "quit":
                 self.running = False
                 self._view_optional("request_close")
+        if batch_entries:
+            if len(batch_entries) == len(signature):
+                self.scheduler.queue_batch(batch_kind, batch_entries, origin=origin)
+            else:
+                # Read-only/offline filtering must not invent a partial Reset
+                # batch or let a partial operation suppress a later full one.
+                for tag, parameter in batch_entries:
+                    self.scheduler.push(tag, parameter, origin=origin)
 
     def _view_optional(self, name, *args):
         method = getattr(self.view, name, None)
@@ -931,6 +971,7 @@ class Controller:
         self.state["gui_ready"] = False
         self.state["evnt_cmt"] = 0
         self._button_started = None
+        self.scheduler.clear(reason="stopped")
         if self.transport:
             self.transport.close()
         if self.tcp:
