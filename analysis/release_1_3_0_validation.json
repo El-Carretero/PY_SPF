@@ -3,7 +3,7 @@
   "package_version": "1.3.0",
   "display_family": "Native PY_SPF 1.3",
   "task": "Coalesce Reset/Fault batches and observe saved communication diagnostics",
-  "source_commit": null,
+  "source_commit": "9375397184d5940f48323c0ed336fd1d12625806",
   "local_tests": {
     "passed": 384,
     "subtests_passed": 7,
@@ -32,18 +32,64 @@
     "scope": "32-bit Windows Python, actual NI CVI runtime; in-memory simulator and direct local UI action adapter",
     "visual_review": "Native status/counters/buttons inspected; larger event text and compact wrapped rows",
     "version": "1.3.0",
-    "menu_accessible": true
+    "menu_accessible": true,
+    "offline": {
+      "passed": true,
+      "connected": false,
+      "device_status": "disconnected",
+      "log_status": "live",
+      "menu_accessible": true,
+      "local_actions_send_no_packets": true
+    }
   },
   "windows_ci": {
-    "status": "pending"
+    "passed": true,
+    "install_run_uninstall_isolation_checks": 67,
+    "tested_artifact_hashes_verified": 15,
+    "unicode_installation_path_tested": true,
+    "physical_device_io": false
   },
   "pc01_upgrade": {
-    "status": "pending"
+    "passed": true,
+    "setup_exit_code": 0,
+    "version_before": "1.2.1",
+    "version_after": "1.3.0",
+    "payload_files_verified": 57,
+    "userdata_files_unchanged": 5,
+    "settings_unchanged": true,
+    "user_path_unchanged": true,
+    "machine_path_unchanged": true,
+    "installation_path_unchanged": true,
+    "start_menu_shortcuts_verified": 2,
+    "legacy_1_2_shortcuts_removed": true,
+    "previous_installation_backed_up": true
   },
   "limitations": [
     "No physical equipment writes or long-duration equipment run were used to validate this patch.",
     "The existing FIFO priority and OFF/STOP queue policy are preserved; no maximum STATUS latency guarantee.",
     "Malformed instrument response parsing, TCP framing compatibility and RES12 parameters are outside this patch.",
     "Event retention is bounded per session; session directories and other diagnostics are not automatically removed."
-  ]
+  ],
+  "published_binary_commit": "04dd227ce4e29c3b66a10d052f2b3f42307cf37b",
+  "windows_workflow": "https://github.com/El-Carretero/PY_SPF/actions/runs/42188451983",
+  "setup_sha256": "3b39836d4feec77d83559b3d562f0ebcf28f6ea5481a113b76fa0b9164670fad",
+  "pc01_installed_native_self_test": {
+    "passed": true,
+    "exit_code": 0,
+    "package_version": "1.3.0",
+    "frozen": true,
+    "python_bits": 32,
+    "physical_device_io": false,
+    "reader_live": true,
+    "log_status": "live",
+    "device_status": "ready (simulator)",
+    "event_rows_read": 527,
+    "event_text_read_only": true,
+    "original_panel_count": 10,
+    "menu_accessible": true,
+    "local_actions_send_no_packets": true,
+    "forbidden_simulator_write_attempts": 0,
+    "timer_tick_errors": 0,
+    "scope": "Actual installed x86 EXE and NI runtime; in-memory simulator and direct local UI adapter; no physical device IO"
+  }
 }
